@@ -24,6 +24,7 @@ function Wallet(handler, offlineWallets) {
 
   this.row = document.createElement("tr");
   var that = this;
+  that.handler = handler;
   this.row.onclick = function() {
     if (activeWallet) {
       activeWallet.row.classList.remove('active');
@@ -33,7 +34,9 @@ function Wallet(handler, offlineWallets) {
   }
 
   var unitCell = document.createElement("td");
-  unitCell.innerHTML = '<img src="coins/' + handler.name + '.png" alt="' + handler.code + '"/>';
+
+  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + handler.name + '.png" alt="' + handler.code + '"/>';
+
 
   var onlineCell = document.createElement("td");
   onlineCell.classList.add('online');
@@ -44,8 +47,8 @@ function Wallet(handler, offlineWallets) {
   onlineCell.appendChild(this.onlineAmount).classList.add('amount');
 
   if ('getLocalAddr' in handler) {
-    onlineCell.appendChild(createButton('arrow_up', function(){}));
-    onlineCell.appendChild(createButton('arrow_down', function(){}));
+    onlineCell.appendChild(createButton('arrow_up', function(){app.popupSendPayment(that);}));
+    onlineCell.appendChild(createButton('arrow_down', function(){app.popupReceivePayment(that);}));
     onlineCell.appendChild(createButton('history', function(){}));
   } else {
     onlineCell.classList.add('disabled');
@@ -91,17 +94,20 @@ function Wallet(handler, offlineWallets) {
 
   this.refreshOffline = function() {
       this.totalOffline = 0;
+      for (var idx in this.offlineWallets) {
+        if ('addr' in  this.offlineWallets[idx]) {
+          handler.getBalance(this.offlineWallets[idx].addr, function(val){
+            //console.log(val);
+            that.totalOffline += val;
+            that.offlineAmount.innerHTML = formatMoney(that.totalOffline, handler.code);
+            that.updateOfflineValue();
+          });
+        } else {
+          that.totalOffline += this.offlineWallets[idx].amount;
+        }
+      }
       this.offlineAmount.innerHTML = formatMoney(this.totalOffline, handler.code);
       this.updateOfflineValue();
-
-      for (var idx in this.offlineWallets) {
-        handler.getBalance(this.offlineWallets[idx], function(val){
-          console.log(val);
-          that.totalOffline += val;
-          that.offlineAmount.innerHTML = formatMoney(that.totalOffline, handler.code);
-          that.updateOfflineValue();
-        });
-      }
   }
 
   this.refreshOffline();
@@ -159,30 +165,67 @@ var app = {
       xhr.send();
 
     },
+    showPopup: function(id, title) {
+
+      document.getElementById('popup').style.height = 'auto';
+      document.getElementById('popup').style.bottom = '0';
+
+      var children = document.getElementById('popupContent').childNodes;
+      for (var c=0; c < children.length; c++) {
+          if (children[c].nodeType != 3) {
+            children[c].style.display = 'none';
+          }
+      }
+      document.getElementById(id).style.display = 'block';
+      document.getElementById('popupTitle').innerHTML = title;
+    },
     closePopup: function() {
         document.getElementById('popup').style.height = '0';
         document.getElementById('popup').style.bottom = 'auto';
     },
     popupHelp: function() {
-        this.currentPopup = document.getElementById('helpPopup');
-        document.getElementById('popup').style.height = 'auto';
-        document.getElementById('popup').style.bottom = '0';
+        this.showPopup('helpPopup', 'Help');
     },
+    popupSettings: function() {
+        this.showPopup('settingsPopup', 'Settings');
+    },
+
+    popupSendPayment: function(wallet) {
+        this.showPopup('sendPaymentPopup', 'send ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
+    },
+
+    popupReceivePayment: function(wallet) {
+        this.showPopup('receivePaymentPopup', 'receive');
+    },
+
     onDeviceReady: function() {
 
-        var btc = new Wallet(BtcHandler, []);
+        var btc = new Wallet(BtcHandler, [{amount:0.43}]);
         document.getElementById('walletsList').appendChild(btc.row);
 
-        var eth = new Wallet(EthHandler, ['0x87Fdb041d00597067Ed5F52dbA73d140130Ae787']);
+        var bch = new Wallet(BchHandler, [{amount:0.68}]);
+        document.getElementById('walletsList').appendChild(bch.row);
+
+        var eth = new Wallet(EthHandler, [{addr:'0x87Fdb041d00597067Ed5F52dbA73d140130Ae787'}]);
         document.getElementById('walletsList').appendChild(eth.row);
 
-        var pay = new Wallet(PayHandler, []);
+        var pay = new Wallet(PayHandler, [{amount:230}]);
         document.getElementById('walletsList').appendChild(pay.row);
 
-        var ltc = new Wallet(LtcHandler, []);
+        var ltc = new Wallet(LtcHandler, [{amount:2.5}]);
         document.getElementById('walletsList').appendChild(ltc.row);
 
-        this.wallets = [btc, eth, pay, ltc];
+        var lsk = new Wallet(LskHandler, [{amount:66.57}]);
+        document.getElementById('walletsList').appendChild(lsk.row);
+
+        var nebl = new Wallet(NeblHandler, [{amount:37.99}]);
+        document.getElementById('walletsList').appendChild(nebl.row);
+
+        var part = new Wallet(PartHandler, [{amount:30.5}]);
+        document.getElementById('walletsList').appendChild(part.row);
+
+
+        this.wallets = [btc, bch, eth, pay, ltc, lsk, nebl, part];
         this.updateMarketCap();
     },
 

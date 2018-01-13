@@ -8,7 +8,25 @@ var BtcHandler = {
 var XrpHandler = {
     name: "ripple",
     code: "XRP",
-    longname: "ripple"
+    longname: "Ripple"
+}
+
+var LskHandler = {
+    name: "lisk",
+    code: "LSK",
+    longname: "Lisk"
+}
+
+var PartHandler = {
+    name: "particl",
+    code: "PART",
+    longname: "Particl"
+}
+
+var NeblHandler = {
+    name: "neblio",
+    code: "NEBL",
+    longname: "Neblio"
 }
 
 var BchHandler = {

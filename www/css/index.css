@@ -70,6 +70,31 @@ h1 {
   filter: grayscale(100%);
 }
 
+.coinIcon {
+  width: 64px;
+}
+
+@media all and (max-width: 799px) {
+  .button {
+    height: 32px;
+    width: 32px;
+  }
+  .button img {
+    width: 32px;
+    height: 32px;
+  }
+  .coinIcon {
+    width: 32px;
+  }
+  .value {
+      font-size: 20px;
+  }
+  .amount {
+      font-size: 14px;
+  }
+}
+
+
 #walletsList {
   background: cornsilk;
   text-align: right;
@@ -95,5 +120,5 @@ h1 {
   left: 0;
   right: 0;
   height:0;
-  overflow:hidden;
+  overflow: scroll;
 }
