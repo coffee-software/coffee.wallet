@@ -10,8 +10,10 @@ function formatMoney(value, unit){
 var activeWallet = null;
 
 function createButton(icon, callback) {
-  var button = document.createElement("img");
-  button.setAttribute('src', 'icons/if_' + icon + '.png');
+  var button = document.createElement("a");
+  var img = document.createElement("img");
+  img.setAttribute('src', 'icons/if_' + icon + '.png');
+  button.appendChild(img);
   button.onclick = callback;
   button.classList.add('button');
   return button;
@@ -37,18 +39,19 @@ function Wallet(handler, offlineWallets) {
   onlineCell.classList.add('online');
   this.onlineAmount = document.createElement("div");
   this.onlineValue = document.createElement("div");
+
   onlineCell.appendChild(this.onlineValue).classList.add('value');
   onlineCell.appendChild(this.onlineAmount).classList.add('amount');
 
   if ('getLocalAddr' in handler) {
-
-
     onlineCell.appendChild(createButton('arrow_up', function(){}));
     onlineCell.appendChild(createButton('arrow_down', function(){}));
-
+    onlineCell.appendChild(createButton('history', function(){}));
   } else {
     onlineCell.classList.add('disabled');
   }
+
+
 
   var offlineCell = document.createElement("td");
   offlineCell.classList.add('offline');
@@ -131,7 +134,7 @@ var app = {
     prices: {},
 
     updateMarketCap: function() {
-      document.getElementById('refresh').innerHTML = '...';
+      document.getElementById('refresh').classList.add('disabled');
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'https://api.coinmarketcap.com/v1/ticker/?convert=PLN&limit=200');
       xhr.onload = function() {
@@ -150,13 +153,21 @@ var app = {
               document.getElementById('grandTotal').innerHTML = formatMoney(totalOnline + totalOffline, 'PLN');
               document.getElementById('totalOnline').innerHTML = formatMoney(totalOnline, 'PLN');
               //plnTotal
-              document.getElementById('refresh').innerHTML = 'refresh';
+              document.getElementById('refresh').classList.remove('disabled');
           }
       };
       xhr.send();
 
     },
-
+    closePopup: function() {
+        document.getElementById('popup').style.height = '0';
+        document.getElementById('popup').style.bottom = 'auto';
+    },
+    popupHelp: function() {
+        this.currentPopup = document.getElementById('helpPopup');
+        document.getElementById('popup').style.height = 'auto';
+        document.getElementById('popup').style.bottom = '0';
+    },
     onDeviceReady: function() {
 
         var btc = new Wallet(BtcHandler, []);

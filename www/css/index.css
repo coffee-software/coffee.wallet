@@ -17,6 +17,10 @@ body {
     width:100%;
 }
 
+h1 {
+  line-height: 64px;
+}
+
 #wallets {
     width: 100%;
 }
@@ -43,20 +47,53 @@ body {
 .totals {
     font-size: 16px;
 }
+.totals div {
+    margin: 10px;
+}
 
 .disabled {
   color: gray;
 }
 
-.active {
-  background: pink;
+.button {
+  display: inline-block;
+  height: 64px;
+  width: 64px;
 }
 
-.button {
-  display: none;
+.button img {
   width: 64px;
   height: 64px;
 }
-.active .button {
+
+.button.disabled img {
+  filter: grayscale(100%);
+}
+
+#walletsList {
+  background: cornsilk;
+  text-align: right;
+}
+
+#walletsList .button {
+  display: none;
+  float: right:
+}
+
+#walletsList .active {
+  background: pink;
+}
+
+#walletsList  .active .button {
   display: inline-block;
+}
+
+#popup {
+  background-color: #efe;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height:0;
+  overflow:hidden;
 }
