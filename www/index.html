@@ -61,10 +61,31 @@
               asdf
             </div>
             <div id="sendPaymentPopup">
-              asdf
+
+              Send
+              <br/>
+              <input id="sendCoinAmount" onchange="app.sendCoinUpdateValue()" onkeyup="app.sendCoinUpdateValue()"/> <span id="sendCoinName"></span>
+              <br/>
+              <input id="sendCoinValue" onchange="app.sendCoinUpdateAmount()" onkeyup="app.sendCoinUpdateAmount()"/> PLN
+              <br/>
+              To address:
+              <br/>
+              <input id="sendCoinAddr"/>
+              <br/>
+              <a href="javascript:app.scanQrCode()" >SCAN QR CODE</a>
+              <br/>
+              <button onclick="app.sendPayment()">
+                <img src="icons/if_arrow_up.png"/>
+                Send
+              </button>
             </div>
             <div id="receivePaymentPopup">
-              asdf
+
+              Your <span id="receiveCoinName"></span> address is:
+              <br/>
+              <strong id="receiveCoinAddr"></strong>
+              <br/>
+              <div id="receiveCoinQrcode"></div>
             </div>
             <div id="settingsPopup">
               <h2>Fiat Currency</h2>
@@ -91,6 +112,8 @@
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="vendor/web3.js"></script>
+
+        <script type="text/javascript" src="vendor/qrcode.js"></script>
         <script type="text/javascript" src="js/coins.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>

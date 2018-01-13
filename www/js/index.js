@@ -183,19 +183,71 @@ var app = {
         document.getElementById('popup').style.height = '0';
         document.getElementById('popup').style.bottom = 'auto';
     },
+
     popupHelp: function() {
         this.showPopup('helpPopup', 'Help');
     },
+
     popupSettings: function() {
         this.showPopup('settingsPopup', 'Settings');
     },
 
-    popupSendPayment: function(wallet) {
-        this.showPopup('sendPaymentPopup', 'send ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
+    scanQrCode: function() {
+      cordova.plugins.barcodeScanner.scan(
+         function (result) {
+            document.getElementById('sendCoinAddr').value = result.text;
+            // result.format + result.cancelled;
+         },
+         function (error) {
+             alert("Scanning failed: " + error);
+         },
+         {
+             preferFrontCamera : true, // iOS and Android
+             showFlipCameraButton : true, // iOS and Android
+             showTorchButton : true, // iOS and Android
+             torchOn: true, // Android, launch with the torch switched on (if available)
+             prompt : "Place addr barcode inside the scan area", // Android
+         }
+      );
     },
 
+    popupSendPayment: function(wallet) {
+        this.showPopup('sendPaymentPopup', 'send ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
+        document.getElementById('sendCoinAddr').value = '';
+        document.getElementById('sendCoinValue').value = '0';
+        document.getElementById('sendCoinAmount').value = '0';
+        document.getElementById('sendCoinName').innerHTML = wallet.handler.code;
+        this.sendWallet = wallet;
+    },
+
+    sendCoinUpdateValue: function() {
+      if (this.sendWallet.handler.code in this.prices) {
+        var ratio = this.prices[this.sendWallet.handler.code];
+        document.getElementById('sendCoinValue').value = document.getElementById('sendCoinAmount').value * ratio;
+      }
+    },
+    sendCoinUpdateAmount: function() {
+      if (this.sendWallet.handler.code in this.prices) {
+        var ratio = this.prices[this.sendWallet.handler.code];
+        document.getElementById('sendCoinAmount').value = document.getElementById('sendCoinValue').value / ratio;  
+      }
+    },
+
+    sendPayment: function() {
+        alert('sending');
+    },
     popupReceivePayment: function(wallet) {
-        this.showPopup('receivePaymentPopup', 'receive');
+        this.showPopup('receivePaymentPopup', 'receive ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
+
+        document.getElementById('receiveCoinName').innerHTML = '';
+        document.getElementById('receiveCoinAddr').innerHTML = '';
+        document.getElementById('receiveCoinQrcode').innerHTML = '';
+
+        document.getElementById('receiveCoinName').innerHTML = wallet.handler.code;
+        document.getElementById('receiveCoinAddr').innerHTML = wallet.handler.getLocalAddr();
+
+        new QRCode(document.getElementById('receiveCoinQrcode'), wallet.handler.getLocalAddr());
+
     },
 
     onDeviceReady: function() {
