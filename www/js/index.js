@@ -50,6 +50,7 @@ function Wallet(handler, offlineWallets) {
     onlineCell.appendChild(createButton('arrow_up', function(){app.popupSendPayment(that);}));
     onlineCell.appendChild(createButton('arrow_down', function(){app.popupReceivePayment(that);}));
     onlineCell.appendChild(createButton('history', function(){}));
+    onlineCell.appendChild(createButton('arrow_cycle', function(){that.refreshOnline();}));
   } else {
     onlineCell.classList.add('disabled');
   }
@@ -64,6 +65,7 @@ function Wallet(handler, offlineWallets) {
   offlineCell.appendChild(this.offlineAmount).classList.add('amount');
 
   offlineCell.appendChild(createButton('pencil', function(){}));
+  offlineCell.appendChild(createButton('arrow_cycle', function(){that.refreshOffline();}));
 
   this.row.appendChild(unitCell);
   this.row.appendChild(onlineCell);
@@ -82,9 +84,7 @@ function Wallet(handler, offlineWallets) {
 
   this.updateOnlineValue = function() {
     var value = 0;
-    console.log(handler.code);
     if (handler.code in app.prices ) {
-      console.log(this.totalOnline);
       value = this.totalOnline * app.prices[handler.code];
     }
     this.onlineValue.innerHTML = formatMoney(value, 'PLN');
@@ -199,7 +199,7 @@ var app = {
             // result.format + result.cancelled;
          },
          function (error) {
-             alert("Scanning failed: " + error);
+             app.alertMessage("Scanning failed: " + error, 'error');
          },
          {
              preferFrontCamera : true, // iOS and Android
@@ -229,12 +229,24 @@ var app = {
     sendCoinUpdateAmount: function() {
       if (this.sendWallet.handler.code in this.prices) {
         var ratio = this.prices[this.sendWallet.handler.code];
-        document.getElementById('sendCoinAmount').value = document.getElementById('sendCoinValue').value / ratio;  
+        document.getElementById('sendCoinAmount').value = document.getElementById('sendCoinValue').value / ratio;
       }
     },
-
+    alertMessage: function(html, cssClass) {
+      var msgDiv = document.createElement('div');
+      if (cssClass) {
+        msgDiv.classList.add(cssClass);
+      }
+      msgDiv.innerHTML = html;
+      document.getElementById('messages').appendChild(msgDiv);
+      setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 2000);
+    },
     sendPayment: function() {
-        alert('sending');
+      this.sendWallet.handler.sendAmountTo(
+        document.getElementById('sendCoinAddr').value,
+        parseFloat(document.getElementById('sendCoinAmount').value)
+      );
+      this.closePopup();
     },
     popupReceivePayment: function(wallet) {
         this.showPopup('receivePaymentPopup', 'receive ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');

@@ -58,6 +58,7 @@ h1 {
   display: inline-block;
   height: 64px;
   width: 64px;
+  margin-left: 10px;
 }
 
 .button img {
@@ -77,6 +78,7 @@ h1 {
   .button {
     height: 32px;
     width: 32px;
+    margin-left: 5px;
   }
   .button img {
     width: 32px;
@@ -140,4 +142,27 @@ h1 {
 #sendPaymentPopup button img {
   width: 64px;
   height: 64px;
+}
+
+#messages {
+  background-color: #ff9;
+  color: #005;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#messages div {
+  padding: 20px;
+}
+
+#messages div.error {
+  background-color: #f99;
+  color: #055;
+}
+
+#messages div.success {
+  background-color: #9f9;
+  color: #505;
 }

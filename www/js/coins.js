@@ -3,6 +3,12 @@ var BtcHandler = {
     name: "bitcoin",
     code: "BTC",
     longname: "Bitcoin"
+  /*  getBalance: function(addr, callback){
+      callback(1.0);
+    },
+    getLocalAddr: function(){
+      return btcjs.addrFromPK(getBtcPrivateKey());
+    }*/
 }
 
 var XrpHandler = {
@@ -42,7 +48,8 @@ var LtcHandler = {
 }
 
 
-web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/O7OJXaza9lovtjycsQWS"));
+//web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/O7OJXaza9lovtjycsQWS"));
+web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/O7OJXaza9lovtjycsQWS"));
 
 var EthHandler = {
     name: "ethereum",
@@ -56,9 +63,32 @@ var EthHandler = {
 
     getLocalAddr: function(){
       return web3.eth.accounts.privateKeyToAccount(getEtherPrivateKey()).address;
-      //console.log(web3.eth.accounts.create());
-    }
+    },
 
+    sendAmountTo: function(addr, amount){
+
+      app.alertMessage('signing transaction...');
+      var account = web3.eth.accounts.privateKeyToAccount(getEtherPrivateKey());
+      account.signTransaction({
+        to: addr,
+        value: web3.utils.toWei(parseFloat(amount).toString()),
+        gas: 2000000
+      }).then(function(signedData){
+        app.alertMessage('sending to network...');
+        web3.eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
+          if (err !== null) {
+            app.alertMessage(error, 'error');
+          } else {
+            app.alertMessage('SENT TXN: ' + response, 'success');
+          }
+        });
+      });
+    }
+}
+
+function getBtcPrivateKey() {
+
+  return btcjs.newPK();
 }
 
 function getEtherPrivateKey() {
@@ -66,6 +96,7 @@ function getEtherPrivateKey() {
   var value = storage.getItem('ethPK');
   if (!value) {
     value = prompt("Please enter PK", "");
+    //console.log(web3.eth.accounts.create());
     storage.setItem('ethPK', value);
   }
   return value;
