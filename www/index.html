@@ -61,23 +61,27 @@
               asdf
             </div>
             <div id="sendPaymentPopup">
-
-              Send
-              <br/>
-              <input id="sendCoinAmount" onchange="app.sendCoinUpdateValue()" onkeyup="app.sendCoinUpdateValue()"/> <span id="sendCoinName"></span>
-              <br/>
-              <input id="sendCoinValue" onchange="app.sendCoinUpdateAmount()" onkeyup="app.sendCoinUpdateAmount()"/> PLN
-              <br/>
-              To address:
-              <br/>
-              <input id="sendCoinAddr"/>
-              <br/>
-              <a href="javascript:app.scanQrCode()" >SCAN QR CODE</a>
-              <br/>
-              <button onclick="app.sendPayment()">
-                <img src="icons/if_arrow_up.png"/>
+              <div class="spacing">
                 Send
-              </button>
+                <br/>
+                <input id="sendCoinAmount" onchange="app.sendCoinUpdateValue()" onkeyup="app.sendCoinUpdateValue()"/> <span id="sendCoinName"></span>
+                <br/>
+                <input id="sendCoinValue" onchange="app.sendCoinUpdateAmount()" onkeyup="app.sendCoinUpdateAmount()"/> PLN
+              </div>
+
+              <div class="spacing">
+                To address:
+                <br/>
+                <input id="sendCoinAddr"/>
+                <br/>
+                <a href="javascript:app.scanQrCode()" >SCAN QR CODE</a>
+              </div>
+              <div class="spacing">
+                <button onclick="app.sendPayment()">
+                  <img src="icons/if_arrow_up.png"/>
+                  Send
+                </button>
+              </div>
             </div>
             <div id="receivePaymentPopup">
 
@@ -110,7 +114,7 @@
           </div>
         </div>
         <div id="messages">
-          
+
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>

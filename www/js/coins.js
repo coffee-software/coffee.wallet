@@ -48,8 +48,8 @@ var LtcHandler = {
 }
 
 
-//web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/O7OJXaza9lovtjycsQWS"));
-web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/O7OJXaza9lovtjycsQWS"));
+web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/O7OJXaza9lovtjycsQWS"));
+//web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/O7OJXaza9lovtjycsQWS"));
 
 var EthHandler = {
     name: "ethereum",
@@ -72,12 +72,12 @@ var EthHandler = {
       account.signTransaction({
         to: addr,
         value: web3.utils.toWei(parseFloat(amount).toString()),
-        gas: 2000000
+        gas: 100000
       }).then(function(signedData){
         app.alertMessage('sending to network...');
         web3.eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
           if (err !== null) {
-            app.alertMessage(error, 'error');
+            app.alertMessage(err, 'error');
           } else {
             app.alertMessage('SENT TXN: ' + response, 'success');
           }
@@ -122,5 +122,33 @@ var PayHandler = {
     getLocalAddr: function(){
       return web3.eth.accounts.privateKeyToAccount(getEtherPrivateKey()).address;
       //console.log(web3.eth.accounts.create());
+    },
+    sendAmountTo: function(addr, amount){
+      var contract = new web3.eth.Contract(this.ethAbi, this.ethContractAddr);
+
+      var account = web3.eth.accounts.privateKeyToAccount(getEtherPrivateKey());
+      console.log(web3.utils.toWei(parseFloat(amount).toString()));
+
+      var transaction = {
+          value: '0x0',
+          from: account.address,
+          to: contract._address,
+          data: contract.methods.transfer(addr, web3.utils.toWei(parseFloat(amount).toString())).encodeABI(),
+          gas: 100000
+      };
+      //console.log(transaction);
+      account.signTransaction(transaction).then(function(signedData){
+        //console.log(signedData);
+        app.alertMessage('sending to network...');
+        web3.eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
+          console.log(err);
+          console.log(response);
+          if (err !== null) {
+            app.alertMessage(err, 'error');
+          } else {
+            app.alertMessage('SENT TXN: ' + response, 'success');
+          }
+        });
+      });
     }
 }

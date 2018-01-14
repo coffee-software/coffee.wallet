@@ -1,8 +1,9 @@
 
 
-function formatMoney(value, unit){
-  return value.toFixed(2).replace(/./g, function(c, i, a) {
-    return i && c !== "." && ((a.length - i) % 3 === 0) ? '&nbsp;' + c : c;
+function formatMoney(value, unit, decimals){
+  var d = decimals ? decimals : 2;
+  return value.toFixed(d).replace(/./g, function(c, i, a) {
+    return i && c !== "." && ((a.length - i) % 3 === 0) && (a.length - i > d) ? '&nbsp;' + c : c;
   }) + '&nbsp;' + unit;
 };
 
@@ -99,14 +100,14 @@ function Wallet(handler, offlineWallets) {
           handler.getBalance(this.offlineWallets[idx].addr, function(val){
             //console.log(val);
             that.totalOffline += val;
-            that.offlineAmount.innerHTML = formatMoney(that.totalOffline, handler.code);
+            that.offlineAmount.innerHTML = formatMoney(that.totalOffline, handler.code, 5);
             that.updateOfflineValue();
           });
         } else {
           that.totalOffline += this.offlineWallets[idx].amount;
         }
       }
-      this.offlineAmount.innerHTML = formatMoney(this.totalOffline, handler.code);
+      this.offlineAmount.innerHTML = formatMoney(this.totalOffline, handler.code, 5);
       this.updateOfflineValue();
   }
 
@@ -114,13 +115,13 @@ function Wallet(handler, offlineWallets) {
 
   this.refreshOnline = function() {
     this.totalOnline = 0;
-    this.onlineAmount.innerHTML = formatMoney(this.totalOnline, handler.code);
+    this.onlineAmount.innerHTML = formatMoney(this.totalOnline, handler.code, 5);
     this.updateOnlineValue();
 
     if ('getLocalAddr' in handler) {
       handler.getBalance(handler.getLocalAddr(), function(val){
         that.totalOnline = val;
-        that.onlineAmount.innerHTML = formatMoney(that.totalOnline, handler.code);
+        that.onlineAmount.innerHTML = formatMoney(that.totalOnline, handler.code, 5);
         that.updateOnlineValue();
       });
     }

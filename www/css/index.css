@@ -51,7 +51,7 @@ h1 {
 }
 
 .disabled {
-  color: gray;
+  color: #ddd;
 }
 
 .button {
@@ -134,9 +134,22 @@ h1 {
     display: inline-block;
 }
 
+.spacing {
+    margin: 20px 0;
+}
+
 #sendPaymentPopup {
   font-size: 18px;
   text-align: center;
+}
+
+#sendPaymentPopup input {
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+#sendPaymentPopup button {
+  font-size: 30px;
 }
 
 #sendPaymentPopup button img {
