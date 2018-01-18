@@ -13,11 +13,13 @@ var activeWallet = null;
 function createButton(icon, callback) {
   var button = document.createElement("a");
   var img = document.createElement("img");
-  img.setAttribute('src', 'icons/if_' + icon + '.png');
+  img.setAttribute('src', 'icons/' + icon + '.png');
   button.appendChild(img);
   button.onclick = callback;
   button.classList.add('button');
-  return button;
+  var div = document.createElement("div");
+  div.appendChild(button);
+  return div;
 }
 
 function Wallet(handler, offlineWallets) {
@@ -48,10 +50,12 @@ function Wallet(handler, offlineWallets) {
   onlineCell.appendChild(this.onlineAmount).classList.add('amount');
 
   if ('getLocalAddr' in handler) {
-    onlineCell.appendChild(createButton('arrow_up', function(){app.popupSendPayment(that);}));
-    onlineCell.appendChild(createButton('arrow_down', function(){app.popupReceivePayment(that);}));
-    onlineCell.appendChild(createButton('history', function(){}));
-    onlineCell.appendChild(createButton('arrow_cycle', function(){that.refreshOnline();}));
+
+    var buttonsDiv = document.createElement("div");
+    buttonsDiv.classList.add('buttons');
+    buttonsDiv.appendChild(createButton('up', function(){app.popupSendPayment(that);}));
+    buttonsDiv.appendChild(createButton('down', function(){app.popupReceivePayment(that);}));
+    onlineCell.appendChild(buttonsDiv);
   } else {
     onlineCell.classList.add('disabled');
   }
@@ -65,8 +69,11 @@ function Wallet(handler, offlineWallets) {
   offlineCell.appendChild(this.offlineValue).classList.add('value');
   offlineCell.appendChild(this.offlineAmount).classList.add('amount');
 
-  offlineCell.appendChild(createButton('pencil', function(){}));
-  offlineCell.appendChild(createButton('arrow_cycle', function(){that.refreshOffline();}));
+  var buttonsDiv2 = document.createElement("div");
+  buttonsDiv2.classList.add('buttons');
+  buttonsDiv2.appendChild(createButton('list', function(){}));
+  buttonsDiv2.appendChild(createButton('refresh', function(){that.refreshOnline(); that.refreshOffline();}));
+  offlineCell.appendChild(buttonsDiv2);
 
   this.row.appendChild(unitCell);
   this.row.appendChild(onlineCell);
@@ -135,7 +142,16 @@ function Wallet(handler, offlineWallets) {
 var app = {
     // Application Constructor
     initialize: function() {
+        var that = this;
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        document.getElementById('overlay').onclick = function(event){
+          if (that.menuOpened) {
+            that.closeMenu();
+          }
+          if (that.popupOpened) {
+            that.closePopup();
+          }
+        };
     },
 
     prices: {},
@@ -166,10 +182,40 @@ var app = {
       xhr.send();
 
     },
-    showPopup: function(id, title) {
 
-      document.getElementById('popup').style.height = 'auto';
-      document.getElementById('popup').style.bottom = '0';
+    menuOpened : false,
+    popupOpened : false,
+
+    toggleMenu: function() {
+      if (this.menuOpened) {
+        this.closeMenu();
+      } else {
+        this.openMenu();
+      }
+    },
+
+    openMenu: function() {
+      this.menuOpened = true;
+      //this is calculated by js because of https://css-tricks.com/using-css-transitions-auto-dimensions/
+      document.getElementById("menu").style.height = document.getElementById("menu").children[0].clientHeight + 'px';
+      document.getElementById("overlay").classList.add('show');
+      document.getElementById("container").classList.add('blur');
+    },
+
+    closeMenu: function() {
+      this.menuOpened = false;
+      document.getElementById("menu").style.height = '0';
+      document.getElementById("overlay").classList.remove('show');
+      document.getElementById("container").classList.remove('blur');
+
+    },
+
+    openPopup: function(id, title) {
+      this.closeMenu();
+      document.getElementById("container").classList.add('blur');
+      document.getElementById("nav").classList.add('blur');
+
+      document.getElementById("popup").classList.add('show');
 
       var children = document.getElementById('popupContent').childNodes;
       for (var c=0; c < children.length; c++) {
@@ -180,17 +226,19 @@ var app = {
       document.getElementById(id).style.display = 'block';
       document.getElementById('popupTitle').innerHTML = title;
     },
+
     closePopup: function() {
-        document.getElementById('popup').style.height = '0';
-        document.getElementById('popup').style.bottom = 'auto';
+      document.getElementById("container").classList.remove('blur');
+      document.getElementById("nav").classList.remove('blur');
+      document.getElementById("popup").classList.remove('show');
     },
 
     popupHelp: function() {
-        this.showPopup('helpPopup', 'Help');
+        this.openPopup('helpPopup', 'Help');
     },
 
     popupSettings: function() {
-        this.showPopup('settingsPopup', 'Settings');
+        this.openPopup('settingsPopup', 'Settings');
     },
 
     scanQrCode: function() {
@@ -213,7 +261,7 @@ var app = {
     },
 
     popupSendPayment: function(wallet) {
-        this.showPopup('sendPaymentPopup', 'send ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
+        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
         document.getElementById('sendCoinAddr').value = '';
         document.getElementById('sendCoinValue').value = '0';
         document.getElementById('sendCoinAmount').value = '0';
@@ -250,7 +298,7 @@ var app = {
       this.closePopup();
     },
     popupReceivePayment: function(wallet) {
-        this.showPopup('receivePaymentPopup', 'receive ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
+        this.openPopup('receivePaymentPopup', 'receive ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
 
         document.getElementById('receiveCoinName').innerHTML = '';
         document.getElementById('receiveCoinAddr').innerHTML = '';

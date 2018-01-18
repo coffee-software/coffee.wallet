@@ -7,51 +7,101 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-	<title>wallet.one</title>
+	      <title>wallet.one</title>
     </head>
     <body>
-        <table id="wallets">
-          <thead>
-            <tr>
-            	<th class="coinIcon"></th>
-            	<th style="width:50%">online</th>
-            	<th>offline</th>
-            </tr>
-          </thead>
-          <tbody id="walletsList">
-          </tbody>
-          <thead>
-        	<tr>
-        	    <td></td>
-        			<th colspan="2" class="totals">
-                  <div>
-                    <span id="grandTotal"></span>
-                  </div>
-                  <div>
-                    (<span id="totalOnline"></span> online)
-                  </div>
+        <div id="nav">
+          <a id="toggleMenu" href="javascript:app.toggleMenu()" class="button">
+            <img src="icons/menu.png" alt="menu"/>
+          </a>
+          <div id="menu">
+            <ul>
+              <li>
+                <a id="settings" href="javascript:app.popupSettings()">
+                  <img src="icons/plus.png"/>
+                  manage coins
+                </a>
+              </li>
+              <li>
+                <a id="settings" href="javascript:app.popupSettings()">
+                  <img src="icons/settings.png"/>
+                  fiat settings
+                </a>
+              </li>
+              <li>
+                <a id="feedback" href="javascript:app.popupFeedback()">
+                  <img src="icons/history.png"/>
+                  history
+                </a>
+              </li>
+              <li>
+                <a id="help" href="javascript:app.popupHelp()">
+                  <img src="icons/help.png"/>
+                  help
+                </a>
+              </li>
+              <li>
+                <a id="feedback" href="javascript:app.popupFeedback()">
+                  <img src="icons/exchange.png"/>
+                  exchange
+                </a>
+              </li>
+              <li>
+                <a id="feedback" href="javascript:app.popupFeedback()">
+                  <img src="icons/heart.png"/>
+                  feedback
+                </a>
+              </li>
+            </ul>
+          </div>
 
-                    <a id="settings" href="javascript:app.popupSettings()" class="button">
-                      <img src="icons/if_settings.png"/>
-                    </a>
-                    <a id="refresh" href="javascript:app.updateMarketCap()" class="button">
-                      <img src="icons/if_arrow_cycle.png"/>
-                    </a>
-                    <a id="help" href="javascript:app.popupHelp()" class="button">
-                      <img src="icons/if_help.png"/>
-                    </a>
+          <a id="refresh" href="javascript:app.updateMarketCap()" class="button">
+            <img src="icons/refresh.png" alt="refresh"/>
+          </a>
 
-              </th>
-        		</tr>
-          </thead>
-        </table>
+          <div class="totals">
+            <h1>
+              <span id="grandTotal"></span>
+            </h1>
+            <h2>
+              (<span id="totalOnline"></span> online)
+            </h2>
+          </div>
+
+        </div>
+        <div id="container">
+          <table id="wallets">
+            <tbody id="walletsList">
+            </tbody>
+          </table>
+          <div class="buttons">
+            <div>
+              <a id="addCoin" href="javascript:app.addCoin()" class="button">
+                <img src="icons/plus.png" alt="manage coins"/>
+              </a>
+            </div>
+            <div>
+              <a id="addCoin" href="javascript:app.addCoin()" class="button">
+                <img src="icons/exchange.png" alt="exchange"/>
+              </a>
+            </div>
+            <div>
+              <a id="addCoin" href="javascript:app.addCoin()" class="button">
+                <img src="icons/history.png" alt="history"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="overlay">
+        </div>
 
         <div id="popup">
           <h1>
-            <a href="javascript:app.closePopup()" class="button close"><img src="icons/if_arrow_left.png"/></a>
+            <a href="javascript:app.closePopup()" class="button back"><img src="icons/left.png"/></a>
             <span id="popupTitle">
 
             </span>
+            <a href="javascript:app.closePopup()" class="button close"><img src="icons/close.png"/></a>
           </h1>
           <div id="popupContent">
             <div id="accountHistoryPopup">
@@ -114,7 +164,6 @@
           </div>
         </div>
         <div id="messages">
-
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>

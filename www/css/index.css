@@ -1,19 +1,143 @@
-* {
+ * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
+/* palete:
+#F5F6F3
+#7593BC
+#04116A
+#B04960
+#1B121C */
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#FFE4E4;
-    background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
-    height:100%;
-    margin:0px;
-    padding:0px;
-    width:100%;
+    background-color: #7593BC;
+
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+
+    font-size: 12px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    padding-top: 48px;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+#nav {
+  position: fixed;
+  z-index: 100;
+  background: #04116A;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  /* box-shadow: 0 2px 3px #000; */
+  color: white;
+  transition: 0.5s all ease;
+  filter: blur(0);
+}
+
+#nav.blur {
+  filter: blur(5px);
+}
+
+#nav .totals {
+  margin: 0 52px;
+  text-align: center;
+}
+
+#nav .totals h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+#nav .totals h2 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+#nav .button {
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+}
+
+#toggleMenu {
+  float: left;
+}
+
+#refresh {
+  float: right;
+}
+
+#menu {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  height: 0;
+  transition: height 0.5s ease;
+  height: 0;
+  overflow: hidden;
+  background: #7593BC;
+  /*box-shadow: 2px 2px 3px #000;*/
+}
+#menu ul, #menu li {
+  padding: 0;
+  margin: 0;
+}
+
+#menu a img {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+#menu a {
+  display: block;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+  padding: 7px 15px;
+}
+
+#menu a:hover {
+  background: white;
+  color: black;
+}
+
+#container {
+  transition: 0.5s all ease;
+  filter: blur(0);
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  transform: translateZ(0) scale(1.0, 1.0);
+
+}
+
+#container.blur {
+  filter: blur(5px);
+}
+
+#overlay {
+  background: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s ease;
+}
+#overlay.show {
+  visibility: visible;
+  opacity: 0.2;
 }
 
 h1 {
@@ -21,10 +145,35 @@ h1 {
 }
 
 #wallets {
-    width: 100%;
+  width: 100%;
+  border-spacing: 0;
 }
-#wallets td, #wallets th {
-    padding: 10px;
+
+#wallets tr td:first-child {
+  width: 64px;
+}
+
+#wallets td {
+  padding: 8px;
+  border-bottom: 1px solid #F0F1E8;
+}
+
+#wallets th {
+  padding: 10px;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 10px;
+}
+
+.buttons div {
+  flex: 1;
+  text-align: center;
+}
+
+#walletsList .buttons div {
+  text-align: right;
 }
 
 .value {
@@ -39,17 +188,6 @@ h1 {
     font-size: 18px;
 }
 
-#grandTotal {
-    font-size: 24px;
-}
-
-.totals {
-    font-size: 16px;
-}
-.totals div {
-    margin: 10px;
-}
-
 .disabled {
   color: #ddd;
 }
@@ -58,12 +196,11 @@ h1 {
   display: inline-block;
   height: 64px;
   width: 64px;
-  margin-left: 10px;
 }
 
 .button img {
-  width: 64px;
-  height: 64px;
+  width: 100%;
+  height: 100%;
 }
 
 .button.disabled img {
@@ -78,13 +215,11 @@ h1 {
   .button {
     height: 32px;
     width: 32px;
-    margin-left: 5px;
-  }
-  .button img {
-    width: 32px;
-    height: 32px;
   }
   .coinIcon {
+    width: 32px;
+  }
+  #wallets tr td:first-child {
     width: 32px;
   }
   .value {
@@ -97,8 +232,8 @@ h1 {
 
 
 #walletsList {
-  background: cornsilk;
   text-align: right;
+  background-color: #F5F6F3;
 }
 
 #walletsList .button {
@@ -107,7 +242,8 @@ h1 {
 }
 
 #walletsList .active {
-  background: pink;
+  background: #B04960;
+  color: white;
 }
 
 #walletsList  .active .button {
@@ -115,13 +251,38 @@ h1 {
 }
 
 #popup {
-  background-color: #efe;
+  background-color: rgba(255, 255, 255, 0.9);
   position: fixed;
   top: 0;
+  width: 100%;
+  margin-left: -100%;
+  bottom: 0;
   left: 0;
-  right: 0;
-  height:0;
+  z-index: 100;
   overflow: scroll;
+  transition: all 0.5s ease;
+}
+
+#popup.show {
+  margin-left: 0;
+}
+
+#popup h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 54px;
+  background: #7593BC;
+  color: white;
+}
+#popup h1 img {
+  vertical-align: middle;
+}
+#popup h1 .close {
+  float: right;
+}
+
+#popupContent {
+  padding: 10px;
 }
 
 #receivePaymentPopup {
