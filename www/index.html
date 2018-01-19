@@ -17,31 +17,37 @@
           <div id="menu">
             <ul>
               <li>
-                <a id="settings" href="javascript:app.popupSettings()">
+                <a href="javascript:app.popupPriceSettings()">
                   <img src="icons/plus.png"/>
                   manage coins
                 </a>
               </li>
               <li>
-                <a id="settings" href="javascript:app.popupSettings()">
-                  <img src="icons/settings.png"/>
+                <a href="javascript:app.popupPriceSettings()">
+                  <img src="icons/money.png"/>
                   fiat settings
                 </a>
               </li>
               <li>
-                <a id="feedback" href="javascript:app.popupFeedback()">
+                <a href="javascript:app.popupSettings()">
+                  <img src="icons/settings.png"/>
+                  blockchain settings
+                </a>
+              </li>
+              <li>
+                <a href="javascript:app.popupFeedback()">
                   <img src="icons/history.png"/>
                   history
                 </a>
               </li>
               <li>
-                <a id="help" href="javascript:app.popupHelp()">
+                <a href="javascript:app.popupHelp()">
                   <img src="icons/help.png"/>
                   help
                 </a>
               </li>
               <li>
-                <a id="feedback" href="javascript:app.popupFeedback()">
+                <a href="javascript:app.popupFeedback()">
                   <img src="icons/exchange.png"/>
                   exchange
                 </a>
@@ -97,11 +103,10 @@
 
         <div id="popup">
           <h1>
-            <a href="javascript:app.closePopup()" class="button back"><img src="icons/left.png"/></a>
+            <a href="javascript:app.closePopup()" class="button close"><img src="icons/close.png"/></a>
             <span id="popupTitle">
 
             </span>
-            <a href="javascript:app.closePopup()" class="button close"><img src="icons/close.png"/></a>
           </h1>
           <div id="popupContent">
             <div id="accountHistoryPopup">
@@ -141,11 +146,17 @@
               <br/>
               <div id="receiveCoinQrcode"></div>
             </div>
-            <div id="settingsPopup">
+            <div id="priceSettingsPopup">
               <h2>Fiat Currency</h2>
-              <input tyle="text" value="PLN"/>
-              <h2>Currencies</h2>
-              TODO
+              <select id="priceProvider">
+              </select>
+              <select id="priceUnit">
+              </select>
+              <div class="actions">
+                <button class="icon-save" onclick="app.savePriceSettings()">
+                  Save
+                </button>
+              </div>
             </div>
             <div id="helpPopup">
               <h2>What is Lorem Ipsum?</h2>
@@ -167,10 +178,19 @@
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>
+
+        <script type="text/javascript" src="vendor/qrcode.js"></script>
+
         <script type="text/javascript" src="vendor/web3.js"></script>
         <script type="text/javascript" src="vendor/btcjs.js"></script>
-        <script type="text/javascript" src="vendor/qrcode.js"></script>
-        <script type="text/javascript" src="js/coins.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+
+        <script type="text/javascript" src="js/settings.js"></script>
+
+        <script type="text/javascript" src="js/coin.apis.js"></script>
+        <script type="text/javascript" src="js/price.providers.js"></script>
+
+        <script type="text/javascript" src="js/widget.wallet.js"></script>
+        <script type="text/javascript" src="js/widget.select.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

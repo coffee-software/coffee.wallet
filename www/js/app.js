@@ -1,146 +1,8 @@
 
-
-function formatMoney(value, unit, decimals){
-  var d = decimals ? decimals : 2;
-  return value.toFixed(d).replace(/./g, function(c, i, a) {
-    return i && c !== "." && ((a.length - i) % 3 === 0) && (a.length - i > d) ? '&nbsp;' + c : c;
-  }) + '&nbsp;' + unit;
-};
-
-
-var activeWallet = null;
-
-function createButton(icon, callback) {
-  var button = document.createElement("a");
-  var img = document.createElement("img");
-  img.setAttribute('src', 'icons/' + icon + '.png');
-  button.appendChild(img);
-  button.onclick = callback;
-  button.classList.add('button');
-  var div = document.createElement("div");
-  div.appendChild(button);
-  return div;
-}
-
-function Wallet(handler, offlineWallets) {
-
-
-  this.row = document.createElement("tr");
-  var that = this;
-  that.handler = handler;
-  this.row.onclick = function() {
-    if (activeWallet) {
-      activeWallet.row.classList.remove('active');
-    }
-    that.row.classList.add('active');
-    activeWallet = that;
-  }
-
-  var unitCell = document.createElement("td");
-
-  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + handler.name + '.png" alt="' + handler.code + '"/>';
-
-
-  var onlineCell = document.createElement("td");
-  onlineCell.classList.add('online');
-  this.onlineAmount = document.createElement("div");
-  this.onlineValue = document.createElement("div");
-
-  onlineCell.appendChild(this.onlineValue).classList.add('value');
-  onlineCell.appendChild(this.onlineAmount).classList.add('amount');
-
-  if ('getLocalAddr' in handler) {
-
-    var buttonsDiv = document.createElement("div");
-    buttonsDiv.classList.add('buttons');
-    buttonsDiv.appendChild(createButton('up', function(){app.popupSendPayment(that);}));
-    buttonsDiv.appendChild(createButton('down', function(){app.popupReceivePayment(that);}));
-    onlineCell.appendChild(buttonsDiv);
-  } else {
-    onlineCell.classList.add('disabled');
-  }
-
-
-
-  var offlineCell = document.createElement("td");
-  offlineCell.classList.add('offline');
-  this.offlineAmount = document.createElement("div");
-  this.offlineValue = document.createElement("div");
-  offlineCell.appendChild(this.offlineValue).classList.add('value');
-  offlineCell.appendChild(this.offlineAmount).classList.add('amount');
-
-  var buttonsDiv2 = document.createElement("div");
-  buttonsDiv2.classList.add('buttons');
-  buttonsDiv2.appendChild(createButton('list', function(){}));
-  buttonsDiv2.appendChild(createButton('refresh', function(){that.refreshOnline(); that.refreshOffline();}));
-  offlineCell.appendChild(buttonsDiv2);
-
-  this.row.appendChild(unitCell);
-  this.row.appendChild(onlineCell);
-  this.row.appendChild(offlineCell);
-
-  this.offlineWallets = offlineWallets;
-
-  this.updateOfflineValue = function() {
-    var value = 0;
-    if (handler.code in app.prices ) {
-      value = this.totalOffline * app.prices[handler.code];
-    }
-    this.offlineValue.innerHTML = formatMoney(value, 'PLN');
-    return value;
-  }
-
-  this.updateOnlineValue = function() {
-    var value = 0;
-    if (handler.code in app.prices ) {
-      value = this.totalOnline * app.prices[handler.code];
-    }
-    this.onlineValue.innerHTML = formatMoney(value, 'PLN');
-    return value;
-  }
-
-
-  this.refreshOffline = function() {
-      this.totalOffline = 0;
-      for (var idx in this.offlineWallets) {
-        if ('addr' in  this.offlineWallets[idx]) {
-          handler.getBalance(this.offlineWallets[idx].addr, function(val){
-            //console.log(val);
-            that.totalOffline += val;
-            that.offlineAmount.innerHTML = formatMoney(that.totalOffline, handler.code, 5);
-            that.updateOfflineValue();
-          });
-        } else {
-          that.totalOffline += this.offlineWallets[idx].amount;
-        }
-      }
-      this.offlineAmount.innerHTML = formatMoney(this.totalOffline, handler.code, 5);
-      this.updateOfflineValue();
-  }
-
-  this.refreshOffline();
-
-  this.refreshOnline = function() {
-    this.totalOnline = 0;
-    this.onlineAmount.innerHTML = formatMoney(this.totalOnline, handler.code, 5);
-    this.updateOnlineValue();
-
-    if ('getLocalAddr' in handler) {
-      handler.getBalance(handler.getLocalAddr(), function(val){
-        that.totalOnline = val;
-        that.onlineAmount.innerHTML = formatMoney(that.totalOnline, handler.code, 5);
-        that.updateOnlineValue();
-      });
-    }
-
-  }
-
-  this.refreshOnline();
-
-}
-
 var app = {
     // Application Constructor
+    settings: Settings,
+
     initialize: function() {
         var that = this;
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -152,35 +14,39 @@ var app = {
             that.closePopup();
           }
         };
+        //TODO read from config
+        this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider', 0)]);
+        this.priceProvider.setUnit(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
+
+
+        this.priceProviderSelect = new Select(document.getElementById("priceProvider"));
+        this.priceUnitSelect = new Select(document.getElementById("priceUnit"));
+        this.priceProviderSelect.onChange(function(value){
+          console.log(allPriceProviders, value);
+          that.priceUnitSelect.setOptions(allPriceProviders[value].availableUnits, that.settings.get('priceUnit', that.priceProvider.defaultUnit));
+        });
+        this.priceProviderSelect.setOptions(allPriceProviders, this.settings.get('priceProvider', 0));
     },
 
-    prices: {},
+    priceProvider: null,
+    setPriceProvider: function(provider) {
+      this.priceProvider = provider;
+    },
 
     updateMarketCap: function() {
       document.getElementById('refresh').classList.add('disabled');
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://api.coinmarketcap.com/v1/ticker/?convert=PLN&limit=200');
-      xhr.onload = function() {
-          if (xhr.status === 200) {
-              var list = JSON.parse(this.responseText);
-              for (var i in list) {
-                app.prices[list[i]['symbol']]=parseFloat(list[i]['price_pln']);
-              }
-              var totalOnline = 0;
-              var totalOffline = 0;
-              for (var i in app.wallets) {
-                console.log('TEST' + i);
-                totalOnline += app.wallets[i].updateOnlineValue();
-                totalOffline += app.wallets[i].updateOfflineValue();
-              }
-              document.getElementById('grandTotal').innerHTML = formatMoney(totalOnline + totalOffline, 'PLN');
-              document.getElementById('totalOnline').innerHTML = formatMoney(totalOnline, 'PLN');
-              //plnTotal
-              document.getElementById('refresh').classList.remove('disabled');
-          }
-      };
-      xhr.send();
-
+      this.priceProvider.updatePrices(function(){
+        var totalOnline = 0;
+        var totalOffline = 0;
+        for (var i in app.wallets) {
+          totalOnline += app.wallets[i].updateOnlineValue();
+          totalOffline += app.wallets[i].updateOfflineValue();
+        }
+        document.getElementById('grandTotal').innerHTML = formatMoney(totalOnline + totalOffline, app.priceProvider.getUnit());
+        document.getElementById('totalOnline').innerHTML = formatMoney(totalOnline, app.priceProvider.getUnit());
+        //plnTotal
+        document.getElementById('refresh').classList.remove('disabled');
+      });
     },
 
     menuOpened : false,
@@ -237,10 +103,22 @@ var app = {
         this.openPopup('helpPopup', 'Help');
     },
 
-    popupSettings: function() {
-        this.openPopup('settingsPopup', 'Settings');
-    },
+    popupPriceSettings: function() {
+        this.openPopup('priceSettingsPopup', 'Price Settings');
 
+        this.priceProviderSelect.setValue(this.settings.get('priceProvider', 0));
+        this.priceUnitSelect.setValue(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
+    },
+    savePriceSettings: function() {
+        this.closePopup();
+
+        this.settings.set('priceProvider', parseInt(this.priceProviderSelect.getValue()));
+        this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider')]);
+
+        this.settings.set('priceUnit', this.priceUnitSelect.getValue());
+        this.priceProvider.setUnit(this.settings.get('priceUnti'));
+
+    },
     scanQrCode: function() {
       cordova.plugins.barcodeScanner.scan(
          function (result) {
@@ -270,16 +148,13 @@ var app = {
     },
 
     sendCoinUpdateValue: function() {
-      if (this.sendWallet.handler.code in this.prices) {
-        var ratio = this.prices[this.sendWallet.handler.code];
-        document.getElementById('sendCoinValue').value = document.getElementById('sendCoinAmount').value * ratio;
-      }
+      document.getElementById('sendCoinValue').value =
+        document.getElementById('sendCoinAmount').value * this.priceProvider.getPrice(this.sendWallet.handler.code);
     },
+
     sendCoinUpdateAmount: function() {
-      if (this.sendWallet.handler.code in this.prices) {
-        var ratio = this.prices[this.sendWallet.handler.code];
-        document.getElementById('sendCoinAmount').value = document.getElementById('sendCoinValue').value / ratio;
-      }
+      document.getElementById('sendCoinAmount').value =
+        document.getElementById('sendCoinValue').value / this.priceProvider.getPrice(this.sendWallet.handler.code);
     },
     alertMessage: function(html, cssClass) {
       var msgDiv = document.createElement('div');

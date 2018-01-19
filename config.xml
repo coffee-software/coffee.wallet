@@ -18,10 +18,14 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
+    <preference name="android-build-tool" value="gradle" />
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="phonegap-plugin-barcodescanner" spec="^7.0.2" />
+    <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
+        <string>to scan barcodes of addresses when sending payments</string>
+    </edit-config>
     <engine name="browser" spec="^5.0.3" />
 </widget>
