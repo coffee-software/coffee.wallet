@@ -133,6 +133,7 @@ var app = {
       document.getElementById("menu").style.height = document.getElementById("menu").children[0].clientHeight + 'px';
       document.getElementById("overlay").classList.add('show');
       document.getElementById("container").classList.add('blur');
+      document.getElementById("foot").classList.add('blur');
     },
 
     closeMenu: function() {
@@ -140,13 +141,14 @@ var app = {
       document.getElementById("menu").style.height = '0';
       document.getElementById("overlay").classList.remove('show');
       document.getElementById("container").classList.remove('blur');
-
+      document.getElementById("foot").classList.remove('blur');
     },
 
     openPopup: function(id, title) {
       this.closeMenu();
       document.getElementById("container").classList.add('blur');
       document.getElementById("nav").classList.add('blur');
+      document.getElementById("foot").classList.add('blur');
 
       document.getElementById("popup").classList.add('show');
 
@@ -163,6 +165,7 @@ var app = {
     closePopup: function() {
       document.getElementById("container").classList.remove('blur');
       document.getElementById("nav").classList.remove('blur');
+      document.getElementById("foot").classList.remove('blur');
       document.getElementById("popup").classList.remove('show');
     },
 
@@ -183,7 +186,7 @@ var app = {
         this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider')]);
 
         this.settings.set('priceUnit', this.priceUnitSelect.getValue());
-        this.priceProvider.setUnit(this.settings.get('priceUnti'));
+        this.priceProvider.setUnit(this.settings.get('priceUnit'));
 
     },
     scanQrCode: function() {

@@ -38,12 +38,8 @@ body {
   height: 48px;
   /* box-shadow: 0 2px 3px #000; */
   color: white;
-  transition: 0.5s all ease;
+  transition: 0.5s filter ease;
   filter: blur(0);
-}
-
-#nav.blur {
-  filter: blur(5px);
 }
 
 #nav .totals {
@@ -119,6 +115,7 @@ body {
   left: 0;
   right: 0;
   display: flex;
+  transition: 0.5s filter ease;
 }
 
 #foot a.tab {
@@ -138,8 +135,7 @@ body {
 }
 
 #container {
-  transition: 0.5s all ease;
-  filter: blur(0);
+  transition: 0.5s filter ease;
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -169,12 +165,12 @@ body {
   padding-bottom: 56px;
 }
 
-#container.blur {
+.blur {
   filter: blur(5px);
 }
 
 #overlay {
-  background: #fff;
+  background: #1B121C;
   position: absolute;
   left: 0;
   right: 0;
