@@ -26,6 +26,73 @@ var app = {
           that.priceUnitSelect.setOptions(allPriceProviders[value].availableUnits, that.settings.get('priceUnit', that.priceProvider.defaultUnit));
         });
         this.priceProviderSelect.setOptions(allPriceProviders, this.settings.get('priceProvider', 0));
+        this.scrollToTarget();
+    },
+
+    targetScroll: 0,
+    scrollToTargetTimer: null,
+    scrollToTarget : function(){
+      if (this.targetScroll > document.scrollingElement.scrollLeft) {
+        document.scrollingElement.scrollLeft += Math.ceil((this.targetScroll - document.scrollingElement.scrollLeft) / 3);
+      } else {
+        document.scrollingElement.scrollLeft -= Math.ceil((document.scrollingElement.scrollLeft - this.targetScroll) / 3);
+      }
+      if (document.scrollingElement.scrollLeft != this.targetScroll) {
+        this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
+      } else {
+        var timer = null;
+        document.body.onscroll = function(event){
+
+          if(app.scrollToTargetTimer !== null) {
+              clearTimeout(app.scrollToTargetTimer);
+          }
+          if(timer !== null) {
+              clearTimeout(timer);
+          }
+          timer = setTimeout(function() {
+                var width = document.scrollingElement.offsetWidth;
+                if (document.scrollingElement.scrollLeft < width / 2) {
+                  app.tabWallets();
+                } else if (document.scrollingElement.scrollLeft < width + (width / 2)) {
+                  app.tabHistory();
+                } else {
+                  app.tabExchange();
+                }
+          }, 100);
+        };
+      }
+    },
+
+    setTabActive: function(n) {
+      for (var i = 0; i < document.getElementById('foot').children.length; i++) {
+        if (i == n) {
+          document.getElementById('foot').children[i].classList.add('active');
+        } else {
+          document.getElementById('foot').children[i].classList.remove('active');
+        }
+      }
+
+    },
+    tabWallets: function() {
+      this.setTabActive(0);
+      document.body.onscroll = null;
+      this.targetScroll = 0;
+      this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
+
+    },
+    tabHistory: function() {
+      this.setTabActive(1);
+      var width = document.scrollingElement.offsetWidth;
+      document.body.onscroll = null;
+      this.targetScroll = width;
+      this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
+    },
+    tabExchange: function() {
+      this.setTabActive(2);
+      var width = document.scrollingElement.offsetWidth;
+      document.body.onscroll = null;
+      this.targetScroll = 2 * width;
+      this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
     },
 
     priceProvider: null,

@@ -76,29 +76,55 @@
 
         </div>
         <div id="container">
-          <table id="wallets">
-            <tbody id="walletsList">
-            </tbody>
-          </table>
-          <div class="buttons">
-            <div>
-              <a id="addCoin" href="javascript:app.addCoin()" class="button">
-                <img src="icons/plus.png" alt="manage coins"/>
-              </a>
+          <div class="swipe_tab">
+            <table id="wallets" class="tab_inner">
+              <tbody id="walletsList">
+              </tbody>
+        	    <tbody>
+        		    <tr>
+            			<td colspan="3">
+                    <a id="addCoin" href="javascript:app.addCoin()" class="button">
+                            <img src="icons/plus.png" alt="manage coins"/>
+                            add coin
+                    </a>
+            			</td>
+        		    </tr>
+        	    </tbody>
+            </table>
+          </div>
+          <div class="swipe_tab">
+            <div class="tab_inner">
+              histoy<br/>
+              histoy<br/>
+              histoy<br/>
+              histoy<br/>
             </div>
-            <div>
-              <a id="addCoin" href="javascript:app.addCoin()" class="button">
-                <img src="icons/exchange.png" alt="exchange"/>
-              </a>
-            </div>
-            <div>
-              <a id="addCoin" href="javascript:app.addCoin()" class="button">
-                <img src="icons/history.png" alt="history"/>
-              </a>
+          </div>
+          <div class="swipe_tab">
+            <div class="tab_inner">
+              <h1>Exchange</h1>
+              comming soon
             </div>
           </div>
         </div>
-        <div id="overlay">
+    <div id="foot">
+      <a href="javascript:app.tabWallets()" class="tab active">
+        <img src="icons/home.png" alt="manage coins"/>
+        <br/>
+        wallets
+      </a>
+      <a href="javascript:app.tabHistory()" class="tab">
+        <img src="icons/history.png" alt="history"/>
+        <br/>
+        history
+      </a>
+     <a href="javascript:app.tabExchange()" class="tab">
+       <img src="icons/exchange.png" alt="exchange"/>
+       <br/>
+       exchange
+     </a>
+    </div>
+	<div id="overlay">
         </div>
 
         <div id="popup">
