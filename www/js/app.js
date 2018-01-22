@@ -86,6 +86,19 @@ var app = {
       document.body.onscroll = null;
       this.targetScroll = width;
       this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
+
+      Logger.getLogs(function(logs){
+        document.getElementById('history').innerHTML = '';
+        for (var i=0; i< logs.length; i++) {
+          var li = document.createElement('li');
+          li.classList.add(logs[i].severity);
+          li.innerHTML = '<div class="ts">' + logs[i].ts + '</div><div>' + logs[i].message + '</div>';
+          //logs[i].coin
+          document.getElementById('history').appendChild(li);
+        }
+        console.log(logs);
+      });
+
     },
     tabExchange: function() {
       this.setTabActive(2);

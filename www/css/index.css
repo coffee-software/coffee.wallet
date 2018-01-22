@@ -374,14 +374,37 @@ h1 {
 
 #messages div {
   padding: 20px;
+  background-color: #aaa;
 }
 
-#messages div.error {
+.info {
+  color: #222;
+}
+.error {
   background-color: #f99;
   color: #055;
 }
 
-#messages div.success {
+.success {
   background-color: #9f9;
   color: #505;
+}
+
+.warning {
+  background-color: #ff9;
+  color: #005;
+}
+
+#history {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#history li {
+  padding: 15px;
+  font-size: 16px;
+}
+
+#history li .ts {
+  font-size: 10px;
 }
