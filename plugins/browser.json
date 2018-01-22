@@ -12,6 +12,9 @@
     },
     "phonegap-plugin-barcodescanner": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "com.danielsogl.cordova.clipboard": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },
   "dependent_plugins": {}

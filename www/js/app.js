@@ -204,7 +204,7 @@ var app = {
 
     },
     scanQrCode: function() {
-      cordova.plugins.barcodeScanner.scan(
+      window.cordova.plugins.barcodeScanner.scan(
          function (result) {
             document.getElementById('sendCoinAddr').value = result.text;
             // result.format + result.cancelled;
@@ -256,15 +256,18 @@ var app = {
       );
       this.closePopup();
     },
+    copyReceiveCoinAddrToClp: function() {
+        window.cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);
+    },
     popupReceivePayment: function(wallet) {
         this.openPopup('receivePaymentPopup', 'receive ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
 
         document.getElementById('receiveCoinName').innerHTML = '';
-        document.getElementById('receiveCoinAddr').innerHTML = '';
+        document.getElementById('receiveCoinAddr').value = '';
         document.getElementById('receiveCoinQrcode').innerHTML = '';
 
         document.getElementById('receiveCoinName').innerHTML = wallet.handler.code;
-        document.getElementById('receiveCoinAddr').innerHTML = wallet.handler.getLocalAddr();
+        document.getElementById('receiveCoinAddr').value = wallet.handler.getLocalAddr();
 
         new QRCode(document.getElementById('receiveCoinQrcode'), wallet.handler.getLocalAddr());
 

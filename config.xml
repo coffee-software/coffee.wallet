@@ -27,5 +27,6 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
         <string>to scan barcodes of addresses when sending payments</string>
     </edit-config>
+    <plugin name="com.danielsogl.cordova.clipboard" spec="~1.0.2" />
     <engine name="browser" spec="^5.0.3" />
 </widget>

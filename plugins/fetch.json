@@ -14,5 +14,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "com.danielsogl.cordova.clipboard": {
+    "source": {
+      "type": "registry",
+      "id": "danielsogl-cordova-plugin-clipboard"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

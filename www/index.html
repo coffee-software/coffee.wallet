@@ -83,10 +83,10 @@
         	    <tbody>
         		    <tr>
             			<td colspan="3">
-                    <a id="addCoin" href="javascript:app.addCoin()" class="button">
+                    <button id="addCoin" onclick="app.addCoin()">
                             <img src="icons/bplus.png" alt="add coins"/>
                             add coin
-                    </a>
+                    </button>
             			</td>
         		    </tr>
         	    </tbody>
@@ -170,7 +170,9 @@
 
               Your <span id="receiveCoinName"></span> address is:
               <br/>
-              <strong id="receiveCoinAddr"></strong>
+              <input readonly="readonly" id="receiveCoinAddr" value=""/>
+              <br/>
+              <button onclick="app.copyReceiveCoinAddrToClp()">copy to clipboard</button>
               <br/>
               <div id="receiveCoinQrcode"></div>
             </div>
