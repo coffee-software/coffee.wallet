@@ -10,7 +10,7 @@
   "phonegap-plugin-barcodescanner": {
     "source": {
       "type": "registry",
-      "id": "phonegap-plugin-barcodescanner@7.0.2"
+      "id": "https://github.com/phonegap/phonegap-plugin-barcodescanner.git"
     },
     "is_top_level": true,
     "variables": {}
@@ -18,7 +18,7 @@
   "com.danielsogl.cordova.clipboard": {
     "source": {
       "type": "registry",
-      "id": "danielsogl-cordova-plugin-clipboard"
+      "id": "https://github.com/danielsogl/cordova-plugin-clipboard.git"
     },
     "is_top_level": true,
     "variables": {}
