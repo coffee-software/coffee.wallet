@@ -80,13 +80,7 @@ var app = {
       this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
 
     },
-    tabHistory: function() {
-      this.setTabActive(1);
-      var width = document.scrollingElement.offsetWidth;
-      document.body.onscroll = null;
-      this.targetScroll = width;
-      this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
-
+    reloadHistory: function() {
       Logger.getLogs(function(logs){
         document.getElementById('history').innerHTML = '';
         for (var i=0; i< logs.length; i++) {
@@ -98,7 +92,14 @@ var app = {
         }
         console.log(logs);
       });
-
+    },
+    tabHistory: function() {
+      this.setTabActive(1);
+      var width = document.scrollingElement.offsetWidth;
+      document.body.onscroll = null;
+      this.targetScroll = width;
+      this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
+      this.reloadHistory();
     },
     tabExchange: function() {
       this.setTabActive(2);

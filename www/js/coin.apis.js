@@ -99,11 +99,13 @@ function getBtcPrivateKey() {
 
 function getEtherPrivateKey() {
   var storage = window.localStorage;
-  var value = storage.getItem('ethPK');
+  var value = storage.getItem('ethPrivKey');
   if (!value) {
     value = prompt("Please enter PK", "");
-    //console.log(web3.eth.accounts.create());
-    storage.setItem('ethPK', value);
+    if (value == "") {
+      value = web3.eth.accounts.create().privateKey;
+    }
+    storage.setItem('ethPrivKey', value);
   }
   return value;
 }

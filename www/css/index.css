@@ -408,3 +408,11 @@ h1 {
 #history li .ts {
   font-size: 10px;
 }
+
+#exchange {
+  text-align: center;
+}
+
+#exchange img {
+  width: 100%;
+}
