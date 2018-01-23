@@ -18,6 +18,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
+    <preference name="phonegap-version" value="cli-7.1.0" />
     <preference name="android-build-tool" value="gradle" />
     <platform name="ios">
         <allow-intent href="itms:*" />

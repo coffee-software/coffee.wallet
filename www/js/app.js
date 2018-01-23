@@ -26,39 +26,43 @@ var app = {
           that.priceUnitSelect.setOptions(allPriceProviders[value].availableUnits, that.settings.get('priceUnit', that.priceProvider.defaultUnit));
         });
         this.priceProviderSelect.setOptions(allPriceProviders, this.settings.get('priceProvider', 0));
-        this.scrollToTarget();
+        this.tabWallets();
     },
 
     targetScroll: 0,
+
     scrollToTargetTimer: null,
+
     scrollToTarget : function(){
       if (this.targetScroll > document.scrollingElement.scrollLeft) {
-        document.scrollingElement.scrollLeft += Math.ceil((this.targetScroll - document.scrollingElement.scrollLeft) / 3);
+        document.scrollingElement.scrollLeft = Math.ceil(
+          document.scrollingElement.scrollLeft + ((this.targetScroll - document.scrollingElement.scrollLeft) / 3));
       } else {
-        document.scrollingElement.scrollLeft -= Math.ceil((document.scrollingElement.scrollLeft - this.targetScroll) / 3);
+        document.scrollingElement.scrollLeft = Math.floor(
+          document.scrollingElement.scrollLeft - ((document.scrollingElement.scrollLeft - this.targetScroll) / 3));
       }
+      console.log(document.scrollingElement.scrollLeft);
       if (document.scrollingElement.scrollLeft != this.targetScroll) {
         this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
       } else {
         var timer = null;
         document.body.onscroll = function(event){
-
           if(app.scrollToTargetTimer !== null) {
               clearTimeout(app.scrollToTargetTimer);
           }
-          if(timer !== null) {
+          if (timer !== null) {
               clearTimeout(timer);
           }
           timer = setTimeout(function() {
                 var width = document.scrollingElement.offsetWidth;
-                if (document.scrollingElement.scrollLeft < width / 2) {
+                if (document.scrollingElement.scrollLeft < width) {
                   app.tabWallets();
-                } else if (document.scrollingElement.scrollLeft < width + (width / 2)) {
+                } else if (document.scrollingElement.scrollLeft < 2 * width) {
                   app.tabHistory();
                 } else {
                   app.tabExchange();
                 }
-          }, 100);
+          }, 50);
         };
       }
     },
@@ -75,10 +79,26 @@ var app = {
     },
     tabWallets: function() {
       this.setTabActive(0);
+      var width = document.scrollingElement.offsetWidth;
       document.body.onscroll = null;
-      this.targetScroll = 0;
+      this.targetScroll = (width / 2);
       this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
 
+    },
+    tabHistory: function() {
+      this.setTabActive(1);
+      var width = document.scrollingElement.offsetWidth;
+      document.body.onscroll = null;
+      this.targetScroll = (width / 2) + width;
+      this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
+      this.reloadHistory();
+    },
+    tabExchange: function() {
+      this.setTabActive(2);
+      var width = document.scrollingElement.offsetWidth;
+      document.body.onscroll = null;
+      this.targetScroll = (width / 2) + (2 * width);
+      this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
     },
     reloadHistory: function() {
       Logger.getLogs(function(logs){
@@ -92,21 +112,6 @@ var app = {
         }
         console.log(logs);
       });
-    },
-    tabHistory: function() {
-      this.setTabActive(1);
-      var width = document.scrollingElement.offsetWidth;
-      document.body.onscroll = null;
-      this.targetScroll = width;
-      this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
-      this.reloadHistory();
-    },
-    tabExchange: function() {
-      this.setTabActive(2);
-      var width = document.scrollingElement.offsetWidth;
-      document.body.onscroll = null;
-      this.targetScroll = 2 * width;
-      this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
     },
 
     priceProvider: null,

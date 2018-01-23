@@ -16,7 +16,7 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color: #F5F6F3;
-
+    
     font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
 
     font-size: 12px;
@@ -39,7 +39,6 @@ body {
   /* box-shadow: 0 2px 3px #000; */
   color: white;
   transition: 0.5s filter ease;
-  filter: blur(0);
 }
 
 #nav .totals {
@@ -142,7 +141,7 @@ body {
   -webkit-transform: translateZ(0) scale(1.0, 1.0);
   transform: translateZ(0) scale(1.0, 1.0);
 
-  width: 300%;
+  width: 400%;
   height: 100%;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -154,9 +153,13 @@ body {
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
+#container .swipe_spacing {
+  flex: 1;
+}
+
 #container .swipe_tab {
   height: 100%;
-  flex: 1;
+  flex: 2;
   overflow: scroll;
   width: 100%;
 }
@@ -166,12 +169,12 @@ body {
 }
 
 .blur {
-  filter: blur(5px);
+  filter: opacity(20%);
 }
 
 #overlay {
   background: #1B121C;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
