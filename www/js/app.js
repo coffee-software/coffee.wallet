@@ -41,7 +41,7 @@ var app = {
         document.scrollingElement.scrollLeft = Math.floor(
           document.scrollingElement.scrollLeft - ((document.scrollingElement.scrollLeft - this.targetScroll) / 3));
       }
-      console.log(document.scrollingElement.scrollLeft);
+      //console.log(document.scrollingElement.scrollLeft);
       if (document.scrollingElement.scrollLeft != this.targetScroll) {
         this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
       } else {
@@ -110,7 +110,7 @@ var app = {
           //logs[i].coin
           document.getElementById('history').appendChild(li);
         }
-        console.log(logs);
+        //console.log(logs);
       });
     },
 

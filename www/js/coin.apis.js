@@ -4,13 +4,29 @@ var testMode = true;
 var BtcHandler = {
     name: "bitcoin",
     code: "BTC",
-    longname: "Bitcoin"
-  /*  getBalance: function(addr, callback){
-      callback(1.0);
+    longname: "Bitcoin",
+    getBalance: function(addr, callback) {
+      return btcjs.getBalance(btcjs.networks.test, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
     },
-    getLocalAddr: function(){
-      return btcjs.addrFromPK(getBtcPrivateKey());
-    }*/
+    getLocalAddr: function() {
+      return btcjs.addrFromPriv(btcjs.networks.test, getBtcPrivateKey());
+    }
+}
+
+function getBtcPrivateKey() {
+  var storage = window.localStorage;
+  var value = storage.getItem('btcTestnetPrivKey');
+  if (!value) {
+    value = btcjs.newPrivKey(btcjs.networks.test);
+    storage.setItem('btcTestnetPrivKey', value);
+  }
+  return value;
+}
+
+var LtcHandler = {
+    name: "litecoin",
+    code: "LTC",
+    longname: "Litecoin"
 }
 
 var XrpHandler = {
@@ -42,13 +58,6 @@ var BchHandler = {
     code: "BCH",
     longname: "Bitcoin Cash"
 }
-
-var LtcHandler = {
-    name: "litecoin",
-    code: "LTC",
-    longname: "Litecoin"
-}
-
 
 web3 = new Web3(
   new Web3.providers.HttpProvider(
@@ -92,19 +101,11 @@ var EthHandler = {
     }
 }
 
-function getBtcPrivateKey() {
-
-  return btcjs.newPK();
-}
-
 function getEtherPrivateKey() {
   var storage = window.localStorage;
   var value = storage.getItem('ethPrivKey');
   if (!value) {
-    value = prompt("Please enter PK", "");
-    if (value == "") {
-      value = web3.eth.accounts.create().privateKey;
-    }
+    value = web3.eth.accounts.create().privateKey;
     storage.setItem('ethPrivKey', value);
   }
   return value;
