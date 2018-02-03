@@ -1,6 +1,24 @@
 
 var testMode = true;
 
+var BtcTestHandler = {
+    name: "bitcoin-test",
+    code: "BTC.TEST",
+    longname: "Bitcoin Testnet",
+    newPrivateKey: function() {
+      return btcjs.newPrivKey(btcjs.networks.test);
+    },
+    addrFromPrivateKey: function(priv) {
+      return btcjs.addrFromPriv(btcjs.networks.test, priv);
+    },
+    getBalance: function(addr, callback) {
+      return btcjs.getBalance(btcjs.networks.test, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+    },
+    getLocalAddr: function() {
+      return btcjs.addrFromPriv(btcjs.networks.test, getBtcPrivateKey());
+    }
+}
+
 var BtcHandler = {
     name: "bitcoin",
     code: "BTC",
@@ -65,6 +83,11 @@ web3 = new Web3(
   )
 );
 
+var EthTestHandler = {
+    name: "ethereum-test",
+    code: "ETH.TEST",
+    longname: "Ethereum Testnet",
+};
 
 var EthHandler = {
     name: "ethereum",
@@ -164,3 +187,17 @@ var PayHandler = {
       });
     }
 }
+
+
+var allCoinApis = {
+  'BTC.TEST': BtcTestHandler,
+  'BTC': BtcHandler,
+  'BCH': BchHandler,
+  'ETH': EthHandler,
+  'ETH.TEST': EthTestHandler,
+  'PAY': PayHandler,
+  'LTC': LtcHandler,
+  'LSK': LskHandler,
+  'NEBL': NeblHandler,
+  'PART': PartHandler
+};

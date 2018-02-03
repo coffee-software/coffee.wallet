@@ -21,12 +21,11 @@ function createButton(icon, callback) {
   return div;
 }
 
-function Wallet(handler, offlineWallets) {
-
+function Wallet(data) {
 
   this.row = document.createElement("tr");
   var that = this;
-  that.handler = handler;
+  that.handler = data.api;
   this.row.onclick = function() {
     if (activeWallet) {
       activeWallet.row.classList.remove('active');
@@ -37,7 +36,14 @@ function Wallet(handler, offlineWallets) {
 
   var unitCell = document.createElement("td");
 
-  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + handler.name + '.png" alt="' + handler.code + '"/>';
+  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + this.handler.name + '.png" alt="' + this.handler.code + '"/>';
+
+  var buttonDiv = document.createElement("div");
+  buttonDiv.classList.add('buttons');
+  buttonDiv.appendChild(createButton('info', app.popupCoinInfo.bind(app, that.handler)));
+  unitCell.appendChild(buttonDiv);
+
+
 
 
   var onlineCell = document.createElement("td");
@@ -48,7 +54,7 @@ function Wallet(handler, offlineWallets) {
   onlineCell.appendChild(this.onlineValue).classList.add('value');
   onlineCell.appendChild(this.onlineAmount).classList.add('amount');
 
-  if ('getLocalAddr' in handler) {
+  if ('getLocalAddr' in this.handler) {
 
     var buttonsDiv = document.createElement("div");
     buttonsDiv.classList.add('buttons');
@@ -78,16 +84,16 @@ function Wallet(handler, offlineWallets) {
   this.row.appendChild(onlineCell);
   this.row.appendChild(offlineCell);
 
-  this.offlineWallets = offlineWallets;
+  this.offlineWallets = data.offlineWallets;
 
   this.updateOfflineValue = function() {
-    var value = this.totalOffline * app.priceProvider.getPrice(handler.code);
+    var value = this.totalOffline * app.priceProvider.getPrice(this.handler.code);
     this.offlineValue.innerHTML = formatMoney(value, app.priceProvider.getUnit());
     return value;
   }
 
   this.updateOnlineValue = function() {
-    var value = this.totalOnline * app.priceProvider.getPrice(handler.code);
+    var value = this.totalOnline * app.priceProvider.getPrice(this.handler.code);
     this.onlineValue.innerHTML = formatMoney(value, app.priceProvider.getUnit());
     return value;
   }
@@ -97,17 +103,17 @@ function Wallet(handler, offlineWallets) {
       this.totalOffline = 0;
       for (var idx in this.offlineWallets) {
         if ('addr' in  this.offlineWallets[idx]) {
-          handler.getBalance(this.offlineWallets[idx].addr, function(val){
+          this.handler.getBalance(this.offlineWallets[idx].addr, function(val){
             //console.log(val);
             that.totalOffline += val;
-            that.offlineAmount.innerHTML = formatMoney(that.totalOffline, handler.code, 5);
+            that.offlineAmount.innerHTML = formatMoney(that.totalOffline, that.handler.code, 5);
             that.updateOfflineValue();
           });
         } else {
           that.totalOffline += this.offlineWallets[idx].amount;
         }
       }
-      this.offlineAmount.innerHTML = formatMoney(this.totalOffline, handler.code, 5);
+      this.offlineAmount.innerHTML = formatMoney(this.totalOffline, this.handler.code, 5);
       this.updateOfflineValue();
   }
 
@@ -115,13 +121,13 @@ function Wallet(handler, offlineWallets) {
 
   this.refreshOnline = function() {
     this.totalOnline = 0;
-    this.onlineAmount.innerHTML = formatMoney(this.totalOnline, handler.code, 5);
+    this.onlineAmount.innerHTML = formatMoney(this.totalOnline, this.handler.code, 5);
     this.updateOnlineValue();
 
-    if ('getLocalAddr' in handler) {
-      handler.getBalance(handler.getLocalAddr(), function(val){
+    if ('getLocalAddr' in this.handler) {
+      this.handler.getBalance(this.handler.getLocalAddr(), function(val){
         that.totalOnline = val;
-        that.onlineAmount.innerHTML = formatMoney(that.totalOnline, handler.code, 5);
+        that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
         that.updateOnlineValue();
       });
     }

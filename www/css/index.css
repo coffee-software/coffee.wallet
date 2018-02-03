@@ -16,7 +16,7 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color: #F5F6F3;
-    
+
     font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
 
     font-size: 12px;
@@ -357,13 +357,24 @@ h1 {
     font-size: 20px;
 }
 
-#sendPaymentPopup button {
-  font-size: 30px;
+.walletsActions {
+    text-align:center;
 }
 
-#sendPaymentPopup button img {
-  width: 64px;
-  height: 64px;
+button {
+    border: 3px solid #04116A;
+    background-color: #7593BC;
+    color: #f0f0f0;
+    font-size: 30px;
+    line-height: 32px;
+    padding: 15px 24px;
+    border-radius: 10px;
+}
+
+button img {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
 }
 
 #messages {
@@ -418,4 +429,21 @@ h1 {
 
 #exchange img {
   width: 100%;
+}
+
+.coinButton {
+  width: 74px;
+  height: 96px;
+  border: 1px solid grey;
+  display: inline-block;
+  text-align: center;
+  margin: 3px;
+}
+.coinButton.active {
+  background: #B04960;
+}
+
+.coinButton img {
+  width: 64px;
+  margin: 5px;
 }

@@ -71,10 +71,10 @@
               </tbody>
         	    <tbody>
         		    <tr>
-            			<td colspan="3">
-                    <button id="addCoin" onclick="app.addCoin()">
-                            <img src="icons/bplus.png" alt="add coins"/>
-                            add coin
+            			<td colspan="3" class="walletsActions">
+                    <button id="addCoin" onclick="app.popupAddCoin()">
+                            <img src="icons/plus.png" alt="add coins"/>
+                            add/remove coin
                     </button>
             			</td>
         		    </tr>
@@ -127,8 +127,11 @@
             </span>
           </h1>
           <div id="popupContent">
-            <div id="accountHistoryPopup">
-              asdf
+            <div id="coinInfoPopup">
+              <strong>crypto currency info</strong>
+              Coin <span id="coinInfoName"></span>
+              <div id="coinInfoDescription"></div>
+              asdasdd
             </div>
             <div id="offlineAssetsPopup">
               asdf
@@ -151,7 +154,7 @@
               </div>
               <div class="spacing">
                 <button onclick="app.sendPayment()">
-                  <img src="icons/if_arrow_up.png"/>
+                  <img src="icons/up.png"/>
                   Send
                 </button>
               </div>
@@ -178,6 +181,9 @@
                 </button>
               </div>
             </div>
+            <div id="addCoinPopup">
+              <div id="allCoins"></div>
+            </div>
             <div id="helpPopup">
               <h2>What is Lorem Ipsum?</h2>
               <p>
@@ -200,10 +206,10 @@
         <script type="text/javascript" src="cordova.js"></script>
 
         <script type="text/javascript" src="vendor/qrcode.js"></script>
-
         <script type="text/javascript" src="vendor/web3.js"></script>
         <script type="text/javascript" src="vendor/btcjs.js"></script>
 
+        <script type="text/javascript" src="js/database.js"></script>
         <script type="text/javascript" src="js/logger.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>
 
