@@ -1,4 +1,18 @@
 
+var allCoinApis = {
+  'BTC.TEST': BtcTestHandler,
+  'BTC': BtcHandler,
+  'BCH': BchHandler,
+  'ETH': EthHandler,
+  'ETH.TEST': EthTestHandler,
+  'PAY': PayHandler,
+  'LTC': LtcHandler,
+  'LSK': LskHandler,
+  'NEBL': NeblHandler,
+  'PART': PartHandler,
+  'XRP': XrpHandler
+};
+
 var app = {
     // Application Constructor
     settings: Settings,
@@ -23,7 +37,7 @@ var app = {
         this.priceProviderSelect = new Select(document.getElementById("priceProvider"));
         this.priceUnitSelect = new Select(document.getElementById("priceUnit"));
         this.priceProviderSelect.onChange(function(value){
-          console.log(allPriceProviders, value);
+          //console.log(allPriceProviders, value);
           that.priceUnitSelect.setOptions(allPriceProviders[value].availableUnits, that.settings.get('priceUnit', that.priceProvider.defaultUnit));
         });
         this.priceProviderSelect.setOptions(allPriceProviders, this.settings.get('priceProvider', 0));
@@ -52,7 +66,7 @@ var app = {
         document.scrollingElement.scrollLeft = Math.floor(
           document.scrollingElement.scrollLeft - ((document.scrollingElement.scrollLeft - targetScroll) / 3));
       }
-      console.log(document.scrollingElement.scrollLeft, targetScroll);
+      //console.log(document.scrollingElement.scrollLeft, targetScroll);
       if (document.scrollingElement.scrollLeft != targetScroll) {
         this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
       } else {
@@ -374,9 +388,9 @@ var app = {
         document.getElementById('receiveCoinQrcode').innerHTML = '';
 
         document.getElementById('receiveCoinName').innerHTML = wallet.handler.code;
-        document.getElementById('receiveCoinAddr').value = wallet.handler.getLocalAddr();
+        document.getElementById('receiveCoinAddr').value = wallet.data.addr;
 
-        new QRCode(document.getElementById('receiveCoinQrcode'), wallet.handler.getLocalAddr());
+        new QRCode(document.getElementById('receiveCoinQrcode'), wallet.data.addr);
 
     },
     addWalletWidget: function(data) {
@@ -387,7 +401,6 @@ var app = {
     onDeviceReady: function() {
 
         this.data.load(function(){
-          console.log('loaded');
             for(var key in this.data.wallets){
               this.addWalletWidget(this.data.wallets[key]);
             }
@@ -416,7 +429,6 @@ var app = {
 
         var part = new Wallet(PartHandler, [{amount:30.5}]);
         document.getElementById('walletsList').appendChild(part.row);
-
         */
         //this.wallets = [btc, bch, eth, pay, ltc, lsk, nebl, part];
         this.updateMarketCap();

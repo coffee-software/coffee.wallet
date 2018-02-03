@@ -14,7 +14,13 @@ function createButton(icon, callback) {
   var img = document.createElement("img");
   img.setAttribute('src', 'icons/' + icon + '.png');
   button.appendChild(img);
-  button.onclick = callback;
+
+  if (callback === null) {
+    button.classList.add('disabled');
+  } else {
+    button.onclick = callback;
+  }
+
   button.classList.add('button');
   var div = document.createElement("div");
   div.appendChild(button);
@@ -25,6 +31,7 @@ function Wallet(data) {
 
   this.row = document.createElement("tr");
   var that = this;
+  that.data = data;
   that.handler = data.api;
   this.row.onclick = function() {
     if (activeWallet) {
@@ -54,17 +61,18 @@ function Wallet(data) {
   onlineCell.appendChild(this.onlineValue).classList.add('value');
   onlineCell.appendChild(this.onlineAmount).classList.add('amount');
 
-  if ('getLocalAddr' in this.handler) {
+  var buttonsDiv = document.createElement("div");
+  buttonsDiv.classList.add('buttons');
 
-    var buttonsDiv = document.createElement("div");
-    buttonsDiv.classList.add('buttons');
-    buttonsDiv.appendChild(createButton('send', function(){app.popupSendPayment(that);}));
-    buttonsDiv.appendChild(createButton('receive', function(){app.popupReceivePayment(that);}));
-    onlineCell.appendChild(buttonsDiv);
-  } else {
+  buttonsDiv.appendChild(createButton('send', ('sendPayment' in this.handler) ? function(){app.popupSendPayment(that);} : null));
+  buttonsDiv.appendChild(createButton('receive', ('newPrivateKey' in this.handler) ? function(){app.popupReceivePayment(that);} : null));
+
+  onlineCell.appendChild(buttonsDiv);
+
+
+  if (!('newPrivateKey' in this.handler)) {
     onlineCell.classList.add('disabled');
   }
-
 
 
   var offlineCell = document.createElement("td");
@@ -124,8 +132,8 @@ function Wallet(data) {
     this.onlineAmount.innerHTML = formatMoney(this.totalOnline, this.handler.code, 5);
     this.updateOnlineValue();
 
-    if ('getLocalAddr' in this.handler) {
-      this.handler.getBalance(this.handler.getLocalAddr(), function(val){
+    if (this.data.addr) {
+      this.handler.getBalance(this.data.addr, function(val){
         that.totalOnline = val;
         that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
         that.updateOnlineValue();

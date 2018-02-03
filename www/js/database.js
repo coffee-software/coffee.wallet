@@ -40,7 +40,7 @@ var Data = {
         wallet.api = handler;
         wallet.offlineWallets = new Array();
         //generate private key if not exist and if possible.
-        if (!wallet.privateKey && 'newPrivateKey' in handler) {
+        if (!wallet.privateKey && ('newPrivateKey' in handler)) {
             wallet.privateKey = handler.newPrivateKey();
             wallet.addr = handler.addrFromPrivateKey(wallet.privateKey);
             wallet.balance = 0;

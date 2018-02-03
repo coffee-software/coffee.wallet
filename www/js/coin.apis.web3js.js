@@ -1,121 +1,45 @@
 
-var testMode = true;
-
-var BtcTestHandler = {
-    name: "bitcoin-test",
-    code: "BTC.TEST",
-    longname: "Bitcoin TestNet",
-    description:
-      "via Bitcoin Wiki: The testnet is an alternative Bitcoin block chain, to be used for testing. " +
-      "Testnet coins are separate and distinct from actual bitcoins, and are never supposed to have any value. " +
-      "This allows application developers or bitcoin testers to experiment, without having to use real bitcoins or worrying about breaking the main bitcoin chain.",
-    links: {
-      "Bitcoin Wiki" : "https://en.bitcoin.it/wiki/Testnet",
-      "Request TestNet coins" : "https://testnet.manu.backend.hamburg/faucet"
-    },
-    newPrivateKey: function() {
-      return btcjs.newPrivKey(btcjs.networks.test);
-    },
-    addrFromPrivateKey: function(priv) {
-      return btcjs.addrFromPriv(btcjs.networks.test, priv);
-    },
-    getBalance: function(addr, callback) {
-      return btcjs.getBalance(btcjs.networks.test, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
-    },
-    sendPayment: function(priv, receiver, amount) {
-
-    },
-    getLocalAddr: function() {
-      return btcjs.addrFromPriv(btcjs.networks.test, getBtcPrivateKey());
-    }
-}
-
-var BtcHandler = {
-    name: "bitcoin",
-    code: "BTC",
-    longname: "Bitcoin",
-    getBalance: function(addr, callback) {
-      return btcjs.getBalance(btcjs.networks.test, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
-    },
-    getLocalAddr: function() {
-      return btcjs.addrFromPriv(btcjs.networks.test, getBtcPrivateKey());
-    }
-}
-
-function getBtcPrivateKey() {
-  var storage = window.localStorage;
-  var value = storage.getItem('btcTestnetPrivKey');
-  if (!value) {
-    value = btcjs.newPrivKey(btcjs.networks.test);
-    storage.setItem('btcTestnetPrivKey', value);
-  }
-  return value;
-}
-
-var LtcHandler = {
-    name: "litecoin",
-    code: "LTC",
-    longname: "Litecoin"
-}
-
-var XrpHandler = {
-    name: "ripple",
-    code: "XRP",
-    longname: "Ripple"
-}
-
-var LskHandler = {
-    name: "lisk",
-    code: "LSK",
-    longname: "Lisk"
-}
-
-var PartHandler = {
-    name: "particl",
-    code: "PART",
-    longname: "Particl"
-}
-
-var NeblHandler = {
-    name: "neblio",
-    code: "NEBL",
-    longname: "Neblio"
-}
-
-var BchHandler = {
-    name: "bitcoin-cash",
-    code: "BCH",
-    longname: "Bitcoin Cash"
-}
-
-web3 = new Web3(
-  new Web3.providers.HttpProvider(
-    testMode ? "https://ropsten.infura.io/O7OJXaza9lovtjycsQWS" : "https://mainnet.infura.io/O7OJXaza9lovtjycsQWS"
-  )
-);
-
 var EthTestHandler = {
     name: "ethereum-test",
     code: "ETH.TEST",
     longname: "Ethereum Testnet",
+    getProvider: function() {
+      if (typeof this.provider == 'undefined') {
+        return new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/O7OJXaza9lovtjycsQWS"));
+      }
+      return this.provider;
+    }
 };
 
 var EthHandler = {
     name: "ethereum",
     code: "ETH",
     longname: "Ethereum",
-    getBalance: function(addr, callback){
-      web3.eth.getBalance(addr).then(function(val){
+    description:
+      "via Wikipedia: Ethereum is an open-source, public, blockchain-based distributed computing platform and operating system featuring smart contract (scripting) functionality. " +
+      "Along with Bitcoin, Ethereum is considered to be one of the pioneer platforms in distributed ledger and blockchain technology.",
+    links: {
+      "ethereum.org" : "https://ethereum.org/",
+      "Wikpedia" : "https://en.wikipedia.org/wiki/Ethereum"
+    },
+    getProvider: function() {
+      if (typeof this.provider == 'undefined') {
+        return new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/O7OJXaza9lovtjycsQWS"));
+      }
+      return this.provider;
+    },
+    newPrivateKey: function() {
+      return this.getProvider().eth.accounts.create().privateKey
+    },
+    addrFromPrivateKey: function(priv) {
+      return this.getProvider().eth.accounts.privateKeyToAccount(priv).address;
+    },
+    getBalance: function(addr, callback) {
+      this.getProvider().eth.getBalance(addr).then(function(val){
         callback(val == 0 ? 0.0 : parseFloat(web3.utils.fromWei(val, 'ether')));
       });
     },
-
-    getLocalAddr: function(){
-      return web3.eth.accounts.privateKeyToAccount(getEtherPrivateKey()).address;
-    },
-
-    sendAmountTo: function(addr, amount){
-
+    sendPayment: function(priv, receiver, amount) {
       app.alertMessage('signing transaction...');
       var account = web3.eth.accounts.privateKeyToAccount(getEtherPrivateKey());
       account.signTransaction({
@@ -198,17 +122,3 @@ var PayHandler = {
       });
     }
 }
-
-
-var allCoinApis = {
-  'BTC.TEST': BtcTestHandler,
-  'BTC': BtcHandler,
-  'BCH': BchHandler,
-  'ETH': EthHandler,
-  'ETH.TEST': EthTestHandler,
-  'PAY': PayHandler,
-  'LTC': LtcHandler,
-  'LSK': LskHandler,
-  'NEBL': NeblHandler,
-  'PART': PartHandler
-};
