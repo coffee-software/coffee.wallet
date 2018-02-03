@@ -371,7 +371,8 @@ var app = {
       setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 2000);
     },
     sendPayment: function() {
-      this.sendWallet.handler.sendAmountTo(
+      this.sendWallet.handler.sendPayment(
+        this.sendWallet.data.privateKey,
         document.getElementById('sendCoinAddr').value,
         parseFloat(document.getElementById('sendCoinAmount').value)
       );
