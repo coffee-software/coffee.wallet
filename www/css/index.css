@@ -447,3 +447,10 @@ button img {
   width: 64px;
   margin: 5px;
 }
+
+.spacing {
+  padding: 20px;
+}
+.center {
+  text-align: center;
+}

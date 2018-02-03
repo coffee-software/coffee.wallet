@@ -206,6 +206,36 @@ var app = {
 
     popupCoinInfo: function(handler) {
       this.openPopup('coinInfoPopup', 'Coin ' + handler.code);
+      var links = '<ul>';
+      for (var name in handler.links) {
+        links += '<li><a href="#" onclick="window.open(\'' + handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
+      }
+      links += '</ul>';
+      var support = '<ul>';
+      var features = [
+        ['getBalance', 'get address balance', 'You can specify address instead of amount in your offline assets for this coin.'],
+        ['newPrivateKey', 'local wallet', 'You can have a local wallet for this coin and receive funds.'],
+        ['sendPayment', 'send payments', 'You can send payments from your local wallet for this coin'],
+      ];
+      for (var i=0; i<features.length;i++){
+          support += '<li>' + features[i][1] + ': ';
+          if (features[i][0] in handler) {
+            support += '<strong>YES</strong> ' + features[i][2];
+          } else {
+            support += '<strong>NO</strong>';
+          }
+          support += '</li>';
+      }
+      support += '</ul>';
+
+      document.getElementById('coinInfoDescription').innerHTML =
+        '<h2>' + handler.longname + '</h2>' +
+        '<div class="spacing center"><img class="coinIcon" src="coins/' + handler.name + '.png" alt="' + handler.code + '"/></div>' +
+        handler.description +
+        '<h2>links (external)</h2>' +
+        links +
+        '<h2>wallet1 support</h2>' +
+        support;
     },
 
     popupAddCoin: function() {

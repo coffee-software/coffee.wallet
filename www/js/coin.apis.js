@@ -4,7 +4,15 @@ var testMode = true;
 var BtcTestHandler = {
     name: "bitcoin-test",
     code: "BTC.TEST",
-    longname: "Bitcoin Testnet",
+    longname: "Bitcoin TestNet",
+    description:
+      "via Bitcoin Wiki: The testnet is an alternative Bitcoin block chain, to be used for testing. " +
+      "Testnet coins are separate and distinct from actual bitcoins, and are never supposed to have any value. " +
+      "This allows application developers or bitcoin testers to experiment, without having to use real bitcoins or worrying about breaking the main bitcoin chain.",
+    links: {
+      "Bitcoin Wiki" : "https://en.bitcoin.it/wiki/Testnet",
+      "Request TestNet coins" : "https://testnet.manu.backend.hamburg/faucet"
+    },
     newPrivateKey: function() {
       return btcjs.newPrivKey(btcjs.networks.test);
     },
@@ -13,6 +21,9 @@ var BtcTestHandler = {
     },
     getBalance: function(addr, callback) {
       return btcjs.getBalance(btcjs.networks.test, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+    },
+    sendPayment: function(priv, receiver, amount) {
+
     },
     getLocalAddr: function() {
       return btcjs.addrFromPriv(btcjs.networks.test, getBtcPrivateKey());
