@@ -136,10 +136,24 @@
             <div id="sendPaymentPopup">
               <div class="spacing">
                 Send
-                <br/>
-                <input id="sendCoinAmount" onchange="app.sendCoinUpdateValue()" onkeyup="app.sendCoinUpdateValue()"/> <span id="sendCoinName"></span>
-                <br/>
-                <input id="sendCoinValue" onchange="app.sendCoinUpdateAmount()" onkeyup="app.sendCoinUpdateAmount()"/> PLN
+                <table>
+                  <tr>
+                    <td>
+                      <input id="sendCoinAmount" onchange="app.sendCoinUpdateValue()" onkeyup="app.sendCoinUpdateValue()"/>
+                    </td>
+                    <td>
+                      <span id="sendCoinName"></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input id="sendCoinValue" onchange="app.sendCoinUpdateAmount()" onkeyup="app.sendCoinUpdateAmount()"/>
+                    </td>
+                    <td>
+                      <span id="sendFiatName"></span>
+                    </td>
+                  </tr>
+                </table>
               </div>
 
               <div class="spacing">

@@ -349,6 +349,7 @@ var app = {
         document.getElementById('sendCoinValue').value = '0';
         document.getElementById('sendCoinAmount').value = '0';
         document.getElementById('sendCoinName').innerHTML = wallet.handler.code;
+        document.getElementById('sendFiatName').innerHTML = app.priceProvider.getUnit();
         this.sendWallet = wallet;
     },
 
