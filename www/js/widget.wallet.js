@@ -84,7 +84,7 @@ function Wallet(data) {
 
   var buttonsDiv2 = document.createElement("div");
   buttonsDiv2.classList.add('buttons');
-  buttonsDiv2.appendChild(createButton('list', function(){}));
+  buttonsDiv2.appendChild(createButton('list', function(){app.popupOfflineAssets(that);}));
   buttonsDiv2.appendChild(createButton('refresh', function(){that.refreshOnline(); that.refreshOffline();}));
   offlineCell.appendChild(buttonsDiv2);
 

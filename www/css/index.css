@@ -379,6 +379,16 @@ button img {
   vertical-align: middle;
 }
 
+button.secondary {
+    font-size: 18px;
+    padding: 3px 6px;
+}
+
+button.secondary img {
+  width: 16px;
+  height: 16px;
+}
+
 #messages {
   background-color: #ff9;
   color: #005;

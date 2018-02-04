@@ -343,6 +343,18 @@ var app = {
       );
     },
 
+    popupOfflineAssets: function(wallet) {
+      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' offline assets');
+      this.offlineAssetWallet = wallet;
+    },
+    popupAddOfflineAsset: function(type) {
+      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset');
+
+    },
+    addOfflineAsset: function() {
+      this.popupOfflineAssets(this.offlineAssetWallet);
+    },
+
     popupSendPayment: function(wallet) {
         this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
         document.getElementById('sendCoinAddr').value = '';

@@ -131,7 +131,44 @@
               <div id="coinInfoDescription"></div>
             </div>
             <div id="offlineAssetsPopup">
-              asdf
+              <table>
+                <thead>
+                  <tr>
+                    <th>address</th>
+                    <th>balance</th>
+                    <th>comment</th>
+                  </tr>
+                </thead>
+                <tbody id="offlineAssets">
+
+                </tbody>
+              </table>
+              <button class="secondary" onclick="app.popupAddOfflineAsset('balance')">
+                <img src="icons/plus.png"/>
+                add balance
+              </button>
+              <button class="secondary" onclick="app.popupAddOfflineAsset('addr')">
+                <img src="icons/plus.png"/>
+                add address
+              </button>
+            </div>
+            <div id="addOfflineAssetPopup">
+              address:
+              <br/>
+              <input id="addOfflineAssetAddr" value=""/>
+              <br/>
+              balance:
+              <br/>
+              <input id="addOfflineAssetBalance" value=""/>
+              <br/>
+              comment:
+              <br/>
+              <input id="addOfflineAssetComment" value=""/>
+              <br/>
+              <button onclick="app.addOfflineAsset()">
+                <img src="icons/plus.png"/>
+                add
+              </button>
             </div>
             <div id="sendPaymentPopup">
               <div class="spacing">
