@@ -136,7 +136,7 @@
             <div id="sendPaymentPopup">
               <div class="spacing">
                 Send
-                <table>
+                <table style="width:100%">
                   <tr>
                     <td>
                       <input id="sendCoinAmount" onchange="app.sendCoinUpdateValue()" onkeyup="app.sendCoinUpdateValue()"/>
@@ -162,6 +162,12 @@
                 <input id="sendCoinAddr"/>
                 <br/>
                 <a href="javascript:app.scanQrCode()" >SCAN QR CODE</a>
+              </div>
+
+              <div class="spacing">
+                fee:
+                <br/>
+                <input type="range"/>
               </div>
               <div class="spacing">
                 <button onclick="app.sendPayment()">
