@@ -188,6 +188,10 @@ body {
   opacity: 0.2;
 }
 
+.hidden {
+  display: none;
+}
+
 h1 {
   line-height: 64px;
 }
@@ -353,7 +357,7 @@ h1 {
   text-align: center;
 }
 
-#sendPaymentPopup input {
+input {
     padding: 5px 10px;
     font-size: 20px;
     width: 90%;

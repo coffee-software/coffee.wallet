@@ -26,7 +26,11 @@ var Data = {
       }
     }.bind(this));
   },
-
+  addOfflineAsset: function(coin, data) {
+    this.wallets[coin].offlineWallets.push(data);
+    Db.query('INSERT INTO offline_assets (coin, addr, balance, comment) VALUES (?, ?, ?, ?)', [coin, data.addr, data.balance, data.comment], function(){
+    });
+  },
   hideWallet: function(code, callback) {
     delete this.wallets[code];
     Db.query(

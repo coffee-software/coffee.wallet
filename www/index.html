@@ -153,22 +153,27 @@
               </button>
             </div>
             <div id="addOfflineAssetPopup">
-              address:
-              <br/>
-              <input id="addOfflineAssetAddr" value=""/>
-              <br/>
-              balance:
-              <br/>
-              <input id="addOfflineAssetBalance" value=""/>
-              <br/>
-              comment:
-              <br/>
-              <input id="addOfflineAssetComment" value=""/>
-              <br/>
-              <button onclick="app.addOfflineAsset()">
-                <img src="icons/plus.png"/>
-                add
-              </button>
+              <div id="addOfflineAssetAddrDiv" class="spacing">
+                address:
+                <br/>
+                <input id="addOfflineAssetAddr" value=""/>
+              </div>
+              <div id="addOfflineAssetBalanceDiv" class="spacing">
+                balance:
+                <br/>
+                <input id="addOfflineAssetBalance" value=""/>
+              </div>
+              <div class="spacing">
+                comment:
+                <br/>
+                <input id="addOfflineAssetComment" value=""/>
+              </div>
+              <div class="spacing">
+                <button onclick="app.addOfflineAsset()">
+                  <img src="icons/plus.png"/>
+                  add
+                </button>
+              </div>
             </div>
             <div id="sendPaymentPopup">
               <div class="spacing">

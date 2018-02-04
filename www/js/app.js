@@ -344,14 +344,34 @@ var app = {
     },
 
     popupOfflineAssets: function(wallet) {
+
+      var rows = '';
+      for (var i=0; i<wallet.offlineWallets.length; i++) {
+        rows +='<tr><td>' +
+          wallet.offlineWallets[i].addr + '</td><td>' +
+          wallet.offlineWallets[i].balance + '</td><td>' +
+          wallet.offlineWallets[i].comment + '</td></tr>';
+      }
+      document.getElementById('offlineAssets').innerHTML = rows;
+      
       this.openPopup('offlineAssetsPopup', wallet.handler.code + ' offline assets');
       this.offlineAssetWallet = wallet;
     },
     popupAddOfflineAsset: function(type) {
+      document.getElementById('addOfflineAssetAddr').value = '';
+      document.getElementById('addOfflineAssetBalance').value = '';
+      document.getElementById('addOfflineAssetComment').value = '';
+      document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', type == 'balance');
+      document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'addr');
       this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset');
-
     },
     addOfflineAsset: function() {
+      var data = {
+        addr: document.getElementById('addOfflineAssetAddr').value,
+        balance: parseFloat(document.getElementById('addOfflineAssetBalance').value),
+        comment: document.getElementById('addOfflineAssetComment').value
+      }
+      this.data.addOfflineAsset(this.offlineAssetWallet.handler.code, data);
       this.popupOfflineAssets(this.offlineAssetWallet);
     },
 

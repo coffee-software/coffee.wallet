@@ -110,7 +110,7 @@ function Wallet(data) {
   this.refreshOffline = function() {
       this.totalOffline = 0;
       for (var idx in this.offlineWallets) {
-        if ('addr' in  this.offlineWallets[idx]) {
+        if ('addr' in  this.offlineWallets[idx] && this.offlineWallets[idx].addr) {
           this.handler.getBalance(this.offlineWallets[idx].addr, function(val){
             //console.log(val);
             that.totalOffline += val;
@@ -118,7 +118,7 @@ function Wallet(data) {
             that.updateOfflineValue();
           });
         } else {
-          that.totalOffline += this.offlineWallets[idx].amount;
+          that.totalOffline += this.offlineWallets[idx].balance;
         }
       }
       this.offlineAmount.innerHTML = formatMoney(this.totalOffline, this.handler.code, 5);
