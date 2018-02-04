@@ -331,7 +331,7 @@ var app = {
             // result.format + result.cancelled;
          },
          function (error) {
-             app.alertMessage("Scanning failed: " + error, 'error');
+             app.alertError("QR scan failed: " + error);
          },
          {
              preferFrontCamera : true, // iOS and Android
@@ -361,11 +361,20 @@ var app = {
       document.getElementById('sendCoinAmount').value =
         document.getElementById('sendCoinValue').value / this.priceProvider.getPrice(this.sendWallet.handler.code);
     },
-    alertMessage: function(html, cssClass) {
+    alertError: function(html, coin) {
+      this._alertMessage(html, coin, 'error');
+    },
+    alertInfo: function(html, coin) {
+      this._alertMessage(html, coin, 'info');
+    },
+    alertSuccess: function(html, coin) {
+      this._alertMessage(html, coin, 'success');
+    },
+    _alertMessage: function(html, coin, type) {
+      Logger.log(type, coin, html);
+
       var msgDiv = document.createElement('div');
-      if (cssClass) {
-        msgDiv.classList.add(cssClass);
-      }
+      msgDiv.classList.add(type);
       msgDiv.innerHTML = html;
       document.getElementById('messages').appendChild(msgDiv);
       setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 2000);

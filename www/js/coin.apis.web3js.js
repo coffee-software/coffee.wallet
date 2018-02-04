@@ -20,27 +20,31 @@ var EthFunctions = {
   },
   getBalance: function(addr, callback) {
     console.log(this);
+    var that = this;
     this._getProvider().eth.getBalance(addr).then(function(val){
-      callback(val == 0 ? 0.0 : parseFloat(web3.utils.fromWei(val, 'ether')));
+      console.log(val);
+      callback(val == 0 ? 0.0 : parseFloat(that._getProvider().utils.fromWei(val, 'ether')));
     });
   },
   _getTransaction: function(account, receiver, amount) {
     return {
       to: receiver,
-      value: web3.utils.toWei(parseFloat(amount).toString()),
-      gas: 100000 //TODO!
+      value: this._getProvider().utils.toWei(parseFloat(amount).toString()),
+      gasPrice: '10000000000',
+      gas: 21000 //TODO!
     };
   },
   sendPayment: function(priv, receiver, amount) {
-    app.alertMessage('signing transaction...');
-    var account = web3.eth.accounts.privateKeyToAccount(priv)
+    var that = this;
+    app.alertInfo('signing transaction...', that.code);
+    var account = this._getProvider().eth.accounts.privateKeyToAccount(priv)
     account.signTransaction(this._getTransaction(account, receiver, amount)).then(function(signedData){
-      app.alertMessage('sending to network...');
-      web3.eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
+      app.alertInfo('sending transaction to network...', that.code);
+      that._getProvider().eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
         if (err !== null) {
-          app.alertMessage(err, 'error');
+          app.alertError(err, that.code);
         } else {
-          app.alertMessage('SENT TXN: ' + response, 'success');
+          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
         }
       });
     });
@@ -52,7 +56,7 @@ var EthTestHandler = {
     code: "ETH.TEST",
     longname: "Ethereum Testnet",
     description:
-    "Robsten is an ethereum testing network.",    
+    "Robsten is an ethereum testing network.",
     links: {
       "Request Test Eth" : "http://faucet.ropsten.be:3001/"
     },
@@ -98,8 +102,9 @@ var PayHandler = {
     getBalance: function(addr, callback){
       var c = this._getProvider().eth.Contract;
       var contract = new c(this.ethAbi, this.ethContractAddr);
+      var that = this;
       contract.methods.balanceOf(addr).call().then(function(val){
-        callback(val == 0 ? 0.0 : parseFloat(web3.utils.fromWei(val, 'ether')));
+        callback(val == 0 ? 0.0 : parseFloat(that._getProvider().utils.fromWei(val, 'ether')));
       });
     },
 
@@ -110,7 +115,7 @@ var PayHandler = {
           value: '0x0',
           from: account.address,
           to: contract._address,
-          data: contract.methods.transfer(receiver, web3.utils.toWei(parseFloat(amount).toString())).encodeABI(),
+          data: contract.methods.transfer(receiver, this._getProvider().utils.toWei(parseFloat(amount).toString())).encodeABI(),
           gas: 100000
       };
     },

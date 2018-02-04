@@ -14,7 +14,6 @@ var Data = {
 
         this._validateWallet(this.wallets[rows[i].coin], function() {
             counter --;
-            console.log(counter);
             if (counter == 0) {
               Db.query('SELECT * FROM offline_assets', [], function(rows) {
                 for (let i=0; i<rows.length; i++) {
@@ -37,7 +36,7 @@ var Data = {
     );
   },
   _validateWallet: function(wallet, callback) {
-    console.log(wallet.privateKey, !wallet.privateKey);
+    //console.log(wallet.privateKey, !wallet.privateKey);
     var that = this;
     var update = false;
 
@@ -82,7 +81,6 @@ var Data = {
       Db.query('INSERT OR IGNORE INTO wallets (coin) VALUES (?)', [handler.code], function(){
         Db.query('SELECT * FROM wallets WHERE coin = ?', [handler.code], function(rows) {
           var wallet = rows[0];
-          console.log(wallet);
           wallet.api = handler;
           wallet.offlineWallets = new Array();
           //generate private key if not exist and if possible.
@@ -111,7 +109,7 @@ var Db = {
           this.db.transaction(function (tx) {
             //tx.executeSql('DROP TABLE IF EXISTS logs');
             tx.executeSql('CREATE TABLE IF NOT EXISTS '+
-              'logs (ts DATETIME PRIMARY KEY DESC, severity TEXT, coin TEXT, addr TEXT, tx TEXT, message TEXT)');
+              'logs (ts DATETIME KEY DESC, severity TEXT, coin TEXT, addr TEXT, tx TEXT, message TEXT)');
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS '+
               'settings (key TEXT PRIMARY KEY, value TEXT)');
