@@ -45,11 +45,17 @@ function Wallet(data) {
 
   unitCell.innerHTML = '<img class="coinIcon" src="coins/' + this.handler.name + '.png" alt="' + this.handler.code + '"/>';
 
+  unitCell.children[0].onclick = function() {
+    if (activeWallet == that) {
+      app.popupCoinInfo(that.handler);
+    }
+  };
+  /*
   var buttonDiv = document.createElement("div");
   buttonDiv.classList.add('buttons');
   buttonDiv.appendChild(createButton('info', app.popupCoinInfo.bind(app, that.handler)));
   unitCell.appendChild(buttonDiv);
-
+  */
 
 
 
