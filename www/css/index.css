@@ -258,6 +258,7 @@ h1 {
 
 .coinIcon {
   width: 64px;
+  vertical-align: middle;
 }
 
 @media all and (max-width: 799px) {
@@ -365,8 +366,10 @@ input:not(:placeholder-shown) {
   border: 1px solid #229;
 }
 
-.walletsActions {
+#wallets td.walletsActions {
+    padding-top: 15px;
     text-align:center;
+    color: #777;
 }
 
 button {
