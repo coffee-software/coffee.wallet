@@ -13,6 +13,12 @@ var allCoinApis = {
   'XRP': XrpHandler
 };
 
+for (var i=0; i<otherCoins.length;i++) {
+  if (!(otherCoins[i].code in allCoinApis)) {
+    allCoinApis[otherCoins[i].code] = otherCoins[i];
+  }
+}
+
 var app = {
     // Application Constructor
     settings: Settings,
@@ -244,7 +250,7 @@ var app = {
 
       document.getElementById('coinInfoDescription').innerHTML =
         '<h2>' + handler.longname + '</h2>' +
-        '<div class="spacing center"><img class="coinIcon" src="coins/' + handler.name + '.png" alt="' + handler.code + '"/></div>' +
+        '<div class="spacing center"><img src="coins/' + handler.name + '.png" alt="' + handler.code + '"/></div>' +
         handler.description +
         '<h2>links (external)</h2>' +
         links +
@@ -254,19 +260,40 @@ var app = {
 
     popupAddCoin: function() {
       this.openPopup('addCoinPopup', 'Manage Coins');
+      var that = this;
+      if (typeof that.popupGenerated == 'undefined') {
+        that.popupGenerated = true;
+        var filter = function() {
+          var search = document.getElementById('addCoinFilter').value.toUpperCase();
+          var onlySupported = document.getElementById('addCoinOnlySupported').checked;
+          for (var i = 0; i < document.getElementById('allCoins').children.length; i++) {
+            var cbutton = document.getElementById('allCoins').children[i];
 
-      if (typeof this.popupGenerated == 'undefined') {
-        this.popupGenerated = true;
-        for (let key in allCoinApis) {
+            var show = cbutton.dataset.search.search(search) != -1;
+            if (onlySupported) show = show && (cbutton.dataset.supported == 'true');
+            cbutton.classList.toggle(
+              'hidden',
+              !show
+            );
+          }
+        };
+        document.getElementById('addCoinFilter').onkeyup = filter;
+        document.getElementById('addCoinFilter').onchange = filter;
+        document.getElementById('addCoinOnlySupported').onchange = filter;
 
+
+        Object.keys(allCoinApis).sort().forEach(function(key){
           var button = document.createElement("a");
+          button.dataset.search = (allCoinApis[key].name + ' '+ allCoinApis[key].code + ' ' + allCoinApis[key].longname).toUpperCase();
+          button.dataset.supported = 'sendPayment' in allCoinApis[key];
+
           var img = document.createElement("img");
           img.setAttribute('src', 'coins/' + allCoinApis[key].name + '.png');
           button.appendChild(img);
           var span = document.createElement("span");
           span.innerHTML = allCoinApis[key].code;
           button.appendChild(span);
-          if (key in this.data.wallets) {
+          if (key in that.data.wallets) {
             button.classList.add('active');
           }
           button.onclick = function(){
@@ -300,7 +327,7 @@ var app = {
           };
           button.classList.add('coinButton');
           document.getElementById("allCoins").appendChild(button);
-        }
+        });
       }
     },
 
@@ -353,7 +380,7 @@ var app = {
           wallet.offlineWallets[i].comment + '</td></tr>';
       }
       document.getElementById('offlineAssets').innerHTML = rows;
-      
+
       this.openPopup('offlineAssetsPopup', wallet.handler.code + ' offline assets');
       this.offlineAssetWallet = wallet;
     },

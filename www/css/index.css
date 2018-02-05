@@ -188,10 +188,6 @@ body {
   opacity: 0.2;
 }
 
-.hidden {
-  display: none;
-}
-
 h1 {
   line-height: 64px;
 }
@@ -358,9 +354,15 @@ h1 {
 }
 
 input {
-    padding: 5px 10px;
-    font-size: 20px;
-    width: 90%;
+    padding: 7px 12px;
+    font-size: 22px;
+    width: 100%;
+    border: 1px solid #aac;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+input:not(:placeholder-shown) {
+  border: 1px solid #229;
 }
 
 .walletsActions {
@@ -451,7 +453,7 @@ button.secondary img {
 .coinButton {
   width: 74px;
   height: 96px;
-  border: 1px solid grey;
+  border: 1px solid #ddd;
   display: inline-block;
   text-align: center;
   margin: 3px;
@@ -502,4 +504,48 @@ input[type=range]::-webkit-slider-runnable-track {
   background: #3071a9;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
+}
+
+label.checkbox {
+    height: 34px;
+    padding: 4px;
+    display: block;
+}
+
+.checkbox input {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+  appearance: none;
+	display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+	background-color: #fafafa;
+  border: 1px solid #aac;
+	padding: 9px;
+  margin: 0;
+	border-radius: 4px;
+	position: relative;
+	line-height: 32px;
+	text-align: center;
+}
+
+.checkbox input:checked {
+	background-color: #e9ecee;
+  border: 1px solid #229;
+}
+
+.checkbox input:checked:after {
+	content: '\2714';
+	font-size: 20px;
+	position: absolute;
+	top: 0px;
+	left: 8px;
+	color: #229;
+
+}
+
+
+.hidden {
+  display: none;
 }

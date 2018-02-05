@@ -34,7 +34,7 @@ function Wallet(data) {
   that.data = data;
   that.handler = data.api;
   this.row.onclick = function() {
-    if (activeWallet) {
+    if (activeWallet && activeWallet.row) {
       activeWallet.row.classList.remove('active');
     }
     that.row.classList.add('active');
