@@ -199,7 +199,7 @@ var app = {
       document.getElementById("foot").classList.remove('blur');
     },
 
-    openPopup: function(id, title) {
+    openPopup: function(id, title, icon) {
       this.closeMenu();
       document.getElementById("container").classList.add('blur');
       document.getElementById("nav").classList.add('blur');
@@ -215,6 +215,7 @@ var app = {
       }
       document.getElementById(id).style.display = 'block';
       document.getElementById('popupTitle').innerHTML = title;
+      document.getElementById('popupIcon').setAttribute('src', 'icons/' + icon + '.png');
     },
 
     closePopup: function() {
@@ -225,7 +226,7 @@ var app = {
     },
 
     popupCoinInfo: function(handler) {
-      this.openPopup('coinInfoPopup', 'Coin ' + handler.code);
+      this.openPopup('coinInfoPopup', 'Coin ' + handler.code, 'help');
       var links = '<ul>';
       for (var name in handler.links) {
         links += '<li><a href="#" onclick="window.open(\'' + handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
@@ -259,7 +260,7 @@ var app = {
     },
 
     popupAddCoin: function() {
-      this.openPopup('addCoinPopup', 'Manage Coins');
+      this.openPopup('addCoinPopup', 'Manage Coins', 'add');
       var that = this;
       if (typeof that.popupGenerated == 'undefined') {
         that.popupGenerated = true;
@@ -332,11 +333,11 @@ var app = {
     },
 
     popupHelp: function() {
-        this.openPopup('helpPopup', 'Help');
+        this.openPopup('helpPopup', 'Help', 'help');
     },
 
     popupPriceSettings: function() {
-        this.openPopup('priceSettingsPopup', 'Price Settings');
+        this.openPopup('priceSettingsPopup', 'Price Settings', 'money');
 
         this.priceProviderSelect.setValue(this.settings.get('priceProvider', 0));
         this.priceUnitSelect.setValue(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
@@ -349,14 +350,43 @@ var app = {
 
         this.settings.set('priceUnit', this.priceUnitSelect.getValue());
         this.priceProvider.setUnit(this.settings.get('priceUnit'));
+    },
+    _parseTransactionText: function(text) {
+      //check if text is a plain address or transaction info:
+      //https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki#Simpler syntax
+      var a = text.split('?', 2);
+      var argsStr = (a.length > 1) ? a[1] : '';
+      var addr = a[0];
 
+      var b = addr.split(':', 2);
+      if (b.length >1) addr = b[1];
+
+      //TODO check if coin matches?
+      //TODO validate addr format
+
+      var args = {};
+      argsStr.split('&').forEach(function(e){
+        var kp = e.split('=', 2);
+        if (kp.length>1) args[kp[0]] = kp[1];
+      });
+
+      document.getElementById('sendCoinAddr').value = addr;
+
+      if ('amount' in args && args.amount){
+        document.getElementById('sendCoinAmount').value = parseFloat(args.amount);
+        app.sendCoinUpdateValue();
+      }
+    },
+    pasteClipboard: function() {
+      cordova.plugins.clipboard.paste(this._parseTransactionText.bind(this));
     },
     scanQrCode: function() {
       window.cordova.plugins.barcodeScanner.scan(
-         function (result) {
-            document.getElementById('sendCoinAddr').value = result.text;
-            // result.format + result.cancelled;
-         },
+           function (result) {
+             if (!result.canceled) {
+               app._parseTransactionText(result.text);
+             }
+          },
          function (error) {
              app.alertError("QR scan failed: " + error);
          },
@@ -365,7 +395,7 @@ var app = {
              showFlipCameraButton : true, // iOS and Android
              showTorchButton : true, // iOS and Android
              torchOn: true, // Android, launch with the torch switched on (if available)
-             prompt : "Place addr barcode inside the scan area", // Android
+             prompt : "Place addres or transaction barcode inside the scan area", // Android
          }
       );
     },
@@ -381,7 +411,7 @@ var app = {
       }
       document.getElementById('offlineAssets').innerHTML = rows;
 
-      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' offline assets');
+      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' offline assets', 'list');
       this.offlineAssetWallet = wallet;
     },
     popupAddOfflineAsset: function(type) {
@@ -390,7 +420,7 @@ var app = {
       document.getElementById('addOfflineAssetComment').value = '';
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', type == 'balance');
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'addr');
-      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset');
+      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'add');
     },
     addOfflineAsset: function() {
       var data = {
@@ -403,10 +433,13 @@ var app = {
     },
 
     popupSendPayment: function(wallet) {
-        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
+        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code, 'send');
+
+        //+ ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>'
+
         document.getElementById('sendCoinAddr').value = '';
-        document.getElementById('sendCoinValue').value = '0';
-        document.getElementById('sendCoinAmount').value = '0';
+        document.getElementById('sendCoinValue').value = '';
+        document.getElementById('sendCoinAmount').value = '';
         document.getElementById('sendCoinName').innerHTML = wallet.handler.code;
         document.getElementById('sendFiatName').innerHTML = app.priceProvider.getUnit();
         this.sendWallet = wallet;
@@ -451,8 +484,8 @@ var app = {
         window.cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);
     },
     popupReceivePayment: function(wallet) {
-        this.openPopup('receivePaymentPopup', 'receive ' + wallet.handler.code + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>');
-
+        this.openPopup('receivePaymentPopup', 'receive ' + wallet.handler.code, 'receive');
+        // + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>'
         document.getElementById('receiveCoinName').innerHTML = '';
         document.getElementById('receiveCoinAddr').value = '';
         document.getElementById('receiveCoinQrcode').innerHTML = '';

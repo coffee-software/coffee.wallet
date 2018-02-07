@@ -19,31 +19,31 @@
               <li>
                 <a href="javascript:app.popupAddCoin()">
                   <img src="icons/plus.png"/>
-                  manage coins
+                  add/remove coins...
                 </a>
               </li>
               <li>
                 <a href="javascript:app.popupPriceSettings()">
                   <img src="icons/money.png"/>
-                  fiat settings
+                  price settings...
                 </a>
               </li>
               <li>
                 <a href="javascript:app.popupSettings()">
                   <img src="icons/settings.png"/>
-                  blockchain settings
+                  coin settings...
                 </a>
               </li>
               <li>
                 <a href="javascript:app.popupHelp()">
                   <img src="icons/help.png"/>
-                  help
+                  help...
                 </a>
               </li>
               <li>
                 <a id="feedback" href="javascript:app.popupFeedback()">
                   <img src="icons/heart.png"/>
-                  feedback
+                  feedback...
                 </a>
               </li>
             </ul>
@@ -119,10 +119,9 @@
 
         <div id="popup">
           <h1>
-            <a href="javascript:app.closePopup()" class="button close"><img src="icons/close.png"/></a>
-            <span id="popupTitle">
-
-            </span>
+            <img id="popupIcon" src="icons/close.png"/>
+            <span id="popupTitle"></span>
+            <a href="javascript:app.closePopup()" class="close"><img src="icons/close.png"/></a>
           </h1>
           <div id="popupContent">
             <div id="coinInfoPopup">
@@ -175,41 +174,50 @@
             </div>
             <div id="sendPaymentPopup">
               <div class="spacing">
-                Send
-                <table style="width:100%">
-                  <tr>
-                    <td>
-                      <input id="sendCoinAmount" onchange="app.sendCoinUpdateValue()" onkeyup="app.sendCoinUpdateValue()"/>
-                    </td>
-                    <td>
-                      <span id="sendCoinName"></span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input id="sendCoinValue" onchange="app.sendCoinUpdateAmount()" onkeyup="app.sendCoinUpdateAmount()"/>
-                    </td>
-                    <td>
-                      <span id="sendFiatName"></span>
-                    </td>
-                  </tr>
-                </table>
+                <button class="left secondary" onclick="app.pasteClipboard()">
+                  <img src="icons/bpaste.png"/>
+                  paste
+                </button>
+                <button class="right secondary" onclick="app.scanQrCode()">
+                  <img src="icons/bqrcode.png"/>
+                  scan
+                </button>
+              </div>
+              <div class="spacing">
+                <div class="field">
+                  <label for="sendCoinAmount">amount:</label>
+                  <input id="sendCoinAmount" class="has-unit top" onchange="app.sendCoinUpdateValue()" onkeyup="app.sendCoinUpdateValue()" placeholder="0.0"/>
+                  <span class="input-unit" id="sendCoinName"></span>
+                </div>
+                <div class="field">
+                  <input id="sendCoinValue" class="has-unit bottom" onchange="app.sendCoinUpdateAmount()" onkeyup="app.sendCoinUpdateAmount()" placeholder="0.0"/>
+                  <span class="input-unit" id="sendFiatName"></span>
+                </div>
               </div>
 
               <div class="spacing">
-                To address:
-                <br/>
-                <input id="sendCoinAddr"/>
-                <br/>
-                <a href="javascript:app.scanQrCode()" >SCAN QR CODE</a>
+                <div class="field">
+                  <label for="sendCoinAddr">reciver:</label>
+                  <input id="sendCoinAddr" placeholder="address"/>
+                </div>
               </div>
 
               <div class="spacing">
-                fee:
-                <br/>
-                <input type="range"/>
+                <div class="field">
+                  <label for="sendCoinFee">
+                    est. fee: 0.01 PLN
+                  </label>
+                  <label for="sendCoinFee">
+                    est. confirm: 23 min
+                  </label>
+                  <div class="range-input">
+                    <span class="legend">cheaper</span>
+                    <input id="sendCoinFee" type="range"/>
+                    <span class="legend">faster</span>
+                  </div>
+                </div>
               </div>
-              <div class="spacing">
+              <div class="spacing center">
                 <button onclick="app.sendPayment()">
                   <img src="icons/up.png"/>
                   Send

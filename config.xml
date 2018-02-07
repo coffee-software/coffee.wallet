@@ -27,9 +27,9 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
         <string>to scan barcodes of addresses when sending payments</string>
     </edit-config>
-    <plugin name="com.danielsogl.cordova.clipboard" spec="https://github.com/danielsogl/cordova-plugin-clipboard.git" />
     <plugin name="phonegap-plugin-barcodescanner" spec="https://github.com/phonegap/phonegap-plugin-barcodescanner.git" />
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
+    <plugin name="cordova-plugin-clipboard2" spec="^0.1.0" />
     <engine name="browser" spec="^5.0.3" />
 </widget>

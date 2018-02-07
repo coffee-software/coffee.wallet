@@ -1,0 +1,69 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'view',
+1 verbose cli   'com.danielsogl.cordova.clipboard',
+1 verbose cli   '--json' ]
+2 info using npm@3.5.2
+3 info using node@v6.11.4
+4 silly mapToRegistry name com.danielsogl.cordova.clipboard
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry uri https://registry.npmjs.org/com.danielsogl.cordova.clipboard
+8 verbose request uri https://registry.npmjs.org/com.danielsogl.cordova.clipboard
+9 verbose request no auth needed
+10 info attempt registry request try #1 at 10:39:43 PM
+11 verbose request id 7f00fed0f399d94f
+12 http request GET https://registry.npmjs.org/com.danielsogl.cordova.clipboard
+13 http 404 https://registry.npmjs.org/com.danielsogl.cordova.clipboard
+14 verbose headers { 'content-type': 'application/json',
+14 verbose headers   'cache-control': 'max-age=0',
+14 verbose headers   'content-length': '2',
+14 verbose headers   'accept-ranges': 'bytes',
+14 verbose headers   date: 'Wed, 07 Feb 2018 21:39:46 GMT',
+14 verbose headers   via: '1.1 varnish',
+14 verbose headers   connection: 'keep-alive',
+14 verbose headers   'x-served-by': 'cache-ams4135-AMS',
+14 verbose headers   'x-cache': 'MISS',
+14 verbose headers   'x-cache-hits': '0',
+14 verbose headers   'x-timer': 'S1518039584.469394,VS0,VE1660',
+14 verbose headers   vary: 'Accept-Encoding' }
+15 silly get cb [ 404,
+15 silly get   { 'content-type': 'application/json',
+15 silly get     'cache-control': 'max-age=0',
+15 silly get     'content-length': '2',
+15 silly get     'accept-ranges': 'bytes',
+15 silly get     date: 'Wed, 07 Feb 2018 21:39:46 GMT',
+15 silly get     via: '1.1 varnish',
+15 silly get     connection: 'keep-alive',
+15 silly get     'x-served-by': 'cache-ams4135-AMS',
+15 silly get     'x-cache': 'MISS',
+15 silly get     'x-cache-hits': '0',
+15 silly get     'x-timer': 'S1518039584.469394,VS0,VE1660',
+15 silly get     vary: 'Accept-Encoding' } ]
+16 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/com.danielsogl.cordova.clipboard
+16 verbose stack     at makeError (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+16 verbose stack     at CachingRegistryClient.<anonymous> (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+16 verbose stack     at Request._callback (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+16 verbose stack     at Request.self.callback (/usr/share/npm/node_modules/request/request.js:198:22)
+16 verbose stack     at emitTwo (events.js:106:13)
+16 verbose stack     at Request.emit (events.js:191:7)
+16 verbose stack     at Request.<anonymous> (/usr/share/npm/node_modules/request/request.js:1082:10)
+16 verbose stack     at emitOne (events.js:101:20)
+16 verbose stack     at Request.emit (events.js:188:7)
+16 verbose stack     at IncomingMessage.<anonymous> (/usr/share/npm/node_modules/request/request.js:1009:12)
+17 verbose statusCode 404
+18 verbose pkgid com.danielsogl.cordova.clipboard
+19 verbose cwd /home/fsw/workspace/wallet.one
+20 error Linux 4.13.0-32-generic
+21 error argv "/usr/bin/node" "/usr/bin/npm" "view" "com.danielsogl.cordova.clipboard" "--json"
+22 error node v6.11.4
+23 error npm  v3.5.2
+24 error code E404
+25 error 404 Registry returned 404 for GET on https://registry.npmjs.org/com.danielsogl.cordova.clipboard
+26 error 404
+27 error 404 'com.danielsogl.cordova.clipboard' is not in the npm registry.
+28 error 404 You should bug the author to publish it (or use the name yourself!)
+29 error 404 Note that you can also install from a
+30 error 404 tarball, folder, http url, or git url.
+31 verbose exit [ 1, true ]

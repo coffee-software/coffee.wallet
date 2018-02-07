@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-clipboard2",
+      "/home/fsw/workspace/wallet.one"
+    ]
+  ],
+  "_from": "cordova-plugin-clipboard2@latest",
+  "_id": "cordova-plugin-clipboard2@0.1.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-plugin-clipboard2",
+  "_nodeVersion": "6.10.0",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-clipboard2-0.1.0.tgz_1494283176134_0.9987990199588239"
+  },
+  "_npmUser": {
+    "email": "daniel.ehrhardt@bussmann-it.de",
+    "name": "danielehrhardt"
+  },
+  "_npmVersion": "4.5.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "cordova-plugin-clipboard2",
+    "raw": "cordova-plugin-clipboard2",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-clipboard2/-/cordova-plugin-clipboard2-0.1.0.tgz",
+  "_shasum": "6470f3a74ac2ea6cbc3fbbcde2b757184e01c0d4",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-clipboard2",
+  "_where": "/home/fsw/workspace/wallet.one",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/danielehrhardt/cordova-plugin-clipboard2/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-clipboard2",
+    "platforms": [
+      "android",
+      "ios",
+      "wp8"
+    ]
+  },
+  "dependencies": {},
+  "description": "Clipboard management plugin for Cordova/PhoneGap",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "6470f3a74ac2ea6cbc3fbbcde2b757184e01c0d4",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-clipboard2/-/cordova-plugin-clipboard2-0.1.0.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "gitHead": "c764c5699dd901420f062492c4022ae0278f5934",
+  "homepage": "https://github.com/danielehrhardt/cordova-plugin-clipboard2#readme",
+  "keywords": [
+    "clipboard",
+    "copy",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-wp8",
+    "ecosystem:cordova",
+    "paste"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "danielehrhardt",
+      "email": "daniel.ehrhardt@bussmann-it.de"
+    }
+  ],
+  "name": "cordova-plugin-clipboard2",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielehrhardt/cordova-plugin-clipboard2.git"
+  },
+  "scripts": {},
+  "version": "0.1.0"
+}
