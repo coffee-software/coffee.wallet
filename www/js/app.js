@@ -199,13 +199,17 @@ var app = {
       document.getElementById("foot").classList.remove('blur');
     },
 
-    openPopup: function(id, title, icon) {
+    openPopup: function(id, title, icon, bgimg) {
+
       this.closeMenu();
+
       document.getElementById("container").classList.add('blur');
       document.getElementById("nav").classList.add('blur');
       document.getElementById("foot").classList.add('blur');
 
       document.getElementById("popup").classList.add('show');
+
+      document.getElementById("popupContent").style.backgroundImage = bgimg ? "url('" + bgimg + "')" : null;
 
       var children = document.getElementById('popupContent').childNodes;
       for (var c=0; c < children.length; c++) {
@@ -226,7 +230,7 @@ var app = {
     },
 
     popupCoinInfo: function(handler) {
-      this.openPopup('coinInfoPopup', 'Coin ' + handler.code, 'help');
+      this.openPopup('coinInfoPopup', 'Coin ' + handler.code, 'help', 'coins/' + handler.name + '.png');
       var links = '<ul>';
       for (var name in handler.links) {
         links += '<li><a href="#" onclick="window.open(\'' + handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
@@ -251,7 +255,6 @@ var app = {
 
       document.getElementById('coinInfoDescription').innerHTML =
         '<h2>' + handler.longname + '</h2>' +
-        '<div class="spacing center"><img src="coins/' + handler.name + '.png" alt="' + handler.code + '"/></div>' +
         handler.description +
         '<h2>links (external)</h2>' +
         links +
@@ -432,10 +435,14 @@ var app = {
       this.popupOfflineAssets(this.offlineAssetWallet);
     },
 
+
     popupSendPayment: function(wallet) {
-        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code, 'send');
+        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code, 'send', 'coins/' + wallet.handler.name + '.png');
 
         //+ ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>'
+        var fees = wallet.handler.getFees();
+        document.getElementById('sendCoinFee').max = fees.length - 1;
+        document.getElementById('sendCoinFee').value = Math.floor((fees.length - 1) / 2);
 
         document.getElementById('sendCoinAddr').value = '';
         document.getElementById('sendCoinValue').value = '';
@@ -443,6 +450,18 @@ var app = {
         document.getElementById('sendCoinName').innerHTML = wallet.handler.code;
         document.getElementById('sendFiatName').innerHTML = app.priceProvider.getUnit();
         this.sendWallet = wallet;
+        this.sendFees = fees;
+        app.sendCoinUpdateFee();
+
+    },
+
+    sendCoinUpdateFee: function(){
+      var fee = this.sendFees[document.getElementById('sendCoinFee').value];
+      document.getElementById('feeAmount').innerHTML =
+        fee[0] + this.sendWallet.handler.code + ' (' +
+        formatMoney(fee[0] * this.priceProvider.getPrice(this.sendWallet.handler.code), app.priceProvider.getUnit()) + ')';
+      document.getElementById('feeTime').innerHTML = fee[1] + 'min';
+
     },
 
     sendCoinUpdateValue: function() {

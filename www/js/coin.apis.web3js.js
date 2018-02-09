@@ -19,7 +19,6 @@ var EthFunctions = {
     return this._getProvider().eth.accounts.privateKeyToAccount(priv).address;
   },
   getBalance: function(addr, callback) {
-    console.log(this);
     var that = this;
     this._getProvider().eth.getBalance(addr).then(function(val){
       console.log(val);
@@ -34,7 +33,18 @@ var EthFunctions = {
       gas: 21000 //TODO!
     };
   },
-  sendPayment: function(priv, receiver, amount) {
+  getFees: function() {
+    //TODO: https://ethgasstation.info/json/ethgasAPI.json
+    //key 0 - fee, 1 - estimated time, >1 internal coinparameters
+    return [
+      [0.00002, 8.77, 1],
+      [0.00004, 2.86, 2],
+      [0.00006, 2.43, 3],
+      [0.00008, 0.62, 4],
+      [0.00011, 0.6, 5]
+    ];
+  },
+  sendPayment: function(priv, receiver, amount, fee) {
     var that = this;
     app.alertInfo('signing transaction...', that.code);
     var account = this._getProvider().eth.accounts.privateKeyToAccount(priv)
@@ -62,6 +72,7 @@ var EthTestHandler = {
     },
     _getProvider: EthFunctions.getTestnetProvider,
     newPrivateKey: EthFunctions.newPrivateKey,
+    getFees: EthFunctions.getFees,
     addrFromPrivateKey: EthFunctions.addrFromPrivateKey,
     getBalance: EthFunctions.getBalance,
     _getTransaction: EthFunctions._getTransaction,
@@ -81,6 +92,7 @@ var EthHandler = {
     },
     _getProvider: EthFunctions.getMainnetProvider,
     newPrivateKey: EthFunctions.newPrivateKey,
+    getFees: EthFunctions.getFees,
     addrFromPrivateKey: EthFunctions.addrFromPrivateKey,
     getBalance: EthFunctions.getBalance,
     _getTransaction: EthFunctions._getTransaction,

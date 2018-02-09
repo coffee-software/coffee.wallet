@@ -7,6 +7,8 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/layout.css">
+        <link rel="stylesheet" type="text/css" href="css/ui.css">
 	      <title>wallet.one</title>
     </head>
     <body>
@@ -140,11 +142,11 @@
 
                 </tbody>
               </table>
-              <button class="secondary" onclick="app.popupAddOfflineAsset('balance')">
+              <button onclick="app.popupAddOfflineAsset('balance')">
                 <img src="icons/plus.png"/>
                 add balance
               </button>
-              <button class="secondary" onclick="app.popupAddOfflineAsset('addr')">
+              <button onclick="app.popupAddOfflineAsset('addr')">
                 <img src="icons/plus.png"/>
                 add address
               </button>
@@ -173,16 +175,28 @@
               </div>
             </div>
             <div id="sendPaymentPopup">
-              <div class="spacing">
-                <button class="left secondary" onclick="app.pasteClipboard()">
-                  <img src="icons/bpaste.png"/>
-                  paste
-                </button>
-                <button class="right secondary" onclick="app.scanQrCode()">
-                  <img src="icons/bqrcode.png"/>
-                  scan
-                </button>
+              <div class="spacing row">
+
+                <div class="f2 row">
+                  <button class="f1 left" onclick="app.pasteClipboard()">
+                    <img src="icons/bpaste.png"/>
+                    paste
+                  </button>
+                  <button class="f1 right" onclick="app.scanQrCode()">
+                    <img src="icons/bqrcode.png"/>
+                    scan
+                  </button>
+                </div>
+                <div class="f1"></div>
               </div>
+
+              <div class="spacing">
+                <div class="field">
+                  <label for="sendCoinAddr">reciver:</label>
+                  <input id="sendCoinAddr" placeholder="address"/>
+                </div>
+              </div>
+
               <div class="spacing">
                 <div class="field">
                   <label for="sendCoinAmount">amount:</label>
@@ -197,28 +211,31 @@
 
               <div class="spacing">
                 <div class="field">
-                  <label for="sendCoinAddr">reciver:</label>
-                  <input id="sendCoinAddr" placeholder="address"/>
-                </div>
-              </div>
-
-              <div class="spacing">
-                <div class="field">
                   <label for="sendCoinFee">
-                    est. fee: 0.01 PLN
+                    fee: <strong><span id="feeAmount">0</span></strong>
                   </label>
+                  <br/>
                   <label for="sendCoinFee">
-                    est. confirm: 23 min
+                    est. confirm: <strong><span id="feeTime">0 min</span></strong>
                   </label>
                   <div class="range-input">
-                    <span class="legend">cheaper</span>
-                    <input id="sendCoinFee" type="range"/>
-                    <span class="legend">faster</span>
+                    <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
+                  </div>
+                  <div class="range-legend">
+                    <span>cheapest</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span>fastest</span>
                   </div>
                 </div>
               </div>
-              <div class="spacing center">
-                <button onclick="app.sendPayment()">
+              <div class="spacing row">
+                <button class="f1 left large" onclick="app.closePopup()">
+                  <img src="icons/bclose.png"/>
+                  Cancel
+                </button>
+                <button class="f1 right large primary" onclick="app.sendPayment()">
                   <img src="icons/up.png"/>
                   Send
                 </button>

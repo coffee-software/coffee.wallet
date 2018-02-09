@@ -1,0 +1,50 @@
+button {
+
+    border-left: 2px solid #fff;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #777;
+    border-right: 2px solid #777;
+    background: linear-gradient(#fff, #ccc);
+    color: #111;
+    line-height: 18px;
+    font-size: 18px;
+    padding: 10px 22px;
+    border-radius: 33px;
+}
+
+button img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  float: left;
+  margin: 1px;
+}
+
+button.large {
+  line-height: 30px;
+  font-size: 30px;
+  padding: 15px 24px;
+}
+
+button.large img {
+  width: 32px;
+  height: 32px;
+  margin: 0;
+}
+
+button.primary {
+  border-left: 2px solid lightblue;
+  border-top: 2px solid lightblue;
+  border-bottom: 2px solid #04116A;
+  border-right: 2px solid #04116A;
+  background: linear-gradient(#7593BC, #34519A);
+  color: #eee;
+}
+
+button.left {
+  border-radius: 20px 0 0 20px;
+}
+
+button.right {
+  border-radius: 0 20px 20px 0;
+}
