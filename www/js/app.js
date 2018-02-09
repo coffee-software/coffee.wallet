@@ -459,7 +459,7 @@ var app = {
       var fee = this.sendFees[document.getElementById('sendCoinFee').value];
       document.getElementById('feeAmount').innerHTML =
         fee[0] + this.sendWallet.handler.code + ' (' +
-        formatMoney(fee[0] * this.priceProvider.getPrice(this.sendWallet.handler.code), app.priceProvider.getUnit()) + ')';
+        this.priceProvider.convert(fee[0], this.sendWallet.handler.code) + ')';
       document.getElementById('feeTime').innerHTML = fee[1] + 'min';
 
     },
@@ -491,13 +491,49 @@ var app = {
       document.getElementById('messages').appendChild(msgDiv);
       setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 2000);
     },
+
+    cancelAuth: function() {
+      this.onAuthCallback = null;
+      document.getElementById('lockPopup').classList.add('hidden');
+    },
+    confirmAuth: function() {
+      this.onAuthCallback();
+      this.onAuthCallback = null;
+      document.getElementById('lockPopup').classList.add('hidden');
+    },
+    authenticateBeforeContinue: function(title, message, callback) {
+      this.onAuthCallback = callback;
+      document.getElementById('lockPopup').classList.remove('hidden');
+      document.getElementById('lockTitle').innerHTML = title;
+      document.getElementById('lockMessage').innerHTML = message;
+
+      //document.getElementById('lockPopup').stylesList.remove('hidden');
+    },
+
     sendPayment: function() {
-      this.sendWallet.handler.sendPayment(
-        this.sendWallet.data.privateKey,
-        document.getElementById('sendCoinAddr').value,
-        parseFloat(document.getElementById('sendCoinAmount').value)
+
+      //document.getElementById('sendCoinAmount').value;
+
+      var coin = this.sendWallet.handler.code;
+      var fee = this.sendFees[document.getElementById('sendCoinFee').value];
+      var addr = document.getElementById('sendCoinAddr').value;
+      var amount = parseFloat(document.getElementById('sendCoinAmount').value);
+
+      app.authenticateBeforeContinue(
+        'Confirm ' + coin + ' Transaction',
+        '<table style="width:100%">' +
+        '<tr><th>recipient:</th><td colspan="2">' + addr + '</td></tr>' +
+        '<tr><th>amount:</th><td>' + amount + ' ' + coin + '</td><td>' + this.priceProvider.convert(amount, coin) + '</td></tr>' +
+        '<tr><th>fee:</th><td>' + fee[0] + ' ' + coin + '</td><td>' + this.priceProvider.convert(fee[0], coin) + '</td></tr>' +
+        '<tr><th>total:</th><td>' + (amount + fee[0]) + ' ' + coin + '</td><td>' + this.priceProvider.convert(amount + fee[0], coin) + '</td></tr>' +
+        '<tr><th>balance after:</th><td>' + (this.sendWallet.totalOnline - amount - fee[0]) + ' ' + coin + '</td><td>' + this.priceProvider.convert(this.sendWallet.totalOnline - amount - fee[0], coin) + '</td></tr>' +
+        '</table>'
+        ,
+        function(){
+          app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, amount, fee);
+          app.closePopup();
+        }
       );
-      this.closePopup();
     },
     copyReceiveCoinAddrToClp: function() {
         window.cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);

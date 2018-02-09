@@ -290,6 +290,24 @@
         <div id="messages">
         </div>
 
+        <div id="lockPopup" class="hidden">
+            <div id="lockPopupContent">
+              <a class="cancel" onclick="app.cancelAuth()">
+                cancel action
+              </a>
+
+              <h1 id="lockTitle">Confirm</h1>
+              <div id="lockMessage" class="spacing">
+                confirm
+              </div>
+              <div class="spacing center">
+                <button class="large primary" onclick="app.confirmAuth()">
+                  Confirm
+                </button>
+              </div>
+            </div>
+        </div>
+
         <script type="text/javascript" src="cordova.js"></script>
 
         <script type="text/javascript" src="vendor/qrcode.js"></script>

@@ -32,6 +32,10 @@ var CoinMarketCapProvider = {
     return 0;
   },
 
+  convert: function(amount, code) {
+    return formatMoney(amount * this.getPrice(code), this.getUnit());
+  },
+
   updatePrices: function(callback) {
     var xhr = new XMLHttpRequest();
     var that = this;
