@@ -48,3 +48,49 @@ button.left {
 button.right {
   border-radius: 0 20px 20px 0;
 }
+
+
+input {
+    padding: 7px 12px;
+    font-size: 22px;
+    width: 100%;
+    border: 1px solid #aac;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input.invalid {
+    border-color: red;
+}
+
+input.valid {
+    border-color: #229;
+}
+div.validation {
+    color: red;
+}
+
+input.top {
+  border-radius: 5px 5px 0 0;
+  border-bottom-color: #ddd;
+}
+input.bottom {
+  border-radius: 0 0 5px 5px;
+  border-top: none;
+}
+
+input.has-unit {
+  padding-right: 55px;
+}
+
+.field {
+  position: relative;
+}
+.field label {
+  margin-left: 15px;
+}
+.input-unit {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}

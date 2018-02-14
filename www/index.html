@@ -193,20 +193,43 @@
               <div class="spacing">
                 <div class="field">
                   <label for="sendCoinAddr">reciver:</label>
-                  <input id="sendCoinAddr" placeholder="address"/>
+                  <input
+                    id="sendCoinAddr"
+                    placeholder="address"
+                    onfocus="app.sendCoinValidateAddr(true)"
+                    onblur="app.sendCoinValidateAddr()"
+                  />
                 </div>
+                <div class="validation"></div>
               </div>
 
               <div class="spacing">
                 <div class="field">
                   <label for="sendCoinAmount">amount:</label>
-                  <input id="sendCoinAmount" class="has-unit top" onchange="app.sendCoinUpdateValue()" onkeyup="app.sendCoinUpdateValue()" placeholder="0.0"/>
+                  <input
+                    id="sendCoinAmount"
+                    class="has-unit top"
+                    onfocus="app.sendCoinValidateAmount(true)"
+                    onblur="app.sendCoinValidateAmount()"
+                    onchange="app.sendCoinUpdateValue()"
+                    onkeyup="app.sendCoinUpdateValue()"
+                    placeholder="0.0"
+                  />
                   <span class="input-unit" id="sendCoinName"></span>
                 </div>
                 <div class="field">
-                  <input id="sendCoinValue" class="has-unit bottom" onchange="app.sendCoinUpdateAmount()" onkeyup="app.sendCoinUpdateAmount()" placeholder="0.0"/>
+                  <input
+                    id="sendCoinValue"
+                    class="has-unit bottom"
+                    onfocus="app.sendCoinValidateAmount(true)"
+                    onblur="app.sendCoinValidateAmount()"
+                    onchange="app.sendCoinUpdateAmount()"
+                    onkeyup="app.sendCoinUpdateAmount()"
+                    placeholder="0.0"
+                  />
                   <span class="input-unit" id="sendFiatName"></span>
                 </div>
+                <div class="validation"></div>
               </div>
 
               <div class="spacing">

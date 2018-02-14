@@ -374,10 +374,12 @@ var app = {
       });
 
       document.getElementById('sendCoinAddr').value = addr;
+      app.sendCoinValidateAddr();
 
       if ('amount' in args && args.amount){
         document.getElementById('sendCoinAmount').value = parseFloat(args.amount);
         app.sendCoinUpdateValue();
+        app.sendCoinValidateAmount();
       }
     },
     pasteClipboard: function() {
@@ -435,7 +437,6 @@ var app = {
       this.popupOfflineAssets(this.offlineAssetWallet);
     },
 
-
     popupSendPayment: function(wallet) {
         this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code, 'send', 'coins/' + wallet.handler.name + '.png');
 
@@ -443,15 +444,58 @@ var app = {
         var fees = wallet.handler.getFees();
         document.getElementById('sendCoinFee').max = fees.length - 1;
         document.getElementById('sendCoinFee').value = Math.floor((fees.length - 1) / 2);
-
         document.getElementById('sendCoinAddr').value = '';
         document.getElementById('sendCoinValue').value = '';
         document.getElementById('sendCoinAmount').value = '';
+        app.sendCoinValidateAddr(true);
+        app.sendCoinValidateAmount(true);
+
         document.getElementById('sendCoinName').innerHTML = wallet.handler.code;
         document.getElementById('sendFiatName').innerHTML = app.priceProvider.getUnit();
         this.sendWallet = wallet;
         this.sendFees = fees;
         app.sendCoinUpdateFee();
+
+    },
+
+    sendCoinValidateAddr: function(focus) {
+      var valid = false;
+      var elem = document.getElementById('sendCoinAddr');
+      elem.classList.remove('invalid');
+      elem.classList.remove('valid');
+      elem.parentElement.nextElementSibling.innerHTML = '';
+      if (typeof focus == 'undefined') {
+        valid = this.sendWallet.handler.validateAddress(elem.value);
+        elem.classList.add(valid ? 'valid' : 'invalid');
+        if (!valid) {
+          elem.parentElement.nextElementSibling.innerHTML = 'invalid address';
+        }
+      }
+      return valid;
+    },
+
+    sendCoinValidateAmount: function(focus) {
+      var valid = false;
+      var amountElem = document.getElementById('sendCoinAmount');
+      var valueElem = document.getElementById('sendCoinValue');
+      valueElem.parentElement.nextElementSibling.innerHTML = '';
+
+      amountElem.classList.remove('invalid');
+      amountElem.classList.remove('valid');
+      valueElem.classList.remove('invalid');
+      valueElem.classList.remove('valid');
+
+      if (typeof focus == 'undefined') {
+        valid = parseFloat(amountElem.value) > 0;
+        amountElem.classList.add(valid ? 'valid' : 'invalid');
+        valueElem.classList.add(valid ? 'valid' : 'invalid');
+        if (!valid) {
+          valueElem.parentElement.nextElementSibling.innerHTML = 'invalid amount';
+        }
+      }
+      return valid;
+
+      //document.getElementById('sendCoinAmount').value = '';
 
     },
 
@@ -513,6 +557,9 @@ var app = {
     sendPayment: function() {
 
       //document.getElementById('sendCoinAmount').value;
+      if (!(this.sendCoinValidateAddr() && this.sendCoinValidateAmount())) {
+        return;
+      }
 
       var coin = this.sendWallet.handler.code;
       var fee = this.sendFees[document.getElementById('sendCoinFee').value];

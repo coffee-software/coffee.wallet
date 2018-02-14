@@ -360,41 +360,6 @@ h1 {
   font-size: 18px;
 }
 
-input {
-    padding: 7px 12px;
-    font-size: 22px;
-    width: 100%;
-    border: 1px solid #aac;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-input.top {
-  border-radius: 5px 5px 0 0;
-}
-input.bottom {
-  border-radius: 0 0 5px 5px;
-  margin-top: -1px;
-}
-
-
-input.has-unit {
-  padding-right: 55px;
-}
-input:not(:placeholder-shown) {
-  border: 1px solid #229;
-}
-.field {
-  position: relative;
-}
-.field label {
-  margin-left: 15px;
-}
-.input-unit {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
-
 #wallets td.walletsActions {
     padding-top: 15px;
     text-align:center;

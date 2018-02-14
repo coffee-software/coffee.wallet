@@ -18,12 +18,20 @@ var EthFunctions = {
   addrFromPrivateKey: function(priv) {
     return this._getProvider().eth.accounts.privateKeyToAccount(priv).address;
   },
+  validateAddress: function(addr) {
+    return this._getProvider().utils.isAddress(addr);
+  },
   getBalance: function(addr, callback) {
     var that = this;
-    this._getProvider().eth.getBalance(addr).then(function(val){
-      console.log(val);
-      callback(val == 0 ? 0.0 : parseFloat(that._getProvider().utils.fromWei(val, 'ether')));
-    });
+    try {
+      this._getProvider().eth.getBalance(addr).then(function(val){
+        console.log(val);
+        callback(val == 0 ? 0.0 : parseFloat(that._getProvider().utils.fromWei(val, 'ether')));
+      });
+    } catch (err) {
+      app.alertError(err.message, that.code);
+      callback(0.0);
+    }
   },
   _getTransaction: function(account, receiver, amount, fee) {
     return {
@@ -73,6 +81,7 @@ var EthTestHandler = {
     _getProvider: EthFunctions.getTestnetProvider,
     newPrivateKey: EthFunctions.newPrivateKey,
     getFees: EthFunctions.getFees,
+    validateAddress: EthFunctions.validateAddress,
     addrFromPrivateKey: EthFunctions.addrFromPrivateKey,
     getBalance: EthFunctions.getBalance,
     _getTransaction: EthFunctions._getTransaction,
