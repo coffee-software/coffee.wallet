@@ -14,18 +14,26 @@
 		opacity: 1;
 }
 
+.device .screen {
+  background-color: #eadfcb;
+}
+.snap-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
 header.masthead {
-  background: url(img/wallpaper.png),#62422b;
-  background: url(img/wallpaper.png),-webkit-linear-gradient(to bottom right,#62422b,#2b0f0e);
-  background: url(img/wallpaper.png),linear-gradient(to bottom right,#62422b,#2b0f0e);
+  background: url(../img/wallpaper.jpg),#62422b;
+  background: url(../img/wallpaper.jpg),-webkit-linear-gradient(to bottom right,#62422b,#2b0f0e);
+  background: url(../img/wallpaper.jpg),linear-gradient(to bottom right,#62422b,#2b0f0e);
   background-position: center;
 }
 
 
 section.beans {
-  background: url(img/beans.png),#62422b;
-  background: url(img/beans.png),-webkit-linear-gradient(to left,#62422b,#2b0f0e);
-  background: url(img/beans.png),linear-gradient(to left,#62422b,#2b0f0e);
+  background: url(../img/beans.png),#62422b;
+  background: url(../img/beans.png),-webkit-linear-gradient(to left,#62422b,#2b0f0e);
+  background: url(../img/beans.png),linear-gradient(to left,#62422b,#2b0f0e);
   background-attachment: fixed;
   color: #fff;
 }
@@ -55,6 +63,7 @@ section.beans {
     text-align: left;
     padding: 1em 2em 1em 7em;
     line-height: 12px;
+    margin: 10px;
 }
 .btn-sewed i.fa {
   left: 30px;
@@ -99,6 +108,10 @@ section {
 #mainNav .navbar-brand {
     color: #ecdec6;
 }
+#mainNav.navbar-light .navbar-brand {
+    color: #62422b;
+}
+
 section.contact h2 i {
     color: #9e8858;
 }
