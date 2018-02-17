@@ -20,8 +20,27 @@ var BtcTestHandler = {
     getBalance: function(addr, callback) {
       return btcjs.getBalance(btcjs.networks.test, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
     },
-    sendPayment: function(priv, receiver, amount) {
+    sendPayment: function(priv, receiver, amount, fee) {
+      var that = this;
+      return btcjs.sendPayment(btcjs.networks.test, priv, receiver, amount * 100000000, fee[2],
+      function(response) {
+        app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+      }, function(error, data){
+        app.alertError(error, that.code);
+      });
 
+    },
+    validateAddress: function(addr) {
+      return true;
+    },
+    getFees: function() {
+      //TODO
+      //key 0 - fee, 1 - estimated time, >1 internal coinparameters
+      return [
+        [0.0001, 5,  10000],
+        [0.0005, 2,  50000],
+        [0.0010, 1, 100000]
+      ];
     }
 }
 

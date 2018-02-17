@@ -26,6 +26,10 @@ var CoinMarketCapProvider = {
   },
 
   getPrice: function(unit) {
+    if (unit.endsWith('.TEST')) {
+      //return some dummy low-price just for test sake.
+      return 0.1;
+    }
     if (unit in this.prices) {
       return this.prices[unit];
     }

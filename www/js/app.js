@@ -517,7 +517,7 @@ var app = {
       document.getElementById('sendCoinAmount').value =
         document.getElementById('sendCoinValue').value / this.priceProvider.getPrice(this.sendWallet.handler.code);
     },
-    alertError: function(html, coin) {
+    alertError: function(html, coin, debug) {
       this._alertMessage(html, coin, 'error');
     },
     alertInfo: function(html, coin) {

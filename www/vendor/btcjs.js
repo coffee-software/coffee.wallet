@@ -8807,7 +8807,7 @@ doge:
 		scriptHash: 0x16,
 		wif: 0x9e
 	}
-}		
+}
 */
 
 let networks = {
@@ -8847,13 +8847,64 @@ function getBalance (network, addr, callback, error) {
 	xhr.send();
 }
 
+function sendPayment (network, pk, receiver, amount, fee, success, error) {
+
+	var key = bitcoin.ECPair.fromWIF(pk, network.network);
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', network.webapi + '/addrs/' + key.getAddress() + '?unspentOnly=true', true);
+	xhr.responseType = 'json';
+	xhr.onload = function() {
+		if (xhr.status === 200) {
+			//
+			var txb = new bitcoin.TransactionBuilder(network.network);
+			var totalIn = 0;
+			for (var i in xhr.response.txrefs) {
+				totalIn += xhr.response.txrefs[i].value;
+				console.log(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n));
+				txb.addInput(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n));
+				console.log(txb.inputs);
+				if (totalIn >= amount + fee) break; //we have enough fees
+			}
+			if (totalIn < amount + fee) {
+				error('There is no sufficient founds (maybe inputs are pending?)', xhr.response);
+				return;
+			}
+			console.log(totalIn, amount, totalIn - amount - fee);
+
+			txb.addOutput(receiver, amount);
+			//TODO new address:
+			txb.addOutput(key.getAddress(), totalIn - amount - fee);
+			txb.sign(0, key);
+			//console.log(txb.build().toHex());
+			var pushXhr = new XMLHttpRequest();
+			pushXhr.open('POST', network.webapi + '/txs/push', true);
+			pushXhr.setRequestHeader("Content-Type", "application/json");
+			pushXhr.responseType = 'json';
+			pushXhr.onload = function() {
+				if (pushXhr.status === 201) {
+					success(pushXhr.response.tx.hash);
+				} else {
+					error('error' in pushXhr.response ? pushXhr.response.error : 'unknown error', pushXhr.response);
+				}
+			};
+			console.log(txb.inputs);
+
+			pushXhr.send(JSON.stringify({tx:txb.build().toHex()}));
+
+		} else {
+			error && error(xhr.statusText, xhr);
+		}
+	};
+	xhr.send();
+}
+
 module.exports = {
 	networks,
 	newPrivKey,
 	addrFromPriv,
-	getBalance
+	getBalance,
+	sendPayment
 }
-
 
 },{"bitcoinjs-lib":18}],83:[function(require,module,exports){
 (function (global){
