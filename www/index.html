@@ -66,38 +66,38 @@
 
         </div>
         <div id="container">
-          <div class="swipe_spacing"></div>
-          <div class="swipe_tab">
-            <table id="wallets" class="tab_inner">
-              <tbody id="walletsList">
-              </tbody>
-        	    <tbody>
-        		    <tr onclick="app.popupAddCoin()">
-            			<td colspan="3" class="walletsActions">
-                    <img src="icons/gadd.png" alt="add" class="coinIcon"/>
-                    add more coins
-            			</td>
-        		    </tr>
-        	    </tbody>
-            </table>
-          </div>
-          <div class="swipe_tab">
-            <div class="tab_inner">
-              <ul id="history">
-                <li class="info">loading history ...</li>
-              </ul>
+          <div id="swiper">
+            <div class="swipe_tab">
+              <table id="wallets" class="tab_inner">
+                <tbody id="walletsList">
+                </tbody>
+          	    <tbody>
+          		    <tr onclick="app.popupAddCoin()">
+              			<td colspan="3" class="walletsActions">
+                      <img src="icons/gadd.png" alt="add" class="coinIcon"/>
+                      add more coins
+              			</td>
+          		    </tr>
+          	    </tbody>
+              </table>
             </div>
-          </div>
-          <div class="swipe_tab">
-            <div class="tab_inner">
-              <div id="exchange">
-                <h1>Exchange</h1>
-                <img src="shapeshift.png"/>
-                <h2>this feature is comming soon</h2>
+            <div class="swipe_tab">
+              <div class="tab_inner">
+                <ul id="history">
+                  <li class="info">loading history ...</li>
+                </ul>
+              </div>
+            </div>
+            <div class="swipe_tab">
+              <div class="tab_inner">
+                <div id="exchange">
+                  <h1>Exchange</h1>
+                  <img src="shapeshift.png"/>
+                  <h2>this feature is comming soon</h2>
+                </div>
               </div>
             </div>
           </div>
-          <div class="swipe_spacing"></div>
         </div>
     <div id="foot">
       <a href="javascript:app.tabWallets()" class="tab active">

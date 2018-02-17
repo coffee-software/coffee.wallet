@@ -4,7 +4,6 @@ TODO:
 
 * help and feedback dialogs
 * price settings styles
-* slide right left - disable or fix
 * offline manager cleanup (actions: edit/remove)
 * cleanup RCV dialog
 * cleanup info dialog

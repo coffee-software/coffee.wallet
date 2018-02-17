@@ -105,6 +105,11 @@ var app = {
     },
 
     setTabActive: function(n) {
+      document.getElementById('swiper').classList.remove('tab0');
+      document.getElementById('swiper').classList.remove('tab1');
+      document.getElementById('swiper').classList.remove('tab2');
+      document.getElementById('swiper').classList.add('tab' + n);
+
       for (var i = 0; i < document.getElementById('foot').children.length; i++) {
         if (i == n) {
           document.getElementById('foot').children[i].classList.add('active');
@@ -116,25 +121,27 @@ var app = {
     },
     tabWallets: function() {
       this.setTabActive(0);
-      var width = document.scrollingElement.offsetWidth;
+
+      /*var width = document.scrollingElement.offsetWidth;
       document.body.onscroll = null;
-      this.targetScroll = Math.floor(width / 2);
       this.targetScroll = 1 / 2;
-      this.scrollToTarget();
+      this.scrollToTarget();*/
     },
     tabHistory: function() {
       this.setTabActive(1);
+      /*
       this.targetScroll = 3 / 2;
       this.scrollToTarget();
+      */
       this.reloadHistory();
     },
     tabExchange: function() {
       this.setTabActive(2);
+      /*
       var width = document.scrollingElement.offsetWidth;
       document.body.onscroll = null;
-      this.targetScroll = Math.floor(width / 2) + (2 * width);
       this.targetScroll = 5 / 2;
-      this.scrollToTarget();
+      this.scrollToTarget();*/
     },
     reloadHistory: function() {
       Logger.getLogs(function(logs){

@@ -141,11 +141,9 @@ body {
   -webkit-transform: translateZ(0) scale(1.0, 1.0);
   transform: translateZ(0) scale(1.0, 1.0);
 
-  width: 400%;
+  width: 100%;
   height: 100%;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  display: flex;
+
 }
 
 ::-webkit-scrollbar {
@@ -153,17 +151,26 @@ body {
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
-#container .swipe_spacing {
-  flex: 1;
+#swiper {
+  width: 300%;
+  display: flex;
+  margin-left: -0%;
+  transition: margin 0.5s;
+}
+#swiper.tab1 {
+  margin-left: -100%;
+}
+#swiper.tab2 {
+  margin-left: -200%;
 }
 
-#container .swipe_tab {
+#swiper .swipe_tab {
   height: 100%;
-  flex: 2;
+  flex: 1;
   overflow: scroll;
   width: 100%;
 }
-#container .swipe_tab .tab_inner {
+#swiper .swipe_tab .tab_inner {
   padding-top: 48px;
   padding-bottom: 56px;
 }
