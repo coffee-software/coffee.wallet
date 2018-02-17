@@ -1,6 +1,6 @@
 
 var Logger = {
-  //"error", "info", "warning", "success"
+  //"error", "info", "success"
   log: function(severity, coin, message) {
     Db.query('INSERT INTO logs (ts, severity, coin, message) VALUES(?, ?,?,?)', [new Date(), severity, coin, message]);
   },

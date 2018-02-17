@@ -148,6 +148,7 @@ var app = {
         document.getElementById('history').innerHTML = '';
         for (var i=0; i< logs.length; i++) {
           var li = document.createElement('li');
+          li.classList.add('msg');
           li.classList.add(logs[i].severity);
           li.innerHTML = '<div class="ts">' + logs[i].ts + '</div><div>' + logs[i].message + '</div>';
           //logs[i].coin
@@ -537,6 +538,7 @@ var app = {
       Logger.log(type, coin, html);
 
       var msgDiv = document.createElement('div');
+      msgDiv.classList.add('msg');
       msgDiv.classList.add(type);
       msgDiv.innerHTML = html;
       document.getElementById('messages').appendChild(msgDiv);

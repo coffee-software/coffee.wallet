@@ -35,8 +35,16 @@ function Wallet(data) {
   that.handler = data.api;
   this.row.onclick = function() {
     if (activeWallet && activeWallet.row) {
+      if (activeWallet.row.previousElementSibling != null) {
+        activeWallet.row.previousElementSibling.classList.remove('no-stitch');
+      }
+      activeWallet.row.classList.remove('no-stitch');
       activeWallet.row.classList.remove('active');
     }
+    if (that.row.previousElementSibling != null) {
+      that.row.previousElementSibling.classList.add('no-stitch');
+    }
+    that.row.classList.add('no-stitch');
     that.row.classList.add('active');
     activeWallet = that;
   }
@@ -70,8 +78,8 @@ function Wallet(data) {
   var buttonsDiv = document.createElement("div");
   buttonsDiv.classList.add('buttons');
 
-  buttonsDiv.appendChild(createButton('send', ('sendPayment' in this.handler) ? function(){app.popupSendPayment(that);} : null));
-  buttonsDiv.appendChild(createButton('receive', ('newPrivateKey' in this.handler) ? function(){app.popupReceivePayment(that);} : null));
+  ('sendPayment' in this.handler) && buttonsDiv.appendChild(createButton('send', function(){app.popupSendPayment(that);}));
+  ('newPrivateKey' in this.handler) && buttonsDiv.appendChild(createButton('receive',function(){app.popupReceivePayment(that);}));
 
   onlineCell.appendChild(buttonsDiv);
 

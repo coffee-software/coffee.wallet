@@ -1,12 +1,35 @@
  * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
-/* palete:
-#F5F6F3
-#7593BC
-#04116A
-#B04960
-#1B121C */
+
+
+/**
+color palete:
+  creme: #eadfcb;
+  dark coffe: #4e3c31;
+  pale coffe: #695950;
+  gold: #c0ab7f;
+**/
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../font/LibreBaskerville-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../font/LibreBaskerville-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: italic;
+  font-weight: 400;
+  src: url("../font/LibreBaskerville-Italic.ttf") format("truetype");
+}
 
 html {
   height: 100%;
@@ -15,9 +38,9 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color: #F5F6F3;
+    background-color: #eadfcb;
 
-    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family: 'Libre Baskerville', serif;
 
     font-size: 12px;
     height: 100%;
@@ -31,13 +54,13 @@ body {
 #nav {
   position: fixed;
   z-index: 100;
-  background: #04116A;
+  background: #4e3c31;
   top: 0;
   left: 0;
   right: 0;
   height: 48px;
   /* box-shadow: 0 2px 3px #000; */
-  color: #eee;
+  color: #eadfcb;
   transition: 0.5s filter ease;
 }
 
@@ -80,8 +103,7 @@ body {
   transition: height 0.5s ease;
   height: 0;
   overflow: hidden;
-  background: #7593BC;
-  /*box-shadow: 2px 2px 3px #000;*/
+  background: #eadfcb;
 }
 #menu ul, #menu li {
   padding: 0;
@@ -90,25 +112,24 @@ body {
 
 #menu a img {
   width: 32px;
-  height: 32px;
   vertical-align: middle;
   margin-right: 20px;
 }
 #menu a {
   display: block;
-  color: #eee;
+  color: #4e3c31;
   font-size: 22px;
   text-decoration: none;
   padding: 7px 15px;
 }
 
 #menu a:hover {
-  background: #eee;
-  color: #111;
+  background: linear-gradient(to right, #eadfcb, #c0ab7f 40%, #c0ab7f 50%, #eadfcb);
+  color: #4e3c31;
 }
 
 #foot {
-  background-color: #7593BC;
+  background-color: #695950;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -119,18 +140,16 @@ body {
 
 #foot a.tab {
   flex: 1;
-  color: #eee;
+  color: #eadfcb;
   text-decoration: none;
   text-align: center;
-  padding: 3px;
+  padding: 8px 5px;
 }
 #foot a.tab img {
-  width: 32px;
   height: 32px;
 }
 #foot a.tab.active {
-  background-color: #1B121C;
-  /*#B04960*/
+  background-color: #4e3c31;
 }
 
 #container {
@@ -143,7 +162,7 @@ body {
 
   width: 100%;
   height: 100%;
-
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -153,7 +172,9 @@ body {
 
 #swiper {
   width: 300%;
+  height: 100%;
   display: flex;
+  overflow: hidden;
   margin-left: -0%;
   transition: margin 0.5s;
 }
@@ -165,9 +186,9 @@ body {
 }
 
 #swiper .swipe_tab {
-  height: 100%;
+  height: auto;
   flex: 1;
-  overflow: scroll;
+  overflow: auto;
   width: 100%;
 }
 #swiper .swipe_tab .tab_inner {
@@ -180,7 +201,7 @@ body {
 }
 
 #overlay {
-  background: #1B121C;
+  background: #4e3c31;
   position: fixed;
   left: 0;
   right: 0;
@@ -192,7 +213,7 @@ body {
 }
 #overlay.show {
   visibility: visible;
-  opacity: 0.2;
+  opacity: 0.7;
 }
 
 h1 {
@@ -210,7 +231,9 @@ h1 {
 
 #wallets td {
   padding: 8px;
-  border-bottom: 1px solid #F0F1E8;
+  border-bottom: 1px dashed #4e3c31;
+  /*border: 1px solid;*/
+  border-image: url(../icons/stitch.png) 1 1 round;
 }
 
 #wallets th {
@@ -245,12 +268,10 @@ h1 {
 
 .disabled {
   color: #ddd;
-  opacity: 0.4;
 }
 
 .button {
   display: inline-block;
-  height: 64px;
   width: 64px;
 }
 
@@ -270,7 +291,6 @@ h1 {
 
 @media all and (max-width: 799px) {
   .button {
-    height: 32px;
     width: 32px;
   }
   .coinIcon {
@@ -297,9 +317,13 @@ h1 {
   float: right:
 }
 
+#walletsList .no-stitch td {
+  border: none;
+}
+
 #walletsList .active {
-  background: #B04960;
-  color: #eee;
+  background: linear-gradient(to right, #c7b796, #c0ab7f 30%, #c0ab7f 70%, #c7b796);
+  color: #eadfcb;
 }
 
 #walletsList  .active .button {
@@ -328,7 +352,7 @@ h1 {
   padding: 0;
   line-height: 54px;
   background: #7593BC;
-  color: #eee;
+  color: #eadfcb;
   text-align: center;
 }
 #popup h1 img {
@@ -388,22 +412,33 @@ h1 {
   background-color: #aaa;
 }
 
-.info {
-  color: #222;
-}
-.error {
-  background-color: #f99;
-  color: #055;
+.msg {
+  position: relative;
+  padding: 12px;
+  padding-left: 54px;
 }
 
-.success {
-  background-color: #9f9;
-  color: #505;
+.msg:before {
+  content: " ";
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: url('../icons/msgtype.png');
+  background-size: auto 32px;
 }
 
-.warning {
-  background-color: #ff9;
-  color: #005;
+.msg.info:before {
+  background-position: 0 0;
+}
+
+.msg.error:before {
+  background-position: 64px 0;
+}
+
+.msg.success:before {
+  background-position: 126px 0;
 }
 
 #history {
@@ -412,7 +447,6 @@ h1 {
   list-style-type: none;
 }
 #history li {
-  padding: 15px;
   font-size: 16px;
 }
 
@@ -425,7 +459,7 @@ h1 {
 }
 
 #exchange img {
-  width: 100%;
+  width: 50%;
 }
 
 .coinButton {
