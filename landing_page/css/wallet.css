@@ -106,10 +106,12 @@ section {
 }
 
 #mainNav .navbar-brand {
+    color: #62422b;
+}
+@media (min-width: 992px) {
+#mainNav .navbar-brand {
     color: #ecdec6;
 }
-#mainNav.navbar-light .navbar-brand {
-    color: #62422b;
 }
 
 section.contact h2 i {
