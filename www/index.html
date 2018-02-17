@@ -177,17 +177,17 @@
             <div id="sendPaymentPopup">
               <div class="spacing row">
 
-                <div class="f2 row">
-                  <button class="f1 left" onclick="app.pasteClipboard()">
-                    <img src="icons/bpaste.png"/>
-                    paste
-                  </button>
-                  <button class="f1 right" onclick="app.scanQrCode()">
-                    <img src="icons/bqrcode.png"/>
-                    scan
-                  </button>
-                </div>
-                <div class="f1"></div>
+                <button class="f1" onclick="app.pasteClipboard()">
+                  <img src="icons/paste.png"/>
+                  <br/>
+                  paste
+                </button>
+                <div class="f3 coinBig"></div>
+                <button class="f1" onclick="app.scanQrCode()">
+                  <img src="icons/scan.png"/>
+                  <br/>
+                  scan
+                </button>
               </div>
 
               <div class="spacing">
@@ -254,13 +254,15 @@
                 </div>
               </div>
               <div class="spacing row">
-                <button class="f1 left large" onclick="app.closePopup()">
-                  <img src="icons/bclose.png"/>
+                <button class="f1 large stitched" onclick="app.closePopup()">
                   Cancel
+                  <br/>
+                  <img src="icons/cancel.png"/>
                 </button>
-                <button class="f1 right large primary" onclick="app.sendPayment()">
-                  <img src="icons/up.png"/>
+                <button class="f2 large stitched primary" onclick="app.sendPayment()">
                   Send
+                  <br/>
+                  <img src="icons/ok.png"/>
                 </button>
               </div>
             </div>

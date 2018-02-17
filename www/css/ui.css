@@ -1,22 +1,29 @@
 button {
+  border: none;
+  background: none;
+  color: #4e3c31;
+  line-height: 18px;
+  font-size: 18px;
+  padding: 15px 22px;
+  border-radius: 33px;
+  font-family: 'Libre Baskerville', serif;
+  text-align: center;
+  position: relative;
+}
 
-    border-left: 2px solid #fff;
-    border-top: 2px solid #fff;
-    border-bottom: 2px solid #777;
-    border-right: 2px solid #777;
-    background: linear-gradient(#fff, #ccc);
-    color: #111;
-    line-height: 18px;
-    font-size: 18px;
-    padding: 10px 22px;
-    border-radius: 33px;
+button.stitched:before {
+  content: " ";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px dashed #4e3c31;
+  border-radius: inherit;
 }
 
 button img {
-  width: 16px;
-  height: 16px;
-  display: block;
-  float: left;
+  width: 64px;
   margin: 1px;
 }
 
@@ -26,37 +33,30 @@ button.large {
   padding: 15px 24px;
 }
 
-button.large img {
-  width: 32px;
-  height: 32px;
-  margin: 0;
-}
-
 button.primary {
-  border-left: 2px solid lightblue;
-  border-top: 2px solid lightblue;
-  border-bottom: 2px solid #04116A;
-  border-right: 2px solid #04116A;
-  background: linear-gradient(#7593BC, #34519A);
-  color: #eee;
+  background: #4e3c31;
+  color: #eadfcb;
 }
 
-button.left {
-  border-radius: 20px 0 0 20px;
+button.primary.stitched:before {
+  border-color: #ecdec6;
 }
-
-button.right {
-  border-radius: 0 20px 20px 0;
-}
-
 
 input {
     padding: 7px 12px;
     font-size: 22px;
     width: 100%;
-    border: 1px solid #aac;
-    border-radius: 5px;
+    border: 1px solid #4e3c31;
+    border-radius: 21px;
     box-sizing: border-box;
+
+    background: #4e3c31;
+    color: #eadfcb;
+    font-family: 'Libre Baskerville', serif;
+}
+
+input::placeholder {
+    color: #eadfcb;
 }
 
 input.invalid {
@@ -71,11 +71,9 @@ div.validation {
 }
 
 input.top {
-  border-radius: 5px 5px 0 0;
   border-bottom-color: #ddd;
 }
 input.bottom {
-  border-radius: 0 0 5px 5px;
   border-top: none;
 }
 
@@ -93,4 +91,5 @@ input.has-unit {
   position: absolute;
   bottom: 10px;
   right: 10px;
+  color: #eadfcb;
 }

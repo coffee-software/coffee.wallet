@@ -217,7 +217,10 @@ var app = {
 
       document.getElementById("popup").classList.add('show');
 
-      document.getElementById("popupContent").style.backgroundImage = bgimg ? "url('" + bgimg + "')" : null;
+      var icons = document.getElementsByClassName("coinBig");
+      for (var i = 0; i < icons.length; i++) {
+          icons[i].style.backgroundImage = bgimg ? "url('" + bgimg + "')" : null;
+      }
 
       var children = document.getElementById('popupContent').childNodes;
       for (var c=0; c < children.length; c++) {
