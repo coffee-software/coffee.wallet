@@ -104,10 +104,20 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 	xhr.send();
 }
 
+function validateAddress (network, addr) {
+	try{
+		bitcoin.address.toOutputScript(addr, network.network);
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
+
 module.exports = {
 	networks,
 	newPrivKey,
 	addrFromPriv,
 	getBalance,
+	validateAddress,
 	sendPayment
 }

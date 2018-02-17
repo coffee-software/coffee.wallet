@@ -8858,18 +8858,18 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 			//
 			var txb = new bitcoin.TransactionBuilder(network.network);
 			var totalIn = 0;
-			for (var i in xhr.response.txrefs) {
+			for (var i = xhr.response.txrefs.length - 1; i >= 0; i --) {
 				totalIn += xhr.response.txrefs[i].value;
-				console.log(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n));
+				//console.log(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n));
 				txb.addInput(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n));
-				console.log(txb.inputs);
+				//console.log(txb.inputs);
 				if (totalIn >= amount + fee) break; //we have enough fees
 			}
 			if (totalIn < amount + fee) {
 				error('There is no sufficient founds (maybe inputs are pending?)', xhr.response);
 				return;
 			}
-			console.log(totalIn, amount, totalIn - amount - fee);
+			//console.log(totalIn, amount, totalIn - amount - fee);
 
 			txb.addOutput(receiver, amount);
 			//TODO new address:
@@ -8887,8 +8887,7 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 					error('error' in pushXhr.response ? pushXhr.response.error : 'unknown error', pushXhr.response);
 				}
 			};
-			console.log(txb.inputs);
-
+			//console.log(txb.inputs);
 			pushXhr.send(JSON.stringify({tx:txb.build().toHex()}));
 
 		} else {
@@ -8898,11 +8897,21 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 	xhr.send();
 }
 
+function validateAddress (network, addr) {
+	try{
+		bitcoin.address.toOutputScript(addr, network.network);
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
+
 module.exports = {
 	networks,
 	newPrivKey,
 	addrFromPriv,
 	getBalance,
+	validateAddress,
 	sendPayment
 }
 

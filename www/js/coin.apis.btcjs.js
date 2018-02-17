@@ -31,7 +31,7 @@ var BtcTestHandler = {
 
     },
     validateAddress: function(addr) {
-      return true;
+      return btcjs.validateAddress(btcjs.networks.test, addr);
     },
     getFees: function() {
       //TODO

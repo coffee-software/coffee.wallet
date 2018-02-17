@@ -9,10 +9,7 @@ TODO:
 * cleanup RCV dialog
 * cleanup info dialog
 * app massages and live logs fixes!
-* BTC send support
-* website/logo/domain
 * disable real coins
-* send form validation
 * coin settings dialog
 * exchange tab cleanup
 * public repo
@@ -20,6 +17,8 @@ TODO:
 1.0: public release
 
 * enable-coins
+* bip38
+* bitcoin - new address per transaction
 
 1.1:
 
