@@ -11,7 +11,7 @@ button {
   position: relative;
 }
 
-button.stitched:before {
+.stitched:before {
   content: " ";
   position: absolute;
   top: 9px;

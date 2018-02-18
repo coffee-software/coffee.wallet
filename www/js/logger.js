@@ -2,7 +2,7 @@
 var Logger = {
   //"error", "info", "success"
   log: function(severity, coin, message) {
-    Db.query('INSERT INTO logs (ts, severity, coin, message) VALUES(?, ?,?,?)', [new Date(), severity, coin, message]);
+    Db.query('INSERT INTO logs (ts, severity, coin, message) VALUES(?, ?, ?, ?)', [Date.now(), severity, coin, message]);
   },
 
   getLogs: function(callback) {

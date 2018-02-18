@@ -139,7 +139,7 @@ var Db = {
               'offline_assets (coin TEXT, id INTEGER, addr TEXT, balance FLOAT, comment TEXT, PRIMARY KEY(coin, id))');
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS '+
-              'prices (unit1 TEXT, unit2 TEXT, price FLOAT, ts DATETIME)');
+              'prices (unit1 TEXT, unit2 TEXT, price FLOAT, ts TIMESTAMP)');
           });
       }
       return this.db;

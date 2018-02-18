@@ -432,50 +432,6 @@ table  .active .buttons {
     color: #777;
 }
 
-#messages {
-  background-color: #ff9;
-  color: #005;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 200;
-}
-
-#messages div {
-  padding: 20px;
-  background-color: #aaa;
-}
-
-.msg {
-  position: relative;
-  padding: 12px;
-  padding-left: 54px;
-}
-
-.msg:before {
-  content: " ";
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  background: url('../icons/msgtype.png');
-  background-size: auto 32px;
-}
-
-.msg.info:before {
-  background-position: 0 0;
-}
-
-.msg.error:before {
-  background-position: 64px 0;
-}
-
-.msg.success:before {
-  background-position: 126px 0;
-}
-
 #history {
   margin: 0;
   padding: 0;

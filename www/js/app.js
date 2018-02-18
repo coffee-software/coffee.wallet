@@ -48,11 +48,6 @@ var app = {
         });
         this.priceProviderSelect.setOptions(allPriceProviders, this.settings.get('priceProvider', 0));
         this.tabWallets();
-
-        navigator.notification.alert(
-          'This app is in BETA stage. ' +
-          '\nPlease don\'t send real money. ' +
-          '\nYou can use BTC.TEST and ETH.TEST to send and receive coins using test networks.', null, 'Warning!');
     },
 
     targetScroll: 0,
@@ -578,10 +573,11 @@ var app = {
 
       var msgDiv = document.createElement('div');
       msgDiv.classList.add('msg');
+      msgDiv.classList.add('stitched');
       msgDiv.classList.add(type);
       msgDiv.innerHTML = html;
       document.getElementById('messages').appendChild(msgDiv);
-      setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 2000);
+      setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 5000);
     },
 
     cancelAuth: function() {

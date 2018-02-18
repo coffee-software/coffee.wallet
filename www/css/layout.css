@@ -25,3 +25,59 @@
 .pull-right {
   float: right;
 }
+
+
+#messages {
+    position: fixed;
+    top: 68px;
+    left: 5px;
+    right: 5px;
+    z-index: 200;
+}
+
+.msg {
+  position: relative;
+  padding: 12px;
+  padding-left: 67px;
+  word-wrap: break-word;
+  font-style: italic;
+  font-size: 14px;
+}
+
+#messages div.msg {
+    padding: 27px;
+    background-color: #4e3c31;
+    color: #eadfcb;
+    margin: -11px 10px;
+    border-radius: 30px;
+    box-shadow: 0px -12px 10px #2e1c1190;
+}
+
+
+.msg:after {
+    content: " ";
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 24px;
+    top: 20px;
+    background: url(../icons/msgtype.png);
+    background-size: auto 32px;
+}
+
+.msg.info:after {
+  background-position: 0 0;
+}
+.msg.error {
+  color: #862727;
+}
+.msg.error:after {
+  background-position: 128px 0;
+}
+
+.msg.success {
+  color: #767826;
+}
+.msg.success:after {
+  background-position: 64px 0;
+}
