@@ -21,7 +21,7 @@
               <li>
                 <a href="javascript:app.popupAddCoin()">
                   <img src="icons/plus.png"/>
-                  add/remove coins...
+                  coins...
                 </a>
               </li>
               <li>
@@ -74,7 +74,7 @@
           	    <tbody>
           		    <tr onclick="app.popupAddCoin()">
               			<td colspan="3" class="walletsActions">
-                      <img src="icons/gadd.png" alt="add" class="coinIcon"/>
+                      <img src="icons/plus.png" alt="add" class="coinIcon"/>
                       add more coins
               			</td>
           		    </tr>
@@ -204,7 +204,6 @@
             </div>
             <div id="sendPaymentPopup">
               <div class="spacing row">
-
                 <button class="f1" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
                   <img src="icons/paste.png"/>
                   <br/>
@@ -217,6 +216,7 @@
                   scan
                 </button>
               </div>
+              <div class="unpad stitch"></div>
 
               <div class="spacing">
                 <div class="field">
@@ -245,6 +245,7 @@
                   />
                   <span class="input-unit" id="sendCoinName"></span>
                 </div>
+                <div class="fseparator"></div>
                 <div class="field">
                   <input
                     id="sendCoinValue"
@@ -265,7 +266,6 @@
                   <label for="sendCoinFee">
                     fee: <strong><span id="feeAmount">0</span></strong>
                   </label>
-                  <br/>
                   <label for="sendCoinFee">
                     est. confirm: <strong><span id="feeTime">0 min</span></strong>
                   </label>

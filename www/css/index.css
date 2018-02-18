@@ -1,14 +1,23 @@
  * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
+/** DEV ONLY : */
+html {
+  background-image: url(../dev.png);
+  background-size: 100%;
+  background-position: 0 0;
+}
 
-
+body {
+  opacity: 0.7;
+}
 /**
 color palete:
   creme: #eadfcb;
   dark coffe: #4e3c31;
   pale coffe: #695950;
-  gold: #c0ab7f;
+  gold: #c2b28f;
+
 **/
 @font-face {
   font-family: 'Libre Baskerville';
@@ -41,7 +50,7 @@ body {
     background-color: #eadfcb;
 
     font-family: 'Libre Baskerville', serif;
-
+    color: #4e3c31;
     font-size: 12px;
     height: 100%;
     margin: 0;
@@ -58,33 +67,33 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 48px;
+  height: 54px;
   /* box-shadow: 0 2px 3px #000; */
   color: #eadfcb;
   /* transition: 0.5s filter ease; */
 }
 
 #nav .totals {
-  margin: 0 52px;
+  margin: 2px 52px;
   text-align: center;
 }
 
 #nav .totals h1 {
   margin: 0;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 30px;
 }
 
 #nav .totals h2 {
   margin: 0;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 18px;
 }
 
 #nav .button {
   width: 32px;
   height: 32px;
-  padding: 8px;
+  padding: 11px;
 }
 
 #toggleMenu {
@@ -97,7 +106,7 @@ body {
 
 #menu {
   position: fixed;
-  top: 48px;
+  top: 54px;
   left: 0;
   height: 0;
   transition: height 0.5s ease;
@@ -124,7 +133,7 @@ body {
 }
 
 #menu a:hover {
-  background: linear-gradient(to right, #eadfcb, #c0ab7f 40%, #c0ab7f 50%, #eadfcb);
+  background: linear-gradient(to right, #eadfcb, #c2b28f 40%, #c2b28f 50%, #eadfcb);
   color: #4e3c31;
 }
 
@@ -143,7 +152,7 @@ body {
   color: #eadfcb;
   text-decoration: none;
   text-align: center;
-  padding: 8px 5px;
+  padding: 6px 2px;
 }
 #foot a.tab img {
   height: 32px;
@@ -229,6 +238,11 @@ table {
   width: 64px;
 }
 
+.stitch {
+  border-bottom: 1px dashed #4e3c31;
+  border-image: url(../icons/stitch.png) 1 1 round;
+}
+
 table td {
   padding: 8px;
   border-bottom: 1px dashed #4e3c31;
@@ -240,12 +254,13 @@ table th {
 }
 
 .buttons {
-  display: flex;
+  overflow: auto;
   margin-top: 10px;
 }
 
 .buttons div {
-  flex: 1;
+  float: right;
+  margin-left: 20px;
   text-align: center;
 }
 
@@ -254,7 +269,7 @@ table th {
 }
 
 .value {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .online .value {
@@ -262,7 +277,7 @@ table th {
 }
 
 .amount {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .disabled {
@@ -299,10 +314,19 @@ table th {
     width: 32px;
   }
   .value {
-      font-size: 20px;
+      font-size: 19px;
   }
   .amount {
-      font-size: 14px;
+      font-size: 13px;
+  }
+}
+
+@media all and (max-width: 380px) {
+  .value {
+      font-size: 16px;
+  }
+  .amount {
+      font-size: 11px;
   }
 }
 
@@ -321,7 +345,7 @@ table .no-stitch td {
 }
 
 table .active {
-  background: linear-gradient(to right, #c7b796, #c0ab7f 30%, #c0ab7f 70%, #c7b796);
+  background: linear-gradient(to right, #c7b796, #c2b28f 30%, #c2b28f 70%, #c7b796);
   color: #eadfcb;
 }
 
@@ -349,7 +373,8 @@ table  .active .button {
 #popup h1 {
   margin: 0;
   padding: 0;
-  line-height: 54px;
+  font-size: 18px;
+  line-height: 46px;
   background: #4e3c31;
   color: #eadfcb;
   text-align: center;
@@ -482,86 +507,6 @@ table  .active .button {
   text-align: center;
 }
 
-.range-legend {
-  display: flex;
-}
-.range-legend span {
-  flex: 1;
-  text-align: center;
-  font-size: 12px;
-  line-height: 12px;
-}
-
-input[type=range] {
-  -webkit-appearance: none;
-  width: 100%;
-  background: #aaa;
-
-  border-left: 2px solid #777;
-  border-top: 2px solid #777;
-  border-bottom: 2px solid #fff;
-  border-right: 2px solid #fff;
-  padding: 0;
-  border-radius: 15px;
-}
-
-input[type=range]:focus {
-  outline: none;
-}
-
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border-left: 2px solid #fff;
-  border-top: 2px solid #fff;
-  border-bottom: 2px solid #777;
-  border-right: 2px solid #777;
-  background: linear-gradient(#fff, #ccc);
-
-  height: 36px;
-  width: 66px;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-
-label.checkbox {
-    height: 34px;
-    padding: 4px;
-    display: block;
-}
-
-.checkbox input {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-  appearance: none;
-	display: inline-block;
-  vertical-align: middle;
-  width: 32px;
-  height: 32px;
-	background-color: #fafafa;
-  border: 1px solid #aac;
-	padding: 9px;
-  margin: 0;
-	border-radius: 4px;
-	position: relative;
-	line-height: 32px;
-	text-align: center;
-}
-
-.checkbox input:checked {
-	background-color: #e9ecee;
-  border: 1px solid #229;
-}
-
-.checkbox input:checked:after {
-	content: '\2714';
-	font-size: 20px;
-	position: absolute;
-	top: 0px;
-	left: 8px;
-	color: #229;
-
-}
 
 
 .hidden {
@@ -603,5 +548,6 @@ h1#lockTitle {
   /* background-image: url(coins/ethereum-test.png); */
   background-position: center;
   background-repeat: no-repeat;
-  height: 128px;
+  height: 100px;
+  background-size: contain;
 }

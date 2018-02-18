@@ -78,8 +78,8 @@ function Wallet(data) {
   var buttonsDiv = document.createElement("div");
   buttonsDiv.classList.add('buttons');
 
-  ('sendPayment' in this.handler) && buttonsDiv.appendChild(createButton('send', function(){app.popupSendPayment(that);}));
   ('newPrivateKey' in this.handler) && buttonsDiv.appendChild(createButton('receive',function(){app.popupReceivePayment(that);}));
+  ('sendPayment' in this.handler) && buttonsDiv.appendChild(createButton('send', function(){app.popupSendPayment(that);}));
 
   onlineCell.appendChild(buttonsDiv);
 
@@ -98,8 +98,8 @@ function Wallet(data) {
 
   var buttonsDiv2 = document.createElement("div");
   buttonsDiv2.classList.add('buttons');
-  buttonsDiv2.appendChild(createButton('list', function(){app.popupOfflineAssets(that);}));
   buttonsDiv2.appendChild(createButton('refresh', function(){that.refreshOnline(); that.refreshOffline();}));
+  buttonsDiv2.appendChild(createButton('list', function(){app.popupOfflineAssets(that);}));
   offlineCell.appendChild(buttonsDiv2);
 
   this.row.appendChild(unitCell);

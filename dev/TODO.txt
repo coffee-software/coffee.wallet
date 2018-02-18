@@ -1,17 +1,21 @@
 TODO:
 
-0.9: test release
+0.1: test release 1:
 
-* help and feedback dialogs
-* price settings styles
-* offline manager cleanup (actions: edit/remove)
-* cleanup RCV dialog
-* cleanup info dialog
+* design:
+** recv
+** info
+** add coins
+** price settings
 * app massages and live logs fixes!
 * disable real coins
+* public repo
+
+0.2: test release 2:
+
+* help and feedback dialogs
 * coin settings dialog
 * exchange tab cleanup
-* public repo
 
 1.0: public release
 
@@ -35,6 +39,3 @@ https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio
 1.3:
 
 * market integrations
-
-
-

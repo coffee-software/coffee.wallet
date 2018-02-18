@@ -39,7 +39,7 @@ function Asset(wallet, id, data) {
   var buttonsDiv = document.createElement("div");
   buttonsDiv.classList.add('buttons');
 
-  //data.addr && buttonsDiv.appendChild(createButton('receive', function(){}));
+  data.addr && buttonsDiv.appendChild(createButton('receive', function(){}));
   data.addr && buttonsDiv.appendChild(createButton('refresh', function(){that.refreshAmount();}));
 
   buttonsDiv.appendChild(createButton('edit',function(){

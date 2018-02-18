@@ -4,8 +4,8 @@ button {
   color: #4e3c31;
   line-height: 18px;
   font-size: 18px;
-  padding: 15px 22px;
-  border-radius: 33px;
+  padding: 10px;
+  border-radius: 16px;
   font-family: 'Libre Baskerville', serif;
   text-align: center;
   position: relative;
@@ -14,25 +14,30 @@ button {
 button.stitched:before {
   content: " ";
   position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 2px dashed #4e3c31;
+  top: 9px;
+  left: 9px;
+  right: 9px;
+  bottom: 9px;
+  border: 2px dashed #c2b28f;
   border-radius: inherit;
 }
 
 button img {
   width: 64px;
-  margin: 1px;
+  max-width: 100%;
 }
 
 button.large {
   line-height: 30px;
-  font-size: 30px;
-  padding: 15px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 15px 5px;
+  text-transform: uppercase;
 }
 
+button.primary.stitched:before {
+  border: 2px dashed #4e3c31;
+}
 button.primary {
   background: #4e3c31;
   color: #eadfcb;
@@ -57,24 +62,32 @@ input {
 
 input::placeholder {
     color: #eadfcb;
+    font-style: italic;
 }
 
 input.invalid {
-    border-color: red;
+    border-color: #632020;
 }
 
 input.valid {
-    border-color: #229;
+    border-color: #635920;
 }
 div.validation {
-    color: red;
+    text-align: center;
+    color: #632020;
 }
 
 input.top {
-  border-bottom-color: #ddd;
+  border-bottom: none;
 }
 input.bottom {
   border-top: none;
+}
+
+.fseparator {
+  border-bottom: 1px dashed #4e3c31;
+  border-image: url(../icons/stitch.png) 1 1 round;
+  margin: 0 22px;
 }
 
 input.has-unit {
@@ -83,13 +96,99 @@ input.has-unit {
 
 .field {
   position: relative;
+  text-align: center;
+  font-size: 16px;
 }
 .field label {
-  margin-left: 15px;
+  padding-bottom: 5px;
+  display: block;
 }
 .input-unit {
   position: absolute;
   bottom: 10px;
   right: 10px;
   color: #eadfcb;
+}
+
+
+
+
+.range-legend {
+  display: flex;
+}
+.range-legend span {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+
+
+  box-sizing: border-box;
+  border: 1px solid #c2b28f;
+  border-radius: 21px;
+  background: #c2b28f;
+
+  padding: 0;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+
+    background-image: url('../icons/slider.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    margin: -5px 0;
+    width: 50px;
+    cursor: pointer;
+}
+
+
+label.checkbox {
+    height: 34px;
+    padding: 4px;
+    display: block;
+}
+
+.checkbox input {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+  appearance: none;
+	display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+	background-color: #fafafa;
+  border: 1px solid #aac;
+	padding: 9px;
+  margin: 0;
+	border-radius: 4px;
+	position: relative;
+	line-height: 32px;
+	text-align: center;
+}
+
+.checkbox input:checked {
+	background-color: #e9ecee;
+  border: 1px solid #229;
+}
+
+.checkbox input:checked:after {
+	content: '\2714';
+	font-size: 20px;
+	position: absolute;
+	top: 0px;
+	left: 8px;
+	color: #229;
+
 }
