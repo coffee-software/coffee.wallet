@@ -27,10 +27,7 @@ function Asset(wallet, id, data) {
   }
 
   var commentCell = document.createElement("td");
-  commentCell.innerHTML = data.comment;
-
-  var addressCell = document.createElement("td");
-  addressCell.innerHTML = (data.addr ? data.addr.substring(0, 7) + '...' : '-');
+  commentCell.innerHTML = data.comment + '<br/>' + (data.addr ? '[' + data.addr.substring(0, 7) + '...]' : '[BALANCE]');
 
   var amountCell = document.createElement("td");
 
@@ -52,7 +49,6 @@ function Asset(wallet, id, data) {
   amountCell.appendChild(buttonsDiv);
 
   this.row.appendChild(commentCell);
-  this.row.appendChild(addressCell);
   this.row.appendChild(amountCell);
 
 
