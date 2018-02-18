@@ -3,7 +3,7 @@ button {
   background: none;
   color: #4e3c31;
   line-height: 18px;
-  font-size: 18px;
+  font-size: 14px;
   padding: 10px;
   border-radius: 16px;
   font-family: 'Libre Baskerville', serif;
@@ -23,7 +23,8 @@ button.stitched:before {
 }
 
 button img {
-  width: 64px;
+  display: block;
+  width: 70px;
   max-width: 100%;
 }
 
@@ -97,10 +98,15 @@ input.has-unit {
 .field {
   position: relative;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
 }
+
+.field.fee {
+  text-align: left;
+}
+
 .field label {
-  padding-bottom: 5px;
+  padding: 8px;
   display: block;
 }
 .input-unit {

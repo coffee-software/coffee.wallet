@@ -1,16 +1,18 @@
  * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
-/** DEV ONLY : */
+
+/** DEV ONLY :
 html {
-  background-image: url(../dev1.png);
+  background-image: url(../dev3.png);
   background-size: 100%;
   background-position: 0 0;
 }
 
 body {
   opacity: 0.7;
-}
+}*/
+
 /**
 color palete:
   creme: #eadfcb;
@@ -128,7 +130,8 @@ body {
 #menu a {
   display: block;
   color: #4e3c31;
-  font-size: 22px;
+  font-size: 20px;
+  line-height: 32px;
   text-decoration: none;
   padding: 7px 15px;
 }
@@ -382,24 +385,25 @@ table  .active .buttons {
   margin: 0;
   padding: 0;
   font-size: 18px;
-  line-height: 46px;
+  line-height: 52px;
   background: #4e3c31;
   color: #eadfcb;
   text-align: center;
 }
 #popup h1 img {
   width: 32px;
-  margin: 11px;
+  margin: 10px;
 }
 #popup h1 #popupIcon {
   float: left;
 }
 #popup h1 .close {
   float: right;
+  height: 52px;
 }
 
 #popupContent {
-  padding: 10px;
+  padding: 0 30px;
   background-repeat: no-repeat;
   background-position: right 5px;
 }
@@ -416,7 +420,6 @@ table  .active .buttons {
 
 .spacing {
   margin: 14px 0;
-  padding: 8px;
 }
 
 #sendPaymentPopup {
@@ -558,6 +561,10 @@ h1#lockTitle {
   background-repeat: no-repeat;
   height: 100px;
   background-size: contain;
+}
+
+.sendHead {
+    margin: 10px -16px 20px -16px;
 }
 
 .largecup {
