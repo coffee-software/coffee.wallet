@@ -57,13 +57,13 @@ var BtcHandler = {
       'bitcoin.org' : 'https://bitcoin.org/',
       'bitcoin.com' : 'https://bitcoin.com/'
     },
-    newPrivateKey: function() {
+    __disabled__newPrivateKey: function() {
       return btcjs.newPrivKey(btcjs.networks.btc);
     },
-    addrFromPrivateKey: function(priv) {
+    __disabled__addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.btc, priv);
     },
-    getBalance: function(addr, callback) {
+    __disabled__getBalance: function(addr, callback) {
       return btcjs.getBalance(btcjs.networks.btc, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
     }
 }
@@ -80,13 +80,13 @@ var LtcHandler = {
     links: {
       'litecoin.org' : 'https://litecoin.org/'
     },
-    newPrivateKey: function() {
+    __disabled__newPrivateKey: function() {
       return btcjs.newPrivKey(btcjs.networks.ltc);
     },
-    addrFromPrivateKey: function(priv) {
+    __disabled__addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.ltc, priv);
     },
-    getBalance: function(addr, callback) {
+    __disabled__getBalance: function(addr, callback) {
       return btcjs.getBalance(btcjs.networks.ltc, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
     }
 }

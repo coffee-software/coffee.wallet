@@ -146,7 +146,7 @@ function Wallet(data) {
     this.onlineAmount.innerHTML = formatMoney(this.totalOnline, this.handler.code, 5);
     this.updateOnlineValue();
 
-    if (this.data.addr) {
+    if (this.data.addr && 'getBalance' in this.handler) {
       this.handler.getBalance(this.data.addr, function(val){
         that.totalOnline = val;
         that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);

@@ -8,7 +8,6 @@ TODO:
 ** add coins
 ** price settings
 * app massages and live logs fixes!
-* disable real coins
 * public repo
 
 0.2: test release 2:
