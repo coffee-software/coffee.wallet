@@ -3,7 +3,7 @@
 }
 /** DEV ONLY : */
 html {
-  background-image: url(../dev.png);
+  background-image: url(../dev1.png);
   background-size: 100%;
   background-position: 0 0;
 }
@@ -51,7 +51,7 @@ body {
 
     font-family: 'Libre Baskerville', serif;
     color: #4e3c31;
-    font-size: 12px;
+    font-size: 11px;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -80,20 +80,21 @@ body {
 
 #nav .totals h1 {
   margin: 0;
+  margin-top: 10px;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 20px;
 }
 
 #nav .totals h2 {
   margin: 0;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 14px;
+  font-style: italic;
 }
 
 #nav .button {
-  width: 32px;
-  height: 32px;
-  padding: 11px;
+  width: 28px;
+  padding: 13px;
 }
 
 #toggleMenu {
@@ -155,7 +156,7 @@ body {
   padding: 6px 2px;
 }
 #foot a.tab img {
-  height: 32px;
+  height: 26px;
 }
 #foot a.tab.active {
   background-color: #4e3c31;
@@ -201,7 +202,7 @@ body {
   width: 100%;
 }
 #swiper .swipe_tab .tab_inner {
-  padding-top: 48px;
+  padding-top: 54px;
   padding-bottom: 56px;
 }
 
@@ -244,7 +245,7 @@ table {
 }
 
 table td {
-  padding: 8px;
+  padding: 12px 13px;
   border-bottom: 1px dashed #4e3c31;
   border-image: url(../icons/stitch.png) 1 1 round;
 }
@@ -255,7 +256,7 @@ table th {
 
 .buttons {
   overflow: auto;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .buttons div {
@@ -314,19 +315,19 @@ table th {
     width: 32px;
   }
   .value {
-      font-size: 19px;
+      font-size: 18px;
   }
   .amount {
-      font-size: 13px;
+      font-size: 12px;
   }
 }
 
 @media all and (max-width: 380px) {
   .value {
-      font-size: 16px;
+      font-size: 14px;
   }
   .amount {
-      font-size: 11px;
+      font-size: 10px;
   }
 }
 
@@ -336,8 +337,11 @@ table {
 }
 
 table .button {
-  display: none;
   float: right:
+}
+
+table .buttons {
+  display: none;
 }
 
 table .no-stitch td {
@@ -345,12 +349,15 @@ table .no-stitch td {
 }
 
 table .active {
-  background: linear-gradient(to right, #c7b796, #c2b28f 30%, #c2b28f 70%, #c7b796);
+
+  background: linear-gradient(to right, #c8b897 0%, #ae9a70 20%, #9e8858 40%, #9e8858 60%, #ae9a70 80%, #c8b897 100%);
+
+  /*background: linear-gradient(to right, #c8b897, #9e8858 40%, #9e8858 70%, #c8b897);*/
   color: #eadfcb;
 }
 
-table  .active .button {
-  display: inline-block;
+table  .active .buttons {
+  display: block;
 }
 
 #popup {
@@ -550,4 +557,8 @@ h1#lockTitle {
   background-repeat: no-repeat;
   height: 100px;
   background-size: contain;
+}
+
+.largecup {
+  width: 100%;
 }

@@ -274,7 +274,7 @@ var app = {
     },
 
     popupAddCoin: function() {
-      this.openPopup('addCoinPopup', 'Manage Coins', 'add');
+      this.openPopup('addCoinPopup', 'Manage Coins', 'plus');
       var that = this;
       if (typeof that.popupGenerated == 'undefined') {
         that.popupGenerated = true;
@@ -643,7 +643,11 @@ var app = {
         document.getElementById('receiveCoinName').innerHTML = wallet.handler.code;
         document.getElementById('receiveCoinAddr').value = wallet.data.addr;
 
-        new QRCode(document.getElementById('receiveCoinQrcode'), wallet.data.addr);
+        new QRCode(document.getElementById('receiveCoinQrcode'), {
+          text: wallet.data.addr,
+          colorLight: '#eadfcb',
+          colorDark: '#4e3c31'
+        });
 
     },
     addWalletWidget: function(data) {

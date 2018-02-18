@@ -72,7 +72,7 @@
                 <tbody id="walletsList">
                 </tbody>
           	    <tbody>
-          		    <tr onclick="app.popupAddCoin()">
+          		    <tr onclick="app.popupAddCoin()" class="no-stitch">
               			<td colspan="3" class="walletsActions">
                       <img src="icons/plus.png" alt="add" class="coinIcon"/>
                       add more coins
@@ -295,14 +295,13 @@
               </div>
             </div>
             <div id="receivePaymentPopup">
-
-              Your <span id="receiveCoinName"></span> address is:
-              <br/>
-              <input readonly="readonly" id="receiveCoinAddr" value=""/>
-              <br/>
-              <button onclick="app.copyReceiveCoinAddrToClp()">copy to clipboard</button>
-              <br/>
+              <div class="field">
+                <label>Your <span id="receiveCoinName"></span> address is:</label>
+                <input readonly="readonly" id="receiveCoinAddr" value=""/>
+                <button onclick="app.copyReceiveCoinAddrToClp()">copy to clipboard</button>
+              </div>
               <div id="receiveCoinQrcode"></div>
+              <img class="largecup" src="icons/largecup.png"/>
             </div>
             <div id="priceSettingsPopup">
               <h2>Fiat Currency</h2>
