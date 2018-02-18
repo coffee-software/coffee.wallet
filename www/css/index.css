@@ -220,7 +220,7 @@ h1 {
   line-height: 64px;
 }
 
-#wallets {
+table {
   width: 100%;
   border-spacing: 0;
 }
@@ -229,14 +229,13 @@ h1 {
   width: 64px;
 }
 
-#wallets td {
+table td {
   padding: 8px;
   border-bottom: 1px dashed #4e3c31;
-  /*border: 1px solid;*/
   border-image: url(../icons/stitch.png) 1 1 round;
 }
 
-#wallets th {
+table th {
   padding: 10px;
 }
 
@@ -308,25 +307,25 @@ h1 {
 }
 
 
-#walletsList {
+table {
   text-align: right;
 }
 
-#walletsList .button {
+table .button {
   display: none;
   float: right:
 }
 
-#walletsList .no-stitch td {
+table .no-stitch td {
   border: none;
 }
 
-#walletsList .active {
+table .active {
   background: linear-gradient(to right, #c7b796, #c0ab7f 30%, #c0ab7f 70%, #c7b796);
   color: #eadfcb;
 }
 
-#walletsList  .active .button {
+table  .active .button {
   display: inline-block;
 }
 

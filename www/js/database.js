@@ -26,10 +26,24 @@ var Data = {
       }
     }.bind(this));
   },
+  updateOfflineAsset: function(coin, id, data) {
+    this.wallets[coin].offlineWallets[id - 1].addr = data.addr;
+    this.wallets[coin].offlineWallets[id - 1].balance = data.balance;
+    this.wallets[coin].offlineWallets[id - 1].comment = data.comment;
+    Db.query(
+      'UPDATE offline_assets SET addr = ?, balance = ?, comment = ? WHERE coin = ? AND id = ?',
+      [data.addr, data.balance, data.comment, coin, id],
+      function(){}
+    );
+  },
   addOfflineAsset: function(coin, data) {
     this.wallets[coin].offlineWallets.push(data);
-    Db.query('INSERT INTO offline_assets (coin, addr, balance, comment) VALUES (?, ?, ?, ?)', [coin, data.addr, data.balance, data.comment], function(){
-    });
+
+    Db.query(
+      'INSERT INTO offline_assets (coin, id, addr, balance, comment) VALUES (?, ?, ?, ?, ?)',
+      [coin, this.wallets[coin].offlineWallets.length, data.addr, data.balance, data.comment],
+      function(){}
+    );
   },
   hideWallet: function(code, callback) {
     delete this.wallets[code];
@@ -113,16 +127,16 @@ var Db = {
           this.db.transaction(function (tx) {
             //tx.executeSql('DROP TABLE IF EXISTS logs');
             tx.executeSql('CREATE TABLE IF NOT EXISTS '+
-              'logs (ts DATETIME KEY DESC, severity TEXT, coin TEXT, addr TEXT, tx TEXT, message TEXT)');
+              'logs (ts DATETIME KEY DESC, severity TEXT, coin TEXT, message TEXT)');
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS '+
               'settings (key TEXT PRIMARY KEY, value TEXT)');
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS '+
-              'wallets (coin TEXT PRIMARY KEY, enabled INT, privateKey TEXT, addr TEXT, balance FLOAT)');
+              'wallets (coin TEXT PRIMARY KEY, enabled INTEGER, privateKey TEXT, addr TEXT, balance FLOAT)');
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS '+
-              'offline_assets (coin TEXT, addr TEXT, balance FLOAT, comment TEXT)');
+              'offline_assets (coin TEXT, id INTEGER, addr TEXT, balance FLOAT, comment TEXT, PRIMARY KEY(coin, id))');
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS '+
               'prices (unit1 TEXT, unit2 TEXT, price FLOAT, ts DATETIME)');

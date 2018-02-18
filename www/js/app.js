@@ -365,25 +365,9 @@ var app = {
         this.settings.set('priceUnit', this.priceUnitSelect.getValue());
         this.priceProvider.setUnit(this.settings.get('priceUnit'));
     },
-    _parseTransactionText: function(text) {
-      //check if text is a plain address or transaction info:
-      //https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki#Simpler syntax
-      var a = text.split('?', 2);
-      var argsStr = (a.length > 1) ? a[1] : '';
-      var addr = a[0];
-
-      var b = addr.split(':', 2);
-      if (b.length >1) addr = b[1];
-
+    pasteToSendForm: function(addr, args) {
       //TODO check if coin matches?
-      //TODO validate addr format
-
-      var args = {};
-      argsStr.split('&').forEach(function(e){
-        var kp = e.split('=', 2);
-        if (kp.length>1) args[kp[0]] = kp[1];
-      });
-
+      //console.log('paste', addr, args);
       document.getElementById('sendCoinAddr').value = addr;
       app.sendCoinValidateAddr();
 
@@ -393,14 +377,39 @@ var app = {
         app.sendCoinValidateAmount();
       }
     },
-    pasteClipboard: function() {
-      cordova.plugins.clipboard.paste(this._parseTransactionText.bind(this));
+    _parseTransactionText: function(text, callback) {
+      //check if text is a plain address or transaction info:
+      //https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki#Simpler syntax
+      var a = text.split('?', 2);
+      var argsStr = (a.length > 1) ? a[1] : '';
+      var addr = a[0];
+
+      var args = {};
+
+      var b = addr.split(':', 2);
+      if (b.length >1) {
+        args.coin = b[0];
+        addr = b[1];
+      }
+
+      argsStr.split('&').forEach(function(e){
+        var kp = e.split('=', 2);
+        if (kp.length>1) args[kp[0]] = kp[1];
+      });
+
+      callback(addr, args);
     },
-    scanQrCode: function() {
+    pasteClipboard: function(callback) {
+      var that = this;
+      cordova.plugins.clipboard.paste(function(text){
+        that._parseTransactionText(text, callback);
+      });
+    },
+    scanQrCode: function(callback) {
       window.cordova.plugins.barcodeScanner.scan(
            function (result) {
              if (!result.canceled) {
-               app._parseTransactionText(result.text);
+               app._parseTransactionText(result.text, callback);
              }
           },
          function (error) {
@@ -418,24 +427,39 @@ var app = {
 
     popupOfflineAssets: function(wallet) {
 
-      var rows = '';
+      document.getElementById('offlineAssets').innerHTML = '';
       for (var i=0; i<wallet.offlineWallets.length; i++) {
-        rows +='<tr><td>' +
-          wallet.offlineWallets[i].addr + '</td><td>' +
-          wallet.offlineWallets[i].balance + '</td><td>' +
-          wallet.offlineWallets[i].comment + '</td></tr>';
+        var a = new Asset(wallet, i + 1, wallet.offlineWallets[i]);
+        document.getElementById('offlineAssets').appendChild(a.row);
       }
-      document.getElementById('offlineAssets').innerHTML = rows;
 
-      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' offline assets', 'list');
+      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' offline assets', 'list', 'coins/' + wallet.handler.name + '.png');
       this.offlineAssetWallet = wallet;
     },
-    popupAddOfflineAsset: function(type) {
-      document.getElementById('addOfflineAssetAddr').value = '';
-      document.getElementById('addOfflineAssetBalance').value = '';
+    pasteOfflineAsset: function(addr, args) {
+      //console.log('add', addr, args);
+      this.popupAddOfflineAsset('addr', addr);
+    },
+    popupEditOfflineAsset: function(asset) {
+      document.getElementById('addOfflineAssetAddr').value = asset.data.addr;
+      document.getElementById('addOfflineAssetBalance').value = asset.data.balance;
+      document.getElementById('addOfflineAssetComment').value = asset.data.comment;
+      document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', asset.data.addr ? false : true);
+      document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', asset.data.addr);
+
+      document.getElementById('saveOfflineAssetButton').classList.remove('hidden');
+      document.getElementById('addOfflineAssetButton').classList.add('hidden');
+
+      this.openPopup('addOfflineAssetPopup', 'edit ' + asset.wallet.handler.code + ' asset', 'edit');
+    },
+    popupAddOfflineAsset: function(type, value) {
+      document.getElementById('addOfflineAssetAddr').value = (type == 'addr' ? value : '');
+      document.getElementById('addOfflineAssetBalance').value = (type == 'balance' ? value : '');
       document.getElementById('addOfflineAssetComment').value = '';
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', type == 'balance');
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'addr');
+      document.getElementById('saveOfflineAssetButton').classList.add('hidden');
+      document.getElementById('addOfflineAssetButton').classList.remove('hidden');
       this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'add');
     },
     addOfflineAsset: function() {
@@ -445,6 +469,15 @@ var app = {
         comment: document.getElementById('addOfflineAssetComment').value
       }
       this.data.addOfflineAsset(this.offlineAssetWallet.handler.code, data);
+      this.popupOfflineAssets(this.offlineAssetWallet);
+    },
+    saveOfflineAsset: function(){
+      var data = {
+        addr: document.getElementById('addOfflineAssetAddr').value,
+        balance: parseFloat(document.getElementById('addOfflineAssetBalance').value),
+        comment: document.getElementById('addOfflineAssetComment').value
+      }
+      this.data.updateOfflineAsset(activeAsset.wallet.handler.code, activeAsset.id, data);
       this.popupOfflineAssets(this.offlineAssetWallet);
     },
 
@@ -622,32 +655,6 @@ var app = {
               this.addWalletWidget(this.data.wallets[key]);
             }
         }.bind(this));
-        /*
-        var btc = new Wallet(BtcTestHandler, [{amount:0.43}]);
-        document.getElementById('walletsList').appendChild(btc.row);
-
-        var bch = new Wallet(BchHandler, [{amount:0.68}]);
-        document.getElementById('walletsList').appendChild(bch.row);
-
-        var eth = new Wallet(EthHandler, [{addr:'0x87Fdb041d00597067Ed5F52dbA73d140130Ae787'}]);
-        document.getElementById('walletsList').appendChild(eth.row);
-
-        var pay = new Wallet(PayHandler, [{amount:230}]);
-        document.getElementById('walletsList').appendChild(pay.row);
-
-        var ltc = new Wallet(LtcHandler, [{amount:2.5}]);
-        document.getElementById('walletsList').appendChild(ltc.row);
-
-        var lsk = new Wallet(LskHandler, [{amount:66.57}]);
-        document.getElementById('walletsList').appendChild(lsk.row);
-
-        var nebl = new Wallet(NeblHandler, [{amount:37.99}]);
-        document.getElementById('walletsList').appendChild(nebl.row);
-
-        var part = new Wallet(PartHandler, [{amount:30.5}]);
-        document.getElementById('walletsList').appendChild(part.row);
-        */
-        //this.wallets = [btc, bch, eth, pay, ltc, lsk, nebl, part];
         this.updateMarketCap();
     },
 

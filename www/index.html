@@ -130,26 +130,43 @@
               <div id="coinInfoDescription"></div>
             </div>
             <div id="offlineAssetsPopup">
-              <table>
-                <thead>
-                  <tr>
-                    <th>address</th>
-                    <th>balance</th>
-                    <th>comment</th>
-                  </tr>
-                </thead>
-                <tbody id="offlineAssets">
+              <div class="spacing">
+                <div class="coinBig"></div>
+              </div>
 
-                </tbody>
-              </table>
-              <button onclick="app.popupAddOfflineAsset('balance')">
-                <img src="icons/plus.png"/>
-                add balance
-              </button>
-              <button onclick="app.popupAddOfflineAsset('addr')">
-                <img src="icons/plus.png"/>
-                add address
-              </button>
+              <div class="unpad">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>comment</th>
+                      <th>address</th>
+                      <th>balance</th>
+                    </tr>
+                  </thead>
+                  <tbody id="offlineAssets">
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="row">
+                <button class="f1 stitched" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
+                  <img src="icons/paste.png"/>
+                  paste
+                </button>
+                <button class="f1 stitched" onclick="app.popupAddOfflineAsset('balance', '')">
+                  <img src="icons/plus.png"/>
+                  add balance
+                </button>
+                <button class="f1 stitched" onclick="app.popupAddOfflineAsset('addr', '')">
+                  <img src="icons/plus.png"/>
+                  add address
+                </button>
+                <button class="f1 stitched" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
+                  <img src="icons/scan.png"/>
+                  scan
+                </button>
+              </div>
             </div>
             <div id="addOfflineAssetPopup">
               <div id="addOfflineAssetAddrDiv" class="spacing">
@@ -167,9 +184,21 @@
                 <br/>
                 <input id="addOfflineAssetComment" value=""/>
               </div>
-              <div class="spacing">
-                <button onclick="app.addOfflineAsset()">
-                  <img src="icons/plus.png"/>
+              <div class="spacing row">
+                <!--button class="f1" onclick="app.addOfflineAsset()">
+                  <img src="icons/cancel.png"/>
+                  remove
+                </button-->
+                <button class="f1 large stitched" onclick="app.popupOfflineAssets(app.offlineAssetWallet)">
+                  <img src="icons/cancel.png"/>
+                  cancel
+                </button>
+                <button id="saveOfflineAssetButton" class="f2 large stitched primary" onclick="app.saveOfflineAsset()">
+                  <img src="icons/ok.png"/>
+                  save
+                </button>
+                <button id="addOfflineAssetButton" class="f2 large stitched primary" onclick="app.addOfflineAsset()">
+                  <img src="icons/ok.png"/>
                   add
                 </button>
               </div>
@@ -177,13 +206,13 @@
             <div id="sendPaymentPopup">
               <div class="spacing row">
 
-                <button class="f1" onclick="app.pasteClipboard()">
+                <button class="f1" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
                   <img src="icons/paste.png"/>
                   <br/>
                   paste
                 </button>
                 <div class="f3 coinBig"></div>
-                <button class="f1" onclick="app.scanQrCode()">
+                <button class="f1" onclick="app.scanQrCode(app.pasteToSendForm.bind(app))">
                   <img src="icons/scan.png"/>
                   <br/>
                   scan
@@ -350,6 +379,7 @@
         <script type="text/javascript" src="js/price.providers.js"></script>
 
         <script type="text/javascript" src="js/widget.wallet.js"></script>
+        <script type="text/javascript" src="js/widget.asset.js"></script>
         <script type="text/javascript" src="js/widget.select.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
     </body>
