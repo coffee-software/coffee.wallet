@@ -49,8 +49,8 @@ button.primary.stitched:before {
 }
 
 input {
-    padding: 7px 12px;
-    font-size: 22px;
+    padding: 9px 14px;
+    font-size: 18px;
     width: 100%;
     border: 1px solid #4e3c31;
     border-radius: 21px;
@@ -111,8 +111,8 @@ input.has-unit {
 }
 .input-unit {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 11px;
+  right: 12px;
   color: #eadfcb;
 }
 
@@ -125,8 +125,8 @@ input.has-unit {
 .range-legend span {
   flex: 1;
   text-align: center;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 11px;
+  line-height: 11px;
 }
 
 input[type=range] {
