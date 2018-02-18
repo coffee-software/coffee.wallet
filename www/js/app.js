@@ -349,6 +349,9 @@ var app = {
     popupHelp: function() {
         this.openPopup('helpPopup', 'Help', 'help');
     },
+    popupFeedback: function() {
+        this.openPopup('feedbackPopup', 'Feedback', 'heart');
+    },
 
     popupPriceSettings: function() {
         this.openPopup('priceSettingsPopup', 'Price Settings', 'money');
