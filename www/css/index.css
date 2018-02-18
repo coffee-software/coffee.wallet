@@ -80,15 +80,15 @@ body {
 
 #nav .totals h1 {
   margin: 0;
-  margin-top: 10px;
+  margin-top: 9px;
   font-size: 20px;
-  line-height: 20px;
+  line-height: 22px;
 }
 
 #nav .totals h2 {
   margin: 0;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 16px;
   font-style: italic;
 }
 
@@ -157,6 +157,7 @@ body {
 }
 #foot a.tab img {
   height: 26px;
+  margin: 2px;
 }
 #foot a.tab.active {
   background-color: #4e3c31;
