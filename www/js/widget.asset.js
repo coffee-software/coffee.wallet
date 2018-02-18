@@ -26,6 +26,9 @@ function Asset(wallet, id, data) {
     activeAsset = that;
   }
 
+  var unitCell = document.createElement("td");
+  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + that.wallet.handler.name + '.png" alt="' + that.wallet.handler.code + '"/>';
+
   var commentCell = document.createElement("td");
   commentCell.innerHTML = data.comment + '<br/>' + (data.addr ? '[' + data.addr.substring(0, 7) + '...]' : '[BALANCE]');
 
@@ -48,6 +51,7 @@ function Asset(wallet, id, data) {
 
   amountCell.appendChild(buttonsDiv);
 
+  this.row.appendChild(unitCell);
   this.row.appendChild(commentCell);
   this.row.appendChild(amountCell);
 

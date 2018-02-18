@@ -239,7 +239,7 @@ table {
   border-spacing: 0;
 }
 
-#wallets tr td:first-child {
+table tr td:first-child {
   width: 64px;
 }
 
@@ -315,7 +315,7 @@ table th {
   .coinIcon {
     width: 32px;
   }
-  #wallets tr td:first-child {
+  table tr td:first-child {
     width: 32px;
   }
   .value {

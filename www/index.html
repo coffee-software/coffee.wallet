@@ -130,17 +130,10 @@
               <div id="coinInfoDescription"></div>
             </div>
             <div id="offlineAssetsPopup">
-              <div class="spacing">
-                <div class="coinBig"></div>
-              </div>
 
               <div class="unpad">
                 <table>
                   <thead>
-                    <tr>
-                      <td style="width:50%"></td>
-                      <td></td>
-                    </tr>
                   </thead>
                   <tbody id="offlineAssets">
 
@@ -149,25 +142,28 @@
               </div>
 
               <div class="row spacing">
-                <button class="f1 stitched" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
+                <button class="f1" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
                   <img src="icons/paste.png"/>
                   paste
                 </button>
-                <button class="f1 stitched" onclick="app.popupAddOfflineAsset('balance', '')">
+                <button class="f1" onclick="app.popupAddOfflineAsset('balance', '')">
                   <img src="icons/plus.png"/>
                   add balance
                 </button>
-                <button class="f1 stitched" onclick="app.popupAddOfflineAsset('addr', '')">
+                <button class="f1" onclick="app.popupAddOfflineAsset('addr', '')">
                   <img src="icons/plus.png"/>
                   add address
                 </button>
-                <button class="f1 stitched" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
+                <button class="f1" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
                   <img src="icons/scan.png"/>
                   scan
                 </button>
               </div>
             </div>
             <div id="addOfflineAssetPopup">
+              <div class="spacing">
+                <div class="coinBig"></div>
+              </div>
               <div id="addOfflineAssetAddrDiv" class="spacing">
                 address:
                 <br/>
