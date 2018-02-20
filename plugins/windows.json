@@ -8,22 +8,22 @@
   },
   "installed_plugins": {
     "cordova-plugin-clipboard2": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+      "PACKAGE_NAME": "Coffee"
     },
     "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+      "PACKAGE_NAME": "Coffee"
     },
     "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
-    },
-    "cordova-plugin-nativestorage": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+      "PACKAGE_NAME": "Coffee"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+      "PACKAGE_NAME": "Coffee"
     },
     "phonegap-plugin-barcodescanner": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+      "PACKAGE_NAME": "Coffee"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "Coffee"
     }
   },
   "dependent_plugins": {}
