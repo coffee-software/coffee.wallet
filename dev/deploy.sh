@@ -16,6 +16,7 @@ sed -i -e 's/class=\"VERSION\">.*<\/span>/class=\"VERSION\">'$nextVersion'<\/spa
 echo 's/class=\"VERSION\">.*<\/span>/class=\"VERSION\">'$nextVersion'<\/span>/g'
 
 #git commit
+git add www/index.html landing_page/index.html
 git commit -m 'update version'
 git tag $nextVersion
 
