@@ -585,6 +585,16 @@ var app = {
       setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 5000);
     },
 
+    _alertJsError: function(html) {
+      var msgDiv = document.createElement('div');
+      msgDiv.classList.add('msg');
+      msgDiv.classList.add('stitched');
+      msgDiv.classList.add('error');
+      msgDiv.innerHTML = html;
+      document.getElementById('messages').appendChild(msgDiv);
+      setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 5000);
+    },
+
     cancelAuth: function() {
       this.onAuthCallback = null;
       document.getElementById('lockPopup').classList.add('hidden');

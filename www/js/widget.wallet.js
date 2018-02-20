@@ -32,7 +32,7 @@ function Wallet(data) {
   this.row = document.createElement("tr");
   var that = this;
   that.data = data;
-  that.handler = data.api;
+  that.handler = allCoinApis[data.coin];
   this.row.onclick = function() {
     if (activeWallet && activeWallet.row) {
       if (activeWallet.row.previousElementSibling != null) {

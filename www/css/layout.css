@@ -46,6 +46,7 @@
 
 #messages div.msg {
     padding: 27px;
+    padding-left: 67px;
     background-color: #4e3c31;
     color: #eadfcb;
     margin: -11px 10px;
