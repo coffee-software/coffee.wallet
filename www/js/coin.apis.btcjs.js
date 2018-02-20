@@ -63,7 +63,7 @@ var BtcHandler = {
     __disabled__addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.btc, priv);
     },
-    __disabled__getBalance: function(addr, callback) {
+    getBalance: function(addr, callback) {
       return btcjs.getBalance(btcjs.networks.btc, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
     }
 }
@@ -86,7 +86,7 @@ var LtcHandler = {
     __disabled__addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.ltc, priv);
     },
-    __disabled__getBalance: function(addr, callback) {
+    getBalance: function(addr, callback) {
       return btcjs.getBalance(btcjs.networks.ltc, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
     }
 }

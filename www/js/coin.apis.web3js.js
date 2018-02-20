@@ -103,7 +103,7 @@ var EthHandler = {
     __disabled__newPrivateKey: EthFunctions.newPrivateKey,
     __disabled__getFees: EthFunctions.getFees,
     __disabled__addrFromPrivateKey: EthFunctions.addrFromPrivateKey,
-    __disabled__getBalance: EthFunctions.getBalance,
+    getBalance: EthFunctions.getBalance,
     _getTransaction: EthFunctions._getTransaction,
     __disabled__sendPayment: EthFunctions.sendPayment
 }
@@ -120,7 +120,7 @@ var PayHandler = {
     __disabled__newPrivateKey: EthHandler,
     __disabled__addrFromPrivateKey: EthFunctions.addrFromPrivateKey,
 
-    __disabled__getBalance: function(addr, callback){
+    getBalance: function(addr, callback){
       var c = this._getProvider().eth.Contract;
       var contract = new c(this.ethAbi, this.ethContractAddr);
       var that = this;

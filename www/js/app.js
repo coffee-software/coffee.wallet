@@ -431,7 +431,12 @@ var app = {
         document.getElementById('offlineAssets').appendChild(a.row);
       }
 
-      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' offline assets', 'list', 'coins/' + wallet.handler.name + '.png');
+      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'list', 'coins/' + wallet.handler.name + '.png');
+
+      var addBalanceButtons = document.getElementsByClassName('addBalanceButton');
+      for (var i = 0; i < addBalanceButtons.length; i ++) {
+        addBalanceButtons[i].classList.toggle('hidden', !('getBalance' in wallet.handler));
+      }
       this.offlineAssetWallet = wallet;
     },
     pasteOfflineAsset: function(addr, args) {

@@ -142,22 +142,30 @@
               </div>
 
               <div class="row spacing">
-                <button class="f1" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
-                  <img src="icons/paste.png"/>
-                  paste
-                </button>
-                <button class="f1" onclick="app.popupAddOfflineAsset('balance', '')">
-                  <img src="icons/plus.png"/>
-                  add balance
-                </button>
-                <button class="f1" onclick="app.popupAddOfflineAsset('addr', '')">
-                  <img src="icons/plus.png"/>
-                  add address
-                </button>
-                <button class="f1" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
-                  <img src="icons/scan.png"/>
-                  scan
-                </button>
+                <div class="f1">
+                  <button class="addBalanceButton" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
+                    <img src="icons/paste.png"/>
+                    paste
+                  </button>
+                </div>
+                <div class="f1">
+                  <button class="f1" onclick="app.popupAddOfflineAsset('balance', '')">
+                    <img src="icons/plus.png"/>
+                    add balance
+                  </button>
+                </div>
+                <div class="f1">
+                  <button class="addBalanceButton" onclick="app.popupAddOfflineAsset('addr', '')">
+                    <img src="icons/plus.png"/>
+                    add address
+                  </button>
+                </div>
+                <div class="f1">
+                  <button class="addBalanceButton" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
+                    <img src="icons/scan.png"/>
+                    scan
+                  </button>
+                </div>
               </div>
             </div>
             <div id="addOfflineAssetPopup">
