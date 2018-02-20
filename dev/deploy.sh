@@ -13,7 +13,6 @@ echo "update $currentVersion => $nextVersion"
 #replace versions
 sed -i -e 's/class=\"VERSION\">.*<\/span>/class=\"VERSION\">'$nextVersion'<\/span>/g' www/index.html
 sed -i -e 's/class=\"VERSION\">.*<\/span>/class=\"VERSION\">'$nextVersion'<\/span>/g' landing_page/index.html
-echo 's/class=\"VERSION\">.*<\/span>/class=\"VERSION\">'$nextVersion'<\/span>/g'
 
 #git commit
 git add www/index.html landing_page/index.html
