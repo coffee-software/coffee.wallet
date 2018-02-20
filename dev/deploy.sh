@@ -25,6 +25,6 @@ rm -rf build.zip
 zip -qr build.zip hooks node_modules platforms plugins res www LICENSE.txt package.json config.xml ACKNOWLEDGEMENTS.md
 
 #deploy website
-#rsync -avzph landing_page/ coffee:wallet.coffee/
+rsync -avzph landing_page/ coffee:wallet.coffee/
 
 echo "DONE. dont forget to run git push --tags"
