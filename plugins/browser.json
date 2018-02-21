@@ -16,13 +16,13 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     },
-    "cordova-plugin-nativestorage": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
-    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     },
     "phonegap-plugin-barcodescanner": {
+      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+    },
+    "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     }
   },

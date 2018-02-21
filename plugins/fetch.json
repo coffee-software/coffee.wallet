@@ -50,7 +50,7 @@
   "cordova-plugin-nativestorage": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-nativestorage"
+      "id": "cordova-plugin-nativestorage@2.2.2"
     },
     "is_top_level": true,
     "variables": {}

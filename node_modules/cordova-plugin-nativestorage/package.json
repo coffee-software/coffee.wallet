@@ -1,41 +1,41 @@
 {
   "_args": [
     [
-      "cordova-plugin-nativestorage",
+      "cordova-plugin-nativestorage@2.2.2",
       "/home/fsw/workspace/coffee.wallet"
     ]
   ],
-  "_from": "cordova-plugin-nativestorage@latest",
-  "_id": "cordova-plugin-nativestorage@2.3.0",
+  "_from": "cordova-plugin-nativestorage@2.2.2",
+  "_id": "cordova-plugin-nativestorage@2.2.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/cordova-plugin-nativestorage",
-  "_nodeVersion": "8.9.4",
+  "_nodeVersion": "4.5.0",
   "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/cordova-plugin-nativestorage_2.3.0_1518615033734_0.7602130875957704"
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-nativestorage-2.2.2.tgz_1490706148771_0.056211588671430945"
   },
   "_npmUser": {
-    "email": "callebaut.gilles@gmail.com",
+    "email": "gilles.callebaut.cs@gmail.com",
     "name": "gillescallebaut"
   },
-  "_npmVersion": "5.6.0",
+  "_npmVersion": "2.15.9",
   "_phantomChildren": {},
   "_requested": {
     "name": "cordova-plugin-nativestorage",
-    "raw": "cordova-plugin-nativestorage",
-    "rawSpec": "",
+    "raw": "cordova-plugin-nativestorage@2.2.2",
+    "rawSpec": "2.2.2",
     "scope": null,
-    "spec": "latest",
-    "type": "tag"
+    "spec": "2.2.2",
+    "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-nativestorage/-/cordova-plugin-nativestorage-2.3.0.tgz",
-  "_shasum": "57ce1bdca24f25b29e6fa366c9d12a8c9d86ca1f",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-nativestorage/-/cordova-plugin-nativestorage-2.2.2.tgz",
+  "_shasum": "8d965876956c9ad463472eb1b58f8e4e813a717a",
   "_shrinkwrap": null,
-  "_spec": "cordova-plugin-nativestorage",
+  "_spec": "cordova-plugin-nativestorage@2.2.2",
   "_where": "/home/fsw/workspace/coffee.wallet",
   "author": {
     "email": "callebaut.gilles@gmail.com",
@@ -71,13 +71,9 @@
   },
   "directories": {},
   "dist": {
-    "fileCount": 16,
-    "integrity": "sha512-Usn2ZGOAVBqPydgUq+huV4c3JEOGSfwpN0w8LPjMJ5Jxl3YGmsWQVe15GnccKwGsPtmZuWVFKXJ+cZW8sYU2UQ==",
-    "shasum": "57ce1bdca24f25b29e6fa366c9d12a8c9d86ca1f",
-    "tarball": "https://registry.npmjs.org/cordova-plugin-nativestorage/-/cordova-plugin-nativestorage-2.3.0.tgz",
-    "unpackedSize": 102008
+    "shasum": "8d965876956c9ad463472eb1b58f8e4e813a717a",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-nativestorage/-/cordova-plugin-nativestorage-2.2.2.tgz"
   },
-  "gitHead": "ed3e0d5775f904671e325988562eb74892476234",
   "homepage": "https://github.com/TheCocoaProject/cordova-plugin-nativestorage#README.md",
   "keywords": [
     "LocalStorage",
@@ -110,5 +106,5 @@
     "jshint": "jshint www && jshint tests",
     "test": "npm run jshint"
   },
-  "version": "2.3.0"
+  "version": "2.2.2"
 }

@@ -45,12 +45,6 @@ function StorageHandle() {
 
 
 StorageHandle.prototype.set = function(reference, value, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("The reference can't be null");
     return;
@@ -97,12 +91,6 @@ StorageHandle.prototype.set = function(reference, value, success, error) {
 
 /* removing */
 StorageHandle.prototype.remove = function(reference, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("Null reference isn't supported");
     return;
@@ -122,12 +110,6 @@ StorageHandle.prototype.remove = function(reference, success, error) {
 
 /* clearing */
 StorageHandle.prototype.clear = function(success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (inBrowser) {
     try {
       localStorage.clear();
@@ -143,12 +125,6 @@ StorageHandle.prototype.clear = function(success, error) {
 
 /* boolean storage */
 StorageHandle.prototype.putBoolean = function(reference, aBoolean, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("Null reference isn't supported");
     return;
@@ -180,12 +156,6 @@ StorageHandle.prototype.putBoolean = function(reference, aBoolean, success, erro
 
 
 StorageHandle.prototype.getBoolean = function(reference, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("Null reference isn't supported");
     return;
@@ -207,12 +177,6 @@ StorageHandle.prototype.getBoolean = function(reference, success, error) {
 
 /* int storage */
 StorageHandle.prototype.putInt = function(reference, anInt, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("Null reference isn't supported");
     return;
@@ -221,12 +185,6 @@ StorageHandle.prototype.putInt = function(reference, anInt, success, error) {
 };
 
 StorageHandle.prototype.getInt = function(reference, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("Null reference isn't supported");
     return;
@@ -237,12 +195,6 @@ StorageHandle.prototype.getInt = function(reference, success, error) {
 
 /* float storage */
 StorageHandle.prototype.putDouble = function(reference, aFloat, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("Null reference isn't supported");
     return;
@@ -251,12 +203,6 @@ StorageHandle.prototype.putDouble = function(reference, aFloat, success, error) 
 };
 
 StorageHandle.prototype.getDouble = function(reference, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("Null reference isn't supported");
     return;
@@ -272,12 +218,6 @@ StorageHandle.prototype.getDouble = function(reference, success, error) {
 
 /* string storage */
 StorageHandle.prototype.putString = function(reference, s, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("Null reference isn't supported");
     return;
@@ -286,12 +226,6 @@ StorageHandle.prototype.putString = function(reference, s, success, error) {
 };
 
 StorageHandle.prototype.getString = function(reference, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error("Null reference isn't supported");
     return;
@@ -301,12 +235,6 @@ StorageHandle.prototype.getString = function(reference, success, error) {
 
 /* object storage  COMPOSITE AND DOESNT CARE FOR BROWSER*/
 StorageHandle.prototype.putObject = function(reference, obj, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   var objAsString = "";
   try {
     objAsString = JSON.stringify(obj);
@@ -325,12 +253,6 @@ StorageHandle.prototype.putObject = function(reference, obj, success, error) {
 };
 
 StorageHandle.prototype.getObject = function(reference, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   this.getString(reference, function(data) {
     var obj = {};
     try {
@@ -344,12 +266,6 @@ StorageHandle.prototype.getObject = function(reference, success, error) {
 
 /* API >= 2 */
 StorageHandle.prototype.setItem = function(reference, obj, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   var objAsString = "";
   try {
     objAsString = JSON.stringify(obj);
@@ -374,12 +290,6 @@ StorageHandle.prototype.setItem = function(reference, obj, success, error) {
 };
 
 StorageHandle.prototype.getItem = function(reference, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
     return;
@@ -402,12 +312,6 @@ StorageHandle.prototype.getItem = function(reference, success, error) {
 
 /* API >= 2 */
 StorageHandle.prototype.setSecretItem = function(reference, obj, encryptConfig, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   var objAsString = "";
   try {
     objAsString = JSON.stringify(obj);
@@ -450,12 +354,6 @@ StorageHandle.prototype.setSecretItem = function(reference, obj, encryptConfig, 
 };
 
 StorageHandle.prototype.getSecretItem = function(reference, encryptConfig, success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
   if (reference === null) {
     error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
     return;
@@ -496,13 +394,7 @@ StorageHandle.prototype.getSecretItem = function(reference, encryptConfig, succe
 
 /* list keys */
 StorageHandle.prototype.keys = function(success, error) {
-
-  //if error is null then replace with empty function to silence warnings
-  if(!error){
-    error = function(){};
-  }
-
-  this.storageHandlerDelegate(success, error, "NativeStorage", "keys", []);
+  this.storageHandlerDelegate(success, error, "NativeStorage", "keys");
 };
 
 
