@@ -7,8 +7,6 @@ var Data = {
   load: function(callback) {
     var that = this;
     NativeStorage.getItem("wallets", function(value){
-      app._alertJsError('ok');
-      app._alertJsError(value);
       that.wallets = value;
       for (var coin in that.wallets) {
         that._validateWallet(that.wallets[coin]);
