@@ -25,7 +25,7 @@ var EthFunctions = {
     var that = this;
     try {
       this._getProvider().eth.getBalance(addr).then(function(val){
-        console.log(val);
+        //console.log(val);
         callback(val == 0 ? 0.0 : parseFloat(that._getProvider().utils.fromWei(val, 'ether')));
       });
     } catch (err) {

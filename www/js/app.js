@@ -77,7 +77,7 @@ var app = {
         /*
         var timer = null;
         document.body.onscroll = function(event){
-          console.log('scroll');
+          //console.log('scroll');
           if(app.scrollToTargetTimer !== null) {
               clearTimeout(app.scrollToTargetTimer);
           }

@@ -15,11 +15,10 @@ var Data = {
       }
       callback();
     }, function(error){
-      app._alertJsError('error');
-      app._alertJsError(error.exception);
-      console.log(error);
       if (error.code == 2) {
         callback();
+      } else {
+        app._alertJsError('error ' + error.exception);
       }
     });
   },
@@ -27,6 +26,8 @@ var Data = {
   save: function(callback) {
     NativeStorage.setItem("wallets", this.wallets, function(){
       callback();
+    }, function(error) {
+        app._alertJsError('error ' + error.exception);
     });
   },
 
@@ -34,11 +35,11 @@ var Data = {
     this.wallets[coin].offlineWallets[id - 1].addr = data.addr;
     this.wallets[coin].offlineWallets[id - 1].balance = data.balance;
     this.wallets[coin].offlineWallets[id - 1].comment = data.comment;
-    this.save();
+    this.save(function(){});
   },
   addOfflineAsset: function(coin, data) {
     this.wallets[coin].offlineWallets.push(data);
-    this.save();
+    this.save(function(){});
   },
   hideWallet: function(code, callback) {
     this.wallets[code].enabled = false;

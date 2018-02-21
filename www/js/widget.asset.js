@@ -73,7 +73,7 @@ function Asset(wallet, id, data) {
       } else {
         that.total = this.data.balance ? this.data.balance : 0;
       }
-      console.log(this);
+      //console.log(this);
       this.amount.innerHTML = formatMoney(this.total, this.wallet.handler.code, 5);
       this.updateValue();
   }
