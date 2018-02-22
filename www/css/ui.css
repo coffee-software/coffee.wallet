@@ -18,7 +18,7 @@ button {
   left: 9px;
   right: 9px;
   bottom: 9px;
-  border: 2px dashed #c2b28f;
+  border: 1px dashed #c2b28f;
   border-radius: inherit;
 }
 
@@ -37,7 +37,7 @@ button.large {
 }
 
 button.primary.stitched:before {
-  border: 2px dashed #4e3c31;
+  border: 1px dashed #4e3c31;
 }
 button.primary {
   background: #4e3c31;
@@ -56,7 +56,7 @@ input {
     border-radius: 21px;
     box-sizing: border-box;
 
-    background: #4e3c31;
+    background: #695950;
     color: #eadfcb;
     font-family: 'Libre Baskerville', serif;
 }

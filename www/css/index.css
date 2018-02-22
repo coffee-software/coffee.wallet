@@ -60,6 +60,10 @@ body {
     width: 100%;
     height: 100%;
     -webkit-overflow-scrolling: touch;
+
+    /* Status bar height on iOS 11 */
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
 }
 
 #nav {
@@ -73,6 +77,10 @@ body {
   /* box-shadow: 0 2px 3px #000; */
   color: #eadfcb;
   /* transition: 0.5s filter ease; */
+
+  /* Status bar height on iOS 11 */
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
 }
 
 #nav .totals {
@@ -116,6 +124,9 @@ body {
   height: 0;
   overflow: hidden;
   background: #eadfcb;
+  /* Status bar height on iOS 11 */
+  margin-top: constant(safe-area-inset-top);
+  margin-top: env(safe-area-inset-top);
 }
 #menu ul, #menu li {
   padding: 0;
@@ -151,18 +162,18 @@ body {
   /* transition: 0.5s filter ease; */
 }
 
-#foot a.tab {
+#foot .tab {
   flex: 1;
   color: #eadfcb;
   text-decoration: none;
   text-align: center;
   padding: 6px 2px;
 }
-#foot a.tab img {
+#foot .tab img {
   height: 26px;
   margin: 2px;
 }
-#foot a.tab.active {
+#foot .tab.active {
   background-color: #4e3c31;
 }
 
@@ -245,13 +256,13 @@ table tr td:first-child {
 
 .stitch {
   border-bottom: 1px dashed #4e3c31;
-  border-image: url(../icons/stitch.png) 1 1 round;
+  /* border-image: url(../icons/stitch.png) 1 1 round; */
 }
 
 table td {
   padding: 12px 13px;
   border-bottom: 1px dashed #4e3c31;
-  border-image: url(../icons/stitch.png) 1 1 round;
+  /* border-image: url(../icons/stitch.png) 1 1 round; */
 }
 
 table th {
@@ -525,4 +536,8 @@ h1#lockTitle {
 
 .largecup {
   width: 100%;
+}
+
+a:active {
+    opacity: 0.5;
 }

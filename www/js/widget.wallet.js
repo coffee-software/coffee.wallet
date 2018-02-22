@@ -33,7 +33,7 @@ function Wallet(data) {
   var that = this;
   that.data = data;
   that.handler = allCoinApis[data.coin];
-  this.row.onclick = function() {
+  this.row.addEventListener('touchstart', function() {
     if (activeWallet && activeWallet.row) {
       if (activeWallet.row.previousElementSibling != null) {
         activeWallet.row.previousElementSibling.classList.remove('no-stitch');
@@ -47,7 +47,7 @@ function Wallet(data) {
     that.row.classList.add('no-stitch');
     that.row.classList.add('active');
     activeWallet = that;
-  }
+  });
 
   var unitCell = document.createElement("td");
 

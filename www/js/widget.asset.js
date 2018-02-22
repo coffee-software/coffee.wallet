@@ -10,7 +10,7 @@ function Asset(wallet, id, data) {
   that.wallet = wallet;
   that.id = id;
 
-  this.row.onclick = function() {
+  this.row.addEventListener('touchstart', function() {
     if (activeAsset && activeAsset.row) {
       if (activeAsset.row.previousElementSibling != null) {
         activeAsset.row.previousElementSibling.classList.remove('no-stitch');
@@ -24,7 +24,7 @@ function Asset(wallet, id, data) {
     that.row.classList.add('no-stitch');
     that.row.classList.add('active');
     activeAsset = that;
-  }
+  });
 
   var unitCell = document.createElement("td");
   unitCell.innerHTML = '<img class="coinIcon" src="coins/' + that.wallet.handler.name + '.png" alt="' + that.wallet.handler.code + '"/>';

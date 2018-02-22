@@ -5,7 +5,7 @@
         content="default-src * data: gap: file: https://* 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta name="viewport" content="viewport-fit=cover, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="css/ui.css">
@@ -13,9 +13,9 @@
     </head>
     <body>
         <div id="nav">
-          <a id="toggleMenu" href="javascript:app.toggleMenu()" class="button">
+          <div id="toggleMenu" ontouchstart="app.toggleMenu()" class="button">
             <img src="icons/menu.png" alt="menu"/>
-          </a>
+          </div>
           <div id="menu">
             <ul>
               <li>
@@ -100,21 +100,21 @@
           </div>
         </div>
     <div id="foot">
-      <a href="javascript:app.tabWallets()" class="tab active">
+      <div ontouchstart="app.tabWallets()" class="tab active">
         <img src="icons/home.png" alt="manage coins"/>
         <br/>
         wallets
-      </a>
-      <a href="javascript:app.tabHistory()" class="tab">
+      </div>
+      <div ontouchstart="app.tabHistory()" class="tab">
         <img src="icons/history.png" alt="history"/>
         <br/>
         history
-      </a>
-     <a href="javascript:app.tabExchange()" class="tab">
+      </div>
+      <div ontouchstart="app.tabExchange()" class="tab">
        <img src="icons/exchange.png" alt="exchange"/>
        <br/>
        exchange
-     </a>
+     </div>
     </div>
 	<div id="overlay">
         </div>
