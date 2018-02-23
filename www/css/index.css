@@ -364,9 +364,8 @@ table .no-stitch td {
 }
 
 table .active {
-
   background: linear-gradient(to right, #c8b897 0%, #ae9a70 20%, #9e8858 40%, #9e8858 60%, #ae9a70 80%, #c8b897 100%);
-
+  background-attachment: fixed;
   /*background: linear-gradient(to right, #c8b897, #9e8858 40%, #9e8858 70%, #c8b897);*/
   color: #eadfcb;
 }
