@@ -269,7 +269,7 @@ var app = {
     },
 
     popupAddCoin: function() {
-      this.openPopup('addCoinPopup', 'Manage Coins', 'plus');
+      this.openPopup('addCoinPopup', 'Manage Coins', 'cream.plus');
       var that = this;
       if (typeof that.popupGenerated == 'undefined') {
         that.popupGenerated = true;
@@ -342,14 +342,14 @@ var app = {
     },
 
     popupHelp: function() {
-        this.openPopup('helpPopup', 'Help', 'help');
+        this.openPopup('helpPopup', 'Help', 'cream.help');
     },
     popupFeedback: function() {
-        this.openPopup('feedbackPopup', 'Feedback', 'heart');
+        this.openPopup('feedbackPopup', 'Feedback', 'cream.heart');
     },
 
     popupPriceSettings: function() {
-        this.openPopup('priceSettingsPopup', 'Price Settings', 'money');
+        this.openPopup('priceSettingsPopup', 'Price Settings', 'cream.money');
 
         this.priceProviderSelect.setValue(this.settings.get('priceProvider', 0));
         this.priceUnitSelect.setValue(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
