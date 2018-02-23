@@ -20,6 +20,11 @@
     </platform>
     <preference name="phonegap-version" value="cli-7.1.0" />
     <preference name="android-build-tool" value="gradle" />
+
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#4e3c31" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
@@ -36,4 +41,5 @@
     <plugin name="cordova-plugin-clipboard2" spec="^0.1.0" />
     <plugin name="cordova-plugin-nativestorage" spec="2.2.2" />
     <engine name="browser" spec="^5.0.3" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
 </widget>

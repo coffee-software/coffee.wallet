@@ -24,6 +24,9 @@
     },
     "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     }
   },
   "dependent_plugins": {}
