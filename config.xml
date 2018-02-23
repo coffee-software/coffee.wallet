@@ -26,6 +26,7 @@
     </platform>
     <platform name="windows">
     </platform>
+    <preference name="DisallowOverscroll" value="true" />
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
         <string>to scan barcodes of addresses when sending payments</string>
     </edit-config>
