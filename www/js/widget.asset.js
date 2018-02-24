@@ -10,7 +10,9 @@ function Asset(wallet, id, data) {
   that.wallet = wallet;
   that.id = id;
 
-  this.row.addEventListener('touchstart', function() {
+  fastTap(this.row, function() {
+    if (activeAsset && activeAsset == this) return true;
+
     if (activeAsset && activeAsset.row) {
       if (activeAsset.row.previousElementSibling != null) {
         activeAsset.row.previousElementSibling.classList.remove('no-stitch');
@@ -24,6 +26,7 @@ function Asset(wallet, id, data) {
     that.row.classList.add('no-stitch');
     that.row.classList.add('active');
     activeAsset = that;
+    return false;
   });
 
   var unitCell = document.createElement("td");
