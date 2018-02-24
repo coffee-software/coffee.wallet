@@ -388,16 +388,16 @@ table  .active .buttons {
 }
 
 #popup {
-  background-color: #eadfcb;
   position: absolute;
   top: 0;
+  top: constant(safe-area-inset-top);
+  top: env(safe-area-inset-top);
   width: 100%;
   margin-left: -100%;
   bottom: 0;
   left: 0;
   z-index: 100;
-  overflow: scroll;
-  transition: all 0.5s ease;
+  transition: margin 0.5s ease;
 }
 
 #popup.show {
@@ -412,8 +412,11 @@ table  .active .buttons {
   top: 0;
   z-index: 20;
   /* iOS */
-  padding-top: constant(safe-area-inset-top);
-  padding-top: env(safe-area-inset-top);
+  top: constant(safe-area-inset-top);
+  top: env(safe-area-inset-top);
+
+  border-top: 1px dashed #eadfcb;
+
   font-size: 16px;
   line-height: 44px;
   background: #4e3c31;
@@ -433,13 +436,19 @@ table  .active .buttons {
 }
 
 #popupContent {
-  padding: 0 30px;
+  background-color: #eadfcb;
+  padding: 0 5%;
   padding-top: 52px;
   /* IOS */
-  margin-top: constant(safe-area-inset-top);
-  margin-top: env(safe-area-inset-top);
-  background-repeat: no-repeat;
-  background-position: right 5px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 90%;
+  overflow: scroll;
+  z-index: 19;
+  /* iOS */
+  top: constant(safe-area-inset-top);
+  top: env(safe-area-inset-top);
 }
 
 #receivePaymentPopup {
