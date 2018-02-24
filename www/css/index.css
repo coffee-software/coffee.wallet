@@ -2,16 +2,25 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-/** DEV ONLY :
+/* DEV ONLY:
 html {
-  background-image: url(../dev3.png);
+  background-image: url(../dev1.png);
   background-size: 100%;
   background-position: 0 0;
 }
 
 body {
-  opacity: 0.7;
-}*/
+  opacity: 0;
+  animation: DEV 2s infinite;
+  transition: 2s opacity ease;
+}
+
+@keyframes DEV {
+  0%   { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+*/
 
 /**
 color palete:
@@ -73,10 +82,8 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 54px;
-  /* box-shadow: 0 2px 3px #000; */
+  height: 44px;
   color: #eadfcb;
-  /* transition: 0.5s filter ease; */
 
   /* Status bar height on iOS 11 */
   padding-top: constant(safe-area-inset-top);
@@ -84,31 +91,29 @@ body {
 }
 
 #nav .totals {
-
-  height: 54px;
+  height: 43px;
   text-align: center;
-  border-top: 1px dashed white;
-  margin-top: -1px;
-  text-align: center;
+  border-top: 1px dashed #eadfcb;
 }
 
 #nav .totals h1 {
   margin: 0;
-  padding-top: 9px;
-  font-size: 20px;
-  line-height: 22px;
+  padding-top: 6px;
+  font-size: 17px;
+  line-height: 18px;
 }
 
 #nav .totals h2 {
   margin: 0;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 11px;
+  line-height: 13px;
   font-style: italic;
+  font-weight: 100;
 }
 
 #nav .button {
-  width: 28px;
-  padding: 13px;
+  width: 24px;
+  padding: 10px;
 }
 
 #toggleMenu {
@@ -121,7 +126,7 @@ body {
 
 #menu {
   position: fixed;
-  top: 54px;
+  top: 44px;
   left: 0;
   height: 0;
   transition: height 0.5s ease;
@@ -171,11 +176,12 @@ body {
   color: #eadfcb;
   text-decoration: none;
   text-align: center;
-  padding: 6px 2px;
+  padding: 5px 2px;
+  font-size: 9px;
 }
 #foot .tab img {
-  height: 26px;
-  margin: 2px;
+  height: 22px;
+  margin: 1px;
 }
 #foot .tab.active {
   background-color: #4e3c31;
@@ -221,8 +227,8 @@ body {
   width: 100%;
 }
 #swiper .swipe_tab .tab_inner {
-  padding-top: 54px;
-  padding-bottom: 56px;
+  padding-top: 44px;
+  padding-bottom: 48px;
 }
 
 .blur {
@@ -264,7 +270,7 @@ table tr td:first-child {
 }
 
 table td {
-  padding: 12px 13px;
+  padding: 12px 8px;
   border-bottom: 1px dashed #4e3c31;
   /* border-image: url(../icons/stitch.png) 1 1 round; */
 }
@@ -280,7 +286,7 @@ table th {
 
 .buttons div {
   float: right;
-  margin-left: 20px;
+  margin-left: 18px;
   text-align: center;
 }
 
@@ -312,10 +318,7 @@ table th {
 .button img {
   width: 100%;
   height: 100%;
-}
-
-.button.disabled img {
-  filter: grayscale(100%);
+  display: block;
 }
 
 .coinIcon {
@@ -323,15 +326,21 @@ table th {
   vertical-align: middle;
 }
 
+.buttonIcon {
+  width: 26px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
 @media all and (max-width: 799px) {
   .button {
-    width: 32px;
+    width: 26px;
   }
   .coinIcon {
-    width: 32px;
+    width: 26px;
   }
   table tr td:first-child {
-    width: 32px;
+    width: 26px;
   }
   .value {
       font-size: 18px;
@@ -402,25 +411,25 @@ table  .active .buttons {
   width: 100%;
   top: 0;
   z-index: 20;
-  /* IOS */
+  /* iOS */
   padding-top: constant(safe-area-inset-top);
   padding-top: env(safe-area-inset-top);
-  font-size: 18px;
-  line-height: 52px;
+  font-size: 16px;
+  line-height: 44px;
   background: #4e3c31;
   color: #eadfcb;
   text-align: center;
 }
 #popup h1 img {
-  width: 32px;
-  margin: 10px;
+  width: 28px;
+  margin: 8px;
+  display: block;
 }
 #popup h1 #popupIcon {
   float: left;
 }
 #popup h1 .close {
   float: right;
-  height: 52px;
 }
 
 #popupContent {
@@ -454,7 +463,6 @@ table  .active .buttons {
 #wallets td.walletsActions {
     padding-top: 15px;
     text-align:center;
-    color: #777;
 }
 
 #history {

@@ -74,7 +74,7 @@
           	    <tbody>
           		    <tr onclick="app.popupAddCoin()" class="no-stitch">
               			<td colspan="3" class="walletsActions">
-                      <img src="icons/plus.png" alt="add" class="coinIcon"/>
+                      <img src="icons/plus.png" alt="add" class="buttonIcon"/>
                       add more coins
               			</td>
           		    </tr>
@@ -208,11 +208,11 @@
             </div>
             <div id="sendPaymentPopup">
               <div class="spacing coinBig sendHead">
-                <button class="pull-left" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
+                <button class="pull-left float" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
                   <img src="icons/paste.png"/>
                   paste
                 </button>
-                <button class="pull-right" onclick="app.scanQrCode(app.pasteToSendForm.bind(app))">
+                <button class="pull-right float" onclick="app.scanQrCode(app.pasteToSendForm.bind(app))">
                   <img src="icons/scan.png"/>
                   scan
                 </button>
@@ -272,22 +272,24 @@
                   <div class="range-input">
                     <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
                   </div>
-                  <div class="range-legend">
-                    <span>cheapest</span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span>fastest</span>
+                  <div class="range-legend row">
+                    <span class="f1">cheapest</span>
+                    <span class="f3"></span>
+                    <span class="f1">fastest</span>
                   </div>
                 </div>
               </div>
               <div class="spacing row">
-                <div class="f1" style="flex: 1.2">
-                  <img style="width:100%;" src="icons/button.cancel.png" onclick="app.closePopup()"/>
-                </div>
-                <div class="f3">
-                  <img style="width:100%;" src="icons/button.send.png" onclick="app.sendPayment()"/>
-                </div>
+                <button class="f1 large stitched" onclick="app.closePopup()">
+                  Cancel
+                  <br/>
+                  <img src="icons/cancel.png"/>
+                </button>
+                <button class="f4 large stitched primary" onclick="app.sendPayment()">
+                  Send
+                  <br/>
+                  <img src="icons/ok.png"/>
+                </button>
               </div>
             </div>
             <div id="receivePaymentPopup">

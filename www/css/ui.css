@@ -10,29 +10,40 @@ button {
   text-align: center;
   position: relative;
 }
-
-.stitched:before {
-  content: " ";
-  position: absolute;
-  top: 9px;
-  left: 9px;
-  right: 9px;
-  bottom: 9px;
-  border: 1px dashed #c2b28f;
-  border-radius: inherit;
+button.float {
+  line-height: 18px;
+  font-size: 12px;
+  padding: 16px 10px;
 }
 
 button img {
   display: block;
-  width: 70px;
+  width: 58px;
   max-width: 100%;
+  margin: 0 auto;
+}
+
+button.float img {
+  width: 62px;
+  padding: 0 5px;
+}
+
+.stitched:before {
+  content: " ";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  right: 7px;
+  bottom: 7px;
+  border: 1px dashed #c2b28f;
+  border-radius: 12px;
 }
 
 button.large {
-  line-height: 30px;
-  font-size: 14px;
+  line-height: 22px;
+  font-size: 11px;
   font-weight: bold;
-  padding: 15px 5px;
+  padding: 22px;
   text-transform: uppercase;
 }
 
@@ -50,7 +61,7 @@ button.primary.stitched:before {
 
 input {
     padding: 9px 14px;
-    font-size: 18px;
+    font-size: 15px;
     width: 100%;
     border: 1px solid #4e3c31;
     border-radius: 21px;
@@ -87,7 +98,6 @@ input.bottom {
 
 .fseparator {
   border-bottom: 1px dashed #4e3c31;
-  border-image: url(../icons/stitch.png) 1 1 round;
   margin: 0 22px;
 }
 
@@ -104,11 +114,15 @@ input.has-unit {
 .field.fee {
   text-align: left;
 }
-
 .field label {
-  padding: 8px;
+  padding: 9px;
   display: block;
 }
+
+.field.fee label {
+  font-size: 12px;
+}
+
 .input-unit {
   position: absolute;
   bottom: 11px;
@@ -116,17 +130,14 @@ input.has-unit {
   color: #eadfcb;
 }
 
-
-
-
 .range-legend {
   display: flex;
 }
 .range-legend span {
   flex: 1;
   text-align: center;
-  font-size: 11px;
-  line-height: 11px;
+  font-size: 9px;
+  line-height: 10px;
 }
 
 input[type=range] {
