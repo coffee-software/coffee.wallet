@@ -11,7 +11,7 @@ function Asset(wallet, id, data) {
   that.id = id;
 
   fastTap(this.row, function() {
-    if (activeAsset && activeAsset == this) return true;
+    if (activeAsset && activeAsset == that) return true;
 
     if (activeAsset && activeAsset.row) {
       if (activeAsset.row.previousElementSibling != null) {

@@ -127,10 +127,15 @@
           </h1>
           <div id="popupContent">
             <div id="coinInfoPopup">
+              <div class="spacing coinBig">
+              </div>
+              <div class="unpad stitch"></div>
               <div id="coinInfoDescription"></div>
             </div>
             <div id="offlineAssetsPopup">
-
+              <div class="spacing coinBig">
+              </div>
+              <div class="unpad stitch"></div>
               <div class="unpad">
                 <table>
                   <thead>
@@ -142,30 +147,24 @@
               </div>
 
               <div class="row spacing">
-                <div class="f1">
-                  <button class="addBalanceButton" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
-                    <img src="icons/paste.png"/>
-                    paste
-                  </button>
-                </div>
-                <div class="f1">
-                  <button class="f1" onclick="app.popupAddOfflineAsset('balance', '')">
-                    <img src="icons/plus.png"/>
-                    add balance
-                  </button>
-                </div>
-                <div class="f1">
-                  <button class="addBalanceButton" onclick="app.popupAddOfflineAsset('addr', '')">
-                    <img src="icons/plus.png"/>
-                    add address
-                  </button>
-                </div>
-                <div class="f1">
-                  <button class="addBalanceButton" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
-                    <img src="icons/scan.png"/>
-                    scan
-                  </button>
-                </div>
+                <button class="f1 large stitched primary" onclick="app.popupAddOfflineAsset('balance', '')">
+                  <img src="icons/cream.plus.png"/>
+                  add balance
+                </button>
+              </div>
+              <div class="row spacing">
+                <button class="f2 large stitched primary" onclick="app.popupAddOfflineAsset('addr', '')">
+                  <img src="icons/cream.plus.png"/>
+                  add address
+                </button>
+                <button class="f1 large stitched" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
+                  <img src="icons/paste.png"/>
+                  paste
+                </button>
+                <button class="f1 large stitched" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
+                  <img src="icons/scan.png"/>
+                  scan
+                </button>
               </div>
             </div>
             <div id="addOfflineAssetPopup">
@@ -193,16 +192,19 @@
                   remove
                 </button-->
                 <button class="f1 large stitched" onclick="app.popupOfflineAssets(app.offlineAssetWallet)">
-                  <img src="icons/cancel.png"/>
                   cancel
+                  <br/>
+                  <img src="icons/cancel.png"/>
                 </button>
                 <button id="saveOfflineAssetButton" class="f2 large stitched primary" onclick="app.saveOfflineAsset()">
-                  <img src="icons/ok.png"/>
                   save
+                  <br/>
+                  <img src="icons/ok.png"/>
                 </button>
                 <button id="addOfflineAssetButton" class="f2 large stitched primary" onclick="app.addOfflineAsset()">
-                  <img src="icons/ok.png"/>
                   add
+                  <br/>
+                  <img src="icons/ok.png"/>
                 </button>
               </div>
             </div>

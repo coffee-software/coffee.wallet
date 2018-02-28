@@ -463,7 +463,7 @@ var app = {
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'addr');
       document.getElementById('saveOfflineAssetButton').classList.add('hidden');
       document.getElementById('addOfflineAssetButton').classList.remove('hidden');
-      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'add', 'coins/' + app.offlineAssetWallet.handler.name + '.png');
+      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'cream.plus', 'coins/' + app.offlineAssetWallet.handler.name + '.png');
     },
     addOfflineAsset: function() {
       var data = {
