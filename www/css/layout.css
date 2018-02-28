@@ -22,6 +22,10 @@
   margin: 0 -5%;
 }
 
+.hidden {
+  display: none;
+}
+
 .pull-left {
   float: left;
 }

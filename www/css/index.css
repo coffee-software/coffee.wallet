@@ -516,13 +516,6 @@ table  .active .buttons {
   text-align: center;
 }
 
-
-
-.hidden {
-  display: none;
-}
-
-
 #lockPopup {
     position: fixed;
     left: 0;

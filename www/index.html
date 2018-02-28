@@ -147,21 +147,21 @@
               </div>
 
               <div class="row spacing">
-                <button class="f1 large stitched primary" onclick="app.popupAddOfflineAsset('balance', '')">
+                <button class="f1 stitched primary" onclick="app.popupAddOfflineAsset('balance', '')">
                   <img src="icons/cream.plus.png"/>
                   add balance
                 </button>
               </div>
-              <div class="row spacing">
-                <button class="f2 large stitched primary" onclick="app.popupAddOfflineAsset('addr', '')">
+              <div class="row spacing" id="addBalanceButtons">
+                <button class="f3 stitched primary" onclick="app.popupAddOfflineAsset('addr', '')">
                   <img src="icons/cream.plus.png"/>
                   add address
                 </button>
-                <button class="f1 large stitched" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
+                <button class="f1" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
                   <img src="icons/paste.png"/>
                   paste
                 </button>
-                <button class="f1 large stitched" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
+                <button class="f1" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
                   <img src="icons/scan.png"/>
                   scan
                 </button>
