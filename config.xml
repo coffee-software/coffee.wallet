@@ -6,6 +6,7 @@
     </description>
     <author email="francio@francio.pl" href="http://francio.pl/">Francio</author>
     <icon density="mdpi" height="128" src="res/icon.png" width="128" />
+    <splash src="res/screen/ios/Default@2x~universal~anyany.png" />
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
@@ -40,4 +41,5 @@
     <plugin name="cordova-plugin-nativestorage" spec="2.2.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
     <engine name="browser" spec="^5.0.3" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
 </widget>
