@@ -489,8 +489,10 @@ var app = {
 
         //+ ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>'
         var fees = wallet.handler.getFees();
-        document.getElementById('sendCoinFee').max = fees.length - 1;
-        document.getElementById('sendCoinFee').value = Math.floor((fees.length - 1) / 2);
+        //document.getElementById('sendCoinFee').max = fees.length - 1;
+        //document.getElementById('sendCoinFee').value = Math.floor((fees.length - 1) / 2);
+        document.getElementById('sendCoinFee').rangeSlider.update({min: 0, max: fees.length - 1, value: Math.floor((fees.length - 1) / 2)})
+
         document.getElementById('sendCoinAddr').value = '';
         document.getElementById('sendCoinValue').value = '';
         document.getElementById('sendCoinAmount').value = '';
@@ -502,7 +504,6 @@ var app = {
         this.sendWallet = wallet;
         this.sendFees = fees;
         app.sendCoinUpdateFee();
-
     },
 
     sendCoinValidateAddr: function(focus) {
@@ -547,12 +548,13 @@ var app = {
     },
 
     sendCoinUpdateFee: function(){
-      var fee = this.sendFees[document.getElementById('sendCoinFee').value];
-      document.getElementById('feeAmount').innerHTML =
-        fee[0] + this.sendWallet.handler.code + ' (' +
-        this.priceProvider.convert(fee[0], this.sendWallet.handler.code) + ')';
-      document.getElementById('feeTime').innerHTML = fee[1] + 'min';
-
+      if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
+        var fee = this.sendFees[document.getElementById('sendCoinFee').value];
+        document.getElementById('feeAmount').innerHTML =
+          fee[0] + this.sendWallet.handler.code + ' (' +
+          this.priceProvider.convert(fee[0], this.sendWallet.handler.code) + ')';
+        document.getElementById('feeTime').innerHTML = fee[1] + 'min';
+      }
     },
 
     sendCoinUpdateValue: function() {
@@ -674,6 +676,18 @@ var app = {
             }
         }.bind(this));
         this.updateMarketCap();
+
+
+        rangeSlider.create(document.querySelectorAll('#sendCoinFee'), {
+            polyfill: true,
+            vertical: false,
+            min: 0,
+            max: 100,
+            step: 1,
+            value: 50,
+            borderRadius: 10,
+        });
+
         Logger.log("info", null, "application started");
     },
 

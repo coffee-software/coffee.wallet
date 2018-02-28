@@ -38,7 +38,9 @@ var BtcTestHandler = {
       //key 0 - fee, 1 - estimated time, >1 internal coinparameters
       return [
         [0.0001, 5,  10000],
+        [0.0003, 3.5,  30000],
         [0.0005, 2,  50000],
+        [0.00075, 1.5,  75000],
         [0.0010, 1, 100000]
       ];
     }
