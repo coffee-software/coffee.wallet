@@ -674,6 +674,7 @@ var app = {
             }
         }.bind(this));
         this.updateMarketCap();
+        Logger.log("info", null, "application started");
     },
 
 };

@@ -73,16 +73,21 @@
 .msg.info:after {
   background-position: 0 0;
 }
+
+#history .msg.info:after {
+  background-position: -96px 0;
+}
+
 .msg.error {
   color: #862727;
 }
 .msg.error:after {
-  background-position: 128px 0;
+  background-position: -64px 0;
 }
 
 .msg.success {
   color: #767826;
 }
 .msg.success:after {
-  background-position: 64px 0;
+  background-position: -32px 0;
 }

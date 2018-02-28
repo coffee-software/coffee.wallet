@@ -13,7 +13,7 @@ var Data = {
       }
       callback();
     }, function(error){
-      if (error.code == 2) {
+      if (error.code == 2 || ('code' in error.code && error.code.code == 2)) {
         callback();
       } else {
         app._alertJsError('error ' + error.exception);
