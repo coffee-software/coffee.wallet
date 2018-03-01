@@ -225,6 +225,7 @@ body {
   flex: 1;
   overflow: auto;
   width: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 #swiper .swipe_tab .tab_inner {
   padding-top: 44px;
