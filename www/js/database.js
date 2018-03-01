@@ -28,7 +28,10 @@ var Data = {
         app._alertJsError('error ' + error.exception);
     });
   },
-
+  deleteOfflineAsset: function(coin, id) {
+    this.wallets[coin].offlineWallets.splice(id - 1, 1);
+    this.save(function(){});
+  },
   updateOfflineAsset: function(coin, id, data) {
     this.wallets[coin].offlineWallets[id - 1].addr = data.addr;
     this.wallets[coin].offlineWallets[id - 1].balance = data.balance;

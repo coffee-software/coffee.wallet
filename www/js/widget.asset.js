@@ -45,11 +45,27 @@ function Asset(wallet, id, data) {
   var buttonsDiv = document.createElement("div");
   buttonsDiv.classList.add('buttons');
 
-  data.addr && buttonsDiv.appendChild(createButton('receive', function(){}));
+  data.addr && buttonsDiv.appendChild(createButton('receive', function(){
+    app.popupReceivePayment(that.wallet, that.data.addr);
+  }));
   data.addr && buttonsDiv.appendChild(createButton('refresh', function(){that.refreshAmount();}));
 
   buttonsDiv.appendChild(createButton('edit',function(){
     app.popupEditOfflineAsset(that);
+  }));
+
+  buttonsDiv.appendChild(createButton('close',function(){
+    navigator.notification.confirm(
+        'Are you sure you want to remove this asset?',
+        function (buttonIndex) {
+          if (buttonIndex == 1) {
+            app.data.deleteOfflineAsset(that.wallet.handler.code, that.id);
+            app.popupOfflineAssets(app.offlineAssetWallet);
+          }
+        },
+        'Remove Asset',
+        ['Remove','Cancel']
+    );
   }));
 
   amountCell.appendChild(buttonsDiv);

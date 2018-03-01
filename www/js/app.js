@@ -642,18 +642,23 @@ var app = {
     copyReceiveCoinAddrToClp: function() {
         window.cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);
     },
-    popupReceivePayment: function(wallet) {
+    popupReceivePayment: function(wallet, addr = null) {
         this.openPopup('receivePaymentPopup', 'receive ' + wallet.handler.code, 'receive');
         // + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>'
         document.getElementById('receiveCoinName').innerHTML = '';
         document.getElementById('receiveCoinAddr').value = '';
         document.getElementById('receiveCoinQrcode').innerHTML = '';
 
-        document.getElementById('receiveCoinName').innerHTML = wallet.handler.code;
-        document.getElementById('receiveCoinAddr').value = wallet.data.addr;
+        if (addr == null) {
+          document.getElementById('receiveCoinName').innerHTML = 'Your ' + wallet.handler.code + ' address is:';
+        } else {
+          document.getElementById('receiveCoinName').innerHTML = '' + wallet.handler.code + ' offline address:';
+        }
+
+        document.getElementById('receiveCoinAddr').value = addr == null ? wallet.data.addr : addr;
 
         new QRCode(document.getElementById('receiveCoinQrcode'), {
-          text: wallet.data.addr,
+          text: addr == null ? wallet.data.addr : addr,
           colorLight: '#eadfcb',
           colorDark: '#4e3c31'
         });
