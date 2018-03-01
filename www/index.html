@@ -146,14 +146,15 @@
                 </table>
               </div>
 
+              <div class="spacing">&nbsp;</div>
               <div class="row spacing">
-                <button class="f1 stitched primary" onclick="app.popupAddOfflineAsset('balance', '')">
+                <button class="f1 inline stitched primary" onclick="app.popupAddOfflineAsset('balance', '')">
                   <img src="icons/cream.plus.png"/>
                   add balance
                 </button>
               </div>
               <div class="row spacing" id="addBalanceButtons">
-                <button class="f3 stitched primary" onclick="app.popupAddOfflineAsset('addr', '')">
+                <button class="f3 inline stitched primary" onclick="app.popupAddOfflineAsset('addr', '')">
                   <img src="icons/cream.plus.png"/>
                   add address
                 </button>
@@ -171,21 +172,20 @@
               <div class="spacing">
                 <div class="coinBig"></div>
               </div>
-              <div id="addOfflineAssetAddrDiv" class="spacing">
-                address:
-                <br/>
+              <div class="unpad stitch"></div>
+              <div id="addOfflineAssetAddrDiv" class="field">
+                <label for="addOfflineAssetAddr">address:</label>
                 <input id="addOfflineAssetAddr" value=""/>
               </div>
-              <div id="addOfflineAssetBalanceDiv" class="spacing">
-                balance:
-                <br/>
+              <div id="addOfflineAssetBalanceDiv" class="field">
+                <label for="addOfflineAssetBalance">balance:</label>
                 <input id="addOfflineAssetBalance" value=""/>
               </div>
-              <div class="spacing">
-                comment:
-                <br/>
+              <div class="field">
+                <label for="addOfflineAssetComment">comment:</label>
                 <input id="addOfflineAssetComment" value=""/>
               </div>
+              <div class="spacing">&nbsp;</div>
               <div class="spacing row">
                 <!--button class="f1" onclick="app.addOfflineAsset()">
                   <img src="icons/cancel.png"/>
@@ -223,7 +223,7 @@
 
               <div>
                 <div class="field">
-                  <label for="sendCoinAddr">reciver:</label>
+                  <label for="sendCoinAddr">receiver:</label>
                   <input
                     id="sendCoinAddr"
                     placeholder="address"
@@ -264,23 +264,20 @@
                 <div class="validation"></div>
               </div>
 
-              <div class="spacing">
-                <div class="field fee">
-                  <label for="sendCoinFee">
-                    fee: <strong><span id="feeAmount">0</span></strong>
-                    <br/>
-                    est. confirm: <strong><span id="feeTime">0 min</span></strong>
-                  </label>
+              <div>
+                <div class="field">
+                  <label for="sendCoinFee">fee:</label>
                   <div class="range-input">
                     <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
                   </div>
-                  <div class="range-legend row">
-                    <span class="f1">cheapest</span>
-                    <span class="f3"></span>
-                    <span class="f1">fastest</span>
-                  </div>
+                  <label class="fee" for="sendCoinFee">
+                    <strong><span id="feeAmount">0</span></strong>
+                    <br/>
+                    est. confirm: <strong><span id="feeTime">0 min</span></strong>
+                  </label>
                 </div>
               </div>
+
               <div class="spacing row">
                 <button class="f1 large stitched" onclick="app.closePopup()">
                   Cancel

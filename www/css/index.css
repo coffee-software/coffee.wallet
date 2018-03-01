@@ -145,15 +145,16 @@ body {
 #menu a img {
   width: 32px;
   vertical-align: middle;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 #menu a {
   display: block;
   color: #4e3c31;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 32px;
   text-decoration: none;
   padding: 7px 15px;
+  font-style: italic;
 }
 
 #menu a:hover {
@@ -378,9 +379,15 @@ table .no-stitch td {
 }
 
 table .active {
+  background-image: url(../img/gradient.png);
+  background-attachment: fixed;
+  background-size: 100% auto;
+
+  /*
   background: linear-gradient(to right, #c8b897 0%, #ae9a70 20%, #9e8858 40%, #9e8858 60%, #ae9a70 80%, #c8b897 100%);
   background-attachment: fixed;
-  /*background: linear-gradient(to right, #c8b897, #9e8858 40%, #9e8858 70%, #c8b897);*/
+  */
+
   color: #eadfcb;
 }
 
@@ -438,13 +445,13 @@ table  .active .buttons {
 
 #popupContent {
   background-color: #eadfcb;
-  padding: 0 5%;
+  padding: 0 6%;
   padding-top: 52px;
   /* IOS */
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 90%;
+  width: 88%;
   overflow: scroll;
   z-index: 19;
   /* iOS */
@@ -466,10 +473,6 @@ table  .active .buttons {
   margin: 14px 0;
 }
 
-#sendPaymentPopup {
-  font-size: 18px;
-}
-
 #wallets td.walletsActions {
     padding-top: 15px;
     text-align:center;
@@ -481,7 +484,8 @@ table  .active .buttons {
   list-style-type: none;
 }
 #history li {
-  font-size: 16px;
+  font-size: 14px;
+  border-bottom: 1px dashed #4e3c31;
 }
 
 #history li .ts {
@@ -490,6 +494,7 @@ table  .active .buttons {
 
 #exchange {
   text-align: center;
+  padding-top: 100px;
 }
 
 #exchange img {

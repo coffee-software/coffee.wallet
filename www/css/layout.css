@@ -19,7 +19,7 @@
 }
 
 .unpad {
-  margin: 0 -5%;
+  margin: 0 -6%;
 }
 
 .hidden {
@@ -62,6 +62,9 @@
     box-shadow: 0px -12px 10px #2e1c1190;
 }
 
+#messages div.msg.stitched:before {
+    border-radius: 28px;
+}
 
 .msg:after {
     content: " ";

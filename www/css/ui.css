@@ -23,6 +23,13 @@ button img {
   margin: 0 auto;
 }
 
+button.inline img {
+  display: inline;
+  vertical-align: middle;
+  width: 40px;
+  margin: 5px;
+}
+
 button.float img {
   width: 62px;
   padding: 0 5px;
@@ -53,6 +60,7 @@ button.primary.stitched:before {
 button.primary {
   background: #4e3c31;
   color: #eadfcb;
+  box-shadow: 1px 1px 1px rgba(50,50,0,0.5);
 }
 
 button.primary.stitched:before {
@@ -66,10 +74,18 @@ input {
     border: 1px solid #4e3c31;
     border-radius: 21px;
     box-sizing: border-box;
-
+    margin: 0;
     background: #695950;
     color: #eadfcb;
     font-family: 'Libre Baskerville', serif;
+}
+
+*:focus {
+    outline-width: 0;
+}
+
+input:active, input:focus {
+    border: 1px solid #9e8858;
 }
 
 input::placeholder {
@@ -78,15 +94,18 @@ input::placeholder {
 }
 
 input.invalid {
-    border-color: #632020;
+    border-color: #932020;
 }
 
 input.valid {
     border-color: #635920;
 }
 div.validation {
-    text-align: center;
-    color: #632020;
+    text-align: right;
+    color: #932020;
+    position: absolute;
+    left: 0;
+    right: 33px;
 }
 
 input.top {
@@ -111,16 +130,15 @@ input.has-unit {
   font-size: 14px;
 }
 
-.field.fee {
-  text-align: left;
-}
 .field label {
-  padding: 9px;
+  padding: 10px;
   display: block;
 }
 
-.field.fee label {
+.field label.fee {
+  text-align: left;
   font-size: 12px;
+  text-align: left;
 }
 
 .input-unit {
@@ -130,18 +148,9 @@ input.has-unit {
   color: #eadfcb;
 }
 
-.range-legend {
-  display: flex;
-}
-.range-legend span {
-  flex: 1;
-  text-align: center;
-  font-size: 9px;
-  line-height: 10px;
-}
-
 .range-input {
-    margin: 10px 0px;
+    margin: 9px 0px;
+    text-align: left;
 }
 
 input,.rangeSlider,.rangeSlider__fill {
