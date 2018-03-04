@@ -5,10 +5,14 @@ TODO:
 * design:
 ** recv
 ** info
-** add coins
 ** price settings
-* app massages and live logs fixes!
+* larger btns
+* AMD
+* versioning deploy
 * public repo
+* fasttap fixes
+* android splash
+* smart refresh
 
 0.2: test release 2:
 
