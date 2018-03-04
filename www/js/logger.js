@@ -1,3 +1,4 @@
+'use strict'
 
 /*var Db = {
     query: function(sql, params, success) {
@@ -61,4 +62,5 @@ window.onerror = function(msg, url, line, col, error) {
    log += !col ? '' : '\ncolumn: ' + col;
    log += !error ? '' : '\nerror: ' + error;
    app._alertJsError(log);
+   //console.log(msg, url, line, col, error);
 };

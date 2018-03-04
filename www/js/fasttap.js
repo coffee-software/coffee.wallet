@@ -1,3 +1,5 @@
+'use strict'
+
 /**
   simple fix for 300ms click delay on iOS
 **/

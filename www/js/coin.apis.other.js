@@ -1,3 +1,5 @@
+'use strict'
+
 var XrpHandler = {
     name: "ripple",
     code: "XRP",

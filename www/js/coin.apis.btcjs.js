@@ -1,3 +1,4 @@
+'use strict'
 
 var BtcTestHandler = {
     name: "bitcoin-test",

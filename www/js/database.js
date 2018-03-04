@@ -1,4 +1,4 @@
-
+'use strict'
 
 var Data = {
 
@@ -16,14 +16,14 @@ var Data = {
       if (error.code == 2 || ('code' in error.code && error.code.code == 2)) {
         callback();
       } else {
-        app._alertJsError('error ' + error.exception);
+        app._alertJsError('error ' + error.code + ' ' + error.exception);
       }
     });
   },
 
   save: function(callback) {
     NativeStorage.setItem("wallets", this.wallets, function(){
-      callback();
+      callback && callback();
     }, function(error) {
         app._alertJsError('error ' + error.exception);
     });
@@ -51,9 +51,6 @@ var Data = {
     var that = this;
     var update = false;
 
-    if (!wallet.enabled ) {
-        wallet.enabled = 1;
-    }
     if (!wallet.privateKey && ('newPrivateKey' in allCoinApis[wallet.coin])) {
         if (typeof allCoinApis[wallet.coin].newPrivateKey == 'function') {
           wallet.privateKey = allCoinApis[wallet.coin].newPrivateKey();
@@ -71,6 +68,7 @@ var Data = {
       wallet.offlineWallets = new Array();
       that.wallets[handler.code] = wallet;
     }
+    that.wallets[handler.code].enabled = true;
     that._validateWallet(that.wallets[handler.code]);
     this.save(callback);
   }

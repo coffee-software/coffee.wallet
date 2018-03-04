@@ -1,3 +1,4 @@
+'use strict'
 
 var allCoinApis = {
   'BTC.TEST': BtcTestHandler,
@@ -303,11 +304,14 @@ var app = {
           var span = document.createElement("span");
           span.innerHTML = allCoinApis[key].code;
           button.appendChild(span);
-          if (key in that.data.wallets) {
+          /*if (key in that.data.wallets && that.data.wallets[key].enabled) {
             button.classList.add('active');
-          }
+          }*/
           button.onclick = function(){
-            if (key in app.data.wallets) {
+            if (key in app.data.wallets && that.data.wallets[key].enabled) {
+              app.wallets[key].setActive();
+              app.closePopup();
+              /*
               navigator.notification.confirm(
                   'Are you sure you want to disable ' + key + ' coin? ' +
                   '\nPrivate keys and offline wallets data will still be available in database and will be restored when you re-enable this coin.',
@@ -325,12 +329,12 @@ var app = {
                   },
                   'Disabel Coin',
                   ['Disable','Cancel']
-              );
+              );*/
             } else {
-              this.classList.add('active');
+              //this.classList.add('active');
               app.data.addWallet(allCoinApis[key], function(){
                 app.addWalletWidget(app.data.wallets[key]);
-                app.wallets[key].row.click();
+                app.wallets[key].setActive();
               });
               app.closePopup();
             }
@@ -642,7 +646,7 @@ var app = {
     copyReceiveCoinAddrToClp: function() {
         window.cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);
     },
-    popupReceivePayment: function(wallet, addr = null) {
+    popupReceivePayment: function(wallet, addr) {
         this.openPopup('receivePaymentPopup', 'receive ' + wallet.handler.code, 'receive');
         // + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>'
         document.getElementById('receiveCoinName').innerHTML = '';
@@ -655,7 +659,7 @@ var app = {
           document.getElementById('receiveCoinName').innerHTML = '' + wallet.handler.code + ' offline address:';
         }
 
-        document.getElementById('receiveCoinAddr').value = addr == null ? wallet.data.addr : addr;
+        document.getElementById('receiveCoinAddr').value = (typeof addr == 'undefined' ? wallet.data.addr : addr);
 
         new QRCode(document.getElementById('receiveCoinQrcode'), {
           text: addr == null ? wallet.data.addr : addr,
@@ -673,7 +677,9 @@ var app = {
 
         this.data.load(function(){
             for(var key in this.data.wallets){
-              this.addWalletWidget(this.data.wallets[key]);
+              if (this.data.wallets[key].enabled) {
+                this.addWalletWidget(this.data.wallets[key]);
+              }
             }
         }.bind(this));
         this.updateMarketCap();

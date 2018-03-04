@@ -1,3 +1,4 @@
+'use strict'
 
 function formatMoney(value, unit, decimals){
   var d = decimals ? decimals : 2;
@@ -34,7 +35,7 @@ function Wallet(data) {
   that.data = data;
   that.handler = allCoinApis[data.coin];
   //'touchstart'
-  fastTap(this.row, function() {
+  this.setActive = function() {
     if (activeWallet && activeWallet == that) return true;
     if (activeWallet && activeWallet.row) {
       if (activeWallet.row.previousElementSibling != null) {
@@ -50,6 +51,10 @@ function Wallet(data) {
     that.row.classList.add('active');
     activeWallet = that;
     return false;
+  }
+
+  fastTap(this.row, function() {
+    return that.setActive();
   });
 
   var unitCell = document.createElement("td");
@@ -103,6 +108,30 @@ function Wallet(data) {
   buttonsDiv2.classList.add('buttons');
   buttonsDiv2.appendChild(createButton('refresh', function(){that.refreshOnline(); that.refreshOffline();}));
   buttonsDiv2.appendChild(createButton('list', function(){app.popupOfflineAssets(that);}));
+
+  var removeButton = createButton('close', function(){
+    var key = that.handler.code;
+    navigator.notification.confirm(
+        'Are you sure you want to remove ' + key + ' coin? ' +
+        '\nPrivate keys and offline wallets data will still be available in database and will be restored when you re-enable this coin.',
+        function(buttonIndex) {
+            if (buttonIndex == 1) {
+              app.data.hideWallet(key, function(){
+                if (app.wallets[key].row.previousElementSibling != null) {
+                  app.wallets[key].row.previousElementSibling.classList.remove('no-stitch');
+                }
+                app.wallets[key].row.outerHTML = '';
+                delete app.wallets[key].row;
+                delete app.wallets[key];
+              });
+            }
+        },
+        'Remove Coin',
+        ['Remove','Cancel']
+    );
+  });
+  buttonsDiv2.appendChild(removeButton);
+
   offlineCell.appendChild(buttonsDiv2);
 
   this.row.appendChild(unitCell);
@@ -111,15 +140,22 @@ function Wallet(data) {
 
   this.offlineWallets = data.offlineWallets;
 
+  this.toggleRemoveButton = function() {
+    //only show remove button for empty wallets.
+    removeButton.classList.toggle('hidden', this.totalOffline + this.totalOnline > 0);
+  }
+
   this.updateOfflineValue = function() {
     var value = this.totalOffline * app.priceProvider.getPrice(this.handler.code);
     this.offlineValue.innerHTML = formatMoney(value, app.priceProvider.getUnit());
+    this.toggleRemoveButton();
     return value;
   }
 
   this.updateOnlineValue = function() {
     var value = this.totalOnline * app.priceProvider.getPrice(this.handler.code);
     this.onlineValue.innerHTML = formatMoney(value, app.priceProvider.getUnit());
+    this.toggleRemoveButton();
     return value;
   }
 
@@ -145,15 +181,24 @@ function Wallet(data) {
   this.refreshOffline();
 
   this.refreshOnline = function() {
-    this.totalOnline = 0;
+    this.totalOnline = 'balance' in this.data ? this.data.balance : 0;
     this.onlineAmount.innerHTML = formatMoney(this.totalOnline, this.handler.code, 5);
     this.updateOnlineValue();
 
     if (this.data.addr && 'getBalance' in this.handler) {
       this.handler.getBalance(this.data.addr, function(val){
-        that.totalOnline = val;
-        that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
-        that.updateOnlineValue();
+        if (val != that.totalOnline) {
+          if (that.totalOnline > val) {
+            app.alertInfo((that.totalOnline - val) + ' less on your ' + that.handler.code + ' wallet');
+          } else {
+            app.alertInfo((val - that.totalOnline) + ' more on your ' + that.handler.code + ' wallet');
+          }
+          //TODO
+          that.data.balance = that.totalOnline = val;
+          app.data.save();
+          that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
+          that.updateOnlineValue();
+        }
       });
     }
 

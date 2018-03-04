@@ -8791,7 +8791,9 @@ module.exports = {
 
 }).call(this,require("buffer").Buffer)
 },{"bs58check":49,"buffer":86}],82:[function(require,module,exports){
-let bitcoin = require('bitcoinjs-lib')
+'use strict'
+
+var bitcoin = require('bitcoinjs-lib')
 
 /* TODO support dogecoin:
 https://github.com/bitcoinjs/bitcoinjs-lib/commit/a956b8859fe73787b32f03b8bf4ba0d06cb01fa6
@@ -8810,7 +8812,7 @@ doge:
 }
 */
 
-let networks = {
+var networks = {
 	ltc: {
 		webapi: 'https://api.blockcypher.com/v1/ltc/main',
 		network: bitcoin.networks.litecoin
@@ -8907,12 +8909,12 @@ function validateAddress (network, addr) {
 }
 
 module.exports = {
-	networks,
-	newPrivKey,
-	addrFromPriv,
-	getBalance,
-	validateAddress,
-	sendPayment
+	networks:networks,
+	newPrivKey:newPrivKey,
+	addrFromPriv:addrFromPriv,
+	getBalance:getBalance,
+	validateAddress:validateAddress,
+	sendPayment:sendPayment
 }
 
 },{"bitcoinjs-lib":18}],83:[function(require,module,exports){

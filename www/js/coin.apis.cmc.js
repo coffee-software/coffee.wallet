@@ -1,3 +1,4 @@
+'use strict'
 
 //automatic list from coinmarketcap api
 

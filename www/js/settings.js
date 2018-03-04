@@ -1,3 +1,4 @@
+'use strict'
 
 //abstraction layer to fix issues with localStorage
 //and provide secure storage later.
