@@ -270,7 +270,7 @@ var app = {
     },
 
     popupAddCoin: function() {
-      this.openPopup('addCoinPopup', 'Manage Coins', 'cream.plus');
+      this.openPopup('addCoinPopup', 'Add Coins', 'cream.plus');
       var that = this;
       if (typeof that.popupGenerated == 'undefined') {
         that.popupGenerated = true;
