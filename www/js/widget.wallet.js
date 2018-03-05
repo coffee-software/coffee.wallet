@@ -195,7 +195,7 @@ function Wallet(data) {
 
   this.refreshOffline();
 
-  this.refreshOnline = function() {
+  this.refreshOnline = function(callback) {
     this.totalOnline = 'balance' in this.data ? this.data.balance : 0;
     this.onlineAmount.innerHTML = formatMoney(this.totalOnline, this.handler.code, 5);
     this.updateOnlineValue();
@@ -214,6 +214,7 @@ function Wallet(data) {
           that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
           that.updateOnlineValue();
         }
+        if (typeof callback != 'undefined') callback();
       });
     }
 

@@ -662,7 +662,22 @@ var app = {
           colorDark: '#4e3c31'
         });
 
+        this.receivingWallet = wallet;
+
+        setTimeout(app.updateReceivingWallet, 3000);
     },
+
+    updateReceivingWallet: function() {
+      if (document.getElementById("popup").classList.contains('show')) {
+        if (document.getElementById('receivePaymentPopup').style.display == 'block') {
+          console.log('refresh');
+          app.receivingWallet.refreshOnline(function(){
+            setTimeout(app.updateReceivingWallet, 3000);
+          });
+        }
+      }
+    },
+
     addWalletWidget: function(data) {
       var w = new Wallet(data)
       document.getElementById('walletsList').appendChild(w.row);
