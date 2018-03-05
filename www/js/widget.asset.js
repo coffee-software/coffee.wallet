@@ -61,6 +61,7 @@ function Asset(wallet, id, data) {
           if (buttonIndex == 1) {
             app.data.deleteOfflineAsset(that.wallet.handler.code, that.id);
             app.popupOfflineAssets(app.offlineAssetWallet);
+            app.offlineAssetWallet.refreshOffline();
           }
         },
         'Remove Asset',

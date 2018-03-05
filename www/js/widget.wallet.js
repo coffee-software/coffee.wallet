@@ -159,19 +159,34 @@ function Wallet(data) {
     return value;
   }
 
+  this.checkForOfflineAssetChange = function(idx, callback) {
+    this.handler.getBalance(this.offlineWallets[idx].addr, function(val){
+      if (val != that.offlineWallets[idx].balance) {
+        callback(isNaN(that.offlineWallets[idx].balance) ? val : val - that.offlineWallets[idx].balance);
+        //TODO
+        that.offlineWallets[idx].balance = val;
+        app.data.save();
+      }
+    });
+  }
 
   this.refreshOffline = function() {
       this.totalOffline = 0;
       for (var idx in this.offlineWallets) {
+
+        that.totalOffline += this.offlineWallets[idx].balance;
+
         if ('addr' in  this.offlineWallets[idx] && this.offlineWallets[idx].addr) {
-          this.handler.getBalance(this.offlineWallets[idx].addr, function(val){
-            //console.log(val);
-            that.totalOffline += val;
+          this.checkForOfflineAssetChange(idx, function(change){
+            if (change > 0) {
+              app.alertInfo(change + ' more on your ' + that.handler.code + ' offline wallet');
+            } else {
+              app.alertInfo(change + ' less on your ' + that.handler.code + ' offline wallet');
+            }
+            that.totalOffline += change;
             that.offlineAmount.innerHTML = formatMoney(that.totalOffline, that.handler.code, 5);
             that.updateOfflineValue();
           });
-        } else {
-          that.totalOffline += this.offlineWallets[idx].balance;
         }
       }
       this.offlineAmount.innerHTML = formatMoney(this.totalOffline, this.handler.code, 5);

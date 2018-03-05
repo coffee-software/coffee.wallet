@@ -473,6 +473,7 @@ var app = {
       }
       this.data.addOfflineAsset(this.offlineAssetWallet.handler.code, data);
       this.popupOfflineAssets(this.offlineAssetWallet);
+      this.offlineAssetWallet.refreshOffline();
     },
     saveOfflineAsset: function(){
       var data = {
@@ -482,6 +483,7 @@ var app = {
       }
       this.data.updateOfflineAsset(activeAsset.wallet.handler.code, activeAsset.id, data);
       this.popupOfflineAssets(this.offlineAssetWallet);
+      this.offlineAssetWallet.refreshOffline();
     },
 
     popupSendPayment: function(wallet) {
