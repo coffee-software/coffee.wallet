@@ -59,7 +59,7 @@ function Wallet(data) {
 
   var unitCell = document.createElement("td");
 
-  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + this.handler.name + '.png" alt="' + this.handler.code + '"/>';
+  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + this.handler.icon + '.png" alt="' + this.handler.code + '"/>';
 
   unitCell.children[0].onclick = function() {
     if (activeWallet == that) {

@@ -8,3 +8,5 @@ Coffee Wallet uses Open Source code from the following libraries
  * [qrcode.js](https://davidshimjs.github.io/qrcodejs/) to generate QR codes; MIT License
  * [rangeSlider](https://github.com/Stryzhevskyi/rangeSlider/) ui element; MIT License
  * [New Age](http://startbootstrap.com/template-overviews/new-age/) as landing page template base; MIT License
+ * [Cryptocurrency Icons](https://github.com/cjdowner/cryptocurrency-icons); Creative Commons Zero (CC0) license
+

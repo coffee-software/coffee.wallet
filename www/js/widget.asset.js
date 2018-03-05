@@ -30,7 +30,7 @@ function Asset(wallet, id, data) {
   });
 
   var unitCell = document.createElement("td");
-  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + that.wallet.handler.name + '.png" alt="' + that.wallet.handler.code + '"/>';
+  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + that.wallet.handler.icon + '.png" alt="' + that.wallet.handler.code + '"/>';
 
   var commentCell = document.createElement("td");
   commentCell.innerHTML = data.comment + '<br/>' + (data.addr ? '[' + data.addr.substring(0, 7) + '...]' : '[BALANCE]');

@@ -1,14 +1,28 @@
 <?php
+/**
+* Simple script to pull missing coins from coin market cap.
+*/
 
-$json = json_decode(file_get_contents('https://api.coinmarketcap.com/v1/ticker/?limit=100'), true);
+$json = json_decode(file_get_contents('https://api.coinmarketcap.com/v1/ticker/?limit=1000'), true);
 
-$list = array();
+$lines = array();
+
+$head = <<<EOT
+'use strict'
+
+//automatic list from coinmarketcap api
+
+var otherCoins = [
+EOT;
 
 foreach($json as $coin) {
-$list[]= <<<EOT
+  echo "$coin[name]\n";
+  $icon = file_exists('www/coins/' . strtolower($coin['symbol']) . '.png') ? strtolower($coin['symbol']) : 'noicon';
+  $lines[]= <<<EOT
 {
     name: "{$coin['id']}",
     code: "{$coin['symbol']}",
+    icon: "{$icon}",
     longname: "{$coin['name']}",
     description: "{$coin['name']} coin",
     links: {
@@ -17,10 +31,9 @@ $list[]= <<<EOT
 }
 EOT;
 
-//shell_exec('wget https://files.coinmarketcap.com/static/img/coins/128x128/' . $coin['id'] . '.png');
-
 }
+$foot = "];";
 
+echo "DONE. saving coins file..\n";
 
-echo implode(',', $list);
-
+file_put_contents('www/js/coin.apis.cmc.js', $head . implode(',', $lines) . $foot);

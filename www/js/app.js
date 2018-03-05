@@ -3,15 +3,10 @@
 var allCoinApis = {
   'BTC.TEST': BtcTestHandler,
   'BTC': BtcHandler,
-  'BCH': BchHandler,
   'ETH': EthHandler,
   'ETH.TEST': EthTestHandler,
   'PAY': PayHandler,
-  'LTC': LtcHandler,
-  'LSK': LskHandler,
-  'NEBL': NeblHandler,
-  'PART': PartHandler,
-  'XRP': XrpHandler
+  'LTC': LtcHandler
 };
 
 for (var i=0; i<otherCoins.length;i++) {
@@ -237,7 +232,7 @@ var app = {
     },
 
     popupCoinInfo: function(handler) {
-      this.openPopup('coinInfoPopup', 'Coin ' + handler.code, 'help', 'coins/' + handler.name + '.png');
+      this.openPopup('coinInfoPopup', 'Coin ' + handler.code, 'help', 'coins/' + handler.icon + '.png');
       var links = '<ul>';
       for (var name in handler.links) {
         links += '<li><a href="#" onclick="window.open(\'' + handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
@@ -299,7 +294,7 @@ var app = {
           button.dataset.supported = 'sendPayment' in allCoinApis[key];
 
           var img = document.createElement("img");
-          img.setAttribute('src', 'coins/' + allCoinApis[key].name + '.png');
+          img.setAttribute('src', 'coins/' + allCoinApis[key].icon + '.png');
           button.appendChild(img);
           var span = document.createElement("span");
           span.innerHTML = allCoinApis[key].code;
@@ -435,7 +430,7 @@ var app = {
         document.getElementById('offlineAssets').appendChild(a.row);
       }
 
-      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'list', 'coins/' + wallet.handler.name + '.png');
+      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'list', 'coins/' + wallet.handler.icon + '.png');
       document.getElementById('addBalanceButtons').classList.toggle('hidden', !('getBalance' in wallet.handler));
       this.offlineAssetWallet = wallet;
     },
@@ -453,7 +448,7 @@ var app = {
       document.getElementById('saveOfflineAssetButton').classList.remove('hidden');
       document.getElementById('addOfflineAssetButton').classList.add('hidden');
 
-      this.openPopup('addOfflineAssetPopup', 'edit ' + asset.wallet.handler.code + ' asset', 'edit', 'coins/' + app.offlineAssetWallet.handler.name + '.png');
+      this.openPopup('addOfflineAssetPopup', 'edit ' + asset.wallet.handler.code + ' asset', 'edit', 'coins/' + app.offlineAssetWallet.handler.icon + '.png');
     },
     popupAddOfflineAsset: function(type, value) {
       document.getElementById('addOfflineAssetAddr').value = (type == 'addr' ? value : '');
@@ -463,7 +458,7 @@ var app = {
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'addr');
       document.getElementById('saveOfflineAssetButton').classList.add('hidden');
       document.getElementById('addOfflineAssetButton').classList.remove('hidden');
-      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'cream.plus', 'coins/' + app.offlineAssetWallet.handler.name + '.png');
+      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'cream.plus', 'coins/' + app.offlineAssetWallet.handler.icon + '.png');
     },
     addOfflineAsset: function() {
       var data = {
@@ -487,9 +482,8 @@ var app = {
     },
 
     popupSendPayment: function(wallet) {
-        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code, 'send', 'coins/' + wallet.handler.name + '.png');
+        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code, 'send', 'coins/' + wallet.handler.icon + '.png');
 
-        //+ ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>'
         var fees = wallet.handler.getFees();
         //document.getElementById('sendCoinFee').max = fees.length - 1;
         //document.getElementById('sendCoinFee').value = Math.floor((fees.length - 1) / 2);
@@ -650,7 +644,6 @@ var app = {
     },
     popupReceivePayment: function(wallet, addr) {
         this.openPopup('receivePaymentPopup', 'receive ' + wallet.handler.code, 'receive');
-        // + ' <img class="coinIcon" src="coins/' + wallet.handler.name + '.png"/>'
         document.getElementById('receiveCoinName').innerHTML = '';
         document.getElementById('receiveCoinAddr').value = '';
         document.getElementById('receiveCoinQrcode').innerHTML = '';

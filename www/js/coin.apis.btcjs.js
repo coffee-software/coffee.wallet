@@ -3,6 +3,7 @@
 var BtcTestHandler = {
     name: "bitcoin-test",
     code: "BTC.TEST",
+    icon: "test",
     longname: "Bitcoin TestNet",
     description:
       "via Bitcoin Wiki: The testnet is an alternative Bitcoin block chain, to be used for testing. " +
@@ -50,6 +51,7 @@ var BtcTestHandler = {
 var BtcHandler = {
     name: "bitcoin",
     code: "BTC",
+    icon: "btc",
     longname: "Bitcoin",
     description: "via Wikpedia: Bitcoin is a cryptocurrency and worldwide payment system. " +
       "It is the first decentralized digital currency, as the system works without a central bank or single administrator. " +
@@ -74,6 +76,7 @@ var BtcHandler = {
 var LtcHandler = {
     name: "litecoin",
     code: "LTC",
+    icon: "ltc",
     longname: "Litecoin",
     description: "via litecoin.org: Litecoin is a peer-to-peer Internet currency that enables instant, near-zero cost payments to anyone in the world. " +
       "Litecoin is an open source, global payment network that is fully decentralized without any central authorities. " +

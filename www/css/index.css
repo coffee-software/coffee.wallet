@@ -553,7 +553,6 @@ h1#lockTitle {
     margin: 0;
 }
 .coinBig {
-  /* background-image: url(coins/ethereum-test.png); */
   background-position: center;
   background-repeat: no-repeat;
   height: 100px;
