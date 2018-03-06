@@ -16,7 +16,7 @@ fi
 echo "will update $currentVersion => $nextVersion"
 read -p "is that OK? (y/n) " -n 1 -r
 echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]] then
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     exit 1
 fi
 
