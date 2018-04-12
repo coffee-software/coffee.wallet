@@ -13,9 +13,14 @@ var Data = {
       }
       callback();
     }, function(error){
-      if (error.code == 2 || ('code' in error.code && error.code.code == 2)) {
+      if (typeof error.code == "object" && 'code' in error.code){
+        //this fixes weird bug in secure storege plugin TODO
+        error = error.code;
+      }
+      if (error.code == 2) {
         callback();
       } else {
+        console.log(error);
         app._alertJsError('error ' + error.code + ' ' + error.exception);
       }
     });
