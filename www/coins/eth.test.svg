@@ -6,7 +6,8 @@
         <g id="black" fill-rule="nonzero">
             <g id="nano">
                 <circle id="Oval" fill="#766054" cx="16" cy="16" r="16"></circle>
-		<text x="16" y="19" font-family="Verdana" font-size="10" fill="#fff" text-anchor="middle">ETH.TEST</text>
+		<text x="16" y="14" font-family="Verdana" font-size="10" fill="#fff" text-anchor="middle">ETH</text>
+        	<text x="16" y="23" font-family="Verdana" font-size="10" fill="#fff" text-anchor="middle">TEST</text>
             </g>
         </g>
     </g>
