@@ -17,7 +17,10 @@ EOT;
 
 foreach($json as $coin) {
   echo "$coin[name]\n";
-  $icon = file_exists('www/coins/' . strtolower($coin['symbol']) . '.png') ? strtolower($coin['symbol']) : 'noicon';
+  //$icon = file_exists('www/coins/' . strtolower($coin['symbol']) . '.png') ? strtolower($coin['symbol']) : 'noicon';
+
+  $icon = strtolower($coin['symbol']);  
+  shell_exec('dev/generateicon.sh ' . $icon);
   $lines[]= <<<EOT
 {
     name: "{$coin['id']}",
