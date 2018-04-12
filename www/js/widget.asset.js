@@ -23,12 +23,15 @@ function Asset(wallet, id, data) {
   });
 
   var unitCell = document.createElement("div");
+  unitCell.classList.add('unit');
   unitCell.innerHTML = '<img class="coinIcon" src="coins/' + that.wallet.handler.icon + '.svg" alt="' + that.wallet.handler.code + '"/>';
 
   var commentCell = document.createElement("div");
   commentCell.innerHTML = data.comment + '<br/>' + (data.addr ? '[' + data.addr.substring(0, 7) + '...]' : '[BALANCE]');
+  commentCell.classList.add('left');
 
   var amountCell = document.createElement("div");
+  amountCell.classList.add('right');
 
   this.amount = document.createElement("div");
   this.value = document.createElement("div");
@@ -64,8 +67,8 @@ function Asset(wallet, id, data) {
 
   amountCell.appendChild(buttonsDiv);
 
-  this.row.appendChild(unitCell);
   this.row.appendChild(commentCell);
+  this.row.appendChild(unitCell);
   this.row.appendChild(amountCell);
 
 

@@ -313,6 +313,10 @@ table {
   width: 100%;
 }
 
+.active .coinIcon {
+    filter: hue-rotate(30deg);
+}
+
 .buttonIcon {
   width: 26px;
   margin-right: 4px;
