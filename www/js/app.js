@@ -232,7 +232,7 @@ var app = {
     },
 
     popupCoinInfo: function(handler) {
-      this.openPopup('coinInfoPopup', 'Coin ' + handler.code, 'help', 'coins/' + handler.icon + '.png');
+      this.openPopup('coinInfoPopup', 'Coin ' + handler.code, 'help', 'coins/' + handler.icon + '.svg');
       var links = '<ul>';
       for (var name in handler.links) {
         links += '<li><a href="#" onclick="window.open(\'' + handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
@@ -294,7 +294,7 @@ var app = {
           button.dataset.supported = 'sendPayment' in allCoinApis[key];
 
           var img = document.createElement("img");
-          img.setAttribute('src', 'coins/' + allCoinApis[key].icon + '.png');
+          img.setAttribute('src', 'coins/' + allCoinApis[key].icon + '.svg');
           button.appendChild(img);
           var span = document.createElement("span");
           span.innerHTML = allCoinApis[key].code;
@@ -430,7 +430,7 @@ var app = {
         document.getElementById('offlineAssets').appendChild(a.row);
       }
 
-      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'list', 'coins/' + wallet.handler.icon + '.png');
+      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'list', 'coins/' + wallet.handler.icon + '.svg');
       document.getElementById('addBalanceButtons').classList.toggle('hidden', !('getBalance' in wallet.handler));
       this.offlineAssetWallet = wallet;
     },
@@ -448,7 +448,7 @@ var app = {
       document.getElementById('saveOfflineAssetButton').classList.remove('hidden');
       document.getElementById('addOfflineAssetButton').classList.add('hidden');
 
-      this.openPopup('addOfflineAssetPopup', 'edit ' + asset.wallet.handler.code + ' asset', 'edit', 'coins/' + app.offlineAssetWallet.handler.icon + '.png');
+      this.openPopup('addOfflineAssetPopup', 'edit ' + asset.wallet.handler.code + ' asset', 'edit', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg');
     },
     popupAddOfflineAsset: function(type, value) {
       document.getElementById('addOfflineAssetAddr').value = (type == 'addr' ? value : '');
@@ -458,7 +458,7 @@ var app = {
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'addr');
       document.getElementById('saveOfflineAssetButton').classList.add('hidden');
       document.getElementById('addOfflineAssetButton').classList.remove('hidden');
-      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'cream.plus', 'coins/' + app.offlineAssetWallet.handler.icon + '.png');
+      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'cream.plus', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg');
     },
     addOfflineAsset: function() {
       var data = {
@@ -482,7 +482,7 @@ var app = {
     },
 
     popupSendPayment: function(wallet) {
-        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code, 'send', 'coins/' + wallet.handler.icon + '.png');
+        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code, 'send', 'coins/' + wallet.handler.icon + '.svg');
 
         var fees = wallet.handler.getFees();
         //document.getElementById('sendCoinFee').max = fees.length - 1;

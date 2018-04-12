@@ -68,18 +68,14 @@
         <div id="container">
           <div id="swiper">
             <div class="swipe_tab">
-              <table id="wallets" class="tab_inner">
-                <tbody id="walletsList">
-                </tbody>
-          	    <tbody>
-          		    <tr onclick="app.popupAddCoin()" class="no-stitch">
-              			<td colspan="3" class="walletsActions">
-                      <img src="icons/plus.png" alt="add" class="buttonIcon"/>
-                      add more coins
-              			</td>
-          		    </tr>
-          	    </tbody>
-              </table>
+              <div id="wallets" class="tab_inner">
+                <div id="walletsList">
+                </div>
+          	    <div onclick="app.popupAddCoin()" class="walletsActions">
+                    <img src="icons/plus.png" alt="add" class="buttonIcon"/>
+                    add more coins
+          	    </div>
+              </div>
             </div>
             <div class="swipe_tab">
               <div class="tab_inner">
@@ -137,13 +133,9 @@
               </div>
               <div class="unpad stitch"></div>
               <div class="unpad">
-                <table>
-                  <thead>
-                  </thead>
-                  <tbody id="offlineAssets">
+                <div id="offlineAssets">
 
-                  </tbody>
-                </table>
+                </div>
               </div>
 
               <div class="spacing">&nbsp;</div>

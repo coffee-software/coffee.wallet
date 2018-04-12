@@ -5,37 +5,30 @@ var activeAsset = null;
 function Asset(wallet, id, data) {
 
   var that = this;
-  this.row = document.createElement("tr");
+  this.row = document.createElement("div");
+  this.row.classList.add('listingRow');
+
   that.data = data;
   that.wallet = wallet;
   that.id = id;
 
   fastTap(this.row, function() {
     if (activeAsset && activeAsset == that) return true;
-
     if (activeAsset && activeAsset.row) {
-      if (activeAsset.row.previousElementSibling != null) {
-        activeAsset.row.previousElementSibling.classList.remove('no-stitch');
-      }
-      activeAsset.row.classList.remove('no-stitch');
       activeAsset.row.classList.remove('active');
     }
-    if (that.row.previousElementSibling != null) {
-      that.row.previousElementSibling.classList.add('no-stitch');
-    }
-    that.row.classList.add('no-stitch');
     that.row.classList.add('active');
     activeAsset = that;
     return false;
   });
 
-  var unitCell = document.createElement("td");
-  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + that.wallet.handler.icon + '.png" alt="' + that.wallet.handler.code + '"/>';
+  var unitCell = document.createElement("div");
+  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + that.wallet.handler.icon + '.svg" alt="' + that.wallet.handler.code + '"/>';
 
-  var commentCell = document.createElement("td");
+  var commentCell = document.createElement("div");
   commentCell.innerHTML = data.comment + '<br/>' + (data.addr ? '[' + data.addr.substring(0, 7) + '...]' : '[BALANCE]');
 
-  var amountCell = document.createElement("td");
+  var amountCell = document.createElement("div");
 
   this.amount = document.createElement("div");
   this.value = document.createElement("div");

@@ -3,7 +3,7 @@
 var BtcTestHandler = {
     name: "bitcoin-test",
     code: "BTC.TEST",
-    icon: "test",
+    icon: "btc.test",
     longname: "Bitcoin TestNet",
     description:
       "via Bitcoin Wiki: The testnet is an alternative Bitcoin block chain, to be used for testing. " +

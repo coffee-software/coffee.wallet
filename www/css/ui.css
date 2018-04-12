@@ -6,7 +6,7 @@ button {
   font-size: 14px;
   padding: 10px;
   border-radius: 16px;
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Poppins', serif;
   text-align: center;
   position: relative;
 }
@@ -59,7 +59,7 @@ button.primary.stitched:before {
 }
 button.primary {
   background: #4e3c31;
-  color: #eadfcb;
+  color: #f7f5f2;
   box-shadow: 1px 1px 1px rgba(50,50,0,0.5);
 }
 
@@ -76,8 +76,8 @@ input {
     box-sizing: border-box;
     margin: 0;
     background: #695950;
-    color: #eadfcb;
-    font-family: 'Libre Baskerville', serif;
+    color: #f7f5f2;
+    font-family: 'Poppins', serif;
 }
 
 *:focus {
@@ -89,7 +89,7 @@ input:active, input:focus {
 }
 
 input::placeholder {
-    color: #eadfcb;
+    color: #f7f5f2;
     font-style: italic;
 }
 
@@ -145,7 +145,7 @@ input.has-unit {
   position: absolute;
   bottom: 11px;
   right: 12px;
-  color: #eadfcb;
+  color: #f7f5f2;
 }
 
 .range-input {

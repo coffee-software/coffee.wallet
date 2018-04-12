@@ -24,31 +24,30 @@ body {
 
 /**
 color palete:
-  creme: #eadfcb;
-  dark coffe: #4e3c31;
-  pale coffe: #695950;
-  gold: #c2b28f;
-
+  coffe: #766054;
+  gold: #dbc183;
+  creme: #f7f5f2;
 **/
+
 @font-face {
-  font-family: 'Libre Baskerville';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  src: url("../font/LibreBaskerville-Regular.ttf") format("truetype");
+  src: url("../font/Poppins-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Libre Baskerville';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
-  src: url("../font/LibreBaskerville-Bold.ttf") format("truetype");
+  src: url("../font/Poppins-Bold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Libre Baskerville';
+  font-family: 'Poppins';
   font-style: italic;
   font-weight: 400;
-  src: url("../font/LibreBaskerville-Italic.ttf") format("truetype");
+  src: url("../font/Poppins-Italic.ttf") format("truetype");
 }
 
 html {
@@ -58,9 +57,9 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color: #eadfcb;
+    background-color: #f7f5f2;
 
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Poppins', serif;
     color: #4e3c31;
     font-size: 11px;
     height: 100%;
@@ -83,7 +82,7 @@ body {
   left: 0;
   right: 0;
   height: 44px;
-  color: #eadfcb;
+  color: #f7f5f2;
 
   /* Status bar height on iOS 11 */
   padding-top: constant(safe-area-inset-top);
@@ -93,7 +92,7 @@ body {
 #nav .totals {
   height: 43px;
   text-align: center;
-  border-top: 1px dashed #eadfcb;
+  border-top: 1px dashed #f7f5f2;
 }
 
 #nav .totals h1 {
@@ -132,7 +131,7 @@ body {
   transition: height 0.5s ease;
   height: 0;
   overflow: hidden;
-  background: #eadfcb;
+  background: #f7f5f2;
   /* Status bar height on iOS 11 */
   margin-top: constant(safe-area-inset-top);
   margin-top: env(safe-area-inset-top);
@@ -158,7 +157,7 @@ body {
 }
 
 #menu a:hover {
-  background: linear-gradient(to right, #eadfcb, #c2b28f 40%, #c2b28f 50%, #eadfcb);
+  background: linear-gradient(to right, #f7f5f2, #c2b28f 40%, #c2b28f 50%, #f7f5f2);
   color: #4e3c31;
 }
 
@@ -174,7 +173,7 @@ body {
 
 #foot .tab {
   flex: 1;
-  color: #eadfcb;
+  color: #f7f5f2;
   text-decoration: none;
   text-align: center;
   padding: 5px 2px;
@@ -226,6 +225,7 @@ body {
   flex: 1;
   overflow: auto;
   width: 100%;
+  padding: 0 15px;
   -webkit-transform: translate3d(0, 0, 0);
 }
 #swiper .swipe_tab .tab_inner {
@@ -262,38 +262,24 @@ table {
   border-spacing: 0;
 }
 
-table tr td:first-child {
-  width: 64px;
-}
-
 .stitch {
   border-bottom: 1px dashed #4e3c31;
   /* border-image: url(../icons/stitch.png) 1 1 round; */
 }
 
-table td {
-  padding: 12px 8px;
-  border-bottom: 1px dashed #4e3c31;
-  /* border-image: url(../icons/stitch.png) 1 1 round; */
-}
-
-table th {
-  padding: 10px;
-}
 
 .buttons {
   overflow: auto;
   margin-top: 8px;
+  display: none;
 }
 
+.active .buttons {
+  display: block;
+}
 .buttons div {
-  float: right;
-  margin-left: 18px;
+  display: inline;
   text-align: center;
-}
-
-#walletsList .buttons div {
-  text-align: right;
 }
 
 .value {
@@ -324,8 +310,7 @@ table th {
 }
 
 .coinIcon {
-  width: 64px;
-  vertical-align: middle;
+  width: 100%;
 }
 
 .buttonIcon {
@@ -336,12 +321,6 @@ table th {
 
 @media all and (max-width: 799px) {
   .button {
-    width: 26px;
-  }
-  .coinIcon {
-    width: 26px;
-  }
-  table tr td:first-child {
     width: 26px;
   }
   .value {
@@ -361,38 +340,26 @@ table th {
   }
 }
 
-
-table {
+.listingRow {
+  border-bottom: 1px solid;
+  border-image: url(../img/stitch.png) 1 1 round;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 74px;
+}
+.left {
+  flex: 3;
+  text-align: left;
+  padding: 10px;
+}
+.unit {
+  flex: 1;
+}
+.right {
+  flex: 3;
   text-align: right;
-}
-
-table .button {
-  float: right:
-}
-
-table .buttons {
-  display: none;
-}
-
-table .no-stitch td {
-  border: none;
-}
-
-table .active {
-  background-image: url(../img/gradient.png);
-  background-attachment: fixed;
-  background-size: 100% auto;
-
-  /*
-  background: linear-gradient(to right, #c8b897 0%, #ae9a70 20%, #9e8858 40%, #9e8858 60%, #ae9a70 80%, #c8b897 100%);
-  background-attachment: fixed;
-  */
-
-  color: #eadfcb;
-}
-
-table  .active .buttons {
-  display: block;
+  padding: 10px;
 }
 
 #popup {
@@ -423,12 +390,12 @@ table  .active .buttons {
   top: constant(safe-area-inset-top);
   top: env(safe-area-inset-top);
 
-  border-top: 1px dashed #eadfcb;
+  border-top: 1px dashed #f7f5f2;
 
   font-size: 16px;
   line-height: 44px;
   background: #4e3c31;
-  color: #eadfcb;
+  color: #f7f5f2;
   text-align: center;
 }
 #popup h1 img {
@@ -444,7 +411,7 @@ table  .active .buttons {
 }
 
 #popupContent {
-  background-color: #eadfcb;
+  background-color: #f7f5f2;
   padding: 0 6%;
   padding-top: 52px;
   /* IOS */

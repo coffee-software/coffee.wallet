@@ -30,7 +30,8 @@ function createButton(icon, callback) {
 
 function Wallet(data) {
 
-  this.row = document.createElement("tr");
+  this.row = document.createElement("div");
+  this.row.classList.add('listingRow');
   var that = this;
   that.data = data;
   that.handler = allCoinApis[data.coin];
@@ -38,16 +39,8 @@ function Wallet(data) {
   this.setActive = function() {
     if (activeWallet && activeWallet == that) return true;
     if (activeWallet && activeWallet.row) {
-      if (activeWallet.row.previousElementSibling != null) {
-        activeWallet.row.previousElementSibling.classList.remove('no-stitch');
-      }
-      activeWallet.row.classList.remove('no-stitch');
       activeWallet.row.classList.remove('active');
     }
-    if (that.row.previousElementSibling != null) {
-      that.row.previousElementSibling.classList.add('no-stitch');
-    }
-    that.row.classList.add('no-stitch');
     that.row.classList.add('active');
     activeWallet = that;
     return false;
@@ -57,9 +50,10 @@ function Wallet(data) {
     return that.setActive();
   });
 
-  var unitCell = document.createElement("td");
+  var unitCell = document.createElement("div");
+  unitCell.classList.add('unit');
 
-  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + this.handler.icon + '.png" alt="' + this.handler.code + '"/>';
+  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + this.handler.icon + '.svg" alt="' + this.handler.code + '"/>';
 
   unitCell.children[0].onclick = function() {
     if (activeWallet == that) {
@@ -75,7 +69,8 @@ function Wallet(data) {
 
 
 
-  var onlineCell = document.createElement("td");
+  var onlineCell = document.createElement("div");
+  onlineCell.classList.add('left');
   onlineCell.classList.add('online');
   this.onlineAmount = document.createElement("div");
   this.onlineValue = document.createElement("div");
@@ -97,8 +92,9 @@ function Wallet(data) {
   }
 
 
-  var offlineCell = document.createElement("td");
+  var offlineCell = document.createElement("div");
   offlineCell.classList.add('offline');
+  offlineCell.classList.add('right');
   this.offlineAmount = document.createElement("div");
   this.offlineValue = document.createElement("div");
   offlineCell.appendChild(this.offlineValue).classList.add('value');
@@ -117,9 +113,6 @@ function Wallet(data) {
         function(buttonIndex) {
             if (buttonIndex == 1) {
               app.data.hideWallet(key, function(){
-                if (app.wallets[key].row.previousElementSibling != null) {
-                  app.wallets[key].row.previousElementSibling.classList.remove('no-stitch');
-                }
                 app.wallets[key].row.outerHTML = '';
                 delete app.wallets[key].row;
                 delete app.wallets[key];
@@ -134,8 +127,8 @@ function Wallet(data) {
 
   offlineCell.appendChild(buttonsDiv2);
 
-  this.row.appendChild(unitCell);
   this.row.appendChild(onlineCell);
+  this.row.appendChild(unitCell);
   this.row.appendChild(offlineCell);
 
   this.offlineWallets = data.offlineWallets;

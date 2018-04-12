@@ -73,7 +73,7 @@ var EthFunctions = {
 var EthTestHandler = {
     name: "ethereum-test",
     code: "ETH.TEST",
-    icon: "test",
+    icon: "eth.test",
     longname: "Ethereum Testnet",
     description:
     "Robsten is an ethereum testing network.",
