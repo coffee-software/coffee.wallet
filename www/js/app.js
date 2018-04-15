@@ -111,7 +111,7 @@ var app = {
 
     },
     tabWallets: function() {
-      this.setTabActive(0);
+      this.setTabActive(1);
 
       /*var width = document.scrollingElement.offsetWidth;
       document.body.onscroll = null;
@@ -119,7 +119,7 @@ var app = {
       this.scrollToTarget();*/
     },
     tabHistory: function() {
-      this.setTabActive(1);
+      this.setTabActive(0);
       /*
       this.targetScroll = 3 / 2;
       this.scrollToTarget();

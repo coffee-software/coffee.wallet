@@ -68,6 +68,13 @@
         <div id="container">
           <div id="swiper">
             <div class="swipe_tab">
+              <div class="tab_inner">
+                <ul id="history">
+                  <li class="info">loading history ...</li>
+                </ul>
+              </div>
+            </div>
+            <div class="swipe_tab">
               <div id="wallets" class="tab_inner">
                 <div id="walletsList">
                 </div>
@@ -75,13 +82,6 @@
                     <img src="icons/plus.png" alt="add" class="buttonIcon"/>
                     add more coins
           	    </div>
-              </div>
-            </div>
-            <div class="swipe_tab">
-              <div class="tab_inner">
-                <ul id="history">
-                  <li class="info">loading history ...</li>
-                </ul>
               </div>
             </div>
             <div class="swipe_tab">
@@ -96,15 +96,15 @@
           </div>
         </div>
     <div id="foot">
-      <div ontouchstart="app.tabWallets()" class="tab active">
-        <img src="icons/home.png" alt="wallets"/>
-        <br/>
-        wallets
-      </div>
       <div ontouchstart="app.tabHistory()" class="tab">
         <img src="icons/history.png" alt="history"/>
         <br/>
         history
+      </div>
+      <div ontouchstart="app.tabWallets()" class="tab active">
+        <img src="icons/home.png" alt="wallets"/>
+        <br/>
+        wallets
       </div>
       <div ontouchstart="app.tabExchange()" class="tab">
        <img src="icons/exchange.png" alt="exchange"/>

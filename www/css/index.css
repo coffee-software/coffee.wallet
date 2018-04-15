@@ -25,7 +25,9 @@ body {
 /**
 color palete:
   coffe: #766054;
-  gold: #dbc183;
+  dark: #463f3a;
+  gold: #ddc486;
+
   creme: #f7f5f2;
 **/
 
@@ -81,7 +83,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 44px;
+  height: 54px;
   color: #f7f5f2;
 
   /* Status bar height on iOS 11 */
@@ -125,7 +127,7 @@ body {
 
 #menu {
   position: fixed;
-  top: 44px;
+  top: 54px;
   left: 0;
   height: 0;
   transition: height 0.5s ease;
@@ -176,7 +178,7 @@ body {
   color: #f7f5f2;
   text-decoration: none;
   text-align: center;
-  padding: 5px 2px;
+  padding: 9px 2px;
   font-size: 9px;
 }
 #foot .tab img {
@@ -229,8 +231,8 @@ body {
   -webkit-transform: translate3d(0, 0, 0);
 }
 #swiper .swipe_tab .tab_inner {
-  padding-top: 44px;
-  padding-bottom: 48px;
+  padding-top: 54px;
+  padding-bottom: 60px;
 }
 
 .blur {
@@ -314,7 +316,7 @@ table {
 }
 
 .active .coinIcon {
-    filter: hue-rotate(30deg);
+    filter: hue-rotate(22deg) saturate(137%) brightness(187%);
 }
 
 .buttonIcon {
@@ -397,7 +399,7 @@ table {
   border-top: 1px dashed #f7f5f2;
 
   font-size: 16px;
-  line-height: 44px;
+  line-height: 54px;
   background: #4e3c31;
   color: #f7f5f2;
   text-align: center;
