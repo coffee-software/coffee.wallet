@@ -206,14 +206,22 @@ var app = {
       document.getElementById("nav").classList.add('blur');
       document.getElementById("foot").classList.add('blur');
 
-      document.getElementById("popup").classList.add('show');
+      var popupId = 'popup';
+      var popupContentId = 'popupContent';
+
+      if (id == 'sendPaymentPopup' || id == 'receivePaymentPopup') {
+        popupId = 'popupBottom';
+        popupContentId = 'popupBottom';
+      }
+      
+      document.getElementById(popupId).classList.add('show');
 
       var icons = document.getElementsByClassName("coinBig");
       for (var i = 0; i < icons.length; i++) {
           icons[i].style.backgroundImage = bgimg ? "url('" + bgimg + "')" : null;
       }
 
-      var children = document.getElementById('popupContent').childNodes;
+      var children = document.getElementById(popupContentId).childNodes;
       for (var c=0; c < children.length; c++) {
           if (children[c].nodeType != 3) {
             children[c].style.display = 'none';
@@ -229,6 +237,8 @@ var app = {
       document.getElementById("nav").classList.remove('blur');
       document.getElementById("foot").classList.remove('blur');
       document.getElementById("popup").classList.remove('show');
+      document.getElementById("popupBottom").classList.remove('show');
+
     },
 
     popupCoinInfo: function(handler) {
@@ -255,13 +265,21 @@ var app = {
       }
       support += '</ul>';
 
+      var advanced = '<ul>';
+      if ('newPrivateKey' in handler) {
+        advanced += '<li>export private key</li>';
+        advanced += '<li>import private key</li>';
+      }
+      advanced += '</ul>';
+
       document.getElementById('coinInfoDescription').innerHTML =
         '<h2>' + handler.longname + '</h2>' +
         handler.description +
         '<h2>links (external)</h2>' +
         links +
-        '<h2>wallet1 support</h2>' +
-        support;
+        '<h2>coffee features</h2>' +
+        support +
+        (advanced != '<ul></ul>' ? '<h2>advanced options:</h2>' + advanced : '');
     },
 
     popupAddCoin: function() {
@@ -668,7 +686,7 @@ var app = {
     },
 
     updateReceivingWallet: function() {
-      if (document.getElementById("popup").classList.contains('show')) {
+      if (document.getElementById("popupBottom").classList.contains('show')) {
         if (document.getElementById('receivePaymentPopup').style.display == 'block') {
           console.log('refresh');
           app.receivingWallet.refreshOnline(function(){

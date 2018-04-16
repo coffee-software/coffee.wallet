@@ -31,17 +31,19 @@ function createButton(icon, callback) {
 function Wallet(data) {
 
   this.row = document.createElement("div");
-  this.row.classList.add('listingRow');
+  this.listingRow = document.createElement("div");
+  this.listingRow.classList.add('listingRow');
+  this.row.appendChild(this.listingRow);
   var that = this;
   that.data = data;
   that.handler = allCoinApis[data.coin];
   //'touchstart'
   this.setActive = function() {
     if (activeWallet && activeWallet == that) return true;
-    if (activeWallet && activeWallet.row) {
-      activeWallet.row.classList.remove('active');
+    if (activeWallet && activeWallet.listingRow) {
+      activeWallet.listingRow.classList.remove('active');
     }
-    that.row.classList.add('active');
+    that.listingRow.classList.add('active');
     activeWallet = that;
     return false;
   }
@@ -127,9 +129,13 @@ function Wallet(data) {
 
   offlineCell.appendChild(buttonsDiv2);
 
-  this.row.appendChild(onlineCell);
-  this.row.appendChild(unitCell);
-  this.row.appendChild(offlineCell);
+  this.listingRow.appendChild(onlineCell);
+  this.listingRow.appendChild(unitCell);
+  this.listingRow.appendChild(offlineCell);
+
+  var stitch = document.createElement("div");
+  stitch.classList.add('stitch');
+  this.row.appendChild(stitch);
 
   this.offlineWallets = data.offlineWallets;
 

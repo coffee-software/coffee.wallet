@@ -266,8 +266,8 @@ table {
 }
 
 .stitch {
-  border-bottom: 1px dashed #4e3c31;
-  /* border-image: url(../icons/stitch.png) 1 1 round; */
+  background: url(../img/stitch.png);
+  height: 1px;
 }
 
 
@@ -348,8 +348,6 @@ table {
 }
 
 .listingRow {
-  border-bottom: 1px solid;
-  border-image: url(../img/stitch.png) 1 1 round;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -380,6 +378,20 @@ table {
   left: 0;
   z-index: 100;
   transition: margin 0.5s ease;
+}
+
+#popupBottom {
+  position: fixed;
+  bottom: -100%;
+  width: 100%;
+  height: auto;
+  transition: bottom 1s ease;
+}
+#popupBottom.show {
+  bottom: 0;
+}
+.bottomPopupContent {
+  background: #463f3a;
 }
 
 #popup.show {
@@ -535,10 +547,6 @@ h1#lockTitle {
 
 .sendHead {
     margin: 10px -16px 20px -16px;
-}
-
-.largecup {
-  width: 100%;
 }
 
 a:active {

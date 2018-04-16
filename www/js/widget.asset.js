@@ -6,7 +6,10 @@ function Asset(wallet, id, data) {
 
   var that = this;
   this.row = document.createElement("div");
-  this.row.classList.add('listingRow');
+  this.listingRow = document.createElement("div");
+  this.listingRow.classList.add('listingRow');
+  this.row.appendChild(this.listingRow);
+
 
   that.data = data;
   that.wallet = wallet;
@@ -14,10 +17,10 @@ function Asset(wallet, id, data) {
 
   fastTap(this.row, function() {
     if (activeAsset && activeAsset == that) return true;
-    if (activeAsset && activeAsset.row) {
-      activeAsset.row.classList.remove('active');
+    if (activeAsset && activeAsset.listingRow) {
+      activeAsset.listingRow.classList.remove('active');
     }
-    that.row.classList.add('active');
+    that.listingRow.classList.add('active');
     activeAsset = that;
     return false;
   });
@@ -67,9 +70,13 @@ function Asset(wallet, id, data) {
 
   amountCell.appendChild(buttonsDiv);
 
-  this.row.appendChild(commentCell);
-  this.row.appendChild(unitCell);
-  this.row.appendChild(amountCell);
+  this.listingRow.appendChild(commentCell);
+  this.listingRow.appendChild(unitCell);
+  this.listingRow.appendChild(amountCell);
+
+  var stitch = document.createElement("div");
+  stitch.classList.add('stitch');
+  this.row.appendChild(stitch);
 
 
   this.updateValue = function() {
