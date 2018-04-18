@@ -331,7 +331,7 @@
               <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
               <button class="right" onclick="app.copyReceiveCoinAddrToClp()">Copy <img src="icons/copy.png"/></button>
             </div>
-            
+
             <div class="field">
               <label><span id="receiveCoinName"></span></label>
               <input readonly="readonly" id="receiveCoinAddr" value=""/>
@@ -342,6 +342,11 @@
 
           <div id="exportPrivateKeyPopup" class="formContent" style="display:none;">
             <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+            <img class="actionLeft" src="icons/cancel.png"/>
+
+            <div class="formActions row">
+              <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
+            </div>
 
             <div class="unpad stitch"></div>
             <div id="privateKeyValue"></div>
@@ -349,6 +354,13 @@
 
           <div id="importPrivateKeyPopup" class="formContent" style="display:none;">
             <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+            <img class="actionLeft" src="icons/cancel.png"/>
+            <img class="actionRight" src="icons/submit.png"/>
+
+            <div class="formActions row">
+              <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
+              <button class="right" onclick="app.importPrivateKey()">Import <img src="icons/copy.png"/></button>
+            </div>
 
             <div class="unpad stitch"></div>
 
@@ -357,18 +369,6 @@
               <input id="importPrivateKeyInput" value=""/>
             </div>
             <div class="spacing">&nbsp;</div>
-            <div class="spacing row">
-              <button class="f1 large stitched" onclick="app.closeForm()">
-                cancel
-                <br/>
-                <img src="icons/cancel.png"/>
-              </button>
-              <button id="addOfflineAssetButton" class="f2 large stitched primary" onclick="app.importPrivateKey()">
-                import
-                <br/>
-                <img src="icons/ok.png"/>
-              </button>
-            </div>
           </div>
 
         </div>
