@@ -247,11 +247,66 @@ var app = {
       document.getElementById("popup").classList.remove('show');
     },
 
-    popupCoinInfo: function(handler) {
-      this.openPopup('coinInfoPopup', 'Coin ' + handler.code, 'help', 'coins/' + handler.icon + '.svg');
+    showExportPrivateKeyPopup: function(wallet) {
+      app.authenticateBeforeContinue(
+        'Export ' + wallet.handler.code + ' Private Key',
+        'Are you sure you want to see your private key? It gives full access to your ' + wallet.handler.code + ' online wallet. '
+        + 'Don\'t show it to any one. Don\'t take a screenshot.',
+        function() {
+          app.openForm('exportPrivateKeyPopup', wallet.handler.code + ' private key', 'coins/' + wallet.handler.icon + '.svg');
+          document.getElementById('privateKeyValue').innerHTML = wallet.data.privateKey;
+        }
+      );
+    },
+
+    showImportPrivateKeyPopup: function(wallet) {
+      app.openForm('importPrivateKeyPopup', 'import ' + wallet.handler.code + ' private key', 'coins/' + wallet.handler.icon + '.svg');
+      app.importingWallet = wallet;
+      document.getElementById('importPrivateKeyInput').value = '';
+    },
+    
+    importPrivateKey: function(){
+      var value = document.getElementById('importPrivateKeyInput').value
+      //app.importingWallet
+      console.log(value);
+      app.closeForm();
+    },
+
+    removeCoin: function(wallet) {
+      var key = wallet.handler.code;
+      navigator.notification.confirm(
+          'Are you sure you want to remove ' + key + ' coin? ' +
+          '\nPrivate keys and offline wallets data will still be available in database and will be restored when you re-enable this coin.',
+          function(buttonIndex) {
+              if (buttonIndex == 1) {
+                app.data.hideWallet(key, function(){
+                  app.wallets[key].row.outerHTML = '';
+                  delete app.wallets[key].row;
+                  delete app.wallets[key];
+                });
+                app.closePopup();
+              }
+          },
+          'Remove Coin',
+          ['Remove','Cancel']
+      );
+    },
+
+    createAdvancedOption: function(icon, text, callback) {
+      var li = document.createElement('li');
+      var img = document.createElement("img");
+      img.setAttribute('src', 'icons/' + icon + '.png');
+      li.appendChild(img);
+      li.appendChild(document.createTextNode(text));
+      fastTap(li, callback);
+      return li;
+    },
+
+    popupCoinInfo: function(wallet) {
+      this.openPopup('coinInfoPopup', 'Coin ' + wallet.handler.code, 'help', 'coins/' + wallet.handler.icon + '.svg');
       var links = '<ul>';
-      for (var name in handler.links) {
-        links += '<li><a href="#" onclick="window.open(\'' + handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
+      for (var name in wallet.handler.links) {
+        links += '<li><a href="#" onclick="window.open(\'' + wallet.handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
       }
       links += '</ul>';
       var support = '<ul>';
@@ -262,7 +317,7 @@ var app = {
       ];
       for (var i=0; i<features.length;i++){
           support += '<li>' + features[i][1] + ': ';
-          if (features[i][0] in handler) {
+          if (features[i][0] in wallet.handler) {
             support += '<strong>YES</strong> ' + features[i][2];
           } else {
             support += '<strong>NO</strong>';
@@ -271,21 +326,31 @@ var app = {
       }
       support += '</ul>';
 
-      var advanced = '<ul>';
-      if ('newPrivateKey' in handler) {
-        advanced += '<li>export private key</li>';
-        advanced += '<li>import private key</li>';
+      var advanced = document.createElement('ul');
+      advanced.classList.add('advancedActions');
+      var advancedWallet = wallet;
+
+      if ('newPrivateKey' in wallet.handler) {
+        advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
+        advanced.appendChild(app.createAdvancedOption('receive', 'import private key', app.showImportPrivateKeyPopup.bind(app, advancedWallet)));
       }
-      advanced += '</ul>';
+
+      if (wallet.totalOffline + wallet.totalOnline <= 0) {
+        advanced.appendChild(app.createAdvancedOption('close', 'remove coin', app.removeCoin.bind(app, advancedWallet)));
+      }
 
       document.getElementById('coinInfoDescription').innerHTML =
-        '<h2>' + handler.longname + '</h2>' +
-        handler.description +
+        '<h2>' + wallet.handler.longname + '</h2>' +
+        wallet.handler.description +
         '<h2>links (external)</h2>' +
         links +
         '<h2>coffee features</h2>' +
-        support +
-        (advanced != '<ul></ul>' ? '<h2>advanced options:</h2>' + advanced : '');
+        support;
+
+      if (advanced.children.length > 0) {
+          document.getElementById('coinInfoDescription').insertAdjacentHTML('beforeend','<h2>advanced options:</h2>');
+          document.getElementById('coinInfoDescription').append(advanced);
+      }
     },
 
     popupAddCoin: function() {

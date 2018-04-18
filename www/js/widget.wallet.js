@@ -59,7 +59,7 @@ function Wallet(data) {
 
   unitCell.children[0].onclick = function() {
     if (activeWallet == that) {
-      app.popupCoinInfo(that.handler);
+      app.popupCoinInfo(that);
     }
   };
   /*
@@ -68,8 +68,6 @@ function Wallet(data) {
   buttonDiv.appendChild(createButton('info', app.popupCoinInfo.bind(app, that.handler)));
   unitCell.appendChild(buttonDiv);
   */
-
-
 
   var onlineCell = document.createElement("div");
   onlineCell.classList.add('left');
@@ -107,26 +105,6 @@ function Wallet(data) {
   buttonsDiv2.appendChild(createButton('refresh', function(){that.refreshOnline(); that.refreshOffline();}));
   buttonsDiv2.appendChild(createButton('list', function(){app.popupOfflineAssets(that);}));
 
-  var removeButton = createButton('close', function(){
-    var key = that.handler.code;
-    navigator.notification.confirm(
-        'Are you sure you want to remove ' + key + ' coin? ' +
-        '\nPrivate keys and offline wallets data will still be available in database and will be restored when you re-enable this coin.',
-        function(buttonIndex) {
-            if (buttonIndex == 1) {
-              app.data.hideWallet(key, function(){
-                app.wallets[key].row.outerHTML = '';
-                delete app.wallets[key].row;
-                delete app.wallets[key];
-              });
-            }
-        },
-        'Remove Coin',
-        ['Remove','Cancel']
-    );
-  });
-  buttonsDiv2.appendChild(removeButton);
-
   offlineCell.appendChild(buttonsDiv2);
 
   this.listingRow.appendChild(onlineCell);
@@ -139,22 +117,15 @@ function Wallet(data) {
 
   this.offlineWallets = data.offlineWallets;
 
-  this.toggleRemoveButton = function() {
-    //only show remove button for empty wallets.
-    removeButton.classList.toggle('hidden', this.totalOffline + this.totalOnline > 0);
-  }
-
   this.updateOfflineValue = function() {
     var value = this.totalOffline * app.priceProvider.getPrice(this.handler.code);
     this.offlineValue.innerHTML = formatMoney(value, app.priceProvider.getUnit());
-    this.toggleRemoveButton();
     return value;
   }
 
   this.updateOnlineValue = function() {
     var value = this.totalOnline * app.priceProvider.getPrice(this.handler.code);
     this.onlineValue.innerHTML = formatMoney(value, app.priceProvider.getUnit());
-    this.toggleRemoveButton();
     return value;
   }
 

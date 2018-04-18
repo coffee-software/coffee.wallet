@@ -516,7 +516,7 @@ table {
     top: 0;
     bottom: 0;
     right: 0;
-    background: rgba(0, 10, 40, 0.9);
+    background: rgba(70, 63, 58, 0.8);
     z-index: 200;
 }
 
@@ -553,4 +553,12 @@ h1#lockTitle {
 
 a:active {
     opacity: 0.5;
+}
+
+
+.advancedActions {
+  list-style-type: none;
+}
+.advancedActions img {
+  width: 64px;
 }

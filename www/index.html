@@ -128,34 +128,6 @@
               <div class="unpad stitch"></div>
               <div id="coinInfoDescription"></div>
             </div>
-            <div id="exportPrivateKeyPopup" style="display:none;">
-              <div class="spacing coinBig">
-              </div>
-              <div class="unpad stitch"></div>
-              <div id="privateKeyValue"></div>
-            </div>
-            <div id="importPrivateKeyPopup" style="display:none;">
-              <div class="spacing coinBig">
-              </div>
-              <div class="unpad stitch"></div>
-              <div class="field">
-                <label for="addOfflineAssetComment">value:</label>
-                <input id="importPrivateKeyInput" value=""/>
-              </div>
-              <div class="spacing">&nbsp;</div>
-              <div class="spacing row">
-                <button class="f1 large stitched" onclick="app.popupConiInfo()">
-                  cancel
-                  <br/>
-                  <img src="icons/cancel.png"/>
-                </button>
-                <button id="addOfflineAssetButton" class="f2 large stitched primary" onclick="app.addOfflineAsset()">
-                  import
-                  <br/>
-                  <img src="icons/ok.png"/>
-                </button>
-              </div>
-            </div>
             <div id="offlineAssetsPopup" style="display:none;">
               <div class="spacing coinBig">
               </div>
@@ -376,8 +348,40 @@
             </div>
             <div id="receiveCoinQrcode"></div>
           </div>
+
+
+          <div id="exportPrivateKeyPopup" style="display:none;">
+            <div class="spacing coinBig">
+            </div>
+            <div class="unpad stitch"></div>
+            <div id="privateKeyValue"></div>
+          </div>
+          <div id="importPrivateKeyPopup" style="display:none;">
+            <div class="spacing coinBig">
+            </div>
+            <div class="unpad stitch"></div>
+
+            <div class="field">
+              <label for="importPrivateKeyInput">key value:</label>
+              <input id="importPrivateKeyInput" value=""/>
+            </div>
+            <div class="spacing">&nbsp;</div>
+            <div class="spacing row">
+              <button class="f1 large stitched" onclick="app.closeForm()">
+                cancel
+                <br/>
+                <img src="icons/cancel.png"/>
+              </button>
+              <button id="addOfflineAssetButton" class="f2 large stitched primary" onclick="app.importPrivateKey()">
+                import
+                <br/>
+                <img src="icons/ok.png"/>
+              </button>
+            </div>
+          </div>
+
         </div>
-        
+
         <div id="messages">
         </div>
 
