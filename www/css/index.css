@@ -166,7 +166,7 @@ body {
 }
 
 #foot {
-  background-color: #695950;
+  background-color: #463f3a;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -182,13 +182,14 @@ body {
   text-align: center;
   padding: 9px 2px;
   font-size: 9px;
+  opacity: 0.4;
 }
 #foot .tab img {
   height: 22px;
   margin: 1px;
 }
 #foot .tab.active {
-  background-color: #766054;
+  opacity: 1;
 }
 
 #container {
@@ -368,6 +369,14 @@ table {
   padding: 10px;
 }
 
+.listingRow .left .button {
+  margin-right: 10px;
+}
+
+.listingRow .right .button {
+  margin-left: 10px;
+}
+
 #popup {
   position: absolute;
   top: 0;
@@ -482,9 +491,11 @@ table {
   margin: 14px 0;
 }
 
-#wallets td.walletsActions {
-    padding-top: 15px;
-    text-align:center;
+#wallets .walletsActions {
+  padding-top: 26px;
+  text-align: center;
+  color: #ddc486;
+  font-size: 14px;
 }
 
 #history {

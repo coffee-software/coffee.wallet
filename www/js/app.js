@@ -205,9 +205,11 @@ var app = {
     },
 
     setCurrentCoinIcon: function(img) {
-      var icons = document.getElementsByClassName("coinBig");
-      for (var i = 0; i < icons.length; i++) {
-          icons[i].src = img;
+      if (img) {
+        var icons = document.getElementsByClassName("coinBig");
+        for (var i = 0; i < icons.length; i++) {
+            icons[i].src = img;
+        }
       }
     },
 
