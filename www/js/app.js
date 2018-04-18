@@ -27,9 +27,6 @@ var app = {
           if (that.menuOpened) {
             that.closeMenu();
           }
-          if (that.popupOpened) {
-            that.closePopup();
-          }
         };
         //TODO read from config
         this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider', 0)]);
@@ -171,7 +168,6 @@ var app = {
     },
 
     menuOpened : false,
-    popupOpened : false,
 
     toggleMenu: function() {
       if (this.menuOpened) {
@@ -198,47 +194,57 @@ var app = {
       document.getElementById("foot").classList.remove('blur');
     },
 
-    openPopup: function(id, title, icon, bgimg) {
-
-      this.closeMenu();
-
-      document.getElementById("container").classList.add('blur');
-      document.getElementById("nav").classList.add('blur');
-      document.getElementById("foot").classList.add('blur');
-
-      var popupId = 'popup';
-      var popupContentId = 'popupContent';
-
-      if (id == 'sendPaymentPopup' || id == 'receivePaymentPopup') {
-        popupId = 'popupBottom';
-        popupContentId = 'popupBottom';
-      }
-      
-      document.getElementById(popupId).classList.add('show');
-
-      var icons = document.getElementsByClassName("coinBig");
-      for (var i = 0; i < icons.length; i++) {
-          icons[i].style.backgroundImage = bgimg ? "url('" + bgimg + "')" : null;
-      }
-
-      var children = document.getElementById(popupContentId).childNodes;
+    showOneChildOf: function(parentId, childId) {
+      var children = document.getElementById(parentId).childNodes;
       for (var c=0; c < children.length; c++) {
           if (children[c].nodeType != 3) {
             children[c].style.display = 'none';
           }
       }
-      document.getElementById(id).style.display = 'block';
+      document.getElementById(childId).style.display = 'block';
+    },
+
+    setCurrentCoinIcon: function(img) {
+      var icons = document.getElementsByClassName("coinBig");
+      for (var i = 0; i < icons.length; i++) {
+          icons[i].style.backgroundImage = img ? "url('" + img + "')" : null;
+      }
+    },
+
+    openForm: function(id, title, bgimg) {
+      this.closeMenu();
+
+      document.getElementById("container").classList.add('blur');
+      document.getElementById("nav").classList.add('blur');
+      document.getElementById("popup").classList.add('blur');
+
+      document.getElementById('formPopup').classList.add('show');
+      this.setCurrentCoinIcon(bgimg);
+      this.showOneChildOf('formPopup', id);
+
+    },
+
+    openPopup: function(id, title, icon, bgimg) {
+
+      this.closeMenu();
+      document.getElementById('popup').classList.add('show');
+
+      this.setCurrentCoinIcon(bgimg);
+      this.showOneChildOf('popupContent', id);
+
       document.getElementById('popupTitle').innerHTML = title;
       document.getElementById('popupIcon').setAttribute('src', 'icons/' + icon + '.png');
     },
 
-    closePopup: function() {
+    closeForm: function() {
       document.getElementById("container").classList.remove('blur');
       document.getElementById("nav").classList.remove('blur');
-      document.getElementById("foot").classList.remove('blur');
-      document.getElementById("popup").classList.remove('show');
-      document.getElementById("popupBottom").classList.remove('show');
+      document.getElementById("popup").classList.remove('blur');
+      document.getElementById("formPopup").classList.remove('show');
+    },
 
+    closePopup: function() {
+      document.getElementById("popup").classList.remove('show');
     },
 
     popupCoinInfo: function(handler) {
@@ -324,25 +330,6 @@ var app = {
             if (key in app.data.wallets && that.data.wallets[key].enabled) {
               app.wallets[key].setActive();
               app.closePopup();
-              /*
-              navigator.notification.confirm(
-                  'Are you sure you want to disable ' + key + ' coin? ' +
-                  '\nPrivate keys and offline wallets data will still be available in database and will be restored when you re-enable this coin.',
-                  function(buttonIndex) {
-                      if (buttonIndex == 1) {
-                        button.classList.remove('active');
-                        //app.wallets[key].row.click();
-                        app.data.hideWallet(key, function(){
-                          app.wallets[key].row.outerHTML = '';
-                          delete app.wallets[key].row;
-                          delete app.wallets[key];
-                        });
-                        app.closePopup();
-                      }
-                  },
-                  'Disabel Coin',
-                  ['Disable','Cancel']
-              );*/
             } else {
               //this.classList.add('active');
               app.data.addWallet(allCoinApis[key], function(){
@@ -500,7 +487,7 @@ var app = {
     },
 
     popupSendPayment: function(wallet) {
-        this.openPopup('sendPaymentPopup', 'send ' + wallet.handler.code, 'send', 'coins/' + wallet.handler.icon + '.svg');
+        this.openForm('sendPaymentPopup', 'send ' + wallet.handler.code, 'coins/' + wallet.handler.icon + '.svg');
 
         var fees = wallet.handler.getFees();
         //document.getElementById('sendCoinFee').max = fees.length - 1;
@@ -653,7 +640,7 @@ var app = {
         ,
         function(){
           app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, amount, fee);
-          app.closePopup();
+          app.closeForm();
         }
       );
     },
@@ -661,7 +648,7 @@ var app = {
         window.cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);
     },
     popupReceivePayment: function(wallet, addr) {
-        this.openPopup('receivePaymentPopup', 'receive ' + wallet.handler.code, 'receive');
+        this.openForm('receivePaymentPopup', 'receive ' + wallet.handler.code, 'coins/' + wallet.handler.icon + '.svg');
         document.getElementById('receiveCoinName').innerHTML = '';
         document.getElementById('receiveCoinAddr').value = '';
         document.getElementById('receiveCoinQrcode').innerHTML = '';
@@ -686,7 +673,7 @@ var app = {
     },
 
     updateReceivingWallet: function() {
-      if (document.getElementById("popupBottom").classList.contains('show')) {
+      if (document.getElementById("formPopup").classList.contains('show')) {
         if (document.getElementById('receivePaymentPopup').style.display == 'block') {
           console.log('refresh');
           app.receivingWallet.refreshOnline(function(){

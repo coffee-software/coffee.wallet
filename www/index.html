@@ -115,111 +115,6 @@
 	<div id="overlay">
         </div>
 
-        <div id="popupBottom">
-          <div id="sendPaymentPopup" class="bottomPopupContent" style="display:none;">
-
-            <div class="spacing row">
-              <button class="f1 large stitched" onclick="app.closePopup()">
-                Cancel
-                <br/>
-                <img src="icons/cancel.png"/>
-              </button>
-              <button class="f4 large stitched primary" onclick="app.sendPayment()">
-                Send
-                <br/>
-                <img src="icons/ok.png"/>
-              </button>
-            </div>
-            <div class="spacing coinBig sendHead">
-              <button class="pull-left float" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
-                <img src="icons/paste.png"/>
-                paste
-              </button>
-              <button class="pull-right float" onclick="app.scanQrCode(app.pasteToSendForm.bind(app))">
-                <img src="icons/scan.png"/>
-                scan
-              </button>
-            </div>
-            <div class="unpad stitch"></div>
-
-            <div>
-              <div class="field">
-                <label for="sendCoinAddr">receiver:</label>
-                <input
-                  id="sendCoinAddr"
-                  placeholder="address"
-                  onfocus="app.sendCoinValidateAddr(true)"
-                  onblur="app.sendCoinValidateAddr()"
-                />
-              </div>
-              <div class="validation"></div>
-            </div>
-
-            <div>
-              <div class="field">
-                <label for="sendCoinAmount">amount:</label>
-                <input
-                  id="sendCoinAmount"
-                  class="has-unit top"
-                  onfocus="app.sendCoinValidateAmount(true)"
-                  onblur="app.sendCoinValidateAmount()"
-                  onchange="app.sendCoinUpdateValue()"
-                  onkeyup="app.sendCoinUpdateValue()"
-                  placeholder="0.0"
-                />
-                <span class="input-unit" id="sendCoinName"></span>
-              </div>
-              <div class="fseparator"></div>
-              <div class="field">
-                <input
-                  id="sendCoinValue"
-                  class="has-unit bottom"
-                  onfocus="app.sendCoinValidateAmount(true)"
-                  onblur="app.sendCoinValidateAmount()"
-                  onchange="app.sendCoinUpdateAmount()"
-                  onkeyup="app.sendCoinUpdateAmount()"
-                  placeholder="0.0"
-                />
-                <span class="input-unit" id="sendFiatName"></span>
-              </div>
-              <div class="validation"></div>
-            </div>
-
-            <div>
-              <div class="field">
-                <label for="sendCoinFee">fee:</label>
-                <div class="range-input">
-                  <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
-                </div>
-                <label class="fee" for="sendCoinFee">
-                  <strong><span id="feeAmount">0</span></strong>
-                  <br/>
-                  est. confirm: <strong><span id="feeTime">0 min</span></strong>
-                </label>
-              </div>
-            </div>
-
-          </div>
-          <div id="receivePaymentPopup" class="bottomPopupContent" style="display:none;">
-            <div class="spacing row">
-              <button class="f1 large stitched" onclick="app.closePopup()">
-                Cancel
-                <br/>
-                <img src="icons/cancel.png"/>
-              </button>
-              <button class="f4 large stitched primary" onclick="app.copyReceiveCoinAddrToClp()">
-                Copy
-                <br/>
-                <img src="icons/ok.png"/>
-              </button>
-            </div>
-            <div class="field">
-              <label><span id="receiveCoinName"></span></label>
-              <input readonly="readonly" id="receiveCoinAddr" value=""/>
-            </div>
-            <div id="receiveCoinQrcode"></div>
-          </div>
-        </div>
         <div id="popup">
           <h1>
             <img id="popupIcon" src="icons/close.png"/>
@@ -376,6 +271,113 @@
             </div>
           </div>
         </div>
+
+        <div id="formPopup">
+          <div id="sendPaymentPopup" class="bottomPopupContent" style="display:none;">
+
+            <div class="spacing row">
+              <button class="f1 large stitched" onclick="app.closeForm()">
+                Cancel
+                <br/>
+                <img src="icons/cancel.png"/>
+              </button>
+              <button class="f4 large stitched primary" onclick="app.sendPayment()">
+                Send
+                <br/>
+                <img src="icons/ok.png"/>
+              </button>
+            </div>
+            <div class="spacing coinBig sendHead">
+              <button class="pull-left float" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
+                <img src="icons/paste.png"/>
+                paste
+              </button>
+              <button class="pull-right float" onclick="app.scanQrCode(app.pasteToSendForm.bind(app))">
+                <img src="icons/scan.png"/>
+                scan
+              </button>
+            </div>
+            <div class="unpad stitch"></div>
+
+            <div>
+              <div class="field">
+                <label for="sendCoinAddr">receiver:</label>
+                <input
+                  id="sendCoinAddr"
+                  placeholder="address"
+                  onfocus="app.sendCoinValidateAddr(true)"
+                  onblur="app.sendCoinValidateAddr()"
+                />
+              </div>
+              <div class="validation"></div>
+            </div>
+
+            <div>
+              <div class="field">
+                <label for="sendCoinAmount">amount:</label>
+                <input
+                  id="sendCoinAmount"
+                  class="has-unit top"
+                  onfocus="app.sendCoinValidateAmount(true)"
+                  onblur="app.sendCoinValidateAmount()"
+                  onchange="app.sendCoinUpdateValue()"
+                  onkeyup="app.sendCoinUpdateValue()"
+                  placeholder="0.0"
+                />
+                <span class="input-unit" id="sendCoinName"></span>
+              </div>
+              <div class="fseparator"></div>
+              <div class="field">
+                <input
+                  id="sendCoinValue"
+                  class="has-unit bottom"
+                  onfocus="app.sendCoinValidateAmount(true)"
+                  onblur="app.sendCoinValidateAmount()"
+                  onchange="app.sendCoinUpdateAmount()"
+                  onkeyup="app.sendCoinUpdateAmount()"
+                  placeholder="0.0"
+                />
+                <span class="input-unit" id="sendFiatName"></span>
+              </div>
+              <div class="validation"></div>
+            </div>
+
+            <div>
+              <div class="field">
+                <label for="sendCoinFee">fee:</label>
+                <div class="range-input">
+                  <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
+                </div>
+                <label class="fee" for="sendCoinFee">
+                  <strong><span id="feeAmount">0</span></strong>
+                  <br/>
+                  est. confirm: <strong><span id="feeTime">0 min</span></strong>
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <div id="receivePaymentPopup" class="bottomPopupContent" style="display:none;">
+            <div class="spacing row">
+              <button class="f1 large stitched" onclick="app.closeForm()">
+                Cancel
+                <br/>
+                <img src="icons/cancel.png"/>
+              </button>
+              <button class="f4 large stitched primary" onclick="app.copyReceiveCoinAddrToClp()">
+                Copy
+                <br/>
+                <img src="icons/ok.png"/>
+              </button>
+            </div>
+            <div class="field">
+              <label><span id="receiveCoinName"></span></label>
+              <input readonly="readonly" id="receiveCoinAddr" value=""/>
+            </div>
+            <div id="receiveCoinQrcode"></div>
+          </div>
+        </div>
+        
         <div id="messages">
         </div>
 

@@ -85,6 +85,7 @@ body {
   right: 0;
   height: 54px;
   color: #f7f5f2;
+  transition: filter 0.5s;
 
   /* Status bar height on iOS 11 */
   padding-top: constant(safe-area-inset-top);
@@ -171,7 +172,7 @@ body {
   left: 0;
   right: 0;
   display: flex;
-  /* transition: 0.5s filter ease; */
+  transition: filter 0.5s;
 }
 
 #foot .tab {
@@ -191,7 +192,7 @@ body {
 }
 
 #container {
-  /* transition: 0.5s filter ease; */
+  transition: filter 0.5s;
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -237,7 +238,7 @@ body {
 }
 
 .blur {
-  /*filter: opacity(20%);*/
+  filter: blur(10px);
 }
 
 #overlay {
@@ -253,7 +254,7 @@ body {
 }
 #overlay.show {
   visibility: visible;
-  opacity: 0.8;
+  opacity: 0.2;
 }
 
 h1 {
@@ -377,17 +378,18 @@ table {
   bottom: 0;
   left: 0;
   z-index: 100;
-  transition: margin 0.5s ease;
+  transition: margin 0.5s ease, filter 0.5s;
 }
 
-#popupBottom {
+#formPopup {
   position: fixed;
   bottom: -100%;
   width: 100%;
   height: auto;
   transition: bottom 1s ease;
+  z-index: 200;
 }
-#popupBottom.show {
+#formPopup.show {
   bottom: 0;
 }
 .bottomPopupContent {
