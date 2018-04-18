@@ -1,7 +1,7 @@
 button {
   border: none;
   background: none;
-  color: #4e3c31;
+  color: #766054;
   line-height: 18px;
   font-size: 14px;
   padding: 10px;
@@ -55,10 +55,10 @@ button.large {
 }
 
 button.primary.stitched:before {
-  border: 1px dashed #4e3c31;
+  border: 1px dashed #766054;
 }
 button.primary {
-  background: #4e3c31;
+  background: #766054;
   color: #f7f5f2;
   box-shadow: 1px 1px 1px rgba(50,50,0,0.5);
 }
@@ -71,7 +71,7 @@ input {
     padding: 9px 14px;
     font-size: 15px;
     width: 100%;
-    border: 1px solid #4e3c31;
+    border: 1px solid #766054;
     border-radius: 21px;
     box-sizing: border-box;
     margin: 0;
@@ -116,7 +116,7 @@ input.bottom {
 }
 
 .fseparator {
-  border-bottom: 1px dashed #4e3c31;
+  border-bottom: 1px dashed #766054;
   margin: 0 22px;
 }
 

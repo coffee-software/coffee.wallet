@@ -18,7 +18,7 @@
     <platform name="browser">
         <preference name="SplashScreen" value="/img/logo.png" />
         <preference name="SplashScreenDelay" value="1000" />
-        <preference name="SplashScreenBackgroundColor" value="#eadfcb" />
+        <preference name="SplashScreenBackgroundColor" value="#f7f5f2" />
         <preference name="SplashScreenWidth" value="128" />
         <preference name="SplashScreenHeight" value="128" />
     </platform>
@@ -40,7 +40,7 @@
     <preference name="phonegap-version" value="cli-7.1.0" />
     <preference name="android-build-tool" value="gradle" />
     <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#4e3c31" />
+    <preference name="StatusBarBackgroundColor" value="#766054" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <platform name="ios">
         <allow-intent href="itms:*" />

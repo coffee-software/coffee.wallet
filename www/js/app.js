@@ -207,7 +207,7 @@ var app = {
     setCurrentCoinIcon: function(img) {
       var icons = document.getElementsByClassName("coinBig");
       for (var i = 0; i < icons.length; i++) {
-          icons[i].style.backgroundImage = img ? "url('" + img + "')" : null;
+          icons[i].src = img;
       }
     },
 
@@ -264,7 +264,7 @@ var app = {
       app.importingWallet = wallet;
       document.getElementById('importPrivateKeyInput').value = '';
     },
-    
+
     importPrivateKey: function(){
       var value = document.getElementById('importPrivateKeyInput').value
       //app.importingWallet
@@ -711,6 +711,7 @@ var app = {
     },
     copyReceiveCoinAddrToClp: function() {
         window.cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);
+        app.alertInfo('copied addr to clipboard', app.receivingWallet.handler.code);
     },
     popupReceivePayment: function(wallet, addr) {
         this.openForm('receivePaymentPopup', 'receive ' + wallet.handler.code, 'coins/' + wallet.handler.icon + '.svg');
@@ -729,7 +730,7 @@ var app = {
         new QRCode(document.getElementById('receiveCoinQrcode'), {
           text: addr == null ? wallet.data.addr : addr,
           colorLight: '#eadfcb',
-          colorDark: '#4e3c31'
+          colorDark: '#766054'
         });
 
         this.receivingWallet = wallet;

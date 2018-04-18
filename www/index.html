@@ -123,14 +123,13 @@
           </h1>
           <div id="popupContent">
             <div id="coinInfoPopup" style="display:none;">
-              <div class="spacing coinBig">
-              </div>
+              <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
               <div class="unpad stitch"></div>
               <div id="coinInfoDescription"></div>
             </div>
             <div id="offlineAssetsPopup" style="display:none;">
-              <div class="spacing coinBig">
-              </div>
+              <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
+
               <div class="unpad stitch"></div>
               <div class="unpad">
                 <div id="offlineAssets">
@@ -161,9 +160,8 @@
               </div>
             </div>
             <div id="addOfflineAssetPopup" style="display:none;">
-              <div class="spacing">
-                <div class="coinBig"></div>
-              </div>
+              <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
+
               <div class="unpad stitch"></div>
               <div id="addOfflineAssetAddrDiv" class="field">
                 <label for="addOfflineAssetAddr">address:</label>
@@ -245,21 +243,16 @@
         </div>
 
         <div id="formPopup">
-          <div id="sendPaymentPopup" class="bottomPopupContent" style="display:none;">
+          <div id="sendPaymentPopup" class="formContent" style="display:none;">
+            <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+            <img class="actionLeft" src="icons/cancel.png"/>
+            <img class="actionRight" src="icons/submit.png"/>
 
-            <div class="spacing row">
-              <button class="f1 large stitched" onclick="app.closeForm()">
-                Cancel
-                <br/>
-                <img src="icons/cancel.png"/>
-              </button>
-              <button class="f4 large stitched primary" onclick="app.sendPayment()">
-                Send
-                <br/>
-                <img src="icons/ok.png"/>
-              </button>
+            <div class="formActions row">
+              <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
+              <button class="right" onclick="app.sendPayment()">Send <img src="icons/send.png"/></button>
             </div>
-            <div class="spacing coinBig sendHead">
+            <div class="spacing">
               <button class="pull-left float" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
                 <img src="icons/paste.png"/>
                 paste
@@ -329,19 +322,16 @@
             </div>
 
           </div>
-          <div id="receivePaymentPopup" class="bottomPopupContent" style="display:none;">
-            <div class="spacing row">
-              <button class="f1 large stitched" onclick="app.closeForm()">
-                Cancel
-                <br/>
-                <img src="icons/cancel.png"/>
-              </button>
-              <button class="f4 large stitched primary" onclick="app.copyReceiveCoinAddrToClp()">
-                Copy
-                <br/>
-                <img src="icons/ok.png"/>
-              </button>
+          <div id="receivePaymentPopup" class="formContent" style="display:none;">
+            <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+            <img class="actionLeft" src="icons/cancel.png"/>
+            <img class="actionRight" src="icons/submit.png"/>
+
+            <div class="formActions row">
+              <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
+              <button class="right" onclick="app.copyReceiveCoinAddrToClp()">Copy <img src="icons/copy.png"/></button>
             </div>
+            
             <div class="field">
               <label><span id="receiveCoinName"></span></label>
               <input readonly="readonly" id="receiveCoinAddr" value=""/>
@@ -350,15 +340,16 @@
           </div>
 
 
-          <div id="exportPrivateKeyPopup" style="display:none;">
-            <div class="spacing coinBig">
-            </div>
+          <div id="exportPrivateKeyPopup" class="formContent" style="display:none;">
+            <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+
             <div class="unpad stitch"></div>
             <div id="privateKeyValue"></div>
           </div>
-          <div id="importPrivateKeyPopup" style="display:none;">
-            <div class="spacing coinBig">
-            </div>
+
+          <div id="importPrivateKeyPopup" class="formContent" style="display:none;">
+            <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+
             <div class="unpad stitch"></div>
 
             <div class="field">
