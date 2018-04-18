@@ -442,34 +442,38 @@ table {
   top: env(safe-area-inset-top);
 
   border-top: 1px dashed #f7f5f2;
-
   font-size: 16px;
+  font-weight: 100;
   line-height: 54px;
   background: #766054;
   color: #f7f5f2;
   text-align: center;
 }
 #popup h1 img {
-  width: 28px;
-  margin: 8px;
+  width: 30px;
+  margin: 12px;
   display: block;
 }
 #popup h1 #popupIcon {
-  float: left;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 #popup h1 .close {
-  float: right;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 #popupContent {
   background-color: #f7f5f2;
-  padding: 0 6%;
-  padding-top: 52px;
+  padding: 0px 4%;
+  width: 92%;
+  padding-top: 60px;
   /* IOS */
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 88%;
   overflow: scroll;
   z-index: 19;
   /* iOS */
@@ -522,15 +526,9 @@ table {
 }
 
 .coinButton {
-  width: 74px;
-  height: 96px;
-  border: 1px solid #ddd;
-  display: inline-block;
-  text-align: center;
-  margin: 3px;
-}
-.coinButton.active {
-  background: #B04960;
+    width: 25%;
+    display: inline-block;
+    text-align: center;
 }
 
 .coinButton img {

@@ -356,59 +356,63 @@ var app = {
     },
 
     popupAddCoin: function() {
-      this.openPopup('addCoinPopup', 'Add Coins', 'cream.plus');
+      this.openPopup('addCoinPopup', 'add cryptos', 'cream.plus');
       var that = this;
       if (typeof that.popupGenerated == 'undefined') {
         that.popupGenerated = true;
-        var filter = function() {
-          var search = document.getElementById('addCoinFilter').value.toUpperCase();
-          var onlySupported = document.getElementById('addCoinOnlySupported').checked;
-          for (var i = 0; i < document.getElementById('allCoins').children.length; i++) {
-            var cbutton = document.getElementById('allCoins').children[i];
+        setTimeout(function(){
+          var filter = function() {
+            var search = document.getElementById('addCoinFilter').value.toUpperCase();
+            var onlySupported = document.getElementById('addCoinOnlySupported').checked;
+            for (var i = 0; i < document.getElementById('allCoins').children.length; i++) {
+              var cbutton = document.getElementById('allCoins').children[i];
 
-            var show = cbutton.dataset.search.search(search) != -1;
-            if (onlySupported) show = show && (cbutton.dataset.supported == 'true');
-            cbutton.classList.toggle(
-              'hidden',
-              !show
-            );
-          }
-        };
-        document.getElementById('addCoinFilter').onkeyup = filter;
-        document.getElementById('addCoinFilter').onchange = filter;
-        document.getElementById('addCoinOnlySupported').onchange = filter;
-
-
-        Object.keys(allCoinApis).sort().forEach(function(key){
-          var button = document.createElement("a");
-          button.dataset.search = (allCoinApis[key].name + ' '+ allCoinApis[key].code + ' ' + allCoinApis[key].longname).toUpperCase();
-          button.dataset.supported = 'sendPayment' in allCoinApis[key];
-
-          var img = document.createElement("img");
-          img.setAttribute('src', 'coins/' + allCoinApis[key].icon + '.svg');
-          button.appendChild(img);
-          var span = document.createElement("span");
-          span.innerHTML = allCoinApis[key].code;
-          button.appendChild(span);
-          /*if (key in that.data.wallets && that.data.wallets[key].enabled) {
-            button.classList.add('active');
-          }*/
-          button.onclick = function(){
-            if (key in app.data.wallets && that.data.wallets[key].enabled) {
-              app.wallets[key].setActive();
-              app.closePopup();
-            } else {
-              //this.classList.add('active');
-              app.data.addWallet(allCoinApis[key], function(){
-                app.addWalletWidget(app.data.wallets[key]);
-                app.wallets[key].setActive();
-              });
-              app.closePopup();
+              var show = cbutton.dataset.search.search(search) != -1;
+              if (onlySupported) show = show && (cbutton.dataset.supported == 'true');
+              cbutton.classList.toggle(
+                'hidden',
+                !show
+              );
             }
           };
-          button.classList.add('coinButton');
-          document.getElementById("allCoins").appendChild(button);
-        });
+          document.getElementById('addCoinFilter').onkeyup = filter;
+          document.getElementById('addCoinFilter').onchange = filter;
+          document.getElementById('addCoinOnlySupported').onchange = filter;
+
+
+          Object.keys(allCoinApis).sort().forEach(function(key){
+            var button = document.createElement("a");
+            button.dataset.search = (allCoinApis[key].name + ' '+ allCoinApis[key].code + ' ' + allCoinApis[key].longname).toUpperCase();
+            button.dataset.supported = 'sendPayment' in allCoinApis[key];
+
+            var img = document.createElement("img");
+            img.classList.add('coinIcon');
+            img.setAttribute('src', 'coins/' + allCoinApis[key].icon + '.svg');
+            button.appendChild(img);
+            button.appendChild(document.createElement("br"));
+            var span = document.createElement("span");
+            span.innerHTML = allCoinApis[key].code;
+            button.appendChild(span);
+            if (key in that.data.wallets && that.data.wallets[key].enabled) {
+              button.classList.add('active');
+            }
+            button.onclick = function(){
+              if (key in app.data.wallets && that.data.wallets[key].enabled) {
+                app.wallets[key].setActive();
+                app.closePopup();
+              } else {
+                //this.classList.add('active');
+                app.data.addWallet(allCoinApis[key], function(){
+                  app.addWalletWidget(app.data.wallets[key]);
+                  app.wallets[key].setActive();
+                });
+                app.closePopup();
+              }
+            };
+            button.classList.add('coinButton');
+            document.getElementById("allCoins").appendChild(button);
+          });
+        }, 500);
       }
     },
 

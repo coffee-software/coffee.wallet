@@ -241,34 +241,18 @@ label.checkbox {
 }
 
 .checkbox input {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-  appearance: none;
-	display: inline-block;
-  vertical-align: middle;
-  width: 32px;
-  height: 32px;
-	background-color: #fafafa;
-  border: 1px solid #aac;
-	padding: 9px;
-  margin: 0;
-	border-radius: 4px;
-	position: relative;
-	line-height: 32px;
-	text-align: center;
+  display:inline-block;
+  width: 54px;
+  border: none;
+  box-shadow: none;
 }
 
-.checkbox input:checked {
-	background-color: #e9ecee;
-  border: 1px solid #229;
+.checkbox input:before {
+  content:""; display:inline-block; width:53px; height:32px; background-image: url('../icons/check.off.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.checkbox input:checked:after {
-	content: '\2714';
-	font-size: 20px;
-	position: absolute;
-	top: 0px;
-	left: 8px;
-	color: #229;
-
+.checkbox input:checked:before {
+  background-image: url('../icons/check.on.png');
 }
