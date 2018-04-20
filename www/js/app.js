@@ -513,10 +513,11 @@ var app = {
       document.getElementById('addBalanceButtons').classList.toggle('hidden', !('getBalance' in wallet.handler));
       this.offlineAssetWallet = wallet;
     },
-    pasteOfflineAsset: function(addr, args) {
-      //console.log('add', addr, args);
-      this.popupAddOfflineAsset('addr', addr);
+
+    pasteToField: function(field, addr, args) {
+      document.getElementById(field).value = addr;
     },
+
     popupEditOfflineAsset: function(asset) {
       document.getElementById('addOfflineAssetAddr').value = asset.data.addr;
       document.getElementById('addOfflineAssetBalance').value = asset.data.balance;
@@ -524,10 +525,10 @@ var app = {
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', asset.data.addr ? false : true);
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', asset.data.addr);
 
-      document.getElementById('saveOfflineAssetButton').classList.remove('hidden');
-      document.getElementById('addOfflineAssetButton').classList.add('hidden');
 
-      this.openPopup('addOfflineAssetPopup', 'edit ' + asset.wallet.handler.code + ' asset', 'edit', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg');
+      document.getElementById('addOfflineAssetPopupSave').innerHTML = 'save';
+      this.editAsset = true;
+      this.openForm('addOfflineAssetPopup', 'edit ' + asset.wallet.handler.code + ' asset', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg');
     },
     popupAddOfflineAsset: function(type, value) {
       document.getElementById('addOfflineAssetAddr').value = (type == 'addr' ? value : '');
@@ -535,19 +536,10 @@ var app = {
       document.getElementById('addOfflineAssetComment').value = '';
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', type == 'balance');
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'addr');
-      document.getElementById('saveOfflineAssetButton').classList.add('hidden');
-      document.getElementById('addOfflineAssetButton').classList.remove('hidden');
-      this.openPopup('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'cream.plus', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg');
-    },
-    addOfflineAsset: function() {
-      var data = {
-        addr: document.getElementById('addOfflineAssetAddr').value,
-        balance: parseFloat(document.getElementById('addOfflineAssetBalance').value),
-        comment: document.getElementById('addOfflineAssetComment').value
-      }
-      this.data.addOfflineAsset(this.offlineAssetWallet.handler.code, data);
-      this.popupOfflineAssets(this.offlineAssetWallet);
-      this.offlineAssetWallet.refreshOffline();
+
+      document.getElementById('addOfflineAssetPopupSave').innerHTML = 'add';
+      this.editAsset = false;
+      this.openForm('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg');
     },
     saveOfflineAsset: function(){
       var data = {
@@ -555,7 +547,12 @@ var app = {
         balance: parseFloat(document.getElementById('addOfflineAssetBalance').value),
         comment: document.getElementById('addOfflineAssetComment').value
       }
-      this.data.updateOfflineAsset(activeAsset.wallet.handler.code, activeAsset.id, data);
+      if (this.editAsset) {
+        this.data.updateOfflineAsset(activeAsset.wallet.handler.code, activeAsset.id, data);
+      } else {
+        this.data.addOfflineAsset(this.offlineAssetWallet.handler.code, data);
+      }
+      this.closeForm();
       this.popupOfflineAssets(this.offlineAssetWallet);
       this.offlineAssetWallet.refreshOffline();
     },

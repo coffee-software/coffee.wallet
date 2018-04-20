@@ -137,62 +137,13 @@
 
               <div class="spacing">&nbsp;</div>
               <div class="row spacing">
-                <button class="f1 stitched primary" onclick="app.popupAddOfflineAsset('balance', '')">
+                <button class="f1 primary" onclick="app.popupAddOfflineAsset('balance', '')">
                   <img src="icons/cream.plus.png"/>
                   add balance
                 </button>
-              </div>
-              <div class="row spacing" id="addBalanceButtons">
-                <button class="f3 stitched primary" onclick="app.popupAddOfflineAsset('addr', '')">
+                <button id="addBalanceButtons" class="f1 primary" onclick="app.popupAddOfflineAsset('addr', '')">
                   <img src="icons/cream.plus.png"/>
                   add address
-                </button>
-                <button class="f1" onclick="app.pasteClipboard(app.pasteOfflineAsset.bind(app))">
-                  <img src="icons/paste.png"/>
-                  paste
-                </button>
-                <button class="f1" onclick="app.scanQrCode(app.pasteOfflineAsset.bind(app))">
-                  <img src="icons/scan.png"/>
-                  scan
-                </button>
-              </div>
-            </div>
-            <div id="addOfflineAssetPopup" style="display:none;">
-              <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
-
-              <div class="unpad stitch"></div>
-              <div id="addOfflineAssetAddrDiv" class="field">
-                <label for="addOfflineAssetAddr">address:</label>
-                <input id="addOfflineAssetAddr" value=""/>
-              </div>
-              <div id="addOfflineAssetBalanceDiv" class="field">
-                <label for="addOfflineAssetBalance">balance:</label>
-                <input id="addOfflineAssetBalance" value=""/>
-              </div>
-              <div class="field">
-                <label for="addOfflineAssetComment">comment:</label>
-                <input id="addOfflineAssetComment" value=""/>
-              </div>
-              <div class="spacing">&nbsp;</div>
-              <div class="spacing row">
-                <!--button class="f1" onclick="app.addOfflineAsset()">
-                  <img src="icons/cancel.png"/>
-                  remove
-                </button-->
-                <button class="f1 large stitched" onclick="app.popupOfflineAssets(app.offlineAssetWallet)">
-                  cancel
-                  <br/>
-                  <img src="icons/cancel.png"/>
-                </button>
-                <button id="saveOfflineAssetButton" class="f2 large stitched primary" onclick="app.saveOfflineAsset()">
-                  save
-                  <br/>
-                  <img src="icons/ok.png"/>
-                </button>
-                <button id="addOfflineAssetButton" class="f2 large stitched primary" onclick="app.addOfflineAsset()">
-                  add
-                  <br/>
-                  <img src="icons/ok.png"/>
                 </button>
               </div>
             </div>
@@ -241,6 +192,44 @@
         </div>
 
         <div id="formPopup">
+          <div id="addOfflineAssetPopup" class="formContent" style="display:none;">
+            <div class="formTop">
+              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+              <img class="actionLeft" src="icons/cancel.png"/>
+              <img class="actionRight" src="icons/submit.png"/>
+            </div>
+            <div class="formActions row">
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
+              <button class="f1 submit" onclick="app.saveOfflineAsset()"><span id="addOfflineAssetPopupSave">save</span> <img src="icons/ico.send.png"/></button>
+            </div>
+
+            <div id="addOfflineAssetAddrDiv">
+              <div class="spacing row">
+                <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'addOfflineAssetAddr'))">
+                  paste
+                  <img src="icons/paste.png"/>
+                </button>
+                <button class="f1" onclick="app.scanQrCode(app.pasteToField.bind(app, 'addOfflineAssetAddr'))">
+                  <img src="icons/scan.png"/>
+                  scan
+                </button>
+              </div>
+
+              <div class="field">
+                <label for="addOfflineAssetAddr">address:</label>
+                <input id="addOfflineAssetAddr" value=""/>
+              </div>
+            </div>
+
+            <div id="addOfflineAssetBalanceDiv" class="field">
+              <label for="addOfflineAssetBalance">balance:</label>
+              <input id="addOfflineAssetBalance" value=""/>
+            </div>
+            <div class="field">
+              <label for="addOfflineAssetComment">comment:</label>
+              <input id="addOfflineAssetComment" value=""/>
+            </div>
+          </div>
           <div id="sendPaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
               <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
@@ -364,6 +353,17 @@
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
               <button class="f1 submit" onclick="app.importPrivateKey()">import <img src="icons/ico.send.png"/></button>
+            </div>
+
+            <div class="spacing row">
+              <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'importPrivateKeyInput'))">
+                paste
+                <img src="icons/paste.png"/>
+              </button>
+              <button class="f1" onclick="app.scanQrCode(app.pasteToField.bind(app, 'importPrivateKeyInput'))">
+                <img src="icons/scan.png"/>
+                scan
+              </button>
             </div>
 
             <div class="unpad stitch"></div>
