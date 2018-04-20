@@ -12,6 +12,19 @@ button img {
   width: 26px;
   margin: 0 3px;
 }
+button.submit {
+  color: #f7f5f2;
+}
+
+.formActions .cancel {
+  text-align: left;
+  padding: 16px;
+}
+
+.formActions .submit {
+  text-align: right;
+  padding: 16px;
+}
 
 .stitched:before {
   content: " ";

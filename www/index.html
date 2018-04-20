@@ -248,20 +248,20 @@
               <img class="actionRight" src="icons/submit.send.png"/>
             </div>
             <div class="formActions row">
-              <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
-              <button class="right" onclick="app.sendPayment()">Send <img src="icons/send.png"/></button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
+              <button class="f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png"/></button>
             </div>
-            <div class="spacing">
-              <button class="pull-left float" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
-                <img src="icons/paste.png"/>
+            <div class="spacing row">
+              <button class="f1" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
                 paste
+                <img src="icons/paste.png"/>
               </button>
-              <button class="pull-right float" onclick="app.scanQrCode(app.pasteToSendForm.bind(app))">
+              <button class="f1" onclick="app.scanQrCode(app.pasteToSendForm.bind(app))">
                 <img src="icons/scan.png"/>
                 scan
               </button>
             </div>
-            <div class="unpad stitch"></div>
+            <div class="stitch"></div>
 
             <div>
               <div class="field">
@@ -327,10 +327,9 @@
               <img class="actionLeft" src="icons/cancel.png"/>
               <img class="actionRight" src="icons/submit.copy.png"/>
             </div>
-
             <div class="formActions row">
-              <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
-              <button class="right" onclick="app.copyReceiveCoinAddrToClp()">Copy <img src="icons/copy.png"/></button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
+              <button class="f1 submit" onclick="app.copyReceiveCoinAddrToClp()">copy <img src="icons/ico.copy.png"/></button>
             </div>
 
             <div class="field">
@@ -342,11 +341,13 @@
 
 
           <div id="exportPrivateKeyPopup" class="formContent" style="display:none;">
-            <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-            <img class="actionLeft" src="icons/cancel.png"/>
+            <div class="formTop">
+              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+              <img class="actionLeft" src="icons/cancel.png"/>
+            </div>
 
             <div class="formActions row">
-              <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
             </div>
 
             <div class="unpad stitch"></div>
@@ -361,8 +362,8 @@
             </div>
 
             <div class="formActions row">
-              <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
-              <button class="right" onclick="app.importPrivateKey()">Import <img src="icons/copy.png"/></button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
+              <button class="f1 submit" onclick="app.importPrivateKey()">import <img src="icons/ico.send.png"/></button>
             </div>
 
             <div class="unpad stitch"></div>

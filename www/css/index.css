@@ -362,15 +362,15 @@ table {
   align-items: center;
   min-height: 74px;
 }
-.left {
+.listingRow .left {
   flex: 3;
   text-align: left;
   padding: 10px;
 }
-.unit {
+.listingRow .unit {
   flex: 1;
 }
-.right {
+.listingRow .right {
   flex: 3;
   text-align: right;
   padding: 10px;
