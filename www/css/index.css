@@ -76,6 +76,10 @@ body {
     padding-top: env(safe-area-inset-top);
 }
 
+h1, h2 {
+  font-weight: 100;
+}
+
 #nav {
   position: fixed;
   z-index: 100;

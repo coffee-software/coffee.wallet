@@ -46,7 +46,7 @@
 .msg {
   position: relative;
   padding: 12px;
-  padding-left: 67px;
+  /*padding-left: 67px;*/
   word-wrap: break-word;
   font-size: 14px;
 }
@@ -73,7 +73,7 @@
     width: 24px;
 }
 
-.msg:after {
+#messages div.msg:after {
     content: " ";
     width: 32px;
     height: 32px;
