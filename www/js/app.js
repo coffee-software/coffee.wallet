@@ -3,6 +3,7 @@
 var allCoinApis = {
   'BTC.TEST': BtcTestHandler,
   'BTC': BtcHandler,
+  'BCH': BchHandler,
   'ETH': EthHandler,
   'ETH.TEST': EthTestHandler,
   'PAY': PayHandler,
@@ -271,7 +272,18 @@ var app = {
       var value = document.getElementById('importPrivateKeyInput').value
       //app.importingWallet
       console.log(value);
-      app.closeForm();
+      app.authenticateBeforeContinue(
+        'Import ' + app.importingWallet.handler.code + ' Private Key',
+        'Are You sure you want to import new private key? Current private key will be replaced. ' +
+        'You might loose your funds if you havent make any backup.' ,
+        function() {
+          app.importingWallet.data.privateKey = value;
+          app.importingWallet.data.addr = app.importingWallet.handler.addrFromPrivateKey(value);
+          app.importingWallet.balance = 0;
+          app.data.save();
+          app.closeForm();
+          app.importingWallet.refreshOnline();
+        });
     },
 
     removeCoin: function(wallet) {
