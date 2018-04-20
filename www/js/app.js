@@ -296,11 +296,13 @@ var app = {
 
     createAdvancedOption: function(icon, text, callback) {
       var li = document.createElement('li');
+      var button = document.createElement('button');
       var img = document.createElement("img");
       img.setAttribute('src', 'icons/' + icon + '.png');
-      li.appendChild(img);
-      li.appendChild(document.createTextNode(text));
-      fastTap(li, callback);
+      button.appendChild(img);
+      button.appendChild(document.createTextNode(text));
+      fastTap(button, callback);
+      li.appendChild(button);
       return li;
     },
 
@@ -344,13 +346,14 @@ var app = {
       document.getElementById('coinInfoDescription').innerHTML =
         '<h2>' + wallet.handler.longname + '</h2>' +
         wallet.handler.description +
-        '<h2>links (external)</h2>' +
+        '<div class="spacing stitch"></div>' +
+        '<h3>links (external)</h3>' +
         links +
-        '<h2>coffee features</h2>' +
+        '<h3>coffee features</h3>' +
         support;
 
       if (advanced.children.length > 0) {
-          document.getElementById('coinInfoDescription').insertAdjacentHTML('beforeend','<h2>advanced options:</h2>');
+          document.getElementById('coinInfoDescription').insertAdjacentHTML('beforeend','<h3>advanced options:</h3>');
           document.getElementById('coinInfoDescription').append(advanced);
       }
     },
