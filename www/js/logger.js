@@ -35,16 +35,25 @@ var Logger = {
       if (logs.length > 100) {
         logs.pop();
       }
-      NativeStorage.setItem("logs", logs, function(){}, function(){});
+      if (typeof NativeStorage != 'undefined') {
+        NativeStorage.setItem("logs", logs, function(){}, function(){});
+      }
     });
     //Db.query('INSERT INTO logs (ts, severity, coin, message) VALUES(?, ?, ?, ?)', [Date.now(), severity, coin, message]);
   },
 
   getLogs: function(callback) {
+    if (typeof NativeStorage == 'undefined') {
+      return callback(new Array());
+    }
     NativeStorage.getItem("logs", function(value){
       callback(value);
     }, function(error){
-      if (error.code == 2 || ('code' in error.code && error.code.code == 2)) {
+      if (typeof error.code == "object" && 'code' in error.code){
+        //this fixes weird bug in secure storege plugin TODO
+        error = error.code;
+      }
+      if (error.code == 2) {
         callback(new Array());
       } else {
         console.log(error);

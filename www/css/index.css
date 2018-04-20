@@ -87,6 +87,8 @@ body {
   color: #f7f5f2;
   transition: filter 0.5s;
 
+  box-shadow: 0px 0px 7px #463f3a;
+
   /* Status bar height on iOS 11 */
   padding-top: constant(safe-area-inset-top);
   padding-top: env(safe-area-inset-top);
@@ -115,8 +117,8 @@ body {
 }
 
 #nav .button {
-  width: 30px;
-  padding: 12px;
+  width: 36px;
+  padding: 9px;
 }
 
 #toggleMenu {
@@ -283,7 +285,7 @@ table {
   display: block;
 }
 .buttons div {
-  display: inline;
+  display: inline-block;;
   text-align: center;
 }
 
@@ -306,6 +308,7 @@ table {
 .button {
   display: inline-block;
   width: 64px;
+  max-width: 100%;
 }
 
 .button img {
@@ -496,7 +499,7 @@ table {
 }
 
 #wallets .walletsActions {
-  padding-top: 26px;
+  padding: 26px;
   text-align: center;
   color: #ddc486;
   font-size: 14px;

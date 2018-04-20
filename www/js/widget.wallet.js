@@ -19,7 +19,8 @@ function createButton(icon, callback) {
   if (callback === null) {
     button.classList.add('disabled');
   } else {
-    button.onclick = callback;
+    //button.onclick = callback;
+    fastTap(button, callback);
   }
 
   button.classList.add('button');

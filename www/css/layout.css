@@ -37,7 +37,7 @@
 
 #messages {
     position: fixed;
-    top: 68px;
+    top: 60px;
     left: 5px;
     right: 5px;
     z-index: 200;
@@ -48,22 +48,29 @@
   padding: 12px;
   padding-left: 67px;
   word-wrap: break-word;
-  font-style: italic;
   font-size: 14px;
 }
 
 #messages div.msg {
-    padding: 27px;
-    padding-left: 67px;
+    padding: 27px 58px;
+    text-align: center;
     background-color: #766054;
     color: #f7f5f2;
     margin: -11px 10px;
-    border-radius: 30px;
-    box-shadow: 0px -12px 10px #2e1c1190;
+    border-radius: 40px;
+    box-shadow: 0px -5px 10px #463f3a;
 }
 
-#messages div.msg.stitched:before {
-    border-radius: 28px;
+#messages div.msg.fadingout {
+  opacity: 0;
+  transition: opacity 2s linear;
+}
+
+#messages div.msg .closer {
+    position: absolute;
+    right: 27px;
+    top: 27px;
+    width: 24px;
 }
 
 .msg:after {
@@ -78,13 +85,16 @@
 }
 
 .msg.info:after {
-  background-position: 0 0;
+  background-position: -32px 0;
 }
 
 #history .msg.info:after {
   background-position: -96px 0;
 }
 
+#messages div.msg.error {
+  background-color: #463f3a;
+}
 .msg.error {
   color: #862727;
 }
@@ -92,9 +102,12 @@
   background-position: -64px 0;
 }
 
+#messages div.msg.success {
+  background-color: #ddc486;
+}
 .msg.success {
   color: #767826;
 }
 .msg.success:after {
-  background-position: -32px 0;
+  background-position: 0 0;
 }

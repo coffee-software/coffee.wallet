@@ -647,26 +647,27 @@ var app = {
     alertSuccess: function(html, coin) {
       this._alertMessage(html, coin, 'success');
     },
+
     _alertMessage: function(html, coin, type) {
       Logger.log(type, coin, html);
+      this._alertMessagePopup(type, html);
+    },
 
+    _alertMessagePopup: function(type, html) {
       var msgDiv = document.createElement('div');
       msgDiv.classList.add('msg');
-      msgDiv.classList.add('stitched');
       msgDiv.classList.add(type);
       msgDiv.innerHTML = html;
+      var closer = createButton('close', function(){ document.getElementById('messages').removeChild(msgDiv); msgDiv = null; });
+      closer.classList.add('closer');
+      msgDiv.append(closer);
       document.getElementById('messages').appendChild(msgDiv);
-      setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 5000);
+      setTimeout(function(){ msgDiv && msgDiv.classList.add('fadingout'); }, 5000);
+      setTimeout(function(){ msgDiv && document.getElementById('messages').removeChild(msgDiv); }, 7000);
     },
 
     _alertJsError: function(html) {
-      var msgDiv = document.createElement('div');
-      msgDiv.classList.add('msg');
-      msgDiv.classList.add('stitched');
-      msgDiv.classList.add('error');
-      msgDiv.innerHTML = html;
-      document.getElementById('messages').appendChild(msgDiv);
-      setTimeout(function(){ document.getElementById('messages').removeChild(msgDiv); }, 5000);
+      this._alertMessagePopup('error', html);
     },
 
     cancelAuth: function() {
