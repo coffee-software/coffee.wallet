@@ -71,7 +71,7 @@ function Asset(wallet, id, data) {
   amountCell.appendChild(buttonsDiv);
 
   this.listingRow.appendChild(commentCell);
-  this.listingRow.appendChild(unitCell);
+  //this.listingRow.appendChild(unitCell);
   this.listingRow.appendChild(amountCell);
 
   var stitch = document.createElement("div");
