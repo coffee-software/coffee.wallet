@@ -138,13 +138,13 @@
 
               <div class="spacing">&nbsp;</div>
               <div class="row spacing">
-                <button class="f1 inline stitched primary" onclick="app.popupAddOfflineAsset('balance', '')">
+                <button class="f1 stitched primary" onclick="app.popupAddOfflineAsset('balance', '')">
                   <img src="icons/cream.plus.png"/>
                   add balance
                 </button>
               </div>
               <div class="row spacing" id="addBalanceButtons">
-                <button class="f3 inline stitched primary" onclick="app.popupAddOfflineAsset('addr', '')">
+                <button class="f3 stitched primary" onclick="app.popupAddOfflineAsset('addr', '')">
                   <img src="icons/cream.plus.png"/>
                   add address
                 </button>
@@ -243,10 +243,11 @@
 
         <div id="formPopup">
           <div id="sendPaymentPopup" class="formContent" style="display:none;">
-            <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-            <img class="actionLeft" src="icons/cancel.png"/>
-            <img class="actionRight" src="icons/submit.png"/>
-
+            <div class="formTop">
+              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+              <img class="actionLeft" src="icons/cancel.png"/>
+              <img class="actionRight" src="icons/submit.send.png"/>
+            </div>
             <div class="formActions row">
               <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
               <button class="right" onclick="app.sendPayment()">Send <img src="icons/send.png"/></button>
@@ -322,9 +323,11 @@
 
           </div>
           <div id="receivePaymentPopup" class="formContent" style="display:none;">
-            <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-            <img class="actionLeft" src="icons/cancel.png"/>
-            <img class="actionRight" src="icons/submit.png"/>
+            <div class="formTop">
+              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+              <img class="actionLeft" src="icons/cancel.png"/>
+              <img class="actionRight" src="icons/submit.copy.png"/>
+            </div>
 
             <div class="formActions row">
               <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
@@ -352,9 +355,11 @@
           </div>
 
           <div id="importPrivateKeyPopup" class="formContent" style="display:none;">
-            <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-            <img class="actionLeft" src="icons/cancel.png"/>
-            <img class="actionRight" src="icons/submit.png"/>
+            <div class="formTop">
+              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+              <img class="actionLeft" src="icons/cancel.png"/>
+              <img class="actionRight" src="icons/submit.png"/>
+            </div>
 
             <div class="formActions row">
               <button class="left" onclick="app.closeForm()"><img src="icons/cancel.png"/> Cancel</button>
@@ -377,17 +382,19 @@
 
         <div id="lockPopup" class="hidden">
             <div id="lockPopupContent">
-              <a class="cancel" onclick="app.cancelAuth()">
-                cancel action
-              </a>
-
               <h1 id="lockTitle">Confirm</h1>
+              <div class="stitch"></div>
               <div id="lockMessage" class="spacing">
                 confirm
               </div>
-              <div class="spacing center">
-                <button class="large primary" onclick="app.confirmAuth()">
-                  Confirm
+              <div class="spacing row">
+                <button class="f1" onclick="app.cancelAuth()">
+                  <img src="icons/no.png" alt="menu"/>
+                  cancel
+                </button>
+                <button class="f1" onclick="app.confirmAuth()">
+                  <img src="icons/yes.png" alt="menu"/>
+                  confirm
                 </button>
               </div>
             </div>

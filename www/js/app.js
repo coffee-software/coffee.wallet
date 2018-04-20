@@ -701,10 +701,10 @@ var app = {
       var amount = parseFloat(document.getElementById('sendCoinAmount').value);
 
       app.authenticateBeforeContinue(
-        'Confirm ' + coin + ' Transaction',
-        '<table style="width:100%">' +
-        '<tr><th>recipient:</th><td colspan="2">' + addr + '</td></tr>' +
-        '<tr><th>amount:</th><td>' + amount + ' ' + coin + '</td><td>' + this.priceProvider.convert(amount, coin) + '</td></tr>' +
+        '' + coin + ' transaction',
+        '<table class="niceTable">' +
+        '<tr><th style="width:26%;">recipient:</th><td colspan="2">' + addr + '</td></tr>' +
+        '<tr><th>amount:</th><td style="width:50%;">' + amount + ' ' + coin + '</td><td>' + this.priceProvider.convert(amount, coin) + '</td></tr>' +
         '<tr><th>fee:</th><td>' + fee[0] + ' ' + coin + '</td><td>' + this.priceProvider.convert(fee[0], coin) + '</td></tr>' +
         '<tr><th>total:</th><td>' + (amount + fee[0]) + ' ' + coin + '</td><td>' + this.priceProvider.convert(amount + fee[0], coin) + '</td></tr>' +
         '<tr><th>balance after:</th><td>' + (this.sendWallet.totalOnline - amount - fee[0]) + ' ' + coin + '</td><td>' + this.priceProvider.convert(this.sendWallet.totalOnline - amount - fee[0], coin) + '</td></tr>' +

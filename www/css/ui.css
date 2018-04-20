@@ -2,37 +2,15 @@ button {
   border: none;
   background: none;
   color: #766054;
-  line-height: 18px;
-  font-size: 14px;
-  padding: 10px;
-  border-radius: 16px;
   font-family: 'Poppins', serif;
   text-align: center;
-  position: relative;
-}
-button.float {
-  line-height: 18px;
-  font-size: 12px;
-  padding: 16px 10px;
+  font-size: 17px;
 }
 
 button img {
-  display: block;
-  width: 58px;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-button.inline img {
-  display: inline;
   vertical-align: middle;
-  width: 40px;
-  margin: 5px;
-}
-
-button.float img {
-  width: 62px;
-  padding: 0 5px;
+  width: 26px;
+  margin: 0 3px;
 }
 
 .stitched:before {
@@ -255,4 +233,19 @@ label.checkbox {
 
 .checkbox input:checked:before {
   background-image: url('../icons/check.on.png');
+}
+
+
+table.niceTable {
+  width:100%;
+}
+table.niceTable td {
+  word-break: break-word;
+  padding: 7px 0;
+  font-weight: bold;
+}
+table.niceTable th {
+  text-align: left;
+  padding: 7px 0;
+  font-weight: 100;
 }

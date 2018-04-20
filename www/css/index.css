@@ -414,23 +414,27 @@ table {
   width: 100%;
   bottom: 0;
 }
+.formContent .formTop {
+  position: relative;
+}
+
 .formContent .circleIcon {
   position: absolute;
   left: 50%;
   margin-left: -35px;
-  top: -35px;
+  bottom: -35px;
 }
 .formContent .actionLeft {
   position: absolute;
   left: 28px;
   width: 90px;
-  top: -32px;
+  bottom: -2px;
 }
 .formContent .actionRight {
   position: absolute;
   right: 28px;
   width: 90px;
-  top: -32px;
+  bottom: -2px;
 }
 
 #popup.show {
@@ -558,25 +562,29 @@ table {
 }
 
 #lockPopupContent {
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px dotted #ddf;
-    position: absolute;
-    left: 35px;
-    right: 35px;
-    top: 50%;
-    margin-top: -200px;
-    background: #eee;
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  top: 50%;
+  margin-top: -200px;
+  background: #f7f5f2;
 }
 
-#lockPopup .cancel {
-  float: right;
+#lockPopup .row {
+  padding: 2% 6%;
 }
-h1#lockTitle {
+
+#lockTitle {
     line-height: normal;
-    padding: 0;
     margin: 0;
+    padding: 2% 6%;
 }
+
+#lockMessage {
+  padding: 2% 6%;
+
+}
+
 .rowIcon {
   text-align: center;
 }
