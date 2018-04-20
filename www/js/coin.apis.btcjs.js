@@ -59,8 +59,7 @@ var BtcHandler = {
       "These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain. " +
       "Bitcoin was invented by an unknown person or group of people under the name Satoshi Nakamoto and released as open-source software in 2009. ",
     links: {
-      'bitcoin.org' : 'https://bitcoin.org/',
-      'bitcoin.com' : 'https://bitcoin.com/'
+      'bitcoin.org' : 'https://bitcoin.org/'
     },
     __disabled__newPrivateKey: function() {
       return btcjs.newPrivKey(btcjs.networks.btc);
@@ -70,6 +69,20 @@ var BtcHandler = {
     },
     getBalance: function(addr, callback) {
       return btcjs.getBalance(btcjs.networks.btc, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+    }
+}
+
+var BchHandler = {
+    name: "bitcoin-cash",
+    code: "BCH",
+    icon: "bch",
+    longname: "Bitcoin Cash",
+    description: "via bitcoin.com: Bitcoin Cash (BCH) is a peer-to-peer electronic cash system. " +
+    "It is a consensus network that enables a new type of payment method and a completely digital form of money. " +
+    "It is a decentralized peer-to-peer payment network that is powered by its users with no central authority or middlemen.",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-cash/",
+      'bitcoin.com' : 'https://bitcoin.com/'
     }
 }
 
