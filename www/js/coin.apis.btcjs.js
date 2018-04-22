@@ -24,13 +24,12 @@ var BtcTestHandler = {
     },
     sendPayment: function(priv, receiver, amount, fee) {
       var that = this;
-      return btcjs.sendPayment(btcjs.networks.test, priv, receiver, amount * 100000000, fee[2],
-      function(response) {
-        app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
-      }, function(error, data){
-        app.alertError(error, that.code);
-      });
-
+      return btcjs.sendPayment(btcjs.networks.test, priv, receiver, Math.round(amount * 100000000), fee[2],
+        function(response) {
+          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+        }, function(error, data){
+          app.alertError(error, that.code);
+        });
     },
     validateAddress: function(addr) {
       return btcjs.validateAddress(btcjs.networks.test, addr);
@@ -61,14 +60,37 @@ var BtcHandler = {
     links: {
       'bitcoin.org' : 'https://bitcoin.org/'
     },
-    __disabled__newPrivateKey: function() {
+    newPrivateKey: function() {
       return btcjs.newPrivKey(btcjs.networks.btc);
     },
-    __disabled__addrFromPrivateKey: function(priv) {
+    addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.btc, priv);
     },
     getBalance: function(addr, callback) {
       return btcjs.getBalance(btcjs.networks.btc, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+    },
+    sendPayment: function(priv, receiver, amount, fee) {
+      var that = this;
+      return btcjs.sendPayment(btcjs.networks.btc, priv, receiver, Math.round(amount * 100000000), fee[2],
+        function(response) {
+          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+        }, function(error, data){
+          app.alertError(error, that.code);
+        });
+    },
+    validateAddress: function(addr) {
+      return btcjs.validateAddress(btcjs.networks.btc, addr);
+    },
+    getFees: function() {
+      //TODO
+      //key 0 - fee, 1 - estimated time, >1 internal coinparameters
+      return [
+        [0.00002, 20,  2000],
+        [0.00004, 10,  4000],
+        [0.0001,  5,  10000],
+        [0.0002, 3,   20000],
+        [0.0004, 1,   40000]
+      ];
     }
 }
 
