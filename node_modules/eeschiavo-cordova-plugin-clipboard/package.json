@@ -1,0 +1,103 @@
+{
+  "_args": [
+    [
+      "eeschiavo-cordova-plugin-clipboard",
+      "/home/fsw/workspace/coffee.wallet"
+    ]
+  ],
+  "_from": "eeschiavo-cordova-plugin-clipboard@latest",
+  "_id": "eeschiavo-cordova-plugin-clipboard@1.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/eeschiavo-cordova-plugin-clipboard",
+  "_nodeVersion": "8.9.4",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/eeschiavo-cordova-plugin-clipboard_1.0.1_1519644824146_0.6779009029361154"
+  },
+  "_npmUser": {
+    "email": "schiavo.ernesto@gmail.com",
+    "name": "eeschiavo"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "eeschiavo-cordova-plugin-clipboard",
+    "raw": "eeschiavo-cordova-plugin-clipboard",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/eeschiavo-cordova-plugin-clipboard/-/eeschiavo-cordova-plugin-clipboard-1.0.1.tgz",
+  "_shasum": "7bffef7116784a1adc6d8ef90bfd120a48530740",
+  "_shrinkwrap": null,
+  "_spec": "eeschiavo-cordova-plugin-clipboard",
+  "_where": "/home/fsw/workspace/coffee.wallet",
+  "author": {
+    "name": "Ernesto Schiavo"
+  },
+  "bugs": {
+    "url": "https://github.com/eeschiavo/cordova-plugin-clipboard/issues"
+  },
+  "cordova": {
+    "id": "eeschiavo-cordova-plugin-clipboard",
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "wp8"
+    ]
+  },
+  "dependencies": {},
+  "description": "Clipboard management plugin for Cordova/PhoneGap",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "fileCount": 10,
+    "integrity": "sha512-0wy1gMtMpXzIyiwcWG6jc9PtOZclSpkxG1TpTXaHnA7a/Wzk2rpEkK3KnCkCBeVDXvkTqVlhBQ2DAexD8THiTw==",
+    "shasum": "7bffef7116784a1adc6d8ef90bfd120a48530740",
+    "tarball": "https://registry.npmjs.org/eeschiavo-cordova-plugin-clipboard/-/eeschiavo-cordova-plugin-clipboard-1.0.1.tgz",
+    "unpackedSize": 12318
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=4.0.0"
+    }
+  ],
+  "gitHead": "a28ec37316f0353e03b574c856bf0b698fdf20e3",
+  "homepage": "https://github.com/eeschiavo/cordova-plugin-clipboard#readme",
+  "keywords": [
+    "clipboard",
+    "copy",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows",
+    "cordova-wp8",
+    "ecosystem:cordova",
+    "paste"
+  ],
+  "license": "MIT",
+  "main": "clipboard.js",
+  "maintainers": [
+    {
+      "name": "eeschiavo",
+      "email": "schiavo.ernesto@gmail.com"
+    }
+  ],
+  "name": "eeschiavo-cordova-plugin-clipboard",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eeschiavo/cordova-plugin-clipboard.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.1"
+}

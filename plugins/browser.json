@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-clipboard2": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
-    },
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     },
@@ -29,6 +26,9 @@
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     },
     "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+    },
+    "eeschiavo-cordova-plugin-clipboard": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     }
   },
