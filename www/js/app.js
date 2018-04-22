@@ -286,6 +286,30 @@ var app = {
         });
     },
 
+    exportAllKeys: function() {
+      this.closeMenu();
+      var text = JSON.stringify(app.data.wallets);
+      //var url = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+      window.cordova.plugins.clipboard.copy(text);
+      app.alertInfo('copied to clipboard');
+    },
+
+    importAllKeys: function() {
+      this.closeMenu();
+      var element = document.createElement('input');
+      element.type = "file";
+      document.body.appendChild(element);
+      element.click();
+      element.onchange = function(event){
+        let fr = new FileReader();
+        fr.onload = function(event) {
+          alert(event.target.result);
+        };
+        fr.readAsText(event.target.files[0]);
+        document.body.removeChild(element);
+      };
+    },
+
     removeCoin: function(wallet) {
       var key = wallet.handler.code;
       navigator.notification.confirm(
