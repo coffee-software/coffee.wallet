@@ -140,7 +140,7 @@
             <div id="offlineAssetsPopup" style="display:none;">
               <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
 
-              <div class="unpad stitch"></div>
+              <h2 style="text-align:center;">offline assets</h2>
               <div class="unpad">
                 <div id="offlineAssets">
 
@@ -279,47 +279,47 @@
             </div>
             <div class="stitch"></div>
 
-            <div>
-              <div class="field">
-                <label for="sendCoinAddr">receiver:</label>
-                <input
-                  id="sendCoinAddr"
-                  placeholder="address"
-                  onfocus="app.sendCoinValidateAddr(true)"
-                  onblur="app.sendCoinValidateAddr()"
-                />
-              </div>
+            <div class="field">
+              <input
+                id="sendCoinAddr"
+                onfocus="app.sendCoinValidateAddr(true)"
+                onblur="app.sendCoinValidateAddr()"
+                required
+              />
+              <label for="sendCoinAddr">recipient address</label>
               <div class="validation"></div>
             </div>
 
-            <div>
-              <div class="field">
-                <label for="sendCoinAmount">amount:</label>
+            <div class="row">
+              <div class="field f1">
                 <input
                   id="sendCoinAmount"
-                  class="has-unit top"
+                  class="has-unit"
                   onfocus="app.sendCoinValidateAmount(true)"
                   onblur="app.sendCoinValidateAmount()"
                   onchange="app.sendCoinUpdateValue()"
                   onkeyup="app.sendCoinUpdateValue()"
-                  placeholder="0.0"
+                  required
                 />
                 <span class="input-unit" id="sendCoinName"></span>
+                <label for="sendCoinAmount">send amount</label>
+                <div class="legend"></div>
               </div>
-              <div class="fseparator"></div>
-              <div class="field">
+
+              <div class="field f1">
                 <input
                   id="sendCoinValue"
-                  class="has-unit bottom"
+                  class="has-unit"
                   onfocus="app.sendCoinValidateAmount(true)"
                   onblur="app.sendCoinValidateAmount()"
                   onchange="app.sendCoinUpdateAmount()"
                   onkeyup="app.sendCoinUpdateAmount()"
-                  placeholder="0.0"
+                  required
                 />
                 <span class="input-unit" id="sendFiatName"></span>
+                <label for="sendCoinAmount">fiat equivalent</label>
+                <div class="legend"></div>
               </div>
-              <div class="validation"></div>
             </div>
 
             <div>

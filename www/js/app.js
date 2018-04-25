@@ -619,12 +619,15 @@ var app = {
       var elem = document.getElementById('sendCoinAddr');
       elem.classList.remove('invalid');
       elem.classList.remove('valid');
-      elem.parentElement.nextElementSibling.innerHTML = '';
+      elem.parentElement.lastElementChild.innerHTML = '';
+
+      elem.parentElement.classList.toggle('filled', elem.value != '' || elem == document.activeElement);
+
       if (typeof focus == 'undefined') {
         valid = this.sendWallet.handler.validateAddress(elem.value);
         elem.classList.add(valid ? 'valid' : 'invalid');
         if (!valid) {
-          elem.parentElement.nextElementSibling.innerHTML = 'invalid address';
+          elem.parentElement.lastElementChild.innerHTML = 'invalid address';
         }
       }
       return valid;
@@ -634,19 +637,21 @@ var app = {
       var valid = false;
       var amountElem = document.getElementById('sendCoinAmount');
       var valueElem = document.getElementById('sendCoinValue');
-      valueElem.parentElement.nextElementSibling.innerHTML = '';
+      valueElem.parentElement.lastElementChild.innerHTML = '';
 
       amountElem.classList.remove('invalid');
       amountElem.classList.remove('valid');
       valueElem.classList.remove('invalid');
       valueElem.classList.remove('valid');
 
+      amountElem.parentElement.classList.toggle('filled', amountElem.value != '' || amountElem == document.activeElement || valueElem == document.activeElement);
+
       if (typeof focus == 'undefined') {
         valid = parseFloat(amountElem.value) > 0;
         amountElem.classList.add(valid ? 'valid' : 'invalid');
         valueElem.classList.add(valid ? 'valid' : 'invalid');
         if (!valid) {
-          valueElem.parentElement.nextElementSibling.innerHTML = 'invalid amount';
+          valueElem.parentElement.lastElementChild.innerHTML = 'invalid amount';
         }
       }
       return valid;
