@@ -122,8 +122,6 @@ h1, h2, h3 {
   height: 0;
   overflow: hidden;
   background: #f7f5f2;
-  padding-top: 7px;
-  padding-bottom: 7px;
   /* Status bar height on iOS 11 */
   margin-top: constant(safe-area-inset-top);
   margin-top: env(safe-area-inset-top);

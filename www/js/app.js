@@ -813,8 +813,7 @@ var app = {
         }.bind(this));
         this.updateMarketCap();
 
-
-        rangeSlider.create(document.querySelectorAll('#sendCoinFee'), {
+        rangeSlider.create(document.getElementById('sendCoinFee'), {
             polyfill: true,
             vertical: false,
             min: 0,
@@ -822,6 +821,10 @@ var app = {
             step: 1,
             value: 50,
             borderRadius: 10,
+        });
+
+        document.getElementById('sendCoinFee').parentElement.addEventListener ("touchstart", function() {
+          document.getElementById('sendCoinFee').focus();
         });
 
         Logger.log("info", null, "application started");
