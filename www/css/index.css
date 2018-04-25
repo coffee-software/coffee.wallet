@@ -2,26 +2,6 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-/* DEV ONLY:
-html {
-  background-image: url(../dev1.png);
-  background-size: 100%;
-  background-position: 0 0;
-}
-
-body {
-  opacity: 0;
-  animation: DEV 2s infinite;
-  transition: 2s opacity ease;
-}
-
-@keyframes DEV {
-  0%   { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
-*/
-
 /**
 color palete:
   coffe: #766054;
@@ -142,6 +122,8 @@ h1, h2, h3 {
   height: 0;
   overflow: hidden;
   background: #f7f5f2;
+  padding-top: 7px;
+  padding-bottom: 7px;
   /* Status bar height on iOS 11 */
   margin-top: constant(safe-area-inset-top);
   margin-top: env(safe-area-inset-top);
@@ -159,15 +141,14 @@ h1, h2, h3 {
 #menu a {
   display: block;
   color: #766054;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 32px;
   text-decoration: none;
-  padding: 7px 15px;
-  font-style: italic;
+  padding: 7px 25px 7px 15px;
 }
 
 #menu a:hover {
-  background: linear-gradient(to right, #f7f5f2, #c2b28f 40%, #c2b28f 50%, #f7f5f2);
+  background: #c2b28f;
   color: #766054;
 }
 

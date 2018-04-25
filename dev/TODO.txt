@@ -2,15 +2,14 @@ TODO:
 
 0.1: test release 1:
 
-* public repo
-* BIP72 / BIP73  https://bitpay.com/invoiceData/MjGvVH2K9rDkWFRCCSeCGz?poll=false
-
 * new-design:
-** menu
 ** recv
 ** send
 ** info
 ** price settings
+
+* public repo
+* BIP72 / BIP73  https://bitpay.com/invoiceData/MjGvVH2K9rDkWFRCCSeCGz?poll=false
 
 * import / export cleanup.
 ** Export -> form -> confirm -> cordova social sharing. ?BIP38?

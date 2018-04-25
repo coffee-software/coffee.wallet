@@ -21,43 +21,43 @@
               <li>
                 <a href="javascript:app.popupAddCoin()">
                   <img src="icons/plus.png"/>
-                  add&nbsp;coins...
+                  add&nbsp;currencies
                 </a>
               </li>
               <li>
                 <a href="javascript:app.popupPriceSettings()">
                   <img src="icons/money.png"/>
-                  price&nbsp;settings...
+                  price&nbsp;settings
                 </a>
               </li>
               <!--li>
                 <a href="javascript:app.popupSettings()">
                   <img src="icons/settings.png"/>
-                  coin settings...
+                  coin settings
                 </a>
               </li-->
               <li>
                 <a href="javascript:app.popupHelp()">
                   <img src="icons/help.png"/>
-                  help...
+                  help
                 </a>
               </li>
               <li>
                 <a id="feedback" href="javascript:app.popupFeedback()">
                   <img src="icons/heart.png"/>
-                  feedback...
+                  feedback
                 </a>
               </li>
               <li>
                 <a href="javascript:app.exportAllKeys()">
-                  <img src="icons/send.png"/>
-                  export private keys...
+                  <img src="icons/export.png"/>
+                  export wallets
                 </a>
               </li>
               <li>
                 <a href="javascript:app.importAllKeys()">
-                  <img src="icons/receive.png"/>
-                  import private keys...
+                  <img src="icons/import.png"/>
+                  import wallets
                 </a>
               </li>
             </ul>
@@ -91,7 +91,7 @@
                 <div id="walletsList">
                 </div>
           	    <div onclick="app.popupAddCoin()" class="walletsActions">
-                    add more cryptos
+                    add currencies
           	    </div>
               </div>
             </div>
@@ -130,7 +130,7 @@
           <h1>
             <a href="javascript:app.closePopup()" class="close"><img src="icons/hide.png"/></a>
             <span id="popupTitle"></span>
-            <img id="popupIcon" src="icons/close.png" style="display:none;"/>
+            <img id="popupIcon" src="icons/hide.png" style="display:none;"/>
           </h1>
           <div id="popupContent">
             <div id="coinInfoPopup" style="display:none;">
@@ -150,11 +150,11 @@
               <div class="spacing">&nbsp;</div>
               <div class="row spacing">
                 <button class="f1 primary" onclick="app.popupAddOfflineAsset('balance', '')">
-                  <img src="icons/cream.plus.png"/>
+                  <img src="icons/plus.png"/>
                   add balance
                 </button>
                 <button id="addBalanceButtons" class="f1 primary" onclick="app.popupAddOfflineAsset('addr', '')">
-                  <img src="icons/cream.plus.png"/>
+                  <img src="icons/plus.png"/>
                   add address
                 </button>
               </div>

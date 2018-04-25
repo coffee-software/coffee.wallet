@@ -53,7 +53,7 @@ function Asset(wallet, id, data) {
     app.popupEditOfflineAsset(that);
   }));
 
-  buttonsDiv.appendChild(createButton('close',function(){
+  buttonsDiv.appendChild(createButton('remove',function(){
     navigator.notification.confirm(
         'Are you sure you want to remove this asset?',
         function (buttonIndex) {

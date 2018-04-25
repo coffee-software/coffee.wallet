@@ -227,7 +227,7 @@ var app = {
 
     },
 
-    openPopup: function(id, title, icon, bgimg) {
+    openPopup: function(id, title, bgimg) {
 
       this.closeMenu();
       document.getElementById('popup').classList.add('show');
@@ -236,7 +236,7 @@ var app = {
       this.showOneChildOf('popupContent', id);
 
       document.getElementById('popupTitle').innerHTML = title;
-      document.getElementById('popupIcon').setAttribute('src', 'icons/' + icon + '.png');
+      //document.getElementById('popupIcon').setAttribute('src', 'icons/' + icon + '.png');
     },
 
     closeForm: function() {
@@ -343,7 +343,7 @@ var app = {
     },
 
     popupCoinInfo: function(wallet) {
-      this.openPopup('coinInfoPopup', 'Coin ' + wallet.handler.code, 'help', 'coins/' + wallet.handler.icon + '.svg');
+      this.openPopup('coinInfoPopup', wallet.handler.longname, 'coins/' + wallet.handler.icon + '.svg');
       var links = '<ul>';
       for (var name in wallet.handler.links) {
         links += '<li><a href="#" onclick="window.open(\'' + wallet.handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
@@ -376,11 +376,11 @@ var app = {
       }
 
       if (wallet.totalOffline + wallet.totalOnline <= 0) {
-        advanced.appendChild(app.createAdvancedOption('close', 'remove coin', app.removeCoin.bind(app, advancedWallet)));
+        advanced.appendChild(app.createAdvancedOption('remove', 'remove coin', app.removeCoin.bind(app, advancedWallet)));
       }
 
       document.getElementById('coinInfoDescription').innerHTML =
-        '<h2>' + wallet.handler.longname + '</h2>' +
+        '<h2>' + wallet.handler.longname + ' (' + wallet.handler.code + ')</h2>' +
         wallet.handler.description +
         '<div class="spacing stitch"></div>' +
         '<h3>links (external)</h3>' +
@@ -395,7 +395,7 @@ var app = {
     },
 
     popupAddCoin: function() {
-      this.openPopup('addCoinPopup', 'add cryptos', 'cream.plus');
+      this.openPopup('addCoinPopup', 'add cryptos');
       var that = this;
       if (typeof that.popupGenerated == 'undefined') {
         that.popupGenerated = true;
@@ -456,14 +456,14 @@ var app = {
     },
 
     popupHelp: function() {
-        this.openPopup('helpPopup', 'Help', 'cream.help');
+        this.openPopup('helpPopup', 'Help');
     },
     popupFeedback: function() {
-        this.openPopup('feedbackPopup', 'Feedback', 'cream.heart');
+        this.openPopup('feedbackPopup', 'Feedback');
     },
 
     popupPriceSettings: function() {
-        this.openPopup('priceSettingsPopup', 'Price Settings', 'cream.money');
+        this.openPopup('priceSettingsPopup', 'Price Settings');
 
         this.priceProviderSelect.setValue(this.settings.get('priceProvider', 0));
         this.priceUnitSelect.setValue(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
@@ -545,7 +545,7 @@ var app = {
         document.getElementById('offlineAssets').appendChild(a.row);
       }
 
-      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'list', 'coins/' + wallet.handler.icon + '.svg');
+      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'coins/' + wallet.handler.icon + '.svg');
       document.getElementById('addBalanceButtons').classList.toggle('hidden', !('getBalance' in wallet.handler));
       this.offlineAssetWallet = wallet;
     },
