@@ -30,16 +30,30 @@ button.submit {
   border: 1px solid #766054;
   border-radius: 25px;
   color: #eadfcb;
+  padding: 14px 24px;
+  font-size: 12px;
 }
 
 .formButtons .f1:first-child {
   border-left: none;
   border-radius: 0 25px 25px 0;
+  text-align: left;
+}
+.formButtons .f1:first-child img {
+  float: right;
 }
 
 .formButtons .f1:last-child {
   border-right: none;
   border-radius: 25px 0 0 25px;
+  text-align: right;
+}
+.formButtons .f1:last-child img {
+  float: left;
+}
+
+.formFields {
+    padding: 0 24px;
 }
 
 .stitched:before {
@@ -75,7 +89,7 @@ button.primary.stitched:before {
 }
 
 input {
-    padding: 9px 14px;
+    padding: 9px 0;
     font-size: 15px;
     width: 100%;
     box-sizing: border-box;
@@ -99,13 +113,20 @@ input::placeholder {
     font-style: italic;
 }
 
-input.invalid {
-    border-color: #932020;
+.field.invalid input {
+  color: #f36040;
+  border-color: #f36040;
 }
 
-input.valid {
-    border-color: #635920;
+.field.valid input {
+  color: #ddc486;
+  border-color: #ddc486;
 }
+.equalizer {
+  font-size: 20px;
+  padding: 31px 10px 0 10px;
+}
+
 input.has-unit {
   padding-right: 55px;
 }
@@ -119,18 +140,21 @@ input.has-unit {
 
 .field .legend {
     text-align: right;
-    color: #932020;
     position: absolute;
     left: 0;
     right: 33px;
 }
 
+.field.invalid .legend {
+  color: #f36040;
+}
 
 .field label {
   position:absolute;
   pointer-events:none;
-  left: 5px;
-  top: 34px;
+  left: 0;
+  top: 35px;
+  font-size: 15px;
   color: #766054;
   transition:0.2s linear all;
   -moz-transition:0.2s linear all;
@@ -151,6 +175,10 @@ input.has-unit {
   color: #f7f5f2;
 }
 
+.field.invalid label {
+  color: #f36040;
+}
+
 .field strong	{
   color: #f7f5f2;
   font-weight: normal;
@@ -161,7 +189,7 @@ input.has-unit {
 .input-unit {
   position: absolute;
   top: 35px;
-  right: 8px;
+  right: 0;
   color: #766054;
 }
 
@@ -171,6 +199,7 @@ input.has-unit {
 
 .range-input {
     margin: 9px 0px;
+    margin-bottom: 20px;
     text-align: left;
 }
 
@@ -222,8 +251,8 @@ input.has-unit {
 .rangeSlider__handle {
     cursor:pointer;
     display:inline-block;
-    width:40px;
-    height:40px;
+    width:25px;
+    height:25px;
     position:absolute;z-index:3;
 
     background-image: url('../icons/slider.png');
@@ -234,7 +263,7 @@ input.has-unit {
 }
 
 .rangeSlider__handle__horizontal{
-    top: -19px;
+    top: -12px;
 }
 
 .rangeSlider__handle__vertical{

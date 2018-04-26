@@ -1,11 +1,11 @@
 'use strict'
 
 var allCoinApis = {
-  'BTC.TEST': BtcTestHandler,
+  'BTC.TST': BtcTestHandler,
   'BTC': BtcHandler,
   'BCH': BchHandler,
   'ETH': EthHandler,
-  'ETH.TEST': EthTestHandler,
+  'ETH.TST': EthTestHandler,
   'PAY': PayHandler,
   'LTC': LtcHandler
 };
@@ -617,15 +617,15 @@ var app = {
     sendCoinValidateAddr: function(focus) {
       var valid = false;
       var elem = document.getElementById('sendCoinAddr');
-      elem.classList.remove('invalid');
-      elem.classList.remove('valid');
+      elem.parentElement.classList.remove('invalid');
+      elem.parentElement.classList.remove('valid');
       elem.parentElement.lastElementChild.innerHTML = '';
 
       elem.parentElement.classList.toggle('filled', elem.value != '' || elem == document.activeElement);
 
       if (typeof focus == 'undefined') {
         valid = this.sendWallet.handler.validateAddress(elem.value);
-        elem.classList.add(valid ? 'valid' : 'invalid');
+        elem.parentElement.classList.add(valid ? 'valid' : 'invalid');
         if (!valid) {
           elem.parentElement.lastElementChild.innerHTML = 'invalid address';
         }
@@ -639,18 +639,18 @@ var app = {
       var valueElem = document.getElementById('sendCoinValue');
       valueElem.parentElement.lastElementChild.innerHTML = '';
 
-      amountElem.classList.remove('invalid');
-      amountElem.classList.remove('valid');
-      valueElem.classList.remove('invalid');
-      valueElem.classList.remove('valid');
+      amountElem.parentElement.classList.remove('invalid');
+      amountElem.parentElement.classList.remove('valid');
+      valueElem.parentElement.classList.remove('invalid');
+      valueElem.parentElement.classList.remove('valid');
 
       amountElem.parentElement.classList.toggle('filled', amountElem.value != '' || amountElem == document.activeElement || valueElem == document.activeElement);
-      valueElem.parentElement.classList.toggle('filled', valueElem.value != '' || valueElem == document.activeElement || valueElem == document.activeElement);
+      valueElem.parentElement.classList.toggle('filled', valueElem.value != '' || amountElem == document.activeElement || valueElem == document.activeElement);
 
       if (typeof focus == 'undefined') {
         valid = parseFloat(amountElem.value) > 0;
-        amountElem.classList.add(valid ? 'valid' : 'invalid');
-        valueElem.classList.add(valid ? 'valid' : 'invalid');
+        amountElem.parentElement.classList.add(valid ? 'valid' : 'invalid');
+        valueElem.parentElement.classList.add(valid ? 'valid' : 'invalid');
         if (!valid) {
           valueElem.parentElement.lastElementChild.innerHTML = 'invalid amount';
         }
@@ -810,7 +810,12 @@ var app = {
         this.data.load(function(){
             for(var key in this.data.wallets){
               if (this.data.wallets[key].enabled) {
-                this.addWalletWidget(this.data.wallets[key]);
+                if (!(this.data.wallets[key].coin in allCoinApis)) {
+                  app.alertError('coin ' + this.data.wallets[key].coin + ' is no longer supported');
+                  delete(this.data.wallets[key]);
+                } else {
+                  this.addWalletWidget(this.data.wallets[key]);
+                }
               }
             }
         }.bind(this));

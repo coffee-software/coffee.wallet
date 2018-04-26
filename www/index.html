@@ -267,7 +267,7 @@
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
               <button class="f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png"/></button>
             </div>
-            <div class="formButtons spacing row">
+            <div class="formButtons row">
               <button class="f1" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
                 paste
                 <img src="icons/paste.png"/>
@@ -277,64 +277,65 @@
                 scan
               </button>
             </div>
-
-            <div class="field">
-              <input
-                id="sendCoinAddr"
-                onfocus="app.sendCoinValidateAddr(true)"
-                onblur="app.sendCoinValidateAddr()"
-                required
-              />
-              <label for="sendCoinAddr">recipient address</label>
-              <div class="legend"></div>
-            </div>
-
-            <div class="row">
-              <div class="field f1">
+            <div class="formFields">
+              <div class="field">
                 <input
-                  id="sendCoinAmount"
-                  type="number"
-                  class="has-unit"
-                  onfocus="app.sendCoinValidateAmount(true)"
-                  onblur="app.sendCoinValidateAmount()"
-                  onchange="app.sendCoinUpdateValue()"
-                  onkeyup="app.sendCoinUpdateValue()"
+                  id="sendCoinAddr"
+                  onfocus="app.sendCoinValidateAddr(true)"
+                  onblur="app.sendCoinValidateAddr()"
                   required
                 />
-                <span class="input-unit" id="sendCoinName"></span>
-                <label for="sendCoinAmount">send amount</label>
+                <label for="sendCoinAddr">recipient address</label>
                 <div class="legend"></div>
               </div>
 
-              <div class="field f1">
-                <input
-                  id="sendCoinValue"
-                  type="number"
-                  class="has-unit"
-                  onfocus="app.sendCoinValidateAmount(true)"
-                  onblur="app.sendCoinValidateAmount()"
-                  onchange="app.sendCoinUpdateAmount()"
-                  onkeyup="app.sendCoinUpdateAmount()"
-                  required
-                />
-                <span class="input-unit" id="sendFiatName"></span>
-                <label for="sendCoinAmount">fiat equivalent</label>
-                <div class="legend"></div>
+              <div class="row">
+                <div class="field f1">
+                  <input
+                    id="sendCoinAmount"
+                    type="number"
+                    class="has-unit"
+                    onfocus="app.sendCoinValidateAmount(true)"
+                    onblur="app.sendCoinValidateAmount()"
+                    onchange="app.sendCoinUpdateValue()"
+                    onkeyup="app.sendCoinUpdateValue()"
+                    required
+                  />
+                  <span class="input-unit" id="sendCoinName"></span>
+                  <label for="sendCoinAmount">amount</label>
+                  <div class="legend"></div>
+                </div>
+                <div class="equalizer">
+                  =
+                </div>
+                <div class="field f1">
+                  <input
+                    id="sendCoinValue"
+                    type="number"
+                    class="has-unit"
+                    onfocus="app.sendCoinValidateAmount(true)"
+                    onblur="app.sendCoinValidateAmount()"
+                    onchange="app.sendCoinUpdateAmount()"
+                    onkeyup="app.sendCoinUpdateAmount()"
+                    required
+                  />
+                  <span class="input-unit" id="sendFiatName"></span>
+                  <label for="sendCoinAmount">equivalent</label>
+                  <div class="legend"></div>
+                </div>
               </div>
-            </div>
 
-            <div>
               <div class="field">
                 <div class="range-input">
                   <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
                 </div>
 
                 <div class="row fee">
-                  <div class="f1">
-                    fee:<strong><span id="feeAmount">0</span></strong>
+                  <div class="f3" style="text-align:left;">
+                    fee: <strong><span id="feeAmount">0</span></strong>
                   </div>
-                  <div class="f1">
-                    est. confirm: <strong><span id="feeTime">0 min</span></strong>
+                  <div class="f2" style="text-align:right;">
+                    est. time: <strong><span id="feeTime">0 min</span></strong>
                   </div>
                 </div>
               </div>

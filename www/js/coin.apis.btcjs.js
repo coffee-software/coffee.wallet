@@ -2,7 +2,7 @@
 
 var BtcTestHandler = {
     name: "bitcoin-test",
-    code: "BTC.TEST",
+    code: "BTC.TST",
     icon: "btc.test",
     longname: "Bitcoin TestNet",
     description:
