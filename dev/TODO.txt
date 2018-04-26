@@ -3,9 +3,7 @@ TODO:
 0.1: test release 1:
 
 * new-design:
-** recv
-** send
-** info
+** offline forms
 ** price settings
 
 * public repo
