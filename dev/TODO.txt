@@ -1,9 +1,5 @@
 TODO:
 
-0.1: test release 1:
-
-* public repo
-
 1.0: public release nr2
 
 * import / export cleanup.
