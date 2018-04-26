@@ -1,38 +1,21 @@
 TODO:
 
-0.1: test release 1:
+1.0: public release nr2
 
-* design:
-** recv
-** info
-** price settings
-* larger btns
-* AMD
-* versioning deploy
-* public repo
-* fasttap fixes
-* android splash
-* smart refresh
-
-0.2: test release 2:
-
-* help and feedback dialogs
-* coin settings dialog
-* exchange tab cleanup
-
-1.0: public release
-
+* import / export cleanup.
+** Export -> form -> confirm -> cordova social sharing. ?BIP38?
+** Import -> open file / paste clip? -> pass form -> confirm
+* BIP72 / BIP73  https://bitpay.com/invoiceData/MjGvVH2K9rDkWFRCCSeCGz?poll=false
+* offline asset addr validation
 * enable-coins
-* bip38
-* bitcoin - new address per transaction
+* BIP32 + new address per transaction
+* fasttap all clicks
+* feedback buttons
 
 1.1:
 
 * generate offline wallets in app.
-* import export keys to encrypted format.
-* fingerprint auth / pin auth
-
-https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio
+* fingerprint auth / pin auth  https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio
 
 1.2:
 

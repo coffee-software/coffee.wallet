@@ -26,7 +26,7 @@ var CoinMarketCapProvider = {
   },
 
   getPrice: function(unit) {
-    if (unit.endsWith('.TEST')) {
+    if (unit.endsWith('.TST')) {
       //return some dummy low-price just for test sake.
       return 0.1;
     }
@@ -43,7 +43,7 @@ var CoinMarketCapProvider = {
   updatePrices: function(callback) {
     var xhr = new XMLHttpRequest();
     var that = this;
-    xhr.open('GET', 'https://api.coinmarketcap.com/v1/ticker/?convert=' + this.unit + '&limit=256');
+    xhr.open('GET', 'https://api.coinmarketcap.com/v1/ticker/?convert=' + this.unit + '&limit=1500');
     xhr.onload = function() {
         if (xhr.status === 200) {
             var list = JSON.parse(this.responseText);

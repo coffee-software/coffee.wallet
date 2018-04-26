@@ -1,11 +1,11 @@
 'use strict'
 
 var allCoinApis = {
-  'BTC.TEST': BtcTestHandler,
+  'BTC.TST': BtcTestHandler,
   'BTC': BtcHandler,
   'BCH': BchHandler,
   'ETH': EthHandler,
-  'ETH.TEST': EthTestHandler,
+  'ETH.TST': EthTestHandler,
   'PAY': PayHandler,
   'LTC': LtcHandler
 };
@@ -153,7 +153,7 @@ var app = {
     },
 
     updateMarketCap: function() {
-      document.getElementById('refresh').classList.add('disabled');
+      document.getElementById('refresh').classList.add('running');
       this.priceProvider.updatePrices(function(){
         var totalOnline = 0;
         var totalOffline = 0;
@@ -164,7 +164,7 @@ var app = {
         document.getElementById('grandTotal').innerHTML = formatMoney(totalOnline + totalOffline, app.priceProvider.getUnit());
         document.getElementById('totalOnline').innerHTML = formatMoney(totalOnline, app.priceProvider.getUnit());
         //plnTotal
-        document.getElementById('refresh').classList.remove('disabled');
+        document.getElementById('refresh').classList.remove('running');
       });
     },
 
@@ -227,7 +227,7 @@ var app = {
 
     },
 
-    openPopup: function(id, title, icon, bgimg) {
+    openPopup: function(id, title, bgimg) {
 
       this.closeMenu();
       document.getElementById('popup').classList.add('show');
@@ -236,7 +236,7 @@ var app = {
       this.showOneChildOf('popupContent', id);
 
       document.getElementById('popupTitle').innerHTML = title;
-      document.getElementById('popupIcon').setAttribute('src', 'icons/' + icon + '.png');
+      //document.getElementById('popupIcon').setAttribute('src', 'icons/' + icon + '.png');
     },
 
     closeForm: function() {
@@ -343,7 +343,7 @@ var app = {
     },
 
     popupCoinInfo: function(wallet) {
-      this.openPopup('coinInfoPopup', 'Coin ' + wallet.handler.code, 'help', 'coins/' + wallet.handler.icon + '.svg');
+      this.openPopup('coinInfoPopup', wallet.handler.longname, 'coins/' + wallet.handler.icon + '.svg');
       var links = '<ul>';
       for (var name in wallet.handler.links) {
         links += '<li><a href="#" onclick="window.open(\'' + wallet.handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
@@ -371,16 +371,16 @@ var app = {
       var advancedWallet = wallet;
 
       if ('newPrivateKey' in wallet.handler) {
-        advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
-        advanced.appendChild(app.createAdvancedOption('receive', 'import private key', app.showImportPrivateKeyPopup.bind(app, advancedWallet)));
+        //advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
+        //advanced.appendChild(app.createAdvancedOption('receive', 'import private key', app.showImportPrivateKeyPopup.bind(app, advancedWallet)));
       }
 
       if (wallet.totalOffline + wallet.totalOnline <= 0) {
-        advanced.appendChild(app.createAdvancedOption('close', 'remove coin', app.removeCoin.bind(app, advancedWallet)));
+        advanced.appendChild(app.createAdvancedOption('remove', 'remove coin', app.removeCoin.bind(app, advancedWallet)));
       }
 
       document.getElementById('coinInfoDescription').innerHTML =
-        '<h2>' + wallet.handler.longname + '</h2>' +
+        '<h2>' + wallet.handler.longname + ' (' + wallet.handler.code + ')</h2>' +
         wallet.handler.description +
         '<div class="spacing stitch"></div>' +
         '<h3>links (external)</h3>' +
@@ -395,7 +395,7 @@ var app = {
     },
 
     popupAddCoin: function() {
-      this.openPopup('addCoinPopup', 'add cryptos', 'cream.plus');
+      this.openPopup('addCoinPopup', 'add cryptos');
       var that = this;
       if (typeof that.popupGenerated == 'undefined') {
         that.popupGenerated = true;
@@ -456,14 +456,14 @@ var app = {
     },
 
     popupHelp: function() {
-        this.openPopup('helpPopup', 'Help', 'cream.help');
+        this.openPopup('helpPopup', 'Help');
     },
     popupFeedback: function() {
-        this.openPopup('feedbackPopup', 'Feedback', 'cream.heart');
+        this.openPopup('feedbackPopup', 'Feedback');
     },
 
     popupPriceSettings: function() {
-        this.openPopup('priceSettingsPopup', 'Price Settings', 'cream.money');
+        this.openPopup('priceSettingsPopup', 'Price Settings');
 
         this.priceProviderSelect.setValue(this.settings.get('priceProvider', 0));
         this.priceUnitSelect.setValue(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
@@ -476,6 +476,8 @@ var app = {
 
         this.settings.set('priceUnit', this.priceUnitSelect.getValue());
         this.priceProvider.setUnit(this.settings.get('priceUnit'));
+
+        this.updateMarketCap();
     },
     pasteToSendForm: function(addr, args) {
       //TODO check if coin matches?
@@ -545,7 +547,7 @@ var app = {
         document.getElementById('offlineAssets').appendChild(a.row);
       }
 
-      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'list', 'coins/' + wallet.handler.icon + '.svg');
+      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'coins/' + wallet.handler.icon + '.svg');
       document.getElementById('addBalanceButtons').classList.toggle('hidden', !('getBalance' in wallet.handler));
       this.offlineAssetWallet = wallet;
     },
@@ -617,14 +619,17 @@ var app = {
     sendCoinValidateAddr: function(focus) {
       var valid = false;
       var elem = document.getElementById('sendCoinAddr');
-      elem.classList.remove('invalid');
-      elem.classList.remove('valid');
-      elem.parentElement.nextElementSibling.innerHTML = '';
+      elem.parentElement.classList.remove('invalid');
+      elem.parentElement.classList.remove('valid');
+      elem.parentElement.lastElementChild.innerHTML = '';
+
+      elem.parentElement.classList.toggle('filled', elem.value != '' || elem == document.activeElement);
+
       if (typeof focus == 'undefined') {
         valid = this.sendWallet.handler.validateAddress(elem.value);
-        elem.classList.add(valid ? 'valid' : 'invalid');
+        elem.parentElement.classList.add(valid ? 'valid' : 'invalid');
         if (!valid) {
-          elem.parentElement.nextElementSibling.innerHTML = 'invalid address';
+          elem.parentElement.lastElementChild.innerHTML = 'invalid address';
         }
       }
       return valid;
@@ -634,19 +639,22 @@ var app = {
       var valid = false;
       var amountElem = document.getElementById('sendCoinAmount');
       var valueElem = document.getElementById('sendCoinValue');
-      valueElem.parentElement.nextElementSibling.innerHTML = '';
+      valueElem.parentElement.lastElementChild.innerHTML = '';
 
-      amountElem.classList.remove('invalid');
-      amountElem.classList.remove('valid');
-      valueElem.classList.remove('invalid');
-      valueElem.classList.remove('valid');
+      amountElem.parentElement.classList.remove('invalid');
+      amountElem.parentElement.classList.remove('valid');
+      valueElem.parentElement.classList.remove('invalid');
+      valueElem.parentElement.classList.remove('valid');
+
+      amountElem.parentElement.classList.toggle('filled', amountElem.value != '' || amountElem == document.activeElement || valueElem == document.activeElement);
+      valueElem.parentElement.classList.toggle('filled', valueElem.value != '' || amountElem == document.activeElement || valueElem == document.activeElement);
 
       if (typeof focus == 'undefined') {
         valid = parseFloat(amountElem.value) > 0;
-        amountElem.classList.add(valid ? 'valid' : 'invalid');
-        valueElem.classList.add(valid ? 'valid' : 'invalid');
+        amountElem.parentElement.classList.add(valid ? 'valid' : 'invalid');
+        valueElem.parentElement.classList.add(valid ? 'valid' : 'invalid');
         if (!valid) {
-          valueElem.parentElement.nextElementSibling.innerHTML = 'invalid amount';
+          valueElem.parentElement.lastElementChild.innerHTML = 'invalid amount';
         }
       }
       return valid;
@@ -666,13 +674,15 @@ var app = {
     },
 
     sendCoinUpdateValue: function() {
+      var src = document.getElementById('sendCoinAmount').value;
       document.getElementById('sendCoinValue').value =
-        document.getElementById('sendCoinAmount').value * this.priceProvider.getPrice(this.sendWallet.handler.code);
+        src == '' ? '' : (src * this.priceProvider.getPrice(this.sendWallet.handler.code));
     },
 
     sendCoinUpdateAmount: function() {
+      var src = document.getElementById('sendCoinValue').value
       document.getElementById('sendCoinAmount').value =
-        document.getElementById('sendCoinValue').value / this.priceProvider.getPrice(this.sendWallet.handler.code);
+         src == '' ? src : src / this.priceProvider.getPrice(this.sendWallet.handler.code);
     },
     alertError: function(html, coin, debug) {
       this._alertMessage(html, coin, 'error');
@@ -772,8 +782,8 @@ var app = {
 
         new QRCode(document.getElementById('receiveCoinQrcode'), {
           text: addr == null ? wallet.data.addr : addr,
-          colorLight: '#eadfcb',
-          colorDark: '#766054'
+          colorLight: '#f7f5f2',
+          colorDark: '#463f3a'
         });
 
         this.receivingWallet = wallet;
@@ -802,14 +812,18 @@ var app = {
         this.data.load(function(){
             for(var key in this.data.wallets){
               if (this.data.wallets[key].enabled) {
-                this.addWalletWidget(this.data.wallets[key]);
+                if (!(this.data.wallets[key].coin in allCoinApis)) {
+                  app.alertError('coin ' + this.data.wallets[key].coin + ' is no longer supported');
+                  delete(this.data.wallets[key]);
+                } else {
+                  this.addWalletWidget(this.data.wallets[key]);
+                }
               }
             }
         }.bind(this));
         this.updateMarketCap();
 
-
-        rangeSlider.create(document.querySelectorAll('#sendCoinFee'), {
+        rangeSlider.create(document.getElementById('sendCoinFee'), {
             polyfill: true,
             vertical: false,
             min: 0,
@@ -817,6 +831,10 @@ var app = {
             step: 1,
             value: 50,
             borderRadius: 10,
+        });
+
+        document.getElementById('sendCoinFee').parentElement.addEventListener ("touchstart", function() {
+          document.getElementById('sendCoinFee').focus();
         });
 
         Logger.log("info", null, "application started");

@@ -72,7 +72,7 @@ var EthFunctions = {
 
 var EthTestHandler = {
     name: "ethereum-test",
-    code: "ETH.TEST",
+    code: "ETH.TST",
     icon: "eth.test",
     longname: "Ethereum Testnet",
     description:

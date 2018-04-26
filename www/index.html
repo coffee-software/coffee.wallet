@@ -21,45 +21,45 @@
               <li>
                 <a href="javascript:app.popupAddCoin()">
                   <img src="icons/plus.png"/>
-                  add&nbsp;coins...
+                  add&nbsp;currencies
                 </a>
               </li>
               <li>
                 <a href="javascript:app.popupPriceSettings()">
                   <img src="icons/money.png"/>
-                  price&nbsp;settings...
+                  price&nbsp;settings
                 </a>
               </li>
               <!--li>
                 <a href="javascript:app.popupSettings()">
                   <img src="icons/settings.png"/>
-                  coin settings...
+                  coin settings
                 </a>
               </li-->
               <li>
                 <a href="javascript:app.popupHelp()">
                   <img src="icons/help.png"/>
-                  help...
+                  help
                 </a>
               </li>
               <li>
                 <a id="feedback" href="javascript:app.popupFeedback()">
                   <img src="icons/heart.png"/>
-                  feedback...
+                  feedback
                 </a>
               </li>
-              <li>
+              <!--li>
                 <a href="javascript:app.exportAllKeys()">
-                  <img src="icons/send.png"/>
-                  export private keys...
+                  <img src="icons/export.png"/>
+                  export wallets
                 </a>
               </li>
               <li>
                 <a href="javascript:app.importAllKeys()">
-                  <img src="icons/receive.png"/>
-                  import private keys...
+                  <img src="icons/import.png"/>
+                  import wallets
                 </a>
-              </li>
+              </li-->
             </ul>
           </div>
 
@@ -91,7 +91,7 @@
                 <div id="walletsList">
                 </div>
           	    <div onclick="app.popupAddCoin()" class="walletsActions">
-                    add more cryptos
+                    add currencies
           	    </div>
               </div>
             </div>
@@ -130,7 +130,7 @@
           <h1>
             <a href="javascript:app.closePopup()" class="close"><img src="icons/hide.png"/></a>
             <span id="popupTitle"></span>
-            <img id="popupIcon" src="icons/close.png" style="display:none;"/>
+            <img id="popupIcon" src="icons/hide.png" style="display:none;"/>
           </h1>
           <div id="popupContent">
             <div id="coinInfoPopup" style="display:none;">
@@ -140,7 +140,7 @@
             <div id="offlineAssetsPopup" style="display:none;">
               <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
 
-              <div class="unpad stitch"></div>
+              <h2 style="text-align:center;">offline assets</h2>
               <div class="unpad">
                 <div id="offlineAssets">
 
@@ -149,12 +149,10 @@
 
               <div class="spacing">&nbsp;</div>
               <div class="row spacing">
-                <button class="f1 primary" onclick="app.popupAddOfflineAsset('balance', '')">
-                  <img src="icons/cream.plus.png"/>
+                <button class="box f1" onclick="app.popupAddOfflineAsset('balance', '')">
                   add balance
                 </button>
-                <button id="addBalanceButtons" class="f1 primary" onclick="app.popupAddOfflineAsset('addr', '')">
-                  <img src="icons/cream.plus.png"/>
+                <button id="addBalanceButtons" class="box f1" onclick="app.popupAddOfflineAsset('addr', '')">
                   add address
                 </button>
               </div>
@@ -167,7 +165,7 @@
               <select id="priceUnit">
               </select>
               <div class="actions">
-                <button class="icon-save" onclick="app.savePriceSettings()">
+                <button class="box icon-save" onclick="app.savePriceSettings()">
                   Save
                 </button>
               </div>
@@ -181,22 +179,37 @@
               <div id="allCoins"></div>
             </div>
             <div id="helpPopup" style="display:none;">
-              <h2>What is Lorem Ipsum?</h2>
+              <h2>Coffee Wallet</h2>
               <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                Coffee Wallet is a blockchain wallet and portfolio app.
+                It allows you to watch your funds stored elsewhere (paper/hardware/app/online wallets).
+                It also has a support for selected coins to send and receive from local wallet.
               </p>
-              <h2>Why do we use it?</h2>
+              <h2>Home Screen Layout</h2>
+                <img src="/img/help1.png" style="width:100%;" />
+                <ol>
+                  <li>Coin icon. Tap to activate row and see options. Tap again to see coin info and advanced options.</li>
+
+                  <li>Offline total. Total amount of read-only, offline balances you watch.</li>
+                  <li>Offline funds. Tap to see and edit your offline wallets and balances.</li>
+                  <li>Refresh button. Tap to refresh online and offile totals.</li>
+
+                  <li>Online total. Balance of your local wallets. Private keys to this wallets are stored on your device.</li>
+                  <li>Receive button. Tap to see local address and its QR code.</li>
+                  <li>Send button. Tap to see send form and send your funds from your wallet.</li>
+
+                  <li>Grand total. Total sum of all your offline and online funds.</li>
+                  <li>Menu with advanced options. Change price source and default currency here.</li>
+                  <li>Refresh all. Fetch rates from prices source and refresh all wallets balances. </li>
+                </ol>
+              <h2>More Info</h2>
               <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-              </p>
-              <h2>Where does it come from?</h2>
-              <p>
-              Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                For more information. please refer to online docs.
               </p>
             </div>
             <div id="feedbackPopup" style="display:none;">
               <h2>Coffee Wallet</h2>
-              <h3>Version: <strong><span class="VERSION">0.1.3</span></strong></h3>
+              <h3>Version: <strong><span class="VERSION">0.1.4</span></strong></h3>
 
               <a href="#" onclick="window.open('https://wallet.coffee/', '_system');">https://wallet.coffee/</a>
             </div>
@@ -216,7 +229,7 @@
             </div>
 
             <div id="addOfflineAssetAddrDiv">
-              <div class="spacing row">
+              <div class="formButtons row">
                 <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'addOfflineAssetAddr'))">
                   paste
                   <img src="icons/paste.png"/>
@@ -227,20 +240,25 @@
                 </button>
               </div>
 
-              <div class="field">
-                <label for="addOfflineAssetAddr">address:</label>
-                <input id="addOfflineAssetAddr" value=""/>
+              <div class="formFields">
+                <div class="field">
+                  <input id="addOfflineAssetAddr" value="" required />
+                  <label for="addOfflineAssetAddr">address</label>
+                </div>
               </div>
             </div>
 
-            <div id="addOfflineAssetBalanceDiv" class="field">
-              <label for="addOfflineAssetBalance">balance:</label>
-              <input id="addOfflineAssetBalance" value=""/>
+            <div class="formFields">
+              <div id="addOfflineAssetBalanceDiv" class="field">
+                <input type="number" id="addOfflineAssetBalance" value="" required />
+                <label for="addOfflineAssetBalance">balance</label>
+              </div>
+              <div class="field">
+                <input id="addOfflineAssetComment" value="" required />
+                <label for="addOfflineAssetComment">comment</label>
+              </div>
             </div>
-            <div class="field">
-              <label for="addOfflineAssetComment">comment:</label>
-              <input id="addOfflineAssetComment" value=""/>
-            </div>
+
           </div>
           <div id="sendPaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
@@ -252,7 +270,7 @@
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
               <button class="f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png"/></button>
             </div>
-            <div class="spacing row">
+            <div class="formButtons row">
               <button class="f1" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
                 paste
                 <img src="icons/paste.png"/>
@@ -262,62 +280,67 @@
                 scan
               </button>
             </div>
-            <div class="stitch"></div>
-
-            <div>
+            <div class="formFields">
               <div class="field">
-                <label for="sendCoinAddr">receiver:</label>
                 <input
                   id="sendCoinAddr"
-                  placeholder="address"
                   onfocus="app.sendCoinValidateAddr(true)"
                   onblur="app.sendCoinValidateAddr()"
+                  required
                 />
+                <label for="sendCoinAddr">recipient address</label>
+                <div class="legend"></div>
               </div>
-              <div class="validation"></div>
-            </div>
 
-            <div>
-              <div class="field">
-                <label for="sendCoinAmount">amount:</label>
-                <input
-                  id="sendCoinAmount"
-                  class="has-unit top"
-                  onfocus="app.sendCoinValidateAmount(true)"
-                  onblur="app.sendCoinValidateAmount()"
-                  onchange="app.sendCoinUpdateValue()"
-                  onkeyup="app.sendCoinUpdateValue()"
-                  placeholder="0.0"
-                />
-                <span class="input-unit" id="sendCoinName"></span>
+              <div class="row">
+                <div class="field f1">
+                  <input
+                    id="sendCoinAmount"
+                    type="number"
+                    class="has-unit"
+                    onfocus="app.sendCoinValidateAmount(true)"
+                    onblur="app.sendCoinValidateAmount()"
+                    onchange="app.sendCoinUpdateValue()"
+                    onkeyup="app.sendCoinUpdateValue()"
+                    required
+                  />
+                  <span class="input-unit" id="sendCoinName"></span>
+                  <label for="sendCoinAmount">amount</label>
+                  <div class="legend"></div>
+                </div>
+                <div class="equalizer">
+                  =
+                </div>
+                <div class="field f1">
+                  <input
+                    id="sendCoinValue"
+                    type="number"
+                    class="has-unit"
+                    onfocus="app.sendCoinValidateAmount(true)"
+                    onblur="app.sendCoinValidateAmount()"
+                    onchange="app.sendCoinUpdateAmount()"
+                    onkeyup="app.sendCoinUpdateAmount()"
+                    required
+                  />
+                  <span class="input-unit" id="sendFiatName"></span>
+                  <label for="sendCoinAmount">equivalent</label>
+                  <div class="legend"></div>
+                </div>
               </div>
-              <div class="fseparator"></div>
-              <div class="field">
-                <input
-                  id="sendCoinValue"
-                  class="has-unit bottom"
-                  onfocus="app.sendCoinValidateAmount(true)"
-                  onblur="app.sendCoinValidateAmount()"
-                  onchange="app.sendCoinUpdateAmount()"
-                  onkeyup="app.sendCoinUpdateAmount()"
-                  placeholder="0.0"
-                />
-                <span class="input-unit" id="sendFiatName"></span>
-              </div>
-              <div class="validation"></div>
-            </div>
 
-            <div>
               <div class="field">
-                <label for="sendCoinFee">fee:</label>
                 <div class="range-input">
                   <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
                 </div>
-                <label class="fee" for="sendCoinFee">
-                  <strong><span id="feeAmount">0</span></strong>
-                  <br/>
-                  est. confirm: <strong><span id="feeTime">0 min</span></strong>
-                </label>
+
+                <div class="row fee">
+                  <div class="f3" style="text-align:left;">
+                    fee: <strong><span id="feeAmount">0</span></strong>
+                  </div>
+                  <div class="f2" style="text-align:right;">
+                    est. time: <strong><span id="feeTime">0 min</span></strong>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -329,13 +352,13 @@
               <img class="actionRight" src="icons/submit.copy.png"/>
             </div>
             <div class="formActions row">
-              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> close</button>
               <button class="f1 submit" onclick="app.copyReceiveCoinAddrToClp()">copy <img src="icons/ico.copy.png"/></button>
             </div>
 
-            <div class="field">
+            <div class="receiveAddr">
               <label><span id="receiveCoinName"></span></label>
-              <input readonly="readonly" id="receiveCoinAddr" value=""/>
+              <textarea readonly="readonly" id="receiveCoinAddr"></textarea>
             </div>
             <div id="receiveCoinQrcode"></div>
           </div>

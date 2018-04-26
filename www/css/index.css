@@ -2,26 +2,6 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-/* DEV ONLY:
-html {
-  background-image: url(../dev1.png);
-  background-size: 100%;
-  background-position: 0 0;
-}
-
-body {
-  opacity: 0;
-  animation: DEV 2s infinite;
-  transition: 2s opacity ease;
-}
-
-@keyframes DEV {
-  0%   { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
-*/
-
 /**
 color palete:
   coffe: #766054;
@@ -159,15 +139,14 @@ h1, h2, h3 {
 #menu a {
   display: block;
   color: #766054;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 32px;
   text-decoration: none;
-  padding: 7px 15px;
-  font-style: italic;
+  padding: 7px 25px 7px 15px;
 }
 
 #menu a:hover {
-  background: linear-gradient(to right, #f7f5f2, #c2b28f 40%, #c2b28f 50%, #f7f5f2);
+  background: #c2b28f;
   color: #766054;
 }
 
@@ -423,7 +402,7 @@ table {
   position: absolute;
   left: 50%;
   margin-left: -35px;
-  bottom: -35px;
+  top: -35px;
 }
 .formContent .actionLeft {
   position: absolute;
@@ -598,6 +577,10 @@ table {
   line-height: 16px;
 }
 
+#coinInfoPopup ul li {
+  margin-bottom: 5px;
+}
+
 #coinInfoPopup ul li:before{
   width: 14px;
     content: ' ';
@@ -605,6 +588,7 @@ table {
     height: 14px;
     margin-left: -20px;
     margin-right: 6px;
+    margin-bottom: -3px;
    background-image: url(../icons/bullet.png);
 }
 
@@ -637,3 +621,41 @@ a:active {
 #coinInfoPopup ul.advancedActions li:before {
   display: none;
 }
+
+
+.receiveAddr {
+  border: 1px solid #766054;
+  border-radius: 50px;
+  margin: 0 24px;
+  padding: 8px 0;
+  position: relative;
+}
+
+.receiveAddr label {
+  position: absolute;
+  top: -11px;
+  background: #463f3a;
+  left: 50%;
+  width: 240px;
+  margin-left: -120px;
+  font-size: 14px;
+}
+.receiveAddr textarea {
+  font-size: 13px;
+  text-align: center;
+  display: block;
+  line-height: 18px;
+  height: 18px;
+}
+
+#receiveCoinQrcode {
+  margin: 12px;
+  padding: 12px;
+  background: #f7f5f2;
+}
+
+.running img {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 100% { transform:rotate(360deg); } }
