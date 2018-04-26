@@ -406,7 +406,7 @@ var app = {
             for (var i = 0; i < document.getElementById('allCoins').children.length; i++) {
               var cbutton = document.getElementById('allCoins').children[i];
 
-              var show = cbutton.dataset.search.search(search) != -1;
+              var show = (search.length > -1) && (cbutton.dataset.search.search(search) != -1);
               if (onlySupported) show = show && (cbutton.dataset.supported == 'true');
               cbutton.classList.toggle(
                 'hidden',
@@ -451,6 +451,8 @@ var app = {
             button.classList.add('coinButton');
             document.getElementById("allCoins").appendChild(button);
           });
+
+          filter();
         }, 500);
       }
     },

@@ -520,11 +520,13 @@ table {
     width: 25%;
     display: inline-block;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .coinButton img {
   width: 64px;
   margin: 5px;
+  margin-bottom: 0;
 }
 
 .center {
