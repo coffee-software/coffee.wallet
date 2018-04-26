@@ -229,7 +229,7 @@
             </div>
 
             <div id="addOfflineAssetAddrDiv">
-              <div class="spacing row">
+              <div class="formButtons row">
                 <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'addOfflineAssetAddr'))">
                   paste
                   <img src="icons/paste.png"/>
@@ -240,20 +240,25 @@
                 </button>
               </div>
 
-              <div class="field">
-                <label for="addOfflineAssetAddr">address:</label>
-                <input id="addOfflineAssetAddr" value=""/>
+              <div class="formFields">
+                <div class="field">
+                  <input id="addOfflineAssetAddr" value="" required />
+                  <label for="addOfflineAssetAddr">address</label>
+                </div>
               </div>
             </div>
 
-            <div id="addOfflineAssetBalanceDiv" class="field">
-              <label for="addOfflineAssetBalance">balance:</label>
-              <input id="addOfflineAssetBalance" value=""/>
+            <div class="formFields">
+              <div id="addOfflineAssetBalanceDiv" class="field">
+                <input type="number" id="addOfflineAssetBalance" value="" required />
+                <label for="addOfflineAssetBalance">balance</label>
+              </div>
+              <div class="field">
+                <input id="addOfflineAssetComment" value="" required />
+                <label for="addOfflineAssetComment">comment</label>
+              </div>
             </div>
-            <div class="field">
-              <label for="addOfflineAssetComment">comment:</label>
-              <input id="addOfflineAssetComment" value=""/>
-            </div>
+
           </div>
           <div id="sendPaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">

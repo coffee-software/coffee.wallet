@@ -3,7 +3,6 @@ TODO:
 0.1: test release 1:
 
 * new-design:
-** offline forms
 ** price settings
 
 * public repo
@@ -19,6 +18,7 @@ TODO:
 
 1.0: public release
 
+* offline asset addr validation
 * enable-coins
 * BIP32 + new address per transaction
 * fasttap all clicks
