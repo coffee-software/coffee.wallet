@@ -349,13 +349,13 @@
               <img class="actionRight" src="icons/submit.copy.png"/>
             </div>
             <div class="formActions row">
-              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> close</button>
               <button class="f1 submit" onclick="app.copyReceiveCoinAddrToClp()">copy <img src="icons/ico.copy.png"/></button>
             </div>
 
-            <div class="field">
+            <div class="receiveAddr">
               <label><span id="receiveCoinName"></span></label>
-              <input readonly="readonly" id="receiveCoinAddr" value=""/>
+              <textarea readonly="readonly" id="receiveCoinAddr"></textarea>
             </div>
             <div id="receiveCoinQrcode"></div>
           </div>

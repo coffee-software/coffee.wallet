@@ -402,7 +402,7 @@ table {
   position: absolute;
   left: 50%;
   margin-left: -35px;
-  bottom: -35px;
+  top: -35px;
 }
 .formContent .actionLeft {
   position: absolute;
@@ -615,4 +615,36 @@ a:active {
 }
 #coinInfoPopup ul.advancedActions li:before {
   display: none;
+}
+
+
+.receiveAddr {
+  border: 1px solid #766054;
+  border-radius: 50px;
+  margin: 0 24px;
+  padding: 8px 0;
+  position: relative;
+}
+
+.receiveAddr label {
+  position: absolute;
+  top: -11px;
+  background: #463f3a;
+  left: 50%;
+  width: 240px;
+  margin-left: -120px;
+  font-size: 14px;
+}
+.receiveAddr textarea {
+  font-size: 13px;
+  text-align: center;
+  display: block;
+  line-height: 18px;
+  height: 18px;
+}
+
+#receiveCoinQrcode {
+  margin: 12px;
+  padding: 12px;
+  background: #f7f5f2;
 }

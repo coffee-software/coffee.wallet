@@ -89,18 +89,29 @@ button.primary.stitched:before {
 }
 
 input {
-    padding: 9px 0;
-    font-size: 15px;
-    width: 100%;
-    box-sizing: border-box;
-    border:none;
-    border-bottom:1px dashed #766054;
-    margin: 0;
-    background: none;
-    color: #f7f5f2;
-    font-family: 'Poppins', serif;
+  padding: 9px 0;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  border:none;
+  border-bottom:1px dashed #766054;
+  margin: 0;
+  background: none;
+  color: #f7f5f2;
+  font-family: 'Poppins', serif;
 }
 
+textarea {
+   resize: none;
+   padding: 9px 0;
+   font-size: 15px;
+   width: 100%;
+   border:none;
+   margin: 0;
+   background: none;
+   color: #f7f5f2;
+   font-family: 'Poppins', serif;
+}
 *:focus {
   outline: none;
 }

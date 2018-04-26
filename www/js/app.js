@@ -780,8 +780,8 @@ var app = {
 
         new QRCode(document.getElementById('receiveCoinQrcode'), {
           text: addr == null ? wallet.data.addr : addr,
-          colorLight: '#eadfcb',
-          colorDark: '#766054'
+          colorLight: '#f7f5f2',
+          colorDark: '#463f3a'
         });
 
         this.receivingWallet = wallet;
