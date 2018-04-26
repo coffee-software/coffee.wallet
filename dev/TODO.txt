@@ -2,22 +2,14 @@ TODO:
 
 0.1: test release 1:
 
-* new-design:
-** price settings
-
 * public repo
-* BIP72 / BIP73  https://bitpay.com/invoiceData/MjGvVH2K9rDkWFRCCSeCGz?poll=false
+
+1.0: public release nr2
 
 * import / export cleanup.
 ** Export -> form -> confirm -> cordova social sharing. ?BIP38?
 ** Import -> open file / paste clip? -> pass form -> confirm
-
-* refresh indicator
-
-* help
-
-1.0: public release
-
+* BIP72 / BIP73  https://bitpay.com/invoiceData/MjGvVH2K9rDkWFRCCSeCGz?poll=false
 * offline asset addr validation
 * enable-coins
 * BIP32 + new address per transaction

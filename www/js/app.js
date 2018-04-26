@@ -371,8 +371,8 @@ var app = {
       var advancedWallet = wallet;
 
       if ('newPrivateKey' in wallet.handler) {
-        advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
-        advanced.appendChild(app.createAdvancedOption('receive', 'import private key', app.showImportPrivateKeyPopup.bind(app, advancedWallet)));
+        //advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
+        //advanced.appendChild(app.createAdvancedOption('receive', 'import private key', app.showImportPrivateKeyPopup.bind(app, advancedWallet)));
       }
 
       if (wallet.totalOffline + wallet.totalOnline <= 0) {
