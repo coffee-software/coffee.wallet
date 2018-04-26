@@ -112,6 +112,10 @@ input:active, input:focus {
     border-color: #f7f5f2;
 }
 
+.field.dark input:active, .field.dark input:focus {
+    border-color: #463f3a;
+}
+
 input::placeholder {
     font-style: italic;
 }
@@ -176,6 +180,10 @@ input.has-unit {
 
 .field input:focus ~ label	{
   color: #f7f5f2;
+}
+
+.field.dark input, .field.dark input:focus ~ label	{
+  color: #463f3a;
 }
 
 .field.invalid label {
@@ -282,26 +290,28 @@ input[type=range]:focus+.rangeSlider .rangeSlider__handle{
 }
 
 label.checkbox {
-    height: 34px;
-    padding: 4px;
+    height: 22px;
+    line-height: 22px;
     display: block;
 }
 
 .checkbox input {
-  display:inline-block;
-  width: 54px;
-  border: none;
-  box-shadow: none;
+  display: none;
 }
 
-.checkbox input:before {
-  content:""; display:inline-block; width:53px; height:32px; background-image: url('../icons/check.off.png');
-  background-size: contain;
+.checkbox input ~ .fakecheck {
+  content: "";
+  display: block;
+  float: left;
+  width: 48px;
+  height: 22px;
+  background-size: auto 44px;
+  background-image: url(../icons/check.png);
   background-repeat: no-repeat;
 }
 
-.checkbox input:checked:before {
-  background-image: url('../icons/check.on.png');
+.checkbox input:checked ~ .fakecheck {
+  background-position: 0 -22px;
 }
 
 

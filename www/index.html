@@ -171,11 +171,17 @@
               </div>
             </div>
             <div id="addCoinPopup" style="display:none;">
-              <input id="addCoinFilter" placeholder="search..." value=""/>
-              <label class="checkbox">
-                <input type="checkbox" id="addCoinOnlySupported" /> show only coins with full wallet support
-              </label>
-
+              <div style="padding:0 7px 20px 7px">
+                <div class="field dark" style="padding-bottom: 15px;">
+                  <input id="addCoinFilter" value="" required/>
+                  <label for="addCoinFilter">search</label>
+                </div>
+                <label class="checkbox">
+                  <input type="checkbox" id="addCoinOnlySupported" />
+                  <div class="fakecheck"></div>
+                  show only coins with full wallet support
+                </label>
+              </div>
               <div id="allCoins"></div>
             </div>
             <div id="helpPopup" style="display:none;">
@@ -209,7 +215,7 @@
             </div>
             <div id="feedbackPopup" style="display:none;">
               <h2>Coffee Wallet</h2>
-              <h3>Version: <strong><span class="VERSION">0.1.4</span></strong></h3>
+              <h3>Version: <strong><span class="VERSION">0.1.5</span></strong></h3>
 
               <a href="#" onclick="window.open('https://wallet.coffee/', '_system');">https://wallet.coffee/</a>
             </div>
