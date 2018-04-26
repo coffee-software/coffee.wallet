@@ -153,7 +153,7 @@ var app = {
     },
 
     updateMarketCap: function() {
-      document.getElementById('refresh').classList.add('disabled');
+      document.getElementById('refresh').classList.add('running');
       this.priceProvider.updatePrices(function(){
         var totalOnline = 0;
         var totalOffline = 0;
@@ -164,7 +164,7 @@ var app = {
         document.getElementById('grandTotal').innerHTML = formatMoney(totalOnline + totalOffline, app.priceProvider.getUnit());
         document.getElementById('totalOnline').innerHTML = formatMoney(totalOnline, app.priceProvider.getUnit());
         //plnTotal
-        document.getElementById('refresh').classList.remove('disabled');
+        document.getElementById('refresh').classList.remove('running');
       });
     },
 
@@ -476,6 +476,8 @@ var app = {
 
         this.settings.set('priceUnit', this.priceUnitSelect.getValue());
         this.priceProvider.setUnit(this.settings.get('priceUnit'));
+
+        this.updateMarketCap();
     },
     pasteToSendForm: function(addr, args) {
       //TODO check if coin matches?

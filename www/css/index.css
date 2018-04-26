@@ -653,3 +653,9 @@ a:active {
   padding: 12px;
   background: #f7f5f2;
 }
+
+.running img {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 100% { transform:rotate(360deg); } }

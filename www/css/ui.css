@@ -20,6 +20,13 @@ button img {
   margin: 0 3px;
 }
 
+select {
+    background: #766054;
+    padding: 10px;
+    margin: 10px;
+    color: #f7f5f2;
+}
+
 .formActions .cancel {
   color: #766054;
   text-align: left;
