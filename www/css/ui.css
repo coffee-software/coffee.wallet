@@ -26,6 +26,22 @@ button.submit {
   padding: 16px;
 }
 
+.formButtons .f1 {
+  border: 1px solid #766054;
+  border-radius: 25px;
+  color: #eadfcb;
+}
+
+.formButtons .f1:first-child {
+  border-left: none;
+  border-radius: 0 25px 25px 0;
+}
+
+.formButtons .f1:last-child {
+  border-right: none;
+  border-radius: 25px 0 0 25px;
+}
+
 .stitched:before {
   content: " ";
   position: absolute;
@@ -64,7 +80,7 @@ input {
     width: 100%;
     box-sizing: border-box;
     border:none;
-    border-bottom:1px solid #766054;
+    border-bottom:1px dashed #766054;
     margin: 0;
     background: none;
     color: #f7f5f2;
@@ -90,14 +106,6 @@ input.invalid {
 input.valid {
     border-color: #635920;
 }
-div.validation {
-    text-align: right;
-    color: #932020;
-    position: absolute;
-    left: 0;
-    right: 33px;
-}
-
 input.has-unit {
   padding-right: 55px;
 }
@@ -108,6 +116,15 @@ input.has-unit {
   font-size: 14px;
   padding: 24px 0;
 }
+
+.field .legend {
+    text-align: right;
+    color: #932020;
+    position: absolute;
+    left: 0;
+    right: 33px;
+}
+
 
 .field label {
   position:absolute;
@@ -124,20 +141,31 @@ input.has-unit {
   top: 10px;
   font-size: 14px;
 }
+
+.field.filled label {
+  top: 10px;
+  font-size: 14px;
+}
+
 .field input:focus ~ label	{
   color: #f7f5f2;
 }
 
-.field label.fee {
-  text-align: left;
-  font-size: 12px;
-  text-align: left;
+.field strong	{
+  color: #f7f5f2;
+  font-weight: normal;
 }
-
+.field .fee	{
+  font-size: 12px;
+}
 .input-unit {
   position: absolute;
-  bottom: 11px;
-  right: 12px;
+  top: 35px;
+  right: 8px;
+  color: #766054;
+}
+
+.field.filled .input-unit {
   color: #f7f5f2;
 }
 
@@ -160,13 +188,13 @@ input.has-unit {
 }
 
 .rangeSlider__horizontal {
-  height:10px;
+  height:3px;
   width:100%
 }
 
 .rangeSlider__vertical {
   height:100%;
-  width:10px
+  width:3px
 
 }.rangeSlider--disabled {
   filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
@@ -206,7 +234,7 @@ input.has-unit {
 }
 
 .rangeSlider__handle__horizontal{
-  top:-15px
+    top: -19px;
 }
 
 .rangeSlider__handle__vertical{

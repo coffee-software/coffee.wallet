@@ -645,6 +645,7 @@ var app = {
       valueElem.classList.remove('valid');
 
       amountElem.parentElement.classList.toggle('filled', amountElem.value != '' || amountElem == document.activeElement || valueElem == document.activeElement);
+      valueElem.parentElement.classList.toggle('filled', valueElem.value != '' || valueElem == document.activeElement || valueElem == document.activeElement);
 
       if (typeof focus == 'undefined') {
         valid = parseFloat(amountElem.value) > 0;
@@ -671,13 +672,15 @@ var app = {
     },
 
     sendCoinUpdateValue: function() {
+      var src = document.getElementById('sendCoinAmount').value;
       document.getElementById('sendCoinValue').value =
-        document.getElementById('sendCoinAmount').value * this.priceProvider.getPrice(this.sendWallet.handler.code);
+        src == '' ? '' : (src * this.priceProvider.getPrice(this.sendWallet.handler.code));
     },
 
     sendCoinUpdateAmount: function() {
+      var src = document.getElementById('sendCoinValue').value
       document.getElementById('sendCoinAmount').value =
-        document.getElementById('sendCoinValue').value / this.priceProvider.getPrice(this.sendWallet.handler.code);
+         src == '' ? src : src / this.priceProvider.getPrice(this.sendWallet.handler.code);
     },
     alertError: function(html, coin, debug) {
       this._alertMessage(html, coin, 'error');

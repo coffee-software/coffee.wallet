@@ -267,7 +267,7 @@
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
               <button class="f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png"/></button>
             </div>
-            <div class="spacing row">
+            <div class="formButtons spacing row">
               <button class="f1" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
                 paste
                 <img src="icons/paste.png"/>
@@ -277,7 +277,6 @@
                 scan
               </button>
             </div>
-            <div class="stitch"></div>
 
             <div class="field">
               <input
@@ -287,13 +286,14 @@
                 required
               />
               <label for="sendCoinAddr">recipient address</label>
-              <div class="validation"></div>
+              <div class="legend"></div>
             </div>
 
             <div class="row">
               <div class="field f1">
                 <input
                   id="sendCoinAmount"
+                  type="number"
                   class="has-unit"
                   onfocus="app.sendCoinValidateAmount(true)"
                   onblur="app.sendCoinValidateAmount()"
@@ -309,6 +309,7 @@
               <div class="field f1">
                 <input
                   id="sendCoinValue"
+                  type="number"
                   class="has-unit"
                   onfocus="app.sendCoinValidateAmount(true)"
                   onblur="app.sendCoinValidateAmount()"
@@ -324,15 +325,18 @@
 
             <div>
               <div class="field">
-                <label for="sendCoinFee">fee:</label>
                 <div class="range-input">
                   <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
                 </div>
-                <label class="fee" for="sendCoinFee">
-                  <strong><span id="feeAmount">0</span></strong>
-                  <br/>
-                  est. confirm: <strong><span id="feeTime">0 min</span></strong>
-                </label>
+
+                <div class="row fee">
+                  <div class="f1">
+                    fee:<strong><span id="feeAmount">0</span></strong>
+                  </div>
+                  <div class="f1">
+                    est. confirm: <strong><span id="feeTime">0 min</span></strong>
+                  </div>
+                </div>
               </div>
             </div>
 
