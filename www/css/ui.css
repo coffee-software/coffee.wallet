@@ -1,10 +1,17 @@
 button {
   border: none;
   background: none;
-  color: #766054;
   font-family: 'Poppins', serif;
   text-align: center;
   font-size: 17px;
+  color: #766054;
+}
+
+button.box {
+  background: #766054;
+  padding: 10px;
+  margin: 10px;
+  color: #f7f5f2;
 }
 
 button img {
@@ -12,16 +19,15 @@ button img {
   width: 26px;
   margin: 0 3px;
 }
-button.submit {
-  color: #f7f5f2;
-}
 
 .formActions .cancel {
+  color: #766054;
   text-align: left;
   padding: 16px;
 }
 
 .formActions .submit {
+  color: #f7f5f2;
   text-align: right;
   padding: 16px;
 }
@@ -65,27 +71,6 @@ button.submit {
   bottom: 7px;
   border: 1px dashed #c2b28f;
   border-radius: 12px;
-}
-
-button.large {
-  line-height: 22px;
-  font-size: 11px;
-  font-weight: bold;
-  padding: 22px;
-  text-transform: uppercase;
-}
-
-button.primary.stitched:before {
-  border: 1px dashed #766054;
-}
-button.primary {
-  background: #766054;
-  color: #f7f5f2;
-  box-shadow: 1px 1px 1px rgba(50,50,0,0.5);
-}
-
-button.primary.stitched:before {
-  border-color: #ecdec6;
 }
 
 input {
