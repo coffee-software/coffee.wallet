@@ -403,6 +403,9 @@ table {
   left: 50%;
   margin-left: -35px;
   top: -35px;
+  background-image: url(../icons/coinbg.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 .formContent .actionLeft {
   position: absolute;
