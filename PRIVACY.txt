@@ -1,0 +1,27 @@
+Privacy Policy
+
+Coffee Wallet was build by Franciszek Wawrzak as an Open Source app. 
+App is provided as is with no warranties.
+
+
+Information Collection And Use
+
+Coffee Wallet stores data in secure device memory. 
+Signed transaction are sent to third-party providers and are publicly available in  blockchains. 
+Logs with activity are stored on device.
+Third-party providers are also queried for various blockchain data and this request might be logged.
+No data is send to any Coffee Wallets servers.
+
+
+Camera Data
+
+Coffee Wallet uses device camera on user demand to read QR codes. 
+Aquired codes are used in transactions. 
+No other data from camera is stored.
+
+
+Changes to This Privacy Policy
+
+This Privacy Policy might be changed and posted here.
+
+

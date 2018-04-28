@@ -373,7 +373,7 @@ table {
   bottom: 0;
   left: 0;
   z-index: 100;
-  transition: margin 0.5s ease, filter 0.5s;
+  transition: margin 0.4s ease, filter 0.5s;
 }
 
 #formPopup {
@@ -381,7 +381,7 @@ table {
   bottom: -100%;
   width: 100%;
   height: 100%;
-  transition: bottom 1s ease;
+  transition: bottom 0.4s ease;
   z-index: 200;
 }
 #formPopup.show {
@@ -403,6 +403,9 @@ table {
   left: 50%;
   margin-left: -35px;
   top: -35px;
+  background-image: url(../icons/coinbg.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 .formContent .actionLeft {
   position: absolute;
