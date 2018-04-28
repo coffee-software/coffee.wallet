@@ -153,7 +153,17 @@ var app = {
     },
 
     updateMarketCap: function() {
-      document.getElementById('refresh').classList.add('running');
+      var that = this;
+
+      var spinner = function(){
+        document.getElementById('refresh').classList.toggle('spinning', that.spinning);
+        if (that.spinning) {
+          setTimeout(spinner, 1000);
+        }
+      };
+      that.spinning = true;
+      spinner();
+
       this.priceProvider.updatePrices(function(){
         var totalOnline = 0;
         var totalOffline = 0;
@@ -164,7 +174,7 @@ var app = {
         document.getElementById('grandTotal').innerHTML = formatMoney(totalOnline + totalOffline, app.priceProvider.getUnit());
         document.getElementById('totalOnline').innerHTML = formatMoney(totalOnline, app.priceProvider.getUnit());
         //plnTotal
-        document.getElementById('refresh').classList.remove('running');
+        that.spinning = false;
       });
     },
 

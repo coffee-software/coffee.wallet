@@ -656,8 +656,9 @@ a:active {
   background: #f7f5f2;
 }
 
-.running img {
-  animation: spin 1s linear infinite;
+.spinner.spinning img {
+  animation: spin 1s linear 0s infinite;
+
 }
 
 @keyframes spin { 100% { transform:rotate(360deg); } }

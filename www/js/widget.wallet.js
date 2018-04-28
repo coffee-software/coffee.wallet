@@ -103,7 +103,16 @@ function Wallet(data) {
 
   var buttonsDiv2 = document.createElement("div");
   buttonsDiv2.classList.add('buttons');
-  var refreshButton = createButton('refresh', function(){refreshButton.classList.add('running'); that.refreshOnline(function(){refreshButton.classList.remove('running')}); that.refreshOffline();});
+
+  var spinner = function() {
+      refreshButton.classList.toggle('spinning', that.running);
+      if (that.running) {
+        setTimeout(spinner, 1000);
+      }
+  };
+
+  var refreshButton = createButton('refresh', function(){that.running = true; spinner(); that.refreshOnline(function(){that.running = false;}); that.refreshOffline();});
+  refreshButton.classList.add('spinner');
   buttonsDiv2.appendChild(refreshButton);
   buttonsDiv2.appendChild(createButton('list', function(){app.popupOfflineAssets(that);}));
 
@@ -188,6 +197,8 @@ function Wallet(data) {
         }
         if (typeof callback != 'undefined') callback();
       });
+    } else {
+      if (typeof callback != 'undefined') callback();
     }
 
   }
