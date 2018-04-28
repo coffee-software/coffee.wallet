@@ -16,9 +16,6 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     },
-    "phonegap-plugin-barcodescanner": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
-    },
     "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     },
@@ -28,7 +25,10 @@
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     },
-    "eeschiavo-cordova-plugin-clipboard": {
+    "phonegap-plugin-barcodescanner": {
+      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+    },
+    "cordova-clipboard": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     }
   },
