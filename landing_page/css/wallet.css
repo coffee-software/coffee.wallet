@@ -15,7 +15,7 @@
 }
 
 .device .screen {
-  background-color: #eadfcb;
+  background-color: #f7f5f2;
 }
 .snap-bottom {
   position: absolute;
@@ -23,9 +23,9 @@
 }
 
 header.masthead {
-  background: url(../img/wallpaper.jpg),#62422b;
-  background: url(../img/wallpaper.jpg),-webkit-linear-gradient(to bottom right,#62422b,#2b0f0e);
-  background: url(../img/wallpaper.jpg),linear-gradient(to bottom right,#62422b,#2b0f0e);
+  background: #62422b;
+  background: -webkit-linear-gradient(to bottom right,#62422b,#2b0f0e);
+  background: linear-gradient(to bottom right,#62422b,#2b0f0e);
   background-position: center;
 }
 
