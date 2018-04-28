@@ -10,7 +10,7 @@
   "phonegap-plugin-barcodescanner": {
     "source": {
       "type": "registry",
-      "id": "https://github.com/phonegap/phonegap-plugin-barcodescanner.git"
+      "id": "git+https://github.com/phonegap/phonegap-plugin-barcodescanner.git"
     },
     "is_top_level": true,
     "variables": {}
@@ -75,6 +75,14 @@
     "source": {
       "type": "registry",
       "id": "eeschiavo-cordova-plugin-clipboard"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-clipboard": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/ihadeed/cordova-clipboard"
     },
     "is_top_level": true,
     "variables": {}

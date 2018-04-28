@@ -11,6 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-browser": "^5.0.3",
+    "cordova-clipboard": "git+https://github.com/ihadeed/cordova-clipboard.git",
     "cordova-plugin-dialogs": "^2.0.1",
     "cordova-plugin-inappbrowser": "^2.0.2",
     "cordova-plugin-nativestorage": "^2.2.2",
@@ -29,7 +30,8 @@
       "cordova-plugin-nativestorage": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-splashscreen": {},
-      "eeschiavo-cordova-plugin-clipboard": {}
+      "eeschiavo-cordova-plugin-clipboard": {},
+      "cordova-clipboard": {}
     },
     "platforms": [
       "browser"

@@ -1,0 +1,75 @@
+{
+  "_args": [
+    [
+      "https://github.com/ihadeed/cordova-clipboard",
+      "/home/fsw/workspace/coffee.wallet"
+    ]
+  ],
+  "_from": "git+https://github.com/ihadeed/cordova-clipboard.git",
+  "_id": "cordova-clipboard@1.2.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-clipboard",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/ihadeed/cordova-clipboard/master/package.json",
+      "gitUrl": "git://github.com/ihadeed/cordova-clipboard.git",
+      "httpsUrl": "git+https://github.com/ihadeed/cordova-clipboard.git",
+      "shortcut": "github:ihadeed/cordova-clipboard",
+      "ssh": "git@github.com:ihadeed/cordova-clipboard.git",
+      "sshUrl": "git+ssh://git@github.com/ihadeed/cordova-clipboard.git",
+      "type": "github"
+    },
+    "name": null,
+    "raw": "https://github.com/ihadeed/cordova-clipboard",
+    "rawSpec": "https://github.com/ihadeed/cordova-clipboard",
+    "scope": null,
+    "spec": "git+https://github.com/ihadeed/cordova-clipboard.git",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/ihadeed/cordova-clipboard.git#5a5f3ee0e0e095e46b3cc1c41fb1bbee51edbc84",
+  "_shasum": "087388e0faf56535da0c18e5c01b984f1144b538",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/ihadeed/cordova-clipboard",
+  "_where": "/home/fsw/workspace/coffee.wallet",
+  "author": {
+    "name": "Ibrahim Hadeed"
+  },
+  "bugs": {
+    "url": "https://github.com/ihadeed/cordova-clipboard/issues"
+  },
+  "cordova": {
+    "id": "cordova-clipboard",
+    "platforms": [
+      "android",
+      "ios",
+      "wp8"
+    ]
+  },
+  "dependencies": {},
+  "description": "Clipboard management plugin for Cordova/PhoneGap that supports iOS, Android, and WP8",
+  "devDependencies": {},
+  "gitHead": "5a5f3ee0e0e095e46b3cc1c41fb1bbee51edbc84",
+  "homepage": "https://github.com/ihadeed/cordova-clipboard#readme",
+  "keywords": [
+    "clipboard",
+    "cordova",
+    "ionic",
+    "phonegap",
+    "plugin"
+  ],
+  "license": "MIT",
+  "name": "cordova-clipboard",
+  "optionalDependencies": {},
+  "readme": "Clipboard\n=========\n\nClipboard management plugin for Cordova/PhoneGap that supports iOS, Android, and Windows Phone 8.\n\n## Usage\n\n```\ncordova plugin add cordova-clipboard\n```\n\nThe plugin creates the object `cordova.plugins.clipboard` with the methods `copy(text, onSuccess, onError)`, `paste(onSuccess, onError)` and `clear(onSuccess, onError)`\n\nExample:\n\n\tvar text = \"Hello World!\";\n\n\tcordova.plugins.clipboard.copy(text);\n\n\tcordova.plugins.clipboard.paste(function (text) { alert(text); });\n\n\tcordova.plugins.clipboard.clear();\n\n## Notes\n\n### All platforms\n\n- The plugin only works with text content.\n\n### Windows Phone\n\n- The Windows Phone platform doesn't allow applications to read the content of the clipboard. Using the `paste` method will return an error.\n\n### Android\n\n- The minimum supported API Level is 11. Make sure that `minSdkVersion` is larger or equal to 11 in `AndroidManifest.xml`.\n\n## Acknowledgements\n\nThis plugin was inspired by [ClipboardManagerPlugin](https://github.com/jacob/ClipboardManagerPlugin) (Android) and [ClipboardPlugin](https://github.com/phonegap/phonegap-plugins/tree/master/iPhone/ClipboardPlugin) (iOS).\n\n## License\n\nThe MIT License (MIT)\n\nCopyright (c) 2013 Verso Solutions LLC\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihadeed/cordova-clipboard.git"
+  },
+  "version": "1.2.1"
+}
