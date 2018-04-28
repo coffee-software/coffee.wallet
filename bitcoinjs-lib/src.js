@@ -67,15 +67,25 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 			//
 			var txb = new bitcoin.TransactionBuilder(network.network);
 			var totalIn = 0;
-			for (var i = xhr.response.txrefs.length - 1; i >= 0; i --) {
-				totalIn += xhr.response.txrefs[i].value;
-				//console.log(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n));
-				txb.addInput(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n));
-				//console.log(txb.inputs);
-				if (totalIn >= amount + fee) break; //we have enough fees
+			if ('txrefs' in xhr.response) {
+				for (var i = xhr.response.txrefs.length - 1; i >= 0; i --) {
+					totalIn += xhr.response.txrefs[i].value;
+					txb.addInput(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n));
+					//console.log(txb.inputs);
+					if (totalIn >= amount + fee) break; //we have enough fees
+				}
 			}
+			if ('unconfirmed_txrefs' in xhr.response) {
+				for (var i = xhr.response.unconfirmed_txrefs.length - 1; i >= 0; i --) {
+					totalIn += xhr.response.unconfirmed_txrefs[i].value;
+					txb.addInput(xhr.response.unconfirmed_txrefs[i].tx_hash, parseInt(xhr.response.unconfirmed_txrefs[i].tx_output_n));
+					//console.log(txb.inputs);
+					if (totalIn >= amount + fee) break; //we have enough fees
+				}
+			}
+
 			if (totalIn < amount + fee) {
-				error('There is no sufficient founds (maybe inputs are pending?)', xhr.response);
+				error('There is no sufficient founds on source wallet. Total confirmed and unconfirmed balance is ' + (totalIn* 0.00000001) + 'BTC', xhr.response);
 				return;
 			}
 			//console.log(totalIn, amount, totalIn - amount - fee);
