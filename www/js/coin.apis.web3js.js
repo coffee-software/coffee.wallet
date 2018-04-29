@@ -103,12 +103,12 @@ var EthHandler = {
       "Wikpedia" : "https://en.wikipedia.org/wiki/Ethereum"
     },
     _getProvider: EthFunctions.getMainnetProvider,
-    __disabled__newPrivateKey: EthFunctions.newPrivateKey,
-    __disabled__getFees: EthFunctions.getFees,
-    __disabled__addrFromPrivateKey: EthFunctions.addrFromPrivateKey,
+    newPrivateKey: EthFunctions.newPrivateKey,
+    getFees: EthFunctions.getFees,
+    addrFromPrivateKey: EthFunctions.addrFromPrivateKey,
     getBalance: EthFunctions.getBalance,
     _getTransaction: EthFunctions._getTransaction,
-    __disabled__sendPayment: EthFunctions.sendPayment
+    sendPayment: EthFunctions.sendPayment
 }
 
 var PayHandler = {
