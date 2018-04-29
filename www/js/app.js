@@ -2,19 +2,25 @@
 
 var allCoinApis = {
   'BTC.TST': BtcTestHandler,
+  'ETH.TST': EthTestHandler,
   'BTC': BtcHandler,
   'BCH': BchHandler,
   'ETH': EthHandler,
-  'ETH.TST': EthTestHandler,
   'PAY': PayHandler,
   'LTC': LtcHandler
 };
+var allCoinApisByRank = new Array();
 
 for (var i=0; i<otherCoins.length;i++) {
   if (!(otherCoins[i].code in allCoinApis)) {
     allCoinApis[otherCoins[i].code] = otherCoins[i];
   }
+  allCoinApisByRank.push(allCoinApis[otherCoins[i].code]);
 }
+
+allCoinApisByRank.push(BtcTestHandler);
+allCoinApisByRank.push(EthTestHandler);
+
 
 var app = {
     // Application Constructor
@@ -411,59 +417,46 @@ var app = {
         that.popupGenerated = true;
         setTimeout(function(){
           var filter = function() {
-            var search = document.getElementById('addCoinFilter').value.toUpperCase();
-            var onlySupported = document.getElementById('addCoinOnlySupported').checked;
-            for (var i = 0; i < document.getElementById('allCoins').children.length; i++) {
-              var cbutton = document.getElementById('allCoins').children[i];
 
-              var show = (search.length > -1) && (cbutton.dataset.search.search(search) != -1);
-              if (onlySupported) show = show && (cbutton.dataset.supported == 'true');
-              cbutton.classList.toggle(
-                'hidden',
-                !show
-              );
+            var query = document.getElementById('addCoinFilter').value.toUpperCase();
+            var onlySupportedRead = document.getElementById('addCoinOnlySupportedRead').checked;
+            var onlySupportedWrite = document.getElementById('addCoinOnlySupportedWrite').checked;
+            var limit = 24;
+            var allCoins = document.getElementById('allCoins');
+            while (allCoins.firstChild) { allCoins.removeChild(allCoins.firstChild); }
+
+            for (var i=0; i< allCoinApisByRank.length; i++){
+              var coin = allCoinApisByRank[i];
+              var show = coin._search.search(query) != -1;
+              if (onlySupportedRead) show = show && ('getBalance' in coin);
+              if (onlySupportedWrite) show = show && ('sendPayment' in coin);
+              if (show) {
+                limit --;
+                if (limit >= 0){
+                  if (!('_button' in coin)) {
+                    allCoinApisByRank[i]._button = new CoinButton(coin)
+                  }
+                  allCoins.appendChild(coin._button);
+                }
+              }
             }
+            if (limit == 24) {
+              document.getElementById('moreCoins').innerHTML = 'No coins found for given query.';
+            } else if (limit >= 0) {
+              document.getElementById('moreCoins').innerHTML = '';
+            } else {
+              document.getElementById('moreCoins').innerHTML = '' + -limit + ' more coins matches.<br/> Please enter more specific query.';
+            };
           };
           document.getElementById('addCoinFilter').onkeyup = filter;
           document.getElementById('addCoinFilter').onchange = filter;
-          document.getElementById('addCoinOnlySupported').onchange = filter;
-
-
-          Object.keys(allCoinApis).sort().forEach(function(key){
-            var button = document.createElement("a");
-            button.dataset.search = (allCoinApis[key].name + ' '+ allCoinApis[key].code + ' ' + allCoinApis[key].longname).toUpperCase();
-            button.dataset.supported = 'sendPayment' in allCoinApis[key];
-
-            var img = document.createElement("img");
-            img.classList.add('coinIcon');
-            img.setAttribute('src', 'coins/' + allCoinApis[key].icon + '.svg');
-            button.appendChild(img);
-            button.appendChild(document.createElement("br"));
-            var span = document.createElement("span");
-            span.innerHTML = allCoinApis[key].code;
-            button.appendChild(span);
-            if (key in that.data.wallets && that.data.wallets[key].enabled) {
-              button.classList.add('active');
-            }
-            button.onclick = function(){
-              if (key in app.data.wallets && that.data.wallets[key].enabled) {
-                app.wallets[key].setActive();
-                app.closePopup();
-              } else {
-                //this.classList.add('active');
-                app.data.addWallet(allCoinApis[key], function(){
-                  app.addWalletWidget(app.data.wallets[key]);
-                  app.wallets[key].setActive();
-                });
-                app.closePopup();
-              }
-            };
-            button.classList.add('coinButton');
-            document.getElementById("allCoins").appendChild(button);
-          });
-
+          document.getElementById('addCoinOnlySupportedRead').onchange = filter;
+          document.getElementById('addCoinOnlySupportedWrite').onchange = filter;
+          for (var i=0; i< allCoinApisByRank.length; i++){
+            allCoinApisByRank[i]._search = (allCoinApisByRank[i].name + ' '+ allCoinApisByRank[i].code + ' ' + allCoinApisByRank[i].longname).toUpperCase();
+          }
           filter();
-        }, 500);
+        }, 100);
       }
     },
 
@@ -825,8 +818,8 @@ var app = {
             for(var key in this.data.wallets){
               if (this.data.wallets[key].enabled) {
                 if (!(this.data.wallets[key].coin in allCoinApis)) {
-                  app.alertError('coin ' + this.data.wallets[key].coin + ' is no longer supported');
-                  delete(this.data.wallets[key]);
+                  app.alertError('coin ' + this.data.wallets[key].coin + ' is no longer supported. It will be disabled.');
+                  this.data.wallets[key].enabled = false;
                 } else {
                   this.addWalletWidget(this.data.wallets[key]);
                 }
