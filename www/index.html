@@ -176,13 +176,19 @@
                   <input id="addCoinFilter" value="" required/>
                   <label for="addCoinFilter">search</label>
                 </div>
-                <label class="checkbox">
-                  <input type="checkbox" id="addCoinOnlySupported" />
+                <label class="checkbox" style="padding-bottom: 10px;">
+                  <input type="checkbox" id="addCoinOnlySupportedRead" />
                   <div class="fakecheck"></div>
-                  show only coins with full wallet support
+                  only coins that can be queried by address
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" id="addCoinOnlySupportedWrite" />
+                  <div class="fakecheck"></div>
+                  only coins with full wallet support
                 </label>
               </div>
               <div id="allCoins"></div>
+              <div id="moreCoins"></div>
             </div>
             <div id="helpPopup" style="display:none;">
               <h2>Coffee Wallet</h2>
@@ -192,7 +198,7 @@
                 It also has a support for selected coins to send and receive from local wallet.
               </p>
               <h2>Home Screen Layout</h2>
-                <img src="/img/help1.png" style="width:100%;" />
+                <img src="img/help1.png" style="width:100%;" />
                 <ol>
                   <li>Coin icon. Tap to activate row and see options. Tap again to see coin info and advanced options.</li>
 
@@ -465,6 +471,7 @@
         <script type="text/javascript" src="js/widget.wallet.js"></script>
         <script type="text/javascript" src="js/widget.asset.js"></script>
         <script type="text/javascript" src="js/widget.select.js"></script>
+        <script type="text/javascript" src="js/widget.coinbutton.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

@@ -224,7 +224,7 @@ h1, h2, h3 {
 }
 
 .blur {
-  filter: blur(10px);
+  filter: blur(2px);
 }
 
 #overlay {
@@ -442,6 +442,7 @@ table {
   background: #766054;
   color: #f7f5f2;
   text-align: center;
+  box-shadow: 0px 0px 7px #463f3a;
 }
 #popup h1 img {
   width: 30px;
@@ -665,3 +666,10 @@ a:active {
 }
 
 @keyframes spin { 100% { transform:rotate(360deg); } }
+
+#moreCoins {
+  padding: 26px;
+  text-align: center;
+  color: #ddc486;
+  font-size: 14px;
+}
