@@ -224,7 +224,8 @@ h1, h2, h3 {
 }
 
 .blur {
-  filter: blur(2px);
+  /* filter: blur(2px); */
+  opacity: 0.5;
 }
 
 #overlay {
