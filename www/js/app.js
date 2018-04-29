@@ -235,7 +235,8 @@ var app = {
 
       document.getElementById("container").classList.add('blur');
       document.getElementById("nav").classList.add('blur');
-      document.getElementById("popup").classList.add('blur');
+      document.getElementById("popupHead").classList.add('blur');
+      document.getElementById("popupContent").classList.add('blur');
 
       document.getElementById('formPopup').classList.add('show');
       this.setCurrentCoinIcon(bgimg);
@@ -258,7 +259,8 @@ var app = {
     closeForm: function() {
       document.getElementById("container").classList.remove('blur');
       document.getElementById("nav").classList.remove('blur');
-      document.getElementById("popup").classList.remove('blur');
+      document.getElementById("popupHead").classList.remove('blur');
+      document.getElementById("popupContent").classList.remove('blur');
       document.getElementById("formPopup").classList.remove('show');
     },
 

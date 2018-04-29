@@ -375,6 +375,7 @@ table {
   left: 0;
   z-index: 100;
   transition: margin 0.4s ease, filter 0.5s;
+  background-color: #f7f5f2;
 }
 
 #formPopup {
