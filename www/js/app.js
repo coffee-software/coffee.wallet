@@ -6,9 +6,11 @@ var allCoinApis = {
   'BTC': BtcHandler,
   'BCH': BchHandler,
   'ETH': EthHandler,
-  'PAY': PayHandler,
-  'LTC': LtcHandler
+  'LTC': LtcHandler,
+  'DOGE': DogeHandler,
+  'PAY': new ERC20Handler(ERC20Tokens.PAY)
 };
+
 var allCoinApisByRank = new Array();
 
 for (var i=0; i<otherCoins.length;i++) {

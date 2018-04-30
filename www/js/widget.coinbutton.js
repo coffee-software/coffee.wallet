@@ -18,10 +18,12 @@ function CoinButton(coin) {
     if (active) {
       app.wallets[coin.code].setActive();
     } else {
-      button.classList.add('active');
       app.data.addWallet(coin, function(){
-        app.addWalletWidget(app.data.wallets[coin.code]);
-        app.wallets[coin.code].setActive();
+        if (app.data.wallets[coin.code].enabled) {
+          app.addWalletWidget(app.data.wallets[coin.code]);
+          app.wallets[coin.code].setActive();
+          button.classList.add('active');
+        }
       });
     }
     app.closePopup();

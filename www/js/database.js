@@ -57,11 +57,22 @@ var Data = {
     var update = false;
 
     if (!wallet.privateKey && ('newPrivateKey' in allCoinApis[wallet.coin])) {
-        if (typeof allCoinApis[wallet.coin].newPrivateKey == 'function') {
-          wallet.privateKey = allCoinApis[wallet.coin].newPrivateKey();
-          wallet.addr = allCoinApis[wallet.coin].addrFromPrivateKey(wallet.privateKey);
+      //console.log('no priv key');
+      if (typeof allCoinApis[wallet.coin].newPrivateKey == 'function') {
+        wallet.privateKey = allCoinApis[wallet.coin].newPrivateKey();
+        wallet.addr = allCoinApis[wallet.coin].addrFromPrivateKey(wallet.privateKey);
+        wallet.balance = 0;
+      } else {
+        var parentHandler = allCoinApis[wallet.coin].newPrivateKey;
+        if ((parentHandler.code in that.wallets) && that.wallets[parentHandler.code].enabled) {
+          wallet.privateKey = that.wallets[parentHandler.code].privateKey;
+          wallet.addr = that.wallets[parentHandler.code].addr;
           wallet.balance = 0;
+        } else {
+          wallet.enabled = false;
+          app.alertError('This coin requires ' + parentHandler.code + ' coin to be enabled', wallet.coin);
         }
+      }
     }
   },
   addWallet: function(handler, callback) {
