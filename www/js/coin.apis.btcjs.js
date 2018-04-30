@@ -121,13 +121,82 @@ var LtcHandler = {
     links: {
       'litecoin.org' : 'https://litecoin.org/'
     },
-    __disabled__newPrivateKey: function() {
+    newPrivateKey: function() {
       return btcjs.newPrivKey(btcjs.networks.ltc);
     },
-    __disabled__addrFromPrivateKey: function(priv) {
+    addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.ltc, priv);
     },
     getBalance: function(addr, callback) {
       return btcjs.getBalance(btcjs.networks.ltc, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+    },
+    sendPayment: function(priv, receiver, amount, fee) {
+      var that = this;
+      return btcjs.sendPayment(btcjs.networks.ltc, priv, receiver, Math.round(amount * 100000000), fee[2],
+        function(response) {
+          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+        }, function(error, data){
+          app.alertError(error, that.code);
+        });
+    },
+    validateAddress: function(addr) {
+      return btcjs.validateAddress(btcjs.networks.ltc, addr);
+    },
+    getFees: function() {
+      //TODO
+      //key 0 - fee, 1 - estimated time, >1 internal coinparameters
+      return [
+        [0.00002, 20,  2000],
+        [0.00004, 10,  4000],
+        [0.0001,  5,  10000],
+        [0.0002, 3,   20000],
+        [0.0004, 1,   40000]
+      ];
+    }
+}
+
+var DogeHandler = {
+    name: "dogecoin",
+    code: "DOGE",
+    icon: "doge",
+    longname: "Dogecoin",
+    description:
+      "Dogecoin is a decentralized, peer-to-peer digital currency that enables you to easily send money online. " + 
+      "Think of it as \"the internet currency.\"",
+    links: {
+      'dogecoin.com' : 'https://cogecoin.com/',
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/dogecoin/"
+    },
+    newPrivateKey: function() {
+      return btcjs.newPrivKey(btcjs.networks.doge);
+    },
+    addrFromPrivateKey: function(priv) {
+      return btcjs.addrFromPriv(btcjs.networks.doge, priv);
+    },
+    getBalance: function(addr, callback) {
+      return btcjs.getBalance(btcjs.networks.doge, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+    },
+    sendPayment: function(priv, receiver, amount, fee) {
+      var that = this;
+      return btcjs.sendPayment(btcjs.networks.doge, priv, receiver, Math.round(amount * 100000000), fee[2],
+        function(response) {
+          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+        }, function(error, data){
+          app.alertError(error, that.code);
+        });
+    },
+    validateAddress: function(addr) {
+      return btcjs.validateAddress(btcjs.networks.doge, addr);
+    },
+    getFees: function() {
+      //TODO
+      //key 0 - fee, 1 - estimated time, >1 internal coinparameters
+      return [
+        [0.00002, 20,  2000],
+        [0.00004, 10,  4000],
+        [0.0001,  5,  10000],
+        [0.0002, 3,   20000],
+        [0.0004, 1,   40000]
+      ];
     }
 }
