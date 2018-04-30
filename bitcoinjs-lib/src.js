@@ -2,23 +2,6 @@
 
 var bitcoin = require('bitcoinjs-lib')
 
-/* TODO support dogecoin:
-https://github.com/bitcoinjs/bitcoinjs-lib/commit/a956b8859fe73787b32f03b8bf4ba0d06cb01fa6
-doge:
-	webapi: 'https://api.blockcypher.com/v1/doge/main',
-	network: {
-		messagePrefix: '\x19Dogecoin Signed Message:\n',
-		bip32: {
-			public: 0x02facafd,
-			private: 0x02fac398
-		},
-		pubKeyHash: 0x1e,
-		scriptHash: 0x16,
-		wif: 0x9e
-	}
-}
-*/
-
 var networks = {
 	ltc: {
 		webapi: 'https://api.blockcypher.com/v1/ltc/main',
@@ -31,6 +14,19 @@ var networks = {
 	test: {
 		webapi: 'https://api.blockcypher.com/v1/btc/test3',
 		network: bitcoin.networks.testnet
+	},
+	doge: {
+		webapi: 'https://api.blockcypher.com/v1/doge/main',
+		network: {
+			messagePrefix: '\x19Dogecoin Signed Message:\n',
+			bip32: {
+				public: 0x02facafd,
+				private: 0x02fac398
+			},
+			pubKeyHash: 0x1e,
+			scriptHash: 0x16,
+			wif: 0x9e
+		}
 	}
 }
 
