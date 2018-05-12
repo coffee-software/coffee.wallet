@@ -535,8 +535,22 @@ var app = {
         var kp = e.split('=', 2);
         if (kp.length>1) args[kp[0]] = kp[1];
       });
+      if ('r' in args) {
+        app.alertInfo('BIP72 address found. quering for payment details...');
 
-      callback(addr, args);
+        var oReq = new XMLHttpRequest();
+        oReq.open("GET", args.r);
+        oReq.addEventListener("load", function(){
+          var paymentRequest = JSON.parse(this.responseText);
+          //TODO validate unit
+          callback(paymentRequest.outputs[0].address, {'amount': paymentRequest.outputs[0].amount / 100000000});
+        });
+        oReq.setRequestHeader('Accept', 'application/payment-request');
+        //oReq.setRequestHeader('Accept', 'application/bitcoin-paymentrequest');
+        oReq.send();
+      } else {
+        callback(addr, args);
+      }
     },
     pasteClipboard: function(callback) {
       var that = this;
