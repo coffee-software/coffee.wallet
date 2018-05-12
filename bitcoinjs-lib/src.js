@@ -1,6 +1,8 @@
 'use strict'
 
-var bitcoin = require('bitcoinjs-lib')
+var bitcoin = require('bitcoinjs-lib');
+var bip39 = require('bip39');
+
 
 /* TODO support dogecoin:
 https://github.com/bitcoinjs/bitcoinjs-lib/commit/a956b8859fe73787b32f03b8bf4ba0d06cb01fa6
@@ -125,11 +127,20 @@ function validateAddress (network, addr) {
 	}
 }
 
+function derivePathFromSeedHash(network, sh, path) {
+	return bitcoin.HDNode.fromSeedHex(sh, network).derivePath(path).keyPair.toWIF();
+}
+
 module.exports = {
-	networks:networks,
-	newPrivKey:newPrivKey,
-	addrFromPriv:addrFromPriv,
-	getBalance:getBalance,
-	validateAddress:validateAddress,
-	sendPayment:sendPayment
+	networks: networks,
+	newPrivKey: newPrivKey,
+	addrFromPriv: addrFromPriv,
+	getBalance: getBalance,
+	validateAddress: validateAddress,
+	sendPayment: sendPayment,
+
+	generateNewMnemonic: bip39.generateMnemonic,
+	mnemonicToSeedHex: bip39.mnemonicToSeedHex,
+	derivePathFromSeedHash: derivePathFromSeedHash
+
 }
