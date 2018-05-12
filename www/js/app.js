@@ -724,21 +724,30 @@ var app = {
     },
 
     cancelAuth: function() {
-      this.onAuthCallback = null;
       document.getElementById('lockPopup').classList.add('hidden');
+      this.onAuthCallback = null;
     },
     confirmAuth: function() {
-      this.onAuthCallback();
-      this.onAuthCallback = null;
       document.getElementById('lockPopup').classList.add('hidden');
+      var tmp = this.onAuthCallback;
+      this.onAuthCallback = null;
+      tmp();
     },
     authenticateBeforeContinue: function(title, message, callback) {
       this.onAuthCallback = callback;
       document.getElementById('lockPopup').classList.remove('hidden');
+      document.getElementById('lockPopupCancel').classList.remove('hidden');
       document.getElementById('lockTitle').innerHTML = title;
       document.getElementById('lockMessage').innerHTML = message;
+    },
 
-      //document.getElementById('lockPopup').stylesList.remove('hidden');
+    confirmBeforeContinue: function(title, message, callback) {
+      //TODO sparate elements
+      this.onAuthCallback = callback;
+      document.getElementById('lockPopup').classList.remove('hidden');
+      document.getElementById('lockPopupCancel').classList.add('hidden');
+      document.getElementById('lockTitle').innerHTML = title;
+      document.getElementById('lockMessage').innerHTML = message;
     },
 
     sendPayment: function() {
@@ -815,9 +824,45 @@ var app = {
       this.wallets[data.coin] = w;
     },
     onDeviceReady: function() {
-
         this.data.load(function(){
-            for(var key in this.data.wallets){
+
+            if (!('bip39' in this.data.wallets)) {
+              var mnemonic = btcjs.generateNewMnemonic();
+              this.data.wallets.bip39 = {
+                enabled : false,
+                mnemonic: mnemonic,
+                seedHex: btcjs.mnemonicToSeedHex(mnemonic)
+              };
+              app.confirmBeforeContinue(
+                'Important Warning!',
+                '<p>' +
+                'Coffee Wallet is an Open Source application that is built with extreme care and with no harm intended. ' +
+                'Hovewer, it comes with <b>absolutely no warranties</b> of any kind. ' +
+                '</p><p>' +
+                'Intended usage: <br/>' +
+                '"offline wallets" on the right, are for watching your funds stored elsewhere. Use a secure location like a hardware wallet or a cold storage for your private keys to keep majority of your funds secured.<br/>' +
+                '"online wallets" on the left, are your "pocket money" that you have on you and can afford to lose in case your device gets hacked / stolen etc.' +
+                '</p><p>' +
+                'For help please visit <a href="#" onclick="window.open(\'https://wallet.coffee/\', \'_system\');">https://wallet.coffee/</a>' +
+                '</p>',
+                function() {
+                  app.confirmBeforeContinue(
+                    'New Wallet',
+                    '<p>New random mnemonic was created. You can see it using "export mnemonic" menu option.</p>' +
+                    '<p>Backup this 12-word phrase because it is used in compilance with BIP39 to generate private keys for all your online wallets.</p>',
+                    function() {
+                      app.data.save();
+                    }
+                  );
+                }
+              );
+            } else {
+              //TODO changelog.
+              //console.log(btcjs.derivePathFromSeedHash(btcjs.networks.bitcoin, this.data.wallets.bip39.seedHex, "m/44'/0'/0'/0/0"));
+              //console.log(btcjs.derivePathFromSeedHash(btcjs.networks.bitcoin, this.data.wallets.bip39.seedHex, "m/44'/0'/0'/0/1"));
+            }
+
+            for (var key in this.data.wallets) {
               if (this.data.wallets[key].enabled) {
                 if (!(this.data.wallets[key].coin in allCoinApis)) {
                   app.alertError('coin ' + this.data.wallets[key].coin + ' is no longer supported. It will be disabled.');

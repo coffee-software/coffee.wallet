@@ -14,7 +14,7 @@ var BtcTestHandler = {
       "Request TestNet coins" : "https://testnet.manu.backend.hamburg/faucet"
     },
     newPrivateKey: function() {
-      return btcjs.newPrivKey(btcjs.networks.test);
+      return btcjs.derivePathFromSeedHash(btcjs.networks.test, app.data.wallets.bip39.seedHex, "m/44'/1'/0'/0/0").toWIF();
     },
     addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.test, priv);

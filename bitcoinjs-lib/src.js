@@ -33,6 +33,19 @@ var networks = {
 	test: {
 		webapi: 'https://api.blockcypher.com/v1/btc/test3',
 		network: bitcoin.networks.testnet
+	},
+	eth: {
+		network: {
+			messagePrefix: '\x19Ethereum Signed Message:\n',
+	  	bip32: {
+	    	public: 0xffffffff,
+	    	private: 0xffffffff
+	  	},
+	  	pubKeyHash: 0xff,
+			scriptHash: 0xff,
+	  	wif: 0xff,
+	  	ethereum : true
+		}
 	}
 }
 
@@ -128,7 +141,7 @@ function validateAddress (network, addr) {
 }
 
 function derivePathFromSeedHash(network, sh, path) {
-	return bitcoin.HDNode.fromSeedHex(sh, network).derivePath(path).keyPair.toWIF();
+	return bitcoin.HDNode.fromSeedHex(sh, network.network).derivePath(path).keyPair;
 }
 
 module.exports = {
