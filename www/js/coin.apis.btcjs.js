@@ -61,7 +61,7 @@ var BtcHandler = {
       'bitcoin.org' : 'https://bitcoin.org/'
     },
     newPrivateKey: function() {
-      return btcjs.newPrivKey(btcjs.networks.btc);
+      return btcjs.derivePathFromSeedHash(btcjs.networks.btc, app.data.wallets.bip39.seedHex, "m/44'/0'/0'/0/0").toWIF();
     },
     addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.btc, priv);
@@ -122,7 +122,7 @@ var LtcHandler = {
       'litecoin.org' : 'https://litecoin.org/'
     },
     newPrivateKey: function() {
-      return btcjs.newPrivKey(btcjs.networks.ltc);
+      return btcjs.derivePathFromSeedHash(btcjs.networks.ltc, app.data.wallets.bip39.seedHex, "m/44'/2'/0'/0/0").toWIF();
     },
     addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.ltc, priv);
@@ -161,14 +161,14 @@ var DogeHandler = {
     icon: "doge",
     longname: "Dogecoin",
     description:
-      "Dogecoin is a decentralized, peer-to-peer digital currency that enables you to easily send money online. " + 
+      "Dogecoin is a decentralized, peer-to-peer digital currency that enables you to easily send money online. " +
       "Think of it as \"the internet currency.\"",
     links: {
       'dogecoin.com' : 'https://cogecoin.com/',
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dogecoin/"
     },
     newPrivateKey: function() {
-      return btcjs.newPrivKey(btcjs.networks.doge);
+      return btcjs.derivePathFromSeedHash(btcjs.networks.doge, app.data.wallets.bip39.seedHex, "m/44'/3'/0'/0/0").toWIF();
     },
     addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(btcjs.networks.doge, priv);
