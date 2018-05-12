@@ -58,5 +58,59 @@ var CoinMarketCapProvider = {
   }
 }
 
+var CoinPaprikaProvider = {
 
-var allPriceProviders = [CoinMarketCapProvider];
+    name: "coinpaprika.com",
+
+    availableUnits: [
+      "USD", "BTC"
+    ],
+    defaultUnit: "USD",
+    unit: null,
+    prices: {},
+
+    setUnit: function(unit) {
+      this.prices = {};
+      this.unit = unit;
+    },
+
+    getUnit: function() {
+      return this.unit;
+    },
+
+    getPrice: function(unit) {
+      if (unit.endsWith('.TST')) {
+        //return some dummy low-price just for test sake.
+        return 0.1;
+      }
+      if (unit in this.prices) {
+        return this.prices[unit];
+      }
+      return 0;
+    },
+
+    convert: function(amount, code) {
+      return formatMoney(amount * this.getPrice(code), this.getUnit());
+    },
+
+    updatePrices: function(callback) {
+      var xhr = new XMLHttpRequest();
+      var that = this;
+      xhr.open('GET', 'https://api.coinpaprika.com/v1/ticker');
+      xhr.onload = function() {
+          if (xhr.status === 200) {
+              var list = JSON.parse(this.responseText);
+              for (var i in list) {
+                that.prices[list[i]['symbol']]=parseFloat(list[i]['price_' + that.unit.toLowerCase()]);
+              }
+              callback();
+          }
+      };
+      xhr.send();
+
+    }
+}
+
+
+var allPriceProviders = [CoinMarketCapProvider]; //, CoinPaprikaProvider];
+

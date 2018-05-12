@@ -56,7 +56,7 @@ var Data = {
     var that = this;
     var update = false;
 
-    if (!wallet.privateKey && ('newPrivateKey' in allCoinApis[wallet.coin])) {
+    if (wallet.enabled && !wallet.privateKey && ('newPrivateKey' in allCoinApis[wallet.coin])) {
       //console.log('no priv key');
       if (typeof allCoinApis[wallet.coin].newPrivateKey == 'function') {
         wallet.privateKey = allCoinApis[wallet.coin].newPrivateKey();

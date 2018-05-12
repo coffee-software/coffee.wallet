@@ -1,6 +1,8 @@
 'use strict'
 
-var bitcoin = require('bitcoinjs-lib')
+var bitcoin = require('bitcoinjs-lib');
+var bip39 = require('bip39');
+
 
 var networks = {
 	ltc: {
@@ -26,6 +28,18 @@ var networks = {
 			pubKeyHash: 0x1e,
 			scriptHash: 0x16,
 			wif: 0x9e
+		}
+	},
+	eth: {
+		network: {
+			messagePrefix: '\x19Ethereum Signed Message:\n',
+	  	bip32: {
+	    	public: 0xffffffff,
+	    	private: 0xffffffff
+	  	},
+	  	pubKeyHash: 0xff,
+			scriptHash: 0xff,
+	  	wif: 0xff
 		}
 	}
 }
@@ -121,11 +135,20 @@ function validateAddress (network, addr) {
 	}
 }
 
+function derivePathFromSeedHash(network, sh, path) {
+	return bitcoin.HDNode.fromSeedHex(sh, network.network).derivePath(path).keyPair;
+}
+
 module.exports = {
-	networks:networks,
-	newPrivKey:newPrivKey,
-	addrFromPriv:addrFromPriv,
-	getBalance:getBalance,
-	validateAddress:validateAddress,
-	sendPayment:sendPayment
+	networks: networks,
+	newPrivKey: newPrivKey,
+	addrFromPriv: addrFromPriv,
+	getBalance: getBalance,
+	validateAddress: validateAddress,
+	sendPayment: sendPayment,
+
+	generateNewMnemonic: bip39.generateMnemonic,
+	mnemonicToSeedHex: bip39.mnemonicToSeedHex,
+	derivePathFromSeedHash: derivePathFromSeedHash
+
 }
