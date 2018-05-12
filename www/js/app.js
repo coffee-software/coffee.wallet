@@ -308,10 +308,26 @@ var app = {
 
     exportAllKeys: function() {
       this.closeMenu();
-      var text = JSON.stringify(app.data.wallets);
+
+      app.authenticateBeforeContinue(
+        'Backup Wallets',
+        'On the next screen, you will see your 12-word mnemonic passphrase. It might be used to recover your keys if you loose access to this device. <br/><ul>' +
+        '<li>Don\'t show your mnemonic to anyone.</li>' +
+        '<li>Do not take a screenshot.</li>' +
+        '<li>Do not send it over unencrypted network.</li>' +
+        '<li>Write it down and store in a secure location.</li></ul>',
+        function() {
+            app.confirmBeforeContinue(
+              'your BIP39 backup phrase',
+              app.data.wallets.bip39.mnemonic,
+              function() {}
+            );
+        }
+      );
+      //var text = JSON.stringify(app.data.wallets);
       //var url = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
-      cordova.plugins.clipboard.copy(text);
-      app.alertInfo('copied to clipboard');
+      //cordova.plugins.clipboard.copy(text);
+      //app.alertInfo('copied to clipboard');
     },
 
     importAllKeys: function() {
@@ -850,7 +866,7 @@ var app = {
                 function() {
                   app.confirmBeforeContinue(
                     'New Wallet',
-                    '<p>New random mnemonic was created. You can see it using "export mnemonic" menu option.</p>' +
+                    '<p>New random mnemonic was created. You can see it using "backup wallets" menu option.</p>' +
                     '<p>Backup this 12-word phrase because it is used in compilance with BIP39 to generate private keys for all your online wallets.</p>',
                     function() {
                       app.data.save();
