@@ -6,19 +6,15 @@
     </description>
     <author email="francio@francio.pl" href="http://francio.pl/">Francio</author>
     <icon density="mdpi" height="128" src="res/icon.png" width="128" />
-
-    <icon src="res/icon20.png" platform="ios" width="20" height="20" />
-    <icon src="res/icon40.png" platform="ios" width="40" height="40" />
-    <icon src="res/icon180.png" platform="ios" width="180" height="180" />
-    <icon src="res/icon60.png" platform="ios" width="60" height="60" />
-    <icon src="res/icon120.png" platform="ios" width="120" height="120" />
-    <icon src="res/icon76.png" platform="ios" width="76" height="76" />
-    <icon src="res/icon152.png" platform="ios" width="152" height="152" />
-    <icon src="res/icon167.png" platform="ios" width="167" height="167" />
-    
-    <icon src="res/icon1024.png" platform="ios" width="1024" height="1024" />
-
-
+    <icon height="20" platform="ios" src="res/icon20.png" width="20" />
+    <icon height="40" platform="ios" src="res/icon40.png" width="40" />
+    <icon height="180" platform="ios" src="res/icon180.png" width="180" />
+    <icon height="60" platform="ios" src="res/icon60.png" width="60" />
+    <icon height="120" platform="ios" src="res/icon120.png" width="120" />
+    <icon height="76" platform="ios" src="res/icon76.png" width="76" />
+    <icon height="152" platform="ios" src="res/icon152.png" width="152" />
+    <icon height="167" platform="ios" src="res/icon167.png" width="167" />
+    <icon height="1024" platform="ios" src="res/icon1024.png" width="1024" />
     <platform name="ios">
         <splash src="res/screen/ios/Default@2x~universal~anyany.png" />
     </platform>
