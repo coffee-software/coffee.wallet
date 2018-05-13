@@ -1,16 +1,17 @@
 TODO:
 
+DONE:
+* BIP39
+* BIP70 bitpay
+
 1.0: public release nr2
 
-* import / export cleanup.
-** Export -> form -> confirm -> cordova social sharing. ?BIP38?
-** Import -> open file / paste clip? -> pass form -> confirm
-* BIP72 / BIP73  https://bitpay.com/invoiceData/MjGvVH2K9rDkWFRCCSeCGz?poll=false
+* BIP39 import / restore
 * offline asset addr validation
-* enable-coins
-* BIP32 + new address per transaction
-* fasttap all clicks
+* BIP32 - new address per transaction
+* fasttap all clicks + android fix
 * feedback buttons
+* handle dust errors
 
 1.1:
 
