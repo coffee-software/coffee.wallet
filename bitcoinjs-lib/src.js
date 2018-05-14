@@ -100,10 +100,21 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 			}
 			//console.log(totalIn, amount, totalIn - amount - fee);
 
-			txb.addOutput(receiver, amount);
+			//calculating change
+			if (false && totalIn - amount - fee < fee) {
+				//TODO think this trough
+				app.alertInfo('dust leftover detected. will add to transaction');
+				amount = totalIn - fee;
+				txb.addOutput(receiver, amount);
+			} else {
 			//TODO new address:
-			txb.addOutput(key.getAddress(), totalIn - amount - fee);
+				txb.addOutput(receiver, amount);
+				txb.addOutput(key.getAddress(), totalIn - amount - fee);
+			}
+
+
 			txb.sign(0, key);
+
 			//console.log(txb.build().toHex());
 			var pushXhr = new XMLHttpRequest();
 			pushXhr.open('POST', network.webapi + '/txs/push', true);
