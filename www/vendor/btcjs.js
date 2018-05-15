@@ -26142,10 +26142,12 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 			//
 			var txb = new bitcoin.TransactionBuilder(network.network);
 			var totalIn = 0;
+			var vins = [];
+
 			if ('txrefs' in xhr.response) {
 				for (var i = xhr.response.txrefs.length - 1; i >= 0; i --) {
 					totalIn += xhr.response.txrefs[i].value;
-					txb.addInput(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n));
+					vins.push(txb.addInput(xhr.response.txrefs[i].tx_hash, parseInt(xhr.response.txrefs[i].tx_output_n)));
 					//console.log(txb.inputs);
 					if (totalIn >= amount + fee) break; //we have enough fees
 				}
@@ -26153,7 +26155,7 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 			if ('unconfirmed_txrefs' in xhr.response) {
 				for (var i = xhr.response.unconfirmed_txrefs.length - 1; i >= 0; i --) {
 					totalIn += xhr.response.unconfirmed_txrefs[i].value;
-					txb.addInput(xhr.response.unconfirmed_txrefs[i].tx_hash, parseInt(xhr.response.unconfirmed_txrefs[i].tx_output_n));
+					vins.push(txb.addInput(xhr.response.unconfirmed_txrefs[i].tx_hash, parseInt(xhr.response.unconfirmed_txrefs[i].tx_output_n)));
 					//console.log(txb.inputs);
 					if (totalIn >= amount + fee) break; //we have enough fees
 				}
@@ -26177,8 +26179,10 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 				txb.addOutput(key.getAddress(), totalIn - amount - fee);
 			}
 
-
-			txb.sign(0, key);
+			for (var i=0; i<vins.length; i++){
+				//sign all inputs
+				txb.sign(vins[i], key);
+			}
 
 			//console.log(txb.build().toHex());
 			var pushXhr = new XMLHttpRequest();
