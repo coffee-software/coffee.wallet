@@ -856,6 +856,32 @@ var app = {
       this.wallets[data.coin] = w;
     },
     onDeviceReady: function() {
+
+      var oldVersion = this.settings.get('lastVexxrsion', '0.1.7');
+      if (oldVersion != window.version) {
+
+        this.settings.set('lastVersion', window.version);
+        var changelist = '';
+        for (var i in window.changelog) {
+          if (window.changelog[i].version == oldVersion) break;
+          changelist += '<b>version ' + window.changelog[i].version + '</b> ' + window.changelog[i].date + '<ul>';
+          for (var j in window.changelog[i].changes) {
+            changelist += '<li>' + window.changelog[i].changes[j] + '</li>';
+          }
+          changelist += '</ul>';
+        }
+        this.confirmBeforeContinue(
+          'app updated to ' + window.version,
+          '<h2>previous version: ' + oldVersion + '</h1>' +
+          changelist,
+          this.loadData.bind(this)
+        );
+      } else {
+        this.loadData();
+      }
+    },
+    loadData: function() {
+
         this.data.load(function(){
 
             if (!('bip39' in this.data.wallets)) {

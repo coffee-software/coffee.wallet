@@ -1,11 +1,8 @@
 TODO:
 
-DONE:
-* BIP39
-* BIP70 bitpay
-
 1.0: public release nr2
 
+* version update popup
 * BIP39 import / restore
 * offline asset addr validation
 * BIP32 - new address per transaction
