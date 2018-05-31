@@ -3,12 +3,12 @@
 var allCoinApis = {
   'BTC.TST': BtcTestHandler,
   'ETH.TST': EthTestHandler,
-  'BTC': BtcHandler,
-  'BCH': BchHandler,
-  'ETH': EthHandler,
-  'LTC': LtcHandler,
+//  'BTC': BtcHandler,
+//  'BCH': BchHandler,
+//  'ETH': EthHandler,
+//  'LTC': LtcHandler,
   'DOGE': DogeHandler,
-  'PAY': new ERC20Handler(ERC20Tokens.PAY)
+//  'PAY': new ERC20Handler(ERC20Tokens.PAY)
 };
 
 var allCoinApisByRank = new Array();
