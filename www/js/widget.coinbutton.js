@@ -15,7 +15,7 @@ function CoinButton(coin) {
   var active = coin.code in app.data.wallets && app.data.wallets[coin.code].enabled;
   button.classList.toggle('active', active);
   button.onclick = function(){
-    if (active) {
+    if (coin.code in app.data.wallets && app.data.wallets[coin.code].enabled) {
       app.wallets[coin.code].setActive();
     } else {
       app.data.addWallet(coin, function(){
