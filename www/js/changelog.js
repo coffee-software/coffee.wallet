@@ -6,8 +6,7 @@ window.changelog = [
     changes: [
       'DOGE coin wallet support',
       'BIP39 support; private keys are generated from 12-word mnemonic passphrase',
-      'BIP70 support (bitpay payments)',
-      'app update popup'
+      'BIP70 support (bitpay payments)'
     ]
   },
   {
