@@ -570,7 +570,8 @@ table {
 
 #lockMessage {
   padding: 2% 6%;
-
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 #coinInfoPopup {

@@ -855,12 +855,12 @@ var app = {
       document.getElementById('walletsList').appendChild(w.row);
       this.wallets[data.coin] = w;
     },
-    onDeviceReady: function() {
-
-      var oldVersion = this.settings.get('lastVexxrsion', '0.1.7');
+    saveVersion: function() {
+      this.settings.set('appVersion', window.version);
+    },
+    showChangelogIfVersionUpdated: function() {
+      var oldVersion = this.settings.get('appVersion', '0.1.7');
       if (oldVersion != window.version) {
-
-        this.settings.set('lastVersion', window.version);
         var changelist = '';
         for (var i in window.changelog) {
           if (window.changelog[i].version == oldVersion) break;
@@ -871,16 +871,14 @@ var app = {
           changelist += '</ul>';
         }
         this.confirmBeforeContinue(
-          'app updated to ' + window.version,
-          '<h2>previous version: ' + oldVersion + '</h1>' +
+          'updated to ' + window.version,
+          '<p>Your were running ' + oldVersion + ' previously. Below is a complete list of changes.</p>' +
           changelist,
-          this.loadData.bind(this)
+          function(){}
         );
-      } else {
-        this.loadData();
       }
     },
-    loadData: function() {
+    onDeviceReady: function() {
 
         this.data.load(function(){
 
@@ -915,10 +913,9 @@ var app = {
                 }
               );
             } else {
-              //TODO changelog.
-              //console.log(btcjs.derivePathFromSeedHash(btcjs.networks.bitcoin, this.data.wallets.bip39.seedHex, "m/44'/0'/0'/0/0"));
-              //console.log(btcjs.derivePathFromSeedHash(btcjs.networks.bitcoin, this.data.wallets.bip39.seedHex, "m/44'/0'/0'/0/1"));
+              app.showChangelogIfVersionUpdated();
             }
+            app.saveVersion();
 
             for (var key in this.data.wallets) {
               if (this.data.wallets[key].enabled) {
