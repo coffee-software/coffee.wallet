@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cadosolutions.coffeewallet" version="0.1.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="coffee.software.coffeewallet" version="0.1.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Coffee</name>
     <description>
       Blockchain wallet and portfolio.
     </description>
-    <author email="francio@francio.pl" href="http://francio.pl/">Francio</author>
+    <author email="frank@wawrzak.com" href="http://software.coffee/">Coffee Software</author>
     <icon density="mdpi" height="128" src="res/icon.png" width="128" />
     <icon height="20" platform="ios" src="res/icon20.png" width="20" />
     <icon height="40" platform="ios" src="res/icon40.png" width="40" />
