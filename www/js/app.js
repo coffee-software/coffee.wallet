@@ -892,14 +892,15 @@ var app = {
               app.confirmBeforeContinue(
                 'Important Warning!',
                 '<p>' +
-                'Coffee Wallet is an Open Source application that is built with extreme care and with no harm intended. ' +
-                'Hovewer, it comes with <b>absolutely no warranties</b> of any kind. ' +
+                'Although Coffee Wallet has been built with extreme care, it comes with <b>absolutely no warranties</b> of any kind. ' +
+                'This open source application uses third party providers to access blockchains. ' +
+                'This application nor its creators does not provide financial services of any kind.' +
                 '</p><p>' +
-                'Intended usage: <br/>' +
-                '"offline wallets" on the right, are for watching your funds stored elsewhere. Use a secure location like a hardware wallet or a cold storage for your private keys to keep majority of your funds secured.<br/>' +
-                '"online wallets" on the left, are your "pocket money" that you have on you and can afford to lose in case your device gets hacked / stolen etc.' +
+                'Please also have in mind the intended usage: ' +
+                'Keep majority of your funds in a secured location (like a hardware wallet) and watch them using right hand side, portfolio column. ' +
+                'Use left hand side, wallets column to store your "pocket money" that you can afford to lose in case your device gets hacked / stolen etc.' +
                 '</p><p>' +
-                'For help please visit <a href="#" onclick="window.open(\'https://wallet.coffee/\', \'_system\');">https://wallet.coffee/</a>' +
+                'Please consider donating if you want to make this app better.' +
                 '</p>',
                 function() {
                   app.confirmBeforeContinue(
