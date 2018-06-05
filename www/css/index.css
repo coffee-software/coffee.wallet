@@ -513,13 +513,8 @@ table {
   font-size: 10px;
 }
 
-#exchange {
-  text-align: center;
-  padding-top: 100px;
-}
-
-#exchange img {
-  width: 50%;
+#tools {
+  padding-top: 50px;
 }
 
 .coinButton {

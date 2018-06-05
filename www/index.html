@@ -97,10 +97,23 @@
             </div>
             <div class="swipe_tab">
               <div class="tab_inner">
-                <div id="exchange">
-                  <h1>Exchange</h1>
-                  <img src="shapeshift.png"/>
-                  <h2>this feature is comming soon</h2>
+                <div id="tools">
+                  <button class="stitched" onclick="app.scanQrCode(app.handleAnyQRCode.bind(app))">
+                    <img src="icons/quickscan.png"/>
+                    Quick Scan
+                  </button>
+
+                  <button class="stitched" disabled="disabled">
+                    <img src="icons/email.png"/>
+                    Send via Email
+                    <span class="soon">(comming soon)</span>
+                  </button>
+
+                  <button class="stitched" disabled="disabled">
+                    <img src="icons/shapeshift.png"/>
+                    Exchange
+                    <span class="soon">(comming soon)</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -117,10 +130,10 @@
         <br/>
         wallets
       </div>
-      <div ontouchstart="app.tabExchange()" class="tab">
-       <img src="icons/exchange.png" alt="exchange"/>
+      <div ontouchstart="app.tabTools()" class="tab">
+       <img src="icons/tools.png" alt="tools"/>
        <br/>
-       exchange
+       tools
      </div>
     </div>
 	<div id="overlay">

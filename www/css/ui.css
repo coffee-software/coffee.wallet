@@ -5,6 +5,7 @@ button {
   text-align: center;
   font-size: 17px;
   color: #766054;
+  position: relative;
 }
 
 button.box {
@@ -14,10 +15,36 @@ button.box {
   color: #f7f5f2;
 }
 
+button.stitched {
+  border: 1px dashed #766054;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  line-height: 64px;
+}
+
 button img {
   vertical-align: middle;
   width: 26px;
   margin: 0 3px;
+}
+
+button.stitched img {
+  width: 64px;
+  float: left;
+}
+
+button .soon {
+  position: absolute;
+  bottom: -10px;
+  left: 74px;
+  right: 0;
+  font-style: italic;
+}
+
+button:disabled {
+  opacity: 0.5;
 }
 
 select {
@@ -67,17 +94,6 @@ select {
 
 .formFields {
     padding: 0 24px;
-}
-
-.stitched:before {
-  content: " ";
-  position: absolute;
-  top: 7px;
-  left: 7px;
-  right: 7px;
-  bottom: 7px;
-  border: 1px dashed #c2b28f;
-  border-radius: 12px;
 }
 
 input {

@@ -93,7 +93,7 @@ var app = {
                 } else if (document.scrollingElement.scrollLeft < 2 * width) {
                   app.tabHistory();
                 } else {
-                  app.tabExchange();
+                  app.tabTools();
                 }
           }, 50);
         };
@@ -132,7 +132,7 @@ var app = {
       */
       this.reloadHistory();
     },
-    tabExchange: function() {
+    tabTools: function() {
       this.setTabActive(2);
       /*
       var width = document.scrollingElement.offsetWidth;
@@ -504,9 +504,31 @@ var app = {
 
         this.updateMarketCap();
     },
+    handleAnyQRCode: function(addr, args) {
+      if (!args.coin) {
+        this.alertError('unknown code');
+      }
+      this.alertInfo('detected ' + args.coin + ' address');
+      for (var key in this.wallets) {
+        if (this.wallets[key].handler.name == args.coin) {
+          if ('sendPayment' in this.wallets[key].handler) {
+            this.popupSendPayment(this.wallets[key]);
+            this.pasteToSendForm(addr, args);
+          } else {
+            this.alertError('coin ' + args.coin + ' is not yet supported');
+          }
+          return;
+        }
+      }
+      this.alertInfo('coin ' + args.coin + ' is not in your active wallets or is unknown');
+    },
+
     pasteToSendForm: function(addr, args) {
-      //TODO check if coin matches?
-      //console.log('paste', addr, args);
+      if (args.coin) {
+        if (this.sendWallet.handler.name != args.coin) {
+          this.alertInfo('Warning: This seems like a ' + args.coin + ' address but you are sending ' + this.sendWallet.handler.name + '!');
+        }
+      }
       document.getElementById('sendCoinAddr').value = addr;
       app.sendCoinValidateAddr();
 
@@ -542,8 +564,17 @@ var app = {
         oReq.open("GET", args.r);
         oReq.addEventListener("load", function(){
           var paymentRequest = JSON.parse(this.responseText);
-          //TODO validate unit
-          callback(paymentRequest.outputs[0].address, {'amount': paymentRequest.outputs[0].amount / 100000000});
+          //console.log(paymentRequest);
+          var coin = 'unknown';
+          if (paymentRequest.currency == 'BTC' && paymentRequest.network == 'main') coin = 'bitcoin';
+          if (paymentRequest.currency == 'BTC' && paymentRequest.network == 'test') coin = 'bitcoin-test';
+          if (paymentRequest.currency == 'BCH' && paymentRequest.network == 'main') coin = 'bitcoin-cash';
+
+          if (paymentRequest.outputs.length != 1) {
+            app.alertError('payment requests with multiple outputs are not supported. sorry.');
+          } else {
+            callback(paymentRequest.outputs[0].address, {'coin': coin, 'amount': paymentRequest.outputs[0].amount / 100000000});
+          }
         });
         oReq.setRequestHeader('Accept', 'application/payment-request');
         //oReq.setRequestHeader('Accept', 'application/bitcoin-paymentrequest');
