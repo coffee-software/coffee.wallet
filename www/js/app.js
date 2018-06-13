@@ -23,6 +23,14 @@ for (var i=0; i<otherCoins.length;i++) {
 allCoinApisByRank.push(BtcTestHandler);
 allCoinApisByRank.push(EthTestHandler);
 
+function handleOpenURL(url) {
+  setTimeout(function() {
+    //make sure data is loaded
+    app.onDataLoaded(function(){
+      app.handleUrlOpened(url);
+    });
+  }, 0);
+}
 
 var app = {
     // Application Constructor
@@ -232,6 +240,13 @@ var app = {
       }
     },
 
+    toggleAll: function(className, show) {
+      var elements = document.getElementsByClassName(className);
+      for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.toggle('hidden', !show);
+      }
+    },
+
     openForm: function(id, title, bgimg) {
       this.closeMenu();
 
@@ -406,10 +421,15 @@ var app = {
       advanced.classList.add('advancedActions');
       var advancedWallet = wallet;
 
-      if ('newPrivateKey' in wallet.handler) {
-        //advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
-        //advanced.appendChild(app.createAdvancedOption('receive', 'import private key', app.showImportPrivateKeyPopup.bind(app, advancedWallet)));
+      if ('newRandomPrivateKey' in wallet.handler) {
+        advanced.appendChild(app.createAdvancedOption('send', 'send as message', function(){
+          app.popupSendSocial(wallet);
+        }));
       }
+
+      //advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
+      //advanced.appendChild(app.createAdvancedOption('receive', 'import private key', app.showImportPrivateKeyPopup.bind(app, advancedWallet)));
+
 
       if (wallet.totalOffline + wallet.totalOnline <= 0) {
         advanced.appendChild(app.createAdvancedOption('remove', 'remove coin', app.removeCoin.bind(app, advancedWallet)));
@@ -505,9 +525,16 @@ var app = {
         this.updateMarketCap();
     },
     handleAnyQRCode: function(addr, args) {
+
+      if ('escrowPrivateKey' in args) {
+        return app.handleReceiveMessage(args.coinCode, args.escrowPrivateKey);
+      }
+
       if (!args.coin) {
         this.alertError('unknown code');
+        return;
       }
+
       this.alertInfo('detected ' + args.coin + ' address');
       for (var key in this.wallets) {
         if (this.wallets[key].handler.name == args.coin) {
@@ -539,6 +566,18 @@ var app = {
       }
     },
     _parseTransactionText: function(text, callback) {
+      if (text.startsWith('coffee:')) {
+        var parts = text.split('/');
+        if (parts.length != 4 || parts[0] != 'coffee:') {
+          app.alertError('unknown format');
+          return;
+        }
+        return callback(null, {
+          coinCode : parts[2],
+          escrowPrivateKey : parts[3]
+        });
+      }
+
       //check if text is a plain address or transaction info:
       //https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki#Simpler syntax
       var a = text.split('?', 2);
@@ -665,8 +704,17 @@ var app = {
       this.offlineAssetWallet.refreshOffline();
     },
 
+    popupSendSocial: function(wallet) {
+        this.popupSendPayment(wallet);
+        this.toggleAll('normalSend', false);
+        this.toggleAll('socialSend', true);
+    },
+
     popupSendPayment: function(wallet) {
         this.openForm('sendPaymentPopup', 'send ' + wallet.handler.code, 'coins/' + wallet.handler.icon + '.svg');
+
+        this.toggleAll('normalSend', true);
+        this.toggleAll('socialSend', false);
 
         var fees = wallet.handler.getFees();
         //document.getElementById('sendCoinFee').max = fees.length - 1;
@@ -813,9 +861,153 @@ var app = {
       document.getElementById('lockMessage').innerHTML = message;
     },
 
+    sendSocialPaymentCommit: function(coin, amount, fee) {
+
+      var tmpPrivateKey = app.sendWallet.handler.newRandomPrivateKey();
+      var tmpAddr = app.sendWallet.handler.addrFromPrivateKey(tmpPrivateKey);
+
+      //TODO outgoing history and option to redeem
+      app.alertInfo('Sending to blockchain escrow...');
+      app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, tmpAddr, amount, fee);
+      app.closeForm();
+
+      var url = 'coffee://' + coin + '/' + tmpPrivateKey;
+      //console.log(url);
+      var subject = 'You have received ' + amount + ' ' + coin + '!';
+      var message = subject + '\n' +
+        'To claim this transfer from an escrow account please:\n' +
+        '1) Install "Coffee Wallet" app: https://wallet.coffee/ \n' +
+        '2.a) Open this link in application: ' + url + ' (just click on it and confirm that you want to open in Coffee Wallet) \n' +
+        '2.b) You can also scan attached QR code using tools -> scan or paste this link into tools -> paste \n' +
+        'Try to do this ASAP and keep in mind that sender might cancel this transfer at any time before you claim it.';
+      window.plugins.socialsharing.shareWithOptions({
+        message: message, // not supported on some apps (Facebook, Instagram)
+        subject: subject, // fi. for email
+        url: url,
+        files: [],
+        chooserTitle: 'Send via'
+      }, function(result) {
+        app.alertInfo('Done. Recipient will now be able to withdraw this transfer.');
+        //result.completed // On Android apps mostly return false even while it's true
+        //result.app // On Android result.app is currently empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+      }, function(msg) {
+        app.alertError('Sharing failed with message: ' + msg);
+      });
+    },
+    sendSocialPayment: function() {
+
+      if (!(this.sendCoinValidateAmount())) {
+        return;
+      }
+
+      var coin = this.sendWallet.handler.code;
+      var fee = this.sendFees[document.getElementById('sendCoinFee').value];
+      var amount = parseFloat(document.getElementById('sendCoinAmount').value);
+
+      this.confirmBeforeContinue(
+        'Warning!',
+        '<p>"Send as message" feature is designed only to send <b>tiny ammounts</b> beetween two <b>trusted</b> parties when the receiver does not have a wallet yet.</p>' +
+        '<p>It is as safe as the sending medium is. For example, if you are sending via email, everyone that has access to contents of this email (including sender) will be able to withdraw money before the recipient.</p>' +
+        '<ul>' +
+        '<li>Send only tiny ammounts.</li>' +
+        '<li>Advise the recipient to withdraw ASAP.</li>' +
+        '<li>Send over encrypted medium if possible.</li>' +
+        '<li>Advise the recipient to use regular transfers hereafter.</li>' +
+        '</ul>'
+        ,
+        function(){
+          app.authenticateBeforeContinue(
+            'send ' + coin + ' as message',
+            '<table class="niceTable">' +
+            '<tr><th>amount:</th><td style="width:50%;">' + amount + ' ' + coin + '</td><td>' + app.priceProvider.convert(amount, coin) + '</td></tr>' +
+            '<tr><th>fee:</th><td>' + fee[0] + ' ' + coin + '</td><td>' + app.priceProvider.convert(fee[0], coin) + '</td></tr>' +
+            '<tr><th>total:</th><td>' + (amount + fee[0]) + ' ' + coin + '</td><td>' + app.priceProvider.convert(amount + fee[0], coin) + '</td></tr>' +
+            '<tr><th>balance after:</th><td>' + (app.sendWallet.totalOnline - amount - fee[0]) + ' ' + coin + '</td><td>' + app.priceProvider.convert(app.sendWallet.totalOnline - amount - fee[0], coin) + '</td></tr>' +
+            '</table>' +
+            '<p>You will see your device share dialog in next step and will be able to select send medium.</p>'
+            ,
+            function(){
+              app.sendSocialPaymentCommit(coin, amount, fee);
+            }
+          );
+        }
+      );
+    },
+
+    addOrActivateCoin: function(code) {
+      if (code in app.data.wallets && app.data.wallets[code].enabled) {
+        app.wallets[code].setActive();
+        return true;
+      } else if (code in allCoinApis) {
+        app.data.addWallet(allCoinApis[code], function(){
+          if (app.data.wallets[code].enabled) {
+            app.addWalletWidget(app.data.wallets[code]);
+            app.wallets[code].setActive();
+            return true;
+          }
+        });
+      }
+      return false;
+    },
+
+    handleReceiveMessage: function(coin, privateKey) {
+
+      if (!this.addOrActivateCoin(coin)) {
+        app.alertError('unknown coin ' + coin);
+        return;
+      }
+
+      var tmpAddr = app.wallets[coin].handler.addrFromPrivateKey(privateKey);
+      app.wallets[coin].handler.getBalance(tmpAddr, function(balance){
+
+        if (balance > 0) {
+          var fees = app.wallets[coin].handler.getFees();
+          var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
+          app.alertInfo('Trying to transfer ' + balance + ' ' + coin + ' from escrow');
+
+          setTimeout(function() {
+            app.wallets[coin].handler.sendPayment(privateKey, app.wallets[coin].data.addr, balance - defaultFee[0], defaultFee);
+            //TODO this is a temporary hack before the update loop/queue
+            for (var i=1; i<10; i++) {
+              setTimeout(function() { app.wallets[coin].refreshOnline(); }, 5000 * i * i);
+            }
+          }, 1000);
+
+        } else {
+          //TODO check by txses if this is empty or already withdrawn
+          app.alertInfo('Escrow balance is empty. If this is a fresh transfer please try again in a minute.');
+        }
+
+      });
+    },
+
+    handleUrlOpened: function(url) {
+      var parts = url.split('/');
+      if (parts.length != 4 || parts[0] != 'coffee:') {
+        app.alertError('unknown url format');
+        return;
+      }
+      app.handleReceiveMessage(parts[2], parts[3]);
+    },
+
+    onDataLoaded: function(callback) {
+      if (typeof callback == 'undefined') {
+        app.dataLoaded = true;
+        if ('onDataLoadedCallback' in app) {
+          app.onDataLoadedCallback();
+        }
+      } else {
+        //TODO chain:
+        if ('dataLoaded' in app && app.dataLoaded == true) {
+          callback();
+        } else {
+          app.onDataLoadedCallback = callback;
+        }
+      }
+    },
+
     sendPayment: function() {
 
-      //document.getElementById('sendCoinAmount').value;
       if (!(this.sendCoinValidateAddr() && this.sendCoinValidateAmount())) {
         return;
       }
@@ -959,6 +1151,8 @@ var app = {
                 }
               }
             }
+
+            app.onDataLoaded();
         }.bind(this));
         this.updateMarketCap();
 

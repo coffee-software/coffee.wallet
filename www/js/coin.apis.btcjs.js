@@ -13,6 +13,9 @@ var BtcTestHandler = {
       "Bitcoin Wiki" : "https://en.bitcoin.it/wiki/Testnet",
       "Request TestNet coins" : "https://testnet.manu.backend.hamburg/faucet"
     },
+    newRandomPrivateKey: function() {
+      return btcjs.newPrivKey(btcjs.networks.test);
+    },
     newPrivateKey: function() {
       return btcjs.derivePathFromSeedHash(btcjs.networks.test, app.data.wallets.bip39.seedHex, "m/44'/1'/0'/0/0").toWIF();
     },
@@ -167,6 +170,11 @@ var DogeHandler = {
       'dogecoin.com' : 'https://cogecoin.com/',
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dogecoin/"
     },
+
+    newRandomPrivateKey: function() {
+      return btcjs.newPrivKey(btcjs.networks.doge);
+    },
+
     newPrivateKey: function() {
       return btcjs.derivePathFromSeedHash(btcjs.networks.doge, app.data.wallets.bip39.seedHex, "m/44'/3'/0'/0/0").toWIF();
     },

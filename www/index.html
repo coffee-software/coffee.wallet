@@ -98,10 +98,17 @@
             <div class="swipe_tab">
               <div class="tab_inner">
                 <div id="tools">
-                  <button class="stitched" onclick="app.scanQrCode(app.handleAnyQRCode.bind(app))">
-                    <img src="icons/quickscan.png"/>
-                    Quick Scan
-                  </button>
+                  <div class="row">
+                    <button class="f1 stitched" onclick="app.scanQrCode(app.handleAnyQRCode.bind(app))" style="margin-right:5px;">
+                      <img src="icons/quickscan.png"/>
+                      Scan
+                    </button>
+
+                    <button class="f1 stitched" onclick="app.pasteClipboard(app.handleAnyQRCode.bind(app))" style="margin-left:5px;">
+                      <img src="icons/quickpaste.png"/>
+                      Paste
+                    </button>
+                  </div>
 
                   <button class="stitched" disabled="disabled">
                     <img src="icons/email.png"/>
@@ -293,9 +300,10 @@
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
-              <button class="f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png"/></button>
+              <button class="normalSend f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png"/></button>
+              <button class="socialSend f1 submit" onclick="app.sendSocialPayment()">send <img src="icons/ico.send.png"/></button>
             </div>
-            <div class="formButtons row">
+            <div class="normalSend formButtons row">
               <button class="f1" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
                 paste
                 <img src="icons/paste.png"/>
@@ -306,7 +314,7 @@
               </button>
             </div>
             <div class="formFields">
-              <div class="field">
+              <div class="normalSend field">
                 <input
                   id="sendCoinAddr"
                   onfocus="app.sendCoinValidateAddr(true)"

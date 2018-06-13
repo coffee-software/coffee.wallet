@@ -21,7 +21,7 @@ button.stitched {
   display: block;
   width: 100%;
   margin: 20px 0;
-  line-height: 64px;
+  line-height: 52px;
 }
 
 button img {
@@ -31,14 +31,14 @@ button img {
 }
 
 button.stitched img {
-  width: 64px;
+  width: 52px;
   float: left;
 }
 
 button .soon {
   position: absolute;
   bottom: -10px;
-  left: 74px;
+  left: 62px;
   right: 0;
   font-style: italic;
 }
