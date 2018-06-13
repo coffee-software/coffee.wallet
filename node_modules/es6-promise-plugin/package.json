@@ -1,0 +1,78 @@
+{
+  "_args": [
+    [
+      "es6-promise-plugin@^4.1.0",
+      "/home/fsw/workspace/coffee.wallet"
+    ]
+  ],
+  "_from": "es6-promise-plugin@>=4.1.0 <5.0.0",
+  "_id": "es6-promise-plugin@4.2.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/es6-promise-plugin",
+  "_nodeVersion": "9.2.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/es6-promise-plugin-4.2.2.tgz_1514397470419_0.1392531597521156"
+  },
+  "_npmUser": {
+    "email": "vstirbu@gmail.com",
+    "name": "vstirbu"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "es6-promise-plugin",
+    "raw": "es6-promise-plugin@^4.1.0",
+    "rawSpec": "^4.1.0",
+    "scope": null,
+    "spec": ">=4.1.0 <5.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/es6-promise-plugin/-/es6-promise-plugin-4.2.2.tgz",
+  "_shasum": "cfa0cc1383d91f999a62a2bbf4bd97bec305e0ac",
+  "_shrinkwrap": null,
+  "_spec": "es6-promise-plugin@^4.1.0",
+  "_where": "/home/fsw/workspace/coffee.wallet",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/vstirbu/PromisesPlugin/issues"
+  },
+  "dependencies": {},
+  "description": "ES6-Promises polyfill for Cordova/PhoneGap",
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "es6-promise": "^4.2.2"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-uoA4aVplXI9oqUYJFBAVRwAqIN9/n9JgrTAUGX3qPbnSZVE5yY1+6/MsoN5f4xsaPO62WjPHOdtts6okMN6tNA==",
+    "shasum": "cfa0cc1383d91f999a62a2bbf4bd97bec305e0ac",
+    "tarball": "https://registry.npmjs.org/es6-promise-plugin/-/es6-promise-plugin-4.2.2.tgz"
+  },
+  "ecosystem": "cordova",
+  "gitHead": "adbcfa4a3eb1183f8c91832d28c3be6f9ddcad52",
+  "homepage": "https://github.com/vstirbu/PromisesPlugin#readme",
+  "license": "MIT",
+  "main": "www/promise.js",
+  "maintainers": [
+    {
+      "name": "vstirbu",
+      "email": "vlad.stirbu@ieee.org"
+    }
+  ],
+  "name": "es6-promise-plugin",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vstirbu/PromisesPlugin.git"
+  },
+  "scripts": {
+    "build": "./build"
+  },
+  "version": "4.2.2"
+}

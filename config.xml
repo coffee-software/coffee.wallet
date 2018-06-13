@@ -68,5 +68,9 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-clipboard" spec="https://github.com/ihadeed/cordova-clipboard" />
+    <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
+        <variable name="URL_SCHEME" value="coffee" />
+    </plugin>
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
     <engine name="browser" spec="^5.0.3" />
 </widget>

@@ -30,7 +30,18 @@
     },
     "cordova-clipboard": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "coffee",
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
+    }
+  }
 }
