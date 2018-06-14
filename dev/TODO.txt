@@ -1,8 +1,11 @@
-TODO:
+TORELEASE:
+* scan any tool
+* tools tab
+* send and receive via message
 
-1.0: public release nr2
+1.0: stable public release
 
-* version update popup
+* blockcypher queue.
 * BIP39 import / restore
 * offline asset addr validation
 * BIP32 - new address per transaction
@@ -14,6 +17,7 @@ TODO:
 
 * generate offline wallets in app.
 * fingerprint auth / pin auth  https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio
+* Internationalization https://www.reddit.com/user/Want_some_doge
 
 1.2:
 
