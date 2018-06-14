@@ -861,30 +861,40 @@ var app = {
       document.getElementById('lockMessage').innerHTML = message;
     },
 
+    generatePngWithQRCode: function(text) {
+      var tmpElement = document.createElement('div');
+      var qrcode = new QRCode(tmpElement, {
+      	text: text,
+      	width: 256,
+      	height: 256,
+      	colorDark : "#000000",
+      	colorLight : "#ffffff"
+      });
+      return qrcode._oDrawing._elCanvas.toDataURL("image/png");
+    },
+
     sendSocialPaymentCommit: function(coin, amount, fee) {
 
       var tmpPrivateKey = app.sendWallet.handler.newRandomPrivateKey();
       var tmpAddr = app.sendWallet.handler.addrFromPrivateKey(tmpPrivateKey);
+
+      var receiveLink = coin + '/' + tmpPrivateKey; //'coffee://' +
 
       //TODO outgoing history and option to redeem
       app.alertInfo('Sending to blockchain escrow...');
       app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, tmpAddr, amount, fee);
       app.closeForm();
 
-      var url = 'coffee://' + coin + '/' + tmpPrivateKey;
-      //console.log(url);
-      var subject = 'You have received ' + amount + ' ' + coin + '!';
+      var subject = amount + ' ' + coin + ' for you!';
       var message = subject + '\n' +
-        'To claim this transfer from an escrow account please:\n' +
-        '1) Install "Coffee Wallet" app: https://wallet.coffee/ \n' +
-        '2.a) Open this link in application: ' + url + ' (just click on it and confirm that you want to open in Coffee Wallet) \n' +
-        '2.b) You can also scan attached QR code using tools -> scan or paste this link into tools -> paste \n' +
-        'Try to do this ASAP and keep in mind that sender might cancel this transfer at any time before you claim it.';
+        'To receive ' + amount + ' ' + coin + ' go to:\n' +
+        'https://wallet.coffee/receive#' + receiveLink + ' \n' +
+        'Please do this as soon as possible.';
       window.plugins.socialsharing.shareWithOptions({
         message: message, // not supported on some apps (Facebook, Instagram)
         subject: subject, // fi. for email
-        url: url,
-        files: [],
+        //url: url,
+        //files: [this.generatePngWithQRCode(url)],
         chooserTitle: 'Send via'
       }, function(result) {
         app.alertInfo('Done. Recipient will now be able to withdraw this transfer.');
