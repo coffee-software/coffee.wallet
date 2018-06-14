@@ -1,7 +1,3 @@
-TORELEASE:
-* scan any tool
-* tools tab
-* send and receive via message
 
 1.0: stable public release
 
