@@ -112,5 +112,5 @@ var CoinPaprikaProvider = {
 }
 
 
-var allPriceProviders = [CoinMarketCapProvider]; //, CoinPaprikaProvider];
+var allPriceProviders = [CoinMarketCapProvider, CoinPaprikaProvider];
 
