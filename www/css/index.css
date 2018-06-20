@@ -364,6 +364,16 @@ table {
   margin-left: 10px;
 }
 
+.listingRow .unconfirmed {
+  animation:blinkingText 1s infinite;
+}
+
+@keyframes blinkingText {
+  0% {    color: #ddc486;	}
+  50% {   color: #766054;	}
+  100% {	color: #ddc486;	}
+}
+
 #popup {
   position: absolute;
   top: 0;

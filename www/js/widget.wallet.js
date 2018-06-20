@@ -71,6 +71,7 @@ function Wallet(data) {
   */
 
   var onlineCell = document.createElement("div");
+  this.onlineCell = onlineCell;
   onlineCell.classList.add('left');
   onlineCell.classList.add('online');
   this.onlineAmount = document.createElement("div");
@@ -141,11 +142,12 @@ function Wallet(data) {
   }
 
   this.checkForOfflineAssetChange = function(idx, callback) {
-    this.handler.getBalance(this.offlineWallets[idx].addr, function(val){
-      if (val != that.offlineWallets[idx].balance) {
-        callback(isNaN(that.offlineWallets[idx].balance) ? val : val - that.offlineWallets[idx].balance);
+    this.handler.getBalance(this.offlineWallets[idx].addr, function(balance, unconfirmed){
+      var total = balance + unconfirmed;
+      if (total != that.offlineWallets[idx].balance) {
+        callback(isNaN(that.offlineWallets[idx].balance) ? total : total - that.offlineWallets[idx].balance);
         //TODO
-        that.offlineWallets[idx].balance = val;
+        that.offlineWallets[idx].balance = total;
         app.data.save();
       }
     });
@@ -182,15 +184,17 @@ function Wallet(data) {
     this.updateOnlineValue();
 
     if (this.data.addr && 'getBalance' in this.handler) {
-      this.handler.getBalance(this.data.addr, function(val){
-        if (val != that.totalOnline) {
-          if (that.totalOnline > val) {
-            app.alertInfo((that.totalOnline - val) + ' less on your ' + that.handler.code + ' wallet');
+      this.handler.getBalance(this.data.addr, function(balance, unconfirmed){
+        var total = balance + unconfirmed;
+        that,onlineCell.classList.toggle('unconfirmed', unconfirmed != 0);
+        if (total != that.totalOnline) {
+          if (that.totalOnline > total) {
+            app.alertInfo((that.totalOnline - total) + ' less on your ' + that.handler.code + ' wallet');
           } else {
-            app.alertInfo((val - that.totalOnline) + ' more on your ' + that.handler.code + ' wallet');
+            app.alertInfo((total - that.totalOnline) + ' more on your ' + that.handler.code + ' wallet');
           }
           //TODO
-          that.data.balance = that.totalOnline = val;
+          that.data.balance = that.totalOnline = total;
           app.data.save();
           that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
           that.updateOnlineValue();

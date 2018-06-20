@@ -88,8 +88,8 @@ function Asset(wallet, id, data) {
   this.refreshAmount = function() {
       this.total = 0;
       if (this.data.addr) {
-        wallet.handler.getBalance(this.data.addr, function(val){
-          that.total = val;
+        wallet.handler.getBalance(this.data.addr, function(balance, unconfirmed){
+          that.total = balance + unconfirmed;
           that.amount.innerHTML = formatMoney(that.total, that.wallet.handler.code, 5);
           that.updateValue();
         });

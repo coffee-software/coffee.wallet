@@ -23,7 +23,7 @@ var BtcTestHandler = {
       return btcjs.addrFromPriv(btcjs.networks.test, priv);
     },
     getBalance: function(addr, callback) {
-      return btcjs.getBalance(btcjs.networks.test, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+      return btcjs.getBalance(btcjs.networks.test, addr, function (balance, pending) {callback(balance * 0.00000001, pending * 0.00000001)});
     },
     sendPayment: function(priv, receiver, amount, fee) {
       var that = this;
@@ -70,7 +70,7 @@ var BtcHandler = {
       return btcjs.addrFromPriv(btcjs.networks.btc, priv);
     },
     getBalance: function(addr, callback) {
-      return btcjs.getBalance(btcjs.networks.btc, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+      return btcjs.getBalance(btcjs.networks.btc, addr, function (balance, pending) {callback(balance * 0.00000001, pending * 0.00000001)});
     },
     sendPayment: function(priv, receiver, amount, fee) {
       var that = this;
@@ -131,7 +131,7 @@ var LtcHandler = {
       return btcjs.addrFromPriv(btcjs.networks.ltc, priv);
     },
     getBalance: function(addr, callback) {
-      return btcjs.getBalance(btcjs.networks.ltc, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+      return btcjs.getBalance(btcjs.networks.ltc, addr, function (balance, pending) {callback(balance * 0.00000001, pending * 0.00000001)});
     },
     sendPayment: function(priv, receiver, amount, fee) {
       var that = this;
@@ -182,7 +182,7 @@ var DogeHandler = {
       return btcjs.addrFromPriv(btcjs.networks.doge, priv);
     },
     getBalance: function(addr, callback) {
-      return btcjs.getBalance(btcjs.networks.doge, addr, function (balance, pending) {callback((balance + pending) * 0.00000001)});
+      return btcjs.getBalance(btcjs.networks.doge, addr, function (balance, pending) {callback(balance * 0.00000001, pending * 0.00000001)});
     },
     sendPayment: function(priv, receiver, amount, fee) {
       var that = this;

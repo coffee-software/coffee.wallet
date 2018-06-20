@@ -968,15 +968,17 @@ var app = {
       }
 
       var tmpAddr = app.wallets[coin].handler.addrFromPrivateKey(privateKey);
-      app.wallets[coin].handler.getBalance(tmpAddr, function(balance){
-
-        if (balance > 0) {
+      app.wallets[coin].handler.getBalance(tmpAddr, function(balance, unconfirmed){
+        var total = balance + unconfirmed;
+        if (total > 0) {
           var fees = app.wallets[coin].handler.getFees();
           var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
-          app.alertInfo('Trying to transfer ' + balance + ' ' + coin + ' from escrow');
-
+          app.alertInfo('Trying to transfer ' + total + ' ' + coin + ' from escrow');
+          if (unconfirmed > 0) {
+            app.alertWarning('Warning: escrow transaction is not yet confirmed.');
+          }
           setTimeout(function() {
-            app.wallets[coin].handler.sendPayment(privateKey, app.wallets[coin].data.addr, balance - defaultFee[0], defaultFee);
+            app.wallets[coin].handler.sendPayment(privateKey, app.wallets[coin].data.addr, total - defaultFee[0], defaultFee);
             //TODO this is a temporary hack before the update loop/queue
             for (var i=1; i<10; i++) {
               setTimeout(function() { app.wallets[coin].refreshOnline(); }, 5000 * i * i);

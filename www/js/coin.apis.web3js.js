@@ -29,11 +29,12 @@ var EthFunctions = {
     try {
       this._getProvider().eth.getBalance(addr).then(function(val){
         //console.log(val);
-        callback(val == 0 ? 0.0 : parseFloat(that._getProvider().utils.fromWei(val, 'ether')));
+        //TODO consider unconfirmed?
+        callback(val == 0 ? 0.0 : parseFloat(that._getProvider().utils.fromWei(val, 'ether')), 0.0);
       });
     } catch (err) {
       app.alertError(err.message, that.code);
-      callback(0.0);
+      callback(0.0, 0.0);
     }
   },
   _getTransaction: function(account, receiver, amount, fee) {
@@ -142,7 +143,7 @@ var ERC20Handler = function(tokenData) {
       var contract = new c(this.ethAbi, this.ethContractAddr);
       var that = this;
       contract.methods.balanceOf(addr).call().then(function(val){
-        callback(val == 0 ? 0.0 : parseFloat(that._getProvider().utils.fromWei(val, 'ether')));
+        callback(val == 0 ? 0.0 : parseFloat(that._getProvider().utils.fromWei(val, 'ether')), 0.0);
       });
     };
 
