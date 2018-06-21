@@ -1,5 +1,15 @@
-window.version = '0.2.0';
+window.version = '0.2.1';
 window.changelog = [
+  {
+    version: '0.2.1',
+    date: '2018-06-21',
+    changes: [
+      'added: reading fees from network instead of using hardcoded ones',
+      'added: indicate wallet contains unconfirmed transactions by blinking',
+      'added: warning when sending unconfirmed inputs',
+      'added: coinpaprica.com as optional price provider'
+    ]
+  },
   {
     version: '0.2.0',
     date: '2018-06-14',
