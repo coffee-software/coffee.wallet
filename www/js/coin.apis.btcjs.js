@@ -37,16 +37,10 @@ var BtcTestHandler = {
     validateAddress: function(addr) {
       return btcjs.validateAddress(btcjs.networks.test, addr);
     },
-    getFees: function() {
-      //TODO
-      //key 0 - fee, 1 - estimated time, >1 internal coinparameters
-      return [
-        [0.0001, 5,  10000],
-        [0.0003, 3.5,  30000],
-        [0.0005, 2,  50000],
-        [0.00075, 1.5,  75000],
-        [0.0010, 1, 100000]
-      ];
+    getFees: function(callback) {
+      app.settings.getCached('coin-' + this.name + '-fees', 60 * 60, function(callback){
+        btcjs.getFees(btcjs.networks.test, callback);
+      }, callback);
     }
 }
 
@@ -84,16 +78,10 @@ var BtcHandler = {
     validateAddress: function(addr) {
       return btcjs.validateAddress(btcjs.networks.btc, addr);
     },
-    getFees: function() {
-      //TODO
-      //key 0 - fee, 1 - estimated time, >1 internal coinparameters
-      return [
-        [0.00002, 20,  2000],
-        [0.00004, 10,  4000],
-        [0.0001,  5,  10000],
-        [0.0002, 3,   20000],
-        [0.0004, 1,   40000]
-      ];
+    getFees: function(callback) {
+      app.settings.getCached('coin-' + this.name + '-fees', 60 * 60, function(callback){
+        btcjs.getFees(btcjs.networks.btc, callback);
+      }, callback);
     }
 }
 
@@ -145,16 +133,10 @@ var LtcHandler = {
     validateAddress: function(addr) {
       return btcjs.validateAddress(btcjs.networks.ltc, addr);
     },
-    getFees: function() {
-      //TODO
-      //key 0 - fee, 1 - estimated time, >1 internal coinparameters
-      return [
-        [0.00002, 20,  2000],
-        [0.00004, 10,  4000],
-        [0.0001,  5,  10000],
-        [0.0002, 3,   20000],
-        [0.0004, 1,   40000]
-      ];
+    getFees: function(callback) {
+      app.settings.getCached('coin-' + this.name + '-fees', 60 * 60, function(callback){
+        btcjs.getFees(btcjs.networks.ltc, callback);
+      }, callback);
     }
 }
 
@@ -196,15 +178,9 @@ var DogeHandler = {
     validateAddress: function(addr) {
       return btcjs.validateAddress(btcjs.networks.doge, addr);
     },
-    getFees: function() {
-      //TODO
-      //key 0 - fee, 1 - estimated time, >1 internal coinparameters
-      return [
-        [0.00002, 20,  2000],
-        [0.00004, 10,  4000],
-        [0.0001,  5,  10000],
-        [0.0002, 3,   20000],
-        [0.0004, 1,   40000]
-      ];
+    getFees: function(callback) {
+      app.settings.getCached('coin-' + this.name + '-fees', 60 * 60, function(callback){
+        btcjs.getFees(btcjs.networks.doge, callback);
+      }, callback);
     }
 }

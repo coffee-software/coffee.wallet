@@ -711,15 +711,10 @@ var app = {
     },
 
     popupSendPayment: function(wallet) {
-        this.openForm('sendPaymentPopup', 'send ' + wallet.handler.code, 'coins/' + wallet.handler.icon + '.svg');
+        app.openForm('sendPaymentPopup', 'send ' + wallet.handler.code, 'coins/' + wallet.handler.icon + '.svg');
 
-        this.toggleAll('normalSend', true);
-        this.toggleAll('socialSend', false);
-
-        var fees = wallet.handler.getFees();
-        //document.getElementById('sendCoinFee').max = fees.length - 1;
-        //document.getElementById('sendCoinFee').value = Math.floor((fees.length - 1) / 2);
-        document.getElementById('sendCoinFee').rangeSlider.update({min: 0, max: fees.length - 1, value: Math.floor((fees.length - 1) / 2)})
+        app.toggleAll('normalSend', true);
+        app.toggleAll('socialSend', false);
 
         document.getElementById('sendCoinAddr').value = '';
         document.getElementById('sendCoinValue').value = '';
@@ -729,9 +724,17 @@ var app = {
 
         document.getElementById('sendCoinName').innerHTML = wallet.handler.code;
         document.getElementById('sendFiatName').innerHTML = app.priceProvider.getUnit();
-        this.sendWallet = wallet;
-        this.sendFees = fees;
+        app.sendWallet = wallet;
+
+        app.sendFees = [];
+        document.getElementById('sendCoinFee').rangeSlider.update({min: 0, max: 0, value: 0});
         app.sendCoinUpdateFee();
+
+        wallet.handler.getFees(function(fees){
+          document.getElementById('sendCoinFee').rangeSlider.update({min: 0, max: fees.length - 1, value: Math.floor((fees.length - 1) / 2)})
+          app.sendFees = fees;
+          app.sendCoinUpdateFee();
+        });
     },
 
     sendCoinValidateAddr: function(focus) {
@@ -781,6 +784,15 @@ var app = {
 
     },
 
+    sendCoinValidateFee: function() {
+      if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
+        return true;
+      } else {
+        app.alertError('please wait for fees update');
+        return false;
+      }
+    },
+
     sendCoinUpdateFee: function(){
       if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
         var fee = this.sendFees[document.getElementById('sendCoinFee').value];
@@ -788,6 +800,9 @@ var app = {
           fee[0] + this.sendWallet.handler.code + ' (' +
           this.priceProvider.convert(fee[0], this.sendWallet.handler.code) + ')';
         document.getElementById('feeTime').innerHTML = fee[1] + 'min';
+      } else {
+        document.getElementById('feeAmount').innerHTML = 'unknown';
+        document.getElementById('feeTime').innerHTML = 'unknown';
       }
     },
 
@@ -890,6 +905,7 @@ var app = {
         'To receive ' + amount + ' ' + coin + ' go to:\n' +
         'https://wallet.coffee/receive#' + receiveLink + ' \n' +
         'Please do this as soon as possible.';
+      //console.log(message); return;
       window.plugins.socialsharing.shareWithOptions({
         message: message, // not supported on some apps (Facebook, Instagram)
         subject: subject, // fi. for email
@@ -906,7 +922,7 @@ var app = {
     },
     sendSocialPayment: function() {
 
-      if (!(this.sendCoinValidateAmount())) {
+      if (!(this.sendCoinValidateAmount() && this.sendCoinValidateFee())) {
         return;
       }
 
@@ -953,9 +969,9 @@ var app = {
           if (app.data.wallets[code].enabled) {
             app.addWalletWidget(app.data.wallets[code]);
             app.wallets[code].setActive();
-            return true;
           }
         });
+        return true;
       }
       return false;
     },
@@ -971,18 +987,23 @@ var app = {
       app.wallets[coin].handler.getBalance(tmpAddr, function(balance, unconfirmed){
         var total = balance + unconfirmed;
         if (total > 0) {
-          var fees = app.wallets[coin].handler.getFees();
-          var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
           app.alertInfo('Trying to transfer ' + total + ' ' + coin + ' from escrow');
           if (unconfirmed > 0) {
-            app.alertWarning('Warning: escrow transaction is not yet confirmed.');
+            app.alertInfo('Warning: escrow transaction is not yet confirmed.');
           }
+
           setTimeout(function() {
-            app.wallets[coin].handler.sendPayment(privateKey, app.wallets[coin].data.addr, total - defaultFee[0], defaultFee);
-            //TODO this is a temporary hack before the update loop/queue
-            for (var i=1; i<10; i++) {
-              setTimeout(function() { app.wallets[coin].refreshOnline(); }, 5000 * i * i);
-            }
+            var fees = app.wallets[coin].handler.getFees(function(fees){
+              app.alertInfo('updated fees');
+              var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
+              setTimeout(function() {
+                app.wallets[coin].handler.sendPayment(privateKey, app.wallets[coin].data.addr, total - defaultFee[0], defaultFee);
+                //TODO this is a temporary hack before the update loop/queue
+                for (var i=1; i<10; i++) {
+                  setTimeout(function() { app.wallets[coin].refreshOnline(); }, 5000 * i * i);
+                }
+              }, 1000);
+            });
           }, 1000);
 
         } else {
@@ -1020,7 +1041,7 @@ var app = {
 
     sendPayment: function() {
 
-      if (!(this.sendCoinValidateAddr() && this.sendCoinValidateAmount())) {
+      if (!(this.sendCoinValidateAddr() && this.sendCoinValidateAmount() && this.sendCoinValidateFee())) {
         return;
       }
 

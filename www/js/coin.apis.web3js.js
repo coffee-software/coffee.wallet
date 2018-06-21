@@ -45,16 +45,16 @@ var EthFunctions = {
       gas: 21000 //TODO!
     };
   },
-  getFees: function() {
+  getFees: function(callback) {
     //TODO: https://ethgasstation.info/json/ethgasAPI.json
     //key 0 - fee, 1 - estimated time, >1 internal coinparameters
-    return [
+    callback([
       [0.00002, 8.77, '1000000000'],
       [0.00004, 2.86, '2000000000'],
       [0.00006, 2.43, '3000000000'],
       [0.00008, 0.62, '4000000000'],
       [0.00011, 0.6, '5000000000']
-    ];
+    ]);
   },
   sendPayment: function(priv, receiver, amount, fee) {
     var that = this;
