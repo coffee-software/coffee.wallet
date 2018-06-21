@@ -1,7 +1,7 @@
-window.version = '0.1.9';
+window.version = '0.2.0';
 window.changelog = [
   {
-    version: '0.1.9',
+    version: '0.2.0',
     date: '2018-06-14',
     changes: [
       'added: tools tab',

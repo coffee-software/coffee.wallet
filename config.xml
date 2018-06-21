@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="coffee.software.coffeewallet" version="0.1.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="coffee.software.coffeewallet" version="0.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Coffee</name>
     <description>
       Blockchain wallet and portfolio.
@@ -71,6 +71,6 @@
     <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
         <variable name="URL_SCHEME" value="coffee" />
     </plugin>
-    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
     <engine name="browser" spec="^5.0.3" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="https://github.com/fsw/SocialSharing-PhoneGap-Plugin.git" />
 </widget>
