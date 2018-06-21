@@ -26192,6 +26192,9 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 				}
 			}
 			if ('unconfirmed_txrefs' in xhr.response) {
+				if (xhr.response.unconfirmed_txrefs.length > 0) {
+					app.alertInfo('warning: sending using unconfirmed inputs!');
+				}
 				for (var i = xhr.response.unconfirmed_txrefs.length - 1; i >= 0; i --) {
 					totalIn += xhr.response.unconfirmed_txrefs[i].value;
 					vins.push(txb.addInput(xhr.response.unconfirmed_txrefs[i].tx_hash, parseInt(xhr.response.unconfirmed_txrefs[i].tx_output_n)));
