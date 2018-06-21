@@ -71,6 +71,6 @@
     <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
         <variable name="URL_SCHEME" value="coffee" />
     </plugin>
-    <engine name="browser" spec="^5.0.3" />
     <plugin name="cordova-plugin-x-socialsharing" spec="https://github.com/fsw/SocialSharing-PhoneGap-Plugin.git" />
+    <engine name="browser" spec="^5.0.3" />
 </widget>

@@ -1,7 +1,7 @@
-window.version = '0.2.1';
+window.version = '0.3.0';
 window.changelog = [
   {
-    version: '0.2.1',
+    version: '0.3.0',
     date: '2018-06-21',
     changes: [
       'added: reading fees from network instead of using hardcoded ones',

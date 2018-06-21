@@ -38,7 +38,7 @@ var BtcTestHandler = {
       return btcjs.validateAddress(btcjs.networks.test, addr);
     },
     getFees: function(callback) {
-      app.settings.getCached('coin-' + this.name + '-fees', 60 * 60, function(callback){
+      app.settings.getCached('coin-' + this.name + '-fees', 15 * 60, function(callback){
         btcjs.getFees(btcjs.networks.test, callback);
       }, callback);
     }
@@ -79,7 +79,7 @@ var BtcHandler = {
       return btcjs.validateAddress(btcjs.networks.btc, addr);
     },
     getFees: function(callback) {
-      app.settings.getCached('coin-' + this.name + '-fees', 60 * 60, function(callback){
+      app.settings.getCached('coin-' + this.name + '-fees', 15 * 60, function(callback){
         btcjs.getFees(btcjs.networks.btc, callback);
       }, callback);
     }
@@ -134,7 +134,7 @@ var LtcHandler = {
       return btcjs.validateAddress(btcjs.networks.ltc, addr);
     },
     getFees: function(callback) {
-      app.settings.getCached('coin-' + this.name + '-fees', 60 * 60, function(callback){
+      app.settings.getCached('coin-' + this.name + '-fees', 15 * 60, function(callback){
         btcjs.getFees(btcjs.networks.ltc, callback);
       }, callback);
     }
@@ -179,7 +179,7 @@ var DogeHandler = {
       return btcjs.validateAddress(btcjs.networks.doge, addr);
     },
     getFees: function(callback) {
-      app.settings.getCached('coin-' + this.name + '-fees', 60 * 60, function(callback){
+      app.settings.getCached('coin-' + this.name + '-fees', 15 * 60, function(callback){
         btcjs.getFees(btcjs.networks.doge, callback);
       }, callback);
     }

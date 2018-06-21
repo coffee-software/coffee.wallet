@@ -26072,18 +26072,22 @@ var bip39 = require('bip39');
 var networks = {
 	ltc: {
 		webapi: 'https://api.blockcypher.com/v1/ltc/main',
+		defaultFee: 10000,
 		network: bitcoin.networks.litecoin
 	},
 	btc: {
 		webapi: 'https://api.blockcypher.com/v1/btc/main',
+		defaultFee: 10000,
 		network: bitcoin.networks.bitcoin
 	},
 	test: {
 		webapi: 'https://api.blockcypher.com/v1/btc/test3',
+		defaultFee: 10000,
 		network: bitcoin.networks.testnet
 	},
 	doge: {
 		webapi: 'https://api.blockcypher.com/v1/doge/main',
+		defaultFee: 100000000,
 		network: {
 			messagePrefix: '\x19Dogecoin Signed Message:\n',
 			bip32: {
@@ -26135,6 +26139,18 @@ function smartRound(f) {
   return parseFloat(f.toExponential(Math.max(4, 4 + Math.log10(Math.abs(f)))));
 }
 
+function generateFeesFromAvg(avgFee) {
+	var t = 10; //TODO avarage block time
+	var factors = [0.2, 0.4, 0.6, 0.8, 1, 1.3, 1.7, 2.3, 3];
+	var newFees = [];
+	for (var i=0; i<factors.length; i++) {
+		//key 0 - fee, 1 - estimated time, >1 internal coinparameters
+		var fee = smartRound(avgFee * 0.00000001 * factors[i]);
+		newFees.push([fee, (t / factors[i]).toFixed(2), Math.round(fee * 100000000)]);
+	}
+	return newFees;
+}
+
 function getFees (network, callback, error) {
 	//TODO. use dedicated API
 	var xhr = new XMLHttpRequest();
@@ -26147,24 +26163,18 @@ function getFees (network, callback, error) {
 			xhr2.responseType = 'json';
 			xhr2.onload = function() {
 				if (xhr2.status === 200) {
-					var avgFee = (xhr2.response.fees / xhr2.response.size) * 256;
-					var t = 10; //TODO avarage block time
-					var factors = [0.2, 0.4, 0.6, 0.8, 1, 1.3, 1.7, 2.3, 3];
-					var newFees = [];
-					for (var i=0; i<factors.length; i++) {
-						//key 0 - fee, 1 - estimated time, >1 internal coinparameters
-						var fee = smartRound(avgFee * 0.00000001 * factors[i]);
-
-						newFees.push([fee, (t / factors[i]).toFixed(2), Math.round(fee * 100000000)]);
+					if (('fees' in xhr2.response) && (xhr2.response.fees > 0) && ('size' in xhr2.response) && (xhr2.response.size > 0)) {
+						callback(generateFeesFromAvg((xhr2.response.fees / xhr2.response.size) * 256));
+					} else {
+						callback(generateFeesFromAvg(network.defaultFee));
 					}
-					callback(newFees);
 				} else {
-					error && error(xhr2);
+					callback(generateFeesFromAvg(network.defaultFee));
 				}
 			}
 			xhr2.send();
 		} else {
-			error && error(xhr);
+			callback(generateFeesFromAvg(network.defaultFee));
 		}
 	};
 	xhr.send();
