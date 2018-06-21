@@ -66,6 +66,45 @@ function getBalance (network, addr, callback, error) {
 	xhr.send();
 }
 
+function smartRound(f) {
+  return parseFloat(f.toExponential(Math.max(4, 4 + Math.log10(Math.abs(f)))));
+}
+
+function getFees (network, callback, error) {
+	//TODO. use dedicated API
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', network.webapi, true);
+	xhr.responseType = 'json';
+	xhr.onload = function() {
+		if (xhr.status === 200) {
+			var xhr2 = new XMLHttpRequest();
+			xhr2.open('GET', xhr.response.latest_url, true);
+			xhr2.responseType = 'json';
+			xhr2.onload = function() {
+				if (xhr2.status === 200) {
+					var avgFee = (xhr2.response.fees / xhr2.response.size) * 256;
+					var t = 10; //TODO avarage block time
+					var factors = [0.2, 0.4, 0.6, 0.8, 1, 1.3, 1.7, 2.3, 3];
+					var newFees = [];
+					for (var i=0; i<factors.length; i++) {
+						//key 0 - fee, 1 - estimated time, >1 internal coinparameters
+						var fee = smartRound(avgFee * 0.00000001 * factors[i]);
+
+						newFees.push([fee, (t / factors[i]).toFixed(2), Math.round(fee * 100000000)]);
+					}
+					callback(newFees);
+				} else {
+					error && error(xhr2);
+				}
+			}
+			xhr2.send();
+		} else {
+			error && error(xhr);
+		}
+	};
+	xhr.send();
+}
+
 function sendPayment (network, pk, receiver, amount, fee, success, error) {
 
 	var key = bitcoin.ECPair.fromWIF(pk, network.network);
@@ -109,7 +148,7 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 				amount = totalIn - fee;
 				txb.addOutput(receiver, amount);
 			} else {
-			//TODO new address:
+				//TODO new address:
 				txb.addOutput(receiver, amount);
 				txb.addOutput(key.getAddress(), totalIn - amount - fee);
 			}
@@ -159,6 +198,7 @@ module.exports = {
 	newPrivKey: newPrivKey,
 	addrFromPriv: addrFromPriv,
 	getBalance: getBalance,
+	getFees: getFees,
 	validateAddress: validateAddress,
 	sendPayment: sendPayment,
 
