@@ -3,12 +3,12 @@
 var allCoinApis = {
   'BTC.TST': BtcTestHandler,
   'ETH.TST': EthTestHandler,
-//  'BTC': BtcHandler,
-//  'BCH': BchHandler,
-//  'ETH': EthHandler,
-//  'LTC': LtcHandler,
+  'BTC': BtcHandler,
+  'BCH': BchHandler,
+  'ETH': EthHandler,
+  'LTC': LtcHandler,
   'DOGE': DogeHandler,
-//  'PAY': new ERC20Handler(ERC20Tokens.PAY)
+  'PAY': new ERC20Handler(ERC20Tokens.PAY)
 };
 
 var allCoinApisByRank = new Array();
@@ -905,7 +905,7 @@ var app = {
         'To receive ' + amount + ' ' + coin + ' go to:\n' +
         'https://wallet.coffee/receive#' + receiveLink + ' \n' +
         'Please do this as soon as possible.';
-      //console.log(message); return;
+      console.log(message); return;
       window.plugins.socialsharing.shareWithOptions({
         message: message, // not supported on some apps (Facebook, Instagram)
         subject: subject, // fi. for email
