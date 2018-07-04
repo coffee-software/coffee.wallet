@@ -26,10 +26,6 @@ var CoinMarketCapProvider = {
   },
 
   getPrice: function(unit) {
-    if (unit.endsWith('.TST')) {
-      //return some dummy low-price just for test sake.
-      return 0.1;
-    }
     if (unit in this.prices) {
       return this.prices[unit];
     }
@@ -79,10 +75,6 @@ var CoinPaprikaProvider = {
     },
 
     getPrice: function(unit) {
-      if (unit.endsWith('.TST')) {
-        //return some dummy low-price just for test sake.
-        return 0.1;
-      }
       if (unit in this.prices) {
         return this.prices[unit];
       }
@@ -113,4 +105,3 @@ var CoinPaprikaProvider = {
 
 
 var allPriceProviders = [CoinMarketCapProvider, CoinPaprikaProvider];
-

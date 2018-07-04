@@ -3,12 +3,13 @@
 var allCoinApis = {
   'BTC.TST': BtcTestHandler,
   'ETH.TST': EthTestHandler,
-  'BTC': BtcHandler,
-  'BCH': BchHandler,
-  'ETH': EthHandler,
-  'LTC': LtcHandler,
+  //'BTC': BtcHandler,
+  //'BCH': BchHandler,
+  //'ETH': EthHandler,
+  //'LTC': LtcHandler,
   'DOGE': DogeHandler,
-  'PAY': new ERC20Handler(ERC20Tokens.PAY)
+  //'PAY': new ERC20Handler(ERC20Tokens.PAY),
+  'ERC20.TST': new ERC20Handler(ERC20Tokens['ERC20.TST'])
 };
 
 var allCoinApisByRank = new Array();
@@ -22,6 +23,7 @@ for (var i=0; i<otherCoins.length;i++) {
 
 allCoinApisByRank.push(BtcTestHandler);
 allCoinApisByRank.push(EthTestHandler);
+allCoinApisByRank.push(allCoinApis['ERC20.TST']);
 
 function handleOpenURL(url) {
   setTimeout(function() {
@@ -45,7 +47,7 @@ var app = {
             that.closeMenu();
           }
         };
-        //TODO read from config
+
         this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider', 0)]);
         this.priceProvider.setUnit(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
 
@@ -718,6 +720,10 @@ var app = {
 
         document.getElementById('sendCoinAddr').value = '';
         document.getElementById('sendCoinValue').value = '';
+
+        //disable value edit for coins with no value
+        document.getElementById('sendCoinValue').disabled = (this.priceProvider.getPrice(wallet.handler.code) == 0);
+
         document.getElementById('sendCoinAmount').value = '';
         app.sendCoinValidateAddr(true);
         app.sendCoinValidateAmount(true);
@@ -905,7 +911,7 @@ var app = {
         'To receive ' + amount + ' ' + coin + ' go to:\n' +
         'https://wallet.coffee/receive#' + receiveLink + ' \n' +
         'Please do this as soon as possible.';
-      console.log(message); return;
+      //console.log(message); return;
       window.plugins.socialsharing.shareWithOptions({
         message: message, // not supported on some apps (Facebook, Instagram)
         subject: subject, // fi. for email
