@@ -13,6 +13,7 @@
     "cordova-browser": "^5.0.3",
     "cordova-clipboard": "git+https://github.com/ihadeed/cordova-clipboard.git",
     "cordova-plugin-customurlscheme": "^4.3.0",
+    "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-dialogs": "^2.0.1",
     "cordova-plugin-inappbrowser": "^2.0.2",
     "cordova-plugin-nativestorage": "^2.2.2",
@@ -38,7 +39,8 @@
       "cordova-plugin-customurlscheme": {
         "URL_SCHEME": "coffee"
       },
-      "cordova-plugin-x-socialsharing": {}
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-device": {}
     },
     "platforms": [
       "browser"

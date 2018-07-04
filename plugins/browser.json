@@ -37,6 +37,9 @@
     },
     "cordova-plugin-x-socialsharing": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     }
   },
   "dependent_plugins": {
