@@ -911,7 +911,12 @@ var app = {
         'To receive ' + amount + ' ' + coin + ' go to:\n' +
         'https://wallet.coffee/receive#' + receiveLink + ' \n' +
         'Please do this as soon as possible.';
-      //console.log(message); return;
+
+      if (device.platform == 'browser') {
+        app.alertInfo('share code printed to console');
+        console.log(message);
+        return;
+      }
       window.plugins.socialsharing.shareWithOptions({
         message: message, // not supported on some apps (Facebook, Instagram)
         subject: subject, // fi. for email
@@ -966,57 +971,53 @@ var app = {
       );
     },
 
-    addOrActivateCoin: function(code) {
+    addOrActivateCoin: function(code, callback) {
       if (code in app.data.wallets && app.data.wallets[code].enabled) {
         app.wallets[code].setActive();
-        return true;
+        callback();
       } else if (code in allCoinApis) {
         app.data.addWallet(allCoinApis[code], function(){
           if (app.data.wallets[code].enabled) {
             app.addWalletWidget(app.data.wallets[code]);
             app.wallets[code].setActive();
+            callback();
           }
         });
-        return true;
+      } else {
+        app.alertError('unknown coin ' + coin);
       }
-      return false;
     },
 
     handleReceiveMessage: function(coin, privateKey) {
+      this.addOrActivateCoin(coin, function(){
+        var tmpAddr = app.wallets[coin].handler.addrFromPrivateKey(privateKey);
+        app.wallets[coin].handler.getBalance(tmpAddr, function(balance, unconfirmed){
+          var total = balance + unconfirmed;
+          if (total > 0) {
+            app.alertInfo('Trying to transfer ' + total + ' ' + coin + ' from escrow');
+            if (unconfirmed > 0) {
+              app.alertInfo('Warning: escrow transaction is not yet confirmed.');
+            }
 
-      if (!this.addOrActivateCoin(coin)) {
-        app.alertError('unknown coin ' + coin);
-        return;
-      }
+            setTimeout(function() {
+              var fees = app.wallets[coin].handler.getFees(function(fees){
+                app.alertInfo('updated fees');
+                var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
+                setTimeout(function() {
+                  app.wallets[coin].handler.sendPayment(privateKey, app.wallets[coin].data.addr, total - defaultFee[0], defaultFee);
+                  //TODO this is a temporary hack before the update loop/queue
+                  for (var i=1; i<10; i++) {
+                    setTimeout(function() { app.wallets[coin].refreshOnline(); }, 5000 * i * i);
+                  }
+                }, 1000);
+              });
+            }, 1000);
 
-      var tmpAddr = app.wallets[coin].handler.addrFromPrivateKey(privateKey);
-      app.wallets[coin].handler.getBalance(tmpAddr, function(balance, unconfirmed){
-        var total = balance + unconfirmed;
-        if (total > 0) {
-          app.alertInfo('Trying to transfer ' + total + ' ' + coin + ' from escrow');
-          if (unconfirmed > 0) {
-            app.alertInfo('Warning: escrow transaction is not yet confirmed.');
+          } else {
+            //TODO check by txses if this is empty or already withdrawn
+            app.alertInfo('Escrow balance is empty. If this is a fresh transfer please try again in a minute.');
           }
-
-          setTimeout(function() {
-            var fees = app.wallets[coin].handler.getFees(function(fees){
-              app.alertInfo('updated fees');
-              var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
-              setTimeout(function() {
-                app.wallets[coin].handler.sendPayment(privateKey, app.wallets[coin].data.addr, total - defaultFee[0], defaultFee);
-                //TODO this is a temporary hack before the update loop/queue
-                for (var i=1; i<10; i++) {
-                  setTimeout(function() { app.wallets[coin].refreshOnline(); }, 5000 * i * i);
-                }
-              }, 1000);
-            });
-          }, 1000);
-
-        } else {
-          //TODO check by txses if this is empty or already withdrawn
-          app.alertInfo('Escrow balance is empty. If this is a fresh transfer please try again in a minute.');
-        }
-
+        });
       });
     },
 
