@@ -22,6 +22,7 @@ User interface is built using [cordova platform](https://cordova.apache.org/). F
  * [cordova-plugin-customurlscheme](https://www.npmjs.com/package/cordova-plugin-customurlscheme) to open 'send as message' links
  * [cordova-plugin-x-socialsharing](https://www.npmjs.com/package/cordova-plugin-x-socialsharing) for 'send as message' feature
  * [cordova-plugin-device](https://www.npmjs.com/package/cordova-plugin-device) for conditional, per platform behaviour
+ * [cordova-plugin-pdf-generator](https://www.npmjs.com/package/cordova-plugin-pdf-generator) to generate printable paper wallets
 
 To broadcast signed transaction and save it in blockchain, Coffee uses third party providers:
 

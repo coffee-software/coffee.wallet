@@ -40,6 +40,9 @@
     },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
+    "cordova-pdf-generator": {
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     }
   },
   "dependent_plugins": {

@@ -12,6 +12,7 @@
   "dependencies": {
     "cordova-browser": "^5.0.3",
     "cordova-clipboard": "git+https://github.com/ihadeed/cordova-clipboard.git",
+    "cordova-pdf-generator": "^2.0.4",
     "cordova-plugin-customurlscheme": "^4.3.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-dialogs": "^2.0.1",
@@ -40,7 +41,8 @@
         "URL_SCHEME": "coffee"
       },
       "cordova-plugin-x-socialsharing": {},
-      "cordova-plugin-device": {}
+      "cordova-plugin-device": {},
+      "cordova-pdf-generator": {}
     },
     "platforms": [
       "browser"

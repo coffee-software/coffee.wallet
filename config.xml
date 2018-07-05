@@ -73,5 +73,6 @@
     </plugin>
     <plugin name="cordova-plugin-x-socialsharing" spec="https://github.com/fsw/SocialSharing-PhoneGap-Plugin.git" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
+    <plugin name="cordova-pdf-generator" spec="^2.0.4"/>
     <engine name="browser" spec="^5.0.3" />
 </widget>
