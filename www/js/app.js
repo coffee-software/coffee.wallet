@@ -185,13 +185,25 @@ var app = {
       this.priceProvider.updatePrices(function(){
         var totalOnline = 0;
         var totalOffline = 0;
+        var orders = [];
         for (var key in app.wallets) {
-          totalOnline += app.wallets[key].updateOnlineValue();
-          totalOffline += app.wallets[key].updateOfflineValue();
+          var walletOnline = app.wallets[key].updateOnlineValue();
+          var walletOffline = app.wallets[key].updateOfflineValue();
+          totalOnline += walletOnline;
+          totalOffline += walletOffline;
+          orders.push([key, walletOnline + walletOffline]);
         }
+        orders.sort(function(a, b) {
+            return a[1] - b[1];
+        });
+        for (var i = orders.length - 1; i >= 0; i--) {
+            var row = app.wallets[orders[i][0]].row;
+            row.parentNode.appendChild(row);
+        }
+
         document.getElementById('grandTotal').innerHTML = formatMoney(totalOnline + totalOffline, app.priceProvider.getUnit());
         document.getElementById('totalOnline').innerHTML = formatMoney(totalOnline, app.priceProvider.getUnit());
-        //plnTotal
+
         that.spinning = false;
       });
     },
