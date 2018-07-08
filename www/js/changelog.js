@@ -1,5 +1,36 @@
-window.version = '0.3.0';
+function versionCompare(v1, v2) {
+  var v1parts = v1.split('.'),
+      v2parts = v2.split('.');
+
+  v1parts = v1parts.map(Number);
+  v2parts = v2parts.map(Number);
+
+  for (var i = 0; i < 3; ++i) {
+    if (v1parts[i] == v2parts[i]) {
+      continue;
+    } else if (v1parts[i] > v2parts[i]) {
+      return 1;
+    } else {
+      return -1;
+    }
+  }
+  return 0;
+}
+
+window.version = '0.4.0';
 window.changelog = [
+  {
+    version: '0.4.0',
+    date: '2018-07-08',
+    changes: [
+      'added: LTC support',
+      'added: feature to generate new wallet for offline list as pdf with QR codes.',
+      'added: test ERC20 ropsten token',
+      'changed: coins are ordered by total value',
+      'fixed: sending coin as message to a new installation bug',
+      'fixed: issues with no value coins (test tokens)',
+    ]
+  },
   {
     version: '0.3.0',
     date: '2018-06-21',

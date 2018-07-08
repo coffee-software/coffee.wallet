@@ -1190,7 +1190,7 @@ var app = {
       if (oldVersion != window.version) {
         var changelist = '';
         for (var i in window.changelog) {
-          if (window.changelog[i].version == oldVersion) break;
+          if (versionCompare(window.changelog[i].version, oldVersion) != 1) break;
           changelist += '<b>version ' + window.changelog[i].version + '</b> ' + window.changelog[i].date + '<ul>';
           for (var j in window.changelog[i].changes) {
             changelist += '<li>' + window.changelog[i].changes[j] + '</li>';
