@@ -157,7 +157,7 @@ var app = {
           var li = document.createElement('li');
           li.classList.add('msg');
           li.classList.add(logs[i].severity);
-          li.innerHTML = '<div class="ts">' + (new Date(logs[i].ts * 1000)).toUTCString()  + '</div><div>' + logs[i].message + '</div>';
+          li.innerHTML = '<div class="ts">' + (new Date(logs[i].ts)).toUTCString()  + '</div><div>' + logs[i].message + '</div>';
           //logs[i].coin
           document.getElementById('history').appendChild(li);
         }
