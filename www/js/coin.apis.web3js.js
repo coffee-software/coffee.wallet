@@ -153,7 +153,7 @@ var ERC20Handler = function(tokenData) {
     this.links = tokenData.links;
 
     this._getProvider = tokenData.network == 'main' ? EthFunctions.getMainnetProvider : EthFunctions.getTestnetProvider;
-    this.newPrivateKey = EthHandler;
+    this.newPrivateKey = tokenData.network == 'main' ? EthHandler : EthTestHandler;
     this.addrFromPrivateKey = EthFunctions.addrFromPrivateKey;
     this.getFees = EthFunctions.getFees;
     this.validateAddress = EthFunctions.validateAddress;
