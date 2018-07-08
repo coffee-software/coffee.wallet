@@ -57,6 +57,9 @@ var BtcHandler = {
     links: {
       'bitcoin.org' : 'https://bitcoin.org/'
     },
+    newRandomPrivateKey: function() {
+      return btcjs.newPrivKey(btcjs.networks.btc);
+    },
     newPrivateKey: function() {
       return btcjs.derivePathFromSeedHash(btcjs.networks.btc, app.data.wallets.bip39.seedHex, "m/44'/0'/0'/0/0").toWIF();
     },
@@ -111,6 +114,9 @@ var LtcHandler = {
       "With substantial industry support, trade volume and liquidity, Litecoin is a proven medium of commerce complementary to Bitcoin.",
     links: {
       'litecoin.org' : 'https://litecoin.org/'
+    },
+    newRandomPrivateKey: function() {
+      return btcjs.newPrivKey(btcjs.networks.ltc);
     },
     newPrivateKey: function() {
       return btcjs.derivePathFromSeedHash(btcjs.networks.ltc, app.data.wallets.bip39.seedHex, "m/44'/2'/0'/0/0").toWIF();
