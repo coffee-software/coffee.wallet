@@ -717,11 +717,10 @@ var app = {
         });
         //refresh list
         app.popupOfflineAssets(app.offlineAssetWallet);
-        //info?
         app.confirmBeforeContinue('wallet created',
-          'New wallet was created and public address was added to your assets list. ' +
-          'You should see a pdf share options now. ' +
-          'Use this address only after making the pdf secure. ' +
+          'New wallet was created and public address was added to your offline assets. ' +
+          'You should see pdf share/print options now. ' +
+          'Use this address only after making the pdf secure. Coffee Wallet will not store private key! ' +
           'You will have access to this wallet as long as you will have access to its private key.',
           function(){}
         );
