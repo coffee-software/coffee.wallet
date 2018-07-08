@@ -6,7 +6,7 @@ var allCoinApis = {
   //'BTC': BtcHandler,
   //'BCH': BchHandler,
   //'ETH': EthHandler,
-  //'LTC': LtcHandler,
+  'LTC': LtcHandler,
   'DOGE': DogeHandler,
   //'PAY': new ERC20Handler(ERC20Tokens.PAY),
   'ERC20.TST': new ERC20Handler(ERC20Tokens['ERC20.TST'])
