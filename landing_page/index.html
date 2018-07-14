@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
 
     <link href="css/new-age.min.css" rel="stylesheet">
-    <link href="css/wallet.css" rel="stylesheet">
+    <link href="css/wallet.css?v2" rel="stylesheet">
   </head>
   <body id="page-top">
 
@@ -34,13 +34,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#features">Features</a>
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#download">Download</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#roadmap">Roadmap</a>
+              <a class="nav-link js-scroll-trigger" href="#features">Features</a>
             </li>
           </ul>
         </div>
@@ -53,7 +53,7 @@
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
               <h1 class="mb-5">Coffee Wallet. <br/>accept. spend. keep&nbsp;track.</h1>
-              <a href="#features" class="btn btn-outline btn-xl js-scroll-trigger">Features</a>
+              <a href="#about" class="btn btn-outline btn-xl js-scroll-trigger">About</a>
               <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Download</a>
             </div>
           </div>
@@ -73,7 +73,7 @@
       </div>
     </header>
 
-    <section class="features bg-primary" id="features">
+    <section class="features bg-primary" id="about">
       <div class="container">
         <div class="row flex-row-reverse">
 
@@ -234,28 +234,21 @@
       </div>
     </section>
 
-    <section class="bg-primary" id="roadmap">
+    <section class="bg-primary" id="features">
       <div class="container">
-        <h1>Roadmap</h1>
-        <h3>version 0.1.X</h3>
+        <h3>All features</h3>
         <ul>
-          <li>sending real coins is disabled on purpose before security review.</li>
-          <li>use this version as a portfolio or to send test-BTC using Testnet and test-ETH using Ropsten.</li>
-          <li>feedback is welcome.</li>
-        </ul>
-        <h3>short-term (version 1.0)</h3>
-        <ul>
-          <li>support for BTC, LTC, ETH and ERC20 tokens enabled.</li>
-          <li>fingerprint / pin / face auth using device features for more security.</li>
-          <li>import / export keys to encrypted format.</li>
-        </ul>
-        <h3>long-term</h3>
-        <ul>
-          <li>support for more currencies. BCH, Monero, ..</li>
-          <li>integrate shapeshift or other exchange to easily switch one coin to other form the app.</li>
-          <li>analyze coins history with graph view.</li>
-          <li>integration with popular markets to update portfolio as you trade.</li>
-          <li>generate printable offline wallets from app.</li>
+          <li>Full wallet support for: DOGE, LTC (comming soon: BTC, ETH, ERC20 tokens).</li>
+          <li>Portfolio support for other coins.</li>
+          <li>Add address to your portfolio to keep track on its balance.</li>
+          <li>Configurable display currency and price source (<a target="_blank" href="https://coinmarketcap.com/">CoinMarketCap</a>, <a target="_blank" href="https://coinpaprika.com/">Coinpaprika</a>, more comming)</li>
+          <li>Receive payment with QR code. Send payments using QR codes scanner.</li>
+          <li>BIP39 mnemonic support. Easy for backup 12-word passphrase generates all your private keys.</li>
+          <li>Send crypto as a message (share via SMS, Messanger etc.)</li>
+          <li>Printable PDF paper wallet generator.</li>
+          <li>Bitcoin Testnet and Ethereum Ropsten tokens support (usable tool for devs)</li>
+          <li>BIP72 payments (for example <a target="_blank" href="https://bitpay.com/">bitpay</a>)</li>
+          <li><a target="_blank" href="https://github.com/fsw/coffee.wallet/issues">More features are comming...</a></li>
         </ul>
       </div>
     </section>

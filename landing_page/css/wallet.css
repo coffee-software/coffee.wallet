@@ -48,6 +48,13 @@ section.beans {
   background: linear-gradient(to left,#eadfcb,#D9B994);
 }
 
+.bg-primary a {
+  color: #212529;
+}
+.bg-primary a:hover {
+  color: #111519;
+}
+
 .btn-outline {
   border-color: #eadfcb;
   color: #eadfcb;
