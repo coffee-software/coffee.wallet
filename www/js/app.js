@@ -3,15 +3,18 @@
 var allCoinApis = {
   'BTC.TST': BtcTestHandler,
   'ETH.TST': EthTestHandler,
+  'LTC': LtcHandler,
+  'DOGE': DogeHandler,
   //'BTC': BtcHandler,
   //'BCH': BchHandler,
   //'ETH': EthHandler,
-  'LTC': LtcHandler,
-  'DOGE': DogeHandler,
+  //'CFT': new ERC20Handler(ERC20Tokens.CFT),
   //'PAY': new ERC20Handler(ERC20Tokens.PAY),
   'ERC20.TST': new ERC20Handler(ERC20Tokens['ERC20.TST'])
 };
 
+//those will be added regarding of no value and no rank:
+var forcedCoins = Object.keys(allCoinApis);
 var allCoinApisByRank = new Array();
 
 for (var i=0; i<otherCoins.length;i++) {
@@ -21,9 +24,9 @@ for (var i=0; i<otherCoins.length;i++) {
   allCoinApisByRank.push(allCoinApis[otherCoins[i].code]);
 }
 
-allCoinApisByRank.push(BtcTestHandler);
-allCoinApisByRank.push(EthTestHandler);
-allCoinApisByRank.push(allCoinApis['ERC20.TST']);
+for (var i=0; i< forcedCoins.length; i++) {
+  allCoinApisByRank.push(allCoinApis[forcedCoins[i]]);
+}
 
 function handleOpenURL(url) {
   setTimeout(function() {
@@ -738,8 +741,11 @@ var app = {
         );
       }
       if (device.platform == 'browser') {
+        //TODO print pdf in browser build
+        console.log('priv:' + randomPriv);
+        console.log('addr:' + randomAddr);
         console.log(html);
-        app.alertInfo('wallet html printed to console');
+        app.alertInfo('wallet info printed to console');
         proceed();
       } else {
         pdf.fromData(html, {
