@@ -409,6 +409,92 @@ var app = {
       li.appendChild(button);
       return li;
     },
+    doExchange: function() {
+      changelly.createTransaction(
+        document.getElementById("exchangeSellCoin").value,
+        document.getElementById("exchangeBuyCoin").value,
+        document.getElementById("exchangeSellAmmount").value,
+        app.wallets[document.getElementById("exchangeBuyCoin").value].data.addr,
+        function(ret){
+          console.log(ret);
+        }
+      );
+    },
+    updateExchange() {
+      var sellCoin = document.getElementById("exchangeSellCoin").value;
+      var sellAmmount = document.getElementById("exchangeSellAmmount").value;
+      var buyCoin = document.getElementById("exchangeBuyCoin").value;
+      var fee = 0;
+
+      if (sellCoin) {
+        if (sellCoin in app.exchangeDefaultFees) {
+          fee = app.exchangeDefaultFees[sellCoin][0];
+          document.getElementById("exchangeSellFee").textContent = fee;
+        } else {
+          document.getElementById("exchangeSellFee").textContent = 'pending...';
+          var fees = app.wallets[sellCoin].handler.getFees(function(fees){
+            app.exchangeDefaultFees[sellCoin] = fees[Math.floor((fees.length - 1) / 2)];
+            app.updateExchange();
+          });
+        }
+        document.getElementById("exchangeSellMax").textContent = app.wallets[sellCoin].data.balance - fee;
+        document.getElementById("exchangeSellValue").textContent = (app.priceProvider.getPrice(sellCoin) * sellAmmount) + ' ' + app.priceProvider.getUnit();
+      } else {
+        document.getElementById("exchangeSellMax").textContent = '';
+        document.getElementById("exchangeSellValue").textContent = '';
+        document.getElementById("exchangeSellFee").textContent = '';
+      }
+
+      if (sellCoin && buyCoin) {
+        var minKey = sellCoin + '#' + buyCoin;
+        if (minKey in app.exchangeMinAmmounts) {
+          document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[minKey];
+        } else {
+          document.getElementById("exchangeSellMin").textContent = '';
+          changelly.getMinAmount(sellCoin, buyCoin, function(ret){
+            app.exchangeMinAmmounts[minKey] = ret;
+            document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[minKey];
+          });
+        }
+      } else {
+        document.getElementById("exchangeSellMin").textContent = '';
+      }
+
+      if (sellCoin && buyCoin && (sellAmmount > 0)) {
+        changelly.getExchangeAmount(
+          sellCoin,
+          buyCoin,
+          sellAmmount,
+          function(ret){
+            document.getElementById("exchangeBuyAmmount").value = ret;
+            document.getElementById("exchangeBuyValue").textContent = (app.priceProvider.getPrice(buyCoin) * ret) + ' ' + app.priceProvider.getUnit();
+          }
+        );
+      } else {
+        document.getElementById("exchangeBuyAmmount").value = 0;
+        document.getElementById("exchangeBuyValue").textContent = '';
+      }
+      console.log(!(sellCoin && buyCoin && (sellAmmount > 0) && (fee > 0)));
+      document.getElementById("exchangeButton").disabled = !(sellCoin && buyCoin && (sellAmmount > 0) && (fee > 0));
+    },
+
+    popupExchange: function(from, to) {
+      this.exchangeDefaultFees = {};
+      this.exchangeMinAmmounts = {};
+      document.getElementById("exchangeSellAmmount").value = 0;
+      this.openPopup('exchangePopup', 'Exchange');
+      changelly.getCurrencies(function(currencies){
+        var available = {'':{'name': '- please select -'}};
+        for (var i in currencies) {
+          var key = currencies[i].toUpperCase();
+          if (key in app.wallets) {
+            available[key] = {'name': key};
+          }
+        }
+        (new Select(document.getElementById("exchangeSellCoin"))).setOptions(available, null);
+        (new Select(document.getElementById("exchangeBuyCoin"))).setOptions(available, null);
+      });
+    },
 
     popupCoinInfo: function(wallet) {
       this.openPopup('coinInfoPopup', wallet.handler.longname, 'coins/' + wallet.handler.icon + '.svg');

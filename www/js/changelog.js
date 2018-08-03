@@ -1,3 +1,5 @@
+'use strict'
+
 function versionCompare(v1, v2) {
   var v1parts = v1.split('.'),
       v2parts = v2.split('.');

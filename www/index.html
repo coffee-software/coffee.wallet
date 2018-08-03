@@ -116,10 +116,9 @@
                     <span class="soon">(comming soon)</span>
                   </button>
 
-                  <button class="stitched" disabled="disabled">
+                  <button class="stitched" onclick="app.popupExchange()">
                     <img src="icons/shapeshift.png"/>
                     Exchange
-                    <span class="soon">(comming soon)</span>
                   </button>
                 </div>
               </div>
@@ -153,6 +152,43 @@
             <img id="popupIcon" src="icons/hide.png" style="display:none;"/>
           </h1>
           <div id="popupContent">
+            <div id="exchangePopup" style="display:none;">
+              sell coin:
+              <select onchange="app.updateExchange()" id="exchangeSellCoin"></select>
+              sell ammount:
+              <input
+                id="exchangeSellAmmount"
+                class="dark"
+                type="number"
+                step="0.000000000001"
+                value="0"
+                onchange="app.updateExchange()"
+                onkeyup="app.updateExchange()"
+                required />
+              min: <a id="exchangeSellMin" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>
+              max: <a id="exchangeSellMax" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>
+              fee: <span id="exchangeSellFee"></span>
+              value: <span id="exchangeSellValue"></span>
+
+              <br/>
+              buy coin:
+              <select onchange="app.updateExchange()" id="exchangeBuyCoin"></select>
+              buy ammount:
+              <input
+                id="exchangeBuyAmmount"
+                class="dark"
+                type="number"
+                value="0"
+                readonly
+              >
+              This is estimated and depends on market. value: <span id="exchangeBuyValue"></span>
+
+              <div class="actions">
+                <button id="exchangeButton" class="box icon-save" onclick="app.doExchange()">
+                  Exchange
+                </button>
+              </div>
+            </div>
             <div id="coinInfoPopup" style="display:none;">
               <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
               <div id="coinInfoDescription"></div>
@@ -497,6 +533,8 @@
         <script type="text/javascript" src="js/widget.select.js"></script>
         <script type="text/javascript" src="js/widget.coinbutton.js"></script>
         <script type="text/javascript" src="js/changelog.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
+        <script type="text/javascript" src="js/changelly.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

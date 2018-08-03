@@ -108,6 +108,12 @@ input {
   color: #f7f5f2;
   font-family: 'Poppins', serif;
 }
+input.dark {
+  background: #766054;
+  padding: 10px;
+  margin: 10px;
+  color: #f7f5f2;
+}
 
 textarea {
    resize: none;
