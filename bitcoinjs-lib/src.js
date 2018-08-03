@@ -2,7 +2,7 @@
 
 var bitcoin = require('bitcoinjs-lib');
 var bip39 = require('bip39');
-
+var createHmac = require('create-hmac');
 
 var networks = {
 	ltc: {
@@ -205,6 +205,9 @@ function validateAddress (network, addr) {
 function derivePathFromSeedHash(network, sh, path) {
 	return bitcoin.HDNode.fromSeedHex(sh, network.network).derivePath(path).keyPair;
 }
+function hmacSha512Sign(data, secret) {
+	return createHmac('sha512', secret).update(data).digest('hex');
+}
 
 module.exports = {
 	networks: networks,
@@ -217,6 +220,6 @@ module.exports = {
 
 	generateNewMnemonic: bip39.generateMnemonic,
 	mnemonicToSeedHex: bip39.mnemonicToSeedHex,
-	derivePathFromSeedHash: derivePathFromSeedHash
-
+	derivePathFromSeedHash: derivePathFromSeedHash,
+	hmacSha512Sign: hmacSha512Sign
 }
