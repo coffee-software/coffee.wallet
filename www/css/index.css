@@ -380,12 +380,13 @@ table {
   top: constant(safe-area-inset-top);
   top: env(safe-area-inset-top);
   width: 100%;
-  margin-left: -100%;
+  margin-left: -110%;
   bottom: 0;
   left: 0;
   z-index: 100;
   transition: margin 0.4s ease, filter 0.5s;
   background-color: #f7f5f2;
+  box-shadow: 2px 0px 7px #463f3a;
 }
 
 #formPopup {

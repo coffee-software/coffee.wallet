@@ -19,8 +19,8 @@ User interface is built using [cordova platform](https://cordova.apache.org/). F
  * [cordova-plugin-statusbar](https://www.npmjs.com/package/cordova-plugin-statusbar) to customize status bar
  * [cordova-plugin-splashscreen](https://www.npmjs.com/package/cordova-plugin-splashscreen)
  * [cordova-clipboard](https://www.npmjs.com/package/cordova-clipboard) for 'copy to clipboard' feature
- * [cordova-plugin-customurlscheme](https://www.npmjs.com/package/cordova-plugin-customurlscheme) to open 'send as message' links
- * [cordova-plugin-x-socialsharing](https://www.npmjs.com/package/cordova-plugin-x-socialsharing) for 'send as message' feature
+ * [cordova-plugin-customurlscheme](https://www.npmjs.com/package/cordova-plugin-customurlscheme) to open 'send via message' links
+ * [cordova-plugin-x-socialsharing](https://www.npmjs.com/package/cordova-plugin-x-socialsharing) for 'send via message' feature
  * [cordova-plugin-device](https://www.npmjs.com/package/cordova-plugin-device) for conditional, per platform behaviour
  * [cordova-plugin-pdf-generator](https://www.npmjs.com/package/cordova-plugin-pdf-generator) to generate printable paper wallets
 
@@ -28,4 +28,3 @@ To broadcast signed transaction and save it in blockchain, Coffee uses third par
 
  * [BlockCypher](https://www.blockcypher.com/) for bitcoin, litecoins and dogecoin transactions.
  * [Infura](https://infura.io/) for accessing Ethereum network (ETH and ERC20 tokens)
-

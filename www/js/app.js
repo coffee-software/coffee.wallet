@@ -533,7 +533,13 @@ var app = {
         (new Select(document.getElementById("exchangeBuyCoin"))).setOptions(available, buyCoin);
       });
     },
-
+    popupSendViaMessage: function() {
+      app.confirmBeforeContinue('send via message',
+        '"Send via message" is now available in coin advanced options. <br/>' +
+        'Click on active coin icon on your wallets list to see those options.',
+        function(){}
+      );
+    },
     popupCoinInfo: function(wallet) {
       this.openPopup('coinInfoPopup', wallet.handler.longname, 'coins/' + wallet.handler.icon + '.svg');
       var links = '<ul>';
@@ -563,7 +569,7 @@ var app = {
       var advancedWallet = wallet;
 
       if ('newRandomPrivateKey' in wallet.handler) {
-        advanced.appendChild(app.createAdvancedOption('message', 'send as message', function(){
+        advanced.appendChild(app.createAdvancedOption('message', 'send via message', function(){
           app.popupSendSocial(wallet);
         }));
       }
@@ -1146,7 +1152,7 @@ var app = {
 
       this.confirmBeforeContinue(
         'Warning!',
-        '<p>"Send as message" feature is designed only to send <b>tiny ammounts</b> beetween two <b>trusted</b> parties when the receiver does not have a wallet yet.</p>' +
+        '<p>"Send via message" feature is designed only to send <b>tiny ammounts</b> beetween two <b>trusted</b> parties when the receiver does not have a wallet yet.</p>' +
         '<p>It is as safe as the sending medium is. For example, if you are sending via email, everyone that has access to contents of this email (including sender) will be able to withdraw money before the recipient.</p>' +
         '<ul>' +
         '<li>Send only tiny ammounts.</li>' +
@@ -1157,7 +1163,7 @@ var app = {
         ,
         function(){
           app.authenticateBeforeContinue(
-            'send ' + coin + ' as message',
+            'send ' + coin + ' via message',
             '<table class="niceTable">' +
             '<tr><th>amount:</th><td style="width:50%;">' + amount + ' ' + coin + '</td><td>' + app.priceProvider.convert(amount, coin) + '</td></tr>' +
             '<tr><th>fee:</th><td>' + fee[0] + ' ' + coin + '</td><td>' + app.priceProvider.convert(fee[0], coin) + '</td></tr>' +
