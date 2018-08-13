@@ -18,7 +18,9 @@ var EthFunctions = {
   },
   newPrivateKey: function() {
     var keyPair = btcjs.derivePathFromSeedHash(btcjs.networks.eth, app.data.wallets.bip39.seedHex, "m/44'/60'/0'/0/0");
-    return "0x" + keyPair.d.toString(16);
+    var ret = keyPair.d.toString(16);
+    while (ret.length < 64) ret = "0" + ret;
+    return "0x" + ret;
   },
   addrFromPrivateKey: function(priv) {
     return this._getProvider().eth.accounts.privateKeyToAccount(priv).address;
