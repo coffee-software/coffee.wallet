@@ -154,10 +154,12 @@
           <div id="popupContent">
             <div id="exchangePopup" style="display:none;">
               <div style="margin: 15px; overflow: auto;">
-                <img src="icons/changelly.png" style="float:left; margin-right: 20px; width: 96px;"/>
-                Exchange is powered by Changelly. <br/>
-                Usually a transaction is completed within <b>5&#8209;30&nbsp;minutes</b>. Buy ammount is <b>estimated</b> and depends on current market. 
-                For more information refer to <a href="#" onclick="window.open('https://changelly.com/', '_system');">https://changelly.com/</a>.
+                <img src="icons/changelly.png" style="float:left; width: 96px;"/>
+                <div style="float:none; margin-left:108px;">
+                  Powered by Changelly. <br/>
+                  Usually a transaction is completed within <b>5&#8209;30&nbsp;minutes</b> but it can take longer.
+                  For more information, please refer to <a href="#" onclick="window.open('https://changelly.com/', '_system');">changelly.com</a>.
+                </div>
               </div>
               <div class="section">
                 sell coin:
@@ -190,6 +192,8 @@
                   readonly
                 >
                 value: <span id="exchangeBuyValue"></span>
+                <br/>
+                This is <b>estimated</b> and depends on current market dynamics.
               </div>
               <div class="actions row">
                 <button id="exchangeButton" class="box f1" onclick="app.doExchange()">

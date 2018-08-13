@@ -439,6 +439,7 @@ var app = {
               app.wallets[sellCoin].handler.sendPayment(app.wallets[sellCoin].data.privateKey, ret.payinAddress, sellAmmount, fee);
               app.closePopup();
               setTimeout(function() { app.wallets[sellCoin].refreshOnline(); }, 2000);
+              setTimeout(function() { app.alertInfo('Please refresh your ' + buyCoin + ' balance in few minutes.', buyCoin); }, 3000);
             }
           );
         }
