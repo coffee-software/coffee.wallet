@@ -1353,6 +1353,7 @@ var app = {
     onDeviceReady: function() {
 
         this.data.load(function(){
+            navigator.splashscreen.hide();
 
             if (!('bip39' in this.data.wallets)) {
               var mnemonic = btcjs.generateNewMnemonic();
