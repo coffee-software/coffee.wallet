@@ -410,13 +410,37 @@ var app = {
       return li;
     },
     doExchange: function() {
+      var sellCoin = document.getElementById("exchangeSellCoin").value;
+      var sellAmmount = parseFloat(document.getElementById("exchangeSellAmmount").value);
+      var buyCoin = document.getElementById("exchangeBuyCoin").value;
+      var fee = app.exchangeDefaultFees[sellCoin];
+      var buyAmmount = document.getElementById("exchangeBuyAmmount").value;
+
       changelly.createTransaction(
-        document.getElementById("exchangeSellCoin").value,
-        document.getElementById("exchangeBuyCoin").value,
-        document.getElementById("exchangeSellAmmount").value,
-        app.wallets[document.getElementById("exchangeBuyCoin").value].data.addr,
+        sellCoin,
+        buyCoin,
+        sellAmmount,
+        app.wallets[buyCoin].data.addr,
         function(ret){
-          console.log(ret);
+          app.alertInfo('Changelly exchange id ' + ret.id + ' started.', sellCoin, ret);
+
+          app.authenticateBeforeContinue(
+            'exchange ' + sellCoin + ' for ' + buyCoin,
+            '<table class="niceTable">' +
+            '<tr><th style="width:26%;">changelly payinAddress:</th><td colspan="2">' + ret.payinAddress + '</td></tr>' +
+            '<tr><th>amount:</th><td style="width:50%;">' + sellAmmount + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(sellAmmount, sellCoin) + '</td></tr>' +
+            '<tr><th>fee:</th><td>' + fee[0] + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(fee[0], sellCoin) + '</td></tr>' +
+            '<tr><th>total:</th><td>' + (sellAmmount + fee[0]) + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(sellAmmount + fee[0], sellCoin) + '</td></tr>' +
+            '<tr><th>balance after:</th><td>' + (app.wallets[sellCoin].totalOnline - sellAmmount - fee[0]) + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].totalOnline - sellAmmount - fee[0], sellCoin) + '</td></tr>' +
+            '<tr><th>estimated return:</th><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
+            '</table>'
+            ,
+            function(){
+              app.wallets[sellCoin].handler.sendPayment(app.wallets[sellCoin].data.privateKey, ret.payinAddress, sellAmmount, fee);
+              app.closePopup();
+              setTimeout(function() { app.wallets[sellCoin].refreshOnline(); }, 2000);
+            }
+          );
         }
       );
     },
@@ -456,6 +480,9 @@ var app = {
             document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[minKey];
           });
         }
+        /*changelly.getTransactions(buyCoin, app.wallets[buyCoin].data.addr, function(ret){
+          console.log(ret);
+        });*/
       } else {
         document.getElementById("exchangeSellMin").textContent = '';
       }
@@ -474,25 +501,36 @@ var app = {
         document.getElementById("exchangeBuyAmmount").value = 0;
         document.getElementById("exchangeBuyValue").textContent = '';
       }
-      console.log(!(sellCoin && buyCoin && (sellAmmount > 0) && (fee > 0)));
       document.getElementById("exchangeButton").disabled = !(sellCoin && buyCoin && (sellAmmount > 0) && (fee > 0));
     },
 
-    popupExchange: function(from, to) {
+    getExchangeableCoins: function(callback) {
+      changelly.getCurrencies(function(currencies){
+        var ret = new Array();
+        for (var i in currencies) {
+          var key = currencies[i].toUpperCase();
+          if (key in allCoinApis && 'sendPayment' in allCoinApis[key]) {
+            ret.push(key);
+          }
+        }
+        callback(ret);
+      });
+    },
+
+    popupExchange: function(sellCoin, buyCoin) {
       this.exchangeDefaultFees = {};
       this.exchangeMinAmmounts = {};
       document.getElementById("exchangeSellAmmount").value = 0;
       this.openPopup('exchangePopup', 'Exchange');
-      changelly.getCurrencies(function(currencies){
+      app.getExchangeableCoins(function(currencies){
         var available = {'':{'name': '- please select -'}};
         for (var i in currencies) {
-          var key = currencies[i].toUpperCase();
-          if (key in app.wallets) {
-            available[key] = {'name': key};
+          if (currencies[i] in app.wallets) {
+            available[currencies[i]] = {'name': currencies[i]};
           }
         }
-        (new Select(document.getElementById("exchangeSellCoin"))).setOptions(available, null);
-        (new Select(document.getElementById("exchangeBuyCoin"))).setOptions(available, null);
+        (new Select(document.getElementById("exchangeSellCoin"))).setOptions(available, sellCoin);
+        (new Select(document.getElementById("exchangeBuyCoin"))).setOptions(available, buyCoin);
       });
     },
 
@@ -525,8 +563,17 @@ var app = {
       var advancedWallet = wallet;
 
       if ('newRandomPrivateKey' in wallet.handler) {
-        advanced.appendChild(app.createAdvancedOption('send', 'send as message', function(){
+        advanced.appendChild(app.createAdvancedOption('message', 'send as message', function(){
           app.popupSendSocial(wallet);
+        }));
+      }
+
+      if ('exchangeableCoinsCache' in app && (app.exchangeableCoinsCache.indexOf(wallet.handler.code) != -1)) {
+        advanced.appendChild(app.createAdvancedOption('sell', 'sell coin', function(){
+          app.popupExchange(wallet.handler.code, null);
+        }));
+        advanced.appendChild(app.createAdvancedOption('buy', 'buy coin', function(){
+          app.popupExchange(null, wallet.handler.code);
         }));
       }
 
@@ -982,15 +1029,15 @@ var app = {
     alertError: function(html, coin, debug) {
       this._alertMessage(html, coin, 'error');
     },
-    alertInfo: function(html, coin) {
+    alertInfo: function(html, coin, debug) {
       this._alertMessage(html, coin, 'info');
     },
-    alertSuccess: function(html, coin) {
+    alertSuccess: function(html, coin, debug) {
       this._alertMessage(html, coin, 'success');
     },
 
-    _alertMessage: function(html, coin, type) {
-      Logger.log(type, coin, html);
+    _alertMessage: function(html, coin, type, debug) {
+      Logger.log(type, coin, html, debug);
       this._alertMessagePopup(type, html);
     },
 
@@ -1365,6 +1412,8 @@ var app = {
         document.getElementById('sendCoinFee').parentElement.addEventListener ("touchstart", function() {
           document.getElementById('sendCoinFee').focus();
         });
+
+        app.getExchangeableCoins(function(list){app.exchangeableCoinsCache = list});
 
         Logger.log("info", null, "application started");
     },

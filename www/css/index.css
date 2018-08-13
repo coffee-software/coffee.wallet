@@ -632,10 +632,14 @@ a:active {
 #coinInfoPopup ul.advancedActions {
   padding-left: 0;
 }
+
 #coinInfoPopup ul.advancedActions li:before {
   display: none;
 }
 
+#coinInfoPopup ul.advancedActions button img {
+  margin-right: 8px;
+}
 
 .receiveAddr {
   border: 1px solid #766054;

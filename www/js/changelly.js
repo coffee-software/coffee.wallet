@@ -68,6 +68,21 @@ var changelly = {
     }, callback);
   },
 
+  getTransactions : function(to, returnTo, callback) {
+    this._callApi({
+      "jsonrpc": "2.0",
+      "method": "getTransactions",
+      "params": {
+        "currency": 'btc',
+        "address": '36xdvVWKjpyqYr32ERbbS9fZiapasm29F4',
+        //"extraId": null,
+        "limit": 100,
+        "offset" : 0
+      },
+      "id": 1
+    }, callback);
+  },
+
   getStatus : function(transactionId, callback) {
     this._callApi({
       "jsonrpc": "2.0",

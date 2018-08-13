@@ -2,9 +2,9 @@
 
 var Logger = {
   //"error", "info", "success"
-  log: function(severity, coin, message) {
+  log: function(severity, coin, message, debug) {
     this.getLogs(function(logs) {
-      logs.unshift({ts:Date.now(), severity:severity, coin:coin, message:message});
+      logs.unshift({ts:Date.now(), severity:severity, coin:coin, message:message, debug:debug});
       if (logs.length > 200) {
         logs.pop();
       }
