@@ -1,3 +1,7 @@
+a {
+    color: #cdb476;
+}
+
 button {
   border: none;
   background: none;
@@ -10,9 +14,16 @@ button {
 
 button.box {
   background: #766054;
-  padding: 10px;
+  padding: 14px;
   margin: 10px;
   color: #f7f5f2;
+}
+
+button.box::before {
+  display: block;
+  content: " ";
+  border-top: 1px dashed #f7f5f2;
+  margin: -7px -14px 7px -14px;
 }
 
 button.stitched {
@@ -50,8 +61,18 @@ button:disabled {
 select {
     background: #766054;
     padding: 10px;
-    margin: 10px;
+    margin: 0;
+    margin-bottom: 10px;
+    width: 100%;
     color: #f7f5f2;
+    line-height: 20px;
+    border: none;
+}
+
+.section {
+    margin: 10px 0;
+    padding: 10px;
+    border-top: 1px dashed #766054;
 }
 
 .formActions .cancel {
@@ -111,8 +132,11 @@ input {
 input.dark {
   background: #766054;
   padding: 10px;
-  margin: 10px;
+  margin: 0;
+  margin-bottom: 10px;
   color: #f7f5f2;
+  line-height: 20px;
+  border: none;
 }
 
 textarea {

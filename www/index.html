@@ -153,38 +153,46 @@
           </h1>
           <div id="popupContent">
             <div id="exchangePopup" style="display:none;">
-              sell coin:
-              <select onchange="app.updateExchange()" id="exchangeSellCoin"></select>
-              sell ammount:
-              <input
-                id="exchangeSellAmmount"
-                class="dark"
-                type="number"
-                step="0.000000000001"
-                value="0"
-                onchange="app.updateExchange()"
-                onkeyup="app.updateExchange()"
-                required />
-              min: <a id="exchangeSellMin" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>
-              max: <a id="exchangeSellMax" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>
-              fee: <span id="exchangeSellFee"></span>
-              value: <span id="exchangeSellValue"></span>
-
-              <br/>
-              buy coin:
-              <select onchange="app.updateExchange()" id="exchangeBuyCoin"></select>
-              buy ammount:
-              <input
-                id="exchangeBuyAmmount"
-                class="dark"
-                type="number"
-                value="0"
-                readonly
-              >
-              This is estimated and depends on market. value: <span id="exchangeBuyValue"></span>
-
-              <div class="actions">
-                <button id="exchangeButton" class="box icon-save" onclick="app.doExchange()">
+              <div style="margin: 15px; overflow: auto;">
+                <img src="icons/changelly.png" style="float:left; margin-right: 20px; width: 96px;"/>
+                Exchange is powered by Changelly. <br/>
+                Usually a transaction is completed within <b>5&#8209;30&nbsp;minutes</b>. Buy ammount is <b>estimated</b> and depends on current market. 
+                For more information refer to <a href="#" onclick="window.open('https://changelly.com/', '_system');">https://changelly.com/</a>.
+              </div>
+              <div class="section">
+                sell coin:
+                <select onchange="app.updateExchange()" id="exchangeSellCoin"></select>
+                sell ammount
+                (min: <a id="exchangeSellMin" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>,
+                max: <a id="exchangeSellMax" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>):
+                <input
+                  id="exchangeSellAmmount"
+                  class="dark"
+                  type="number"
+                  step="0.000000000001"
+                  value="0"
+                  onchange="app.updateExchange()"
+                  onkeyup="app.updateExchange()"
+                  required />
+                value: <span id="exchangeSellValue"></span>
+                <br/>
+                (+ <span id="exchangeSellFee"></span> network fee)
+              </div>
+              <div class="section">
+                buy coin:
+                <select onchange="app.updateExchange()" id="exchangeBuyCoin"></select>
+                estimated buy ammount:
+                <input
+                  id="exchangeBuyAmmount"
+                  class="dark"
+                  type="number"
+                  value="0"
+                  readonly
+                >
+                value: <span id="exchangeBuyValue"></span>
+              </div>
+              <div class="actions row">
+                <button id="exchangeButton" class="box f1" onclick="app.doExchange()">
                   Exchange
                 </button>
               </div>

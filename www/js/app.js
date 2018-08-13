@@ -453,7 +453,7 @@ var app = {
       if (sellCoin) {
         if (sellCoin in app.exchangeDefaultFees) {
           fee = app.exchangeDefaultFees[sellCoin][0];
-          document.getElementById("exchangeSellFee").textContent = fee;
+          document.getElementById("exchangeSellFee").textContent = fee + ' ' + sellCoin;
         } else {
           document.getElementById("exchangeSellFee").textContent = 'pending...';
           var fees = app.wallets[sellCoin].handler.getFees(function(fees){
@@ -462,14 +462,15 @@ var app = {
           });
         }
         document.getElementById("exchangeSellMax").textContent = app.wallets[sellCoin].data.balance - fee;
-        document.getElementById("exchangeSellValue").textContent = (app.priceProvider.getPrice(sellCoin) * sellAmmount) + ' ' + app.priceProvider.getUnit();
+        document.getElementById("exchangeSellValue").innerHTML = app.priceProvider.convert(sellAmmount, sellCoin);
       } else {
         document.getElementById("exchangeSellMax").textContent = '';
         document.getElementById("exchangeSellValue").textContent = '';
         document.getElementById("exchangeSellFee").textContent = '';
       }
 
-      if (sellCoin && buyCoin) {
+      var goodPair = sellCoin && buyCoin && (sellCoin != buyCoin);
+      if (goodPair) {
         var minKey = sellCoin + '#' + buyCoin;
         if (minKey in app.exchangeMinAmmounts) {
           document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[minKey];
@@ -487,21 +488,21 @@ var app = {
         document.getElementById("exchangeSellMin").textContent = '';
       }
 
-      if (sellCoin && buyCoin && (sellAmmount > 0)) {
+      if (goodPair && (sellAmmount > 0)) {
         changelly.getExchangeAmount(
           sellCoin,
           buyCoin,
           sellAmmount,
           function(ret){
             document.getElementById("exchangeBuyAmmount").value = ret;
-            document.getElementById("exchangeBuyValue").textContent = (app.priceProvider.getPrice(buyCoin) * ret) + ' ' + app.priceProvider.getUnit();
+            document.getElementById("exchangeBuyValue").innerHTML = app.priceProvider.convert(ret, buyCoin);
           }
         );
       } else {
         document.getElementById("exchangeBuyAmmount").value = 0;
         document.getElementById("exchangeBuyValue").textContent = '';
       }
-      document.getElementById("exchangeButton").disabled = !(sellCoin && buyCoin && (sellAmmount > 0) && (fee > 0));
+      document.getElementById("exchangeButton").disabled = !(goodPair && (sellAmmount > 0) && (fee > 0));
     },
 
     getExchangeableCoins: function(callback) {
@@ -531,6 +532,7 @@ var app = {
         }
         (new Select(document.getElementById("exchangeSellCoin"))).setOptions(available, sellCoin);
         (new Select(document.getElementById("exchangeBuyCoin"))).setOptions(available, buyCoin);
+        app.updateExchange();
       });
     },
     popupSendViaMessage: function() {
