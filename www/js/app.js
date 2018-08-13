@@ -369,7 +369,7 @@ var app = {
       document.body.appendChild(element);
       element.click();
       element.onchange = function(event){
-        let fr = new FileReader();
+        var fr = new FileReader();
         fr.onload = function(event) {
           alert(event.target.result);
         };
@@ -444,7 +444,7 @@ var app = {
         }
       );
     },
-    updateExchange() {
+    updateExchange: function() {
       var sellCoin = document.getElementById("exchangeSellCoin").value;
       var sellAmmount = document.getElementById("exchangeSellAmmount").value;
       var buyCoin = document.getElementById("exchangeBuyCoin").value;
@@ -1054,7 +1054,7 @@ var app = {
       msgDiv.innerHTML = html;
       var closer = createButton('close', function(){ document.getElementById('messages').removeChild(msgDiv); msgDiv = null; });
       closer.classList.add('closer');
-      msgDiv.append(closer);
+      msgDiv.appendChild(closer);
       document.getElementById('messages').appendChild(msgDiv);
       setTimeout(function(){ msgDiv && msgDiv.classList.add('fadingout'); }, 5000);
       setTimeout(function(){ msgDiv && document.getElementById('messages').removeChild(msgDiv); }, 7000);
