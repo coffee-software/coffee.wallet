@@ -328,7 +328,12 @@
 
               <div class="formFields">
                 <div class="field">
-                  <input id="addOfflineAssetAddr" value="" required />
+                  <input
+                    id="addOfflineAssetAddr"
+                    onfocus="app.validateAddr('addOfflineAssetAddr', true)"
+                    onblur="app.validateAddr('addOfflineAssetAddr')"
+                    value=""
+                    required />
                   <label for="addOfflineAssetAddr">address</label>
                 </div>
               </div>
@@ -371,8 +376,8 @@
               <div class="normalSend field">
                 <input
                   id="sendCoinAddr"
-                  onfocus="app.sendCoinValidateAddr(true)"
-                  onblur="app.sendCoinValidateAddr()"
+                  onfocus="app.validateAddr('sendCoinAddr', true)"
+                  onblur="app.validateAddr('sendCoinAddr')"
                   required
                 />
                 <label for="sendCoinAddr">recipient address</label>

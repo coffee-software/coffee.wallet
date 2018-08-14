@@ -729,7 +729,7 @@ var app = {
         }
       }
       document.getElementById('sendCoinAddr').value = addr;
-      app.sendCoinValidateAddr();
+      app.validateAddr('sendCoinAddr');
 
       if ('amount' in args && args.amount){
         document.getElementById('sendCoinAmount').value = parseFloat(args.amount);
@@ -840,6 +840,8 @@ var app = {
 
     popupEditOfflineAsset: function(asset) {
       document.getElementById('addOfflineAssetAddr').value = asset.data.addr;
+      app.validateAddr('addOfflineAssetAddr', true);
+
       document.getElementById('addOfflineAssetBalance').value = asset.data.balance;
       document.getElementById('addOfflineAssetComment').value = asset.data.comment;
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', asset.data.addr ? false : true);
@@ -853,6 +855,8 @@ var app = {
 
     popupAddOfflineAsset: function(type, value) {
       document.getElementById('addOfflineAssetAddr').value = (type == 'addr' ? value : '');
+      app.validateAddr('addOfflineAssetAddr', true);
+
       document.getElementById('addOfflineAssetBalance').value = (type == 'balance' ? value : '');
       document.getElementById('addOfflineAssetComment').value = '';
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', type == 'balance');
@@ -921,6 +925,12 @@ var app = {
         balance: parseFloat(document.getElementById('addOfflineAssetBalance').value),
         comment: document.getElementById('addOfflineAssetComment').value
       }
+
+      if (!document.getElementById('addOfflineAssetAddrDiv').classList.contains('hidden')){
+        if (!app.validateAddr('addOfflineAssetAddr')) {
+          return false;
+        }
+      }
       if (this.editAsset) {
         this.data.updateOfflineAsset(activeAsset.wallet.handler.code, activeAsset.id, data);
       } else {
@@ -950,7 +960,7 @@ var app = {
         document.getElementById('sendCoinValue').disabled = (this.priceProvider.getPrice(wallet.handler.code) == 0);
 
         document.getElementById('sendCoinAmount').value = '';
-        app.sendCoinValidateAddr(true);
+        app.validateAddr('sendCoinAddr', true);
         app.sendCoinValidateAmount(true);
 
         document.getElementById('sendCoinName').innerHTML = wallet.handler.code;
@@ -968,9 +978,9 @@ var app = {
         });
     },
 
-    sendCoinValidateAddr: function(focus) {
+    validateAddr: function(element, focus) {
       var valid = false;
-      var elem = document.getElementById('sendCoinAddr');
+      var elem = document.getElementById(element);
       elem.parentElement.classList.remove('invalid');
       elem.parentElement.classList.remove('valid');
       elem.parentElement.lastElementChild.innerHTML = '';
@@ -978,7 +988,9 @@ var app = {
       elem.parentElement.classList.toggle('filled', elem.value != '' || elem == document.activeElement);
 
       if (typeof focus == 'undefined') {
-        valid = this.sendWallet.handler.validateAddress(elem.value);
+
+        valid = (element == 'addOfflineAssetAddr' ? app.offlineAssetWallet : this.sendWallet).handler.validateAddress(elem.value);
+
         elem.parentElement.classList.add(valid ? 'valid' : 'invalid');
         if (!valid) {
           elem.parentElement.lastElementChild.innerHTML = 'invalid address';
@@ -1273,7 +1285,7 @@ var app = {
 
     sendPayment: function() {
 
-      if (!(this.sendCoinValidateAddr() && this.sendCoinValidateAmount() && this.sendCoinValidateFee())) {
+      if (!(this.validateAddr('sendCoinAddr') && this.sendCoinValidateAmount() && this.sendCoinValidateFee())) {
         return;
       }
 
