@@ -345,6 +345,19 @@ var app = {
         });
     },
 
+    showExportKeysReminderIfRequired: function() {
+      if (!this.settings.get('keyBackedUp', false)) {
+        this.confirmBeforeContinue(
+          'backup your keys',
+          '<p>All your private keys are generated from a <b>12-word BIP39 phrase</b>. It is extremely important that you <b>backup</b> this phrase safely.</p>' +
+          '<p>This reminder will keep showing up until you use <b>"backup wallets"</b> menu option.</p>',
+          function(){}
+        );
+        return true;
+      }
+      return false;
+    },
+
     exportAllKeys: function() {
       this.closeMenu();
 
@@ -359,7 +372,11 @@ var app = {
             app.confirmBeforeContinue(
               'your BIP39 backup phrase',
               app.data.wallets.bip39.mnemonic,
-              function() {}
+              function() {
+                app.settings.set('keyBackedUp', true);
+              },
+              'I&nbsp;made&nbsp;a&nbsp;backup',
+              'remind&nbsp;me&nbsp;later'
             );
         }
       );
@@ -1106,15 +1123,19 @@ var app = {
       this.onAuthCallback = callback;
       document.getElementById('lockPopup').classList.remove('hidden');
       document.getElementById('lockPopupCancel').classList.remove('hidden');
+      document.getElementById('lockPopupConfirmText').innerHTML = 'confirm';
+      document.getElementById('lockPopupCancelText').innerHTML = 'cancel';
       document.getElementById('lockTitle').innerHTML = title;
       document.getElementById('lockMessage').innerHTML = message;
     },
 
-    confirmBeforeContinue: function(title, message, callback) {
+    confirmBeforeContinue: function(title, message, callback, confirmText, cancelText) {
       //TODO sparate elements
       this.onAuthCallback = callback;
       document.getElementById('lockPopup').classList.remove('hidden');
-      document.getElementById('lockPopupCancel').classList.add('hidden');
+      document.getElementById('lockPopupCancel').classList.toggle('hidden', typeof cancelText == 'undefined');
+      document.getElementById('lockPopupConfirmText').innerHTML = (typeof confirmText != 'undefined') ? confirmText : 'confirm';
+      document.getElementById('lockPopupCancelText').innerHTML = (typeof cancelText != 'undefined') ? cancelText : 'cancel';
       document.getElementById('lockTitle').innerHTML = title;
       document.getElementById('lockMessage').innerHTML = message;
     },
@@ -1376,7 +1397,9 @@ var app = {
           changelist,
           function(){}
         );
+        return true;
       }
+      return false;
     },
     onDeviceReady: function() {
 
@@ -1415,7 +1438,7 @@ var app = {
                 }
               );
             } else {
-              app.showChangelogIfVersionUpdated();
+              app.showChangelogIfVersionUpdated() || app.showExportKeysReminderIfRequired();
             }
             app.saveVersion();
 
