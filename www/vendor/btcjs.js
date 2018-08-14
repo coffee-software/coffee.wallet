@@ -26113,6 +26113,27 @@ var networks = {
 	}
 }
 
+var _webRequestQueue = new Array();
+function _webRequestProcessor () {
+	var request = _webRequestQueue.pop();
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', request.url, true);
+	xhr.responseType = 'json';
+	xhr.onreadystatechange = function () {
+	    if (xhr.readyState === 4) {
+				console.log(request.url);
+				request.callback(xhr);
+	    }
+	};
+	xhr.send();
+	if (_webRequestQueue.length > 0) setTimeout(_webRequestProcessor, 400);
+}
+
+function sendWebRequestGetQueued (url, callback) {
+	_webRequestQueue.push({'url': url, 'callback': callback});
+	if (_webRequestQueue.length == 1) setTimeout(_webRequestProcessor, 400);
+}
+
 function newPrivKey (network) {
 	return bitcoin.ECPair.makeRandom({network:network.network}).toWIF();
 }
@@ -26122,17 +26143,13 @@ function addrFromPriv (network, pk) {
 }
 
 function getBalance (network, addr, callback, error) {
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', network.webapi + '/addrs/' + addr + '/balance', true);
-	xhr.responseType = 'json';
-	xhr.onload = function() {
+	sendWebRequestGetQueued(network.webapi + '/addrs/' + addr + '/balance', function(xhr) {
 		if (xhr.status === 200) {
 			callback(xhr.response.balance, xhr.response.unconfirmed_balance);
 		} else {
-			error && error(xhr);
+			error('network error ' + xhr.status);
 		}
-	};
-	xhr.send();
+	});
 }
 
 function smartRound(f) {
@@ -26275,6 +26292,7 @@ function hmacSha512Sign(data, secret) {
 }
 
 module.exports = {
+	_webRequestProcessor: _webRequestProcessor,
 	networks: networks,
 	newPrivKey: newPrivKey,
 	addrFromPriv: addrFromPriv,
