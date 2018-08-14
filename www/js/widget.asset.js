@@ -43,8 +43,13 @@ function Asset(wallet, id, data) {
 
   var buttonsDiv = document.createElement("div");
   buttonsDiv.classList.add('buttons');
+  var buttonsDiv2 = document.createElement("div");
+  buttonsDiv2.classList.add('buttons');
 
-  data.addr && buttonsDiv.appendChild(createButton('receive', function(){
+  data.addr && ('explorerLinkAddr' in wallet.handler) && buttonsDiv2.appendChild(createButton('link', function(){
+    window.open(wallet.handler.explorerLinkAddr(data.addr), '_system');
+  }));
+  data.addr && buttonsDiv2.appendChild(createButton('receive', function(){
     app.popupReceivePayment(that.wallet, that.data.addr);
   }));
   data.addr && buttonsDiv.appendChild(createButton('refresh', function(){that.refreshAmount();}));
@@ -69,6 +74,7 @@ function Asset(wallet, id, data) {
   }));
 
   amountCell.appendChild(buttonsDiv);
+  commentCell.appendChild(buttonsDiv2);
 
   this.listingRow.appendChild(commentCell);
   //this.listingRow.appendChild(unitCell);

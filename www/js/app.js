@@ -160,7 +160,14 @@ var app = {
           var li = document.createElement('li');
           li.classList.add('msg');
           li.classList.add(logs[i].severity);
-          li.innerHTML = '<div class="ts">' + (new Date(logs[i].ts)).toUTCString()  + '</div><div>' + logs[i].message + '</div>';
+          var html = logs[i].message;
+          if (('coin' in logs[i]) && (logs[i].coin in allCoinApis) && ('explorerLinkTx' in allCoinApis[logs[i].coin])) {
+            html = html.replace(/\<u\>\w+\<\/u\>/, function(match){
+              var tx = match.substring(3, match.length-4);
+              return '<a href="#" onclick="window.open(\'' + allCoinApis[logs[i].coin].explorerLinkTx(tx) + '\', \'_system\');">' + tx + '</a>';
+            });
+          }
+          li.innerHTML = '<div class="ts">' + (new Date(logs[i].ts)).toUTCString()  + '</div><div>' + html + '</div>';
           //logs[i].coin
           document.getElementById('history').appendChild(li);
         }
@@ -583,6 +590,12 @@ var app = {
         }));
         advanced.appendChild(app.createAdvancedOption('buy', 'buy coin', function(){
           app.popupExchange(null, wallet.handler.code);
+        }));
+      }
+
+      if ('explorerLinkAddr' in wallet.handler) {
+        advanced.appendChild(app.createAdvancedOption('link', 'explore history (external)', function(){
+          window.open(wallet.handler.explorerLinkAddr(wallet.data.addr), '_system');
         }));
       }
 

@@ -70,7 +70,7 @@ var EthFunctions = {
         if (err !== null) {
           app.alertError(err, that.code);
         } else {
-          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+          app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
         }
       });
     });
@@ -95,7 +95,13 @@ var EthTestHandler = {
     addrFromPrivateKey: EthFunctions.addrFromPrivateKey,
     getBalance: EthFunctions.getBalance,
     _getTransaction: EthFunctions._getTransaction,
-    sendPayment: EthFunctions.sendPayment
+    sendPayment: EthFunctions.sendPayment,
+    explorerLinkAddr: function(addr) {
+      return 'https://ropsten.etherscan.io/address/' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://ropsten.etherscan.io/tx/' + tx;
+    }
 };
 
 var EthHandler = {
@@ -117,7 +123,13 @@ var EthHandler = {
     addrFromPrivateKey: EthFunctions.addrFromPrivateKey,
     getBalance: EthFunctions.getBalance,
     _getTransaction: EthFunctions._getTransaction,
-    sendPayment: EthFunctions.sendPayment
+    sendPayment: EthFunctions.sendPayment,
+    explorerLinkAddr: function(addr) {
+      return 'https://etherscan.io/address/' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://etherscan.io/tx/' + tx;
+    }
 }
 
 var ERC20Tokens = {

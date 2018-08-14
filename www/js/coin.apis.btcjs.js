@@ -29,13 +29,19 @@ var BtcTestHandler = {
       var that = this;
       return btcjs.sendPayment(btcjs.networks.test, priv, receiver, Math.round(amount * 100000000), fee[2],
         function(response) {
-          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+          app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
         }, function(error, data){
           app.alertError(error, that.code);
         });
     },
     validateAddress: function(addr) {
       return btcjs.validateAddress(btcjs.networks.test, addr);
+    },
+    explorerLinkAddr: function(addr) {
+      return 'https://testnet.blockchain.info/address/' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://testnet.blockchain.info/tx/' + tx;
     },
     getFees: function(callback) {
       app.settings.getCached('coin-' + this.name + '-fees', 15 * 60, function(callback){
@@ -73,13 +79,19 @@ var BtcHandler = {
       var that = this;
       return btcjs.sendPayment(btcjs.networks.btc, priv, receiver, Math.round(amount * 100000000), fee[2],
         function(response) {
-          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+          app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
         }, function(error, data){
           app.alertError(error, that.code);
         });
     },
     validateAddress: function(addr) {
       return btcjs.validateAddress(btcjs.networks.btc, addr);
+    },
+    explorerLinkAddr: function(addr) {
+      return 'https://www.blockchain.com/btc/address/' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://www.blockchain.com/btc/tx/' + tx;
     },
     getFees: function(callback) {
       app.settings.getCached('coin-' + this.name + '-fees', 15 * 60, function(callback){
@@ -131,13 +143,19 @@ var LtcHandler = {
       var that = this;
       return btcjs.sendPayment(btcjs.networks.ltc, priv, receiver, Math.round(amount * 100000000), fee[2],
         function(response) {
-          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+          app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
         }, function(error, data){
           app.alertError(error, that.code);
         });
     },
     validateAddress: function(addr) {
       return btcjs.validateAddress(btcjs.networks.ltc, addr);
+    },
+    explorerLinkAddr: function(addr) {
+      return 'https://bchain.info/LTC/addr/' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://bchain.info/LTC/tx/' + tx;
     },
     getFees: function(callback) {
       app.settings.getCached('coin-' + this.name + '-fees', 15 * 60, function(callback){
@@ -176,13 +194,19 @@ var DogeHandler = {
       var that = this;
       return btcjs.sendPayment(btcjs.networks.doge, priv, receiver, Math.round(amount * 100000000), fee[2],
         function(response) {
-          app.alertSuccess('Successfully sent transaction. TXN: ' + response, that.code);
+          app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
         }, function(error, data){
           app.alertError(error, that.code);
         });
     },
     validateAddress: function(addr) {
       return btcjs.validateAddress(btcjs.networks.doge, addr);
+    },
+    explorerLinkAddr: function(addr) {
+      return 'https://dogechain.info/address/' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://dogechain.info/tx/' + tx;
     },
     getFees: function(callback) {
       app.settings.getCached('coin-' + this.name + '-fees', 15 * 60, function(callback){
