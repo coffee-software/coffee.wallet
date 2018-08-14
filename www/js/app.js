@@ -50,18 +50,6 @@ var app = {
             that.closeMenu();
           }
         };
-
-        this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider', 0)]);
-        this.priceProvider.setUnit(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
-
-
-        this.priceProviderSelect = new Select(document.getElementById("priceProvider"));
-        this.priceUnitSelect = new Select(document.getElementById("priceUnit"));
-        this.priceProviderSelect.onChange(function(value){
-          //console.log(allPriceProviders, value);
-          that.priceUnitSelect.setOptions(allPriceProviders[value].availableUnits, that.settings.get('priceUnit', that.priceProvider.defaultUnit));
-        });
-        this.priceProviderSelect.setOptions(allPriceProviders, this.settings.get('priceProvider', 0));
         this.tabWallets();
     },
 
@@ -180,9 +168,32 @@ var app = {
       this.priceProvider = provider;
     },
 
+    updateAllValues: function() {
+      var totalOnline = 0;
+      var totalOffline = 0;
+      var orders = [];
+      for (var key in app.wallets) {
+        var walletOnline = app.wallets[key].updateOnlineValue();
+        var walletOffline = app.wallets[key].updateOfflineValue();
+        totalOnline += walletOnline;
+        totalOffline += walletOffline;
+        orders.push([key, walletOnline + walletOffline]);
+      }
+      orders.sort(function(a, b) {
+          return a[1] - b[1];
+      });
+      for (var i = orders.length - 1; i >= 0; i--) {
+          var row = app.wallets[orders[i][0]].row;
+          row.parentNode.appendChild(row);
+      }
+
+      document.getElementById('grandTotal').innerHTML = formatMoney(totalOnline + totalOffline, app.priceProvider.getUnit());
+      document.getElementById('totalOnline').innerHTML = formatMoney(totalOnline, app.priceProvider.getUnit());
+
+    },
+
     updateMarketCap: function() {
       var that = this;
-
       var spinner = function(){
         document.getElementById('refresh').classList.toggle('spinning', that.spinning);
         if (that.spinning) {
@@ -191,30 +202,10 @@ var app = {
       };
       that.spinning = true;
       spinner();
-
+      app.updateAllValues();
       this.priceProvider.updatePrices(function(){
-        var totalOnline = 0;
-        var totalOffline = 0;
-        var orders = [];
-        for (var key in app.wallets) {
-          var walletOnline = app.wallets[key].updateOnlineValue();
-          var walletOffline = app.wallets[key].updateOfflineValue();
-          totalOnline += walletOnline;
-          totalOffline += walletOffline;
-          orders.push([key, walletOnline + walletOffline]);
-        }
-        orders.sort(function(a, b) {
-            return a[1] - b[1];
-        });
-        for (var i = orders.length - 1; i >= 0; i--) {
-            var row = app.wallets[orders[i][0]].row;
-            row.parentNode.appendChild(row);
-        }
-
-        document.getElementById('grandTotal').innerHTML = formatMoney(totalOnline + totalOffline, app.priceProvider.getUnit());
-        document.getElementById('totalOnline').innerHTML = formatMoney(totalOnline, app.priceProvider.getUnit());
-
-        that.spinning = false;
+        app.updateAllValues();
+        app.spinning = false;
       });
     },
 
@@ -1403,6 +1394,17 @@ var app = {
     },
     onDeviceReady: function() {
 
+        this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider', 0)]);
+        this.priceProvider.setUnit(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
+
+        this.priceProviderSelect = new Select(document.getElementById("priceProvider"));
+        this.priceUnitSelect = new Select(document.getElementById("priceUnit"));
+        this.priceProviderSelect.onChange(function(value){
+          //console.log(allPriceProviders, value);
+          app.priceUnitSelect.setOptions(allPriceProviders[value].availableUnits, app.settings.get('priceUnit', app.priceProvider.defaultUnit));
+        });
+        this.priceProviderSelect.setOptions(allPriceProviders, this.settings.get('priceProvider', 0));
+
         this.data.load(function(){
             navigator.splashscreen.hide();
 
@@ -1455,6 +1457,7 @@ var app = {
 
             app.onDataLoaded();
         }.bind(this));
+
         this.updateMarketCap();
 
         rangeSlider.create(document.getElementById('sendCoinFee'), {

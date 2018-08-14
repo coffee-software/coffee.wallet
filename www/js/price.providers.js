@@ -17,8 +17,8 @@ var CoinMarketCapProvider = {
   prices: {},
 
   setUnit: function(unit) {
-    this.prices = {};
     this.unit = unit;
+    this.prices = JSON.parse(Settings.get('cache_' + this.name + '_prices_' + this.unit, "{}"));
   },
 
   getUnit: function() {
@@ -46,6 +46,7 @@ var CoinMarketCapProvider = {
             for (var i in list) {
               that.prices[list[i]['symbol']]=parseFloat(list[i]['price_' + that.unit.toLowerCase()]);
             }
+            Settings.set('cache_' + that.name + '_prices_' + that.unit, JSON.stringify(that.prices));
             callback();
         }
     };
@@ -66,8 +67,8 @@ var CoinPaprikaProvider = {
     prices: {},
 
     setUnit: function(unit) {
-      this.prices = {};
       this.unit = unit;
+      this.prices = JSON.parse(Settings.get('cache_' + this.name + '_prices_' + this.unit, "{}"));
     },
 
     getUnit: function() {
@@ -95,6 +96,7 @@ var CoinPaprikaProvider = {
               for (var i in list) {
                 that.prices[list[i]['symbol']]=parseFloat(list[i]['price_' + that.unit.toLowerCase()]);
               }
+              Settings.set('cache_' + that.name + '_prices_' + that.unit, JSON.stringify(that.prices));
               callback();
           }
       };
