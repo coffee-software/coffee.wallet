@@ -43,6 +43,9 @@
     },
     "cordova-pdf-generator": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
+    "cordova-plugin-fingerprint-aio": {
+      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
     }
   },
   "dependent_plugins": {
