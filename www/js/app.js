@@ -1108,7 +1108,20 @@ var app = {
       document.getElementById('lockPopup').classList.add('hidden');
       var tmp = this.onAuthCallback;
       this.onAuthCallback = null;
-      tmp();
+
+      Fingerprint.isAvailable(function(){
+        Fingerprint.show({
+          clientId: "Fingerprint-Demo",
+          clientSecret: "password"
+        }, function(){
+          app.alertSuccess("auth successfull");
+          tmp();
+        }, function(err){
+          app.alertError("auth invalid " + err);
+        });
+      }, function(){
+        tmp();
+      });
     },
     authenticateBeforeContinue: function(title, message, callback) {
       this.onAuthCallback = callback;
@@ -1117,7 +1130,7 @@ var app = {
       document.getElementById('lockPopupConfirmText').innerHTML = 'confirm';
       document.getElementById('lockPopupCancelText').innerHTML = 'cancel';
       document.getElementById('lockTitle').innerHTML = title;
-      document.getElementById('lockMessage').innerHTML = message;
+      document.getElementById('lockMessage').innerHTML = message + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
     },
 
     confirmBeforeContinue: function(title, message, callback, confirmText, cancelText) {
@@ -1454,7 +1467,6 @@ var app = {
                 }
               }
             }
-
             app.onDataLoaded();
         }.bind(this));
 
