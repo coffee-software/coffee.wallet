@@ -1103,28 +1103,36 @@ var app = {
     cancelAuth: function() {
       document.getElementById('lockPopup').classList.add('hidden');
       this.onAuthCallback = null;
+      this.onConfirmCallback = null;
     },
     confirmAuth: function() {
       document.getElementById('lockPopup').classList.add('hidden');
-      var tmp = this.onAuthCallback;
-      this.onAuthCallback = null;
-
-      Fingerprint.isAvailable(function(){
-        Fingerprint.show({
-          clientId: "Fingerprint-Demo",
-          clientSecret: "password"
-        }, function(){
-          app.alertSuccess("auth successfull");
-          tmp();
-        }, function(err){
-          app.alertError("auth invalid " + err);
-        });
-      }, function(){
+      if (this.onConfirmCallback != null) {
+        var tmp = this.onConfirmCallback;
+        this.onConfirmCallback = null;
         tmp();
-      });
+      } else {
+        var tmp = this.onAuthCallback;
+        this.onAuthCallback = null;
+
+        Fingerprint.isAvailable(function(){
+          Fingerprint.show({
+            clientId: "Fingerprint-Demo",
+            clientSecret: "password"
+          }, function(){
+            app.alertSuccess("auth successfull");
+            tmp();
+          }, function(err){
+            app.alertError("auth invalid " + err);
+          });
+        }, function(){
+          tmp();
+        });
+      }
     },
     authenticateBeforeContinue: function(title, message, callback) {
       this.onAuthCallback = callback;
+      this.onConfirmCallback = null;
       document.getElementById('lockPopup').classList.remove('hidden');
       document.getElementById('lockPopupCancel').classList.remove('hidden');
       document.getElementById('lockPopupConfirmText').innerHTML = 'confirm';
@@ -1134,8 +1142,8 @@ var app = {
     },
 
     confirmBeforeContinue: function(title, message, callback, confirmText, cancelText) {
-      //TODO sparate elements
-      this.onAuthCallback = callback;
+      this.onAuthCallback = null;
+      this.onConfirmCallback = callback;
       document.getElementById('lockPopup').classList.remove('hidden');
       document.getElementById('lockPopupCancel').classList.toggle('hidden', typeof cancelText == 'undefined');
       document.getElementById('lockPopupConfirmText').innerHTML = (typeof confirmText != 'undefined') ? confirmText : 'confirm';
