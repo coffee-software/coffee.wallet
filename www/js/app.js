@@ -5,7 +5,7 @@ var allCoinApis = {
   'ETH.TST': EthTestHandler,
   'LTC': LtcHandler,
   'DOGE': DogeHandler,
-  //'BTC': BtcHandler,
+  'BTC': BtcHandler,
   //'BCH': BchHandler,
   //'ETH': EthHandler,
   //'CFT': new ERC20Handler(ERC20Tokens.CFT),
