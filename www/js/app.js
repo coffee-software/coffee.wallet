@@ -1114,20 +1114,45 @@ var app = {
       } else {
         var tmp = this.onAuthCallback;
         this.onAuthCallback = null;
-
-        Fingerprint.isAvailable(function(){
-          Fingerprint.show({
-            clientId: "Fingerprint-Demo",
-            clientSecret: "password"
-          }, function(){
-            app.alertSuccess("auth successfull");
+        switch (device.platform) {
+          case "Android":
+            FingerprintAuth.isAvailable(function(){
+              FingerprintAuth.encrypt(
+                {
+                  clientId: "coffee",
+                  username: "user",
+                  password: "__dummy"
+                },
+                function(){
+                  app.alertSuccess("auth successfull");
+                  tmp();
+                }, function(err){
+                  app.alertError("auth error: " + err);
+                }
+              );
+            }, function(){
+              tmp();
+            });
+            break;
+          case "iOS":
+            window.plugins.touchid.isAvailable(function(){
+              window.plugins.touchid.verifyFingerprintWithCustomPasswordFallback(
+                "Scan your fingerprint to confirm",
+                function(){
+                  app.alertSuccess("auth successfull");
+                  tmp();
+                }, function(err){
+                  app.alertError("auth error: " + JSON.stringify(err));
+                }
+              );
+            }, function(){
+              tmp();
+            });
+            break;
+          default:
             tmp();
-          }, function(err){
-            app.alertError("auth invalid " + err);
-          });
-        }, function(){
-          tmp();
-        });
+            break;
+        }
       }
     },
     authenticateBeforeContinue: function(title, message, callback) {

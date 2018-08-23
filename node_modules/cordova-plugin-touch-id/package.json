@@ -1,0 +1,97 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-touch-id",
+      "/home/fsw/workspace/coffee.wallet"
+    ]
+  ],
+  "_from": "cordova-plugin-touch-id@latest",
+  "_id": "cordova-plugin-touch-id@3.3.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-plugin-touch-id",
+  "_nodeVersion": "6.10.3",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-touch-id-3.3.1.tgz_1509977147053_0.8336819605901837"
+  },
+  "_npmUser": {
+    "email": "eddyverbruggen@gmail.com",
+    "name": "eddyverbruggen"
+  },
+  "_npmVersion": "5.5.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "cordova-plugin-touch-id",
+    "raw": "cordova-plugin-touch-id",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-touch-id/-/cordova-plugin-touch-id-3.3.1.tgz",
+  "_shasum": "7d06aca6672f2ee322c7db81ef8cc76d3e58713f",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-touch-id",
+  "_where": "/home/fsw/workspace/coffee.wallet",
+  "author": {
+    "email": "eddyverbruggen@gmail.com",
+    "name": "Eddy Verbruggen",
+    "url": "https://github.com/EddyVerbruggen"
+  },
+  "bugs": {
+    "url": "https://github.com/EddyVerbruggen/cordova-plugin-touch-id/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-touch-id",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Scan the fingerprint of your user with the TouchID sensor, or the user's Face with Face ID on iPhone X",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-JTMtxPHJyOHYQ2manWWwgvybWdk7sTk5iJrlKKqCI05cTIfdXsw/Iy7iPmpE427ubbpXZxBu7nldr/Zs61hQVQ==",
+    "shasum": "7d06aca6672f2ee322c7db81ef8cc76d3e58713f",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-touch-id/-/cordova-plugin-touch-id-3.3.1.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "gitHead": "617579d034464c5250f28700c5762304977dc434",
+  "homepage": "https://github.com/EddyVerbruggen/cordova-plugin-touch-id#readme",
+  "keywords": [
+    "Biometric",
+    "Face ID",
+    "Fingerprint",
+    "Scanner",
+    "Touch ID",
+    "TouchID",
+    "cordova-ios",
+    "ecosystem:cordova",
+    "iPhone X"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "eddyverbruggen",
+      "email": "eddyverbruggen@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-touch-id",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddyVerbruggen/cordova-plugin-touch-id.git"
+  },
+  "version": "3.3.1"
+}
