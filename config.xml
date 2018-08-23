@@ -17,6 +17,7 @@
     <icon height="1024" platform="ios" src="res/icon1024.png" width="1024" />
     <platform name="ios">
         <splash src="res/screen/ios/Default@2x~universal~anyany.png" />
+        <preference name="swift-version" value="3.0" />
     </platform>
     <platform name="android">
         <splash density="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
