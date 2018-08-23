@@ -19,8 +19,22 @@ function versionCompare(v1, v2) {
   return 0;
 }
 
-window.version = '0.4.0';
+window.version = '0.5.0';
 window.changelog = [
+  {
+    version: '0.5.0',
+    date: '2018-08-23',
+    changes: [
+      'added: BTC support',
+      'added: Exchange feature, using changelly.com service',
+      'added: fingerprint/face authentication to confirm transactions',
+      'added: clickable transaction links in history, links to address explorers in advanced options',
+      'fixed: 429 issue when watching lot of address',
+      'fixed: blank prices on startup, using cached values now',
+      'fixed: validating address for offline asset',
+      'fixed: fixed startup issue on older devices'
+    ]
+  },
   {
     version: '0.4.0',
     date: '2018-07-08',
