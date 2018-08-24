@@ -551,12 +551,27 @@ var app = {
         app.updateExchange();
       });
     },
+    cancelSentViaMessage: function(coin, pk) {
+      navigator.notification.confirm('Are you sure you want to CANCEL this? Recipients of message will no longer be able to redeem those coins.',
+      function(){
+        app.handleReceiveMessage(coin, pk);
+      });
+    },
     popupSendViaMessage: function() {
-      app.confirmBeforeContinue('send via message',
-        '"Send via message" is now available in coin advanced options. <br/>' +
-        'Click on active coin icon on your wallets list to see those options.',
-        function(){}
-      );
+      this.openPopup('sendViaMessagePopup', 'Send via message');
+      Logger.getLogs(function(logs){
+        if (logs.length > 0){
+          document.getElementById('sendViaMessageHistory').innerHTML = '';
+          for (var i=0; i< logs.length; i++) {
+            var tr = document.createElement('tr');
+            var linkHtml = '<a href="#" onclick="app.cancelSentViaMessage(\'' + logs[i].data.coin + '\',\'' + logs[i].data.pk + '\');">CANCEL</a>';
+            tr.innerHTML = '<td>' + (new Date(logs[i].ts)).toUTCString()  + '</td><td>'
+            + logs[i].description + '</td><td>'
+            + linkHtml +'</td>';
+            document.getElementById('sendViaMessageHistory').appendChild(tr);
+          }
+        }
+      }, 'sendasmessage');
     },
     popupCoinInfo: function(wallet) {
       this.openPopup('coinInfoPopup', wallet.handler.longname, 'coins/' + wallet.handler.icon + '.svg');
@@ -1196,16 +1211,17 @@ var app = {
 
       var receiveLink = coin + '/' + tmpPrivateKey; //'coffee://' +
 
-      //TODO outgoing history and option to redeem
-      app.alertInfo('Sending to blockchain escrow...');
-      app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, tmpAddr, amount, fee);
-      app.closeForm();
-
       var subject = amount + ' ' + coin + ' for you!';
       var message = subject + '\n' +
         'To receive ' + amount + ' ' + coin + ' go to:\n' +
         'https://wallet.coffee/receive#' + receiveLink + ' \n' +
         'Please do this as soon as possible.';
+
+      Logger.logTransaction('sendasmessage', 'sent ' + amount + ' ' + coin + ' as message', {coin:coin, pk:tmpPrivateKey});
+
+      app.alertInfo('Sending to blockchain escrow...');
+      app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, tmpAddr, amount, fee);
+      app.closeForm();
 
       if (device.platform == 'browser') {
         app.alertInfo('share code printed to console');

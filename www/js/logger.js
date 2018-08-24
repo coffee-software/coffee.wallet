@@ -1,6 +1,17 @@
 'use strict'
 
 var Logger = {
+
+  //this wont be shifted
+  logTransaction: function(type, description, data) {
+    this.getLogs(function(logs) {
+      logs.unshift({ts:Date.now(), description:description, data:data});
+      if (typeof NativeStorage != 'undefined') {
+        NativeStorage.setItem("logs" + '_' + type, logs, function(){}, function(){});
+      }
+    }, type);
+  },
+
   //"error", "info", "success"
   log: function(severity, coin, message, debug) {
     this.getLogs(function(logs) {
@@ -14,11 +25,11 @@ var Logger = {
     });
   },
 
-  getLogs: function(callback) {
+  getLogs: function(callback, type) {
     if (typeof NativeStorage == 'undefined') {
       return callback(new Array());
     }
-    NativeStorage.getItem("logs", function(value){
+    NativeStorage.getItem("logs" + (typeof type == 'undefined' ? '' : '_' + type), function(value){
       callback(value);
     }, function(error){
       if (typeof error.code == "object" && 'code' in error.code){
