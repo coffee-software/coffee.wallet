@@ -1,5 +1,6 @@
 platforms
-build.zip
+build.dev.zip
+build.prod.zip
 npm-debug.log
 www/js/config.js
 
