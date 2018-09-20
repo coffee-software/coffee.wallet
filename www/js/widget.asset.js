@@ -6,31 +6,36 @@ function Asset(wallet, id, data) {
 
   var that = this;
   this.row = document.createElement("div");
-  this.listingRow = document.createElement("div");
-  this.listingRow.classList.add('listingRow');
-  this.row.appendChild(this.listingRow);
+  this.row.classList.add('listingRow');
+  this.slidingRow = document.createElement("div");
+  this.slidingRow.classList.add('slidingRow');
 
 
   that.data = data;
   that.wallet = wallet;
   that.id = id;
 
-  fastTap(this.row, function() {
+  this.setActive = function() {
     if (activeAsset && activeAsset == that) return true;
-    if (activeAsset && activeAsset.listingRow) {
-      activeAsset.listingRow.classList.remove('active');
+    if (activeAsset && activeAsset.row) {
+      activeAsset.row.classList.remove('active');
+      activeAsset.slidingRow.style['transform'] = 'translate3d(0,0,0)';
     }
-    that.listingRow.classList.add('active');
+    that.row.classList.add('active');
     activeAsset = that;
-    return false;
-  });
+  }
+  this.unsetActive = function() {
+    that.row.classList.remove('active');
+    that.slidingRow.style['transform'] = 'translate3d(0,0,0)';
+    if (activeAsset && activeAsset == that) activeAsset = null;
+  }
 
   var unitCell = document.createElement("div");
   unitCell.classList.add('unit');
-  unitCell.innerHTML = '<img class="coinIcon" src="coins/' + that.wallet.handler.icon + '.svg" alt="' + that.wallet.handler.code + '"/>';
+  //unitCell.innerHTML = '<div class="padding"><img class="coinIcon" src="coins/' + that.wallet.handler.icon + '.svg" alt="' + that.wallet.handler.code + '"/></div>';
 
   var commentCell = document.createElement("div");
-  commentCell.innerHTML = data.comment + '<br/>' + (data.addr ? '[' + data.addr.substring(0, 7) + '...]' : '[BALANCE]');
+  commentCell.innerHTML = '<div>' + data.comment + '<br/>' + (data.addr ? '[' + data.addr.substring(0, 7) + '...]' : '[BALANCE]') + '</div>';
   commentCell.classList.add('left');
 
   var amountCell = document.createElement("div");
@@ -41,24 +46,29 @@ function Asset(wallet, id, data) {
   amountCell.appendChild(this.value).classList.add('value');
   amountCell.appendChild(this.amount).classList.add('amount');
 
-  var buttonsDiv = document.createElement("div");
-  buttonsDiv.classList.add('buttons');
-  var buttonsDiv2 = document.createElement("div");
-  buttonsDiv2.classList.add('buttons');
 
-  data.addr && ('explorerLinkAddr' in wallet.handler) && buttonsDiv2.appendChild(createButton('link', function(){
+  var buttonsLeft = this.buttonsLeft = document.createElement("div");
+  buttonsLeft.classList.add('buttons');
+  buttonsLeft.classList.add('buttonsLeft');
+
+  var buttonsRight = this.buttonsRight = document.createElement("div");
+  buttonsRight.classList.add('buttons');
+  buttonsRight.classList.add('buttonsRight');
+
+  data.addr && ('explorerLinkAddr' in wallet.handler) && buttonsLeft.appendChild(createButton('link', 'history', function(){
     window.open(wallet.handler.explorerLinkAddr(data.addr), '_system');
   }));
-  data.addr && buttonsDiv2.appendChild(createButton('receive', function(){
+  data.addr && buttonsLeft.appendChild(createButton('receive', 'receive', function(){
     app.popupReceivePayment(that.wallet, that.data.addr);
   }));
-  data.addr && buttonsDiv.appendChild(createButton('refresh', function(){that.refreshAmount();}));
+  data.addr && buttonsRight.appendChild(createButton('refresh', 'refresh', function(){that.refreshAmount();}));
 
-  buttonsDiv.appendChild(createButton('edit',function(){
+
+  buttonsRight.appendChild(createButton('edit', 'edit', function(){
     app.popupEditOfflineAsset(that);
   }));
 
-  buttonsDiv.appendChild(createButton('remove',function(){
+  buttonsRight.appendChild(createButton('remove', 'remove', function(){
     navigator.notification.confirm(
         'Are you sure you want to remove this asset?',
         function (buttonIndex) {
@@ -73,16 +83,43 @@ function Asset(wallet, id, data) {
     );
   }));
 
-  amountCell.appendChild(buttonsDiv);
-  commentCell.appendChild(buttonsDiv2);
+  this.row.appendChild(buttonsLeft);
+  this.slidingRow.appendChild(commentCell);
+  this.slidingRow.appendChild(unitCell);
+  this.slidingRow.appendChild(amountCell);
+  this.row.appendChild(buttonsRight);
 
-  this.listingRow.appendChild(commentCell);
-  //this.listingRow.appendChild(unitCell);
-  this.listingRow.appendChild(amountCell);
+  this.row.appendChild(this.slidingRow);
 
   var stitch = document.createElement("div");
   stitch.classList.add('stitch');
   this.row.appendChild(stitch);
+
+
+  that.touchDiff = 0;
+  this.slidingRow.addEventListener('touchstart', function ( event ) {
+    that.setActive();
+    that.slidingRow.classList.add('touching');
+    that.startX = event.touches[0].clientX + that.touchDiff;
+  });
+  this.slidingRow.addEventListener('touchmove', function ( event ) {
+    that.touchDiff = that.startX - event.touches[0].clientX;
+    //if (that.touchDiff > that.slidingRow.offsetWidth / 2) that.touchDiff = that.slidingRow.offsetWidth / 2;
+    //if (that.touchDiff < - that.slidingRow.offsetWidth / 2) that.touchDiff = - that.slidingRow.offsetWidth / 2;
+    that.slidingRow.style['transform'] = 'translate3d(' + -that.touchDiff + 'px,0,0)';
+  });
+  this.slidingRow.addEventListener('touchend', function ( event ) {
+    that.slidingRow.classList.remove('touching');
+    if (that.touchDiff >  (that.buttonsRight.offsetWidth / 2)) {
+      that.touchDiff = that.buttonsRight.offsetWidth;
+    } else if (that.touchDiff < - (that.buttonsLeft.offsetWidth / 2)) {
+      that.touchDiff = -that.buttonsLeft.offsetWidth;
+    } else {
+      that.touchDiff = 0;
+      that.unsetActive();
+    }
+    that.slidingRow.style['transform'] = 'translate3d(' + -that.touchDiff + 'px,0,0)';
+  });
 
 
   this.updateValue = function() {

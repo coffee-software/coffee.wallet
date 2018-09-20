@@ -1103,8 +1103,14 @@ var app = {
       msgDiv.classList.add('msg');
       msgDiv.classList.add(type);
       msgDiv.innerHTML = html;
-      var closer = createButton('close', function(){ document.getElementById('messages').removeChild(msgDiv); msgDiv = null; });
+
+      var closer = document.createElement("a");
       closer.classList.add('closer');
+      var img = document.createElement("img");
+      img.setAttribute('src', 'icons/close.png');
+      closer.appendChild(img);
+      fastTap(closer, function(){ document.getElementById('messages').removeChild(msgDiv); msgDiv = null; });
+
       msgDiv.appendChild(closer);
       document.getElementById('messages').appendChild(msgDiv);
       setTimeout(function(){ msgDiv && msgDiv.classList.add('fadingout'); }, 5000);

@@ -100,9 +100,13 @@ h1, h2, h3 {
   font-weight: 100;
 }
 
-#nav .button {
+#nav .navButton {
   width: 36px;
   padding: 9px;
+}
+#nav .navButton img {
+  width: 100%;
+  display: block;
 }
 
 #toggleMenu {
@@ -191,7 +195,8 @@ h1, h2, h3 {
 }
 
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
+    width: 0;  /* remove scrollbar space */
+    height: 0;
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
@@ -258,21 +263,6 @@ table {
   height: 1px;
 }
 
-
-.buttons {
-  overflow: auto;
-  margin-top: 8px;
-  display: none;
-}
-
-.active .buttons {
-  display: block;
-}
-.buttons div {
-  display: inline-block;;
-  text-align: center;
-}
-
 .value {
     font-size: 22px;
 }
@@ -287,18 +277,6 @@ table {
 
 .disabled {
   color: #ddd;
-}
-
-.button {
-  display: inline-block;
-  width: 64px;
-  max-width: 100%;
-}
-
-.button img {
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 
 .coinIcon {
@@ -316,9 +294,6 @@ table {
 }
 
 @media all and (max-width: 799px) {
-  .button {
-    width: 26px;
-  }
   .value {
       font-size: 18px;
   }
@@ -336,36 +311,92 @@ table {
   }
 }
 
+.padding {
+  padding: 0 15px;
+}
+
 .listingRow {
+  height: 74px;
+  position: relative;
+  margin: 0 -15px;
+  overflow: hidden;
+}
+.slidingRow {
+  position: absolute;
+  background-color: #f7f5f2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 74px;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 0px 7px #463f3a
 }
-.listingRow .left {
+
+.slidingRow.touching {
+  transition: none;
+}
+
+.slidingRow .left {
   flex: 3;
   text-align: left;
-  padding: 10px;
 }
-.listingRow .unit {
-  flex: 1;
+.slidingRow .left div {
+  padding-left: 15px;
 }
-.listingRow .right {
+.slidingRow .unit {
+  flex: 1.5;
+}
+.slidingRow .right {
   flex: 3;
   text-align: right;
-  padding: 10px;
+}
+.slidingRow .right div {
+  padding-right: 15px;
 }
 
-.listingRow .left .button {
-  margin-right: 10px;
+.slidingRow .unconfirmed {
+  animation: blinkingText 1s infinite;
+}
+.listingRow .stitch {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
 }
 
-.listingRow .right .button {
-  margin-left: 10px;
+.listingRow .buttons {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.listingRow .buttonsRight {
+  right: 0;
+  left: auto;
 }
 
-.listingRow .unconfirmed {
-  animation:blinkingText 1s infinite;
+.listingRow .buttons .button {
+  text-align: center;
+  flex: 1;
+}
+.listingRow .buttons .button a {
+  display: block;
+  width: 60px;
+}
+.listingRow .buttons .button a img {
+  display: block;
+  width: 32px;
+  margin: 0 auto;
+}
+#offlineAssets {
+  padding: 0 15px;
 }
 
 @keyframes blinkingText {

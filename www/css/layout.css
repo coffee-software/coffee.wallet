@@ -73,6 +73,11 @@
     width: 24px;
 }
 
+#messages div.msg .closer img {
+  width: 100%;
+  display: block;
+}
+
 #messages div.msg:after {
     content: " ";
     width: 32px;

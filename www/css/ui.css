@@ -14,8 +14,8 @@ button {
 
 button.box {
   background: #766054;
-  padding: 14px;
   margin: 10px;
+  padding: 14px 4px;
   color: #f7f5f2;
 }
 
