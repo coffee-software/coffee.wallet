@@ -67,11 +67,11 @@ function Wallet(data) {
 
   unitCell.innerHTML = '<div class="padding"><img class="coinIcon" src="coins/' + this.handler.icon + '.svg" alt="' + this.handler.code + '"/></div>';
 
-  unitCell.children[0].onclick = function() {
+  /*unitCell.children[0].onclick = function() {
     if (activeWallet == that) {
       app.popupCoinInfo(that);
     }
-  };
+  };*/
 
   var onlineCell = document.createElement("div");
   this.onlineCell = onlineCell;
