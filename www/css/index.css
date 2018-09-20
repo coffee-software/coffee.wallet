@@ -373,7 +373,7 @@ table {
   top: 0;
   bottom: 0;
   left: 0;
-  padding: 0 15px;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -381,6 +381,13 @@ table {
 .listingRow .buttonsRight {
   right: 0;
   left: auto;
+}
+
+.listingRow .buttons .button:first-child {
+  padding-left: 5px;
+}
+.listingRow .buttons .button:last-child {
+  padding-right: 5px;
 }
 
 .listingRow .buttons .button {
