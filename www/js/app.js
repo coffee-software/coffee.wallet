@@ -7,7 +7,7 @@ var allCoinApis = {
   'DOGE': DogeHandler,
   'BTC': BtcHandler,
   //'BCH': BchHandler,
-  //'ETH': EthHandler,
+  'ETH': EthHandler,
   //'CFT': new ERC20Handler(ERC20Tokens.CFT),
   //'PAY': new ERC20Handler(ERC20Tokens.PAY),
   'ERC20.TST': new ERC20Handler(ERC20Tokens['ERC20.TST'])
