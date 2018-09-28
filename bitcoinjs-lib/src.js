@@ -238,6 +238,8 @@ module.exports = {
 
 	generateNewMnemonic: bip39.generateMnemonic,
 	mnemonicToSeedHex: bip39.mnemonicToSeedHex,
+	validateMnemonic: bip39.validateMnemonic,
+
 	derivePathFromSeedHash: derivePathFromSeedHash,
 	hmacSha512Sign: hmacSha512Sign
 }
