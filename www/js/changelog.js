@@ -19,8 +19,19 @@ function versionCompare(v1, v2) {
   return 0;
 }
 
-window.version = '0.5.2';
+window.version = '0.6.0';
 window.changelog = [
+   {
+    version: '0.6.0',
+    date: '2018-09-28',
+    changes: [
+      'added: ETH support',
+      'added: "send all" feature',
+      'added: online key recovery tool',
+      'changed: swipe menu for list items. swipe left to see portfolio actions and swipe right to see wallet actions.',
+      'fixed: animation performance',
+    ]
+  },
   {
     version: '0.5.0',
     date: '2018-08-23',
