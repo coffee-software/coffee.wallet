@@ -26236,16 +26236,16 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 			}
 			//console.log(totalIn, amount, totalIn - amount - fee);
 
+			txb.addOutput(receiver, amount);
 			//calculating change
-			if (false && totalIn - amount - fee < fee) {
-				//TODO think this trough
-				app.alertInfo('dust leftover detected. will add to transaction');
-				amount = totalIn - fee;
-				txb.addOutput(receiver, amount);
-			} else {
+			var change = totalIn - amount - fee;
+
+			if (change > 0) {
+				if (change < fee) {
+					app.alertInfo('warning. dust leftover detected. transaction might fail. consider using "send all" feature next time.');
+				}
 				//TODO new address:
-				txb.addOutput(receiver, amount);
-				txb.addOutput(key.getAddress(), totalIn - amount - fee);
+				txb.addOutput(key.getAddress(), change);
 			}
 
 			for (var i=0; i<vins.length; i++){
