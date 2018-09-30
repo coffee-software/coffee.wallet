@@ -5,9 +5,9 @@ set -e
 
 rm -rf build.dev.zip
 
-xmlstarlet edit --inplace --update '/_:widget/_:name' --value 'Coffee DEV' config.xml
-xmlstarlet edit --inplace --update '/_:widget/@version' --value "$(git describe --tags)" config.xml
-xmlstarlet edit --inplace --update '/_:widget/@id' --value "io.cadosolutions.coffeewallet.dev" config.xml
+xmlstarlet edit --ps --inplace --update '/_:widget/_:name' --value 'Coffee DEV' config.xml
+xmlstarlet edit --ps --inplace --update '/_:widget/@version' --value "$(git describe --tags)" config.xml
+xmlstarlet edit --ps --inplace --update '/_:widget/@id' --value "io.cadosolutions.coffeewallet.dev" config.xml
 
 zip -qr build.dev.zip hooks node_modules plugins res www LICENSE.txt package.json config.xml ACKNOWLEDGEMENTS.md
 
