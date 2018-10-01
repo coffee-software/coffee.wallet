@@ -149,7 +149,7 @@ var app = {
           li.classList.add('msg');
           li.classList.add(logs[i].severity);
           var html = logs[i].message;
-          if (('coin' in logs[i]) && (logs[i].coin in allCoinApis) && ('explorerLinkTx' in allCoinApis[logs[i].coin])) {
+          if ((typeof(html) == 'string') && ('coin' in logs[i]) && (logs[i].coin in allCoinApis) && ('explorerLinkTx' in allCoinApis[logs[i].coin])) {
             html = html.replace(/\<u\>\w+\<\/u\>/, function(match){
               var tx = match.substring(3, match.length-4);
               return '<a href="#" onclick="window.open(\'' + allCoinApis[logs[i].coin].explorerLinkTx(tx) + '\', \'_system\');">' + tx + '</a>';
@@ -352,22 +352,29 @@ var app = {
     exportAllKeys: function() {
       this.closeMenu();
 
+      var mnemonicParts = app.data.wallets.bip39.mnemonic.split(' ');
+      var mnemonicMessage = '<ol class="mnemonic">';
+      for (var i =0; i<mnemonicParts.length; i++) {
+        mnemonicMessage += '<li><span>' + mnemonicParts[i] + '</span></li>';
+      }
+      mnemonicMessage += '</ol>';
+
       app.authenticateBeforeContinue(
         'Backup Wallets',
-        'On the next screen, you will see your 12-word mnemonic passphrase. It might be used to recover your keys if you loose access to this device. <br/><ul>' +
+        'On the next screen, you will see your 12-word BIP39 mnemonic passphrase. It might be used to recover your keys if you loose access to this device. <br/><ul>' +
         '<li>Don\'t show your mnemonic to anyone.</li>' +
         '<li>Do not take a screenshot.</li>' +
         '<li>Do not send it over unencrypted network.</li>' +
         '<li>Write it down and store in a secure location.</li></ul>',
         function() {
             app.confirmBeforeContinue(
-              'your BIP39 backup phrase',
-              app.data.wallets.bip39.mnemonic,
+              'your backup phrase',
+              mnemonicMessage,
               function() {
                 app.settings.set('keyBackedUp', true);
               },
-              'I&nbsp;made&nbsp;a&nbsp;backup',
-              'remind&nbsp;me&nbsp;later'
+              'backup&nbsp;made',
+              'remind&nbsp;later'
             );
         }
       );
