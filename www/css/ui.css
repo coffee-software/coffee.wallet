@@ -369,6 +369,7 @@ table.niceTable td {
   word-break: break-word;
   padding: 7px 0;
   font-weight: bold;
+  text-align: right;
 }
 table.niceTable th {
   text-align: left;
