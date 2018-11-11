@@ -107,6 +107,8 @@ function Asset(wallet, id, data) {
     //if (that.touchDiff > that.slidingRow.offsetWidth / 2) that.touchDiff = that.slidingRow.offsetWidth / 2;
     //if (that.touchDiff < - that.slidingRow.offsetWidth / 2) that.touchDiff = - that.slidingRow.offsetWidth / 2;
     that.slidingRow.style['transform'] = 'translate3d(' + -that.touchDiff + 'px,0,0)';
+    that.buttonsLeft.classList.toggle('hidden', that.touchDiff > 0);
+    that.buttonsRight.classList.toggle('hidden', that.touchDiff < 0);
   });
   this.slidingRow.addEventListener('touchend', function ( event ) {
     that.slidingRow.classList.remove('touching');
@@ -132,12 +134,13 @@ function Asset(wallet, id, data) {
       this.total = 0;
       if (this.data.addr) {
         wallet.handler.getBalance(this.data.addr, function(balance, unconfirmed){
-          that.total = balance + unconfirmed;
-          that.amount.innerHTML = formatMoney(that.total, that.wallet.handler.code, 5);
+          that.total = balance;
+          that.amount.innerHTML = wallet.handler.systemValueToDisplayValue(balance);
+          //formatMoney(that.total, that.wallet.handler.code, 5);
           that.updateValue();
         });
       } else {
-        that.total = this.data.balance ? this.data.balance : 0;
+        that.total = this.data.floatBalance ? this.data.floatBalance : 0;
       }
       //console.log(this);
       this.amount.innerHTML = formatMoney(this.total, this.wallet.handler.code, 5);

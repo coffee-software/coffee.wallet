@@ -146,11 +146,11 @@
         'ETH': EthHandler,
         'LTC': LtcHandler,
         'DOGE': DogeHandler,
-        //'CFT': new ERC20Handler(ERC20Tokens.CFT),
-        //'PAY': new ERC20Handler(ERC20Tokens.PAY),
+        //'CFT': ERC20Tokens.CFT,
+        //'PAY': ERC20Tokens.PAY,
         'BTC.TST': BtcTestHandler,
         'ETH.TST': EthTestHandler,
-        'ERC20.TST': new ERC20Handler(ERC20Tokens['ERC20.TST'])
+        'ERC20.TST': ERC20Tokens['ERC20.TST']
       };
 
       function generatePrivateKeys() {

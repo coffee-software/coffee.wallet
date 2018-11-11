@@ -87,18 +87,17 @@ function getBalance (network, addr, callback, error) {
 	});
 }
 
-function smartRound(f) {
+/*function smartRound(f) {
   return parseFloat(f.toExponential(Math.max(4, 4 + Math.log10(Math.abs(f)))));
-}
+}*/
 
 function generateFeesFromAvg(avgFee) {
 	var t = 10; //TODO avarage block time
 	var factors = [0.2, 0.4, 0.6, 0.8, 1, 1.3, 1.7, 2.3, 3];
 	var newFees = [];
 	for (var i=0; i<factors.length; i++) {
-		//key 0 - fee, 1 - estimated time, >1 internal coinparameters
-		var fee = smartRound(avgFee * 0.00000001 * factors[i]);
-		newFees.push([fee, (t / factors[i]).toFixed(2), Math.round(fee * 100000000)]);
+		//fee: [satoshiPerByte, timeEst]
+		newFees.push([Math.round(avgFee * factors[i]), (t / factors[i]).toFixed(2)]);
 	}
 	return newFees;
 }
@@ -133,6 +132,10 @@ function getFees (network, callback, error) {
 }
 
 function sendPayment (network, pk, receiver, amount, fee, success, error) {
+	if ((!Number.isInteger(amount)) || (!Number.isInteger(fee))) {
+		error('amounts needs to be integers');
+		return;
+	}
 
 	var key = bitcoin.ECPair.fromWIF(pk, network.network);
 	var xhr = new XMLHttpRequest();
@@ -166,7 +169,7 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 			}
 
 			if (totalIn < amount + fee) {
-				error('There is no sufficient founds on source wallet. Total confirmed and unconfirmed balance is ' + (totalIn* 0.00000001) + 'BTC', xhr.response);
+				error('There is no sufficient founds on source wallet. Total confirmed and unconfirmed balance is ' + (totalIn* 0.00000001) + '', xhr.response);
 				return;
 			}
 			//console.log(totalIn, amount, totalIn - amount - fee);
@@ -187,6 +190,8 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 				//sign all inputs
 				txb.sign(vins[i], key);
 			}
+
+			//console.log(txb.build().virtualSize());
 
 			//console.log(txb.build().toHex());
 			var pushXhr = new XMLHttpRequest();

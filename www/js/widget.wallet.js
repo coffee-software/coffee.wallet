@@ -2,7 +2,8 @@
 
 function formatMoney(value, unit, decimals){
   var d = decimals ? decimals : 2;
-  return value.toFixed(d).replace(/./g, function(c, i, a) {
+  //console.log(typeof value);
+  return parseFloat(value).toFixed(d).replace(/./g, function(c, i, a) {
     return i && c !== "." && ((a.length - i) % 3 === 0) && (a.length - i > d) ? '&nbsp;' + c : c;
   }) + '&nbsp;' + unit;
 };
@@ -145,6 +146,8 @@ function Wallet(data) {
     //if (that.touchDiff > that.slidingRow.offsetWidth / 2) that.touchDiff = that.slidingRow.offsetWidth / 2;
     //if (that.touchDiff < - that.slidingRow.offsetWidth / 2) that.touchDiff = - that.slidingRow.offsetWidth / 2;
     that.slidingRow.style['transform'] = 'translate3d(' + -that.touchDiff + 'px,0,0)';
+    that.buttonsLeft.classList.toggle('hidden', that.touchDiff > 0);
+    that.buttonsRight.classList.toggle('hidden', that.touchDiff < 0);
   });
   this.slidingRow.addEventListener('touchend', function ( event ) {
     that.slidingRow.classList.remove('touching');
@@ -173,11 +176,11 @@ function Wallet(data) {
 
   this.checkForOfflineAssetChange = function(idx, callback) {
     this.handler.getBalance(this.offlineWallets[idx].addr, function(balance, unconfirmed){
-      var total = balance + unconfirmed;
-      if (total != that.offlineWallets[idx].balance) {
-        callback(isNaN(that.offlineWallets[idx].balance) ? total : total - that.offlineWallets[idx].balance);
-        //TODO
-        that.offlineWallets[idx].balance = total;
+      if (balance != that.offlineWallets[idx].systemBalance) {
+        var floatBalance = that.handler.systemValueToFloatValue(balance);
+        callback(isNaN(that.offlineWallets[idx].balance) ? floatBalance : floatBalance - that.offlineWallets[idx].balance);
+        that.offlineWallets[idx].systemBalance = balance;
+        that.offlineWallets[idx].balance = floatBalance;
         app.data.save();
       }
     });
@@ -186,7 +189,6 @@ function Wallet(data) {
   this.refreshOffline = function() {
       this.totalOffline = 0;
       for (var idx in this.offlineWallets) {
-
         that.totalOffline += this.offlineWallets[idx].balance;
 
         if ('addr' in  this.offlineWallets[idx] && this.offlineWallets[idx].addr) {
@@ -209,23 +211,29 @@ function Wallet(data) {
   this.refreshOffline();
 
   this.refreshOnline = function(callback) {
+
     this.totalOnline = 'balance' in this.data ? this.data.balance : 0;
+
     this.onlineAmount.innerHTML = formatMoney(this.totalOnline, this.handler.code, 5);
     this.updateOnlineValue();
 
     if (this.data.addr && 'getBalance' in this.handler) {
       this.handler.getBalance(this.data.addr, function(balance, unconfirmed){
-        var total = balance + unconfirmed;
-        that,onlineCell.classList.toggle('unconfirmed', unconfirmed != 0);
-        if (total != that.totalOnline) {
-          if (that.totalOnline > total) {
-            app.alertInfo((that.totalOnline - total) + ' less on your ' + that.handler.code + ' wallet');
+
+        that.onlineCell.classList.toggle('unconfirmed', unconfirmed != 0);
+
+        if (that.data.systemBalance != balance) {
+          var floatBalance = that.handler.systemValueToFloatValue(balance);
+          if (that.totalOnline > floatBalance) {
+            app.alertInfo((that.totalOnline - floatBalance) + ' less on your ' + that.handler.code + ' wallet');
           } else {
-            app.alertInfo((total - that.totalOnline) + ' more on your ' + that.handler.code + ' wallet');
+            app.alertInfo((floatBalance - that.totalOnline) + ' more on your ' + that.handler.code + ' wallet');
           }
-          //TODO
-          that.data.balance = that.totalOnline = total;
+
+          that.data.systemBalance = balance;
+          that.totalOnline = that.data.balance = floatBalance;
           app.data.save();
+          console.log(that.totalOnline);
           that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
           that.updateOnlineValue();
         }

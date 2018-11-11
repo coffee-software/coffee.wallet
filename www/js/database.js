@@ -40,6 +40,7 @@ var Data = {
   updateOfflineAsset: function(coin, id, data) {
     this.wallets[coin].offlineWallets[id - 1].addr = data.addr;
     this.wallets[coin].offlineWallets[id - 1].balance = data.balance;
+    this.wallets[coin].offlineWallets[id - 1].systemBalance = data.systemBalance;
     this.wallets[coin].offlineWallets[id - 1].comment = data.comment;
     this.save(function(){});
   },
@@ -61,13 +62,11 @@ var Data = {
       if (typeof allCoinApis[wallet.coin].newPrivateKey == 'function') {
         wallet.privateKey = allCoinApis[wallet.coin].newPrivateKey();
         wallet.addr = allCoinApis[wallet.coin].addrFromPrivateKey(wallet.privateKey);
-        wallet.balance = 0;
       } else {
         var parentHandler = allCoinApis[wallet.coin].newPrivateKey;
         if ((parentHandler.code in that.wallets) && that.wallets[parentHandler.code].enabled) {
           wallet.privateKey = that.wallets[parentHandler.code].privateKey;
           wallet.addr = that.wallets[parentHandler.code].addr;
-          wallet.balance = 0;
         } else {
           wallet.enabled = false;
           app.alertError('This coin requires ' + parentHandler.code + ' coin to be enabled', wallet.coin);

@@ -8,9 +8,9 @@ var allCoinApis = {
   'BTC': BtcHandler,
   //'BCH': BchHandler,
   'ETH': EthHandler,
-  //'CFT': new ERC20Handler(ERC20Tokens.CFT),
-  //'PAY': new ERC20Handler(ERC20Tokens.PAY),
-  'ERC20.TST': new ERC20Handler(ERC20Tokens['ERC20.TST'])
+  //'CFT': ERC20Tokens.CFT,
+  //'PAY': ERC20Tokens.PAY,
+  'ERC20.TST': ERC20Tokens['ERC20.TST']
 };
 
 //those will be added regarding of no value and no rank:
@@ -321,7 +321,7 @@ var app = {
     importPrivateKey: function(){
       var value = document.getElementById('importPrivateKeyInput').value
       //app.importingWallet
-      console.log(value);
+      //console.log(value);
       app.authenticateBeforeContinue(
         'Import ' + app.importingWallet.handler.code + ' Private Key',
         'Are You sure you want to import new private key? Current private key will be replaced. ' +
@@ -329,7 +329,6 @@ var app = {
         function() {
           app.importingWallet.data.privateKey = value;
           app.importingWallet.data.addr = app.importingWallet.handler.addrFromPrivateKey(value);
-          app.importingWallet.balance = 0;
           app.data.save();
           app.closeForm();
           app.importingWallet.refreshOnline();
@@ -433,7 +432,7 @@ var app = {
     },
     doExchange: function() {
       var sellCoin = document.getElementById("exchangeSellCoin").value;
-      var sellAmmount = parseFloat(document.getElementById("exchangeSellAmmount").value);
+      var sellAmmount = app.wallets[sellCoin].handler.floatValueToSystemValue(parseFloat(document.getElementById("exchangeSellAmmount").value));
       var buyCoin = document.getElementById("exchangeBuyCoin").value;
       var fee = app.exchangeDefaultFees[sellCoin];
       var buyAmmount = document.getElementById("exchangeBuyAmmount").value;
@@ -441,7 +440,7 @@ var app = {
       changelly.createTransaction(
         sellCoin,
         buyCoin,
-        sellAmmount,
+        app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount),
         app.wallets[buyCoin].data.addr,
         function(ret){
           app.alertInfo('Changelly exchange id ' + ret.id + ' started.', sellCoin, ret);
@@ -450,10 +449,8 @@ var app = {
             'exchange ' + sellCoin + ' for ' + buyCoin,
             '<table class="niceTable">' +
             '<tr><th style="width:26%;">changelly payinAddress:</th><td colspan="2">' + ret.payinAddress + '</td></tr>' +
-            '<tr><th>amount:</th><td style="width:50%;">' + sellAmmount + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(sellAmmount, sellCoin) + '</td></tr>' +
-            '<tr><th>fee:</th><td>' + fee[0] + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(fee[0], sellCoin) + '</td></tr>' +
-            '<tr><th>total:</th><td>' + (sellAmmount + fee[0]) + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(sellAmmount + fee[0], sellCoin) + '</td></tr>' +
-            '<tr><th>balance after:</th><td>' + (app.wallets[sellCoin].totalOnline - sellAmmount - fee[0]) + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].totalOnline - sellAmmount - fee[0], sellCoin) + '</td></tr>' +
+            '<tr><th>amount:</th><td style="width:50%;">' + app.wallets[sellCoin].handler.systemValueToDisplayValue(sellAmmount) + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount), sellCoin) + '</td></tr>' +
+            '<tr><th>fee:</th><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.estimateFeeFloat(fee), sellCoin) + '</td></tr>' +
             '<tr><th>estimated return:</th><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
             '</table>'
             ,
@@ -471,12 +468,12 @@ var app = {
       var sellCoin = document.getElementById("exchangeSellCoin").value;
       var sellAmmount = document.getElementById("exchangeSellAmmount").value;
       var buyCoin = document.getElementById("exchangeBuyCoin").value;
-      var fee = 0;
+      var fee = null;
 
       if (sellCoin) {
         if (sellCoin in app.exchangeDefaultFees) {
-          fee = app.exchangeDefaultFees[sellCoin][0];
-          document.getElementById("exchangeSellFee").textContent = fee + ' ' + sellCoin;
+          fee = app.exchangeDefaultFees[sellCoin];
+          document.getElementById("exchangeSellFee").textContent = app.wallets[sellCoin].handler.getFeeDisplay(fee);
         } else {
           document.getElementById("exchangeSellFee").textContent = 'pending...';
           var fees = app.wallets[sellCoin].handler.getFees(function(fees){
@@ -484,7 +481,7 @@ var app = {
             app.updateExchange();
           });
         }
-        document.getElementById("exchangeSellMax").textContent = app.wallets[sellCoin].data.balance - fee;
+        document.getElementById("exchangeSellMax").textContent = app.wallets[sellCoin].data.floatBalance - (fee === null ? 0 : app.wallets[sellCoin].handler.estimateFeeFloat(fee));
         document.getElementById("exchangeSellValue").innerHTML = app.priceProvider.convert(sellAmmount, sellCoin);
       } else {
         document.getElementById("exchangeSellMax").textContent = '';
@@ -525,7 +522,7 @@ var app = {
         document.getElementById("exchangeBuyAmmount").value = 0;
         document.getElementById("exchangeBuyValue").textContent = '';
       }
-      document.getElementById("exchangeButton").disabled = !(goodPair && (sellAmmount > 0) && (fee > 0));
+      document.getElementById("exchangeButton").disabled = !(goodPair && (sellAmmount > 0) && (fee !== null));
     },
 
     getExchangeableCoins: function(callback) {
@@ -879,7 +876,7 @@ var app = {
       document.getElementById('addOfflineAssetAddr').value = asset.data.addr;
       app.validateAddr('addOfflineAssetAddr', true);
 
-      document.getElementById('addOfflineAssetBalance').value = asset.data.balance;
+      document.getElementById('addOfflineAssetBalance').value = asset.data.floatBalance;
       document.getElementById('addOfflineAssetComment').value = asset.data.comment;
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', asset.data.addr ? false : true);
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', asset.data.addr);
@@ -1093,8 +1090,8 @@ var app = {
           app.sendCoinValidateAmount();
         }
         document.getElementById('feeAmount').innerHTML =
-          fee[0] + this.sendWallet.handler.code + ' (' +
-          this.priceProvider.convert(fee[0], this.sendWallet.handler.code) + ')';
+          this.sendWallet.handler.getFeeDisplay(fee) + ' (' +
+          this.priceProvider.convert(this.sendWallet.handler.estimateFeeFloat(fee), this.sendWallet.handler.code) + ')';
         document.getElementById('feeTime').innerHTML = fee[1] + 'min';
       } else {
         document.getElementById('feeAmount').innerHTML = 'unknown';
@@ -1247,13 +1244,15 @@ var app = {
 
       var receiveLink = coin + '/' + tmpPrivateKey; //'coffee://' +
 
-      var subject = amount + ' ' + coin + ' for you!';
-      var message = subject + '\n' +
-        'To receive ' + amount + ' ' + coin + ' go to:\n' +
-        'https://wallet.coffee/receive#' + receiveLink + ' \n' +
-        'Please do this as soon as possible.';
+      var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(amount);
 
-      Logger.logTransaction('sendasmessage', 'sent ' + amount + ' ' + coin + ' as message', {coin:coin, pk:tmpPrivateKey});
+      var subject = displayAmount + ' ' + coin + ' for you!';
+      var message = subject + '\n' +
+        'To receive ' + displayAmount + ' ' + coin + ' go to:\n' +
+        'https://wallet.coffee/receive#' + receiveLink;
+
+
+      Logger.logTransaction('sendasmessage', 'sent ' + displayAmount + ' ' + coin + ' as message', {coin:coin, pk:tmpPrivateKey});
 
       app.alertInfo('Sending to blockchain escrow...');
       app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, tmpAddr, amount, fee);
@@ -1286,7 +1285,7 @@ var app = {
 
       var coin = this.sendWallet.handler.code;
       var fee = this.sendFees[document.getElementById('sendCoinFee').value];
-      var amount = parseFloat(document.getElementById('sendCoinAmount').value);
+      var amount = this.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
 
       this.confirmBeforeContinue(
         'Warning!',
@@ -1303,10 +1302,8 @@ var app = {
           app.authenticateBeforeContinue(
             'send ' + coin + ' via message',
             '<table class="niceTable">' +
-            '<tr><th>amount:</th><td style="width:50%;">' + amount + ' ' + coin + '</td><td>' + app.priceProvider.convert(amount, coin) + '</td></tr>' +
-            '<tr><th>fee:</th><td>' + fee[0] + ' ' + coin + '</td><td>' + app.priceProvider.convert(fee[0], coin) + '</td></tr>' +
-            '<tr><th>total:</th><td>' + (amount + fee[0]) + ' ' + coin + '</td><td>' + app.priceProvider.convert(amount + fee[0], coin) + '</td></tr>' +
-            '<tr><th>balance after:</th><td>' + (app.sendWallet.totalOnline - amount - fee[0]) + ' ' + coin + '</td><td>' + app.priceProvider.convert(app.sendWallet.totalOnline - amount - fee[0], coin) + '</td></tr>' +
+            '<tr><th>amount:</th><td style="width:50%;">' + app.sendWallet.handler.systemValueToDisplayValue(amount) + ' ' + coin + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.systemValueToFloatValue(amount), coin) + '</td></tr>' +
+            '<tr><th>fee:</th><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.estimateFeeFloat(fee), coin) + '</td></tr>' +
             '</table>' +
             '<p>You will see your device share dialog in next step and will be able to select send medium.</p>'
             ,
@@ -1334,14 +1331,13 @@ var app = {
         app.alertError('unknown coin ' + coin);
       }
     },
-
     handleReceiveMessage: function(coin, privateKey) {
       this.addOrActivateCoin(coin, function(){
         var tmpAddr = app.wallets[coin].handler.addrFromPrivateKey(privateKey);
         app.wallets[coin].handler.getBalance(tmpAddr, function(balance, unconfirmed){
-          var total = balance + unconfirmed;
+          var total = balance;
           if (total > 0) {
-            app.alertInfo('Trying to transfer ' + total + ' ' + coin + ' from escrow');
+            app.alertInfo('Trying to transfer ' + app.wallets[coin].handler.systemValueToDisplayValue(total) + ' ' + coin + ' from escrow');
             if (unconfirmed > 0) {
               app.alertInfo('Warning: escrow transaction is not yet confirmed.');
             }
@@ -1351,6 +1347,7 @@ var app = {
                 app.alertInfo('updated fees');
                 var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
                 setTimeout(function() {
+                  //TODO sendPAymend <- substract fees
                   app.wallets[coin].handler.sendPayment(privateKey, app.wallets[coin].data.addr, total - defaultFee[0], defaultFee);
                   //TODO this is a temporary hack before the update loop/queue
                   for (var i=1; i<10; i++) {
@@ -1402,26 +1399,32 @@ var app = {
       var coin = this.sendWallet.handler.code;
       var fee = this.sendFees[document.getElementById('sendCoinFee').value];
       var addr = document.getElementById('sendCoinAddr').value;
-      var amount = parseFloat(document.getElementById('sendCoinAmount').value);
+
+      var systemAmount = app.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
+      var floatAmount = app.sendWallet.handler.systemValueToFloatValue(systemAmount);
+      var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(systemAmount);
 
       app.authenticateBeforeContinue(
         '' + coin + ' transaction',
         '<table class="niceTable">' +
         '<tr><th style="width:26%;">recipient:</th><td colspan="2">' + addr + '</td></tr>' +
-        '<tr><th>amount:</th><td style="width:50%;">' + amount + ' ' + coin + '</td><td>' + this.priceProvider.convert(amount, coin) + '</td></tr>' +
-        '<tr><th>fee:</th><td>' + fee[0] + ' ' + coin + '</td><td>' + this.priceProvider.convert(fee[0], coin) + '</td></tr>' +
-        '<tr><th>total:</th><td>' + (amount + fee[0]) + ' ' + coin + '</td><td>' + this.priceProvider.convert(amount + fee[0], coin) + '</td></tr>' +
-        '<tr><th>balance after:</th><td>' + (this.sendWallet.totalOnline - amount - fee[0]) + ' ' + coin + '</td><td>' + this.priceProvider.convert(this.sendWallet.totalOnline - amount - fee[0], coin) + '</td></tr>' +
+        '<tr><th>amount:</th><td style="width:50%;">' + displayAmount + ' ' + coin + '</td><td>' + this.priceProvider.convert(floatAmount, coin) + '</td></tr>' +
+        '<tr><th>fee:</th><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.estimateFeeFloat(fee), coin) + '</td></tr>' +
         '</table>'
         ,
         function(){
-          app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, amount, fee);
+          app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee);
           app.closeForm();
         }
       );
     },
     copyReceiveCoinAddrToClp: function() {
-        cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);
+        if (device.platform == 'browser') {
+          //TODO copy to clip on browser
+          console.log(document.getElementById('receiveCoinAddr').value);
+        } else {
+          cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);
+        }
         app.alertInfo('copied addr to clipboard', app.receivingWallet.handler.code);
     },
     popupReceivePayment: function(wallet, addr) {
