@@ -135,3 +135,32 @@ section.features .feature-item i {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+footer p {
+    line-height: 26px;
+}
+
+a.social-link {
+    background: #ecdec6;
+    border-radius: 50%;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+a.social-link:hover {
+    background: #222;
+}
+
+a.social-link i {
+	line-height: 24px;
+	color: #222;
+	font-size: 16px;
+}
+
+a.social-link:hover i {
+    color: #ecdec6;
+}
+
+
+
