@@ -12,6 +12,13 @@ var BitcoinJsBaseHandler = {
     addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(this.network, priv);
     },
+
+    systemValuesDiff: function(v1, v2) {
+      return v1 - v2;
+    },
+    systemValuesCompare: function(v1, v2) {
+      return v1 > v2 ? 1 : (v2 > v1 ? -1 : 0);
+    },
     systemValueToDisplayValue: function(s){
       return (s * Math.pow(10, -8)).toFixed(8);
     },

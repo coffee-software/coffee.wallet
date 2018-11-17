@@ -224,10 +224,12 @@ function Wallet(data) {
 
         if (that.data.systemBalance != balance) {
           var floatBalance = that.handler.systemValueToFloatValue(balance);
-          if (that.totalOnline > floatBalance) {
-            app.alertInfo((that.totalOnline - floatBalance) + ' less on your ' + that.handler.code + ' wallet');
+
+
+          if (that.handler.systemValuesCompare(that.data.systemBalance, balance) == 1) {
+            app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(that.data.systemBalance, balance)) + ' less on your ' + that.handler.code + ' wallet');
           } else {
-            app.alertInfo((floatBalance - that.totalOnline) + ' more on your ' + that.handler.code + ' wallet');
+            app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(balance, that.data.systemBalance)) + ' more on your ' + that.handler.code + ' wallet');
           }
 
           that.data.systemBalance = balance;

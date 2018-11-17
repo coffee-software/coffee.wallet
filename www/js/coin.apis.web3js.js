@@ -2,6 +2,7 @@
 
 
 var Web3JsBaseHandler = {
+  feeCoin: null,
   getMainnetProvider: function(){
     if (typeof this.provider == 'undefined') {
       return new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/" + config.infuraKey));
@@ -22,6 +23,17 @@ var Web3JsBaseHandler = {
     var ret = keyPair.d.toString(16);
     while (ret.length < 64) ret = "0" + ret;
     return "0x" + ret;
+  },
+
+  systemValuesDiff: function(v1, v2) {
+    var bnv1 = new (this._getProvider().utils.BN)(v1);
+    var bnv2 = new (this._getProvider().utils.BN)(v2);
+    return bnv1.sub(bnv2).toString(10);
+  },
+  systemValuesCompare: function(v1, v2) {
+    var bnv1 = new (this._getProvider().utils.BN)(v1);
+    var bnv2 = new (this._getProvider().utils.BN)(v2);
+    return bnv1.cmp(bnv2);
   },
   systemValueToDisplayValue: function(s){
     //TODO make this smarter
@@ -62,11 +74,13 @@ var Web3JsBaseHandler = {
   },
 
   estimateFeeFloat: function(fee) {
-    return this._getProvider().utils.fromWei(fee[0], 'ether') * 21000;
+    var f = new (this._getProvider().utils.BN)(fee[0]);
+    var gas = new (this._getProvider().utils.BN)(21000);
+    return this._getProvider().utils.fromWei(f.mul(gas), 'ether');
   },
 
   getFeeDisplay: function(fee) {
-    return this._getProvider().utils.fromWei(fee[0], 'gwei') + ' gwei';
+    return this.estimateFeeFloat(fee) + ' ' + this.feeCoin;
   },
 
   getFees: function(callback) {
@@ -86,7 +100,7 @@ var Web3JsBaseHandler = {
   sendPayment: function(priv, receiver, amount, fee) {
     var that = this;
     app.alertInfo('signing transaction...', that.code);
-    var account = this._getProvider().eth.accounts.privateKeyToAccount(priv)
+    var account = this._getProvider().eth.accounts.privateKeyToAccount(priv);
     account.signTransaction(this._getTransaction(account, receiver, amount, fee)).then(function(signedData){
       app.alertInfo('sending transaction to network...', that.code);
       that._getProvider().eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
@@ -105,6 +119,7 @@ var EthTestHandler = ExtendObject(Web3JsBaseHandler, {
     _getProvider: Web3JsBaseHandler.getTestnetProvider,
     name: "ethereum-test",
     code: "ETH.TST",
+    feeCoin: "ETH.TST",
     icon: "eth.test",
     longname: "Ethereum Testnet",
     description:
@@ -124,6 +139,7 @@ var EthHandler = ExtendObject(Web3JsBaseHandler, {
     _getProvider: Web3JsBaseHandler.getMainnetProvider,
     name: "ethereum",
     code: "ETH",
+    feeCoin: "ETH",
     icon: "eth",
     longname: "Ethereum",
     description:
@@ -146,6 +162,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
   ethContractAddr: null,
   ethAbi: null,
   _getProvider: Web3JsBaseHandler.getMainnetProvider,
+  feeCoin: "ETH.TST",
   newPrivateKey: EthHandler,
 
   getBalance: function(addr, callback){
@@ -164,7 +181,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
         from: account.address,
         to: contract._address,
         data: contract.methods.transfer(receiver, amount).encodeABI(),
-        gasPrice: fee[2],
+        gasPrice: fee[0],
         gas: 200000 //TODO
     };
   }
@@ -172,6 +189,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
 
 var ERC20MainHandler = ExtendObject(ERC20TestHandler, {
     _getProvider: Web3JsBaseHandler.getTestnetProvider,
+    feeCoin: "ETH",
     newPrivateKey: EthTestHandler,
 });
 
