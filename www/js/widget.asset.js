@@ -44,11 +44,14 @@ function Asset(wallet, id, data) {
     addrSvg.style.borderRadius='50%';
     padding.appendChild(addrSvg);
   } else {
-    padding.innerHTML = '<img class="coinIcon" src="coins/cft.svg"/>';
+    padding.innerHTML = '<img class="coinIcon" src="coins/empty.svg"/>';
   }
 
   var commentCell = document.createElement("div");
-  commentCell.innerHTML = '<div>' + data.comment + '<br/>' + (data.addr ? '[' + data.addr.substring(0, 7) + '...]' : '[BALANCE]') + '</div>';
+
+  commentCell.innerHTML = '<div class="value">' + (data.addr ? '[' + data.addr.substring(0, 13) + '...]' : (data.balance + ' ' + that.wallet.handler.code)) + '</div><div class="amount">' + data.comment + '</div>';
+
+
   commentCell.classList.add('left');
 
   var amountCell = document.createElement("div");
@@ -77,19 +80,13 @@ function Asset(wallet, id, data) {
 
   if (data.addr) {
       //buttonsRight.appendChild(createButton('refresh', 'refresh', function(){that.refreshAmount();}));
-      var spinner = function() {
-          refreshButton.classList.toggle('spinning', that.running);
-          if (that.running) {
-            setTimeout(spinner, 1000);
-          }
-      };
 
-      var refreshButton = createButton('refresh', 'refresh', function(){
+      that.refreshButton = createButton('refresh', 'refresh', function(){
         that.refreshBalance();
       });
 
-      refreshButton.classList.add('spinner');
-      buttonsRight.appendChild(refreshButton);
+      that.refreshButton.classList.add('spinner');
+      buttonsRight.appendChild(that.refreshButton);
   }
 
   buttonsRight.appendChild(createButton('edit', 'edit', function(){
@@ -152,7 +149,13 @@ function Asset(wallet, id, data) {
   });
 
   this.refreshBalance = function() {
-    if (!that.running) {
+    var spinner = function() {
+        that.refreshButton.classList.toggle('spinning', that.running);
+        if (that.running) {
+          setTimeout(spinner, 1000);
+        }
+    };
+    if (that.refreshButton && !that.running) {
       that.running = true; spinner();
       that.wallet.checkForOfflineAssetChange(that.id - 1, function(){
         that.updateBalance();
