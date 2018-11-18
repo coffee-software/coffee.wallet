@@ -481,7 +481,8 @@ var app = {
             app.updateExchange();
           });
         }
-        document.getElementById("exchangeSellMax").textContent = app.wallets[sellCoin].data.floatBalance - (fee === null ? 0 : app.wallets[sellCoin].handler.estimateFeeFloat(fee));
+        //TODO system value
+        document.getElementById("exchangeSellMax").textContent = app.wallets[sellCoin].data.balance - (fee === null ? 0 : app.wallets[sellCoin].handler.estimateFeeFloat(fee));
         document.getElementById("exchangeSellValue").innerHTML = app.priceProvider.convert(sellAmmount, sellCoin);
       } else {
         document.getElementById("exchangeSellMax").textContent = '';
@@ -866,6 +867,7 @@ var app = {
       document.getElementById('addAddressButton').classList.toggle('hidden', !('getBalance' in wallet.handler));
       document.getElementById('newAddressButton').classList.toggle('hidden', !('newRandomPrivateKey' in wallet.handler));
       this.offlineAssetWallet = wallet;
+      this.offlineAssetWallet.refreshOffline(false);
     },
 
     pasteToField: function(field, addr, args) {
@@ -876,7 +878,7 @@ var app = {
       document.getElementById('addOfflineAssetAddr').value = asset.data.addr;
       app.validateAddr('addOfflineAssetAddr', true);
 
-      document.getElementById('addOfflineAssetBalance').value = asset.data.floatBalance;
+      document.getElementById('addOfflineAssetBalance').value = asset.data.balance;
       document.getElementById('addOfflineAssetComment').value = asset.data.comment;
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', asset.data.addr ? false : true);
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', asset.data.addr);
@@ -972,7 +974,6 @@ var app = {
       }
       this.closeForm();
       this.popupOfflineAssets(this.offlineAssetWallet);
-      this.offlineAssetWallet.refreshOffline();
     },
 
     popupSendSocial: function(wallet) {

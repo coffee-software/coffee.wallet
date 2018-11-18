@@ -61,8 +61,28 @@ function Asset(wallet, id, data) {
   data.addr && buttonsLeft.appendChild(createButton('receive', 'receive', function(){
     app.popupReceivePayment(that.wallet, that.data.addr);
   }));
-  data.addr && buttonsRight.appendChild(createButton('refresh', 'refresh', function(){that.refreshAmount();}));
 
+  if (data.addr) {
+      //buttonsRight.appendChild(createButton('refresh', 'refresh', function(){that.refreshAmount();}));
+      var spinner = function() {
+          refreshButton.classList.toggle('spinning', that.running);
+          if (that.running) {
+            setTimeout(spinner, 1000);
+          }
+      };
+
+      var refreshButton = createButton('refresh', 'refresh', function(){
+        that.running = true; spinner();
+        that.wallet.checkForOfflineAssetChange(that.id - 1, function(change){
+          that.updateBalance();
+          that.updateValue();
+          that.running = false;
+        });
+      });
+
+      refreshButton.classList.add('spinner');
+      buttonsRight.appendChild(refreshButton);
+  }
 
   buttonsRight.appendChild(createButton('edit', 'edit', function(){
     app.popupEditOfflineAsset(that);
@@ -74,8 +94,8 @@ function Asset(wallet, id, data) {
         function (buttonIndex) {
           if (buttonIndex == 1) {
             app.data.deleteOfflineAsset(that.wallet.handler.code, that.id);
+            //refresh ids and refresh balance:
             app.popupOfflineAssets(app.offlineAssetWallet);
-            app.offlineAssetWallet.refreshOffline();
           }
         },
         'Remove Asset',
@@ -124,29 +144,16 @@ function Asset(wallet, id, data) {
   });
 
 
+  this.updateBalance = function() {
+    this.amount.innerHTML = formatMoney(this.data.balance, this.wallet.handler.code, 5);
+  }
+
   this.updateValue = function() {
-    var value = this.total * app.priceProvider.getPrice(this.wallet.handler.code);
+    var value = this.data.balance * app.priceProvider.getPrice(this.wallet.handler.code);
     this.value.innerHTML = formatMoney(value, app.priceProvider.getUnit());
     return value;
   }
 
-  this.refreshAmount = function() {
-      this.total = 0;
-      if (this.data.addr) {
-        wallet.handler.getBalance(this.data.addr, function(balance, unconfirmed){
-          that.total = balance;
-          that.amount.innerHTML = wallet.handler.systemValueToDisplayValue(balance);
-          //formatMoney(that.total, that.wallet.handler.code, 5);
-          that.updateValue();
-        });
-      } else {
-        that.total = this.data.floatBalance ? this.data.floatBalance : 0;
-      }
-      //console.log(this);
-      this.amount.innerHTML = formatMoney(this.total, this.wallet.handler.code, 5);
-      this.updateValue();
-  }
-
-  this.refreshAmount();
-
+  this.updateBalance();
+  this.updateValue();
 }
