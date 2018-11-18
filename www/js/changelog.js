@@ -19,8 +19,19 @@ function versionCompare(v1, v2) {
   return 0;
 }
 
-window.version = '0.6.0';
+window.version = '0.7.0';
 window.changelog = [
+   {
+    version: '0.7.0',
+    date: '2018-11-18',
+    changes: [
+      'added: ERC20 support, added top 10 tokens',
+      'added: identicons in new assets view',
+      'fixed: ETH fees issues'
+      'fixed: balances storage. this will fix all "dust" errors.',
+      'fixed: lots of tiny bugfixes',
+    ]
+   },
    {
     version: '0.6.0',
     date: '2018-09-28',
