@@ -606,7 +606,7 @@ var app = {
       advanced.classList.add('advancedActions');
       var advancedWallet = wallet;
 
-      if ('newRandomPrivateKey' in wallet.handler) {
+      if (('newRandomPrivateKey' in wallet.handler) && (typeof wallet.newPrivateKey == 'function')) {
         advanced.appendChild(app.createAdvancedOption('message', 'send via message', function(){
           app.popupSendSocial(wallet);
         }));
