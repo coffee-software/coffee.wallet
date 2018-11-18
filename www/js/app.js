@@ -1368,8 +1368,12 @@ var app = {
                 app.alertInfo('updated fees');
                 var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
                 setTimeout(function() {
-                  //TODO sendPAymend <- substract fees
-                  app.wallets[coin].handler.sendPayment(privateKey, app.wallets[coin].data.addr, total - defaultFee[0], defaultFee);
+                  app.wallets[coin].handler.sendPayment(
+                    privateKey,
+                    app.wallets[coin].data.addr,
+                    app.wallets[coin].handler.systemValuesDiff(total, app.wallets[coin].handler.getFeeTotalCost(defaultFee)),
+                    defaultFee
+                  );
                   //TODO this is a temporary hack before the update loop/queue
                   for (var i=1; i<10; i++) {
                     setTimeout(function() { app.wallets[coin].refreshOnline(); }, 5000 * i * i);
