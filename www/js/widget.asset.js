@@ -85,12 +85,7 @@ function Asset(wallet, id, data) {
       };
 
       var refreshButton = createButton('refresh', 'refresh', function(){
-        that.running = true; spinner();
-        that.wallet.checkForOfflineAssetChange(that.id - 1, function(change){
-          that.updateBalance();
-          that.updateValue();
-          that.running = false;
-        });
+        that.refreshBalance();
       });
 
       refreshButton.classList.add('spinner');
@@ -156,6 +151,16 @@ function Asset(wallet, id, data) {
     that.slidingRow.style['transform'] = 'translate3d(' + -that.touchDiff + 'px,0,0)';
   });
 
+  this.refreshBalance = function() {
+    if (!that.running) {
+      that.running = true; spinner();
+      that.wallet.checkForOfflineAssetChange(that.id - 1, function(){
+        that.updateBalance();
+        that.updateValue();
+        that.running = false;
+      });
+    }
+  }
 
   this.updateBalance = function() {
     this.amount.innerHTML = formatMoney(this.data.balance, this.wallet.handler.code, 5);

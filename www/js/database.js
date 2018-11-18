@@ -45,8 +45,9 @@ var Data = {
     this.save(function(){});
   },
   addOfflineAsset: function(coin, data) {
-    this.wallets[coin].offlineWallets.push(data);
+    var l = this.wallets[coin].offlineWallets.push(data);
     this.save(function(){});
+    return l;
   },
   hideWallet: function(code, callback) {
     this.wallets[code].enabled = false;

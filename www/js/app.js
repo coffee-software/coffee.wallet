@@ -855,19 +855,21 @@ var app = {
       );
     },
 
-    popupOfflineAssets: function(wallet) {
+    popupOfflineAssets: function(wallet, idToUpdate) {
 
       document.getElementById('offlineAssets').innerHTML = '';
       for (var i=0; i<wallet.offlineWallets.length; i++) {
         var a = new Asset(wallet, i + 1, wallet.offlineWallets[i]);
         document.getElementById('offlineAssets').appendChild(a.row);
+        if (typeof idToUpdate != 'undefined' && idToUpdate == i + 1) {
+          a.refreshBalance();
+        }
       }
 
       this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'coins/' + wallet.handler.icon + '.svg');
       document.getElementById('addAddressButton').classList.toggle('hidden', !('getBalance' in wallet.handler));
       document.getElementById('newAddressButton').classList.toggle('hidden', !('newRandomPrivateKey' in wallet.handler));
       this.offlineAssetWallet = wallet;
-      this.offlineAssetWallet.refreshOffline(false);
     },
 
     pasteToField: function(field, addr, args) {
@@ -958,7 +960,7 @@ var app = {
     saveOfflineAsset: function(){
       var data = {
         addr: document.getElementById('addOfflineAssetAddr').value,
-        balance: parseFloat(document.getElementById('addOfflineAssetBalance').value),
+        balance: parseFloat(document.getElementById('addOfflineAssetBalance').value) || 0.0,
         comment: document.getElementById('addOfflineAssetComment').value
       }
 
@@ -967,13 +969,15 @@ var app = {
           return false;
         }
       }
+      var idToUpdate = 0;
       if (this.editAsset) {
+        idToUpdate = activeAsset.id;
         this.data.updateOfflineAsset(activeAsset.wallet.handler.code, activeAsset.id, data);
       } else {
-        this.data.addOfflineAsset(this.offlineAssetWallet.handler.code, data);
+        idToUpdate = this.data.addOfflineAsset(this.offlineAssetWallet.handler.code, data);
       }
       this.closeForm();
-      this.popupOfflineAssets(this.offlineAssetWallet);
+      this.popupOfflineAssets(this.offlineAssetWallet, idToUpdate);
     },
 
     popupSendSocial: function(wallet) {

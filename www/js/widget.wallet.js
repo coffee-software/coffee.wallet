@@ -116,7 +116,15 @@ function Wallet(data) {
       }
   };
 
-  var refreshButton = createButton('refresh', 'refresh', function(){that.running = true; spinner(); that.refreshOnline(function(){that.running = false;}); that.refreshOffline(true);});
+  var refreshButton = createButton('refresh', 'refresh', function(){
+    if (!that.running) {
+      that.running = true;
+      spinner();
+      that.refreshOnline(function(){that.running = false;});
+      that.refreshOffline(true);
+    }
+    //TODO set running to false after all ofline assets updated
+  });
   refreshButton.classList.add('spinner');
   buttonsRight.appendChild(refreshButton);
   buttonsRight.appendChild(createButton('list', 'assets', function(){app.popupOfflineAssets(that);}));
@@ -176,11 +184,11 @@ function Wallet(data) {
 
   this.checkForOfflineAssetChange = function(idx, callback) {
     this.handler.getBalance(this.offlineWallets[idx].addr, function(balance, unconfirmed){
-      if (typeof that.offlineWallets[idx].systemBalance == 'undefined') {
-        that.offlineWallets[idx].systemBalance = 0;
-      }
       var floatBalance = that.handler.systemValueToFloatValue(balance);
       if (balance != that.offlineWallets[idx].systemBalance) {
+        if (typeof that.offlineWallets[idx].systemBalance == 'undefined') {
+          that.offlineWallets[idx].systemBalance = 0;
+        }
         if (that.handler.systemValuesCompare(that.offlineWallets[idx].systemBalance, balance) == 1) {
           app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(that.offlineWallets[idx].systemBalance, balance)) + ' less on your ' + that.handler.code + ' offline wallet');
         } else {
@@ -190,7 +198,10 @@ function Wallet(data) {
         that.offlineWallets[idx].balance = floatBalance;
         app.data.save();
       }
-      callback(isNaN(that.offlineWallets[idx].balance) ? floatBalance : floatBalance - that.offlineWallets[idx].balance);
+      that.totalOffline += isNaN(that.offlineWallets[idx].balance) ? floatBalance : floatBalance - that.offlineWallets[idx].balance;
+      that.offlineAmount.innerHTML = formatMoney(that.totalOffline, that.handler.code, 5);
+      that.updateOfflineValue();
+      callback();
     });
   }
 
@@ -199,12 +210,7 @@ function Wallet(data) {
       for (var idx in this.offlineWallets) {
         that.totalOffline += this.offlineWallets[idx].balance;
         if (checkAddresses && ('addr' in  this.offlineWallets[idx]) && this.offlineWallets[idx].addr) {
-          this.checkForOfflineAssetChange(idx, function(change){
-            //console.log(change);
-            that.totalOffline += change;
-            that.offlineAmount.innerHTML = formatMoney(that.totalOffline, that.handler.code, 5);
-            that.updateOfflineValue();
-          });
+          this.checkForOfflineAssetChange(idx, function(){});
         }
       }
       this.offlineAmount.innerHTML = formatMoney(this.totalOffline, this.handler.code, 5);
