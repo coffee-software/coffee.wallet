@@ -78,11 +78,13 @@ var Web3JsBaseHandler = {
   },
 
   estimateFeeFloat: function(fee) {
+    return this._getProvider().utils.fromWei(this.getFeeTotalCost(fee), 'ether');
+  },
+  getFeeTotalCost: function(fee, tx) {
     var f = new (this._getProvider().utils.BN)(fee[0]);
     var gas = new (this._getProvider().utils.BN)(21000);
-    return this._getProvider().utils.fromWei(f.mul(gas), 'ether');
+    return f.mul(gas).toString(10);
   },
-
   getFeeDisplay: function(fee) {
     return this.estimateFeeFloat(fee) + ' ' + this.feeCoin;
   },

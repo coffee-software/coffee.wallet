@@ -620,7 +620,7 @@ var app = {
       advanced.classList.add('advancedActions');
       var advancedWallet = wallet;
 
-      if (('newRandomPrivateKey' in wallet.handler) && (typeof wallet.newPrivateKey == 'function')) {
+      if (('newRandomPrivateKey' in wallet.handler) && (typeof wallet.handler.newPrivateKey == 'function')) {
         advanced.appendChild(app.createAdvancedOption('message', 'send via message', function(){
           app.popupSendSocial(wallet);
         }));
@@ -643,7 +643,7 @@ var app = {
 
       if ('sendPayment' in wallet.handler) {
         advanced.appendChild(app.createAdvancedOption('send', 'send all', function(){
-          app.popupSendPayment(wallet, wallet.totalOnline);
+          app.popupSendPayment(wallet, wallet.data.systemBalance);
         }));
       }
 
@@ -1030,7 +1030,7 @@ var app = {
         if (app.sendForceTotal) {
           document.getElementById('sendCoinAmount').readOnly = true;
           document.getElementById('sendCoinValue').readOnly = true;
-          document.getElementById('sendCoinAmount').value = app.sendForceTotal;
+          document.getElementById('sendCoinAmount').value = app.sendWallet.handler.systemValueToDisplayValue(app.sendForceTotal);
           app.sendCoinUpdateValue();
           app.sendCoinValidateAmount();
         }
@@ -1104,7 +1104,9 @@ var app = {
       if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
         var fee = this.sendFees[document.getElementById('sendCoinFee').value];
         if (app.sendForceTotal) {
-          document.getElementById('sendCoinAmount').value = app.sendForceTotal - fee[0];
+          document.getElementById('sendCoinAmount').value = this.sendWallet.handler.systemValueToDisplayValue(
+            this.sendWallet.handler.systemValuesDiff(app.sendForceTotal, this.sendWallet.handler.getFeeTotalCost(fee))
+          );
           app.sendCoinUpdateValue();
           app.sendCoinValidateAmount();
         }
@@ -1419,7 +1421,12 @@ var app = {
       var fee = this.sendFees[document.getElementById('sendCoinFee').value];
       var addr = document.getElementById('sendCoinAddr').value;
 
-      var systemAmount = app.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
+      var systemAmount = 0;
+      if (app.sendForceTotal) {
+        systemAmount = app.sendWallet.handler.systemValuesDiff(app.sendForceTotal, app.sendWallet.handler.getFeeTotalCost(fee));
+      } else {
+        systemAmount = app.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
+      }
       var floatAmount = app.sendWallet.handler.systemValueToFloatValue(systemAmount);
       var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(systemAmount);
 
