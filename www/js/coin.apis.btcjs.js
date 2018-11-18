@@ -60,7 +60,7 @@ var BitcoinJsBaseHandler = {
 
     getFees: function(callback) {
       var that = this;
-      app.settings.getCached('coin-' + this.name + '-fees2', 15 * 60, function(callback){
+      app.settings.getCached('coin-' + this.code + '-fees2', 15 * 60, function(callback){
         btcjs.getFees(that.network, callback);
       }, callback);
     }
