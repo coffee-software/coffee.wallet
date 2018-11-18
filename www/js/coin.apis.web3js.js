@@ -165,7 +165,7 @@ var EthHandler = ExtendObject(Web3JsBaseHandler, {
 var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
   ethContractAddr: null,
   ethAbi: null,
-  _getProvider: Web3JsBaseHandler.getMainnetProvider,
+  _getProvider: Web3JsBaseHandler.getTestnetProvider,
   feeCoin: "ETH.TST",
   newPrivateKey: EthHandler,
 
@@ -188,13 +188,25 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
         gasPrice: fee[0],
         gas: 200000 //TODO
     };
+  },
+  explorerLinkAddr: function(addr) {
+    return 'https://ropsten.etherscan.io/token/' + this.ethContractAddr + '?a=' + addr;
+  },
+  explorerLinkTx: function(tx) {
+    return 'https://ropsten.etherscan.io/tx/' + tx;
   }
 });
 
 var ERC20MainHandler = ExtendObject(ERC20TestHandler, {
-    _getProvider: Web3JsBaseHandler.getTestnetProvider,
     feeCoin: "ETH",
+    _getProvider: Web3JsBaseHandler.getMainnetProvider,
     newPrivateKey: EthTestHandler,
+    explorerLinkAddr: function(addr) {
+      return 'https://etherscan.io/token/' + this.ethContractAddr + '?a=' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://etherscan.io/tx/' + tx;
+    }
 });
 
 var ERC20Tokens = {
