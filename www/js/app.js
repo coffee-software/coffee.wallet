@@ -466,6 +466,7 @@ var app = {
             '<tr><th>amount:</th><td style="width:50%;">' + app.wallets[sellCoin].handler.systemValueToDisplayValue(sellAmmount) + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount), sellCoin) + '</td></tr>' +
             '<tr><th>fee:</th><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.estimateFeeFloat(fee), sellCoin) + '</td></tr>' +
             '<tr><th>estimated return:</th><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
+            '<tr><th>changelly ID:</th><td colspan="2">' + ret.id + '</td></tr>' +
             '</table>'
             ,
             function(){
