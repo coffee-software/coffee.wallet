@@ -44,6 +44,11 @@ var BitcoinJsBaseHandler = {
     validateAddress: function(addr) {
       return btcjs.validateAddress(this.network, addr);
     },
+    addrToIdenticonSeed: function(addr) {
+      //TODO research for a 'standrd' way to be more useful
+      //52 bits is safe max for js int, 52/6(base58 bits per char) = 8
+      return parseInt(btcjs.base58.decode(addr.slice(0, 8)).toString('hex'), 16);
+    },
 
     estimateFeeFloat: function(fee) {
       return this.systemValueToFloatValue(fee[0]);

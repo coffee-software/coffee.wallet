@@ -48,6 +48,10 @@ var Web3JsBaseHandler = {
   validateAddress: function(addr) {
     return this._getProvider().utils.isAddress(addr);
   },
+  addrToIdenticonSeed: function(addr) {
+    return parseInt(addr.slice(2, 10), 16);
+  },
+
   addrFromPrivateKey: function(priv) {
     return this._getProvider().eth.accounts.privateKeyToAccount(priv).address;
   },
