@@ -8,8 +8,22 @@ var allCoinApis = {
   'BTC': BtcHandler,
   //'BCH': BchHandler,
   'ETH': EthHandler,
-  //'CFT': ERC20Tokens.CFT,
-  //'PAY': ERC20Tokens.PAY,
+
+  //ERC20 tokens:
+  'BNB': ERC20Tokens['BNB'],
+  'VEN': ERC20Tokens['VEN'],
+  'MKR': ERC20Tokens['MKR'],
+  'OMG': ERC20Tokens['OMG'],
+  'ZRX': ERC20Tokens['ZRX'],
+  'BAT': ERC20Tokens['BAT'],
+  'ZIL': ERC20Tokens['ZIL'],
+  'AE': ERC20Tokens['AE'],
+  'ICX': ERC20Tokens['ICX'],
+  'LINK': ERC20Tokens['LINK'],
+
+  'PAY': ERC20Tokens['PAY'],
+  'CFT': ERC20Tokens['CFT'],
+
   'ERC20.TST': ERC20Tokens['ERC20.TST']
 };
 
@@ -666,7 +680,7 @@ var app = {
           var filter = function() {
 
             var query = document.getElementById('addCoinFilter').value.toUpperCase();
-            var onlySupportedRead = document.getElementById('addCoinOnlySupportedRead').checked;
+            //var onlySupportedRead = document.getElementById('addCoinOnlySupportedRead').checked;
             var onlySupportedWrite = document.getElementById('addCoinOnlySupportedWrite').checked;
             var limit = 24;
             var allCoins = document.getElementById('allCoins');
@@ -675,7 +689,7 @@ var app = {
             for (var i=0; i< allCoinApisByRank.length; i++){
               var coin = allCoinApisByRank[i];
               var show = coin._search.search(query) != -1;
-              if (onlySupportedRead) show = show && ('getBalance' in coin);
+              //if (onlySupportedRead) show = show && ('getBalance' in coin);
               if (onlySupportedWrite) show = show && ('sendPayment' in coin);
               if (show) {
                 limit --;
@@ -697,7 +711,7 @@ var app = {
           };
           document.getElementById('addCoinFilter').onkeyup = filter;
           document.getElementById('addCoinFilter').onchange = filter;
-          document.getElementById('addCoinOnlySupportedRead').onchange = filter;
+          //document.getElementById('addCoinOnlySupportedRead').onchange = filter;
           document.getElementById('addCoinOnlySupportedWrite').onchange = filter;
           for (var i=0; i< allCoinApisByRank.length; i++){
             allCoinApisByRank[i]._search = (allCoinApisByRank[i].name + ' '+ allCoinApisByRank[i].code + ' ' + allCoinApisByRank[i].longname).toUpperCase();
