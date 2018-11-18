@@ -27,7 +27,7 @@ window.changelog = [
     changes: [
       'added: ERC20 support, added top 10 tokens',
       'added: identicons in new assets view',
-      'fixed: ETH fees issues'
+      'fixed: ETH fees issues',
       'fixed: balances storage. this will fix all "dust" errors.',
       'fixed: lots of tiny bugfixes',
     ]
