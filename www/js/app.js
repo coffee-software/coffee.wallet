@@ -1104,9 +1104,15 @@ var app = {
       if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
         var fee = this.sendFees[document.getElementById('sendCoinFee').value];
         if (app.sendForceTotal) {
-          document.getElementById('sendCoinAmount').value = this.sendWallet.handler.systemValueToDisplayValue(
-            this.sendWallet.handler.systemValuesDiff(app.sendForceTotal, this.sendWallet.handler.getFeeTotalCost(fee))
-          );
+          if (typeof this.sendWallet.handler.newPrivateKey == 'function') {
+            document.getElementById('sendCoinAmount').value = this.sendWallet.handler.systemValueToDisplayValue(
+              this.sendWallet.handler.systemValuesDiff(app.sendForceTotal, this.sendWallet.handler.getFeeTotalCost(fee))
+            );
+          } else {
+            document.getElementById('sendCoinAmount').value = this.sendWallet.handler.systemValueToDisplayValue(
+              app.sendForceTotal
+            );
+          }
           app.sendCoinUpdateValue();
           app.sendCoinValidateAmount();
         }
@@ -1427,7 +1433,11 @@ var app = {
 
       var systemAmount = 0;
       if (app.sendForceTotal) {
-        systemAmount = app.sendWallet.handler.systemValuesDiff(app.sendForceTotal, app.sendWallet.handler.getFeeTotalCost(fee));
+        if (typeof app.sendWallet.handler.newPrivateKey == 'function') {
+          systemAmount = app.sendWallet.handler.systemValuesDiff(app.sendForceTotal, app.sendWallet.handler.getFeeTotalCost(fee));
+        } else {
+          systemAmount = app.sendForceTotal;
+        }
       } else {
         systemAmount = app.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
       }
