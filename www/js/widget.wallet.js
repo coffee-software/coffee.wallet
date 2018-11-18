@@ -234,17 +234,17 @@ function Wallet(data) {
         if (that.data.systemBalance != balance) {
           var floatBalance = that.handler.systemValueToFloatValue(balance);
 
-
-          if (that.handler.systemValuesCompare(that.data.systemBalance, balance) == 1) {
+          var cmp = that.handler.systemValuesCompare(that.data.systemBalance, balance);
+          if (cmp == 1) {
             app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(that.data.systemBalance, balance)) + ' less on your ' + that.handler.code + ' wallet');
-          } else {
+          }
+          if (cmp == -1) {
             app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(balance, that.data.systemBalance)) + ' more on your ' + that.handler.code + ' wallet');
           }
 
           that.data.systemBalance = balance;
           that.totalOnline = that.data.balance = floatBalance;
           app.data.save();
-          console.log(that.totalOnline);
           that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
           that.updateOnlineValue();
         }
