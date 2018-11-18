@@ -26,6 +26,7 @@
     "cordova-plugin-x-socialsharing": "git+https://github.com/fsw/SocialSharing-PhoneGap-Plugin.git",
     "eeschiavo-cordova-plugin-clipboard": "^1.0.1",
     "es6-promise-plugin": "^4.2.2",
+    "jazzicon": "^1.5.0",
     "phonegap-plugin-barcodescanner": "git+https://github.com/phonegap/phonegap-plugin-barcodescanner.git"
   },
   "cordova": {
