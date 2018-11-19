@@ -169,7 +169,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
   ethAbi: null,
   _getProvider: Web3JsBaseHandler.getTestnetProvider,
   feeCoin: "ETH.TST",
-  newPrivateKey: EthHandler,
+  newPrivateKey: EthTestHandler,
 
   getBalance: function(addr, callback){
     var c = this._getProvider().eth.Contract;
@@ -202,7 +202,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
 var ERC20MainHandler = ExtendObject(ERC20TestHandler, {
     feeCoin: "ETH",
     _getProvider: Web3JsBaseHandler.getMainnetProvider,
-    newPrivateKey: EthTestHandler,
+    newPrivateKey: EthHandler,
     explorerLinkAddr: function(addr) {
       return 'https://etherscan.io/token/' + this.ethContractAddr + '?a=' + addr;
     },

@@ -683,11 +683,11 @@ a:active {
 }
 
 .receiveAddr {
-  border: 1px solid #766054;
-  border-radius: 50px;
-  margin: 0 24px;
-  padding: 8px 0;
-  position: relative;
+    border-top: 1px solid #766054;
+    /* border-radius: 50px; */
+    margin: 0;
+    padding: 8px;
+    position: relative;
 }
 
 .receiveAddr label {
