@@ -36,19 +36,9 @@ function Asset(wallet, id, data) {
   padding.classList.add('padding');
   unitCell.appendChild(padding);
 
-  if (data.addr && 'addrToIdenticonSeed' in wallet.handler) {
-    var addrSvg = browserify.jazzicon(100, wallet.handler.addrToIdenticonSeed(data.addr)).children[0];
-    addrSvg.setAttribute("viewBox", "0 0 100 100");
-    addrSvg.removeAttribute("width");
-    addrSvg.removeAttribute("height");
-    addrSvg.style.borderRadius='50%';
-    padding.appendChild(addrSvg);
-  } else {
-    padding.innerHTML = '<img class="coinIcon" src="coins/empty.svg"/>';
-  }
+  padding.appendChild(getCoinAddrIcon(wallet.handler, data.addr));
 
   var commentCell = document.createElement("div");
-
   commentCell.innerHTML = '<div class="value">' + (data.addr ? '[' + data.addr.substring(0, 13) + '...]' : (data.balance + ' ' + that.wallet.handler.code)) + '</div><div class="amount">' + data.comment + '</div>';
 
 

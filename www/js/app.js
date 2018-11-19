@@ -451,6 +451,7 @@ var app = {
       var fee = app.exchangeDefaultFees[sellCoin];
       var buyAmmount = document.getElementById("exchangeBuyAmmount").value;
 
+      var displaySellAmount = app.wallets[sellCoin].handler.systemValueToDisplayValue(sellAmmount);
       changelly.createTransaction(
         sellCoin,
         buyCoin,
@@ -460,13 +461,16 @@ var app = {
           app.alertInfo('Changelly exchange id ' + ret.id + ' started.', sellCoin, ret);
 
           app.authenticateBeforeContinue(
-            'exchange ' + sellCoin + ' for ' + buyCoin,
+            '<table class="transactionSummary">' +
+            '<tr class="first"><td><img class="coinIcon" src="coins/' + app.wallets[sellCoin].handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td><img class="coinIcon" src="coins/' + app.wallets[buyCoin].handler.icon + '.svg"/></td></tr>' +
+            '<tr class="second"><td>' + shortAmount(displaySellAmount, sellCoin, 13) + '</td><td></td><td>' + shortAmount(buyAmmount, buyCoin, 13) + '</td></tr>' +
+            '</table>',
             '<table class="niceTable">' +
-            '<tr><th style="width:26%;">changelly payinAddress:</th><td colspan="2">' + ret.payinAddress + '</td></tr>' +
-            '<tr><th>amount:</th><td style="width:50%;">' + app.wallets[sellCoin].handler.systemValueToDisplayValue(sellAmmount) + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount), sellCoin) + '</td></tr>' +
-            '<tr><th>fee:</th><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.estimateFeeFloat(fee), sellCoin) + '</td></tr>' +
-            '<tr><th>estimated return:</th><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
-            '<tr><th>changelly ID:</th><td colspan="2">' + ret.id + '</td></tr>' +
+            '<tr><th colspan="2" style="width:26%;">changelly payinAddress:</th></tr><tr><td colspan="2">' + ret.payinAddress + '</td></tr>' +
+            '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displaySellAmount + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount), sellCoin) + '</td></tr>' +
+            '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.estimateFeeFloat(fee), sellCoin) + '</td></tr>' +
+            '<tr><th colspan="2">estimated return:</th></tr><tr><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
+            '<tr><th colspan="2">changelly ID:</th></tr><tr><td colspan="2">' + ret.id + '</td></tr>' +
             '</table>'
             ,
             function(){
@@ -600,6 +604,9 @@ var app = {
         links += '<li><a href="#" onclick="window.open(\'' + wallet.handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
       }
       links += '</ul>';
+
+
+      /*
       var support = '<ul>';
       var features = [
         ['getBalance', 'get address balance', 'You can specify address instead of amount in your offline assets for this coin.'],
@@ -616,6 +623,7 @@ var app = {
           support += '</li>';
       }
       support += '</ul>';
+      */
 
       var advanced = document.createElement('ul');
       advanced.classList.add('advancedActions');
@@ -657,14 +665,20 @@ var app = {
         advanced.appendChild(app.createAdvancedOption('remove', 'remove coin', app.removeCoin.bind(app, advancedWallet)));
       }
 
+      //var coffeeSupport = ;
+      var support = ('sendPayment' in wallet.handler) ?
+      'Local wallet is supported for this coin. Your public address (generated from your BIP39 mnemonic) is:' +
+      '<div style="width: 20%; padding: 5%; margin: 0 auto;">' + getCoinAddrIcon(wallet.handler, wallet.data.addr).outerHTML + '</div>'
+      + '<strong>' + wallet.data.addr + '</strong>'
+      : 'No support for local wallet for this coin.';
+
       document.getElementById('coinInfoDescription').innerHTML =
         '<h2>' + wallet.handler.longname + ' (' + wallet.handler.code + ')</h2>' +
         wallet.handler.description +
         '<div class="spacing stitch"></div>' +
         '<h3>links (external)</h3>' +
         links +
-        '<h3>coffee features</h3>' +
-        support;
+        '<h3>coffee wallet</h3>' + support;
 
       if (advanced.children.length > 0) {
           document.getElementById('coinInfoDescription').insertAdjacentHTML('beforeend','<h3>advanced options:</h3>');
@@ -1239,7 +1253,7 @@ var app = {
       document.getElementById('lockPopupConfirmText').innerHTML = 'confirm';
       document.getElementById('lockPopupCancelText').innerHTML = 'cancel';
       document.getElementById('lockTitle').innerHTML = title;
-      document.getElementById('lockMessage').innerHTML = message + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
+      document.getElementById('lockMessage').innerHTML = message; // + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
     },
 
     confirmBeforeContinue: function(title, message, callback, confirmText, cancelText) {
@@ -1314,6 +1328,7 @@ var app = {
       var coin = this.sendWallet.handler.code;
       var fee = this.sendFees[document.getElementById('sendCoinFee').value];
       var amount = this.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
+      var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(amount);
 
       this.confirmBeforeContinue(
         'Warning!',
@@ -1328,10 +1343,13 @@ var app = {
         ,
         function(){
           app.authenticateBeforeContinue(
-            'send ' + coin + ' via message',
+            '<table class="transactionSummary">' +
+            '<tr class="first"><td><img class="coinIcon" src="coins/' + app.sendWallet.handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td><img style="width:100%" src="icons/messageglyph.png"/></td></tr>' +
+            '<tr class="second"><td>' + shortAmount(displayAmount, coin, 13) + '</td><td></td><td></td></tr>' +
+            '</table>',
             '<table class="niceTable">' +
-            '<tr><th>amount:</th><td style="width:50%;">' + app.sendWallet.handler.systemValueToDisplayValue(amount) + ' ' + coin + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.systemValueToFloatValue(amount), coin) + '</td></tr>' +
-            '<tr><th>fee:</th><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.estimateFeeFloat(fee), coin) + '</td></tr>' +
+            '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + coin + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.systemValueToFloatValue(amount), coin) + '</td></tr>' +
+            '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.estimateFeeFloat(fee), coin) + '</td></tr>' +
             '</table>' +
             '<p>You will see your device share dialog in next step and will be able to select send medium.</p>'
             ,
@@ -1446,11 +1464,14 @@ var app = {
       var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(systemAmount);
 
       app.authenticateBeforeContinue(
-        '' + coin + ' transaction',
+        '<table class="transactionSummary">' +
+        '<tr class="first"><td><img class="coinIcon" src="coins/' + app.sendWallet.handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td>' + getCoinAddrIcon(app.sendWallet.handler, addr).outerHTML + '</td></tr>' +
+        '<tr class="second"><td>' + shortAmount(displayAmount, coin, 13) + '</td><td></td><td>' + shortAddr(addr, 13) + '</td></tr>' +
+        '</table>',
         '<table class="niceTable">' +
-        '<tr><th style="width:26%;">recipient:</th><td colspan="2">' + addr + '</td></tr>' +
-        '<tr><th>amount:</th><td style="width:50%;">' + displayAmount + ' ' + coin + '</td><td>' + this.priceProvider.convert(floatAmount, coin) + '</td></tr>' +
-        '<tr><th>fee:</th><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.estimateFeeFloat(fee), coin) + '</td></tr>' +
+        '<tr><th colspan="2" style="width:26%;">recipient:</th></tr><tr><td colspan="2">' + addr + '</td></tr>' +
+        '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + coin + '</td><td>' + this.priceProvider.convert(floatAmount, coin) + '</td></tr>' +
+        '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.estimateFeeFloat(fee), coin) + '</td></tr>' +
         '</table>'
         ,
         function(){

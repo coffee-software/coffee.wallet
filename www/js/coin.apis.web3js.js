@@ -95,11 +95,11 @@ var Web3JsBaseHandler = {
       var f = provider.utils.fromWei(avgGas, 'gwei');
 
       callback([
-        [provider.utils.toWei("" +(f * 0.5), 'gwei'), 8.77],
-        [provider.utils.toWei("" +(f * 0.75), 'gwei'), 2.86],
-        [provider.utils.toWei("" +(f), 'gwei'), 2.43],
-        [provider.utils.toWei("" +(f * 1.5), 'gwei'), 0.62],
-        [provider.utils.toWei("" + (f * 2), 'gwei'), 0.6]
+        [provider.utils.toWei("" +(f * 0.5).toFixed(9), 'gwei'), 8.77],
+        [provider.utils.toWei("" +(f * 0.75).toFixed(9), 'gwei'), 2.86],
+        [provider.utils.toWei("" +(f * 1.0).toFixed(9), 'gwei'), 2.43],
+        [provider.utils.toWei("" +(f * 1.5).toFixed(9), 'gwei'), 0.62],
+        [provider.utils.toWei("" + (f * 2.0).toFixed(9), 'gwei'), 0.6]
       ]);
     });
   },

@@ -361,18 +361,36 @@ label.checkbox {
   background-position: 0 -22px;
 }
 
+table.transactionSummary {
+  width:100%;
+  text-align: center;
+}
+
+table.transactionSummary tr.first td {
+  width: 19%;
+  padding: 7% 7% 1% 7%;
+}
+
+table.transactionSummary tr.second td {
+  width: 33%;
+  font-family: monospace;
+  font-size: 10px;
+  padding-bottom: 5%;
+}
 
 table.niceTable {
   width:100%;
 }
 table.niceTable td {
   word-break: break-word;
-  padding: 7px 0;
+  padding-bottom: 7px;
   font-weight: bold;
+  font-family: monospace;
+  font-size: 10px;
   text-align: right;
 }
 table.niceTable th {
   text-align: left;
-  padding: 7px 0;
+  padding-top: 7px;
   font-weight: 100;
 }
