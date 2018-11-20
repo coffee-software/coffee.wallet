@@ -12,6 +12,13 @@ var BitcoinJsBaseHandler = {
     addrFromPrivateKey: function(priv) {
       return btcjs.addrFromPriv(this.network, priv);
     },
+
+    systemValuesDiff: function(v1, v2) {
+      return v1 - v2;
+    },
+    systemValuesCompare: function(v1, v2) {
+      return v1 > v2 ? 1 : (v2 > v1 ? -1 : 0);
+    },
     systemValueToDisplayValue: function(s){
       return (s * Math.pow(10, -8)).toFixed(8);
     },
@@ -37,18 +44,25 @@ var BitcoinJsBaseHandler = {
     validateAddress: function(addr) {
       return btcjs.validateAddress(this.network, addr);
     },
+    addrToIdenticonSeed: function(addr) {
+      //TODO research for a 'standrd' way to be more useful
+      //52 bits is safe max for js int, 52/6(base58 bits per char) = 8
+      return parseInt(btcjs.base58.decode(addr.slice(0, 8)).toString('hex'), 16);
+    },
 
     estimateFeeFloat: function(fee) {
       return this.systemValueToFloatValue(fee[0]);
     },
-
+    getFeeTotalCost: function(fee, tx) {
+      return fee[0];
+    },
     getFeeDisplay: function(fee) {
-      return this.systemValueToDisplayValue(fee[0]) + ' ' + this.code;
+      return this.systemValueToDisplayValue(fee[0]) + '&nbsp;' + this.code;
     },
 
     getFees: function(callback) {
       var that = this;
-      app.settings.getCached('coin-' + this.name + '-fees2', 15 * 60, function(callback){
+      app.settings.getCached('coin-' + this.code + '-fees2', 15 * 60, function(callback){
         btcjs.getFees(that.network, callback);
       }, callback);
     }
@@ -59,6 +73,7 @@ var BtcTestHandler = ExtendObject(BitcoinJsBaseHandler, {
     keyPath: "m/44'/1'/0'/0/0",
     name: "bitcoin-test",
     code: "BTC.TST",
+    testCoin: true,
     icon: "btc.test",
     longname: "Bitcoin TestNet",
     description:

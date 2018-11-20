@@ -26068,6 +26068,7 @@ module.exports = {
 var bitcoin = require('bitcoinjs-lib');
 var bip39 = require('bip39');
 var createHmac = require('create-hmac');
+var base58 = require('bs58');
 
 var networks = {
 	ltc: {
@@ -26311,10 +26312,11 @@ module.exports = {
 	validateMnemonic: bip39.validateMnemonic,
 
 	derivePathFromSeedHash: derivePathFromSeedHash,
-	hmacSha512Sign: hmacSha512Sign
+	hmacSha512Sign: hmacSha512Sign,
+	base58: base58
 }
 
-},{"bip39":7,"bitcoinjs-lib":27,"create-hmac":63}],98:[function(require,module,exports){
+},{"bip39":7,"bitcoinjs-lib":27,"bs58":56,"create-hmac":63}],98:[function(require,module,exports){
 (function (global){
 'use strict';
 

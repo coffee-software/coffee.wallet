@@ -137,6 +137,7 @@
     </footer>
     <script type="text/javascript" src="appwww/vendor/web3.js"></script>
     <script type="text/javascript" src="appwww/vendor/btcjs.js"></script>
+    <script type="text/javascript" src="appwww/js/core.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.btcjs.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.web3js.js"></script>
     <script type="text/javascript">
@@ -146,11 +147,19 @@
         'ETH': EthHandler,
         'LTC': LtcHandler,
         'DOGE': DogeHandler,
-        //'CFT': ERC20Tokens.CFT,
-        //'PAY': ERC20Tokens.PAY,
-        'BTC.TST': BtcTestHandler,
-        'ETH.TST': EthTestHandler,
-        'ERC20.TST': ERC20Tokens['ERC20.TST']
+        //ERC20 tokens:
+        'BNB': ERC20Tokens['BNB'],
+        'VEN': ERC20Tokens['VEN'],
+        'MKR': ERC20Tokens['MKR'],
+        'OMG': ERC20Tokens['OMG'],
+        'ZRX': ERC20Tokens['ZRX'],
+        'BAT': ERC20Tokens['BAT'],
+        'ZIL': ERC20Tokens['ZIL'],
+        'AE': ERC20Tokens['AE'],
+        'ICX': ERC20Tokens['ICX'],
+        'LINK': ERC20Tokens['LINK'],
+        'PAY': ERC20Tokens['PAY'],
+        'CFT': ERC20Tokens['CFT'],
       };
 
       function generatePrivateKeys() {
