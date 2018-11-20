@@ -128,6 +128,7 @@ var EthTestHandler = ExtendObject(Web3JsBaseHandler, {
     feeCoin: "ETH.TST",
     icon: "eth.test",
     longname: "Ethereum Testnet",
+    testCoin: true,
     description:
     "Robsten is an ethereum testing network.",
     links: {
@@ -165,6 +166,7 @@ var EthHandler = ExtendObject(Web3JsBaseHandler, {
 
 //
 var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
+  testCoin: true,
   ethContractAddr: null,
   ethAbi: null,
   _getProvider: Web3JsBaseHandler.getTestnetProvider,
@@ -200,6 +202,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
 });
 
 var ERC20MainHandler = ExtendObject(ERC20TestHandler, {
+    testCoin: false,
     feeCoin: "ETH",
     _getProvider: Web3JsBaseHandler.getMainnetProvider,
     newPrivateKey: EthHandler,

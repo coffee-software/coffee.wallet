@@ -73,6 +73,7 @@ var BtcTestHandler = ExtendObject(BitcoinJsBaseHandler, {
     keyPath: "m/44'/1'/0'/0/0",
     name: "bitcoin-test",
     code: "BTC.TST",
+    testCoin: true,
     icon: "btc.test",
     longname: "Bitcoin TestNet",
     description:

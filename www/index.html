@@ -26,8 +26,8 @@
               </li>
               <li>
                 <a href="javascript:app.popupPriceSettings()">
-                  <img src="icons/money.png"/>
-                  price&nbsp;settings
+                  <img src="icons/settings.png"/>
+                  settings
                 </a>
               </li>
               <!--li>
@@ -247,11 +247,21 @@
               </select>
               <select id="priceUnit">
               </select>
-              <div class="actions">
-                <button class="box icon-save" onclick="app.savePriceSettings()">
+              <p style="padding-bottom: 10px;">This will affect displaying and converting values across the application.</p>
+
+              <h2>Developer Tools</h2>
+              <label class="checkbox">
+                <input type="checkbox" id="settingsEnableTestCoins" />
+                <div class="fakecheck"></div>
+                enable test network coins
+              </label>
+              <p style="padding-bottom: 10px;">Enable this to get access to test networks coins like Bitcoin Testnet or ETH Ropsten.</p>
+              <div class="row spacing">
+                <button class="box f1" onclick="app.savePriceSettings()">
                   Save
                 </button>
               </div>
+
             </div>
             <div id="addCoinPopup" style="display:none;">
               <div style="padding:0 7px 20px 7px">

@@ -60,7 +60,8 @@ button:disabled {
 }
 
 select {
-    background: #766054;
+    background: #766054 url(../icons/select.png) no-repeat 97% center;
+    background-size: 5%;
     padding: 10px;
     margin: 0;
     margin-bottom: 10px;
@@ -68,6 +69,9 @@ select {
     color: #f7f5f2;
     line-height: 20px;
     border: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .section {

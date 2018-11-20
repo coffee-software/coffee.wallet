@@ -36,6 +36,11 @@ for (var i=0; i<otherCoins.length;i++) {
     allCoinApis[otherCoins[i].code] = otherCoins[i];
   }
   allCoinApisByRank.push(allCoinApis[otherCoins[i].code]);
+
+  var forcedCoinsIndex = forcedCoins.indexOf(otherCoins[i].code);
+  if (forcedCoinsIndex !== -1) {
+      forcedCoins.splice(forcedCoinsIndex, 1);
+  }
 }
 
 for (var i=0; i< forcedCoins.length; i++) {
@@ -686,54 +691,55 @@ var app = {
       }
     },
 
+    filterAddCoinPopup: function() {
+      var query = document.getElementById('addCoinFilter').value.toUpperCase();
+      //var onlySupportedRead = document.getElementById('addCoinOnlySupportedRead').checked;
+      var includeTestCoins = (app.settings.get('enableTestCoins', false) == "true");
+      var onlySupportedWrite = document.getElementById('addCoinOnlySupportedWrite').checked;
+      var limit = 24;
+      var allCoins = document.getElementById('allCoins');
+      while (allCoins.firstChild) { allCoins.removeChild(allCoins.firstChild); }
+
+      for (var i=0; i< allCoinApisByRank.length; i++){
+        var coin = allCoinApisByRank[i];
+        var show = coin._search.search(query) != -1;
+        //if (onlySupportedRead) show = show && ('getBalance' in coin);
+        if (onlySupportedWrite) show = show && ('sendPayment' in coin);
+        if (!includeTestCoins) show = show && (!('testCoin' in coin) || (!coin.testCoin));
+        if (show) {
+          limit --;
+          if (limit >= 0) {
+            if (!('_button' in coin)) {
+              allCoinApisByRank[i]._button = new CoinButton(coin);
+            }
+            allCoins.appendChild(coin._button);
+          }
+        }
+      }
+      if (limit == 24) {
+        document.getElementById('moreCoins').innerHTML = 'No coins found for given query.';
+      } else if (limit >= 0) {
+        document.getElementById('moreCoins').innerHTML = '';
+      } else {
+        document.getElementById('moreCoins').innerHTML = '' + -limit + ' more coins matches.<br/> Please enter more specific query.';
+      };
+    },
+
     popupAddCoin: function() {
       this.openPopup('addCoinPopup', 'add cryptos');
-      var that = this;
-      if (typeof that.popupGenerated == 'undefined') {
-        that.popupGenerated = true;
-        setTimeout(function(){
-          var filter = function() {
-
-            var query = document.getElementById('addCoinFilter').value.toUpperCase();
-            //var onlySupportedRead = document.getElementById('addCoinOnlySupportedRead').checked;
-            var onlySupportedWrite = document.getElementById('addCoinOnlySupportedWrite').checked;
-            var limit = 24;
-            var allCoins = document.getElementById('allCoins');
-            while (allCoins.firstChild) { allCoins.removeChild(allCoins.firstChild); }
-
-            for (var i=0; i< allCoinApisByRank.length; i++){
-              var coin = allCoinApisByRank[i];
-              var show = coin._search.search(query) != -1;
-              //if (onlySupportedRead) show = show && ('getBalance' in coin);
-              if (onlySupportedWrite) show = show && ('sendPayment' in coin);
-              if (show) {
-                limit --;
-                if (limit >= 0){
-                  if (!('_button' in coin)) {
-                    allCoinApisByRank[i]._button = new CoinButton(coin)
-                  }
-                  allCoins.appendChild(coin._button);
-                }
-              }
-            }
-            if (limit == 24) {
-              document.getElementById('moreCoins').innerHTML = 'No coins found for given query.';
-            } else if (limit >= 0) {
-              document.getElementById('moreCoins').innerHTML = '';
-            } else {
-              document.getElementById('moreCoins').innerHTML = '' + -limit + ' more coins matches.<br/> Please enter more specific query.';
-            };
-          };
-          document.getElementById('addCoinFilter').onkeyup = filter;
-          document.getElementById('addCoinFilter').onchange = filter;
-          //document.getElementById('addCoinOnlySupportedRead').onchange = filter;
-          document.getElementById('addCoinOnlySupportedWrite').onchange = filter;
-          for (var i=0; i< allCoinApisByRank.length; i++){
+      setTimeout(function(){
+        if (typeof app.popupGenerated == 'undefined') {
+          app.popupGenerated = true;
+          document.getElementById('addCoinFilter').onkeyup = app.filterAddCoinPopup;
+          document.getElementById('addCoinFilter').onchange = app.filterAddCoinPopup;
+          //document.getElementById('addCoinOnlySupportedRead').onchange = app.filterAddCoinPopup;
+          document.getElementById('addCoinOnlySupportedWrite').onchange = app.filterAddCoinPopup;
+          for (var i=0; i< allCoinApisByRank.length; i++) {
             allCoinApisByRank[i]._search = (allCoinApisByRank[i].name + ' '+ allCoinApisByRank[i].code + ' ' + allCoinApisByRank[i].longname).toUpperCase();
           }
-          filter();
-        }, 100);
-      }
+        }
+        app.filterAddCoinPopup();
+      }, 100);
     },
 
     popupHelp: function() {
@@ -744,13 +750,18 @@ var app = {
     },
 
     popupPriceSettings: function() {
-        this.openPopup('priceSettingsPopup', 'Price Settings');
+        this.openPopup('priceSettingsPopup', 'Settings');
 
         this.priceProviderSelect.setValue(this.settings.get('priceProvider', 0));
         this.priceUnitSelect.setValue(this.settings.get('priceUnit', this.priceProvider.defaultUnit));
+
+        document.getElementById('settingsEnableTestCoins').checked = (this.settings.get('enableTestCoins', false) == "true");
+
     },
     savePriceSettings: function() {
         this.closePopup();
+
+        this.settings.set('enableTestCoins', document.getElementById('settingsEnableTestCoins').checked);
 
         this.settings.set('priceProvider', parseInt(this.priceProviderSelect.getValue()));
         this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider')]);
