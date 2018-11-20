@@ -1143,7 +1143,7 @@ var app = {
           app.sendCoinValidateAmount();
         }
         document.getElementById('feeAmount').innerHTML =
-          this.sendWallet.handler.getFeeDisplay(fee) + ' (' +
+          this.sendWallet.handler.getFeeDisplay(fee) + '&nbsp;(' +
           this.priceProvider.convert(this.sendWallet.handler.estimateFeeFloat(fee), this.sendWallet.handler.code) + ')';
         document.getElementById('feeTime').innerHTML = fee[1] + 'min';
       } else {

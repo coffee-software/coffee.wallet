@@ -86,7 +86,7 @@ var Web3JsBaseHandler = {
     return f.mul(gas).toString(10);
   },
   getFeeDisplay: function(fee) {
-    return this.estimateFeeFloat(fee) + ' ' + this.feeCoin;
+    return this.estimateFeeFloat(fee) + '&nbsp;' + this.feeCoin;
   },
 
   getFees: function(callback) {

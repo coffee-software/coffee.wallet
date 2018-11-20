@@ -96,8 +96,9 @@ select {
   border: 1px solid #766054;
   border-radius: 25px;
   color: #eadfcb;
-  padding: 14px 24px;
+  padding: 12px 24px;
   font-size: 12px;
+  line-height: 26px;
 }
 
 .formButtons .f1:first-child {
@@ -193,14 +194,14 @@ input.has-unit {
   position: relative;
   text-align: center;
   font-size: 14px;
-  padding: 24px 0;
+  padding: 21px 0;
 }
 
 .field .legend {
     text-align: right;
     position: absolute;
     left: 0;
-    right: 33px;
+    right: 0;
 }
 
 .field.invalid .legend {
