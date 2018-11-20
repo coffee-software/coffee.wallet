@@ -42,12 +42,12 @@
                   help
                 </a>
               </li>
-              <li>
+              <!--li>
                 <a id="feedback" href="javascript:app.popupFeedback()">
                   <img src="icons/heart.png"/>
                   feedback
                 </a>
-              </li>
+              </li-->
               <li>
                 <a href="javascript:app.exportAllKeys()">
                   <img src="icons/export.png"/>
@@ -284,13 +284,24 @@
               <div id="moreCoins"></div>
             </div>
             <div id="helpPopup" style="display:none;">
-              <h2>Coffee Wallet</h2>
-              <p>
-                Coffee Wallet is a blockchain wallet and portfolio app.
-                It allows you to watch your funds stored elsewhere (paper/hardware/app/online wallets).
-                It also has a support for selected coins to send and receive from local wallet.
-              </p>
-              <h2>Home Screen Layout</h2>
+              <div style="text-align:center;">
+                <h2>Coffee Wallet</h2>
+                <h3>Version: <strong><span class="VERSION">0.7.1</span></strong></h3>
+                <p>
+                  Coffee Wallet is a blockchain wallet and portfolio app.
+                  It allows you to watch your funds stored elsewhere (paper/hardware/app/online wallets).
+                  It also has a support for selected coins to send and receive from local wallet.
+                </p>
+                <p>
+                  <a href="#" onclick="window.open('https://wallet.coffee/', '_system');" style="color: #766054; font-size: 16px;">https://wallet.coffee/</a>
+                </p>
+                <p>
+                  <a href="#" onclick="window.open('https://twitter.com/CoffeeWallet', '_system');"><img width="42" src="icons/twitter.png"/></a>
+                  &nbsp;&nbsp;
+                  <a href="#" onclick="window.open('https://www.reddit.com/r/CoffeeWallet/', '_system');"><img width="42" src="icons/reddit.png"/></a>
+                </p>
+                <h2>Home Screen Layout</h2>
+              </div>
                 <img src="img/help1.png" style="width:100%;" />
                 <p>top bar:</p>
                 <ol>
@@ -320,16 +331,9 @@
                   <li>Wallets tab. Your home screen with all your wallets.</li>
                   <li>Tools tab. "Send via message", "Scan QR code", "Exchange" and other tools.</li>
                 </ol>
-              <h2>More Info</h2>
-              <p>
-                For more information. please refer to online docs.
-              </p>
             </div>
             <div id="feedbackPopup" style="display:none;">
               <h2>Coffee Wallet</h2>
-              <h3>Version: <strong><span class="VERSION">0.7.1</span></strong></h3>
-
-              <a href="#" onclick="window.open('https://wallet.coffee/', '_system');">https://wallet.coffee/</a>
             </div>
           </div>
         </div>
