@@ -54,6 +54,7 @@ body {
     /* Status bar height on iOS 11 */
     padding-top: constant(safe-area-inset-top);
     padding-top: env(safe-area-inset-top);
+    box-sizing: border-box;
 }
 
 h1, h2, h3 {
@@ -416,15 +417,13 @@ table {
 #popup {
   position: absolute;
   top: 0;
-  top: constant(safe-area-inset-top);
-  top: env(safe-area-inset-top);
   width: 100%;
   transform: translate3d(-110vw,0,0);
   bottom: 0;
   left: 0;
   z-index: 100;
   transition: transform 0.5s ease;
-  background-color: #f7f5f2;
+  background-color: #766054;
   box-shadow: 2px 0px 7px #463f3a;
 }
 
