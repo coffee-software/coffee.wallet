@@ -965,15 +965,15 @@ var app = {
         app.data.addOfflineAsset(app.offlineAssetWallet.handler.code, {
           addr: randomAddr,
           balance: 0.0,
+          systemBalance: 0,
           comment: 'paper wallet'
         });
         //refresh list
         app.popupOfflineAssets(app.offlineAssetWallet);
         app.confirmBeforeContinue('wallet created',
-          'New wallet was created and public address was added to your offline assets. ' +
-          'You should see pdf share/print options now. ' +
-          'Use this address only after making the pdf secure. Coffee Wallet will not store private key! ' +
-          'You will have access to this wallet as long as you will have access to its private key.',
+          '<strong>warning:</strong> Coffee Wallet <strong>does not</strong> store private keys for offlie assets! ' +
+          'You should see pdf share/print options now, use this address <strong>only</strong> after making the pdf secure. ' +
+          'You will be able to spend funds from this wallet as long as you will have access to its private key!',
           function(){}
         );
       }
