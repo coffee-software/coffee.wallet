@@ -48,6 +48,7 @@ function Wallet(data) {
     if (activeWallet && activeWallet == that) return true;
     if (activeWallet && activeWallet.row) {
       activeWallet.row.classList.remove('active');
+      activeWallet.touchDiff = 0;
       activeWallet.slidingRow.style['transform'] = 'translate3d(0,0,0)';
     }
     that.row.classList.add('active');
@@ -164,6 +165,7 @@ function Wallet(data) {
     } else if (that.touchDiff < - (that.buttonsLeft.offsetWidth / 2)) {
       that.touchDiff = -that.buttonsLeft.offsetWidth;
     } else {
+      if (Math.abs(that.touchDiff) < 5) app.flushUxHint('swipe');
       that.touchDiff = 0;
       that.unsetActive();
     }

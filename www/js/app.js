@@ -1566,6 +1566,13 @@ var app = {
       }
       return false;
     },
+
+    flushUxHint: function(file) {
+      document.getElementById("uxHint").innerHTML = '<img src="img/' + file + '.png"/>';
+      document.getElementById('uxHint').classList.add('blink');
+      setTimeout(function(){document.getElementById('uxHint').classList.remove('blink');}, 1000);
+    },
+
     onDeviceReady: function() {
 
         this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider', 0)]);

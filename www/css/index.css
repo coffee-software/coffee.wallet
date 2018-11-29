@@ -743,3 +743,25 @@ ol.mnemonic li span {
   font-weight: bold;
   font-size: 13px;
 }
+
+#uxHint {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: -50vw;
+    height: 0px;
+    overflow: visible;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s linear;
+}
+
+#uxHint img {
+  width: 50%;
+  margin: 25%;
+}
+
+#uxHint.blink {
+  opacity: 1;
+}
