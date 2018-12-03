@@ -59,18 +59,13 @@ var Data = {
     var update = false;
 
     if (wallet.enabled && !wallet.privateKey && ('newPrivateKey' in allCoinApis[wallet.coin])) {
-      //console.log('no priv key');
-      if (typeof allCoinApis[wallet.coin].newPrivateKey == 'function') {
-        wallet.privateKey = allCoinApis[wallet.coin].newPrivateKey();
-        wallet.addr = allCoinApis[wallet.coin].addrFromPrivateKey(wallet.privateKey);
-      } else {
-        var parentHandler = allCoinApis[wallet.coin].newPrivateKey;
-        if ((parentHandler.code in that.wallets) && that.wallets[parentHandler.code].enabled) {
-          wallet.privateKey = that.wallets[parentHandler.code].privateKey;
-          wallet.addr = that.wallets[parentHandler.code].addr;
-        } else {
-          wallet.enabled = false;
-          app.alertError('This coin requires ' + parentHandler.code + ' coin to be enabled', wallet.coin);
+      wallet.privateKey = allCoinApis[wallet.coin].newPrivateKey();
+      wallet.addr = allCoinApis[wallet.coin].addrFromPrivateKey(wallet.privateKey);
+
+      if ('feeCoin' in allCoinApis[wallet.coin]) {
+        var parentHandler = allCoinApis[wallet.coin].feeCoin;
+        if (!((parentHandler.code in that.wallets) && that.wallets[parentHandler.code].enabled)) {
+          app.alertInfo(allCoinApis[wallet.coin].code + ' transaction fees are paid in ' + parentHandler.code + '. Consider adding this coin.', wallet.coin);
         }
       }
     }

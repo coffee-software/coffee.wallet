@@ -610,31 +610,11 @@ var app = {
       }
       links += '</ul>';
 
-
-      /*
-      var support = '<ul>';
-      var features = [
-        ['getBalance', 'get address balance', 'You can specify address instead of amount in your offline assets for this coin.'],
-        ['newPrivateKey', 'local wallet', 'You can have a local wallet for this coin and receive funds.'],
-        ['sendPayment', 'send payments', 'You can send payments from your local wallet for this coin'],
-      ];
-      for (var i=0; i<features.length;i++){
-          support += '<li>' + features[i][1] + ': ';
-          if (features[i][0] in wallet.handler) {
-            support += '<strong>YES</strong> ' + features[i][2];
-          } else {
-            support += '<strong>NO</strong>';
-          }
-          support += '</li>';
-      }
-      support += '</ul>';
-      */
-
       var advanced = document.createElement('ul');
       advanced.classList.add('advancedActions');
       var advancedWallet = wallet;
 
-      if (('newRandomPrivateKey' in wallet.handler) && (typeof wallet.handler.newPrivateKey == 'function')) {
+      if (('newRandomPrivateKey' in wallet.handler) && (!('feeCoin' in wallet.handler))) {
         advanced.appendChild(app.createAdvancedOption('message', 'send via message', function(){
           app.popupSendSocial(wallet);
         }));
@@ -1130,13 +1110,13 @@ var app = {
       if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
         var fee = this.sendFees[document.getElementById('sendCoinFee').value];
         if (app.sendForceTotal) {
-          if (typeof this.sendWallet.handler.newPrivateKey == 'function') {
+          if ('feeCoin' in this.sendWallet.handler) {
             document.getElementById('sendCoinAmount').value = this.sendWallet.handler.systemValueToDisplayValue(
-              this.sendWallet.handler.systemValuesDiff(app.sendForceTotal, this.sendWallet.handler.getFeeTotalCost(fee))
+              app.sendForceTotal
             );
           } else {
             document.getElementById('sendCoinAmount').value = this.sendWallet.handler.systemValueToDisplayValue(
-              app.sendForceTotal
+              this.sendWallet.handler.systemValuesDiff(app.sendForceTotal, this.sendWallet.handler.getFeeTotalCost(fee))
             );
           }
           app.sendCoinUpdateValue();
@@ -1463,10 +1443,10 @@ var app = {
 
       var systemAmount = 0;
       if (app.sendForceTotal) {
-        if (typeof app.sendWallet.handler.newPrivateKey == 'function') {
-          systemAmount = app.sendWallet.handler.systemValuesDiff(app.sendForceTotal, app.sendWallet.handler.getFeeTotalCost(fee));
-        } else {
+        if ('feeCoin' in app.sendWallet.handler) {
           systemAmount = app.sendForceTotal;
+        } else {
+          systemAmount = app.sendWallet.handler.systemValuesDiff(app.sendForceTotal, app.sendWallet.handler.getFeeTotalCost(fee));
         }
       } else {
         systemAmount = app.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));

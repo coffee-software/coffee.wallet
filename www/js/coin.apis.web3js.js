@@ -2,7 +2,6 @@
 
 
 var Web3JsBaseHandler = {
-  feeCoin: null,
   getMainnetProvider: function(){
     if (typeof this.provider == 'undefined') {
       return new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/" + config.infuraKey));
@@ -86,7 +85,7 @@ var Web3JsBaseHandler = {
     return f.mul(gas).toString(10);
   },
   getFeeDisplay: function(fee) {
-    return this.estimateFeeFloat(fee) + '&nbsp;' + this.feeCoin;
+    return this.estimateFeeFloat(fee) + '&nbsp;' + ('feeCoin' in this ? this.feeCoin.code : this.code);
   },
 
   getFees: function(callback) {
@@ -125,7 +124,6 @@ var EthTestHandler = ExtendObject(Web3JsBaseHandler, {
     _getProvider: Web3JsBaseHandler.getTestnetProvider,
     name: "ethereum-test",
     code: "ETH.TST",
-    feeCoin: "ETH.TST",
     icon: "eth.test",
     longname: "Ethereum Testnet",
     testCoin: true,
@@ -146,7 +144,6 @@ var EthHandler = ExtendObject(Web3JsBaseHandler, {
     _getProvider: Web3JsBaseHandler.getMainnetProvider,
     name: "ethereum",
     code: "ETH",
-    feeCoin: "ETH",
     icon: "eth",
     longname: "Ethereum",
     description:
@@ -170,8 +167,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
   ethContractAddr: null,
   ethAbi: null,
   _getProvider: Web3JsBaseHandler.getTestnetProvider,
-  feeCoin: "ETH.TST",
-  newPrivateKey: EthTestHandler,
+  feeCoin: EthTestHandler,
 
   getBalance: function(addr, callback){
     var c = this._getProvider().eth.Contract;
@@ -203,9 +199,8 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
 
 var ERC20MainHandler = ExtendObject(ERC20TestHandler, {
     testCoin: false,
-    feeCoin: "ETH",
+    feeCoin: EthHandler,
     _getProvider: Web3JsBaseHandler.getMainnetProvider,
-    newPrivateKey: EthHandler,
     explorerLinkAddr: function(addr) {
       return 'https://etherscan.io/token/' + this.ethContractAddr + '?a=' + addr;
     },
