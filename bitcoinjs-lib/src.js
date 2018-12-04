@@ -46,7 +46,19 @@ var networks = {
 			scriptHash: 0xff,
 	  	wif: 0xff
 		}
-	}
+	},
+	decred: {
+	  network: {
+		 messagePrefix: '\x19Decred Signed Message:\n',
+		 bip32: {
+			 public: 0x02fda926,
+			 private: 0x02fda4e8
+		 },
+		 pubKeyHash: 0x73f,
+		 scriptHash: 0x71a,
+		 wif: 0x22de
+	 }
+ }
 }
 
 var _webRequestQueue = new Array();
