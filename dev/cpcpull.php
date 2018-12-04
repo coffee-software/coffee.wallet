@@ -3,7 +3,7 @@
 * Simple script to pull missing coins from coin market cap.
 */
 
-$json = json_decode(file_get_contents('https://api.coinmarketcap.com/v1/ticker/?limit=1500'), true);
+$json = json_decode(file_get_contents('https://api.coinmarketcap.com/v1/ticker/?limit=2000'), true);
 
 $lines = array();
 
@@ -15,11 +15,23 @@ $head = <<<EOT
 var otherCoins = [
 EOT;
 
+$uniqueSymbols = [];
+
 foreach($json as $coin) {
   echo "$coin[name]\n";
+
+  $suffix = 0;
+  $symbol = $coin['symbol'];
+  while (!empty($uniqueSymbols[$coin['symbol']])) {
+    $coin['symbol'] = $symbol . '-' . (++$suffix);
+    echo "repeated $coin[symbol]\n";
+  }
+
+  $uniqueSymbols[$coin['symbol']] = true;
+
   //$icon = file_exists('www/coins/' . strtolower($coin['symbol']) . '.png') ? strtolower($coin['symbol']) : 'noicon';
 
-  $icon = strtolower($coin['symbol']);  
+  $icon = strtolower($coin['symbol']);
   shell_exec('dev/generateicon.sh ' . escapeshellarg($icon));
   $lines[]= <<<EOT
 {

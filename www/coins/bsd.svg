@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>black</title>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="black" fill-rule="nonzero">
-            <g id="nano">
-                <circle id="Oval" fill="#766054" cx="16" cy="16" r="16"></circle>
-		<text x="16" y="19" font-family="Verdana" font-size="10" fill="#fff" text-anchor="middle">BSD</text>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm12-16.873L19.927 4l-1.963 6.436L4 15.127h24zM4.11 16.655l7.854 11.236 1.963-6.655 13.964-4.581H4.109z" fill="#766054"/></svg>
