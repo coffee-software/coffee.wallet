@@ -135,32 +135,14 @@
 
       </div>
     </footer>
-    <script type="text/javascript" src="appwww/vendor/web3.js"></script>
+    <script type="text/javascript" src="appwww/vendor/web3.min.js"></script>
     <script type="text/javascript" src="appwww/vendor/btcjs.js"></script>
     <script type="text/javascript" src="appwww/js/core.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.btcjs.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.web3js.js"></script>
+    <script type="text/javascript" src="appwww/js/coin.apis.cmc.js"></script>
+    <script type="text/javascript" src="appwww/js/coin.apis.js"></script>
     <script type="text/javascript">
-
-      var allCoinApis = {
-        'BTC': BtcHandler,
-        'ETH': EthHandler,
-        'LTC': LtcHandler,
-        'DOGE': DogeHandler,
-        //ERC20 tokens:
-        'BNB': ERC20Tokens['BNB'],
-        'VEN': ERC20Tokens['VEN'],
-        'MKR': ERC20Tokens['MKR'],
-        'OMG': ERC20Tokens['OMG'],
-        'ZRX': ERC20Tokens['ZRX'],
-        'BAT': ERC20Tokens['BAT'],
-        'ZIL': ERC20Tokens['ZIL'],
-        'AE': ERC20Tokens['AE'],
-        'ICX': ERC20Tokens['ICX'],
-        'LINK': ERC20Tokens['LINK'],
-        'PAY': ERC20Tokens['PAY'],
-        'CFT': ERC20Tokens['CFT'],
-      };
 
       function generatePrivateKeys() {
 
@@ -185,22 +167,20 @@
         };
         document.getElementById('privateKeys').innerHTML = '';
         for (key in allCoinApis){
-          var privateKey;
-          if (typeof allCoinApis[key].newPrivateKey == 'function') {
-            privateKey = allCoinApis[key].newPrivateKey();
-          } else {
-            privateKey = allCoinApis[key].newPrivateKey.newPrivateKey()
-          }
-          var publicKey = allCoinApis[key].addrFromPrivateKey(privateKey);
-          var explorerLink = '';
-          if ('explorerLinkAddr' in allCoinApis[key]) {
-            explorerLink = '<a target="_blank" href="' + allCoinApis[key].explorerLinkAddr(publicKey) + '">(explorer)</a>';
-          }
+          if ('newPrivateKey' in allCoinApis[key]) {
 
-          document.getElementById('privateKeys').insertAdjacentHTML(
-            'beforeend',
-            '<tr><th rowspan="2">' + key + '</th><td>address:</td><td><strong>' + publicKey + ' ' + explorerLink + '</strong></td></tr><tr><td>private key:</td><td><strong>' + privateKey + '</strong></td></tr>'
-          );
+            var privateKey = allCoinApis[key].newPrivateKey();
+            var publicKey = allCoinApis[key].addrFromPrivateKey(privateKey);
+            var explorerLink = '';
+            if ('explorerLinkAddr' in allCoinApis[key]) {
+              explorerLink = '<a target="_blank" href="' + allCoinApis[key].explorerLinkAddr(publicKey) + '">(explorer)</a>';
+            }
+
+            document.getElementById('privateKeys').insertAdjacentHTML(
+              'beforeend',
+              '<tr><th rowspan="2">' + key + '</th><td>address:</td><td><strong>' + publicKey + ' ' + explorerLink + '</strong></td></tr><tr><td>private key:</td><td><strong>' + privateKey + '</strong></td></tr>'
+            );
+          }
         }
 
       }

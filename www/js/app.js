@@ -1,52 +1,5 @@
 'use strict'
 
-var allCoinApis = {
-  'BTC.TST': BtcTestHandler,
-  'ETH.TST': EthTestHandler,
-  'LTC': LtcHandler,
-  'DOGE': DogeHandler,
-  'BTC': BtcHandler,
-  //'BCH': BchHandler,
-  'ETH': EthHandler,
-
-  //ERC20 tokens:
-  'BNB': ERC20Tokens['BNB'],
-  'VEN': ERC20Tokens['VEN'],
-  'MKR': ERC20Tokens['MKR'],
-  'OMG': ERC20Tokens['OMG'],
-  'ZRX': ERC20Tokens['ZRX'],
-  'BAT': ERC20Tokens['BAT'],
-  'ZIL': ERC20Tokens['ZIL'],
-  'AE': ERC20Tokens['AE'],
-  'ICX': ERC20Tokens['ICX'],
-  'LINK': ERC20Tokens['LINK'],
-
-  'PAY': ERC20Tokens['PAY'],
-  'CFT': ERC20Tokens['CFT'],
-
-  'ERC20.TST': ERC20Tokens['ERC20.TST']
-};
-
-//those will be added regarding of no value and no rank:
-var forcedCoins = Object.keys(allCoinApis);
-var allCoinApisByRank = new Array();
-
-for (var i=0; i<otherCoins.length;i++) {
-  if (!(otherCoins[i].code in allCoinApis)) {
-    allCoinApis[otherCoins[i].code] = otherCoins[i];
-  }
-  allCoinApisByRank.push(allCoinApis[otherCoins[i].code]);
-
-  var forcedCoinsIndex = forcedCoins.indexOf(otherCoins[i].code);
-  if (forcedCoinsIndex !== -1) {
-      forcedCoins.splice(forcedCoinsIndex, 1);
-  }
-}
-
-for (var i=0; i< forcedCoins.length; i++) {
-  allCoinApisByRank.push(allCoinApis[forcedCoins[i]]);
-}
-
 function handleOpenURL(url) {
   setTimeout(function() {
     //make sure data is loaded
