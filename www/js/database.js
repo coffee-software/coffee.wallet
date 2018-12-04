@@ -58,7 +58,7 @@ var Data = {
     var that = this;
     var update = false;
 
-    if (wallet.enabled && !wallet.privateKey && ('newPrivateKey' in allCoinApis[wallet.coin])) {
+    if (wallet.enabled && !wallet.privateKey && (wallet.coin in allCoinApis) && ('newPrivateKey' in allCoinApis[wallet.coin])) {
       wallet.privateKey = allCoinApis[wallet.coin].newPrivateKey();
       wallet.addr = allCoinApis[wallet.coin].addrFromPrivateKey(wallet.privateKey);
 
