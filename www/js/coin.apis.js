@@ -23,15 +23,17 @@ for (var i=0; i<otherCoins.length;i++) {
   if (!(otherCoins[i].code in allCoinApis)) {
     allCoinApis[otherCoins[i].code] = otherCoins[i];
   }
-  allCoinApisByRank.push(allCoinApis[otherCoins[i].code]);
+  if (allCoinApisByRank.indexOf(allCoinApis[otherCoins[i].code]) != -1) {
+    //console.log(otherCoins[i].code);
+  } else {
+    allCoinApisByRank.push(allCoinApis[otherCoins[i].code]);
+  }
 
   var forcedCoinsIndex = forcedCoins.indexOf(otherCoins[i].code);
   if (forcedCoinsIndex !== -1) {
       forcedCoins.splice(forcedCoinsIndex, 1);
   }
 }
-
-console.log(forcedCoins);
 
 for (var i=0; i< forcedCoins.length; i++) {
   allCoinApisByRank.push(allCoinApis[forcedCoins[i]]);
