@@ -1,0 +1,41 @@
+
+
+
+
+body {
+  background: #62422b;
+  color: #eadfcb;
+  font-family: Catamaran,Helvetica,Arial,sans-serif;
+
+}
+
+#page {
+  background: #f7f5f2;
+  color: #766054;
+  margin-top: 100px;
+}
+
+div.coin {
+  width: 50%;
+  text-align: center;
+  float: left;
+  min-height: 380px;
+}
+
+div.coin h4 {
+  font-size: 1.1rem;
+}
+
+div.coin h4 {
+}
+
+@media (min-width: 992px) {
+  div.coin {
+  width: 25%;
+  }
+}
+
+div.coin img {
+  filter: hue-rotate(22deg) saturate(137%) brightness(187%);
+  width: 60%;
+}

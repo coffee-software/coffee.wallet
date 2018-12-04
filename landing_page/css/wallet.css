@@ -15,7 +15,7 @@
 }
 
 .btn-xl {
-	margin: 0 10px;
+	margin: 10px;
 }
 
 .device .screen {
@@ -161,6 +161,3 @@ a.social-link i {
 a.social-link:hover i {
     color: #ecdec6;
 }
-
-
-
