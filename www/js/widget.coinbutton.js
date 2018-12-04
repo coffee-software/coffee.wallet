@@ -1,6 +1,6 @@
 'use strict'
 
-function CoinButton(coin) {
+function CoinButton(coin, active, onClick) {
 
   var button = document.createElement("a");
 
@@ -12,22 +12,10 @@ function CoinButton(coin) {
   var span = document.createElement("span");
   span.innerHTML = coin.code;
   button.appendChild(span);
-  var active = coin.code in app.data.wallets && app.data.wallets[coin.code].enabled;
   button.classList.toggle('active', active);
   button.onclick = function(){
-    if (coin.code in app.data.wallets && app.data.wallets[coin.code].enabled) {
-      app.wallets[coin.code].setActive();
-    } else {
-      app.data.addWallet(coin, function(){
-        if (app.data.wallets[coin.code].enabled) {
-          app.addWalletWidget(app.data.wallets[coin.code]);
-          app.wallets[coin.code].setActive();
-          button.classList.add('active');
-        }
-      });
-    }
-    app.closePopup();
-  };
+    onClick(coin);
+  }
   button.classList.add('coinButton');
   return button;
 }

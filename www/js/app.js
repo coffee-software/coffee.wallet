@@ -554,6 +554,29 @@ var app = {
           }
         }
       }, 'sendasmessage');
+      //coin shortcuts
+      document.getElementById('sendViaMessageButtons').innerHTML = '';
+      var empty = true;
+      for (var coin in app.wallets){
+        if (app.canSendViaMessage(app.wallets[coin].handler)) {
+          if (app.wallets[coin].data.balance != 0 ) {
+            empty = false;
+            document.getElementById('sendViaMessageButtons').appendChild(new CoinButton(
+              app.wallets[coin].handler,
+              false,
+              function(coin){
+                app.popupSendSocial(app.wallets[coin.code]);
+              }
+            ));
+          }
+        }
+      }
+      if (empty) {
+        document.getElementById('sendViaMessageButtons').innerHTML = 'You have no coins that can be sent via message.';
+      }
+    },
+    canSendViaMessage: function(handler) {
+      return ('newRandomPrivateKey' in handler) && (!('feeCoin' in handler));
     },
     popupCoinInfo: function(wallet) {
       this.openPopup('coinInfoPopup', wallet.handler.longname, 'coins/' + wallet.handler.icon + '.svg');
@@ -567,7 +590,7 @@ var app = {
       advanced.classList.add('advancedActions');
       var advancedWallet = wallet;
 
-      if (('newRandomPrivateKey' in wallet.handler) && (!('feeCoin' in wallet.handler))) {
+      if (app.canSendViaMessage(wallet.handler)) {
         advanced.appendChild(app.createAdvancedOption('message', 'send via message', function(){
           app.popupSendSocial(wallet);
         }));
@@ -643,7 +666,15 @@ var app = {
           limit --;
           if (limit >= 0) {
             if (!('_button' in coin)) {
-              allCoinApisByRank[i]._button = new CoinButton(coin);
+              allCoinApisByRank[i]._button = new CoinButton(
+                coin,
+                coin.code in app.data.wallets && app.data.wallets[coin.code].enabled,
+                function(coin){
+                  app.addOrActivateCoin(coin.code, function(){
+                    coin._button.classList.add('active');
+                  });
+                  app.closePopup();
+                });
             }
             allCoins.appendChild(coin._button);
           }
