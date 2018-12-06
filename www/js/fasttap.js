@@ -8,7 +8,7 @@ var fastTapElement = null;
 var fastTapStart = null;
 var fastTapBoundary = 10;
 
-function fastTap(target, handler) {
+function fastTap(target) {
 
   target.addEventListener('touchstart', function(event) {
       fastTapElement = event.target;
@@ -20,11 +20,10 @@ function fastTap(target, handler) {
     if (fastTapElement == event.target) {
       if ((Math.abs(event.changedTouches[0].pageX - fastTapStart[0]) < fastTapBoundary)
           && (Math.abs(event.changedTouches[0].pageY - fastTapStart[1]) < fastTapBoundary)) {
+            event.preventDefault();
+            fastTapElement.click();
             fastTapElement = null;
-            if (!handler()) {
-              event.preventDefault();
-              return false;
-            }
+            return false;
       }
     }
     return true;

@@ -22,6 +22,10 @@ var app = {
             that.closeMenu();
           }
         };
+
+        for (var i = 0; i < document.getElementById('foot').children.length; i++) {
+          fastTap(document.getElementById('foot').children[i]);
+        }
         this.tabWallets();
     },
 
@@ -398,7 +402,8 @@ var app = {
       img.setAttribute('src', 'icons/' + icon + '.png');
       button.appendChild(img);
       button.appendChild(document.createTextNode(text));
-      fastTap(button, callback);
+      button.onclick = callback;
+      fastTap(button);
       li.appendChild(button);
       return li;
     },
@@ -1153,7 +1158,8 @@ var app = {
       var img = document.createElement("img");
       img.setAttribute('src', 'icons/close.png');
       closer.appendChild(img);
-      fastTap(closer, function(){ document.getElementById('messages').removeChild(msgDiv); msgDiv = null; });
+      closer.onclick = function(){ document.getElementById('messages').removeChild(msgDiv); msgDiv = null; };
+      fastTap(closer);
 
       msgDiv.appendChild(closer);
       document.getElementById('messages').appendChild(msgDiv);
