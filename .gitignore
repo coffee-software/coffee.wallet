@@ -4,3 +4,6 @@ build.prod.zip
 npm-debug.log
 www/js/config.js
 
+electron/node_modules/
+electron/package-lock.json
+
