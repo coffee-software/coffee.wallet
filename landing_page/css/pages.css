@@ -31,11 +31,11 @@ div.coin h4 {
 
 @media (min-width: 992px) {
   div.coin {
-  width: 25%;
+  width: 20%;
   }
 }
 
 div.coin img {
-  filter: hue-rotate(22deg) saturate(137%) brightness(187%);
-  width: 60%;
+  /*filter: hue-rotate(22deg) saturate(137%) brightness(187%);*/
+  width: 50%;
 }
