@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Coffee Tokens</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #000;
+				color: #fff;
+     		font-size: 14px;
+			}
+			body {
+			    background: #eadfcb;
+			    color: #2b0f0e;
+			    font-family: Catamaran,Helvetica,Arial,sans-serif;
+					margin: 0px;
+     			overflow-x: hidden;
+			}
+			#details {
+      	padding: 0px 8px 12px 8px;
+    		text-align: center;
+			}
+			ul {
+				list-style-type: none;
+      	padding-left: 20px;
+			}
+			a {
+      	color: #ff6655;
+		    text-decoration: none;
+		    font-weight: bold;
+			}
+			ul#links {
+				overflow: auto;
+			}
+			ul#links li {
+				float: left;
+				margin-right: 25px;
+			}
+
+			#footer {
+				text-align:center;
+				color: #4b2f2e;
+			}
+			#footer a {
+				color: #4b2f2e;
+			}
+
+			#render {
+				background-image:    url(textures/shop.jpg);
+	 			background-size:     cover;
+	 			background-repeat:   no-repeat;
+	 			background-position: center center;
+     		height: 50vh;
+     		position: relative;
+			}
+			#loader {
+				border: 5px solid #eadfcb;
+				border-top: 5px solid #2b0f0e;
+				border-radius: 50%;
+				width: 30px;
+				height: 30px;
+				animation: spin 2s linear infinite;
+				position: absolute;
+				left: 50%;
+				margin-left: -15px;
+				top: 50%;
+				margin-top: -15px;
+				box-sizing: border-box;
+			}
+
+			@keyframes spin {
+			    0% { transform: rotate(0deg); }
+			    100% { transform: rotate(360deg); }
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="render">
+			<div id="loader"></div>
+		</div>
+		<div id="details">
+			<p>
+			<strong>Coffee Token</strong> (<strong>CFT</strong>) is a utility token for <a href="https://wallet.coffee/">Coffee Wallet</a> Project.
+			It enables you to:
+			</p>
+			<ul>
+				<li>Participate in project by voting on features.</li>
+				<li>Pay for an ad inside of the app.</li>
+				<li>Buy premium features.</li>
+			</ul>
+			<p>
+				CFT is deployed on Ethereum blockchain at <a href="https://etherscan.io/token/0x5bf2390a68ab7db7d27ae81894c4e22e669af236">0x5bf2...f236</a> as an ERC20 token.
+				Check out <a href="https://wallet.coffee/whitepaper.pdf">whitepaper</a> for more details.
+			</p>
+
+				<!--
+					<textarea>[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"tokenOwner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"acceptOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"newOwner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"tokenAddress","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transferAnyERC20Token","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"tokenOwner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Approval","type":"event"}]
+					</textarea>
+				-->
+
+
+		</div>
+
+		<div id="footer">
+			&copy; 2018 <a href="http://software.coffee/">Coffee Software Ltd</a>.
+		</div>
+
+		<script src="js/three.min.js"></script>
+		<script src="js/inflate.min.js"></script>
+		<script src="js/FBXLoader.js"></script>
+		<script src="js/WebGL.js"></script>
+		<script>
+			if ( WEBGL.isWebGLAvailable() === false ) {
+				document.body.appendChild( WEBGL.getWebGLErrorMessage() );
+			}
+			var container, camera, scene, renderer, light, coin, speed;
+
+			init();
+			animate();
+			var toLoad = 2;
+			function loaded() {
+				toLoad --;
+				if (toLoad == 0) {
+					var elem = document.getElementById('loader');
+					elem.parentNode.removeChild(elem);
+				}
+			}
+
+			function init() {
+				speed = 1.0;
+				container = document.getElementById( 'render' );
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / (window.innerHeight / 2), 1, 100 );
+				camera.position.set( 0, 2, 30 );
+
+				// envmap
+				var path = 'textures/';
+				var format = '.jpg';
+				var envMap = new THREE.CubeTextureLoader().load( [
+					path + 'posx' + format, path + 'negx' + format,
+					path + 'posy' + format, path + 'negy' + format,
+					path + 'posz' + format, path + 'negz' + format
+					],
+					loaded
+				);
+				scene = new THREE.Scene();
+				//scene.background = envMap;
+				light = new THREE.HemisphereLight( 0xbbffff, 0x444422 );
+				scene.add( light );
+
+				//var bm = new THREE.TextureLoader().load("coin/bump.jpg");
+
+				var material1 = new THREE.MeshStandardMaterial( {
+				    metalness: 0.9,   // between 0 and 1
+				    roughness: 0.2, // between 0 and 1
+						color: 0xffff11,
+						//bumpMap: bm,
+						//bumpScale: 1002,
+						//aoMap: bm,
+				    envMap: envMap,
+				} );
+				var material2 = new THREE.MeshStandardMaterial( {
+				    metalness: 1,   // between 0 and 1
+				    roughness: 0.25, // between 0 and 1
+						color: 0x52321b,
+				    envMap: envMap,
+				} );
+
+				var first = true;
+				var loader = new THREE.FBXLoader();
+				loader.load('coin/coin.fbx', function ( object ) {
+
+					object.traverse( function ( child ) {
+						if ( child.isMesh ) {
+							child.material = first ? material1 : material2;
+							first = false;
+						}
+					} );
+					coin = object;
+					scene.add( object );
+					coin.scale.set(0.1, 0.1, 0.1);
+					coin.position.set(0, 0, -5);
+					loaded();
+				});
+
+				renderer = new THREE.WebGLRenderer( { antialias: true, alpha:true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight / 2);
+				renderer.setClearColor(0x000000, 0);
+				renderer.gammaOutput = true;
+				container.appendChild( renderer.domElement );
+				window.addEventListener( 'resize', onWindowResize, false );
+
+				var touchStart = 0;
+				container.addEventListener('touchstart', function ( event ) {
+					touchStart = event.touches[0].clientX;
+					speed = 0.0;
+			  });
+			  container.addEventListener('touchmove', function ( event ) {
+					speed = (touchStart - event.touches[0].clientX) / 30;
+			  });
+			  container.addEventListener('touchend', function ( event ) {
+					//console.log(event);
+			  });
+			}
+
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / (window.innerHeight / 2);
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight / 2 );
+			}
+
+			var clock = Date.now();
+			function animate() {
+				if (coin) {
+
+					coin.rotation.y += -((Date.now() - clock) * speed / 800.0);
+					clock = Date.now();
+
+					if (speed != 1.0) {
+						speed -= (speed - 1.0) / 30;
+					}
+					//camera.position.x = coin.position.x + (Math.sin(Date.now() / 10000.0) * 10);
+					//camera.position.z = coin.position.z + (Math.cos(Date.now() / 10000.0) * 10);
+					camera.lookAt( coin.position );
+
+				}
+				requestAnimationFrame( animate );
+				renderer.render( scene, camera );
+			}
+		</script>
+
+	</body>
+</html>
