@@ -26,6 +26,8 @@ var app = {
         for (var i = 0; i < document.getElementById('foot').children.length; i++) {
           fastTap(document.getElementById('foot').children[i]);
         }
+        fastTap(document.getElementById('toggleMenu'));
+
         this.tabWallets();
     },
 
@@ -845,7 +847,7 @@ var app = {
       });
     },
     scanQrCode: function(callback) {
-      window.cordova.plugins.barcodeScanner.scan(
+      cordova.plugins.barcodeScanner.scan(
            function (result) {
              if (!result.canceled) {
                app._parseTransactionText(result.text, callback);

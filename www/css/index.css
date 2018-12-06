@@ -350,6 +350,7 @@ table {
 }
 .slidingRow .unit {
   flex: 1.5;
+  text-align: center;
 }
 .slidingRow .right {
   flex: 3;
@@ -362,6 +363,12 @@ table {
 .slidingRow .unconfirmed {
   animation: blinkingText 1s infinite;
 }
+
+.slidingRow .coinIcon {
+  max-width: 56px;
+  min-width: 26px;
+}
+
 .listingRow .stitch {
   position: absolute;
   bottom: 0;
@@ -404,6 +411,20 @@ table {
   width: 32px;
   margin: 0 auto;
 }
+
+body.electron .listingRow {
+  height: 134px;
+}
+
+body.electron .slidingRow {
+  bottom: 60px;
+  box-shadow: none;
+}
+
+body.electron .listingRow .buttons {
+  top: 74px;
+}
+
 #offlineAssets {
   padding: 0 15px;
 }
