@@ -188,26 +188,28 @@ function Wallet(data) {
   }
 
   this.checkForOfflineAssetChange = function(idx, callback) {
-    this.handler.getBalance(this.offlineWallets[idx].addr, function(balance, unconfirmed){
-      var floatBalance = that.handler.systemValueToFloatValue(balance);
-      if (balance != that.offlineWallets[idx].systemBalance) {
-        if (typeof that.offlineWallets[idx].systemBalance == 'undefined') {
-          that.offlineWallets[idx].systemBalance = 0;
+    if (this.offlineWallets[idx].addr) {
+      this.handler.getBalance(this.offlineWallets[idx].addr, function(balance, unconfirmed){
+        var floatBalance = that.handler.systemValueToFloatValue(balance);
+        if (balance != that.offlineWallets[idx].systemBalance) {
+          if (typeof that.offlineWallets[idx].systemBalance == 'undefined') {
+            that.offlineWallets[idx].systemBalance = 0;
+          }
+          if (that.handler.systemValuesCompare(that.offlineWallets[idx].systemBalance, balance) == 1) {
+            app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(that.offlineWallets[idx].systemBalance, balance)) + ' less on your ' + that.handler.code + ' offline wallet');
+          } else {
+            app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(balance, that.offlineWallets[idx].systemBalance)) + ' more on your ' + that.handler.code + ' offline wallet');
+          }
+          that.offlineWallets[idx].systemBalance = balance;
+          that.offlineWallets[idx].balance = floatBalance;
+          app.data.save();
         }
-        if (that.handler.systemValuesCompare(that.offlineWallets[idx].systemBalance, balance) == 1) {
-          app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(that.offlineWallets[idx].systemBalance, balance)) + ' less on your ' + that.handler.code + ' offline wallet');
-        } else {
-          app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(balance, that.offlineWallets[idx].systemBalance)) + ' more on your ' + that.handler.code + ' offline wallet');
-        }
-        that.offlineWallets[idx].systemBalance = balance;
-        that.offlineWallets[idx].balance = floatBalance;
-        app.data.save();
-      }
-      that.totalOffline += isNaN(that.offlineWallets[idx].balance) ? floatBalance : floatBalance - that.offlineWallets[idx].balance;
-      that.offlineAmount.innerHTML = formatMoney(that.totalOffline, that.handler.code, 5);
-      that.updateOfflineValue();
-      callback();
-    });
+        that.refreshOffline(false);
+        callback();
+      });
+    } else {
+      that.refreshOffline(false);
+    }
   }
 
   this.refreshOffline = function(checkAddresses) {

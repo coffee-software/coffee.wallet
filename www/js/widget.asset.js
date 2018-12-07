@@ -92,6 +92,7 @@ function Asset(wallet, id, data) {
           if (buttonIndex == 1) {
             app.data.deleteOfflineAsset(that.wallet.handler.code, that.id);
             //refresh ids and refresh balance:
+            that.wallet.refreshOffline(false);
             app.popupOfflineAssets(app.offlineAssetWallet);
           }
         },
@@ -148,8 +149,9 @@ function Asset(wallet, id, data) {
           setTimeout(spinner, 1000);
         }
     };
-    if (that.refreshButton && !that.running) {
-      that.running = true; spinner();
+    if (!that.running) {
+      that.running = true;
+      if (that.refreshButton) spinner();
       that.wallet.checkForOfflineAssetChange(that.id - 1, function(){
         that.updateBalance();
         that.updateValue();
