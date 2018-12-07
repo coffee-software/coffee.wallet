@@ -24,6 +24,7 @@ function Asset(wallet, id, data) {
     }
     that.row.classList.add('active');
     activeAsset = that;
+    //if scroll #popupContent
   }
   this.unsetActive = function() {
     that.row.classList.remove('active');

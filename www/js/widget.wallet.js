@@ -44,7 +44,7 @@ function Wallet(data) {
   that.data = data;
   that.handler = allCoinApis[data.coin];
   //'touchstart'
-  this.setActive = function() {
+  this.setActive = function(scroll) {
     if (activeWallet && activeWallet == that) return true;
     if (activeWallet && activeWallet.row) {
       activeWallet.row.classList.remove('active');
@@ -53,6 +53,9 @@ function Wallet(data) {
     }
     that.row.classList.add('active');
     activeWallet = that;
+    if (scroll) {
+      document.getElementById('wallets').parentElement.scrollTop = that.row.offsetTop - 54;
+    }
   }
   this.unsetActive = function() {
     that.slidingRow.style['transform'] = 'translate3d(0,0,0)';

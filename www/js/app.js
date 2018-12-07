@@ -677,10 +677,12 @@ var app = {
                 coin,
                 coin.code in app.data.wallets && app.data.wallets[coin.code].enabled,
                 function(coin){
-                  app.addOrActivateCoin(coin.code, function(){
-                    coin._button.classList.add('active');
-                  });
                   app.closePopup();
+                  setTimeout(function(){
+                    app.addOrActivateCoin(coin.code, function(){
+                      coin._button.classList.add('active');
+                    });
+                  }, 400);
                 });
             }
             allCoins.appendChild(coin._button);
@@ -1346,13 +1348,13 @@ var app = {
 
     addOrActivateCoin: function(code, callback) {
       if (code in app.data.wallets && app.data.wallets[code].enabled) {
-        app.wallets[code].setActive();
+        app.wallets[code].setActive(true);
         callback();
       } else if (code in allCoinApis) {
         app.data.addWallet(allCoinApis[code], function(){
           if (app.data.wallets[code].enabled) {
             app.addWalletWidget(app.data.wallets[code]);
-            app.wallets[code].setActive();
+            app.wallets[code].setActive(true);
             callback();
           }
         });

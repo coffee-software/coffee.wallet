@@ -16,6 +16,7 @@ function CoinButton(coin, active, onClick) {
   button.onclick = function(){
     onClick(coin);
   }
+  fastTap(button);
   button.classList.add('coinButton');
   return button;
 }
