@@ -148,6 +148,10 @@ function Wallet(data) {
   this.offlineWallets = data.offlineWallets;
 
   that.touchDiff = 0;
+
+  this.slidingRow.addEventListener('click', function ( event ) {
+    app.flushUxHint('swipe');
+  });
   this.slidingRow.addEventListener('touchstart', function ( event ) {
     that.setActive();
     that.slidingRow.classList.add('touching');
@@ -168,7 +172,6 @@ function Wallet(data) {
     } else if (that.touchDiff < - (that.buttonsLeft.offsetWidth / 2)) {
       that.touchDiff = -that.buttonsLeft.offsetWidth;
     } else {
-      if (Math.abs(that.touchDiff) < 5) app.flushUxHint('swipe');
       that.touchDiff = 0;
       that.unsetActive();
     }

@@ -1482,8 +1482,10 @@ var app = {
 
         if (addr == null) {
           document.getElementById('receiveCoinName').innerHTML = 'Your ' + wallet.handler.code + ' address is:';
+          document.getElementById('receiveCoinNote').innerHTML = '';
         } else {
           document.getElementById('receiveCoinName').innerHTML = '' + wallet.handler.code + ' offline address:';
+          document.getElementById('receiveCoinNote').innerHTML = 'This is an imported address,<br/> use it only if you control its private key!';
         }
 
         document.getElementById('receiveCoinAddr').value = (typeof addr == 'undefined' ? wallet.data.addr : addr);
