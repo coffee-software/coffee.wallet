@@ -24,9 +24,9 @@
 
     document.write('<div>');
     document.write('<div id="supported">\n');
-    document.write('<h2>Coins with Local Wallet Support (Alphabetical order)</h2>\n');
+    document.write('<h2>Coins with Local Wallet Support (market cap order)</h2>\n');
     document.write('<p>You can store those coins in Coffee Wallet</p>\n');
-    Object.keys(allCoinApis).sort().forEach(function(c) {
+    Object.keys(allCoinApis).forEach(function(c) {
       if (('newPrivateKey' in allCoinApis[c]) && (!('testCoin' in allCoinApis[c]) || (!allCoinApis[c].testCoin))) {
         document.write('<div class="coin">\n');
         document.write('<h4>' + allCoinApis[c].longname + ' (<strong>' + allCoinApis[c].code + '</strong>)</h4>\n');
@@ -44,7 +44,7 @@
     });
     document.write('</div>\n');
     document.write('<div id="others">\n');
-    document.write('<h2>Other Coins (Alphabetical order)</h2>\n');
+    document.write('<h2>Other Coins (alphabetical order)</h2>\n');
     document.write('<p>You can track those coins portfolio using Coffee Wallet</p>\n');
     document.write('<ul>\n');
     Object.keys(allCoinApis).sort().forEach(function(c) {
