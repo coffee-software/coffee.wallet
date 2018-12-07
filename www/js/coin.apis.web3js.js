@@ -54,17 +54,20 @@ var Web3JsBaseHandler = {
   addrFromPrivateKey: function(priv) {
     return this._getProvider().eth.accounts.privateKeyToAccount(priv).address;
   },
-  getBalance: function(addr, callback) {
+  getBalance: function(addr, callback, errorCallback) {
     var that = this;
     try {
       this._getProvider().eth.getBalance(addr).then(function(val){
         //console.log(val);
         //TODO consider unconfirmed?
         callback(val, '0');
+      }).catch(function(e) {
+        errorCallback(e, that.code);
+        app.setNoNetError();
       });
     } catch (err) {
-      app.alertError(err.message, that.code);
-      callback('0', '0');
+      errorCallback(err.message, that.code);
+      app.setNoNetError();
     }
   },
   _getTransaction: function(account, receiver, amount, fee) {
@@ -169,12 +172,15 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
   _getProvider: Web3JsBaseHandler.getTestnetProvider,
   feeCoin: EthTestHandler,
 
-  getBalance: function(addr, callback){
+  getBalance: function(addr, callback, errorCallback){
     var c = this._getProvider().eth.Contract;
     var contract = new c(this.ethAbi, this.ethContractAddr);
     var that = this;
     contract.methods.balanceOf(addr).call().then(function(val){
       callback(val, '0');
+    }).catch(function(e) {
+      errorCallback(e, that.code);
+      app.setNoNetError();
     });
   },
   _getTransaction: function(account, receiver, amount, fee) {

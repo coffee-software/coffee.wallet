@@ -209,6 +209,9 @@ function Wallet(data) {
         }
         that.refreshOffline(false);
         callback();
+      }, function(error, code) {
+        app.alertError(error, code);
+        if (typeof callback != 'undefined') callback();
       });
     } else {
       that.refreshOffline(false);
@@ -258,6 +261,9 @@ function Wallet(data) {
           that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
           that.updateOnlineValue();
         }
+        if (typeof callback != 'undefined') callback();
+      }, function(error, code) {
+        app.alertError(error, code);
         if (typeof callback != 'undefined') callback();
       });
     } else {

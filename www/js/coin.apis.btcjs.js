@@ -28,9 +28,14 @@ var BitcoinJsBaseHandler = {
     floatValueToSystemValue: function(f){
       return Math.round(f * Math.pow(10, 8));
     },
-    getBalance: function(addr, callback) {
+    getBalance: function(addr, callback, errorCallback) {
       var that = this;
-      return btcjs.getBalance(this.network, addr, function (balance, pending) {callback(balance + pending, pending)}, function (error){app.alertError(error, that.code);});
+      return btcjs.getBalance(this.network, addr, function (balance, pending) {
+        callback(balance + pending, pending);
+      }, function (error){
+        errorCallback(error, that.code);
+        app.setNoNetError();
+      });
     },
     sendPayment: function(priv, receiver, amount, fee) {
       var that = this;

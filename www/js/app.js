@@ -35,6 +35,15 @@ var app = {
 
     scrollToTargetTimer: null,
 
+    netError: false,
+
+    setNoNetError : function() {
+      this.netError = true;
+      if (!this.spinning) {
+        document.getElementById('refresh').children[0].src = "icons/nonet.png";
+      }
+    },
+
     scrollToTarget : function(){
 
       var width = document.scrollingElement.offsetWidth;
@@ -176,9 +185,14 @@ var app = {
         document.getElementById('refresh').classList.toggle('spinning', that.spinning);
         if (that.spinning) {
           setTimeout(spinner, 1000);
+        } else {
+          //dependant
+          document.getElementById('refresh').children[0].src = that.netError ? "icons/nonet.png" : "icons/refreshall.png";
         }
       };
       that.spinning = true;
+      that.netError = false;
+      document.getElementById('refresh').children[0].src = "icons/refreshall.png";
       spinner();
       app.updateAllValues();
       this.priceProvider.updatePrices(function(){
@@ -1396,6 +1410,8 @@ var app = {
             //TODO check by txses if this is empty or already withdrawn
             app.alertInfo('Escrow balance is empty. If this is a fresh transfer please try again in a minute.');
           }
+        }, function (error, code){
+          app.alertError(error, code);
         });
       });
     },
