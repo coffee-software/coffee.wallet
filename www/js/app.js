@@ -352,20 +352,21 @@ var app = {
 
       app.authenticateBeforeContinue(
         'Backup Wallets',
-        'On the next screen, you will see your 12-word BIP39 mnemonic passphrase. It might be used to recover your keys if you loose access to this device. <br/><ul>' +
+        'On the next screen, you will see your 12-word BIP39 recovery passphrase. It might be used to recover your keys if you loose access to this device. <br/><ul>' +
         '<li>Don\'t show your mnemonic to anyone.</li>' +
         '<li>Do not take a screenshot.</li>' +
         '<li>Do not send it over unencrypted network.</li>' +
         '<li>Write it down and store in a secure location.</li></ul>',
         function() {
+            app.settings.set('keyBackedUp', false);
             app.confirmBeforeContinue(
               'your backup phrase',
               mnemonicMessage,
               function() {
                 app.settings.set('keyBackedUp', true);
               },
-              'backup&nbsp;made',
-              'remind&nbsp;later'
+              'done'
+              //'remind&nbsp;later'
             );
         }
       );
@@ -696,7 +697,7 @@ var app = {
                     app.addOrActivateCoin(coin.code, function(){
                       coin._button.classList.add('active');
                     });
-                  }, 400);
+                  }, 100);
                 });
             }
             allCoins.appendChild(coin._button);
@@ -1565,6 +1566,105 @@ var app = {
       setTimeout(function(){document.getElementById('uxHint').classList.remove('blink');}, 1000);
     },
 
+    recoverWallet: function(invalidMnemonic) {
+      var input = document.createElement("textarea");
+      input.id = input.name = "mnemonic";
+      input.rows = "3";
+      var cancelHandler = app.createNewWallet.bind(app);
+      app.confirmBeforeContinue(
+        'Recover Wallet',
+        '<p>Enter your recovery phrase.</p><p>Recovery phrase should be 12 english lowercase words separated by single spaces.</p>',
+        function() {
+          document.getElementById('lockPopupCancel').removeEventListener("click", cancelHandler);
+          var mnemonic = input.value.split(' ').map(function(e){ return e.trim().toLowerCase();}).filter(function (e) {return e != '';}).join(' ');
+          if (btcjs.validateMnemonic(mnemonic)) {
+            //validate
+            app.data.wallets.bip39 = {
+              enabled : false,
+              mnemonic: mnemonic,
+              seedHex: btcjs.mnemonicToSeedHex(mnemonic)
+            };
+            app.data.save();
+            app.initRecoveredWallet();
+          } else {
+            app.recoverWallet(mnemonic);
+          }
+        },
+        'recover',
+        'cancel'
+      );
+      document.getElementById('lockPopupCancel').addEventListener("click", cancelHandler);
+      document.getElementById('lockMessage').appendChild(input);
+      if (typeof invalidMnemonic != "undefined") {
+        input.value = invalidMnemonic;
+        var div = document.createElement("div");
+        div.className = "red";
+        div.innerHTML = "this phrase is invalid!";
+        document.getElementById('lockMessage').appendChild(div);
+      }
+    },
+
+    initNewWallet: function() {
+      app.addOrActivateCoin('BTC', function(){
+        app.addOrActivateCoin('ETH', function(){
+          app.confirmBeforeContinue(
+            'Wallet Created',
+            '<p>New random recovery phrase for all your wallets has been created. It is <b>extremely important</b> that you backup this phrase in case you lose access to this device. '+
+            'You can do this at any time using "backup wallets" menu option.</p>' +
+            '<div style="text-align:center">' +
+            '<img src="coins/btc.svg" alt="BTC">&nbsp; &nbsp; &nbsp;' +
+            '<img src="coins/eth.svg" alt="ETH">' +
+            '</div>' +
+            '<p>Bitcoin and Ethereum wallets are already added for your convinience. You can add different coins using "add currencies" option. Use "help" menu option for more info. </p>',
+            function() {},
+            'ok'
+          );
+        });
+      });
+    },
+
+    initRecoveredWallet: function() {
+      app.confirmBeforeContinue(
+        'Wallet Recovered',
+        '<p>All your new wallets will be generated using your recovery phrase.<p>' +
+        '<p>Please <strong>add currencies</strong> you were holding and refresh balances.<p>',
+        function() {
+        }),
+        'ok';
+
+    },
+
+    createNewWallet: function() {
+
+      app.confirmBeforeContinue(
+        'Welcome!',
+        '<p>' +
+        'Coffee Wallet is an open source, cross-platform, multi-currency blockchain wallet and portfolio.' +
+        '</p>' +
+        '<p>' +
+        'It has been built with extreme care, but it comes with <b>no warranties</b> of any kind. ' +
+        'Coffee Wallet does not provide financial services. It uses third party providers to access blockchains.' +
+        '</p>' +
+        '<p>' +
+        'All private keys are generated from a secure seed recovery phrase that will now be generated. ' +
+        'If you already have your secret phrase you can <a href="javascript:app.recoverWallet()">recover your wallet</a>.' +
+        '</p>',
+        function() {
+          var mnemonic = btcjs.generateNewMnemonic();
+          app.data.wallets.bip39 = {
+            enabled : false,
+            mnemonic: mnemonic,
+            seedHex: btcjs.mnemonicToSeedHex(mnemonic)
+          };
+          app.data.save();
+          app.initNewWallet();
+        },
+        'create wallet'
+        //document.getElementById('lockMessage').appendChild();
+      );
+
+    },
+
     onDeviceReady: function() {
 
         this.setPriceProvider(allPriceProviders[this.settings.get('priceProvider', 0)]);
@@ -1582,36 +1682,7 @@ var app = {
             navigator.splashscreen.hide();
 
             if (!('bip39' in this.data.wallets)) {
-              var mnemonic = btcjs.generateNewMnemonic();
-              this.data.wallets.bip39 = {
-                enabled : false,
-                mnemonic: mnemonic,
-                seedHex: btcjs.mnemonicToSeedHex(mnemonic)
-              };
-              app.confirmBeforeContinue(
-                'Important Warning!',
-                '<p>' +
-                'Although Coffee Wallet has been built with extreme care, it comes with <b>absolutely no warranties</b> of any kind. ' +
-                'This open source application uses third party providers to access blockchains. ' +
-                'This application nor its creators does not provide financial services of any kind.' +
-                '</p><p>' +
-                'Please also have in mind the intended usage: ' +
-                'Keep majority of your funds in a secured location (like a hardware wallet) and watch them using right hand side, portfolio column. ' +
-                'Use left hand side, wallets column to store your "pocket money" that you can afford to lose in case your device gets hacked / stolen etc.' +
-                '</p><p>' +
-                'Please consider donating if you want to make this app better.' +
-                '</p>',
-                function() {
-                  app.confirmBeforeContinue(
-                    'New Wallet',
-                    '<p>New random mnemonic was created. You can see it using "backup wallets" menu option.</p>' +
-                    '<p>Backup this 12-word phrase because it is used in compilance with BIP39 to generate private keys for all your online wallets.</p>',
-                    function() {
-                      app.data.save();
-                    }
-                  );
-                }
-              );
+              app.createNewWallet();
             } else {
               app.showChangelogIfVersionUpdated() || app.showExportKeysReminderIfRequired();
             }

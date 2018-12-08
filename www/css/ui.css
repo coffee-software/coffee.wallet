@@ -147,14 +147,15 @@ input.dark {
 
 textarea {
    resize: none;
-   padding: 9px 0;
-   font-size: 15px;
+   font-size: 14px;
    width: 100%;
-   border:none;
+   border: none;
+   padding: 9px;
    margin: 0;
-   background: none;
+   background: #463f3a;
    color: #f7f5f2;
    font-family: 'Poppins', serif;
+   box-sizing: border-box;
 }
 *:focus {
   outline: none;
@@ -202,6 +203,10 @@ input.has-unit {
     position: absolute;
     left: 0;
     right: 0;
+}
+
+.red {
+  color: #f36040;
 }
 
 .field.invalid .legend {
@@ -398,4 +403,8 @@ table.niceTable th {
   text-align: left;
   padding-top: 7px;
   font-weight: 100;
+}
+
+a {
+  color: #766054;
 }

@@ -632,6 +632,7 @@ body.electron .listingRow .buttons {
     line-height: normal;
     margin: 0;
     padding: 2% 6%;
+    text-align: center;
 }
 
 #lockMessage {
@@ -719,12 +720,19 @@ a:active {
   margin-left: -120px;
   font-size: 14px;
 }
-.receiveAddr textarea {
+
+textarea#receiveCoinAddr {
   font-size: 12px;
+  padding: 9px 0;
   text-align: center;
   display: block;
   line-height: 18px;
   height: 18px;
+  background: none;
+}
+
+textarea#mnemonic {
+  font-size: 17px;
 }
 
 #receiveCoinQrcode {
