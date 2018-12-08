@@ -19,9 +19,19 @@ function versionCompare(v1, v2) {
   return 0;
 }
 
-window.version = '0.7.4';
+window.version = '0.8.0';
 window.changelog = [
-   {
+  {
+   version: '0.8.0',
+   date: '2018-12-08',
+   changes: [
+     'added: more ERC20 tokens',
+     'added: recover wallet feature',
+     'added: more info for new user setup',
+     'fixed: lots of minor bugs',
+   ]
+  },
+  {
     version: '0.7.0',
     date: '2018-11-18',
     changes: [
