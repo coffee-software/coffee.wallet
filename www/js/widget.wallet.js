@@ -246,7 +246,9 @@ function Wallet(data) {
 
         if (that.data.systemBalance != balance) {
           var floatBalance = that.handler.systemValueToFloatValue(balance);
-
+          if (typeof that.data.systemBalance == 'undefined') {
+            that.data.systemBalance = 0;
+          }
           var cmp = that.handler.systemValuesCompare(that.data.systemBalance, balance);
           if (cmp == 1) {
             app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(that.data.systemBalance, balance)) + ' less on your ' + that.handler.code + ' wallet');
