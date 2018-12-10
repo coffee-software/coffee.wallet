@@ -99,6 +99,21 @@ section.beans {
     border-radius: inherit;
 }
 
+.badges-small .btn-sewed {
+  padding: 1.3em 1.3em 1.3em 3.3em;
+  font-size: 16px;
+}
+
+.badges-small .btn-sewed i.fa {
+  font-size: 20px;
+  margin-top: -11px;
+  left: 22px;
+}
+
+.badges-small .btn-sewed:before {
+  border-width: 1px;
+}
+
 a {
   color: #ecdec6;
 }
@@ -136,6 +151,9 @@ section.features .feature-item i {
     -webkit-text-fill-color: transparent;
 }
 
+section.download {
+    padding: 130px 0;
+}
 
 footer p {
     line-height: 26px;

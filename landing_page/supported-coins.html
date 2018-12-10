@@ -4,41 +4,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Coffee Wallet, crypto currencies wallet and portfolio">
-    <meta name="author" content="Franciszek Szczepan Wawrzak">
+    <meta name="author" content="Coffee Software">
     <title>Supported Currencies - Coffee Wallet</title>
 
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link href="css/new-age.min.css" rel="stylesheet">
+    <link href="css/wallet.css?v3" rel="stylesheet">
+
     <link href="css/pages.css" rel="stylesheet">
 
-    <script type="text/javascript" src="appwww/vendor/web3.min.js"></script>
+    <!--script type="text/javascript" src="appwww/vendor/web3.min.js"></script>
     <script type="text/javascript" src="appwww/vendor/btcjs.js"></script>
     <script type="text/javascript" src="appwww/js/core.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.btcjs.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.web3js.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.cmc.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.js"></script>
-    <!--script type="text/javascript">
+    <script type="text/javascript">
 
     document.write('<div>');
     document.write('<div id="supported">\n');
-    document.write('<h2>Coins with Local Wallet Support (market cap order)</h2>\n');
-    document.write('<p>You can store those coins in Coffee Wallet</p>\n');
+    document.write('<p>This coins have a full wallet support. You can generate an address for this coins, send and receive them in Coffee Wallet.</p>\n');
     Object.keys(allCoinApis).forEach(function(c) {
       if (('newPrivateKey' in allCoinApis[c]) && (!('testCoin' in allCoinApis[c]) || (!allCoinApis[c].testCoin))) {
         document.write('<div class="coin">\n');
+        document.write('<img src="appwww/coins/' + allCoinApis[c].icon + '.svg"/>\n');
         document.write('<h4>' + allCoinApis[c].longname + ' (<strong>' + allCoinApis[c].code + '</strong>)</h4>\n');
-        document.write('<img src="appwww/coins/' + allCoinApis[c].icon + '.svg"/><br/>\n');
-        document.write('<p>\n');
+        document.write('<div class="details">\n');
         document.write(allCoinApis[c].description + '\n');
-        document.write('</p>\n');
-        document.write('<ul>\n');
+        document.write('<ul class="links">\n');
         for (var n in allCoinApis[c].links) {
           document.write('<li><a href="' + allCoinApis[c].links[n] + '" target="_blank">' + n + '</a></li>\n');
         }
         document.write('</ul>\n');
+        document.write('</div>\n');
         document.write('</div>\n');
       }
     });
@@ -58,597 +63,603 @@
     document.write('</div>\n');
     document.write('</div>\n');
   </script-->
-  <style type="text/css">
-    #page ul {
-      list-style-type: none;
-      overflow: auto;
-    }
-    #page ul li {
-      float: left;
-    }
-
-    .coin p {
-      height: 100px;
-      overflow: hidden;
-    }
-    #supported {
-      overflow: auto;
-    }
-  </style>
   </head>
   <body>
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="https://wallet.coffee/">Coffee Wallet</a>
+        <a class="navbar-brand js-scroll-trigger" href="https://wallet.coffee/">Coffee Wallet</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://wallet.coffee/#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://wallet.coffee/#download">Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://wallet.coffee/#features">Features</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
-    <div id="page" class="container">
-      <div><div id="supported">
-<h2>Coins with Local Wallet Support (Alphabetical order)</h2>
-<p>You can store those coins in Coffee Wallet</p>
-<div class="coin">
-<h4>Aeternity (<strong>AE</strong>)</h4>
-<img src="appwww/coins/ae.svg"><br>
-<p>
-Scalable smart contracts interfacing with real world data.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d" target="_blank">etherscan.io</a></li>
-<li><a href="https://www.aeternity.com/" target="_blank">aeternity.com</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>AION (<strong>AION</strong>)</h4>
-<img src="appwww/coins/aion.svg"><br>
-<p>
-A multi-tier blockchain system designed to address unsolved questions of scalability, privacy, and interoperability in blockchain networks
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x4CEdA7906a5Ed2179785Cd3A40A69ee8bc99C466" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/aion/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://aion.network/" target="_blank">aion.network</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Aurora (<strong>AOA</strong>)</h4>
-<img src="appwww/coins/aoa.svg"><br>
-<p>
-Aurora Chain offers intelligent application isolation and enables multi-chain parallel expansion to create an extremely high TPS with security maintain.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x9ab165d795019b6d8b3e971dda91071421305e5a" target="_blank">etherscan.io</a></li>
-<li><a href="https://www.aurorachain.io/" target="_blank">aurorachain.io</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Basic Attention Token (<strong>BAT</strong>)</h4>
-<img src="appwww/coins/bat.svg"><br>
-<p>
-The Basic Attention Token is the new token for the digital advertising industry.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x0d8775f648430679a709e98d2b0cb6250d2887ef" target="_blank">etherscan.io</a></li>
-<li><a href="https://basicattentiontoken.org/" target="_blank">basicattentiontoken.org</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Binance Coin (<strong>BNB</strong>)</h4>
-<img src="appwww/coins/bnb.svg"><br>
-<p>
-Binance aims to build a world-class crypto exchange, powering the future of crypto finance.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xB8c77482e45F1F44dE1745F52C74426C631bDD52" target="_blank">etherscan.io</a></li>
-<li><a href="https://www.binance.com/" target="_blank">binance.com</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Bancor (<strong>BNT</strong>)</h4>
-<img src="appwww/coins/bnt.svg"><br>
-<p>
-Bancor Protocol is a standard for a new generation of cryptocurrencies called Smart Tokens
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x1f573d6fb3f13d689ff844b4ce37794d79a7ff1c" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/bancor/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://bancor.network/" target="_blank">bancor.network</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Bitcoin (<strong>BTC</strong>)</h4>
-<img src="appwww/coins/btc.svg"><br>
-<p>
-via Wikpedia: Bitcoin is a cryptocurrency and worldwide payment system. It is the first decentralized digital currency, as the system works without a central bank or single administrator. The network is peer-to-peer and transactions take place between users directly, without an intermediary. These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain. Bitcoin was invented by an unknown person or group of people under the name Satoshi Nakamoto and released as open-source software in 2009.
-</p>
-<ul>
-<li><a href="https://bitcoin.org/" target="_blank">bitcoin.org</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Bytom (<strong>BTM</strong>)</h4>
-<img src="appwww/coins/btm.svg"><br>
-<p>
-Transfer assets from atomic world to byteworld
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750" target="_blank">etherscan.io</a></li>
-<li><a href="https://bytom.io/" target="_blank">bytom.io</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Coffee Token (<strong>CFT</strong>)</h4>
-<img src="appwww/coins/cft.svg"><br>
-<p>
-Coffee Token is an utility token for Coffee Wallet Project.
-</p>
-<ul>
-<li><a href="https://tokens.coffee/" target="_blank">tokens.coffee</a></li>
-<li><a href="https://etherscan.io/token/0x5bf2390a68ab7db7d27ae81894c4e22e669af236" target="_blank">etherscan.io</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Dai (<strong>DAI</strong>)</h4>
-<img src="appwww/coins/dai.svg"><br>
-<p>
 
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/dai/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://makerdao.com/" target="_blank">makerdao.com</a></li>
+    <header class="page-header">
+      <h1 class="container">Supported Cryptocurrencies</h1>
+    </header>
+
+    <section class="bg-primary">
+    <div class="container">
+      <div><div id="supported">
+<p>This coins have a full wallet support. You can use Coffee Wallet to store, accept and send them.</p>
+<div class="coin">
+<img src="appwww/coins/ltc.svg">
+<h4>Litecoin (<strong>LTC</strong>)</h4>
+<div class="details">
+via litecoin.org: Litecoin is a peer-to-peer Internet currency that enables instant, near-zero cost payments to anyone in the world. Litecoin is an open source, global payment network that is fully decentralized without any central authorities. Mathematics secures the network and empowers individuals to control their own finances. Litecoin features faster transaction confirmation times and improved storage efficiency than the leading math-based currency. With substantial industry support, trade volume and liquidity, Litecoin is a proven medium of commerce complementary to Bitcoin.
+<ul class="links">
+<li><a href="https://litecoin.org/" target="_blank">litecoin.org</a></li>
 </ul>
 </div>
+</div>
 <div class="coin">
+<img src="appwww/coins/doge.svg">
 <h4>Dogecoin (<strong>DOGE</strong>)</h4>
-<img src="appwww/coins/doge.svg"><br>
-<p>
+<div class="details">
 Dogecoin is a decentralized, peer-to-peer digital currency that enables you to easily send money online. Think of it as "the internet currency."
-</p>
-<ul>
+<ul class="links">
 <li><a href="https://cogecoin.com/" target="_blank">dogecoin.com</a></li>
 <li><a href="https://coinmarketcap.com/currencies/dogecoin/" target="_blank">CoinMarketCap</a></li>
 </ul>
 </div>
-<div class="coin">
-<h4>aelf (<strong>ELF</strong>)</h4>
-<img src="appwww/coins/elf.svg"><br>
-<p>
-elf is a decentralized self-evolving cloud computing blockchain network that aims to provide a high performance platform for commercial adoption of blockchain.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xbf2179859fc6d5bee9bf9158632dc51678a4100e" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/aelf/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="http://aelf.io/" target="_blank">aelf.io</a></li>
-</ul>
 </div>
 <div class="coin">
+<img src="appwww/coins/btc.svg">
+<h4>Bitcoin (<strong>BTC</strong>)</h4>
+<div class="details">
+via Wikpedia: Bitcoin is a cryptocurrency and worldwide payment system. It is the first decentralized digital currency, as the system works without a central bank or single administrator. The network is peer-to-peer and transactions take place between users directly, without an intermediary. These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain. Bitcoin was invented by an unknown person or group of people under the name Satoshi Nakamoto and released as open-source software in 2009.
+<ul class="links">
+<li><a href="https://bitcoin.org/" target="_blank">bitcoin.org</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/eth.svg">
 <h4>Ethereum (<strong>ETH</strong>)</h4>
-<img src="appwww/coins/eth.svg"><br>
-<p>
+<div class="details">
 via Wikipedia: Ethereum is an open-source, public, blockchain-based distributed computing platform and operating system featuring smart contract (scripting) functionality. Along with Bitcoin, Ethereum is considered to be one of the pioneer platforms in distributed ledger and blockchain technology.
-</p>
-<ul>
+<ul class="links">
 <li><a href="https://ethereum.org/" target="_blank">ethereum.org</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Ethereum" target="_blank">Wikpedia</a></li>
 </ul>
 </div>
-<div class="coin">
-<h4>Golem (<strong>GNT</strong>)</h4>
-<img src="appwww/coins/gnt.svg"><br>
-<p>
-Golem is going to create the first decentralized global market for computing power
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xa74476443119A942dE498590Fe1f2454d7D4aC0d" target="_blank">etherscan.io</a></li>
-<li><a href="https://golem.network/" target="_blank">golem.network</a></li>
-</ul>
 </div>
 <div class="coin">
-<h4>Gemini dollar (<strong>GUSD</strong>)</h4>
-<img src="appwww/coins/gusd.svg"><br>
-<p>
-Gemini dollar combines the creditworthiness and price stability of the U.S. dollar with blockchain technology and the oversight of U.S. regulators.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x056fd409e1d7a124bd7017459dfea2f387b6d5cd" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/gemini-dollar/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://gemini.com/dollar/" target="_blank">gemini.com/dollar</a></li>
+<img src="appwww/coins/bnb.svg">
+<h4>Binance Coin (<strong>BNB</strong>)</h4>
+<div class="details">
+Binance aims to build a world-class crypto exchange, powering the future of crypto finance.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xB8c77482e45F1F44dE1745F52C74426C631bDD52" target="_blank">etherscan.io</a></li>
+<li><a href="https://www.binance.com/" target="_blank">binance.com</a></li>
 </ul>
 </div>
-<div class="coin">
-<h4>HoloToken (<strong>HOT</strong>)</h4>
-<img src="appwww/coins/hot.svg"><br>
-<p>
-Holo is a decentralized hosting platform and a new breed of asset-backed, mutual-credit cryptocurrency based on Holochain. Holochain is a massively scalable, agent-centric post-blockchain development framework for distributed applications.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x6c6ee5e31d828de241282b9606c8e98ea48526e2" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/holo/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://holo.host/" target="_blank">holo.host</a></li>
-</ul>
 </div>
 <div class="coin">
-<h4>Huobi Token (<strong>HT</strong>)</h4>
-<img src="appwww/coins/ht.svg"><br>
-<p>
-Huobi Global is a world-leading cryptocurrency financial services group.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x6f259637dcd74c767781e37bc6133cd6a68aa161" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/huobi-token/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://www.huobipro.com/" target="_blank">huobipro.com</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>ICON (<strong>ICX</strong>)</h4>
-<img src="appwww/coins/icx.svg"><br>
-<p>
-The ICON Network is comprised of various institutions ranging from: financial institutions, insurance companies, hospitals, universities and more.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xb5a5f22694352c15b00323844ad545abb2b11028" target="_blank">etherscan.io</a></li>
-<li><a href="https://icon.foundation/" target="_blank">icon.foundation</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Insight Chain (<strong>INB</strong>)</h4>
-<img src="appwww/coins/inb.svg"><br>
-<p>
-Insight Chain is an EOS-based data ecosystem on the blockchain, works on building Wall Street-like financial order in the blockchain domain.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x17aa18a4b64a55abed7fa543f2ba4e91f2dce482" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/insight-chain/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="http://www.insightchain.io/" target="_blank">insightchain.io</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>IOSToken (<strong>IOST</strong>)</h4>
-<img src="appwww/coins/iost.svg"><br>
-<p>
-A Secure &amp; Scalable Blockchain for Smart Services
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xfa1a856cfa3409cfa145fa4e20eb270df3eb21ab" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/iostoken/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://iost.io/" target="_blank">iost.io</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>ChainLink Token (<strong>LINK</strong>)</h4>
-<img src="appwww/coins/link.svg"><br>
-<p>
-The LINK Network provides smart contracts with data, bank payments and access to APIs.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca" target="_blank">etherscan.io</a></li>
-<li><a href="https://link.smartcontract.com/" target="_blank">link.smartcontract.com</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Linkey Token (<strong>LKY</strong>)</h4>
-<img src="appwww/coins/lky.svg"><br>
-<p>
-A platform to connect digital assets to real community.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x49bd2da75b1f7af1e4dfd6b1125fecde59dbec58" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/linkey/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://www.linkey.info/" target="_blank">linkey.info</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Loopring (<strong>LRC</strong>)</h4>
-<img src="appwww/coins/lrc.svg"><br>
-<p>
-Loopring is not only a protocol but also a decentralized automated execution system that trades across the crypto-token exchanges.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xef68e7c694f40c8202821edf525de3782458639f" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/loopring/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://loopring.org/" target="_blank">loopring.org</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Litecoin (<strong>LTC</strong>)</h4>
-<img src="appwww/coins/ltc.svg"><br>
-<p>
-via litecoin.org: Litecoin is a peer-to-peer Internet currency that enables instant, near-zero cost payments to anyone in the world. Litecoin is an open source, global payment network that is fully decentralized without any central authorities. Mathematics secures the network and empowers individuals to control their own finances. Litecoin features faster transaction confirmation times and improved storage efficiency than the leading math-based currency. With substantial industry support, trade volume and liquidity, Litecoin is a proven medium of commerce complementary to Bitcoin.
-</p>
-<ul>
-<li><a href="https://litecoin.org/" target="_blank">litecoin.org</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Decentraland (<strong>MANA</strong>)</h4>
-<img src="appwww/coins/mana.svg"><br>
-<p>
-Decentraland is a virtual reality platform powered by the Ethereum blockchain. Users can create, experience, and monetize content and applications
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x0f5d2fb29fb7d3cfee444a200298f468908cc942" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/decentraland/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://decentraland.org/" target="_blank">decentraland.org</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Crypto.com (<strong>MCO</strong>)</h4>
-<img src="appwww/coins/mco.svg"><br>
-<p>
-Crypto.com, the pioneering payments and cryptocurrency platform, seeks to accelerate the world’s transition to cryptocurrency.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xb63b606ac810a52cca15e44bb630fd42d8d1d83d" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/mco/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://crypto.com" target="_blank">crypto.com</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>MobileGo (<strong>MGO</strong>)</h4>
-<img src="appwww/coins/mgo.svg"><br>
-<p>
-A dedicated token to bring eSports to everyone.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x40395044Ac3c0C57051906dA938B54BD6557F212" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/mobilego/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://mobilego.io/" target="_blank">mobilego.io</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Maker (<strong>MKR</strong>)</h4>
-<img src="appwww/coins/mkr.svg"><br>
-<p>
-Maker is a Decentralized Autonomous Organization that creates and insures the dai stablecoin on the Ethereum blockchain
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2" target="_blank">etherscan.io</a></li>
-<li><a href="https://makerdao.com/" target="_blank">makerdao.com</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Nexo (<strong>NEXO</strong>)</h4>
-<img src="appwww/coins/nexo.svg"><br>
-<p>
-Instant Crypto-backed Loans
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/nexo/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://nexo.io/" target="_blank">nexo.io</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Pundi X (<strong>NPXS</strong>)</h4>
-<img src="appwww/coins/npxs.svg"><br>
-<p>
-
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xa15c7ebe1f07caf6bff097d8a589fb8ac49ae5b3" target="_blank">etherscan.io</a></li>
-<li><a href="https://pundix.com/" target="_blank">pundix.com</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>ODEM (<strong>ODE</strong>)</h4>
-<img src="appwww/coins/ode.svg"><br>
-<p>
-Unlocking human potential. Powering your education and certifications on the blockchain
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xbf52f2ab39e26e0951d2a02b49b7702abe30406a" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/odem/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://odem.io/" target="_blank">odem.io</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>OmiseGO (<strong>OMG</strong>)</h4>
-<img src="appwww/coins/omg.svg"><br>
-<p>
-OmiseGO (OMG) is a public Ethereum-based financial technology for use in mainstream digital wallets
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xd26114cd6EE289AccF82350c8d8487fedB8A0C07" target="_blank">etherscan.io</a></li>
-<li><a href="https://omisego.network/" target="_blank">omisego.network</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Paxos Standard (<strong>PAX</strong>)</h4>
-<img src="appwww/coins/pax.svg"><br>
-<p>
-Paxos Standard is regulated crypto asset. It is fully collateralized 1:1 by the U.S. dollar, approved and regulated by the NYDFS, and enables instantaneous transactions.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x8e870d67f660d95d5be530380d0ec0bd388289e1" target="_blank">etherscan.io</a></li>
-<li><a href="https://www.paxos.com/standard/" target="_blank">paxos.com/standard</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>TenX (<strong>PAY</strong>)</h4>
-<img src="appwww/coins/pay.svg"><br>
-<p>
-TenX connects your blockchain assets for everyday use. TenX’s debit card and banking licence will allow us to be a hub for the blockchain ecosystem to connect for real-world use cases.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xB97048628DB6B661D4C2aA833e95Dbe1A905B280" target="_blank">etherscan.io</a></li>
-<li><a href="http://www.tenx.tech/" target="_blank">tenx.tech</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Polymath (<strong>POLY</strong>)</h4>
-<img src="appwww/coins/poly.svg"><br>
-<p>
-Polymath aims to enable securities to migrate to the blockchain.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x9992ec3cf6a55b00978cddf2b27bc6882d88d1ec" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/polymath-network/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://www.polymath.network/" target="_blank">polymath.network</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Populous (<strong>PPT</strong>)</h4>
-<img src="appwww/coins/ppt.svg"><br>
-<p>
-Aims to rebuild invoice financing block by block, for invoice buyers and sellers.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a" target="_blank">etherscan.io</a></li>
-<li><a href="https://populous.world/" target="_blank">populous.world</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Oyster Pearl (<strong>PRL</strong>)</h4>
-<img src="appwww/coins/prl.svg"><br>
-<p>
-Platform for website monetization and distributed storage, built on IOTA Tangle and Ethereum.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x1844b21593262668b7248d0f57a220caaba46ab9" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/oyster/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://oysterprotocol.com/" target="_blank">oysterprotocol.com</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>QASH (<strong>QASH</strong>)</h4>
-<img src="appwww/coins/qash.svg"><br>
-<p>
-We envision QASH to be the preferred payment token for financial services, like the Bitcoin for financial services. As more financial institutions, fintech startups and partners adopt QASH as a method of payment, the utility of QASH will scale, fueling the Fintech revolution.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x618e75ac90b12c6049ba3b27f5d5f8651b0037f6" target="_blank">etherscan.io</a></li>
-<li><a href="https://liquid.plus/" target="_blank">liquid.plus</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>QuarkChain (<strong>QKC</strong>)</h4>
-<img src="appwww/coins/qkc.svg"><br>
-<p>
-A High-Capacity Peer-to-Peer Transactional System
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xea26c4ac16d4a5a106820bc8aee85fd0b7b2b664" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/quarkchain/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://quarkchain.io/" target="_blank">quarkchain.io</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Revain (<strong>R</strong>)</h4>
-<img src="appwww/coins/r.svg"><br>
-<p>
-Revain is a new-generation feedback platform, based on the blockchain technology that does not allow to change or delete reviews and its authors get rewards for creating them!
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x48f775efbe4f5ece6e0df2f7b5932df56823b990" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/revain/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://revain.org/" target="_blank">revain.org</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Augur (<strong>REP</strong>)</h4>
-<img src="appwww/coins/rep.svg"><br>
-<p>
-Augur combines the magic of prediction markets with the power of a decentralized network to create a stunningly accurate forecasting tool
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x1985365e9f78359a9B6AD760e32412f4a445E862" target="_blank">etherscan.io</a></li>
-<li><a href="https://www.augur.net/" target="_blank">augur.net</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>Status (<strong>SNT</strong>)</h4>
-<img src="appwww/coins/snt.svg"><br>
-<p>
-Status is an open source messaging platform and mobile browser to interact with decentralized applications that run on the Ethereum Network.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x744d70fdbe2ba4cf95131626614a1763df805b9e" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/status/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://status.im/" target="_blank">status.im</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>TrueUSD (<strong>TUSD</strong>)</h4>
-<img src="appwww/coins/tusd.svg"><br>
-<p>
-The TrustToken Platform aims to be the bridge between blockchains and real-world assets.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x8dd5fbce2f6a956c3022ba3663759011dd51e73e" target="_blank">etherscan.io</a></li>
-<li><a href="https://www.trusttoken.com/" target="_blank">trusttoken.com</a></li>
-</ul>
-</div>
-<div class="coin">
-<h4>USD Coin (<strong>USDC</strong>)</h4>
-<img src="appwww/coins/usdc.svg"><br>
-<p>
-USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project and membership consortium, with Circle being the first of several forthcoming issuers.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48" target="_blank">etherscan.io</a></li>
-<li><a href="https://www.centre.io/" target="_blank">centre.io</a></li>
-</ul>
-</div>
-<div class="coin">
+<img src="appwww/coins/ven.svg">
 <h4>VeChain (<strong>VEN</strong>)</h4>
-<img src="appwww/coins/ven.svg"><br>
-<p>
+<div class="details">
 VeChain aims to connect blockchain technology to the real world by providing a comprehensive governance structure, a robust economic model as well as advanced IoT integration.
-</p>
-<ul>
+<ul class="links">
 <li><a href="https://etherscan.io/token/0xd850942ef8811f2a866692a623011bde52a462c1" target="_blank">etherscan.io</a></li>
 <li><a href="https://www.vechain.org/" target="_blank">vechain.org</a></li>
 </ul>
 </div>
-<div class="coin">
-<h4>WAX Token (<strong>WAX</strong>)</h4>
-<img src="appwww/coins/wax.svg"><br>
-<p>
-Global Decentralized Marketplace for Virtual Assets.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x39bb259f66e1c59d5abef88375979b4d20d98022" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/wax/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="https://wax.io/" target="_blank">wax.io</a></li>
-</ul>
 </div>
 <div class="coin">
-<h4>Walton (<strong>WTC</strong>)</h4>
-<img src="appwww/coins/wtc.svg"><br>
-<p>
-Value Internet of Things (VIoT) constructs a perfect commercial ecosystem via the integration of the real world and the blockchain.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74" target="_blank">etherscan.io</a></li>
-<li><a href="https://coinmarketcap.com/currencies/waltonchain/" target="_blank">coinmarketcap.com</a></li>
-<li><a href="http://www.waltonchain.org/" target="_blank">waltonchain.org</a></li>
+<img src="appwww/coins/mkr.svg">
+<h4>Maker (<strong>MKR</strong>)</h4>
+<div class="details">
+Maker is a Decentralized Autonomous Organization that creates and insures the dai stablecoin on the Ethereum blockchain
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2" target="_blank">etherscan.io</a></li>
+<li><a href="https://makerdao.com/" target="_blank">makerdao.com</a></li>
 </ul>
 </div>
-<div class="coin">
-<h4>Zilliqa (<strong>ZIL</strong>)</h4>
-<img src="appwww/coins/zil.svg"><br>
-<p>
-Zilliqa is a high-throughput public blockchain platform - designed to scale to thousands ​of transactions per second.
-</p>
-<ul>
-<li><a href="https://etherscan.io/token/0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27" target="_blank">etherscan.io</a></li>
-<li><a href="https://www.zilliqa.com/" target="_blank">zilliqa.com</a></li>
-</ul>
 </div>
 <div class="coin">
+<img src="appwww/coins/omg.svg">
+<h4>OmiseGO (<strong>OMG</strong>)</h4>
+<div class="details">
+OmiseGO (OMG) is a public Ethereum-based financial technology for use in mainstream digital wallets
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xd26114cd6EE289AccF82350c8d8487fedB8A0C07" target="_blank">etherscan.io</a></li>
+<li><a href="https://omisego.network/" target="_blank">omisego.network</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/zrx.svg">
 <h4>0x (<strong>ZRX</strong>)</h4>
-<img src="appwww/coins/zrx.svg"><br>
-<p>
+<div class="details">
 The Protocol for Trading Tokens
-</p>
-<ul>
+<ul class="links">
 <li><a href="https://etherscan.io/token/0xe41d2489571d322189246dafa5ebde1f4699f498" target="_blank">etherscan.io</a></li>
 <li><a href="https://0xproject.com/" target="_blank">0xproject.com</a></li>
 </ul>
 </div>
 </div>
+<div class="coin">
+<img src="appwww/coins/tusd.svg">
+<h4>TrueUSD (<strong>TUSD</strong>)</h4>
+<div class="details">
+The TrustToken Platform aims to be the bridge between blockchains and real-world assets.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x8dd5fbce2f6a956c3022ba3663759011dd51e73e" target="_blank">etherscan.io</a></li>
+<li><a href="https://www.trusttoken.com/" target="_blank">trusttoken.com</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/bat.svg">
+<h4>Basic Attention Token (<strong>BAT</strong>)</h4>
+<div class="details">
+The Basic Attention Token is the new token for the digital advertising industry.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x0d8775f648430679a709e98d2b0cb6250d2887ef" target="_blank">etherscan.io</a></li>
+<li><a href="https://basicattentiontoken.org/" target="_blank">basicattentiontoken.org</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/pax.svg">
+<h4>Paxos Standard (<strong>PAX</strong>)</h4>
+<div class="details">
+Paxos Standard is regulated crypto asset. It is fully collateralized 1:1 by the U.S. dollar, approved and regulated by the NYDFS, and enables instantaneous transactions.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x8e870d67f660d95d5be530380d0ec0bd388289e1" target="_blank">etherscan.io</a></li>
+<li><a href="https://www.paxos.com/standard/" target="_blank">paxos.com/standard</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/usdc.svg">
+<h4>USD Coin (<strong>USDC</strong>)</h4>
+<div class="details">
+USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project and membership consortium, with Circle being the first of several forthcoming issuers.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48" target="_blank">etherscan.io</a></li>
+<li><a href="https://www.centre.io/" target="_blank">centre.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/zil.svg">
+<h4>Zilliqa (<strong>ZIL</strong>)</h4>
+<div class="details">
+Zilliqa is a high-throughput public blockchain platform - designed to scale to thousands ​of transactions per second.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27" target="_blank">etherscan.io</a></li>
+<li><a href="https://www.zilliqa.com/" target="_blank">zilliqa.com</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/ae.svg">
+<h4>Aeternity (<strong>AE</strong>)</h4>
+<div class="details">
+Scalable smart contracts interfacing with real world data.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d" target="_blank">etherscan.io</a></li>
+<li><a href="https://www.aeternity.com/" target="_blank">aeternity.com</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/icx.svg">
+<h4>ICON (<strong>ICX</strong>)</h4>
+<div class="details">
+The ICON Network is comprised of various institutions ranging from: financial institutions, insurance companies, hospitals, universities and more.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xb5a5f22694352c15b00323844ad545abb2b11028" target="_blank">etherscan.io</a></li>
+<li><a href="https://icon.foundation/" target="_blank">icon.foundation</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/aoa.svg">
+<h4>Aurora (<strong>AOA</strong>)</h4>
+<div class="details">
+Aurora Chain offers intelligent application isolation and enables multi-chain parallel expansion to create an extremely high TPS with security maintain.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x9ab165d795019b6d8b3e971dda91071421305e5a" target="_blank">etherscan.io</a></li>
+<li><a href="https://www.aurorachain.io/" target="_blank">aurorachain.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/link.svg">
+<h4>ChainLink Token (<strong>LINK</strong>)</h4>
+<div class="details">
+The LINK Network provides smart contracts with data, bank payments and access to APIs.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca" target="_blank">etherscan.io</a></li>
+<li><a href="https://link.smartcontract.com/" target="_blank">link.smartcontract.com</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/npxs.svg">
+<h4>Pundi X (<strong>NPXS</strong>)</h4>
+<div class="details">
+
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xa15c7ebe1f07caf6bff097d8a589fb8ac49ae5b3" target="_blank">etherscan.io</a></li>
+<li><a href="https://pundix.com/" target="_blank">pundix.com</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/btm.svg">
+<h4>Bytom (<strong>BTM</strong>)</h4>
+<div class="details">
+Transfer assets from atomic world to byteworld
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750" target="_blank">etherscan.io</a></li>
+<li><a href="https://bytom.io/" target="_blank">bytom.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/gnt.svg">
+<h4>Golem (<strong>GNT</strong>)</h4>
+<div class="details">
+Golem is going to create the first decentralized global market for computing power
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xa74476443119A942dE498590Fe1f2454d7D4aC0d" target="_blank">etherscan.io</a></li>
+<li><a href="https://golem.network/" target="_blank">golem.network</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/rep.svg">
+<h4>Augur (<strong>REP</strong>)</h4>
+<div class="details">
+Augur combines the magic of prediction markets with the power of a decentralized network to create a stunningly accurate forecasting tool
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x1985365e9f78359a9B6AD760e32412f4a445E862" target="_blank">etherscan.io</a></li>
+<li><a href="https://www.augur.net/" target="_blank">augur.net</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/ppt.svg">
+<h4>Populous (<strong>PPT</strong>)</h4>
+<div class="details">
+Aims to rebuild invoice financing block by block, for invoice buyers and sellers.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a" target="_blank">etherscan.io</a></li>
+<li><a href="https://populous.world/" target="_blank">populous.world</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/qash.svg">
+<h4>QASH (<strong>QASH</strong>)</h4>
+<div class="details">
+We envision QASH to be the preferred payment token for financial services, like the Bitcoin for financial services. As more financial institutions, fintech startups and partners adopt QASH as a method of payment, the utility of QASH will scale, fueling the Fintech revolution.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x618e75ac90b12c6049ba3b27f5d5f8651b0037f6" target="_blank">etherscan.io</a></li>
+<li><a href="https://liquid.plus/" target="_blank">liquid.plus</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/mco.svg">
+<h4>Crypto.com (<strong>MCO</strong>)</h4>
+<div class="details">
+Crypto.com, the pioneering payments and cryptocurrency platform, seeks to accelerate the world’s transition to cryptocurrency.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xb63b606ac810a52cca15e44bb630fd42d8d1d83d" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/mco/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://crypto.com" target="_blank">crypto.com</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/hot.svg">
+<h4>HoloToken (<strong>HOT</strong>)</h4>
+<div class="details">
+Holo is a decentralized hosting platform and a new breed of asset-backed, mutual-credit cryptocurrency based on Holochain. Holochain is a massively scalable, agent-centric post-blockchain development framework for distributed applications.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x6c6ee5e31d828de241282b9606c8e98ea48526e2" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/holo/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://holo.host/" target="_blank">holo.host</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/gusd.svg">
+<h4>Gemini dollar (<strong>GUSD</strong>)</h4>
+<div class="details">
+Gemini dollar combines the creditworthiness and price stability of the U.S. dollar with blockchain technology and the oversight of U.S. regulators.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x056fd409e1d7a124bd7017459dfea2f387b6d5cd" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/gemini-dollar/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://gemini.com/dollar/" target="_blank">gemini.com/dollar</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/dai.svg">
+<h4>Dai (<strong>DAI</strong>)</h4>
+<div class="details">
+
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/dai/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://makerdao.com/" target="_blank">makerdao.com</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/wax.svg">
+<h4>WAX Token (<strong>WAX</strong>)</h4>
+<div class="details">
+Global Decentralized Marketplace for Virtual Assets.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x39bb259f66e1c59d5abef88375979b4d20d98022" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/wax/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://wax.io/" target="_blank">wax.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/snt.svg">
+<h4>Status (<strong>SNT</strong>)</h4>
+<div class="details">
+Status is an open source messaging platform and mobile browser to interact with decentralized applications that run on the Ethereum Network.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x744d70fdbe2ba4cf95131626614a1763df805b9e" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/status/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://status.im/" target="_blank">status.im</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/mana.svg">
+<h4>Decentraland (<strong>MANA</strong>)</h4>
+<div class="details">
+Decentraland is a virtual reality platform powered by the Ethereum blockchain. Users can create, experience, and monetize content and applications
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x0f5d2fb29fb7d3cfee444a200298f468908cc942" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/decentraland/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://decentraland.org/" target="_blank">decentraland.org</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/ht.svg">
+<h4>Huobi Token (<strong>HT</strong>)</h4>
+<div class="details">
+Huobi Global is a world-leading cryptocurrency financial services group.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x6f259637dcd74c767781e37bc6133cd6a68aa161" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/huobi-token/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://www.huobipro.com/" target="_blank">huobipro.com</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/r.svg">
+<h4>Revain (<strong>R</strong>)</h4>
+<div class="details">
+Revain is a new-generation feedback platform, based on the blockchain technology that does not allow to change or delete reviews and its authors get rewards for creating them!
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x48f775efbe4f5ece6e0df2f7b5932df56823b990" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/revain/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://revain.org/" target="_blank">revain.org</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/iost.svg">
+<h4>IOSToken (<strong>IOST</strong>)</h4>
+<div class="details">
+A Secure &amp; Scalable Blockchain for Smart Services
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xfa1a856cfa3409cfa145fa4e20eb270df3eb21ab" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/iostoken/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://iost.io/" target="_blank">iost.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/ode.svg">
+<h4>ODEM (<strong>ODE</strong>)</h4>
+<div class="details">
+Unlocking human potential. Powering your education and certifications on the blockchain
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xbf52f2ab39e26e0951d2a02b49b7702abe30406a" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/odem/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://odem.io/" target="_blank">odem.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/mgo.svg">
+<h4>MobileGo (<strong>MGO</strong>)</h4>
+<div class="details">
+A dedicated token to bring eSports to everyone.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x40395044Ac3c0C57051906dA938B54BD6557F212" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/mobilego/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://mobilego.io/" target="_blank">mobilego.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/nexo.svg">
+<h4>Nexo (<strong>NEXO</strong>)</h4>
+<div class="details">
+Instant Crypto-backed Loans
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/nexo/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://nexo.io/" target="_blank">nexo.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/wtc.svg">
+<h4>Walton (<strong>WTC</strong>)</h4>
+<div class="details">
+Value Internet of Things (VIoT) constructs a perfect commercial ecosystem via the integration of the real world and the blockchain.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/waltonchain/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="http://www.waltonchain.org/" target="_blank">waltonchain.org</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/prl.svg">
+<h4>Oyster Pearl (<strong>PRL</strong>)</h4>
+<div class="details">
+Platform for website monetization and distributed storage, built on IOTA Tangle and Ethereum.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x1844b21593262668b7248d0f57a220caaba46ab9" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/oyster/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://oysterprotocol.com/" target="_blank">oysterprotocol.com</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/inb.svg">
+<h4>Insight Chain (<strong>INB</strong>)</h4>
+<div class="details">
+Insight Chain is an EOS-based data ecosystem on the blockchain, works on building Wall Street-like financial order in the blockchain domain.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x17aa18a4b64a55abed7fa543f2ba4e91f2dce482" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/insight-chain/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="http://www.insightchain.io/" target="_blank">insightchain.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/poly.svg">
+<h4>Polymath (<strong>POLY</strong>)</h4>
+<div class="details">
+Polymath aims to enable securities to migrate to the blockchain.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x9992ec3cf6a55b00978cddf2b27bc6882d88d1ec" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/polymath-network/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://www.polymath.network/" target="_blank">polymath.network</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/aion.svg">
+<h4>AION (<strong>AION</strong>)</h4>
+<div class="details">
+A multi-tier blockchain system designed to address unsolved questions of scalability, privacy, and interoperability in blockchain networks
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x4CEdA7906a5Ed2179785Cd3A40A69ee8bc99C466" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/aion/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://aion.network/" target="_blank">aion.network</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/bnt.svg">
+<h4>Bancor (<strong>BNT</strong>)</h4>
+<div class="details">
+Bancor Protocol is a standard for a new generation of cryptocurrencies called Smart Tokens
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x1f573d6fb3f13d689ff844b4ce37794d79a7ff1c" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/bancor/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://bancor.network/" target="_blank">bancor.network</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/lky.svg">
+<h4>Linkey Token (<strong>LKY</strong>)</h4>
+<div class="details">
+A platform to connect digital assets to real community.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0x49bd2da75b1f7af1e4dfd6b1125fecde59dbec58" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/linkey/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://www.linkey.info/" target="_blank">linkey.info</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/elf.svg">
+<h4>aelf (<strong>ELF</strong>)</h4>
+<div class="details">
+elf is a decentralized self-evolving cloud computing blockchain network that aims to provide a high performance platform for commercial adoption of blockchain.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xbf2179859fc6d5bee9bf9158632dc51678a4100e" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/aelf/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="http://aelf.io/" target="_blank">aelf.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/qkc.svg">
+<h4>QuarkChain (<strong>QKC</strong>)</h4>
+<div class="details">
+A High-Capacity Peer-to-Peer Transactional System
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xea26c4ac16d4a5a106820bc8aee85fd0b7b2b664" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/quarkchain/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://quarkchain.io/" target="_blank">quarkchain.io</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/lrc.svg">
+<h4>Loopring (<strong>LRC</strong>)</h4>
+<div class="details">
+Loopring is not only a protocol but also a decentralized automated execution system that trades across the crypto-token exchanges.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xef68e7c694f40c8202821edf525de3782458639f" target="_blank">etherscan.io</a></li>
+<li><a href="https://coinmarketcap.com/currencies/loopring/" target="_blank">coinmarketcap.com</a></li>
+<li><a href="https://loopring.org/" target="_blank">loopring.org</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/pay.svg">
+<h4>TenX (<strong>PAY</strong>)</h4>
+<div class="details">
+TenX connects your blockchain assets for everyday use. TenX’s debit card and banking licence will allow us to be a hub for the blockchain ecosystem to connect for real-world use cases.
+<ul class="links">
+<li><a href="https://etherscan.io/token/0xB97048628DB6B661D4C2aA833e95Dbe1A905B280" target="_blank">etherscan.io</a></li>
+<li><a href="http://www.tenx.tech/" target="_blank">tenx.tech</a></li>
+</ul>
+</div>
+</div>
+<div class="coin">
+<img src="appwww/coins/cft.svg">
+<h4>Coffee Token (<strong>CFT</strong>)</h4>
+<div class="details">
+Coffee Token is an utility token for Coffee Wallet Project.
+<ul class="links">
+<li><a href="https://tokens.coffee/" target="_blank">tokens.coffee</a></li>
+<li><a href="https://etherscan.io/token/0x5bf2390a68ab7db7d27ae81894c4e22e669af236" target="_blank">etherscan.io</a></li>
+</ul>
+</div>
+</div>
+</div>
 <div id="others">
-<h2>Other Coins (Alphabetical order)</h2>
+<h2>Other Coins (alphabetical order)</h2>
 <p>You can track those coins portfolio using Coffee Wallet</p>
 <ul>
 <li><a href="https://coinmarketcap.com/currencies/paccoin/" target="_blank">PACcoin (<strong>$PAC</strong>)</a></li>
@@ -2609,5 +2620,40 @@ The Protocol for Trading Tokens
 </div>
 
   </div>
+</section>
+  <footer>
+    <div class="container">
+<div class="row">
+    <div class="col-md-6">
+        <p class="pull-left">&copy; 2018 <a href="http://software.coffee/">Coffee Software Ltd</a>. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6">
+
+      <ul class="list-inline pull-right">
+        <li class="list-inline-item">
+          <a class="social-link" target="_blank" href="https://www.reddit.com/r/CoffeeWallet/">
+  <i class="icon-social-reddit"></i>
+    </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link" target="_blank" href="https://twitter.com/CoffeeWallet">
+      <i class="icon-social-twitter"></i>
+    </a>
+        </li>
+        <li class="list-inline-item">
+    <a class="social-link" target="_blank" href="https://github.com/fsw/coffee.wallet">
+      <i class="icon-social-github"></i>
+    </a>
+        </li>
+      </ul>
+         </div>
+ </div>
+    </div>
+  </footer>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/new-age.min.js"></script>
   </body>
 </html>

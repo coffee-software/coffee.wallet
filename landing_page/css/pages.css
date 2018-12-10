@@ -1,32 +1,58 @@
-
-
-
-
-body {
+.page-header {
   background: #62422b;
-  color: #eadfcb;
-  font-family: Catamaran,Helvetica,Arial,sans-serif;
-
+  background: -webkit-linear-gradient(to bottom right,#62422b,#2b0f0e);
+  background: linear-gradient(to bottom right,#62422b,#2b0f0e);
+  background-position: center;
 }
 
-#page {
-  background: #f7f5f2;
-  color: #766054;
-  margin-top: 100px;
+.page-header h1 {
+  margin-bottom: 0;
+  padding-top: 76px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-family: Catamaran,Helvetica,Arial,sans-serif;
+  font-weight: 200;
+  letter-spacing: 1px;
+  font-size: 50px;
+  color: white;
+}
+
+#supported {
+  overflow: auto;
 }
 
 div.coin {
   width: 50%;
   text-align: center;
   float: left;
-  min-height: 380px;
+  font-size: 12px;
+  position: relative;
+}
+
+div.details {
+  display: none;
+}
+
+div.coin:hover img {
+  /*filter: hue-rotate(22deg) saturate(137%) brightness(187%);*/
 }
 
 div.coin h4 {
   font-size: 1.1rem;
+  height: 48px;
 }
 
-div.coin h4 {
+@media (min-width: 500px) {
+  div.coin {
+  width: 33.333%;
+  }
+}
+
+@media (min-width: 768px) {
+  div.coin {
+  width: 25%;
+  }
+
 }
 
 @media (min-width: 992px) {
@@ -37,5 +63,16 @@ div.coin h4 {
 
 div.coin img {
   /*filter: hue-rotate(22deg) saturate(137%) brightness(187%);*/
-  width: 50%;
+  width: 40%;
+}
+
+#others ul {
+  list-style-type: none;
+  overflow: auto;
+  padding: 0;
+}
+
+#others ul li {
+  float: left;
+  margin-right: 15px;
 }
