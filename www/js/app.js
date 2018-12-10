@@ -1249,8 +1249,9 @@ var app = {
       this.onAuthCallback = callback;
       this.onConfirmCallback = null;
       document.getElementById('lockPopup').classList.remove('hidden');
-      document.getElementById('lockPopupCancel').classList.remove('hidden');
+      document.getElementById('lockPopupConfirm').classList.remove('hidden');
       document.getElementById('lockPopupConfirmText').innerHTML = 'confirm';
+      document.getElementById('lockPopupCancel').classList.remove('hidden');
       document.getElementById('lockPopupCancelText').innerHTML = 'cancel';
       document.getElementById('lockTitle').innerHTML = title;
       document.getElementById('lockMessage').innerHTML = message; // + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
@@ -1260,8 +1261,9 @@ var app = {
       this.onAuthCallback = null;
       this.onConfirmCallback = callback;
       document.getElementById('lockPopup').classList.remove('hidden');
-      document.getElementById('lockPopupCancel').classList.toggle('hidden', typeof cancelText == 'undefined');
+      document.getElementById('lockPopupConfirm').classList.remove('hidden');
       document.getElementById('lockPopupConfirmText').innerHTML = (typeof confirmText != 'undefined') ? confirmText : 'confirm';
+      document.getElementById('lockPopupCancel').classList.toggle('hidden', typeof cancelText == 'undefined');
       document.getElementById('lockPopupCancelText').innerHTML = (typeof cancelText != 'undefined') ? cancelText : 'cancel';
       document.getElementById('lockTitle').innerHTML = title;
       document.getElementById('lockMessage').innerHTML = message;
@@ -1351,7 +1353,8 @@ var app = {
             '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + coin + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.systemValueToFloatValue(amount), coin) + '</td></tr>' +
             '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.estimateFeeFloat(fee), coin) + '</td></tr>' +
             '</table>' +
-            '<p>You will see your device share dialog in next step and will be able to select send medium.</p>'
+            '<p>You will see your device share dialog in next step and will be able to select send medium.</p>' +
+            '<p><strong>Warning:</strong> this feature uses an intermediate, escrow wallet. Recipient of this message will have to pay another network fee to claim it.</p>'
             ,
             function(){
               app.sendSocialPaymentCommit(coin, amount, fee);
@@ -1377,44 +1380,75 @@ var app = {
         app.alertError('unknown coin ' + coin);
       }
     },
-    handleReceiveMessage: function(coin, privateKey) {
-      this.addOrActivateCoin(coin, function(){
-        var tmpAddr = app.wallets[coin].handler.addrFromPrivateKey(privateKey);
-        app.wallets[coin].handler.getBalance(tmpAddr, function(balance, unconfirmed){
-          var total = balance;
-          if (total > 0) {
-            app.alertInfo('Trying to transfer ' + app.wallets[coin].handler.systemValueToDisplayValue(total) + ' ' + coin + ' from escrow');
-            if (unconfirmed > 0) {
-              app.alertInfo('Warning: escrow transaction is not yet confirmed.');
+
+    proceedToReceiveMessage: function(handler, privateKey, balance, unconfirmed, defaultFee) {
+
+      var amount = handler.systemValuesDiff(balance, handler.getFeeTotalCost(defaultFee));
+      var displayTotal = handler.systemValueToDisplayValue(balance);
+      var displayAmount = handler.systemValueToDisplayValue(amount);
+      //issues
+      var warning = '';
+      var hideConfirm = false;
+      if (handler.systemValuesCompare(0, balance) != -1) {
+        warning = '<strong>error:</strong> Escrow wallet is empty. Was it already claimed? If this is a fresh transfer please try again in a minute.';
+        hideConfirm = true;
+      } else if (handler.systemValuesCompare(0, amount) != -1) {
+        warning = '<strong>error:</strong> Escrow wallet balance is less than required fee.';
+        hideConfirm = true;
+      } else if (handler.systemValuesCompare(0, unconfirmed) != 0) {
+        warning = '<strong>warning:</strong> Escrow transaction is not yet confirmed. You can continue but in case of problems please try again after few minutes.';
+      }
+
+      app.confirmBeforeContinue(
+        '<table class="transactionSummary">' +
+        '<tr class="first"><td><img class="coinIcon" src="icons/messageglyph.png"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td><img style="width:100%" src="coins/' + handler.icon + '.svg"/></td></tr>' +
+        '<tr class="second"><td></td><td></td><td>' + shortAmount(displayAmount, handler.code, 13) + '</td></tr>' +
+        '</table>',
+        'Somebody used "Send via message" function to send you ' + handler.code + '. Click "claim" to proceed and transfer contents to your wallet.' +
+        '<table class="niceTable">' +
+        '<tr><th colspan="2">total message content:</th></tr><tr><td style="width:50%;">' + displayTotal + ' ' + handler.code + '</td><td>' + app.priceProvider.convert(handler.systemValueToFloatValue(balance), handler.code) + '</td></tr>' +
+        '<tr><th colspan="2">transaction fee:</th></tr><tr><td>' + handler.getFeeDisplay(defaultFee) + '</td><td>' + app.priceProvider.convert(handler.estimateFeeFloat(defaultFee), handler.code) + '</td></tr>' +
+        '<tr><th colspan="2">you will receive:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + handler.code + '</td><td>' + app.priceProvider.convert(handler.systemValueToFloatValue(amount), handler.code) + '</td></tr>' +
+        '</table>' +
+        '<p>' + warning + '</p>',
+        function(){
+          app.addOrActivateCoin(handler.code, function(){
+            handler.sendPayment(
+              privateKey,
+              app.wallets[handler.code].data.addr,
+              amount,
+              defaultFee
+            );
+            //TODO this is a temporary hack before the update loop/queue
+            for (var i=1; i<10; i++) {
+              setTimeout(function() { app.wallets[handler.code].refreshOnline(); }, 5000 * i * i);
             }
+          });
+        },
+        'claim',
+        'cancel'
+      );
+      if (hideConfirm) {
+        document.getElementById('lockPopupConfirm').classList.add('hidden');
+      }
+    },
 
-            setTimeout(function() {
-              var fees = app.wallets[coin].handler.getFees(function(fees){
-                app.alertInfo('updated fees');
-                var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
-                setTimeout(function() {
-                  app.wallets[coin].handler.sendPayment(
-                    privateKey,
-                    app.wallets[coin].data.addr,
-                    app.wallets[coin].handler.systemValuesDiff(total, app.wallets[coin].handler.getFeeTotalCost(defaultFee)),
-                    defaultFee
-                  );
-                  //TODO this is a temporary hack before the update loop/queue
-                  for (var i=1; i<10; i++) {
-                    setTimeout(function() { app.wallets[coin].refreshOnline(); }, 5000 * i * i);
-                  }
-                }, 1000);
-              });
-            }, 1000);
-
-          } else {
-            //TODO check by txses if this is empty or already withdrawn
-            app.alertInfo('Escrow balance is empty. If this is a fresh transfer please try again in a minute.');
-          }
-        }, function (error, code){
+    handleReceiveMessage: function(coin, privateKey) {
+      if ((coin in allCoinApis) && app.canSendViaMessage(allCoinApis[coin])) {
+        var handler = allCoinApis[coin];
+        handler.getBalance(handler.addrFromPrivateKey(privateKey), function(balance, unconfirmed){
+          setTimeout(function() {
+            var fees = handler.getFees(function(fees){
+              var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
+              app.proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee);
+            });
+          }, 1000);
+        }, function (error, code) {
           app.alertError(error, code);
         });
-      });
+      } else {
+        app.alertError('Don\'t know how to receive ' + coin);
+      }
     },
 
     handleUrlOpened: function(url) {
@@ -1612,11 +1646,13 @@ var app = {
             '<p>New random recovery phrase for all your wallets has been created. It is <b>extremely important</b> that you backup this phrase in case you lose access to this device. '+
             'You can do this at any time using "backup wallets" menu option.</p>' +
             '<div style="text-align:center">' +
-            '<img src="coins/btc.svg" alt="BTC">&nbsp; &nbsp; &nbsp;' +
-            '<img src="coins/eth.svg" alt="ETH">' +
+            '<img src="coins/btc.svg" width="32" alt="BTC">&nbsp; &nbsp; &nbsp;' +
+            '<img src="coins/eth.svg" width="32" alt="ETH">' +
             '</div>' +
             '<p>Bitcoin and Ethereum wallets are already added for your convinience. You can add different coins using "add currencies" option. Use "help" menu option for more info. </p>',
-            function() {},
+            function() {
+              app.onDataLoaded();
+            },
             'ok'
           );
         });
@@ -1629,6 +1665,7 @@ var app = {
         '<p>All your new wallets will be generated using your recovery phrase.<p>' +
         '<p>Please <strong>add currencies</strong> you were holding and refresh balances.<p>',
         function() {
+          app.onDataLoaded();
         }),
         'ok';
 
@@ -1685,20 +1722,19 @@ var app = {
               app.createNewWallet();
             } else {
               app.showChangelogIfVersionUpdated() || app.showExportKeysReminderIfRequired();
-            }
-            app.saveVersion();
-
-            for (var key in this.data.wallets) {
-              if (this.data.wallets[key].enabled) {
-                if (!(this.data.wallets[key].coin in allCoinApis)) {
-                  app.alertError('coin ' + this.data.wallets[key].coin + ' is no longer supported. It will be disabled.');
-                  this.data.wallets[key].enabled = false;
-                } else {
-                  this.addWalletWidget(this.data.wallets[key]);
+              app.saveVersion();
+              for (var key in this.data.wallets) {
+                if (this.data.wallets[key].enabled) {
+                  if (!(this.data.wallets[key].coin in allCoinApis)) {
+                    app.alertError('coin ' + this.data.wallets[key].coin + ' is no longer supported. It will be disabled.');
+                    this.data.wallets[key].enabled = false;
+                  } else {
+                    this.addWalletWidget(this.data.wallets[key]);
+                  }
                 }
               }
+              app.onDataLoaded();
             }
-            app.onDataLoaded();
         }.bind(this));
 
         this.updateMarketCap();
