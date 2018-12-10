@@ -28,6 +28,7 @@ window.changelog = [
      'added: more ERC20 tokens',
      'added: recover wallet feature',
      'added: more info for new user setup',
+     'added: nice dialog on receive via message',
      'fixed: lots of minor bugs',
    ]
   },
