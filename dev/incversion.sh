@@ -11,6 +11,7 @@ if [ -z "$1" ]; then
     nextVersion=$(echo $currentVersion | perl -pe 's/^((\d+\.)*)(\d+)(.*)$/$1.($3+1)/e')
 else
     nextVersion="${1}"
+    echo "warning: please remember to add changelog for major version update"
 fi
 
 echo "will update $currentVersion => $nextVersion"
@@ -24,7 +25,8 @@ fi
 sed -i -e 's/class=\"VERSION\">.*<\/span>/class=\"VERSION\">'$nextVersion'<\/span>/g' www/index.html
 sed -i -e 's/class=\"VERSION\">.*<\/span>/class=\"VERSION\">'$nextVersion'<\/span>/g' landing_page/index.html
 sed -i -e 's/ version=".*" xmlns="http/ version="'$nextVersion'" xmlns="http/g' config.xml
-git add www/index.html landing_page/index.html config.xml
+sed -i -e 's/window\.version = ".*"/window\.version = "'$nextVersion'"/g' www/js/changelog.js
+git add www/index.html landing_page/index.html config.xml www/js/changelog.js
 git commit -m 'update version'
 
 git tag $nextVersion
