@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Security-Policy"
-        content="default-src * data: gap: file: https://* 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        content="default-src * data: gap: file: https://* 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src * blob:; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="viewport-fit=cover, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -142,8 +142,7 @@
        tools
      </div>
     </div>
-	<div id="overlay">
-        </div>
+	  <div id="overlay"></div>
 
         <div id="popup">
           <h1 id="popupHead">
@@ -567,6 +566,13 @@
               </div>
             </div>
         </div>
+        <div id="mobileQRScanner">
+          <h2>Scan QR Code</h2>
+          <div id="mobileQRCancel"></div>
+          <video id="mobileQRPreview"></video>
+          <div id="mobileQRCamera">camera</div>
+        </div>
+
         <div id="uxHint"></div>
 
         <script type="text/javascript" src="cordova.js"></script>

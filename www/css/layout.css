@@ -116,3 +116,65 @@
 #messages div.msg.success:after {
   background-position: 0 0;
 }
+
+
+#mobileQRScanner {
+  position: absolute;
+  top: 0;
+  top: constant(safe-area-inset-top);
+  top: env(safe-area-inset-top);
+  width: 100%;
+  transform: translate3d(-110vw,0,0);
+  bottom: 0;
+  left: 0;
+  z-index: 300;
+  transition: transform 0.5s ease;
+  background-color: #766054;
+  box-shadow: 2px 0px 7px #463f3a;
+  color: #f7f5f2;
+}
+
+#mobileQRScanner h2 {
+  border-top: 1px dashed #f7f5f2;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 54px;
+  text-align: center;
+  margin: 0;
+}
+
+#mobileQRCancel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  margin: 12px;
+  background-image: url(../icons/hide.png);
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+}
+
+#mobileQRCamera {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: auto;
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 54px;
+  background-image: url(../icons/togglecam.png);
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: 0 14px;
+  padding: 0 35px;
+}
+
+#mobileQRPreview {
+  width: 100%;
+  height: calc(100% - 110px);
+}
+
+#mobileQRScanner.show {
+  transform: translate3d(0,0,0);
+}
