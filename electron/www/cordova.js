@@ -42,7 +42,8 @@ navigator.splashscreen = {
 cordova = {
   plugins: {
     barcodeScanner: {
-      scan: function(){
+      scan: function(success, error, options){
+
         alert('available in mobile version only');
       }
     },

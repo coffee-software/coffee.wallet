@@ -1,9 +1,48 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain, dialog} = require('electron')
+var fs = require('fs')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+
+ipcMain.on('print-pdf', (event, arg) => {
+
+    var tmpWindow = new BrowserWindow({show : false});
+    tmpWindow.loadURL('data:text/html;charset=UTF-8,' + encodeURIComponent(arg.html));
+
+    dialog.showSaveDialog({
+      title: 'Save Paper Wallet',
+      defaultPath: '~/' + arg.file + '.pdf',
+      filters: [{
+        name: 'PDF',
+        extensions: ['pdf']
+      }]
+    }, function(file_path) {
+
+      tmpWindow.webContents.printToPDF({
+          landscape: false,
+          marginsType: 0,
+          printBackground: false,
+          printSelectionOnly: false,
+          pageSize: "A4",
+      }, function(err, data) {
+          if (err) {
+            event.sender.send('print-pdf-error', err);
+          } else if (file_path) {
+            fs.writeFile(file_path, data, function(err){
+              if (err){
+                event.sender.send('print-pdf-error', {err});
+              } else {
+                event.sender.send('print-pdf-success', null);
+              }
+            });
+          } else {
+            event.sender.send('print-pdf-error', 'Cancelled');
+          }
+      });
+    });
+});
 
 function createWindow () {
   // Create the browser window.
