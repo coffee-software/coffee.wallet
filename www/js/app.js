@@ -960,29 +960,18 @@ var app = {
         app.popupOfflineAssets(app.offlineAssetWallet);
         app.confirmBeforeContinue('wallet created',
           '<strong>warning:</strong> Coffee Wallet <strong>does not</strong> store private keys for offlie assets! ' +
-          'You should see pdf share/print options now, use this address <strong>only</strong> after making the pdf secure. ' +
+          'Use this address <strong>only</strong> after making the pdf you just saved secure. ' +
           'You will be able to spend funds from this wallet as long as you will have access to its private key!',
           function(){}
         );
       }
-      if (device.platform == 'browser') {
-        //TODO print pdf in browser build
-        console.log('priv:' + randomPriv);
-        console.log('addr:' + randomAddr);
-        console.log(html);
-        app.alertInfo('wallet info printed to console');
+
+      osPlugins.generatePDF(html, coinCode + '-wallet',function(stats){
         proceed();
-      } else {
-        pdf.fromData(html, {
-              documentSize: 'A4',
-              type: 'share',
-              fileName: coinCode + '-wallet'
-          })
-          .then(function(stats){
-            proceed();
-          })
-          .catch(function(err) {app.alertError('error generating pdf wallet ' + err)});
-      }
+      },function(err) {
+        app.alertError('error generating pdf wallet ' + err);
+      });
+
     },
 
     saveOfflineAsset: function(){
