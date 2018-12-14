@@ -139,7 +139,7 @@ var app = {
           if ((typeof(html) == 'string') && ('coin' in logs[i]) && (logs[i].coin in allCoinApis) && ('explorerLinkTx' in allCoinApis[logs[i].coin])) {
             html = html.replace(/\<u\>\w+\<\/u\>/, function(match){
               var tx = match.substring(3, match.length-4);
-              return '<a href="#" onclick="window.open(\'' + allCoinApis[logs[i].coin].explorerLinkTx(tx) + '\', \'_system\');">' + tx + '</a>';
+              return '<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + allCoinApis[logs[i].coin].explorerLinkTx(tx) + '\');">' + tx + '</a>';
             });
           }
           li.innerHTML = '<div class="ts">' + (new Date(logs[i].ts)).toUTCString()  + '</div><div>' + html + '</div>';
@@ -149,7 +149,11 @@ var app = {
         //console.log(logs);
       });
     },
-
+    popupHistory: function() {
+      app.openPopup('historyPopup', 'History');
+      app.reloadHistory();
+      document.getElementById('historyPopup').appendChild(document.getElementById('history'));
+    },
     priceProvider: null,
     setPriceProvider: function(provider) {
       this.priceProvider = provider;
@@ -604,7 +608,7 @@ var app = {
       this.openPopup('coinInfoPopup', wallet.handler.longname, 'coins/' + wallet.handler.icon + '.svg');
       var links = '<ul>';
       for (var name in wallet.handler.links) {
-        links += '<li><a href="#" onclick="window.open(\'' + wallet.handler.links[name] + '\', \'_system\');">' + name + '</a></li>';
+        links += '<li><a href="#" onclick="osPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
       }
       links += '</ul>';
 
@@ -629,7 +633,7 @@ var app = {
 
       if ('explorerLinkAddr' in wallet.handler) {
         advanced.appendChild(app.createAdvancedOption('link', 'explore history (external)', function(){
-          window.open(wallet.handler.explorerLinkAddr(wallet.data.addr), '_system');
+          osPlugins.openInSystemBrowser(wallet.handler.explorerLinkAddr(wallet.data.addr));
         }));
       }
 
@@ -856,6 +860,12 @@ var app = {
       } else {
         callback(addr, args);
       }
+    },
+    pasteAnyClipboard: function() {
+      app.pasteClipboard(app.handleAnyQRCode.bind(app));
+    },
+    scanAnyQrCode: function() {
+      app.scanQrCode(app.handleAnyQRCode.bind(app));
     },
     pasteClipboard: function(callback) {
       var that = this;

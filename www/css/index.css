@@ -201,9 +201,24 @@ h1, h2, h3 {
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
+body.electron ::-webkit-scrollbar {
+    width: 12px;
+}
+
+body.electron ::-webkit-scrollbar-track {
+
+}
+
+body.electron ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #766054;
+}
+
 #swiper {
   width: 300%;
   height: 100%;
+  padding-top: 54px;
+  box-sizing: border-box;
   display: flex;
   overflow: hidden;
   margin-left: -0%;
@@ -226,7 +241,7 @@ h1, h2, h3 {
   -webkit-transform: translate3d(0, 0, 0);
 }
 #swiper .swipe_tab .tab_inner {
-  padding-top: 54px;
+  /* padding-top: 54px; */
   padding-bottom: 60px;
 }
 
@@ -265,16 +280,8 @@ table {
   height: 1px;
 }
 
-.value {
-    font-size: 22px;
-}
-
 .online .value {
   font-weight: bold;
-}
-
-.amount {
-    font-size: 16px;
 }
 
 .disabled {
@@ -295,13 +302,11 @@ table {
   vertical-align: middle;
 }
 
-@media all and (max-width: 799px) {
-  .value {
-      font-size: 18px;
-  }
-  .amount {
-      font-size: 12px;
-  }
+.value {
+    font-size: 18px;
+}
+.amount {
+    font-size: 12px;
 }
 
 @media all and (max-width: 380px) {
@@ -368,6 +373,10 @@ table {
   max-width: 56px;
   min-width: 26px;
 }
+.slidingRow .unit svg {
+  max-width: 56px;
+  min-width: 26px;
+}
 
 .listingRow .stitch {
   position: absolute;
@@ -412,17 +421,26 @@ table {
   margin: 0 auto;
 }
 
-body.electron .listingRow {
-  height: 134px;
-}
-
 body.electron .slidingRow {
-  bottom: 60px;
+  left: 130px;
+  right: 190px;
   box-shadow: none;
 }
 
 body.electron .listingRow .buttons {
-  top: 74px;
+
+}
+
+body.electron #toggleMenu {
+  display: none;
+}
+
+body.electron #foot {
+  display: none;
+}
+
+body.electron #tools {
+  display: none;
 }
 
 #offlineAssets {
@@ -537,12 +555,13 @@ body.electron .listingRow .buttons {
   background-color: #f7f5f2;
   padding: 0px 4%;
   width: 92%;
-  padding-top: 60px;
+  padding-top: 6px;
   /* IOS */
   position: fixed;
   top: 0;
+  margin-top: 54px;
   bottom: 0;
-  overflow: scroll;
+  overflow-y: scroll;
   z-index: 19;
   /* iOS */
   top: constant(safe-area-inset-top);
@@ -788,6 +807,9 @@ ol.mnemonic li span {
     pointer-events: none;
     opacity: 0;
     transition: opacity 1s linear;
+}
+body.electron #uxHint {
+  display: none;
 }
 
 #uxHint img {

@@ -1,9 +1,14 @@
 'use strict'
 
 var ipcRenderer = require('electron').ipcRenderer
+var shell = require('electron').shell;
 
 var pdfSuccessCallback;
 var pdfErrorCallback;
+
+ipcRenderer.on('call-app-method', (event, arg) => {
+  app[arg]();
+});
 
 ipcRenderer.on('print-pdf-success', (event, arg) => {
   pdfSuccessCallback();
@@ -21,6 +26,9 @@ var osPlugins = {
     });
     pdfSuccessCallback = success;
     pdfErrorCallback = error;
+  },
+  openInSystemBrowser: function(url) {
+    shell.openExternal(url);
   }
 
 }

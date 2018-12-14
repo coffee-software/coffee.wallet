@@ -7,7 +7,7 @@ var osPlugins = {
   generatePDF: function(html, file, success, error){
     if (device.platform == 'browser') {
       console.log(html);
-      //window.open('data:text/html;charset=UTF-8,' + encodeURIComponent(html), '_system');
+      //osPlugins.openInSystemBrowser('data:text/html;charset=UTF-8,' + encodeURIComponent(html));
       app.alertInfo('wallet info printed to console');
       success();
     } else {
@@ -23,5 +23,8 @@ var osPlugins = {
         error(err);
       });
     }
+  },
+  openInSystemBrowser: function(url) {
+    window.open(url, '_');
   }
 }

@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, ipcMain, dialog} = require('electron')
+const {app, BrowserWindow, ipcMain, dialog, Menu} = require('electron')
 var fs = require('fs')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -48,14 +48,136 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
       titleBarStyle: 'hidden',
-      width: 500,
+      width: 800,
       height: 800,
       minWidth: 300,
       minHeight: 300,
       backgroundColor: '#312450',
       icon: 'icon.png'
-  })
-  mainWindow.setMenu(null);
+  });
+
+  const template = [
+    {
+      label: 'Coffee Wallet',
+      submenu: [
+        {
+          label: 'Add Coin...',
+          accelerator: '',
+          click (item, focusedWindow) {
+            mainWindow.webContents.send('call-app-method', 'popupAddCoin');
+          }
+        },
+        {
+          label: 'Settings...',
+          accelerator: '',
+          click (item, focusedWindow) {
+            mainWindow.webContents.send('call-app-method', 'popupPriceSettings');
+          }
+        },
+        {
+          label: 'Backup Wallets...',
+          accelerator: '',
+          click (item, focusedWindow) {
+            mainWindow.webContents.send('call-app-method', 'exportAllKeys');
+          }
+        },
+        {
+          label: 'History...',
+          accelerator: '',
+          click (item, focusedWindow) {
+            mainWindow.webContents.send('call-app-method', 'popupHistory');
+          }
+        },
+        {type: 'separator'},
+        {
+          label: 'Help...',
+          accelerator: '',
+          click (item, focusedWindow) {
+            mainWindow.webContents.send('call-app-method', 'popupHelp');
+          }
+        },
+        {type: 'separator'},
+        {role: 'close'}
+      ]
+    },
+    {
+      label: 'Tools',
+      submenu: [
+        {
+          label: 'Scan QR Code',
+          accelerator: '',
+          click (item, focusedWindow) {
+            mainWindow.webContents.send('call-app-method', 'scanAnyQrCode');
+          }
+        },
+        {
+          label: 'Paste QR Code',
+          accelerator: '',
+          click (item, focusedWindow) {
+            mainWindow.webContents.send('call-app-method', 'pasteAnyClipboard');
+          }
+        },
+        {
+          label: 'Send via message',
+          accelerator: '',
+          click (item, focusedWindow) {
+            mainWindow.webContents.send('call-app-method', 'popupSendViaMessage');
+          }
+        },
+        {
+          label: 'Exchange',
+          accelerator: '',
+          click (item, focusedWindow) {
+            mainWindow.webContents.send('call-app-method', 'popupExchange');
+          }
+        }
+      ]
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        {role: 'undo'},
+        {role: 'redo'},
+        {type: 'separator'},
+        {role: 'cut'},
+        {role: 'copy'},
+        {role: 'paste'},
+        {role: 'delete'},
+        {role: 'selectall'}
+      ]
+    },
+    {
+      role: 'window',
+      submenu: [
+        {role: 'minimize'},
+        {role: 'togglefullscreen'}
+      ]
+    }/*,
+    {
+      label: 'Developer',
+      submenu: [
+        {
+          label: 'Reload',
+          accelerator: 'CmdOrCtrl+R',
+          click (item, focusedWindow) {
+            if (focusedWindow) focusedWindow.reload()
+          }
+        },
+        {
+          label: 'Toggle Developer Tools',
+          accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
+          click (item, focusedWindow) {
+            if (focusedWindow) focusedWindow.webContents.toggleDevTools()
+          }
+        }
+      ]
+    }*/
+  ];
+
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+  //mainWindow.setMenu(null);
+
 
   // and load the index.html of the app.
   mainWindow.loadFile('www/index.html')

@@ -64,7 +64,7 @@ function Asset(wallet, id, data) {
   buttonsRight.classList.add('buttonsRight');
 
   data.addr && ('explorerLinkAddr' in wallet.handler) && buttonsLeft.appendChild(createButton('link', 'history', function(){
-    window.open(wallet.handler.explorerLinkAddr(data.addr), '_system');
+    osPlugins.openInSystemBrowser(wallet.handler.explorerLinkAddr(data.addr));
   }));
   data.addr && buttonsLeft.appendChild(createButton('receive', 'receive', function(){
     app.popupReceivePayment(that.wallet, that.data.addr);

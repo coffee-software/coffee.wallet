@@ -99,12 +99,12 @@
               <div class="tab_inner">
                 <div id="tools">
                   <div class="row">
-                    <button class="f1 stitched" onclick="app.scanQrCode(app.handleAnyQRCode.bind(app))" style="margin-right:5px;">
+                    <button class="f1 stitched" onclick="app.scanAnyQrCode()" style="margin-right:5px;">
                       <img src="icons/quickscan.png"/>
                       Scan
                     </button>
 
-                    <button class="f1 stitched" onclick="app.pasteClipboard(app.handleAnyQRCode.bind(app))" style="margin-left:5px;">
+                    <button class="f1 stitched" onclick="app.pasteAnyClipboard()" style="margin-left:5px;">
                       <img src="icons/quickpaste.png"/>
                       Paste
                     </button>
@@ -151,6 +151,9 @@
             <img id="popupIcon" src="icons/hide.png" style="display:none;"/>
           </h1>
           <div id="popupContent">
+            <div id="historyPopup" style="display:none;">
+
+            </div>
             <div id="sendViaMessagePopup" style="display:none;">
               <h2>send via message</h2>
               <p>This feature is available for non-empty wallets whose transaction fees are not paid with other currency.</p>
@@ -167,7 +170,7 @@
                 <div style="float:none; margin-left:108px;">
                   Powered by Changelly. <br/>
                   Usually a transaction is completed within <b>5&#8209;30&nbsp;minutes</b> but it can take longer.
-                  Refer to <a href="#" onclick="window.open('https://changelly.com/', '_system');">changelly.com</a> for more info.
+                  Refer to <a href="#" onclick="osPlugins.openInSystemBrowser('https://changelly.com/');">changelly.com</a> for more info.
                 </div>
               </div>
               <div class="section">
@@ -293,12 +296,12 @@
                   It also has a support for selected coins to send and receive from local wallet.
                 </p>
                 <p>
-                  <a href="#" onclick="window.open('https://wallet.coffee/', '_system');" style="color: #766054; font-size: 16px;">https://wallet.coffee/</a>
+                  <a href="#" onclick="osPlugins.openInSystemBrowser('https://wallet.coffee/');" style="color: #766054; font-size: 16px;">https://wallet.coffee/</a>
                 </p>
                 <p>
-                  <a href="#" onclick="window.open('https://twitter.com/CoffeeWallet', '_system');"><img width="42" src="icons/twitter.png"/></a>
+                  <a href="#" onclick="osPlugins.openInSystemBrowser('https://twitter.com/CoffeeWallet');"><img width="42" src="icons/twitter.png"/></a>
                   &nbsp;&nbsp;
-                  <a href="#" onclick="window.open('https://www.reddit.com/r/CoffeeWallet/', '_system');"><img width="42" src="icons/reddit.png"/></a>
+                  <a href="#" onclick="osPlugins.openInSystemBrowser('https://www.reddit.com/r/CoffeeWallet/');"><img width="42" src="icons/reddit.png"/></a>
                 </p>
                 <h2>Home Screen Layout</h2>
               </div>
