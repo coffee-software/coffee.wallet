@@ -1,6 +1,6 @@
 {
   "name": "coffee-wallet",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Blockchain wallet and portfolio",
   "main": "main.js",
   "scripts": {
