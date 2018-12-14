@@ -15,7 +15,7 @@ NativeStorage = {
           code: 1,
           exception: error
         });
-      } else if (typeof ret == 'undefined') {
+      } else if ((typeof ret == 'undefined') || (Object.keys(ret).length == 0)) {
         callbackError({code:2});
       } else {
         callbackSuccess(ret);
