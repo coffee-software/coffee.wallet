@@ -2,7 +2,7 @@
   "name": "coffee-wallet",
   "version": "0.8.1",
   "description": "Blockchain wallet and portfolio",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
@@ -19,8 +19,7 @@
   "author": "Coffee Software",
   "license": "",
   "devDependencies": {
-    "electron": "^3.0.7",
-    "electron-builder": "^20.38.2"
+    "electron": "^3.0.7"
   },
   "dependencies": {
     "electron-json-storage": "^4.1.5",
