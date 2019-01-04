@@ -4,13 +4,13 @@
 var Web3JsBaseHandler = {
   getMainnetProvider: function(){
     if (typeof this.provider == 'undefined') {
-      return new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/" + config.infuraKey));
+      return new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/" + config.infuraKey));
     }
     return this.provider;
   },
   getTestnetProvider: function(){
     if (typeof this.provider == 'undefined') {
-      return new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/" + config.infuraKey));
+      return new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/" + config.infuraKey));
     }
     return this.provider;
   },
