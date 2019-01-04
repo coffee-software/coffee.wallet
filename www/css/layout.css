@@ -45,7 +45,7 @@
 
 .msg {
   position: relative;
-  padding: 12px;
+  padding: 12px 0;
   /*padding-left: 67px;*/
   word-wrap: break-word;
   font-size: 14px;
@@ -135,7 +135,6 @@
 }
 
 #mobileQRScanner h2 {
-  border-top: 1px dashed #f7f5f2;
   font-size: 16px;
   font-weight: 100;
   line-height: 54px;

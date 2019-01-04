@@ -13,6 +13,7 @@
     </head>
     <body>
         <div id="nav">
+          <div class="stitch"></div>
           <div id="toggleMenu" onclick="app.toggleMenu()" class="navButton">
             <img src="icons/menu.png" alt="menu"/>
           </div>
@@ -96,30 +97,32 @@
               </div>
             </div>
             <div class="swipe_tab">
-              <div class="tab_inner">
+              <div class="tab_inner toolsTab">
                 <div id="tools">
+                  <div class="stitch"></div>
                   <div class="row">
-                    <button class="f1 stitched" onclick="app.scanAnyQrCode()" style="margin-right:5px;">
+                    <button class="f1 toolbtn" onclick="app.scanAnyQrCode()" style="margin-right:5px;">
                       <img src="icons/quickscan.png"/>
                       Scan
                     </button>
 
-                    <button class="f1 stitched" onclick="app.pasteAnyClipboard()" style="margin-left:5px;">
+                    <button class="f1 toolbtn" onclick="app.pasteAnyClipboard()" style="margin-left:5px;">
                       <img src="icons/quickpaste.png"/>
                       Paste
                     </button>
                   </div>
-
-                  <button class="stitched" onclick="app.popupSendViaMessage()">
+                  <div class="stitch"></div>
+                  <button class="toolbtn" onclick="app.popupSendViaMessage()">
                     <img src="icons/email.png"/>
                     Send via message
                     <!--span class="soon">(comming soon)</span-->
                   </button>
-
-                  <button class="stitched" onclick="app.popupExchange()">
+                  <div class="stitch"></div>
+                  <button class="toolbtn" onclick="app.popupExchange()">
                     <img src="icons/changelly.png"/>
                     Exchange
                   </button>
+                  <div class="stitch"></div>
                 </div>
               </div>
             </div>
@@ -173,6 +176,7 @@
                   Refer to <a href="#" onclick="osPlugins.openInSystemBrowser('https://changelly.com/');">changelly.com</a> for more info.
                 </div>
               </div>
+              <div class="stitch"></div>
               <div class="section">
                 sell coin:
                 <select onchange="app.updateExchange()" id="exchangeSellCoin"></select>
@@ -192,6 +196,7 @@
                 <br/>
                 (+ <span id="exchangeSellFee"></span> network fee)
               </div>
+              <div class="stitch"></div>
               <div class="section">
                 buy coin:
                 <select onchange="app.updateExchange()" id="exchangeBuyCoin"></select>
@@ -207,6 +212,7 @@
                 <br/>
                 This is <b>estimated</b> and depends on current market dynamics.
               </div>
+              <div class="stitch"></div>
               <div class="section">
                 Coffee Wallet does not charge additional fees. You will get same results exchanging trough changelly.com website.
               </div>
@@ -571,6 +577,7 @@
         </div>
         <div id="mobileQRScanner">
           <h2>Scan QR Code</h2>
+          <div class="stitch"></div>
           <div id="mobileQRCancel"></div>
           <video id="mobileQRPreview"></video>
           <div id="mobileQRCamera">camera</div>

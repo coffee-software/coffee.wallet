@@ -82,7 +82,6 @@ h1, h2, h3 {
 #nav .totals {
   height: 43px;
   text-align: center;
-  border-top: 1px dashed #f7f5f2;
 }
 
 #nav .totals h1 {
@@ -277,6 +276,7 @@ table {
 
 .stitch {
   background: url(../img/stitch.png);
+  background-position: center;
   height: 1px;
 }
 
@@ -526,7 +526,6 @@ body.electron #tools {
   top: constant(safe-area-inset-top);
   top: env(safe-area-inset-top);
 
-  border-top: 1px dashed #f7f5f2;
   font-size: 16px;
   font-weight: 100;
   line-height: 54px;
@@ -534,6 +533,10 @@ body.electron #tools {
   color: #f7f5f2;
   text-align: center;
   box-shadow: 0px 0px 7px #463f3a;
+
+  background-image: url(../img/stitch.png);
+  background-position: top;
+  background-repeat: repeat-x;
 }
 #popup h1 img {
   width: 30px;
@@ -596,15 +599,24 @@ body.electron #tools {
 }
 #history li {
   font-size: 14px;
-  border-bottom: 1px dashed #766054;
 }
 
 #history li .ts {
   font-size: 10px;
 }
 
+#swiper .toolsTab {
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
 #tools {
-  padding-top: 50px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translate(0, -50%);
+  margin-top: -37px;
 }
 
 .coinButton {

@@ -133,8 +133,6 @@ var app = {
         document.getElementById('history').innerHTML = '';
         for (var i=0; i< logs.length; i++) {
           var li = document.createElement('li');
-          li.classList.add('msg');
-          li.classList.add(logs[i].severity);
           var html = logs[i].message;
           if ((typeof(html) == 'string') && ('coin' in logs[i]) && (logs[i].coin in allCoinApis) && ('explorerLinkTx' in allCoinApis[logs[i].coin])) {
             html = html.replace(/\<u\>\w+\<\/u\>/, function(match){
@@ -142,7 +140,7 @@ var app = {
               return '<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + allCoinApis[logs[i].coin].explorerLinkTx(tx) + '\');">' + tx + '</a>';
             });
           }
-          li.innerHTML = '<div class="ts">' + (new Date(logs[i].ts)).toUTCString()  + '</div><div>' + html + '</div>';
+          li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toUTCString()  + '</div><div>' + html + '</div></div><div class="stitch"></div>';
           //logs[i].coin
           document.getElementById('history').appendChild(li);
         }
