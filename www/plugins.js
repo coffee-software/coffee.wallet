@@ -25,6 +25,15 @@ var osPlugins = {
     }
   },
   openInSystemBrowser: function(url) {
-    window.open(url, '_');
-  }
+    window.open(url, '_system');
+  },
+  openRateAppDialog: function() {
+    if (device.platform == 'Android') {
+      this.openInSystemBrowser('market://details?id=coffee.software.coffeewallet');
+    } else if (device.platform == 'iOS') {
+      this.openInSystemBrowser('itms-apps://itunes.apple.com/us/app/domainsicle-domain-name-search/id1433984988?ls=1&mt=8');
+    } else {
+      app.alertError('Don\'t know how to do this on this platform');
+    }
+  },
 }
