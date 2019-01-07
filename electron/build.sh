@@ -53,6 +53,7 @@ for PLATFORM in "darwin-x64" "linux-x64" "win32-x64"; do
 
 
 	cd out
+	rm $TARGET.zip
 	zip -q -r -y $TARGET.zip $PREBUILD
 	cd ..
 
