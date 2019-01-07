@@ -180,13 +180,13 @@ function Wallet(data) {
 
   this.updateOfflineValue = function() {
     var value = this.totalOffline * app.priceProvider.getPrice(this.handler.code);
-    this.offlineValue.innerHTML = formatMoney(value, app.priceProvider.getUnit());
+    this.offlineValue.innerHTML = app.priceProvider.convert(this.totalOffline, this.handler.code);
     return value;
   }
 
   this.updateOnlineValue = function() {
     var value = this.totalOnline * app.priceProvider.getPrice(this.handler.code);
-    this.onlineValue.innerHTML = formatMoney(value, app.priceProvider.getUnit());
+    this.onlineValue.innerHTML = app.priceProvider.convert(this.totalOnline, this.handler.code);
     return value;
   }
 

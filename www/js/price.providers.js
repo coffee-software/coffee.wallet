@@ -1,18 +1,6 @@
 'use strict'
 
-var CoinMarketCapProvider = {
-
-  name: "coinmarketcap.com",
-
-  availableUnits: [
-    "AUD", "BTC", "BRL", "CAD", "CHF", "CLP",
-    "CNY", "CZK", "DKK", "EUR", "ETH", "GBP",
-    "HKD", "HUF", "IDR", "ILS", "INR", "JPY",
-    "KRW", "MXN", "MYR", "NOK", "NZD", "PHP",
-    "PKR", "PLN", "RUB", "SEK", "SGD", "THB",
-    "TRY", "TWD", "USD", "ZAR"
-  ],
-  defaultUnit: "USD",
+var BasePriceProvider = {
   unit: null,
   prices: {},
 
@@ -33,8 +21,28 @@ var CoinMarketCapProvider = {
   },
 
   convert: function(amount, code) {
-    return formatMoney(amount * this.getPrice(code), this.getUnit());
-  },
+    if (code in this.prices) {
+      return formatMoney(amount * this.getPrice(code), this.getUnit());
+    } else {
+      return '? ' + this.getUnit();
+    }
+  }
+
+}
+
+var CoinMarketCapProvider = ExtendObject(BasePriceProvider, {
+
+  name: "coinmarketcap.com",
+
+  availableUnits: [
+    "AUD", "BTC", "BRL", "CAD", "CHF", "CLP",
+    "CNY", "CZK", "DKK", "EUR", "ETH", "GBP",
+    "HKD", "HUF", "IDR", "ILS", "INR", "JPY",
+    "KRW", "MXN", "MYR", "NOK", "NZD", "PHP",
+    "PKR", "PLN", "RUB", "SEK", "SGD", "THB",
+    "TRY", "TWD", "USD", "ZAR"
+  ],
+  defaultUnit: "USD",
 
   updatePrices: function(callback) {
     var xhr = new XMLHttpRequest();
@@ -59,9 +67,9 @@ var CoinMarketCapProvider = {
     xhr.send();
 
   }
-}
+});
 
-var CoinPaprikaProvider = {
+var CoinPaprikaProvider = ExtendObject(BasePriceProvider, {
 
     name: "coinpaprika.com",
 
@@ -69,28 +77,6 @@ var CoinPaprikaProvider = {
       "USD", "BTC"
     ],
     defaultUnit: "USD",
-    unit: null,
-    prices: {},
-
-    setUnit: function(unit) {
-      this.unit = unit;
-      this.prices = JSON.parse(Settings.get('cache_' + this.name + '_prices_' + this.unit, "{}"));
-    },
-
-    getUnit: function() {
-      return this.unit;
-    },
-
-    getPrice: function(unit) {
-      if (unit in this.prices) {
-        return this.prices[unit];
-      }
-      return 0;
-    },
-
-    convert: function(amount, code) {
-      return formatMoney(amount * this.getPrice(code), this.getUnit());
-    },
 
     updatePrices: function(callback) {
       var xhr = new XMLHttpRequest();
@@ -114,7 +100,7 @@ var CoinPaprikaProvider = {
       };
       xhr.send();
     }
-}
+});
 
 
 var allPriceProviders = [CoinMarketCapProvider, CoinPaprikaProvider];
