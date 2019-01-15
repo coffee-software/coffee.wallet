@@ -14,7 +14,7 @@ var osPlugins = {
       pdf.fromData(html, {
           documentSize: 'A4',
           type: 'share',
-          fileName: fileName
+          fileName: file
       })
       .then(function(stats){
         success();
@@ -36,4 +36,23 @@ var osPlugins = {
       app.alertError('Don\'t know how to do this on this platform');
     }
   },
+  shareDialog: function(subject, message, successHandler, errorHandler) {
+    if (device.platform == 'browser') {
+      app.alertInfo('share code printed to console');
+      console.log(message);
+      return;
+    }
+    window.plugins.socialsharing.shareWithOptions({
+      message: message,
+      subject: subject,
+    }, successHandler, errorHandler);
+  },
+  copyToClipboard: function(text) {
+    if (device.platform == 'browser') {
+      //TODO copy to clip on browser
+      console.log(text);
+    } else {
+      cordova.plugins.clipboard.copy(text);
+    }
+  }
 }

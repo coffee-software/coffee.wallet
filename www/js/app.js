@@ -3,8 +3,8 @@
 function handleOpenURL(url) {
   setTimeout(function() {
     //make sure data is loaded
-    app.onDataLoaded(function(){
-      app.handleUrlOpened(url);
+    app.onDataLoaded(function(callback){
+      app.handleUrlOpened(url, callback);
     });
   }, 0);
 }
@@ -128,17 +128,24 @@ var app = {
       this.targetScroll = 5 / 2;
       this.scrollToTarget();*/
     },
+    preParseCoinMsg: function(msg, coin, allowLinks = false) {
+      if ((typeof(msg) == 'string') && (coin in allCoinApis) && ('explorerLinkTx' in allCoinApis[coin])) {
+        msg = msg.replace(/\<u\>\w+\<\/u\>/, function(match){
+          var tx = match.substring(3, match.length-4);
+          var txShort = tx.substring(0, 6) + '..' + tx.substring(tx.length-4, tx.length);
+          return allowLinks ? ('<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + allCoinApis[coin].explorerLinkTx(tx) + '\');">' + txShort + '</a>') : ('<u>' + txShort + '</u>');
+        });
+      }
+      return msg;
+    },
     reloadHistory: function() {
       Logger.getLogs(function(logs){
         document.getElementById('history').innerHTML = '';
         for (var i=0; i< logs.length; i++) {
           var li = document.createElement('li');
           var html = logs[i].message;
-          if ((typeof(html) == 'string') && ('coin' in logs[i]) && (logs[i].coin in allCoinApis) && ('explorerLinkTx' in allCoinApis[logs[i].coin])) {
-            html = html.replace(/\<u\>\w+\<\/u\>/, function(match){
-              var tx = match.substring(3, match.length-4);
-              return '<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + allCoinApis[logs[i].coin].explorerLinkTx(tx) + '\');">' + tx + '</a>';
-            });
+          if ('coin' in logs[i]) {
+            html = app.preParseCoinMsg(html, logs[i].coin, true);
           }
           li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toUTCString()  + '</div><div>' + html + '</div></div><div class="stitch"></div>';
           //logs[i].coin
@@ -155,6 +162,21 @@ var app = {
     priceProvider: null,
     setPriceProvider: function(provider) {
       this.priceProvider = provider;
+    },
+    
+    airdropTasks : [
+    ],
+
+    initAirdrop: function() {
+    },
+
+    collectAirdrop: function() {
+    },
+
+    popupAirdrop: function() {
+    },
+
+    popupAirdrop2: function() {
     },
 
     updateAllValues: function() {
@@ -329,17 +351,23 @@ var app = {
         });
     },
 
-    showExportKeysReminderIfRequired: function() {
-      if (!this.settings.get('keyBackedUp', false)) {
+    showExportKeysReminderIfRequired: function(callback) {
+      var counter = this.settings.get('keyBackedUpReminderCounter', 0);
+      counter ++;
+      if (counter > 2) counter = 0;
+      this.settings.set('keyBackedUpReminderCounter', counter);
+      if (counter == 0) {
         this.confirmBeforeContinue(
           'backup your keys',
           '<p>All your private keys are generated from a <b>12-word BIP39 phrase</b>. It is extremely important that you <b>backup</b> this phrase safely.</p>' +
           '<p>This reminder will keep showing up until you use <b>"backup wallets"</b> menu option.</p>',
-          function(){}
+          function(){
+            callback(true);
+          }
         );
-        return true;
+      } else {
+        callback(false);
       }
-      return false;
     },
 
     exportAllKeys: function() {
@@ -545,6 +573,8 @@ var app = {
       this.exchangeMinAmmounts = {};
       document.getElementById("exchangeSellAmmount").value = 0;
       this.openPopup('exchangePopup', 'Exchange');
+      app.settings.set('airdropTaskExchange', true);
+
       app.getExchangeableCoins(function(currencies){
         var available = {'':{'name': '- please select -'}};
         for (var i in currencies) {
@@ -565,6 +595,8 @@ var app = {
     },
     popupSendViaMessage: function() {
       this.openPopup('sendViaMessagePopup', 'Send via message');
+      app.settings.set('airdropTaskSendViaMessage', true);
+
       Logger.getLogs(function(logs){
         if (logs.length > 0){
           document.getElementById('sendViaMessageHistory').innerHTML = '';
@@ -583,16 +615,18 @@ var app = {
       var empty = true;
       for (var coin in app.wallets){
         if (app.canSendViaMessage(app.wallets[coin].handler)) {
-          if (app.wallets[coin].data.balance != 0 ) {
             empty = false;
             document.getElementById('sendViaMessageButtons').appendChild(new CoinButton(
               app.wallets[coin].handler,
               false,
               function(coin){
-                app.popupSendSocial(app.wallets[coin.code]);
+                if (app.wallets[coin.code].data.balance != 0 ) {
+                  app.popupSendSocial(app.wallets[coin.code]);
+                } else {
+                  app.alertInfo('Can\'t sent via message. Wallet is empty.', coin.code);
+                }
               }
             ));
-          }
         }
       }
       if (empty) {
@@ -1160,7 +1194,7 @@ var app = {
 
     _alertMessage: function(html, coin, type, debug) {
       Logger.log(type, coin, html, debug);
-      this._alertMessagePopup(type, html);
+      this._alertMessagePopup(type, this.preParseCoinMsg(html, coin));
     },
 
     _alertMessagePopup: function(type, html) {
@@ -1254,9 +1288,23 @@ var app = {
       document.getElementById('lockMessage').innerHTML = message; // + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
     },
 
-    confirmBeforeContinue: function(title, message, callback, confirmText, cancelText) {
+    confirmBeforeContinue: function(title, message, callback, confirmText, cancelText, cancelCallback) {
       this.onAuthCallback = null;
-      this.onConfirmCallback = callback;
+
+      if (typeof cancelCallback != 'undefined') {
+        var cancelHandler = function(){
+          document.getElementById('lockPopupCancel').removeEventListener("click", cancelHandler);
+          cancelCallback();
+        }
+        document.getElementById('lockPopupCancel').addEventListener("click", cancelHandler);
+        this.onConfirmCallback = function(){
+          document.getElementById('lockPopupCancel').removeEventListener("click", cancelHandler);
+          callback();
+        };
+      } else {
+        this.onConfirmCallback = callback;
+      }
+
       document.getElementById('lockPopup').classList.remove('hidden');
       document.getElementById('lockPopupConfirm').classList.remove('hidden');
       document.getElementById('lockPopupConfirmText').innerHTML = (typeof confirmText != 'undefined') ? confirmText : 'confirm';
@@ -1299,21 +1347,8 @@ var app = {
       app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, tmpAddr, amount, fee);
       app.closeForm();
 
-      if (device.platform == 'browser') {
-        app.alertInfo('share code printed to console');
-        console.log(message);
-        return;
-      }
-      window.plugins.socialsharing.shareWithOptions({
-        message: message, // not supported on some apps (Facebook, Instagram)
-        subject: subject, // fi. for email
-        //url: url,
-        //files: [this.generatePngWithQRCode(url, 256)],
-        chooserTitle: 'Send via'
-      }, function(result) {
+      osPlugins.shareDialog(subject, message, function() {
         app.alertInfo('Done. Recipient will now be able to withdraw this transfer.');
-        //result.completed // On Android apps mostly return false even while it's true
-        //result.app // On Android result.app is currently empty. On iOS it's empty when sharing is cancelled (result.completed=false)
       }, function(msg) {
         app.alertError('Sharing failed with message: ' + msg);
       });
@@ -1378,7 +1413,7 @@ var app = {
       }
     },
 
-    proceedToReceiveMessage: function(handler, privateKey, balance, unconfirmed, defaultFee) {
+    proceedToReceiveMessage: function(handler, privateKey, balance, unconfirmed, defaultFee, callback) {
 
       var amount = handler.systemValuesDiff(balance, handler.getFeeTotalCost(defaultFee));
       var displayTotal = handler.systemValueToDisplayValue(balance);
@@ -1420,48 +1455,59 @@ var app = {
             for (var i=1; i<10; i++) {
               setTimeout(function() { app.wallets[handler.code].refreshOnline(); }, 5000 * i * i);
             }
+            callback && callback();
           });
         },
         'claim',
-        'cancel'
+        'cancel',
+        function() {
+          callback && callback();
+        }
       );
       if (hideConfirm) {
         document.getElementById('lockPopupConfirm').classList.add('hidden');
       }
     },
 
-    handleReceiveMessage: function(coin, privateKey) {
+    handleReceiveMessage: function(coin, privateKey, callback) {
       if ((coin in allCoinApis) && app.canSendViaMessage(allCoinApis[coin])) {
         var handler = allCoinApis[coin];
         handler.getBalance(handler.addrFromPrivateKey(privateKey), function(balance, unconfirmed){
           setTimeout(function() {
             var fees = handler.getFees(function(fees){
               var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
-              app.proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee);
+              app.proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee, callback);
             });
           }, 1000);
         }, function (error, code) {
           app.alertError(error, code);
+          callback && callback();
         });
       } else {
         app.alertError('Don\'t know how to receive ' + coin);
+        callback && callback();
       }
     },
 
-    handleUrlOpened: function(url) {
+    handleUrlOpened: function(url, callback) {
       var parts = url.split('/');
       if (parts.length != 4 || parts[0] != 'coffee:') {
         app.alertError('unknown url format');
+        callback();
         return;
       }
-      app.handleReceiveMessage(parts[2], parts[3]);
+      app.handleReceiveMessage(parts[2], parts[3], callback);
     },
 
     onDataLoaded: function(callback) {
       if (typeof callback == 'undefined') {
         app.dataLoaded = true;
         if ('onDataLoadedCallback' in app) {
-          app.onDataLoadedCallback();
+          app.onDataLoadedCallback(function(){
+            app.initAirdrop();
+          });
+        } else {
+          app.initAirdrop();
         }
       } else {
         //TODO chain:
@@ -1514,12 +1560,7 @@ var app = {
       );
     },
     copyReceiveCoinAddrToClp: function() {
-        if (device.platform == 'browser') {
-          //TODO copy to clip on browser
-          console.log(document.getElementById('receiveCoinAddr').value);
-        } else {
-          cordova.plugins.clipboard.copy(document.getElementById('receiveCoinAddr').value);
-        }
+        osPlugins.copyToClipboard(document.getElementById('receiveCoinAddr').value);
         app.alertInfo('copied addr to clipboard', app.receivingWallet.handler.code);
     },
     popupReceivePayment: function(wallet, addr) {
@@ -1568,9 +1609,10 @@ var app = {
     saveVersion: function() {
       this.settings.set('appVersion', window.version);
     },
-    showChangelogIfVersionUpdated: function() {
+    showChangelogIfVersionUpdated: function(callback) {
       var oldVersion = this.settings.get('appVersion', '0.1.7');
       if (oldVersion != window.version) {
+        app.saveVersion();
         var changelist = '';
         for (var i in window.changelog) {
           if (versionCompare(window.changelog[i].version, oldVersion) != 1) break;
@@ -1584,11 +1626,13 @@ var app = {
           'updated to ' + window.version,
           '<p>Your were running ' + oldVersion + ' previously. Below is a complete list of changes.</p>' +
           changelist,
-          function(){}
+          function(){
+            callback(true);
+          }
         );
-        return true;
+      } else {
+        callback(false);
       }
-      return false;
     },
 
     flushUxHint: function(file) {
@@ -1601,12 +1645,10 @@ var app = {
       var input = document.createElement("textarea");
       input.id = input.name = "mnemonic";
       input.rows = "3";
-      var cancelHandler = app.createNewWallet.bind(app);
       app.confirmBeforeContinue(
         'Recover Wallet',
         '<p>Enter your recovery phrase.</p><p>Recovery phrase should be 12 english lowercase words separated by single spaces.</p>',
         function() {
-          document.getElementById('lockPopupCancel').removeEventListener("click", cancelHandler);
           var mnemonic = input.value.split(' ').map(function(e){ return e.trim().toLowerCase();}).filter(function (e) {return e != '';}).join(' ');
           if (btcjs.validateMnemonic(mnemonic)) {
             //validate
@@ -1622,9 +1664,9 @@ var app = {
           }
         },
         'recover',
-        'cancel'
+        'cancel',
+        app.createNewWallet.bind(app)
       );
-      document.getElementById('lockPopupCancel').addEventListener("click", cancelHandler);
       document.getElementById('lockMessage').appendChild(input);
       if (typeof invalidMnemonic != "undefined") {
         input.value = invalidMnemonic;
@@ -1716,21 +1758,24 @@ var app = {
             navigator.splashscreen.hide();
 
             if (!('bip39' in this.data.wallets)) {
+              app.saveVersion();
               app.createNewWallet();
             } else {
-              app.showChangelogIfVersionUpdated() || app.showExportKeysReminderIfRequired();
-              app.saveVersion();
-              for (var key in this.data.wallets) {
-                if (this.data.wallets[key].enabled) {
-                  if (!(this.data.wallets[key].coin in allCoinApis)) {
-                    app.alertError('coin ' + this.data.wallets[key].coin + ' is no longer supported. It will be disabled.');
-                    this.data.wallets[key].enabled = false;
-                  } else {
-                    this.addWalletWidget(this.data.wallets[key]);
+              app.showChangelogIfVersionUpdated(function(){
+                app.showExportKeysReminderIfRequired(function(){
+                  for (var key in app.data.wallets) {
+                    if (app.data.wallets[key].enabled) {
+                      if (!(app.data.wallets[key].coin in allCoinApis)) {
+                        app.alertError('coin ' + app.data.wallets[key].coin + ' is no longer supported. It will be disabled.');
+                        app.data.wallets[key].enabled = false;
+                      } else {
+                        app.addWalletWidget(app.data.wallets[key]);
+                      }
+                    }
                   }
-                }
-              }
-              app.onDataLoaded();
+                  app.onDataLoaded();
+                });
+              });
             }
         }.bind(this));
 
