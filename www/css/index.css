@@ -616,7 +616,7 @@ body.electron #tools {
   top: 50%;
   width: 100%;
   transform: translate(0, -50%);
-  margin-top: -37px;
+  margin-top: -30px;
 }
 
 .coinButton {
@@ -831,4 +831,53 @@ body.electron #uxHint {
 
 #uxHint.blink {
   opacity: 1;
+}
+
+
+#airdropTasks {
+  width:100%;
+}
+#airdropTasks th {
+  text-align: left;
+}
+#airdropTasks td.reward {
+  text-align: right;
+}
+#airdropTasks td.status {
+  text-align: center;
+}
+
+#airdropTasks td.description {
+  padding-bottom: 20px;
+}
+
+#airdropTasks .completed td.reward, #airdropTasks .completed td.status {
+  font-weight: bold;
+}
+
+#airdropTasks button {
+  background: #766054;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 14px;
+  color: #f7f5f2;
+  margin-left: 5px;
+}
+
+.airdrop-link {
+  background: #463f3a;
+  color: #f7f5f2;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.airdrop-link button {
+  color: #f7f5f2;
+  font-size: 14px;
+}
+
+.airdrop-link #airdropRefLink {
+  font-size: 12px;
+  padding: 9px 0;
+  text-align: center;
 }
