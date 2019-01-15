@@ -61,6 +61,12 @@
                   restore wallets
                 </a>
               </li-->
+              <li class="airdrop-button hidden">
+                <a href="javascript:app.popupAirdrop()">
+                  <img src="icons/heart.png"/>
+                  tokens&nbsp;airdrop
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -123,6 +129,11 @@
                     Exchange
                   </button>
                   <div class="stitch"></div>
+                  <button class="toolbtn airdrop-button hidden" onclick="app.popupAirdrop()">
+                    <img src="icons/heart.png"/>
+                    tokens&nbsp;airdrop
+                  </button>
+                  <div class="stitch"></div>
                 </div>
               </div>
             </div>
@@ -159,13 +170,72 @@
             </div>
             <div id="sendViaMessagePopup" style="display:none;">
               <h2>send via message</h2>
-              <p>This feature is available for non-empty wallets whose transaction fees are not paid with other currency.</p>
+              <p>This feature can be used to send crypto-currencies to your friends that do not have a wallet yet.</p>
+              <p>After selecting value you will be able to send a special link to someone using SMS, email or any other medium.</p>
+              <p>Receiver of this message will click this link and will be instructed on how to install wallet and receive coins easily.</p>
+              <p>This is done by sending a transfer to a temporary "escrow" wallet whose private key is included in the message. So this is not a centralized feature and Coffee Wallet services will not receive this key at any moment.</p>
+              <p>You can use this feature with coins whose transaction fees are not paid with other currency.</p>
               <div id="sendViaMessageButtons">
               </div>
               <h2>outgoing messages log</h2>
               <table id="sendViaMessageHistory">
                 <tr><td>your history is empty</td></tr>
               </table>
+            </div>
+            <div id="airdropPopup" style="display:none;">
+              <div class="section">
+                <div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div>
+                <p>You don't have to complete all tasks listed below but they should take only 2 minutes of your time and you will know all important features of this application.</p>
+              </div>
+              <div class="stitch"></div>
+              <table class="section" id="airdropTasks">
+              </table>
+              <div class="stitch"></div>
+              <div class="section">
+                <p id="airdropStatus">
+                </p>
+              </div>
+              <div class="actions row">
+                <button id="collectAirdropButton" class="box f1 hidden" onclick="app.collectAirdrop()">
+                  Collect&nbsp;<span id="airdropTotal"></span>
+                </button>
+              </div>
+            </div>
+            <div id="airdropPopup2" style="display:none;">
+              <div class="section">
+                <div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div>
+              </div>
+              <div class="section">
+                <p>
+                  Thanks for participating in the airdrop!
+                  If you like Coffee Wallet you can <a href="#" onclick="osPlugins.openRateAppDialog();">rate it</a>.
+                </p>
+              </div>
+              <div class="airdrop-link">
+                <div id="airdropRefLink">https://wallet.coffee/install</div>
+                <div class="actions row">
+                  <button class="f1" onclick="osPlugins.copyToClipboard(document.getElementById('airdropRefLink').innerHTML); app.alertInfo('copied to clipboard');">
+                    <img src="icons/ico.copy.png"/>
+                    Copy
+                  </button>
+                  <button class="f1" onclick="osPlugins.shareDialog('', document.getElementById('airdropRefLink').innerHTML)">
+                    <img src="icons/ico.send.png"/>
+                    Share
+                  </button>
+                </div>
+              </div>
+              <div class="section">
+                <p>
+                  If you would like to share Coffee Wallet with your friends, you can use above share link.
+                  By doing so you will receive extra 50 CFT for each installation.
+                </p>
+              </div>
+              <div class="stitch"></div>
+              <div class="actions row">
+                <button class="box f1" onclick="app.closePopup()">
+                  Close
+                </button>
+              </div>
             </div>
             <div id="exchangePopup" style="display:none;">
               <div style="margin: 15px; overflow: auto;">
@@ -230,6 +300,7 @@
               <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
 
               <h2 style="text-align:center;">offline assets</h2>
+              <div class="stitch"></div>
               <div class="unpad">
                 <div id="offlineAssets">
 
@@ -300,6 +371,9 @@
                   Coffee Wallet is a blockchain wallet and portfolio app.
                   It allows you to watch your funds stored elsewhere (paper/hardware/app/online wallets).
                   It also has a support for selected coins to send and receive from local wallet.
+                </p>
+                <p>
+                  <a href="#" onclick="osPlugins.openRateAppDialog();" style="color: #766054; font-size: 16px;">rate application</a>
                 </p>
                 <p>
                   <a href="#" onclick="osPlugins.openInSystemBrowser('https://wallet.coffee/');" style="color: #766054; font-size: 16px;">https://wallet.coffee/</a>
