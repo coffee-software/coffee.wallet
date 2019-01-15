@@ -163,7 +163,7 @@ var app = {
     setPriceProvider: function(provider) {
       this.priceProvider = provider;
     },
-    
+
     airdropTasks : [
     ],
 
@@ -1624,7 +1624,7 @@ var app = {
         }
         this.confirmBeforeContinue(
           'updated to ' + window.version,
-          '<p>Your were running ' + oldVersion + ' previously. Below is a complete list of changes.</p>' +
+          '<p>Your were running ' + oldVersion + ' previously. ' + (changelist != '' ? 'Below is a complete list of changes.' : 'Thanks for updating.') + '</p>' +
           changelist,
           function(){
             callback(true);
