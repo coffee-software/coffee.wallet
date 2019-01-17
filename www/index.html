@@ -184,16 +184,14 @@
             </div>
             <div id="airdropPopup" style="display:none;">
               <div class="section">
-                <div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div>
-                <p>You don't have to complete all tasks listed below but they should take only 2 minutes of your time and you will know all important features of this application.</p>
+                <!--div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div-->
+                You don't have to complete all tasks listed below but they should take only 3 minutes of your time and you will know all important features of this application.
               </div>
               <div class="stitch"></div>
               <table class="section" id="airdropTasks">
               </table>
               <div class="stitch"></div>
-              <div class="section">
-                <p id="airdropStatus">
-                </p>
+              <div id="airdropStatus" class="section">
               </div>
               <div class="actions row">
                 <button id="collectAirdropButton" class="box f1 hidden" onclick="app.collectAirdrop()">
@@ -203,18 +201,14 @@
             </div>
             <div id="airdropPopup2" style="display:none;">
               <div class="section">
-                <div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div>
-              </div>
-              <div class="section">
-                <p>
-                  Thanks for participating in the airdrop!
-                  If you like Coffee Wallet you can <a href="#" onclick="osPlugins.openRateAppDialog();">rate it</a>.
-                </p>
+                Thanks for participating in the airdrop!
+                <br/>
+                If you like Coffee Wallet you can <a href="#" onclick="osPlugins.openRateAppDialog();">rate it</a>.
               </div>
               <div class="airdrop-link">
                 <div id="airdropRefLink">https://wallet.coffee/install</div>
                 <div style="text-align:center">
-                  <img id="airdropRefLinkQR" src="icons/home.png" width="50%" alt="qrcode" style="border: 6px solid white;"/>
+                  <img id="airdropRefLinkQR" src="icons/home.png" width="40%" alt="qrcode" style="border: 6px solid white; margin: 3px;"/>
                 </div>
                 <div class="actions row">
                   <button class="f1" onclick="osPlugins.copyToClipboard(document.getElementById('airdropRefLink').innerHTML); app.alertInfo('copied to clipboard');">
@@ -228,9 +222,9 @@
                 </div>
               </div>
               <div class="section">
-                <p>
-                  If you would like to share Coffee Wallet with your friends, you can use above share link.
-                  By doing so you will receive extra 50 CFT for each installation.
+                If you would like to share Coffee Wallet with your friends, you can use above share link.
+                By doing so you will receive extra <strong>50 CFT</strong> for each installation.
+                <p id="airdropStatus2">
                 </p>
               </div>
               <div class="stitch"></div>

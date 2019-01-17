@@ -25,6 +25,8 @@ var osPlugins = {
     }
   },
   openInSystemBrowser: function(url) {
+    //ugly fix for weird iOS bug
+    app.lastOpenedUrl = url;
     window.open(url, '_system');
   },
   openRateAppDialog: function() {

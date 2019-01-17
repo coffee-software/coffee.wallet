@@ -3,9 +3,12 @@
 function handleOpenURL(url) {
   setTimeout(function() {
     //make sure data is loaded
-    app.onDataLoaded(function(callback){
-      app.handleUrlOpened(url, callback);
-    });
+    if (app.lastOpenedUrl != url) {
+      app.onDataLoaded(function(callback){
+        app.alertInfo('opening "' + url + '"');
+        app.handleUrlOpened(url, callback);
+      });
+    };
   }, 0);
 }
 
@@ -14,6 +17,7 @@ var app = {
     settings: Settings,
     data: Data,
     wallets: {},
+    lastOpenedUrl: null,
     initialize: function() {
         var that = this;
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -147,7 +151,7 @@ var app = {
           if ('coin' in logs[i]) {
             html = app.preParseCoinMsg(html, logs[i].coin, true);
           }
-          li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toUTCString()  + '</div><div>' + html + '</div></div><div class="stitch"></div>';
+          li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toLocaleString()  + '</div><div>' + html + '</div></div><div class="stitch"></div>';
           //logs[i].coin
           document.getElementById('history').appendChild(li);
         }
@@ -172,7 +176,7 @@ var app = {
 
     collectAirdrop: function() {
     },
-
+    
     popupAirdrop: function() {
     },
 
@@ -300,6 +304,7 @@ var app = {
       this.setCurrentCoinIcon(bgimg);
       this.showOneChildOf('popupContent', id);
 
+      document.getElementById('popupContent').scrollTop = 0;
       document.getElementById('popupTitle').innerHTML = title;
       //document.getElementById('popupIcon').setAttribute('src', 'icons/' + icon + '.png');
     },
@@ -478,7 +483,7 @@ var app = {
             '<table class="niceTable">' +
             '<tr><th colspan="2" style="width:26%;">changelly payinAddress:</th></tr><tr><td colspan="2">' + ret.payinAddress + '</td></tr>' +
             '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displaySellAmount + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount), sellCoin) + '</td></tr>' +
-            '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.estimateFeeFloat(fee), sellCoin) + '</td></tr>' +
+            '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.wallets[sellCoin].handler.getFeeValueDisplay(fee) + '</td></tr>' +
             '<tr><th colspan="2">estimated return:</th></tr><tr><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
             '<tr><th colspan="2">changelly ID:</th></tr><tr><td colspan="2">' + ret.id + '</td></tr>' +
             '</table>'
@@ -1162,8 +1167,7 @@ var app = {
           app.sendCoinValidateAmount();
         }
         document.getElementById('feeAmount').innerHTML =
-          this.sendWallet.handler.getFeeDisplay(fee) + '&nbsp;(' +
-          this.priceProvider.convert(this.sendWallet.handler.estimateFeeFloat(fee), this.sendWallet.handler.code) + ')';
+          this.sendWallet.handler.getFeeDisplay(fee) + '&nbsp;(' + this.sendWallet.handler.getFeeValueDisplay(fee) + ')';
         document.getElementById('feeTime').innerHTML = fee[1] + 'min';
       } else {
         document.getElementById('feeAmount').innerHTML = 'unknown';
@@ -1288,20 +1292,23 @@ var app = {
       document.getElementById('lockMessage').innerHTML = message; // + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
     },
 
+    cancelDialogHandler: null,
+
     confirmBeforeContinue: function(title, message, callback, confirmText, cancelText, cancelCallback) {
       this.onAuthCallback = null;
 
       if (typeof cancelCallback != 'undefined') {
-        var cancelHandler = function(){
-          document.getElementById('lockPopupCancel').removeEventListener("click", cancelHandler);
+        this.cancelDialogHandler = function(){
+          document.getElementById('lockPopupCancel').removeEventListener("click", app.cancelDialogHandler);
           cancelCallback();
         }
-        document.getElementById('lockPopupCancel').addEventListener("click", cancelHandler);
+        document.getElementById('lockPopupCancel').addEventListener("click", app.cancelDialogHandler);
         this.onConfirmCallback = function(){
-          document.getElementById('lockPopupCancel').removeEventListener("click", cancelHandler);
+          document.getElementById('lockPopupCancel').removeEventListener("click", app.cancelDialogHandler);
           callback();
         };
       } else {
+        this.cancelDialogHandler = null;
         this.onConfirmCallback = callback;
       }
 
@@ -1383,7 +1390,7 @@ var app = {
             '</table>',
             '<table class="niceTable">' +
             '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + coin + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.systemValueToFloatValue(amount), coin) + '</td></tr>' +
-            '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.estimateFeeFloat(fee), coin) + '</td></tr>' +
+            '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.sendWallet.handler.getFeeValueDisplay(fee) + '</td></tr>' +
             '</table>' +
             '<p>You will see your device share dialog in next step and will be able to select send medium.</p>' +
             '<p><strong>Warning:</strong> this feature uses an intermediate, escrow wallet. Recipient of this message will have to pay another network fee to claim it.</p>'
@@ -1439,7 +1446,7 @@ var app = {
         'Somebody used "Send via message" function to send you ' + handler.code + '. Click "claim" to proceed and transfer contents to your wallet.' +
         '<table class="niceTable">' +
         '<tr><th colspan="2">total message content:</th></tr><tr><td style="width:50%;">' + displayTotal + ' ' + handler.code + '</td><td>' + app.priceProvider.convert(handler.systemValueToFloatValue(balance), handler.code) + '</td></tr>' +
-        '<tr><th colspan="2">transaction fee:</th></tr><tr><td>' + handler.getFeeDisplay(defaultFee) + '</td><td>' + app.priceProvider.convert(handler.estimateFeeFloat(defaultFee), handler.code) + '</td></tr>' +
+        '<tr><th colspan="2">transaction fee:</th></tr><tr><td>' + handler.getFeeDisplay(defaultFee) + '</td><td>' + handler.getFeeValueDisplay(defaultFee) + '</td></tr>' +
         '<tr><th colspan="2">you will receive:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + handler.code + '</td><td>' + app.priceProvider.convert(handler.systemValueToFloatValue(amount), handler.code) + '</td></tr>' +
         '</table>' +
         '<p>' + warning + '</p>',
@@ -1493,7 +1500,7 @@ var app = {
       var parts = url.split('/');
       if (parts.length != 4 || parts[0] != 'coffee:') {
         app.alertError('unknown url format');
-        callback();
+        callback && callback();
         return;
       }
       app.handleReceiveMessage(parts[2], parts[3], callback);
@@ -1550,7 +1557,7 @@ var app = {
         '<table class="niceTable">' +
         '<tr><th colspan="2" style="width:26%;">recipient:</th></tr><tr><td colspan="2">' + addr + '</td></tr>' +
         '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + coin + '</td><td>' + this.priceProvider.convert(floatAmount, coin) + '</td></tr>' +
-        '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.priceProvider.convert(app.sendWallet.handler.estimateFeeFloat(fee), coin) + '</td></tr>' +
+        '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.sendWallet.handler.getFeeValueDisplay(fee) + '</td></tr>' +
         '</table>'
         ,
         function(){
@@ -1593,7 +1600,7 @@ var app = {
     updateReceivingWallet: function() {
       if (document.getElementById("formPopup").classList.contains('show')) {
         if (document.getElementById('receivePaymentPopup').style.display == 'block') {
-          console.log('refresh');
+          //console.log('refresh');
           app.receivingWallet.refreshOnline(function(){
             setTimeout(app.updateReceivingWallet, 3000);
           });

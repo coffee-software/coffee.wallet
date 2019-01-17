@@ -64,6 +64,9 @@ var BitcoinJsBaseHandler = {
     getFeeDisplay: function(fee) {
       return this.systemValueToDisplayValue(fee[0]) + '&nbsp;' + this.code;
     },
+    getFeeValueDisplay: function(fee) {
+      return app.priceProvider.convert(this.estimateFeeFloat(fee), this.code);
+    },
 
     getFees: function(callback) {
       var that = this;

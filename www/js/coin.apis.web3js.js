@@ -90,6 +90,9 @@ var Web3JsBaseHandler = {
   getFeeDisplay: function(fee) {
     return this.estimateFeeFloat(fee) + '&nbsp;' + ('feeCoin' in this ? this.feeCoin.code : this.code);
   },
+  getFeeValueDisplay: function(fee) {
+    return app.priceProvider.convert(this.estimateFeeFloat(fee), ('feeCoin' in this ? this.feeCoin.code : this.code));
+  },
 
   getFees: function(callback) {
     var provider = this._getProvider();
