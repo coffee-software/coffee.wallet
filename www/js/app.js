@@ -176,7 +176,7 @@ var app = {
 
     collectAirdrop: function() {
     },
-    
+
     popupAirdrop: function() {
     },
 
@@ -1583,11 +1583,17 @@ var app = {
           document.getElementById('receiveCoinName').innerHTML = '' + wallet.handler.code + ' offline address:';
           document.getElementById('receiveCoinNote').innerHTML = 'This is an imported address,<br/> use it only if you control its private key!';
         }
+        var addrString = addr == null ? wallet.data.addr : addr;
 
-        document.getElementById('receiveCoinAddr').value = (typeof addr == 'undefined' ? wallet.data.addr : addr);
+        document.getElementById('receiveCoinAddr').value = addrString;
+
+        document.getElementById('receiveCoinIdenticon').innerHTML = '';
+        document.getElementById('receiveCoinIdenticon').appendChild(getCoinAddrIcon(wallet.handler, addrString));
 
         new QRCode(document.getElementById('receiveCoinQrcode'), {
-          text: addr == null ? wallet.data.addr : addr,
+          text: addrString,
+          width: 256,
+          height: 256,
           colorLight: '#f7f5f2',
           colorDark: '#463f3a'
         });

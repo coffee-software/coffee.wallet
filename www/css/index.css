@@ -7,7 +7,6 @@ color palete:
   coffe: #766054;
   dark: #463f3a;
   gold: #ddc486;
-
   creme: #f7f5f2;
 **/
 
@@ -162,6 +161,7 @@ h1, h2, h3 {
   right: 0;
   display: flex;
   transition: filter 0.5s;
+  box-shadow: 0px 0px 7px #463f3a;
 }
 
 #foot .tab {
@@ -500,7 +500,22 @@ body.electron #tools {
   background-image: url(../icons/coinbg.png);
   background-size: 100%;
   background-repeat: no-repeat;
+  height: 70px;
+  width: 70px;
+  box-shadow: 0px 0px 7px #261f1a;
+  border-radius: 50%;
 }
+
+#receivePaymentPopup.formContent .circleIcon {
+  left: 37.5%;
+}
+
+#receivePaymentPopup.formContent #receiveCoinIdenticon.circleIcon  {
+  left: 63.5%;
+  background-image: none;
+}
+
+/*
 .formContent .actionLeft {
   position: absolute;
   left: 28px;
@@ -513,7 +528,7 @@ body.electron #tools {
   width: 90px;
   bottom: -2px;
 }
-
+*/
 
 #popup h1 {
   position: fixed;
@@ -577,9 +592,6 @@ body.electron #tools {
   font-size: 14px;
 }
 
-#receiveCoinQrcode {
-    display: inline-block;
-}
 
 .spacing {
   margin: 14px 0;
@@ -738,7 +750,7 @@ a:active {
     border-top: 1px solid #766054;
     /* border-radius: 50px; */
     margin: 0;
-    padding: 8px;
+    padding: 8px 0;
     position: relative;
 }
 
@@ -766,10 +778,13 @@ textarea#mnemonic {
   font-size: 17px;
 }
 
-#receiveCoinQrcode {
+.qr-code-display {
+  display: inline-block;
   padding: 12px;
+  border-radius: 6px;
   background: #f7f5f2;
 }
+
 #receiveCoinNote {
   padding: 6px;
   color: #f7f5f2;

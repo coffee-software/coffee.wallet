@@ -191,9 +191,8 @@
               <table class="section" id="airdropTasks">
               </table>
               <div class="stitch"></div>
-              <div id="airdropStatus" class="section">
-              </div>
-              <div class="actions row">
+              <p id="airdropStatus" class="section"></p>
+              <div class="actions row buttons">
                 <button id="collectAirdropButton" class="box f1 hidden" onclick="app.collectAirdrop()">
                   Collect&nbsp;<span id="airdropTotal"></span>
                 </button>
@@ -201,14 +200,15 @@
             </div>
             <div id="airdropPopup2" style="display:none;">
               <div class="section">
-                Thanks for participating in the airdrop!
-                <br/>
-                If you like Coffee Wallet you can <a href="#" onclick="osPlugins.openRateAppDialog();">rate it</a>.
+                Thanks for participating in the airdrop! Tokens will appear in your wallet as soon as transaction gets confirmed.
+                If you would like to get some more and share Coffee Wallet with your friends, you can use fallowing share link.
+                You will receive extra <strong>50 CFT</strong> for each installation.
               </div>
               <div class="airdrop-link">
                 <div id="airdropRefLink">https://wallet.coffee/install</div>
                 <div style="text-align:center">
-                  <img id="airdropRefLinkQR" src="icons/home.png" width="40%" alt="qrcode" style="border: 6px solid white; margin: 3px;"/>
+                  <div id="airdropRefLinkQR" class="qr-code-display">
+                  </div>
                 </div>
                 <div class="actions row">
                   <button class="f1" onclick="osPlugins.copyToClipboard(document.getElementById('airdropRefLink').innerHTML); app.alertInfo('copied to clipboard');">
@@ -221,14 +221,12 @@
                   </button>
                 </div>
               </div>
-              <div class="section">
-                If you would like to share Coffee Wallet with your friends, you can use above share link.
-                By doing so you will receive extra <strong>50 CFT</strong> for each installation.
-                <p id="airdropStatus2">
-                </p>
-              </div>
+              <p id="airdropStatus2" class="section"></p>
               <div class="stitch"></div>
-              <div class="actions row">
+              <div class="actions row buttons">
+                <button class="box f1 light" onclick="osPlugins.openRateAppDialog()">
+                  Rate App
+                </button>
                 <button class="box f1" onclick="app.closePopup()">
                   Close
                 </button>
@@ -283,7 +281,7 @@
               <div class="section">
                 Coffee Wallet does not charge additional fees. You will get same results exchanging trough changelly.com website.
               </div>
-              <div class="actions row">
+              <div class="actions row buttons">
                 <button id="exchangeButton" class="box f1" onclick="app.doExchange()">
                   Exchange
                 </button>
@@ -305,7 +303,7 @@
               </div>
 
               <div class="spacing">&nbsp;</div>
-              <div class="row spacing">
+              <div class="row spacing buttons">
                 <button class="box f1" onclick="app.popupAddOfflineAsset('balance', '')">
                   add balance
                 </button>
@@ -333,7 +331,7 @@
                 enable test network coins
               </label>
               <p style="padding-bottom: 10px;">Enable this to get access to test networks coins like Bitcoin Testnet or ETH Ropsten.</p>
-              <div class="row spacing">
+              <div class="row spacing buttons">
                 <button class="box f1" onclick="app.savePriceSettings()">
                   Save
                 </button>
@@ -422,8 +420,8 @@
           <div id="addOfflineAssetPopup" class="formContent" style="display:none;">
             <div class="formTop">
               <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.png"/>
+              <!--img class="actionLeft" src="icons/cancel.png"/>
+              <img class="actionRight" src="icons/submit.png"/-->
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
@@ -470,8 +468,8 @@
           <div id="sendPaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
               <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.send.png"/>
+              <!--img class="actionLeft" src="icons/cancel.png"/>
+              <img class="actionRight" src="icons/submit.send.png"/-->
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
@@ -558,8 +556,9 @@
           <div id="receivePaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
               <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.copy.png"/>
+              <div id="receiveCoinIdenticon" class="circleIcon coinBig"></div>
+              <!--img class="actionLeft" src="icons/cancel.png"/>
+              <img class="actionRight" src="icons/submit.copy.png"/-->
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> close</button>
@@ -570,7 +569,7 @@
               <label><span id="receiveCoinName"></span></label>
               <textarea readonly="readonly" id="receiveCoinAddr"></textarea>
             </div>
-            <div id="receiveCoinQrcode"></div>
+            <div id="receiveCoinQrcode" class="qr-code-display"></div>
             <div id="receiveCoinNote"></div>
           </div>
 
@@ -592,8 +591,8 @@
           <div id="importPrivateKeyPopup" class="formContent" style="display:none;">
             <div class="formTop">
               <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.png"/>
+              <!--img class="actionLeft" src="icons/cancel.png"/>
+              <img class="actionRight" src="icons/submit.png"/-->
             </div>
 
             <div class="formActions row">

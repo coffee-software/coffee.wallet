@@ -13,18 +13,28 @@ button {
   padding: 0;
 }
 
+.row.buttons {
+  margin-right: -7px;
+  margin-left: -7px;
+}
+
 button.box {
   background: #766054;
-  margin: 10px;
+  margin: 10px 7px;
   padding: 14px 4px;
   color: #f7f5f2;
 }
+
+button.box.light {
+  background: #ddc486;
+}
+
 
 button.box::before {
   display: block;
   content: " ";
   border-top: 1px dashed #f7f5f2;
-  margin: -7px -14px 7px -14px;
+  margin: -7px -7px 7px -7px;
 }
 
 button.toolbtn {
@@ -83,12 +93,27 @@ select {
   color: #766054;
   text-align: left;
   padding: 16px;
+  padding-right: 0;
+  margin-right: 25px;
 }
 
 .formActions .submit {
   color: #f7f5f2;
   text-align: right;
   padding: 16px;
+  padding-left: 0;
+  margin-left: 25px;
+}
+
+#receivePaymentPopup .formActions .cancel {
+  padding: 16px 0 16px 5px;
+}
+
+#receivePaymentPopup .formActions .submit {
+  padding: 16px 5px 16px 0;
+}
+#receivePaymentPopup button img {
+  margin: 0;
 }
 
 .formButtons .f1 {
