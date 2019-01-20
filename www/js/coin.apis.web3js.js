@@ -42,7 +42,7 @@ var Web3JsBaseHandler = {
     return parseFloat(this._getProvider().utils.fromWei(s, 'ether'));
   },
   floatValueToSystemValue: function(f){
-    return this._getProvider().utils.toWei("" + f, 'ether');
+    return this._getProvider().utils.toWei(f.toFixed(18), 'ether');
   },
   validateAddress: function(addr) {
     return this._getProvider().utils.isAddress(addr);
