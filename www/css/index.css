@@ -285,7 +285,7 @@ table {
 }
 
 .disabled {
-  color: #ddd;
+  opacity: 0.5;
 }
 
 .coinIcon {
@@ -684,43 +684,6 @@ body.electron #tools {
   overflow-y: auto;
 }
 
-#coinInfoPopup {
-    padding: 0 16px;
-    padding-bottom: 50px;
-}
-
-#coinInfoPopup ul {
-  list-style-type: none;
-  padding-left: 23px;
-  margin: 0px 0;
-  line-height: 16px;
-}
-
-#coinInfoPopup ul li {
-  margin-bottom: 5px;
-}
-
-#coinInfoPopup ul li:before{
-  width: 14px;
-    content: ' ';
-    display: inline-block;
-    height: 14px;
-    margin-left: -20px;
-    margin-right: 6px;
-    margin-bottom: -3px;
-   background-image: url(../icons/bullet.png);
-}
-
-#coinInfoPopup h2 {
-    text-align: center;
-    margin: 0;
-    margin-bottom: 14px;
-}
-#coinInfoPopup h3 {
-    margin: 18px 0;
-    font-size: 14px;
-}
-
 .rowIcon {
   text-align: center;
   padding-top: 34px;
@@ -732,18 +695,6 @@ body.electron #tools {
 
 a:active {
     opacity: 0.5;
-}
-
-#coinInfoPopup ul.advancedActions {
-  padding-left: 0;
-}
-
-#coinInfoPopup ul.advancedActions li:before {
-  display: none;
-}
-
-#coinInfoPopup ul.advancedActions button img {
-  margin-right: 8px;
 }
 
 .receiveAddr {
@@ -895,4 +846,52 @@ body.electron #uxHint {
   font-size: 12px;
   padding: 9px 0;
   text-align: center;
+}
+
+
+
+.details-popup ul {
+  list-style-type: none;
+  padding: 0 16px;
+  margin: 0px 0;
+  line-height: 16px;
+}
+.details-popup ul li {
+  margin-bottom: 12px;
+}
+.details-popup ul button img {
+  margin-right: 8px;
+}
+.details-popup h2 {
+  text-align: center;
+  margin: 0;
+}
+.details-popup h3 {
+  font-size: 11px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 18px;
+}
+.details-popup .details-buttons {
+  display: flex;
+}
+.details-popup .details-buttons .button {
+  flex: 1;
+}
+.details-popup .details-buttons .button a {
+  display: block;
+  text-align: center;
+}
+.details-popup .details-buttons .button a img {
+  width: 32px;
+}
+.details-popup .details {
+  text-align: center;
+}
+
+#coinInfoWallet > svg {
+  width: 64px;
+}
+#coinInfoWallet .balance {
+  overflow: auto;
 }

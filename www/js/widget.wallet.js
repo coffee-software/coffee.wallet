@@ -84,6 +84,8 @@ function Wallet(data) {
   onlineCell.classList.add('online');
   this.onlineAmount = document.createElement("div");
   this.onlineValue = document.createElement("div");
+  this.onlineAmountDetail = document.createElement("span");
+  this.onlineValueDetail = document.createElement("span");
 
   onlineCell.appendChild(this.onlineValue).classList.add('value');
   onlineCell.appendChild(this.onlineAmount).classList.add('amount');
@@ -106,6 +108,8 @@ function Wallet(data) {
   offlineCell.classList.add('right');
   this.offlineAmount = document.createElement("div");
   this.offlineValue = document.createElement("div");
+  this.offlineAmountDetail = document.createElement("span");
+  this.offlineValueDetail = document.createElement("span");
   offlineCell.appendChild(this.offlineValue).classList.add('value');
   offlineCell.appendChild(this.offlineAmount).classList.add('amount');
 
@@ -114,13 +118,14 @@ function Wallet(data) {
   buttonsRight.classList.add('buttonsRight');
 
   var spinner = function() {
-      refreshButton.classList.toggle('spinning', that.running);
+      that.refreshButton.classList.toggle('spinning', that.running);
+      that.refreshButton2.classList.toggle('spinning', that.running);
       if (that.running) {
         setTimeout(spinner, 1000);
       }
   };
 
-  var refreshButton = createButton('refresh', 'refresh', function(){
+  that.refreshClick = function(){
     if (!that.running) {
       that.running = true;
       spinner();
@@ -128,10 +133,15 @@ function Wallet(data) {
       that.refreshOffline(true);
     }
     //TODO set running to false after all ofline assets updated
-  });
-  refreshButton.classList.add('spinner');
-  buttonsRight.appendChild(refreshButton);
-  buttonsRight.appendChild(createButton('list', 'assets', function(){app.popupOfflineAssets(that);}));
+  };
+
+  that.refreshButton = createButton('refresh', 'refresh', that.refreshClick);
+  that.refreshButton2 = createButton('refresh', 'refresh', that.refreshClick);
+
+  that.refreshButton.classList.add('spinner');
+  that.refreshButton2.classList.add('spinner');
+  buttonsRight.appendChild(that.refreshButton);
+  buttonsRight.appendChild(createButton('list', 'portfolio', function(){app.popupOfflineAssets(that);}));
   buttonsRight.appendChild(createButton('more', 'more', function(){app.popupCoinInfo(that);}));
 
   this.row.appendChild(buttonsLeft);
@@ -150,7 +160,8 @@ function Wallet(data) {
   that.touchDiff = 0;
 
   this.slidingRow.addEventListener('click', function ( event ) {
-    app.flushUxHint('swipe');
+    app.popupCoinInfo(that);
+    //app.flushUxHint('swipe');
   });
   this.slidingRow.addEventListener('touchstart', function ( event ) {
     that.setActive();
@@ -180,13 +191,13 @@ function Wallet(data) {
 
   this.updateOfflineValue = function() {
     var value = this.totalOffline * app.priceProvider.getPrice(this.handler.code);
-    this.offlineValue.innerHTML = app.priceProvider.convert(this.totalOffline, this.handler.code);
+    this.offlineValueDetail.innerHTML = this.offlineValue.innerHTML = app.priceProvider.convert(this.totalOffline, this.handler.code);
     return value;
   }
 
   this.updateOnlineValue = function() {
     var value = this.totalOnline * app.priceProvider.getPrice(this.handler.code);
-    this.onlineValue.innerHTML = app.priceProvider.convert(this.totalOnline, this.handler.code);
+    this.onlineValueDetail.innerHTML = this.onlineValue.innerHTML = app.priceProvider.convert(this.totalOnline, this.handler.code);
     return value;
   }
 
@@ -227,6 +238,7 @@ function Wallet(data) {
         }
       }
       this.offlineAmount.innerHTML = formatMoney(this.totalOffline, this.handler.code, 5);
+      this.offlineAmountDetail.innerHTML = formatMoney(this.totalOffline, this.handler.code, 10);
       this.updateOfflineValue();
   }
 
@@ -237,6 +249,7 @@ function Wallet(data) {
     this.totalOnline = 'balance' in this.data ? this.data.balance : 0;
 
     this.onlineAmount.innerHTML = formatMoney(this.totalOnline, this.handler.code, 5);
+    (typeof that.data.systemBalance != 'undefined') && (this.onlineAmountDetail.innerHTML = that.handler.systemValueToDisplayValue(that.data.systemBalance) + ' ' + this.handler.code);
     this.updateOnlineValue();
 
     if (this.data.addr && 'getBalance' in this.handler) {
@@ -261,6 +274,7 @@ function Wallet(data) {
           that.totalOnline = that.data.balance = floatBalance;
           app.data.save();
           that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
+          this.onlineAmountDetail.innerHTML = that.handler.systemValueToDisplayValue(that.data.systemBalance) + ' ' + this.handler.code;
           that.updateOnlineValue();
         }
         if (typeof callback != 'undefined') callback();

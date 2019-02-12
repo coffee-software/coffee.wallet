@@ -386,8 +386,9 @@ var app = {
 
     },
 
-    openPopup: function(id, title, bgimg) {
+    openPopup: function(id, title, bgimg, previousPopupCall) {
 
+      this.previousPopupCall = previousPopupCall;
       this.closeMenu();
       document.getElementById('popup').classList.add('show');
 
@@ -409,6 +410,10 @@ var app = {
 
     closePopup: function() {
       document.getElementById("popup").classList.remove('show');
+      if (this.previousPopupCall) {
+        this.previousPopupCall();
+      }
+      this.previousPopupCall = null;
     },
 
     showExportPrivateKeyPopup: function(wallet) {
@@ -733,11 +738,19 @@ var app = {
     },
     popupCoinInfo: function(wallet) {
       this.openPopup('coinInfoPopup', wallet.handler.longname, 'coins/' + wallet.handler.icon + '.svg');
-      var links = '<ul>';
-      for (var name in wallet.handler.links) {
-        links += '<li><a href="#" onclick="osPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
-      }
-      links += '</ul>';
+
+      document.getElementById('coinInfoName').innerHTML = wallet.handler.code;
+      document.getElementById('coinInfoSubName').innerHTML = wallet.handler.longname;
+
+      document.getElementById('coinInfoButtons').innerHTML = '';
+
+      document.getElementById('coinInfoButtons').appendChild(createButton('receive', 'receive', ('newPrivateKey' in wallet.handler) ? function(){app.popupReceivePayment(wallet);} : null));
+      document.getElementById('coinInfoButtons').appendChild(createButton('send', 'send', ('sendPayment' in wallet.handler) ? function(){app.popupSendPayment(wallet);} : null));
+
+      document.getElementById('coinInfoButtons').appendChild('getBalance' in wallet.handler ? wallet.refreshButton2 : createButton('refresh', 'refresh', null));
+      document.getElementById('coinInfoButtons').appendChild(createButton('list', 'portfolio', function(){app.popupOfflineAssets(wallet);}));
+
+
 
       var advanced = document.createElement('ul');
       advanced.classList.add('advancedActions');
@@ -759,44 +772,66 @@ var app = {
       }
 
       if ('explorerLinkAddr' in wallet.handler) {
-        advanced.appendChild(app.createAdvancedOption('link', 'explore history (external)', function(){
+        advanced.appendChild(app.createAdvancedOption('link', 'history (external)', function(){
           osPlugins.openInSystemBrowser(wallet.handler.explorerLinkAddr(wallet.data.addr));
         }));
       }
 
       if ('sendPayment' in wallet.handler) {
-        advanced.appendChild(app.createAdvancedOption('send', 'send all', function(){
+        advanced.appendChild(app.createAdvancedOption('sendall', 'send all', function(){
           app.popupSendPayment(wallet, wallet.data.systemBalance);
         }));
       }
 
-
       //advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
       //advanced.appendChild(app.createAdvancedOption('receive', 'import private key', app.showImportPrivateKeyPopup.bind(app, advancedWallet)));
 
+      var links = '<ul>';
+      for (var name in wallet.handler.links) {
+        links += '<li><a href="#" onclick="osPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
+      }
+      links += '</ul>';
+
+      advanced.appendChild(app.createAdvancedOption('about', 'about', function(){
+        app.confirmBeforeContinue(wallet.handler.longname + ' (' + wallet.handler.code + ')',
+          '<div style="text-align:center;"><img width="64" src="coins/' + wallet.handler.icon + '.svg"/></div>' +
+          wallet.handler.description + links,
+          function(){},
+          'close'
+        );
+      }));
 
       if (wallet.totalOffline + wallet.totalOnline <= 0) {
         advanced.appendChild(app.createAdvancedOption('remove', 'remove coin', app.removeCoin.bind(app, advancedWallet)));
       }
 
-      //var coffeeSupport = ;
-      var support = ('sendPayment' in wallet.handler) ?
-      'Local wallet is supported for this coin. Your public address (generated from your BIP39 mnemonic) is:' +
-      '<div style="width: 20%; padding: 5%; margin: 0 auto;">' + getCoinAddrIcon(wallet.handler, wallet.data.addr).outerHTML + '</div>'
-      + '<strong>' + wallet.data.addr + '</strong>'
-      : 'No support for local wallet for this coin.';
+      //document.getElementById('coinInfoWallet').appendChild(getCoinAddrIcon(wallet.handler, wallet.data.addr));
 
-      document.getElementById('coinInfoDescription').innerHTML =
-        '<h2>' + wallet.handler.longname + ' (' + wallet.handler.code + ')</h2>' +
-        wallet.handler.description +
-        '<div class="spacing stitch"></div>' +
-        '<h3>links (external)</h3>' +
-        links +
-        '<h3>coffee wallet</h3>' + support;
+      document.getElementById('coinInfoWallet').innerHTML = '<div style="overflow:auto; padding: 0 12px;">' +
+      '<div style="float:left; text-align:left;">' +
+      'wallet:<br/>' +
+      (('sendPayment' in wallet.handler) ? (
+      '<strong id="coinInfoValueContainer"></strong><br/>' +
+      '<span id="coinInfoBalanceContainer"></span>') : 'Not supported yet.<br/>Portfolio use only.') +
+      '</div>' +
+      '<div style="float:right; text-align:right;">' +
+      'portfolio:<br/>' +
+      '<strong id="coinInfoPortfolioValueContainer"></strong><br/>' +
+      '<span id="coinInfoPortfolioBalanceContainer"></span>' +
+      '</div>';
+
+      if ('sendPayment' in wallet.handler) {
+        document.getElementById('coinInfoBalanceContainer').appendChild(wallet.onlineAmountDetail);
+        document.getElementById('coinInfoValueContainer').appendChild(wallet.onlineValueDetail);
+      }
+
+      document.getElementById('coinInfoPortfolioBalanceContainer').appendChild(wallet.offlineAmountDetail);
+      document.getElementById('coinInfoPortfolioValueContainer').appendChild(wallet.offlineValueDetail);
+
 
       if (advanced.children.length > 0) {
-          document.getElementById('coinInfoDescription').insertAdjacentHTML('beforeend','<h3>advanced options:</h3>');
-          document.getElementById('coinInfoDescription').append(advanced);
+        document.getElementById('coinInfoActions').innerHTML = '';
+        document.getElementById('coinInfoActions').append(advanced);
       }
     },
 
@@ -1031,7 +1066,9 @@ var app = {
         }
       }
 
-      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' assets', 'coins/' + wallet.handler.icon + '.svg');
+      this.openPopup('offlineAssetsPopup', wallet.handler.code + ' portfolio', 'coins/' + wallet.handler.icon + '.svg');
+
+      document.getElementById('offlineAssetsTitle').innerHTML = wallet.handler.code + ' portfolio';
       document.getElementById('addAddressButton').classList.toggle('hidden', !('getBalance' in wallet.handler));
       document.getElementById('newAddressButton').classList.toggle('hidden', !('newRandomPrivateKey' in wallet.handler));
       this.offlineAssetWallet = wallet;
@@ -1039,6 +1076,65 @@ var app = {
 
     pasteToField: function(field, addr, args) {
       document.getElementById(field).value = addr;
+    },
+
+    popupOfflineAssetDetails: function(asset) {
+
+      activeAsset = asset;
+
+      this.openPopup('offlineAssetDetails', app.offlineAssetWallet.handler.code + ' portfolio asset', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg', function(){
+        app.popupOfflineAssets(app.offlineAssetWallet);
+      });
+
+      document.getElementById('offlineAssetIcon').innerHTML = '';
+      document.getElementById('offlineAssetIcon').appendChild(asset.assetIcon);
+
+      document.getElementById('offlineAssetName').innerHTML = asset.data.comment;
+      document.getElementById('offlineAssetSubName').innerHTML = app.offlineAssetWallet.handler.code + ' portfolio asset';
+
+      document.getElementById('offlineAssetButtons').innerHTML = '';
+
+      if (asset.data.addr) {
+        document.getElementById('offlineAssetButtons').appendChild(createButton('receive', 'receive', asset.actionReceive));
+        document.getElementById('offlineAssetButtons').appendChild(asset.refreshButton ? asset.refreshButton : createButton('refresh', 'refresh', null));
+      } else {
+        document.getElementById('offlineAssetButtons').appendChild(createButton('remove', 'remove', asset.removeAction));
+        var spacer = document.createElement('div');
+        spacer.className = 'button';
+        document.getElementById('offlineAssetButtons').appendChild(spacer);
+      }
+
+      document.getElementById('offlineAssetButtons').appendChild(createButton('edit', 'edit', function(){
+        app.popupEditOfflineAsset(asset);
+      }));
+
+      document.getElementById('offlineAssetActions').innerHTML = '';
+
+      if (asset.data.addr) {
+          var advanced = document.createElement('ul');
+          advanced.classList.add('advancedActions');
+
+          advanced.appendChild(app.createAdvancedOption('link', 'history (external)', asset.actionHistory));
+          advanced.appendChild(app.createAdvancedOption('remove', 'remove', asset.removeAction));
+          document.getElementById('offlineAssetActions').append(advanced);
+
+          document.getElementById('offlineAssetInfo').innerHTML = '<p>This is an address in your portfolio that you are tracking.</p>' +
+          '<p><strong>warning: </strong>Coffee Wallet does not know the private key for this address. Use only if you have it secured.</p>' +
+          '<p>addr:&nbsp;<strong>' + asset.data.addr + '</strong></p>' +
+          '<p>balance:&nbsp;<strong id="offlineAssetInfoBalanceContainer"></strong></p>' +
+          '<p>value:&nbsp;<strong id="offlineAssetInfoValueContainer"></strong></p>';
+
+          document.getElementById('offlineAssetInfoBalanceContainer').appendChild(asset.amount);
+          document.getElementById('offlineAssetInfoValueContainer').appendChild(asset.value);
+
+
+      } else {
+          document.getElementById('offlineAssetInfo').innerHTML = '<p>This is a static balance in your portfolio.</p>' +
+          '<p>balance: <strong>' + asset.data.balance + ' ' + app.offlineAssetWallet.handler.code + '</strong></p>' +
+          '<p>value: <strong id="offlineAssetInfoValueContainer"></strong></p>';
+          document.getElementById('offlineAssetInfoValueContainer').appendChild(asset.value);
+      }
+
     },
 
     popupEditOfflineAsset: function(asset) {
@@ -1096,7 +1192,7 @@ var app = {
         //refresh list
         app.popupOfflineAssets(app.offlineAssetWallet);
         app.confirmBeforeContinue('wallet created',
-          '<strong>warning:</strong> Coffee Wallet <strong>does not</strong> store private keys for offlie assets! ' +
+          '<strong>warning:</strong> Coffee Wallet <strong>does not</strong> store private keys for your portfolio! ' +
           'Use this address <strong>only</strong> after making the pdf you just saved secure. ' +
           'You will be able to spend funds from this wallet as long as you will have access to its private key!',
           function(){}

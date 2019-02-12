@@ -38,10 +38,11 @@ function Asset(wallet, id, data) {
   padding.classList.add('padding');
   unitCell.appendChild(padding);
 
-  padding.appendChild(getCoinAddrIcon(wallet.handler, data.addr));
+  this.assetIcon = getCoinAddrIcon(wallet.handler, data.addr);
+  padding.appendChild(this.assetIcon);
 
   var commentCell = document.createElement("div");
-  commentCell.innerHTML = '<div class="value">' + (data.addr ? '[' + data.addr.substring(0, 13) + '...]' : (data.balance + ' ' + that.wallet.handler.code)) + '</div><div class="amount">' + data.comment + '</div>';
+  commentCell.innerHTML = '<div class="value">' + (data.addr ? '[' + data.addr.substring(0, 11) + '...]' : (data.balance + ' ' + that.wallet.handler.code)) + '</div><div class="amount">' + data.comment + '</div>';
 
 
   commentCell.classList.add('left');
@@ -49,11 +50,15 @@ function Asset(wallet, id, data) {
   var amountCell = document.createElement("div");
   amountCell.classList.add('right');
 
-  this.amount = document.createElement("div");
-  this.value = document.createElement("div");
-  amountCell.appendChild(this.value).classList.add('value');
-  amountCell.appendChild(this.amount).classList.add('amount');
+  var amountContainer = document.createElement("div");
+  var valueContainer = document.createElement("div");
+  amountCell.appendChild(valueContainer).classList.add('value');
+  amountCell.appendChild(amountContainer).classList.add('amount');
 
+  this.amount = document.createElement("span");
+  this.value = document.createElement("span");
+  amountContainer.appendChild(this.amount);
+  valueContainer.appendChild(this.value);
 
   var buttonsLeft = this.buttonsLeft = document.createElement("div");
   buttonsLeft.classList.add('buttons');
@@ -63,29 +68,33 @@ function Asset(wallet, id, data) {
   buttonsRight.classList.add('buttons');
   buttonsRight.classList.add('buttonsRight');
 
-  data.addr && ('explorerLinkAddr' in wallet.handler) && buttonsLeft.appendChild(createButton('link', 'history', function(){
+
+  this.actionHistory = (data.addr && ('explorerLinkAddr' in wallet.handler)) ? function(){
     osPlugins.openInSystemBrowser(wallet.handler.explorerLinkAddr(data.addr));
-  }));
-  data.addr && buttonsLeft.appendChild(createButton('receive', 'receive', function(){
+  } : null;
+
+  this.actionReceive = data.addr ? function(){
     app.popupReceivePayment(that.wallet, that.data.addr);
-  }));
+  } : null;
+
+  this.actionReceive && buttonsLeft.appendChild(createButton('receive', 'receive', this.actionReceive));
+  this.actionHistory && buttonsLeft.appendChild(createButton('link', 'history', this.actionHistory));
 
   if (data.addr) {
-      //buttonsRight.appendChild(createButton('refresh', 'refresh', function(){that.refreshAmount();}));
+    //buttonsRight.appendChild(createButton('refresh', 'refresh', function(){that.refreshAmount();}));
+    that.refreshButton = createButton('refresh', 'refresh', function(){
+      that.refreshBalance();
+    });
 
-      that.refreshButton = createButton('refresh', 'refresh', function(){
-        that.refreshBalance();
-      });
-
-      that.refreshButton.classList.add('spinner');
-      buttonsRight.appendChild(that.refreshButton);
+    that.refreshButton.classList.add('spinner');
+    buttonsRight.appendChild(that.refreshButton);
   }
 
   buttonsRight.appendChild(createButton('edit', 'edit', function(){
     app.popupEditOfflineAsset(that);
   }));
 
-  buttonsRight.appendChild(createButton('remove', 'remove', function(){
+  that.removeAction = function(){
     navigator.notification.confirm(
         'Are you sure you want to remove this asset?',
         function (buttonIndex) {
@@ -99,7 +108,8 @@ function Asset(wallet, id, data) {
         'Remove Asset',
         ['Remove','Cancel']
     );
-  }));
+  };
+  buttonsRight.appendChild(createButton('remove', 'remove', that.removeAction));
 
   this.row.appendChild(buttonsLeft);
   this.slidingRow.appendChild(commentCell);
@@ -117,7 +127,8 @@ function Asset(wallet, id, data) {
   that.touchDiff = 0;
 
   this.slidingRow.addEventListener('click', function ( event ) {
-    app.flushUxHint('swipe');
+    //app.flushUxHint('swipe');
+    app.popupOfflineAssetDetails(that);
   });
   this.slidingRow.addEventListener('touchstart', function ( event ) {
     that.setActive();
