@@ -33,6 +33,7 @@ var app = {
         fastTap(document.getElementById('toggleMenu'));
 
         this.tabWallets();
+        document.addEventListener('backbutton', this.onBackButton.bind(this), false);
     },
 
     targetScroll: 0,
@@ -172,18 +173,20 @@ var app = {
           if (left > app.airdropMaxReward) {
             app.toggleAll('airdrop-button', true);
             if (!((config.airdrop.coin in app.data.wallets) && app.data.wallets[config.airdrop.coin].picked)) {
-              app.confirmBeforeContinue(
-                'Coffee Tokens Airdrop',
-                '<p>Coffee Token (CFT) is a utility token for Coffee Wallet Project. You can find out more <a href="#" onclick="osPlugins.openInSystemBrowser(\'https://tokens.coffee/\')">here</a>.</p>' +
-                '<div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div>' +
-                '<p>To promote the application we offer <strong>' + app.airdropMaxReward + '&nbsp;CFT</strong> for each user. You can get your tokens now or later at any time using "tools" tab.</p>' +
-                '<p>' + message + '</p>',
-                function(){
-                  app.popupAirdrop();
-                },
-                'get&nbsp;now',
-                'later'
-              );
+              if (!app.lockDialogOpened) {
+                app.confirmBeforeContinue(
+                  'Coffee Tokens Airdrop',
+                  '<p>Coffee Token (CFT) is a utility token for Coffee Wallet Project. You can find out more <a href="#" onclick="osPlugins.openInSystemBrowser(\'https://tokens.coffee/\')">here</a>.</p>' +
+                  '<div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div>' +
+                  '<p>To promote the application we offer <strong>' + app.airdropMaxReward + '&nbsp;CFT</strong> for each user. You can get your tokens now or later at any time using "tools" tab.</p>' +
+                  '<p>' + message + '</p>',
+                  function(){
+                    app.popupAirdrop();
+                  },
+                  'get&nbsp;now',
+                  'later'
+                );
+              }
             };
           }
         });
@@ -1409,108 +1412,85 @@ var app = {
       this._alertMessagePopup('error', html);
     },
 
-    cancelAuth: function() {
+    lockDialogOpened: null,
+    lockDialogAuthenticate: false,
+    lockDialogConfirmCallback: null,
+    lockDialogCancelCallback: null,
+    lockDialogCanCancel: null,
+
+    lockDialogCancel: function() {
+      app.lockDialogOpened = false;
       document.getElementById('lockPopup').classList.add('hidden');
-      this.onAuthCallback = null;
-      this.onConfirmCallback = null;
+
+      this.lockDialogConfirmCallback = null;
+      var callback = this.lockDialogCancelCallback;
+      this.lockDialogCancelCallback = null;
+      callback && callback();
     },
-    confirmAuth: function() {
+
+    lockDialogConfirm: function() {
+      app.lockDialogOpened = false;
       document.getElementById('lockPopup').classList.add('hidden');
-      if (this.onConfirmCallback != null) {
-        var tmp = this.onConfirmCallback;
-        this.onConfirmCallback = null;
-        tmp();
+
+      this.lockDialogCancelCallback = null;
+      var callback = this.lockDialogConfirmCallback;
+      this.lockDialogConfirmCallback = null;
+
+      if (this.lockDialogAuthenticate && (device.platform == "Android")) {
+        FingerprintAuth.isAvailable(function(){
+          FingerprintAuth.encrypt(
+            {
+              clientId: "coffee",
+              username: "user",
+              password: "__dummy"
+            },
+            function(){
+              app.alertSuccess("auth successfull");
+              callback();
+            }, function(err){
+              app.alertError("auth error: " + err);
+            }
+          );
+        }, function(){
+          callback();
+        });
+      } else if(this.lockDialogAuthenticate && (device.platform == "iOS")) {
+        window.plugins.touchid.isAvailable(function(){
+          window.plugins.touchid.verifyFingerprintWithCustomPasswordFallback(
+            "Scan your fingerprint to confirm",
+            function(){
+              app.alertSuccess("auth successfull");
+              callback();
+            }, function(err){
+              app.alertError("auth error: " + JSON.stringify(err));
+            }
+          );
+        }, function(){
+          callback();
+        });
       } else {
-        var tmp = this.onAuthCallback;
-        this.onAuthCallback = null;
-        switch (device.platform) {
-          case "Android":
-            FingerprintAuth.isAvailable(function(){
-              FingerprintAuth.encrypt(
-                {
-                  clientId: "coffee",
-                  username: "user",
-                  password: "__dummy"
-                },
-                function(){
-                  app.alertSuccess("auth successfull");
-                  tmp();
-                }, function(err){
-                  app.alertError("auth error: " + err);
-                }
-              );
-            }, function(){
-              tmp();
-            });
-            break;
-          case "iOS":
-            window.plugins.touchid.isAvailable(function(){
-              window.plugins.touchid.verifyFingerprintWithCustomPasswordFallback(
-                "Scan your fingerprint to confirm",
-                function(){
-                  app.alertSuccess("auth successfull");
-                  tmp();
-                }, function(err){
-                  app.alertError("auth error: " + JSON.stringify(err));
-                }
-              );
-            }, function(){
-              tmp();
-            });
-            break;
-          default:
-            tmp();
-            break;
-        }
+        callback();
       }
     },
-    authenticateBeforeContinue: function(title, message, callback) {
-      this.onAuthCallback = callback;
-      this.onConfirmCallback = null;
-      document.getElementById('lockPopup').classList.remove('hidden');
-      document.getElementById('lockPopupConfirm').classList.remove('hidden');
-      document.getElementById('lockPopupConfirmText').innerHTML = 'confirm';
-      document.getElementById('lockPopupCancel').classList.remove('hidden');
-      document.getElementById('lockPopupCancelText').innerHTML = 'cancel';
-      document.getElementById('lockTitle').innerHTML = title;
-      document.getElementById('lockMessage').innerHTML = message; // + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
+
+    authenticateBeforeContinue: function(title, message, authCallback) {
+      //message = message; // + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
+      this.confirmBeforeContinue(title, message, authCallback, 'confirm', 'cancel');
+      this.lockDialogAuthenticate = true;
     },
 
-    cancelDialogHandler: null,
-    confirmDialogLock: null,
+    confirmBeforeContinue: function(title, message, confirmCallback, confirmText, cancelText, cancelCallback) {
+      this.lockDialogOpened = true;
+      this.lockDialogAuthenticate = false;
 
-    confirmBeforeContinue: function(title, message, callback, confirmText, cancelText, cancelCallback) {
-      if (this.confirmDialogLock) {
-        Logger.log("info", null, "dialog blocked");
-        return;
-      }
-      this.confirmDialogLock = true;
-      this.onAuthCallback = null;
-
-      if (typeof cancelCallback != 'undefined') {
-        this.cancelDialogHandler = function(){
-          app.confirmDialogLock = false;
-          document.getElementById('lockPopupCancel').removeEventListener("click", app.cancelDialogHandler);
-          cancelCallback();
-        }
-        document.getElementById('lockPopupCancel').addEventListener("click", app.cancelDialogHandler);
-        this.onConfirmCallback = function(){
-          app.confirmDialogLock = false;
-          document.getElementById('lockPopupCancel').removeEventListener("click", app.cancelDialogHandler);
-          callback();
-        };
-      } else {
-        this.cancelDialogHandler = null;
-        this.onConfirmCallback = function(){
-          app.confirmDialogLock = false;
-          callback();
-        };
-      }
+      this.lockDialogConfirmCallback = confirmCallback;
+      this.lockDialogCancelCallback = cancelCallback;
 
       document.getElementById('lockPopup').classList.remove('hidden');
       document.getElementById('lockPopupConfirm').classList.remove('hidden');
       document.getElementById('lockPopupConfirmText').innerHTML = (typeof confirmText != 'undefined') ? confirmText : 'confirm';
-      document.getElementById('lockPopupCancel').classList.toggle('hidden', typeof cancelText == 'undefined');
+      this.lockDialogCanCancel = !(typeof cancelText == 'undefined');
+      document.getElementById('lockPopupCancel').classList.toggle('hidden', !this.lockDialogCanCancel);
       document.getElementById('lockPopupCancelText').innerHTML = (typeof cancelText != 'undefined') ? cancelText : 'cancel';
       document.getElementById('lockTitle').innerHTML = title;
       document.getElementById('lockMessage').innerHTML = message;
@@ -1947,6 +1927,18 @@ var app = {
         //document.getElementById('lockMessage').appendChild();
       );
 
+    },
+
+    onBackButton: function() {
+      if (this.lockDialogOpened) {
+        this.lockDialogCanCancel && this.lockDialogCancel();
+      } else if (document.getElementById('formPopup').classList.contains('show')) {
+        this.closeForm();
+      } else if (document.getElementById('popup').classList.contains('show')) {
+        this.closePopup();
+      } else if (this.menuOpened) {
+        this.closeMenu();
+      }
     },
 
     onDeviceReady: function() {
