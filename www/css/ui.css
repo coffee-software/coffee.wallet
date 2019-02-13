@@ -433,3 +433,39 @@ a {
   color: #766054;
   cursor: pointer;
 }
+
+
+.ptr--ptr {
+  pointer-events: none;
+  font-weight: bold;
+  top: 0;
+  height: 0;
+  transition: height 0.3s, min-height 0.3s;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  align-content: stretch;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 200;
+}
+.ptr--box {
+  flex-basis: 100%;
+}
+.ptr--pull {
+  transition: none;
+}
+.ptr--text {
+  display: none;
+}
+.ptr--icon {
+  transition: transform .3s;
+}
+.ptr--icon img {
+  height: 32px;
+}
+.ptr--top {
+  touch-action: pan-x pan-down pinch-zoom;
+}

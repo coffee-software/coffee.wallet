@@ -297,7 +297,7 @@ var app = {
 
     },
 
-    updateMarketCap: function() {
+    updateMarketCap: function(callback) {
       var that = this;
       var spinner = function(){
         document.getElementById('refresh').classList.toggle('spinning', that.spinning);
@@ -306,6 +306,7 @@ var app = {
         } else {
           //dependant
           document.getElementById('refresh').children[0].src = that.netError ? "icons/nonet.png" : "icons/refreshall.png";
+          callback && callback();
         }
       };
       that.spinning = true;
@@ -2006,6 +2007,20 @@ var app = {
         });
 
         app.getExchangeableCoins(function(list){app.exchangeableCoinsCache = list});
+
+        PullToRefresh.init({
+          triggerElement: '#walletsTab',
+          mainElement: '#wallets',
+          iconArrow: '<div class="spinner"><img src="icons/refreshpull.png" alt="refresh"></div>',
+          iconRefreshing: '<div class="spinner spinning"><img src="icons/refreshpull.png" alt="refresh"></div>',
+          getStyles: function() { return ''; },
+          onRefresh: function(cb) {
+            app.updateMarketCap(cb);
+          },
+          shouldPullToRefresh: function() {
+            return !document.querySelector('#walletsTab').scrollTop;
+          }
+        });
 
         Logger.log("info", null, "application started");
     },

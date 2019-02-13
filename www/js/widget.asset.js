@@ -134,9 +134,13 @@ function Asset(wallet, id, data) {
     that.setActive();
     that.slidingRow.classList.add('touching');
     that.startX = event.touches[0].clientX + that.touchDiff;
+    that.startY = event.touches[0].clientY;
   });
   this.slidingRow.addEventListener('touchmove', function ( event ) {
     that.touchDiff = that.startX - event.touches[0].clientX;
+    if (Math.abs(that.startY - event.touches[0].clientY) > 30) {
+      that.touchDiff = 0;
+    }
     //if (that.touchDiff > that.slidingRow.offsetWidth / 2) that.touchDiff = that.slidingRow.offsetWidth / 2;
     //if (that.touchDiff < - that.slidingRow.offsetWidth / 2) that.touchDiff = - that.slidingRow.offsetWidth / 2;
     that.slidingRow.style['transform'] = 'translate3d(' + -that.touchDiff + 'px,0,0)';
