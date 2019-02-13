@@ -38,11 +38,16 @@ button.box::before {
 }
 
 button.toolbtn {
-  padding: 10px;
+  padding: 25px 0;
   display: block;
   width: 100%;
-  margin: 20px 0;
-  line-height: 52px;
+  margin: 5px 0;
+  line-height: 20px;
+  background: #463f3a;
+  background: #766054;
+  box-shadow: 0px 0px 1px #463f3a;
+  background: #f7f5f2;
+  font-size: 14px;
 }
 
 button img {
@@ -52,9 +57,9 @@ button img {
 }
 
 button.toolbtn img {
-  width: 42px;
-  margin: 5px;
-  float: left;
+  display: block;
+  width: 36px;
+  margin: 5px auto;
 }
 
 button .soon {
@@ -446,10 +451,13 @@ a {
   display: flex;
   align-items: flex-end;
   align-content: stretch;
-  position: absolute;
+  /*position: absolute;
   left: 0;
   right: 0;
-  z-index: 200;
+  z-index: 200;*/
+  box-shadow: 0px 0px 7px #463f3a inset;
+  margin: 0 -20px;
+  position: relative;
 }
 .ptr--box {
   flex-basis: 100%;
@@ -461,7 +469,11 @@ a {
   display: none;
 }
 .ptr--icon {
-  transition: transform .3s;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -16px;
+  margin-top: -16px;
 }
 .ptr--icon img {
   height: 32px;

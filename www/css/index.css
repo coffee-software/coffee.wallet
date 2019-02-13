@@ -102,10 +102,30 @@ h1, h2, h3 {
 #nav .navButton {
   width: 36px;
   padding: 9px;
+  position: absolute;
 }
 #nav .navButton img {
   width: 100%;
+  /* display: block; */
+}
+#refresh {
+  right: 0;
+  display: none;
+}
+#refresh.error {
   display: block;
+}
+#refresh .testing {
+  display: none;
+}
+#refresh .nonet {
+  display: block;
+}
+#refresh.spinning .testing {
+  display: block;
+}
+#refresh.spinning .nonet {
+  display: none;
 }
 
 #toggleMenu {
@@ -242,6 +262,10 @@ body.electron ::-webkit-scrollbar-thumb {
 #swiper .swipe_tab .tab_inner {
   /* padding-top: 54px; */
   padding-bottom: 60px;
+}
+
+#toolsTab {
+  background: #ddc486;
 }
 
 .blur {
@@ -597,11 +621,16 @@ body.electron #tools {
   margin: 14px 0;
 }
 
-#wallets .walletsActions {
+#wallets .walletsAddButton {
   padding: 26px;
   text-align: center;
-  color: #ddc486;
+  color: #d0c080;
   font-size: 14px;
+}
+#wallets .walletsAddButton img {
+  width: 32px;
+  display: block;
+  margin: 0 auto;
 }
 
 #history {

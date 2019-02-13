@@ -71,7 +71,8 @@
           </div>
 
           <a id="refresh" href="javascript:app.updateMarketCap()" class="navButton spinner">
-            <img src="icons/refreshall.png" alt="refresh"/>
+            <img class="nonet" src="icons/nonet.png" alt="refresh"/>
+            <img class="testing" src="icons/refreshall.png" alt="refresh"/>
           </a>
 
           <div class="totals">
@@ -97,43 +98,52 @@
               <div id="wallets" class="tab_inner">
                 <div id="walletsList">
                 </div>
-          	    <div onclick="app.popupAddCoin()" class="walletsActions">
-                    add currencies
+          	    <div onclick="app.popupAddCoin()" class="walletsAddButton">
+                  <img src="icons/add.png"/>
+                  add currency
           	    </div>
               </div>
             </div>
-            <div class="swipe_tab">
+            <div id="toolsTab" class="swipe_tab">
               <div class="tab_inner toolsTab">
                 <div id="tools">
-                  <div class="stitch"></div>
                   <div class="row">
                     <button class="f1 toolbtn" onclick="app.scanAnyQrCode()" style="margin-right:5px;">
                       <img src="icons/quickscan.png"/>
-                      Scan
+                      scan
+                      <br/>
+                      QR code
                     </button>
 
                     <button class="f1 toolbtn" onclick="app.pasteAnyClipboard()" style="margin-left:5px;">
                       <img src="icons/quickpaste.png"/>
-                      Paste
+                      paste
+                      <br/>
+                      clipboard
                     </button>
                   </div>
-                  <div class="stitch"></div>
-                  <button class="toolbtn" onclick="app.popupSendViaMessage()">
-                    <img src="icons/email.png"/>
-                    Send via message
-                    <!--span class="soon">(comming soon)</span-->
-                  </button>
-                  <div class="stitch"></div>
-                  <button class="toolbtn" onclick="app.popupExchange()">
-                    <img src="icons/changelly.png"/>
-                    Exchange
-                  </button>
-                  <div class="stitch"></div>
-                  <button class="toolbtn airdrop-button hidden" onclick="app.popupAirdrop()">
-                    <img src="icons/heart.png"/>
-                    tokens&nbsp;airdrop
-                  </button>
-                  <div class="stitch"></div>
+                  <div class="row">
+                    <button class="toolbtn" onclick="app.popupSendViaMessage()" style="margin-right:5px;">
+                      <img src="icons/email.png"/>
+                      send via
+                      <br/>
+                      message
+                    </button>
+                    <button class="toolbtn" onclick="app.popupExchange()" style="margin-left:5px;">
+                      <img src="icons/changelly.png"/>
+                      quick
+                      <br/>
+                      exchange
+                    </button>
+                  </div>
+                  <div class="row">
+                    <button class="toolbtn airdrop-button hidden" onclick="app.popupAirdrop()">
+                      <img src="icons/heart.png"/>
+                      tokens
+                      <br/>
+                      airdrop
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

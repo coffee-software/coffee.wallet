@@ -43,9 +43,7 @@ var app = {
 
     setNoNetError : function() {
       this.netError = true;
-      if (!this.spinning) {
-        document.getElementById('refresh').children[0].src = "icons/nonet.png";
-      }
+      document.getElementById('refresh').classList.add('error');
     },
 
     scrollToTarget : function(){
@@ -305,13 +303,12 @@ var app = {
           setTimeout(spinner, 1000);
         } else {
           //dependant
-          document.getElementById('refresh').children[0].src = that.netError ? "icons/nonet.png" : "icons/refreshall.png";
+          document.getElementById('refresh').classList.toggle('error', that.netError);
           callback && callback();
         }
       };
       that.spinning = true;
       that.netError = false;
-      document.getElementById('refresh').children[0].src = "icons/refreshall.png";
       spinner();
       app.updateAllValues();
       this.priceProvider.updatePrices(function(){
@@ -1984,6 +1981,7 @@ var app = {
                       }
                     }
                   }
+                  app.updateAllValues();
                   app.onDataLoaded();
                 });
               });
