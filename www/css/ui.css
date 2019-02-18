@@ -262,7 +262,7 @@ input.has-unit {
   color: #ffffff; /*#f7f5f2*/
 }
 
-.field.dark input, .field.dark input:focus ~ label	{
+.field.dark label, .field.dark input, .field.dark input:focus ~ label	{
   color: #463f3a;
 }
 
