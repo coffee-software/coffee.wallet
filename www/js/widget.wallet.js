@@ -278,7 +278,7 @@ function Wallet(data) {
           that.totalOnline = that.data.balance = floatBalance;
           app.data.save();
           that.onlineAmount.innerHTML = formatMoney(that.totalOnline, that.handler.code, 5);
-          this.onlineAmountDetail.innerHTML = that.handler.systemValueToDisplayValue(that.data.systemBalance) + ' ' + this.handler.code;
+          that.onlineAmountDetail.innerHTML = that.handler.systemValueToDisplayValue(that.data.systemBalance) + ' ' + that.handler.code;
           that.updateOnlineValue();
         }
         if (typeof callback != 'undefined') callback();
