@@ -22,19 +22,15 @@ button.box {
   background: #766054;
   margin: 10px 7px;
   padding: 14px 4px;
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
+
+  background-image: url(/img/stitch.png);
+  background-position-y: 4px;
+  background-repeat: repeat-x;
 }
 
 button.box.light {
   background: #ddc486;
-}
-
-
-button.box::before {
-  display: block;
-  content: " ";
-  border-top: 1px dashed #f7f5f2;
-  margin: -7px -7px 7px -7px;
 }
 
 button.toolbtn {
@@ -43,10 +39,8 @@ button.toolbtn {
   width: 100%;
   margin: 5px 0;
   line-height: 20px;
-  background: #463f3a;
-  background: #766054;
   box-shadow: 0px 0px 1px #463f3a;
-  background: #f7f5f2;
+  background: #ffffff;
   font-size: 14px;
 }
 
@@ -81,7 +75,7 @@ select {
     margin: 0;
     margin-bottom: 10px;
     width: 100%;
-    color: #f7f5f2;
+    color: #ffffff; /*#f7f5f2*/
     line-height: 20px;
     border: none;
     -moz-appearance: none;
@@ -103,7 +97,7 @@ select {
 }
 
 .formActions .submit {
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
   text-align: right;
   padding: 16px;
   padding-left: 0;
@@ -124,7 +118,7 @@ select {
 .formButtons .f1 {
   border: 1px solid #766054;
   border-radius: 25px;
-  color: #eadfcb;
+  color: #ffffff; /*eadfcb*/
   padding: 12px 24px;
   font-size: 12px;
   line-height: 26px;
@@ -161,7 +155,7 @@ input {
   border-bottom:1px dashed #766054;
   margin: 0;
   background: none;
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
   font-family: 'Poppins', serif;
 }
 input.dark {
@@ -169,7 +163,7 @@ input.dark {
   padding: 10px;
   margin: 0;
   margin-bottom: 10px;
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
   line-height: 20px;
   border: none;
 }
@@ -182,7 +176,7 @@ textarea {
    padding: 9px;
    margin: 0;
    background: #463f3a;
-   color: #f7f5f2;
+   color: #ffffff; /*#f7f5f2*/
    font-family: 'Poppins', serif;
    box-sizing: border-box;
 }
@@ -191,7 +185,7 @@ textarea {
 }
 
 input:active, input:focus {
-    border-color: #f7f5f2;
+    border-color: #ffffff; /*#f7f5f2*/
 }
 
 .field.dark input:active, .field.dark input:focus {
@@ -248,7 +242,7 @@ input.has-unit {
   left: 0;
   top: 35px;
   font-size: 15px;
-  color: #766054;
+  color: #fffcf8;
   transition:0.2s linear all;
   -moz-transition:0.2s linear all;
   -webkit-transition:0.2s linear all;
@@ -265,7 +259,7 @@ input.has-unit {
 }
 
 .field input:focus ~ label	{
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
 }
 
 .field.dark input, .field.dark input:focus ~ label	{
@@ -277,7 +271,7 @@ input.has-unit {
 }
 
 .field strong	{
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
   font-weight: normal;
 }
 .field .fee	{
@@ -291,7 +285,7 @@ input.has-unit {
 }
 
 .field.filled .input-unit {
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
 }
 
 .range-input {
@@ -328,7 +322,7 @@ input.has-unit {
 }
 
 .rangeSlider__fill {
-  background: #f7f5f2;
+  background: #ffffff; /*#f7f5f2*/
   position:absolute;
   z-index:2
 }
@@ -451,13 +445,16 @@ a {
   display: flex;
   align-items: flex-end;
   align-content: stretch;
-  /*position: absolute;
+  box-shadow: 0px 0px 7px #463f3a;
+
+  background: #fffcf8;
+  position: absolute;
   left: 0;
   right: 0;
-  z-index: 200;*/
-  box-shadow: 0px 0px 7px #463f3a inset;
-  margin: 0 -20px;
-  position: relative;
+  z-index: 200;
+
+  /*margin: 0 -20px;
+  position: relative;*/
 }
 .ptr--box {
   flex-basis: 100%;

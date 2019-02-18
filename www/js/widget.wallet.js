@@ -142,7 +142,7 @@ function Wallet(data) {
   that.refreshButton2.classList.add('spinner');
   buttonsRight.appendChild(that.refreshButton);
   buttonsRight.appendChild(createButton('list', 'portfolio', function(){app.popupOfflineAssets(that);}));
-  buttonsRight.appendChild(createButton('more', 'more', function(){app.popupCoinInfo(that);}));
+  //buttonsRight.appendChild(createButton('more', 'more', function(){app.popupCoinInfo(that);}));
 
   this.row.appendChild(buttonsLeft);
   this.slidingRow.appendChild(onlineCell);

@@ -169,17 +169,20 @@
 	  <div id="overlay"></div>
 
         <div id="popup">
-          <h1 id="popupHead">
-            <a href="javascript:app.closePopup()" class="close"><img src="icons/hide.png"/></a>
-            <span id="popupTitle"></span>
-            <img id="popupIcon" src="icons/hide.png" style="display:none;"/>
-          </h1>
-          <div id="popupContent">
-            <div id="historyPopup" style="display:none;">
-
+          <div id="popupHead">
+            <a href="javascript:app.closePopup()" class="close"><img src="icons/hide.drk.png"/></a>
+            <div class="stitchHolder"></div>
+            <div class="titleHolder">
+              <h2 id="popupTitle"></h2>
             </div>
+          </div>
+          <div id="popupContent">
             <div id="sendViaMessagePopup" style="display:none;">
-              <h2>send via message</h2>
+              <div class="bg-creme popup-head">
+                <div class="rowIcon"><img class="coinIcon coinBig" src="icons/messageglyph.png"/></div>
+                <h2>send via message</h2>
+                <h3></h3>
+              </div>
               <p>This feature can be used to send crypto-currencies to your friends that do not have a wallet yet.</p>
               <p>After selecting value you will be able to send a special link to someone using SMS, email or any other medium.</p>
               <p>Receiver of this message will click this link and will be instructed on how to install wallet and receive coins easily.</p>
@@ -193,8 +196,12 @@
               </table>
             </div>
             <div id="airdropPopup" style="display:none;">
+              <div class="bg-creme popup-head">
+                <div class="rowIcon"><img class="coinIcon coinBig" src="coins/cft.svg"/></div>
+                <h2>CFT airdrop</h2>
+                <h3>Coffee Wallet Tokens</h3>
+              </div>
               <div class="section">
-                <!--div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div-->
                 You don't have to complete all tasks listed below but they should take only 3 minutes of your time and you will know all important features of this application.
               </div>
               <div class="stitch"></div>
@@ -209,6 +216,11 @@
               </div>
             </div>
             <div id="airdropPopup2" style="display:none;">
+              <div class="bg-creme popup-head">
+                <div class="rowIcon"><img class="coinIcon coinBig" src="coins/cft.svg"/></div>
+                <h2>CFT airdrop</h2>
+                <h3>Coffee Wallet Tokens</h3>
+              </div>
               <div class="section">
                 Thanks for participating in the airdrop! Tokens will appear in your wallet as soon as transaction gets confirmed.
                 If you would like to get some more and share Coffee Wallet with your friends, you can use fallowing share link.
@@ -243,13 +255,14 @@
               </div>
             </div>
             <div id="exchangePopup" style="display:none;">
-              <div style="margin: 15px; overflow: auto;">
-                <img src="icons/changelly_color.png" style="float:left; width: 96px;"/>
-                <div style="float:none; margin-left:108px;">
-                  Powered by Changelly. <br/>
+              <div class="bg-creme popup-head">
+                <div class="rowIcon"><img class="coinIcon coinBig" src="icons/changelly_color.png"/></div>
+                <h2>Exchange</h2>
+                <h3>Powered by Changelly</h3>
+              </div>
+              <div style="margin: 15px 0;">
                   Usually a transaction is completed within <b>5&#8209;30&nbsp;minutes</b> but it can take longer.
                   Refer to <a href="#" onclick="osPlugins.openInSystemBrowser('https://changelly.com/');">changelly.com</a> for more info.
-                </div>
               </div>
               <div class="stitch"></div>
               <div class="section">
@@ -298,9 +311,11 @@
               </div>
             </div>
             <div id="coinInfoPopup" class="details-popup" style="display:none;">
-              <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <h2 id="coinInfoName"></h2>
-              <h3 id="coinInfoSubName"></h3>
+              <div class="bg-creme popup-head">
+                <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
+                <h2 id="coinInfoName">&nbsp;</h2>
+                <h3 id="coinInfoSubName">&nbsp;</h3>
+              </div>
               <div id="coinInfoButtons" class="details-buttons"></div>
               <div class="spacing stitch"></div>
               <div id="coinInfoWallet" class="details"></div>
@@ -308,24 +323,26 @@
               <div id="coinInfoActions"></div>
             </div>
             <div id="offlineAssetDetails" class="details-popup" style="display:none;">
-              <div class="rowIcon active">
-                <img class="coinIcon coinBig" src=""/>
-                <div id="offlineAssetIcon" class="coinBig" style="display: inline-block; margin-left: 14px;"></div>
+              <div class="bg-creme popup-head">
+                <div class="rowIcon active">
+                  <img class="coinIcon coinBig" src=""/>
+                  <div id="offlineAssetIcon" class="coinBig" style="display: inline-block; margin-left: 14px;"></div>
+                </div>
+                <h2 id="offlineAssetName"></h2>
+                <h3 id="offlineAssetSubName"></h3>
               </div>
-              <h2 id="offlineAssetName"></h2>
-              <h3 id="offlineAssetSubName"></h3>
               <div id="offlineAssetButtons" class="details-buttons"></div>
               <div class="spacing stitch"></div>
               <div id="offlineAssetInfo" class="details"></div>
               <div class="spacing stitch"></div>
               <div id="offlineAssetActions"></div>
-
             </div>
             <div id="offlineAssetsPopup" style="display:none;">
-              <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
-
-              <h2 id="offlineAssetsTitle" style="text-align:center;">portfolio</h2>
-              <div class="stitch"></div>
+              <div class="bg-creme popup-head">
+                <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
+                <h2 id="offlineAssetsTitle" style="text-align:center;">portfolio</h2>
+                <h3 id="offlineAssetsSubtitle" style="text-align:center;">portfolio</h3>
+              </div>
               <div class="unpad">
                 <div id="offlineAssets">
 
@@ -347,20 +364,23 @@
             </div>
 
             <div id="priceSettingsPopup" style="display:none;">
-              <h2>Fiat Currency</h2>
+              <div class="bg-creme popup-head">
+                <h2>Settings</h2>
+              </div>
+              <h3>Fiat Currency</h3>
               <select id="priceProvider">
               </select>
               <select id="priceUnit">
               </select>
-              <p style="padding-bottom: 10px;">This will affect displaying and converting values across the application.</p>
+              <p style="padding-bottom: 10px;">All values will be displayed in this currency.</p>
 
-              <h2>Developer Tools</h2>
+              <h3>Developer Tools</h3>
               <label class="checkbox">
                 <input type="checkbox" id="settingsEnableTestCoins" />
                 <div class="fakecheck"></div>
                 enable test network coins
               </label>
-              <p style="padding-bottom: 10px;">Enable this to get access to test networks coins like Bitcoin Testnet or ETH Ropsten.</p>
+              <p style="padding-bottom: 10px;">Get access to Bitcoin Testnet or ETH Ropsten.</p>
               <div class="row spacing buttons">
                 <button class="box f1" onclick="app.savePriceSettings()">
                   Save
@@ -369,6 +389,9 @@
 
             </div>
             <div id="addCoinPopup" style="display:none;">
+              <div class="bg-creme popup-head">
+                <h2>add cryptos</h2>
+              </div>
               <div style="padding:0 7px 20px 7px">
                 <div class="field dark" style="padding-bottom: 15px;">
                   <input id="addCoinFilter" value="" required/>
@@ -389,6 +412,9 @@
               <div id="moreCoins"></div>
             </div>
             <div id="helpPopup" style="display:none;">
+              <div class="bg-creme popup-head">
+                <h2>Help</h2>
+              </div>
               <div style="text-align:center;">
                 <h2>Coffee Wallet</h2>
                 <h3>Version: <strong><span class="VERSION">0.8.5</span></strong></h3>
@@ -439,9 +465,6 @@
                   <li>Wallets tab. Your home screen with all your wallets.</li>
                   <li>Tools tab. "Send via message", "Scan QR code", "Exchange" and other tools.</li>
                 </ol>
-            </div>
-            <div id="feedbackPopup" style="display:none;">
-              <h2>Coffee Wallet</h2>
             </div>
           </div>
         </div>

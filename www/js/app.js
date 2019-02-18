@@ -34,6 +34,11 @@ var app = {
 
         this.tabWallets();
         document.addEventListener('backbutton', this.onBackButton.bind(this), false);
+
+        document.getElementById('popupContent').addEventListener("scroll", function(){
+          app.togglePopupHeaderFix();
+        });
+
     },
 
     targetScroll: 0,
@@ -41,6 +46,16 @@ var app = {
     scrollToTargetTimer: null,
 
     netError: false,
+    togglePopupHeaderFix: function() {
+      var headerSize = 0;
+      var children = document.getElementById('popupContent').childNodes;
+      for (var c=0; c < children.length; c++) {
+          if ((children[c].nodeType != 3) && (children[c].style.display == 'block')){
+            headerSize = children[c].firstElementChild.offsetHeight;
+          }
+      }
+      document.getElementById('popupHead').classList.toggle('expand', document.getElementById('popupContent').scrollTop >= headerSize - 62); //85
+    },
 
     setNoNetError : function() {
       this.netError = true;
@@ -158,9 +173,9 @@ var app = {
       });
     },
     popupHistory: function() {
-      app.openPopup('historyPopup', 'History');
-      app.reloadHistory();
-      document.getElementById('historyPopup').appendChild(document.getElementById('history'));
+      //app.openPopup('historyPopup', 'History');
+      //app.reloadHistory();
+      //document.getElementById('historyPopup').appendChild(document.getElementById('history'));
     },
     priceProvider: null,
     setPriceProvider: function(provider) {
@@ -210,7 +225,7 @@ var app = {
         return app.popupAirdrop2();
       }
 
-      app.openPopup('airdropPopup', 'Coffee&nbsp;Tokens&nbsp;Airdrop');
+      app.openPopup('airdropPopup', 'Coffee&nbsp;Tokens&nbsp;Airdrop', 'coins/cft.svg');
 
       document.getElementById('airdropTasks').innerHTML = '';
       var total = 0;
@@ -254,7 +269,7 @@ var app = {
     },
 
     popupAirdrop2: function() {
-      app.openPopup('airdropPopup2', 'Coffee&nbsp;Tokens&nbsp;Airdrop');
+      app.openPopup('airdropPopup2', 'Coffee&nbsp;Tokens&nbsp;Airdrop', 'coins/cft.svg');
       var addr = app.data.wallets[config.airdrop.coin].addr;
       var linkTxt = 'https://wallet.coffee/install?r=' + addr.substring(2, 18);
       document.getElementById('airdropRefLink').innerHTML = linkTxt;
@@ -264,7 +279,7 @@ var app = {
         text: linkTxt,
       	width: 160,
       	height: 160,
-        colorLight: '#f7f5f2',
+        colorLight: '#ffffff', /*#f7f5f2*/
         colorDark: '#463f3a'
       });
 
@@ -397,6 +412,7 @@ var app = {
       this.showOneChildOf('popupContent', id);
 
       document.getElementById('popupContent').scrollTop = 0;
+      app.togglePopupHeaderFix();
       document.getElementById('popupTitle').innerHTML = title;
       //document.getElementById('popupIcon').setAttribute('src', 'icons/' + icon + '.png');
     },
@@ -673,7 +689,7 @@ var app = {
       this.exchangeDefaultFees = {};
       this.exchangeMinAmmounts = {};
       document.getElementById("exchangeSellAmmount").value = 0;
-      this.openPopup('exchangePopup', 'Exchange');
+      this.openPopup('exchangePopup', 'Exchange', 'icons/changelly_color.png');
       app.settings.set('airdropTaskExchange', true);
 
       app.getExchangeableCoins(function(currencies){
@@ -695,7 +711,7 @@ var app = {
       });
     },
     popupSendViaMessage: function() {
-      this.openPopup('sendViaMessagePopup', 'Send via message');
+      this.openPopup('sendViaMessagePopup', 'send via message', 'icons/messageglyph.png');
       app.settings.set('airdropTaskSendViaMessage', true);
 
       Logger.getLogs(function(logs){
@@ -901,7 +917,7 @@ var app = {
         this.openPopup('helpPopup', 'Help');
     },
     popupFeedback: function() {
-        this.openPopup('feedbackPopup', 'Feedback');
+        //this.openPopup('feedbackPopup', 'Feedback');
     },
 
     popupPriceSettings: function() {
@@ -1070,6 +1086,7 @@ var app = {
       this.openPopup('offlineAssetsPopup', wallet.handler.code + ' portfolio', 'coins/' + wallet.handler.icon + '.svg');
 
       document.getElementById('offlineAssetsTitle').innerHTML = wallet.handler.code + ' portfolio';
+      document.getElementById('offlineAssetsSubtitle').innerHTML = 'Your ' + wallet.handler.longname + ' assets';
       document.getElementById('addAddressButton').classList.toggle('hidden', !('getBalance' in wallet.handler));
       document.getElementById('newAddressButton').classList.toggle('hidden', !('newRandomPrivateKey' in wallet.handler));
       this.offlineAssetWallet = wallet;
@@ -1769,7 +1786,7 @@ var app = {
           text: addrString,
         	width: 256,
         	height: 256,
-          colorLight: '#f7f5f2',
+          colorLight: '#ffffff', /*#f7f5f2*/
           colorDark: '#463f3a'
         });
 
@@ -2001,8 +2018,10 @@ var app = {
         PullToRefresh.init({
           triggerElement: '#walletsTab',
           mainElement: '#wallets',
-          iconArrow: '<div class="spinner"><img src="icons/refreshpull.png" alt="refresh"></div>',
-          iconRefreshing: '<div class="spinner spinning"><img src="icons/refreshpull.png" alt="refresh"></div>',
+          distMax: 84,
+          distReload: 54,
+          iconArrow: '<div class="spinner"><img src="icons/refresh.png" alt="refresh"></div>',
+          iconRefreshing: '<div class="spinner spinning"><img src="icons/refresh.png" alt="refresh"></div>',
           getStyles: function() { return ''; },
           onRefresh: function(cb) {
             app.updateMarketCap(cb);

@@ -7,7 +7,9 @@ color palete:
   coffe: #766054;
   dark: #463f3a;
   gold: #ddc486;
-  creme: #f7f5f2;
+  creme: #ffffff; //#f7f5f2
+  creme2: #fffcf8;
+
 **/
 
 @font-face {
@@ -38,7 +40,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color: #f7f5f2;
+    background-color: #ffffff; /*#f7f5f2*/
 
     font-family: 'Poppins', serif;
     color: #766054;
@@ -68,7 +70,7 @@ h1, h2, h3 {
   left: 0;
   right: 0;
   height: 54px;
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
   transition: filter 0.5s;
 
   box-shadow: 0px 0px 7px #463f3a;
@@ -144,7 +146,7 @@ h1, h2, h3 {
   transition: height 0.5s ease;
   height: 0;
   overflow: hidden;
-  background: #f7f5f2;
+  background: #ffffff; /*#f7f5f2*/
   /* Status bar height on iOS 11 */
   margin-top: constant(safe-area-inset-top);
   margin-top: env(safe-area-inset-top);
@@ -186,7 +188,7 @@ h1, h2, h3 {
 
 #foot .tab {
   flex: 1;
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
   text-decoration: none;
   text-align: center;
   padding: 9px 2px;
@@ -265,7 +267,7 @@ body.electron ::-webkit-scrollbar-thumb {
 }
 
 #toolsTab {
-  background: #ddc486;
+  background: #fffcf8;
 }
 
 .blur {
@@ -351,10 +353,11 @@ table {
   position: relative;
   margin: 0 -15px;
   overflow: hidden;
+  background: #fffcf8;
 }
 .slidingRow {
   position: absolute;
-  background-color: #f7f5f2;
+  background-color: #ffffff; /*#f7f5f2*/
   top: 0;
   left: 0;
   right: 0;
@@ -554,7 +557,7 @@ body.electron #tools {
 }
 */
 
-#popup h1 {
+#popupHead {
   position: fixed;
   margin: 0;
   padding: 0;
@@ -565,11 +568,7 @@ body.electron #tools {
   top: constant(safe-area-inset-top);
   top: env(safe-area-inset-top);
 
-  font-size: 16px;
-  font-weight: 100;
-  line-height: 54px;
   background: #766054;
-  color: #f7f5f2;
   text-align: center;
   box-shadow: 0px 0px 7px #463f3a;
 
@@ -577,37 +576,65 @@ body.electron #tools {
   background-position: top;
   background-repeat: repeat-x;
 }
-#popup h1 img {
+
+#popupHead .stitchHolder {
+  height: 3px;
+}
+#popupHead .titleHolder {
+  height: 62px;
+  background: #fffcf8;
+  display: none;
+}
+#popupHead h2 {
+  margin: 0;
+  padding-top: 20px;
+}
+
+#popupHead h2 {
+  margin: 0;
+  padding-top: 20px;
+}
+
+#popupHead.expand .titleHolder {
+  display: block;
+}
+
+#popupHead img {
   width: 30px;
   margin: 12px;
   display: block;
 }
-#popup h1 #popupIcon {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-#popup h1 .close {
+#popupHead .close {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 9px;
 }
 
 #popupContent {
-  background-color: #f7f5f2;
-  padding: 0px 4%;
-  width: 92%;
-  padding-top: 6px;
+  background-color: #ffffff; /*#f7f5f2*/
   /* IOS */
   position: fixed;
   top: 0;
-  margin-top: 54px;
+  margin-top: 3px;
   bottom: 0;
   overflow-y: scroll;
   z-index: 19;
   /* iOS */
   top: constant(safe-area-inset-top);
   top: env(safe-area-inset-top);
+  width: 100%;
+}
+
+#popupContent > div {
+  padding: 0px 4%;
+  width: 92%;
+  padding-top: 6px;
+}
+
+.popup-head {
+  margin: -6px -5% 9px -5%;
+  overflow: auto;
+  min-height: 62px;
 }
 
 #receivePaymentPopup {
@@ -693,7 +720,7 @@ body.electron #tools {
   right: 25px;
   top: 50%;
   margin-top: -200px;
-  background: #f7f5f2;
+  background: #ffffff; /*#f7f5f2*/
 }
 
 #lockPopup .row {
@@ -715,7 +742,7 @@ body.electron #tools {
 
 .rowIcon {
   text-align: center;
-  padding-top: 34px;
+  padding-top: 20px;
 }
 .coinBig {
   width: 70px;
@@ -762,12 +789,12 @@ textarea#mnemonic {
   display: inline-block;
   padding: 12px;
   border-radius: 6px;
-  background: #f7f5f2;
+  background: #ffffff; /*#f7f5f2*/
 }
 
 #receiveCoinNote {
   padding: 6px;
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
 }
 
 .spinner.spinning img {
@@ -855,19 +882,19 @@ body.electron #uxHint {
   padding: 8px;
   font-size: 14px;
   line-height: 14px;
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
   margin-left: 5px;
 }
 
 .airdrop-link {
   background: #463f3a;
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
   margin: 10px -4%;
   padding: 10px 0;
 }
 
 .airdrop-link button {
-  color: #f7f5f2;
+  color: #ffffff; /*#f7f5f2*/
   font-size: 14px;
 }
 
@@ -891,15 +918,15 @@ body.electron #uxHint {
 .details-popup ul button img {
   margin-right: 8px;
 }
-.details-popup h2 {
+.popup-head h2 {
   text-align: center;
   margin: 0;
 }
-.details-popup h3 {
+.popup-head h3 {
   font-size: 11px;
   text-align: center;
   margin: 0;
-  margin-bottom: 18px;
+  margin-bottom: 9px;
 }
 .details-popup .details-buttons {
   display: flex;
@@ -923,4 +950,8 @@ body.electron #uxHint {
 }
 #coinInfoWallet .balance {
   overflow: auto;
+}
+
+.bg-creme {
+    background: #fffcf8;
 }
