@@ -1116,7 +1116,7 @@ var app = {
         document.getElementById('offlineAssetButtons').appendChild(createButton('receive', 'receive', asset.actionReceive));
         document.getElementById('offlineAssetButtons').appendChild(asset.refreshButton ? asset.refreshButton : createButton('refresh', 'refresh', null));
       } else {
-        document.getElementById('offlineAssetButtons').appendChild(createButton('remove', 'remove', asset.removeAction));
+        document.getElementById('offlineAssetButtons').appendChild(createButton('removef', 'remove', asset.removeAction));
         var spacer = document.createElement('div');
         spacer.className = 'button';
         document.getElementById('offlineAssetButtons').appendChild(spacer);
@@ -2019,7 +2019,7 @@ var app = {
           triggerElement: '#walletsTab',
           mainElement: '#wallets',
           distMax: 84,
-          distReload: 54,
+          distReload: 60,
           iconArrow: '<div class="spinner"><img src="icons/refresh.png" alt="refresh"></div>',
           iconRefreshing: '<div class="spinner spinning"><img src="icons/refresh.png" alt="refresh"></div>',
           getStyles: function() { return ''; },

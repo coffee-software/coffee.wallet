@@ -445,9 +445,6 @@ a {
   display: flex;
   align-items: flex-end;
   align-content: stretch;
-  box-shadow: 0px 0px 7px #463f3a;
-
-  background: #fffcf8;
   position: absolute;
   left: 0;
   right: 0;
@@ -468,9 +465,15 @@ a {
 .ptr--icon {
   position: absolute;
   left: 50%;
-  top: 50%;
-  margin-left: -16px;
-  margin-top: -16px;
+  bottom: 10px;
+  margin-left: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px #463f3a;
+  background: #fffcf8;
+  padding-top: 4px;
+  box-sizing: border-box;
 }
 .ptr--icon img {
   height: 32px;

@@ -109,7 +109,7 @@ function Asset(wallet, id, data) {
         ['Remove','Cancel']
     );
   };
-  buttonsRight.appendChild(createButton('remove', 'remove', that.removeAction));
+  buttonsRight.appendChild(createButton('removef', 'remove', that.removeAction));
 
   this.row.appendChild(buttonsLeft);
   this.slidingRow.appendChild(commentCell);
