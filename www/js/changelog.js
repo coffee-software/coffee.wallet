@@ -22,6 +22,21 @@ function versionCompare(v1, v2) {
 window.version = "0.9.0";
 window.changelog = [
   {
+   version: '0.9.0',
+   date: '2018-02-20',
+   changes: [
+     'added: separate views for single coin and single asset that shows on tap',
+     'added: pull down to refresh on wallets list',
+     'added: support for "back" button on android',
+     'removed: "refresh" button (now works on pull down)',
+     'removed: "more" button (tap coin to see advanced options)',
+     'changed: renamed "assets" to "portfolio" troughout application',
+     'changed: "settings" and other moved to "tools" tab. main menu was removed',
+     'changed: tiny UI fixes, icons, popups with sticky headers',
+     'fixed: recover wallet bug, minor bugs'
+   ]
+  },
+  {
    version: '0.8.0',
    date: '2018-12-08',
    changes: [
