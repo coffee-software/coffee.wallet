@@ -14,7 +14,7 @@
     <body>
         <div id="nav">
           <div class="stitch"></div>
-          <div id="toggleMenu" onclick="app.toggleMenu()" class="navButton">
+          <div id="toggleMenu" onclick="app.toggleMenu()" class="navButton hidden">
             <img src="icons/menu.png" alt="menu"/>
           </div>
           <div id="menu">
@@ -87,7 +87,7 @@
         </div>
         <div id="container">
           <div id="swiper">
-            <div class="swipe_tab">
+            <div id="historyTab" class="swipe_tab">
               <div class="tab_inner">
                 <ul id="history">
                   <li class="info">loading history ...</li>
@@ -107,6 +107,22 @@
             <div id="toolsTab" class="swipe_tab">
               <div class="tab_inner toolsTab">
                 <div id="tools">
+
+                  <div class="row">
+                    <button class="toolbtn" onclick="app.popupPriceSettings()" style="margin-right:5px;">
+                      <img src="icons/settings.png"/>
+                      settings
+                    </button>
+                    <button class="toolbtn" onclick="app.popupHelp()" style="margin-left:5px;margin-right:5px;">
+                      <img src="icons/help.png"/>
+                      help
+                    </button>
+                      <button class="toolbtn" onclick="app.exportAllKeys()" style="margin-left:5px;">
+                        <img src="icons/export.png"/>
+                        backup
+                      </button>
+                  </div>
+
                   <div class="row">
                     <button class="f1 toolbtn" onclick="app.scanAnyQrCode()" style="margin-right:5px;">
                       <img src="icons/quickscan.png"/>
@@ -129,19 +145,17 @@
                       <br/>
                       message
                     </button>
+                    <button class="toolbtn airdrop-button hidden" onclick="app.popupAirdrop()" style="margin-left:5px;margin-right:5px;">
+                      <img src="icons/heart.png"/>
+                      tokens
+                      <br/>
+                      airdrop
+                    </button>
                     <button class="toolbtn" onclick="app.popupExchange()" style="margin-left:5px;">
                       <img src="icons/changelly.png"/>
                       quick
                       <br/>
                       exchange
-                    </button>
-                  </div>
-                  <div class="row">
-                    <button class="toolbtn airdrop-button hidden" onclick="app.popupAirdrop()">
-                      <img src="icons/heart.png"/>
-                      tokens
-                      <br/>
-                      airdrop
                     </button>
                   </div>
                 </div>

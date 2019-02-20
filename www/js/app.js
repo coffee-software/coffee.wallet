@@ -165,7 +165,7 @@ var app = {
           if ('coin' in logs[i]) {
             html = app.preParseCoinMsg(html, logs[i].coin, true);
           }
-          li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toLocaleString()  + '</div><div>' + html + '</div></div><div class="stitch"></div>';
+          li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toLocaleString()  + '</div><div>' + html + '</div></div><div class="stitch2"></div>';
           //logs[i].coin
           document.getElementById('history').appendChild(li);
         }

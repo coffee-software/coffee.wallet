@@ -152,7 +152,7 @@ function Wallet(data) {
   this.row.appendChild(this.slidingRow);
 
   var stitch = document.createElement("div");
-  stitch.classList.add('stitch');
+  stitch.classList.add('stitch2');
   this.row.appendChild(stitch);
 
   this.offlineWallets = data.offlineWallets;

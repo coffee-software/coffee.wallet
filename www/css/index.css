@@ -270,6 +270,10 @@ body.electron ::-webkit-scrollbar-thumb {
   background: #fffcf8;
 }
 
+#historyTab {
+  background: #fffcf8;
+}
+
 .blur {
   /* filter: blur(2px); */
   opacity: 0.5;
@@ -306,6 +310,10 @@ table {
   height: 1px;
 }
 
+.stitch2 {
+  background: #ddc486;
+  height: 1px;
+}
 .online .value {
   font-weight: bold;
 }
@@ -405,7 +413,7 @@ table {
   min-width: 26px;
 }
 
-.listingRow .stitch {
+.listingRow .stitch2 {
   position: absolute;
   bottom: 0;
   left: 15px;
@@ -680,13 +688,15 @@ body.electron #tools {
 }
 
 #tools {
-  position: absolute;
-  top: 50%;
   width: 100%;
-  transform: translate(0, -50%);
-  margin-top: -30px;
+  height: 100%;
+  padding: 15px 0;
+  box-sizing: border-box;
 }
 
+#tools > .row {
+  height: 33.33%;
+}
 .coinButton {
     width: 25%;
     display: inline-block;
