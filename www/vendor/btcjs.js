@@ -26111,7 +26111,19 @@ var networks = {
 			scriptHash: 0xff,
 	  	wif: 0xff
 		}
-	}
+	},
+	decred: {
+	  network: {
+		 messagePrefix: '\x19Decred Signed Message:\n',
+		 bip32: {
+			 public: 0x02fda926,
+			 private: 0x02fda4e8
+		 },
+		 pubKeyHash: 0x73f,
+		 scriptHash: 0x71a,
+		 wif: 0x22de
+	 }
+ }
 }
 
 var _webRequestQueue = new Array();
@@ -26235,7 +26247,7 @@ function sendPayment (network, pk, receiver, amount, fee, success, error) {
 			}
 
 			if (totalIn < amount + fee) {
-				error('There is no sufficient founds on source wallet. Total confirmed and unconfirmed balance is ' + (totalIn* 0.00000001) + '', xhr.response);
+				error('No sufficient funds on source wallet. Total confirmed and unconfirmed balance is ' + (totalIn* 0.00000001) + '', xhr.response);
 				return;
 			}
 			//console.log(totalIn, amount, totalIn - amount - fee);

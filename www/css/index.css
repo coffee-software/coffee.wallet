@@ -266,11 +266,7 @@ body.electron ::-webkit-scrollbar-thumb {
   padding-bottom: 60px;
 }
 
-#toolsTab {
-  background: #fffcf8;
-}
-
-#historyTab {
+#swiper {
   background: #fffcf8;
 }
 
@@ -311,7 +307,7 @@ table {
 }
 
 .stitch2 {
-  background: #ddc486;
+  background: #eec;
   height: 1px;
 }
 .online .value {
@@ -369,7 +365,7 @@ table {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -414,10 +410,12 @@ table {
 }
 
 .listingRow .stitch2 {
-  position: absolute;
-  bottom: 0;
-  left: 15px;
-  right: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-left: 15px solid white;
+    border-right: 15px solid white;
 }
 
 .listingRow .buttons {
@@ -672,6 +670,7 @@ body.electron #tools {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  text-align: center;
 }
 #history li {
   font-size: 14px;
@@ -679,6 +678,7 @@ body.electron #tools {
 
 #history li .ts {
   font-size: 10px;
+  /* margin-left: 43px; */
 }
 
 #swiper .toolsTab {

@@ -165,6 +165,13 @@ var app = {
           if ('coin' in logs[i]) {
             html = app.preParseCoinMsg(html, logs[i].coin, true);
           }
+
+          if (('coin' in logs[i]) && (logs[i].coin in allCoinApis)) {
+            html = '<img src="coins/' + allCoinApis[logs[i].coin].icon + '.svg"/>' + html;
+          } else {
+            //html = '<img src="coins/empty.svg"/>' + html;
+          }
+
           li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toLocaleString()  + '</div><div>' + html + '</div></div><div class="stitch2"></div>';
           //logs[i].coin
           document.getElementById('history').appendChild(li);

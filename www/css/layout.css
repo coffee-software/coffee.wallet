@@ -113,6 +113,18 @@
 .msg.success {
   color: #767826;
 }
+.msg.success img {
+  filter: hue-rotate(-302deg) saturate(90%) brightness(183%);
+}
+.msg.error img {
+  filter: hue-rotate(-23deg) saturate(150%) brightness(148%);
+}
+.msg img {
+  filter: hue-rotate(0) saturate(110%) brightness(148%);
+  display: block;
+  margin: 4px auto;
+}
+
 #messages div.msg.success:after {
   background-position: 0 0;
 }

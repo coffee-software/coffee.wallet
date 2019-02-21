@@ -214,9 +214,9 @@ function Wallet(data) {
             that.offlineWallets[idx].systemBalance = 0;
           }
           if (that.handler.systemValuesCompare(that.offlineWallets[idx].systemBalance, balance) == 1) {
-            app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(that.offlineWallets[idx].systemBalance, balance)) + ' less on your ' + that.handler.code + ' offline wallet');
+            app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(that.offlineWallets[idx].systemBalance, balance)) + ' less on your ' + that.handler.code + ' offline wallet', that.handler.code);
           } else {
-            app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(balance, that.offlineWallets[idx].systemBalance)) + ' more on your ' + that.handler.code + ' offline wallet');
+            app.alertInfo(that.handler.systemValueToDisplayValue(that.handler.systemValuesDiff(balance, that.offlineWallets[idx].systemBalance)) + ' more on your ' + that.handler.code + ' offline wallet', that.handler.code);
           }
           that.offlineWallets[idx].systemBalance = balance;
           that.offlineWallets[idx].balance = floatBalance;
