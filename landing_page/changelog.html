@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Coffee Wallet, crypto currencies wallet and portfolio">
+    <meta name="author" content="Coffee Software">
+    <title>Changelog - Coffee Wallet</title>
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link href="css/new-age.min.css" rel="stylesheet">
+    <link href="css/wallet.css?v4" rel="stylesheet">
+    <link href="css/pages.css" rel="stylesheet">
+    <script type="text/javascript" src="appwww/js/changelog.js"></script>
+
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="https://wallet.coffee/">Coffee Wallet</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://wallet.coffee/#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://wallet.coffee/#download">Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://wallet.coffee/#features">Features</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <h1 class="container">Changelog</h1>
+    </header>
+
+    <section class="bg-primary">
+    <div class="container">
+      <script type="text/javascript">
+
+        document.write('<h3>current stable: ' + window.version + '</h3>');
+
+        for (v in window.changelog) {
+          document.write('<h2>version ' + window.changelog[v].version + '</h2>');
+          document.write('<h5>released to beta on ' + window.changelog[v].date + '</h5>');
+
+          document.write('<ul>');
+          for ( var i = 0; i < window.changelog[v].changes.length; i++) {
+            document.write('<li>' + window.changelog[v].changes[i] + '</li>');
+          }
+          document.write('</ul>');
+
+        }
+      </script>
+
+	 </div>
+</section>
+  <footer>
+    <div class="container">
+<div class="row">
+    <div class="col-md-6">
+        <p class="pull-left">&copy; 2018 <a href="http://software.coffee/">Coffee Software Ltd</a>. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6">
+
+      <ul class="list-inline pull-right">
+        <li class="list-inline-item">
+          <a class="social-link" target="_blank" href="https://www.reddit.com/r/CoffeeWallet/">
+  <i class="icon-social-reddit"></i>
+    </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link" target="_blank" href="https://twitter.com/CoffeeWallet">
+      <i class="icon-social-twitter"></i>
+    </a>
+        </li>
+        <li class="list-inline-item">
+    <a class="social-link" target="_blank" href="https://github.com/fsw/coffee.wallet">
+      <i class="icon-social-github"></i>
+    </a>
+        </li>
+      </ul>
+         </div>
+ </div>
+    </div>
+  </footer>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/new-age.min.js"></script>
+  </body>
+</html>
