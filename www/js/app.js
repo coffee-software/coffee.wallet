@@ -5,7 +5,7 @@ function handleOpenURL(url) {
     //make sure data is loaded
     if (app.lastOpenedUrl != url) {
       app.onDataLoaded(function(callback){
-        app.alertInfo('opening "' + url + '"');
+        app.alertInfo('opening url');
         app.handleUrlOpened(url, callback);
       });
     };
@@ -38,7 +38,6 @@ var app = {
         document.getElementById('popupContent').addEventListener("scroll", function(){
           app.togglePopupHeaderFix();
         });
-
     },
 
     targetScroll: 0,
@@ -726,10 +725,12 @@ var app = {
           document.getElementById('sendViaMessageHistory').innerHTML = '';
           for (var i=0; i< logs.length; i++) {
             var tr = document.createElement('tr');
-            var linkHtml = '<a href="#" onclick="app.cancelSentViaMessage(\'' + logs[i].data.coin + '\',\'' + logs[i].data.pk + '\');">CANCEL</a>';
+            var cancelLinkHtml = '<a href="#" onclick="app.cancelSentViaMessage(\'' + logs[i].data.coin + '\',\'' + logs[i].data.pk + '\');">CANCEL</a>';
+            var resendLinkHtml = '<a href="#" onclick="app.sendSocialPaymentShare(\'' + logs[i].data.coin + '\', \'\', \'' + logs[i].data.pk + '\');">RESEND</a>';
+
             tr.innerHTML = '<td>' + (new Date(logs[i].ts)).toUTCString()  + '</td><td>'
             + logs[i].description + '</td><td>'
-            + linkHtml +'</td>';
+            + cancelLinkHtml + '&nbsp;' + resendLinkHtml + '</td>';
             document.getElementById('sendViaMessageHistory').appendChild(tr);
           }
         }
@@ -955,6 +956,9 @@ var app = {
         return app.handleReceiveMessage(args.coinCode, args.escrowPrivateKey);
       }
 
+      if (!args.coin && args.coinCode && (args.coinCode in allCoinApis)) {
+        args.coin = allCoinApis[args.coinCode].name;
+      }
       if (!args.coin) {
         this.alertError('unknown code');
         return;
@@ -993,14 +997,18 @@ var app = {
     _parseTransactionText: function(text, callback) {
       if (text.startsWith('coffee:')) {
         var parts = text.split('/');
-        if (parts.length != 4 || parts[0] != 'coffee:') {
-          app.alertError('unknown format');
+
+        if (parts.length == 4 && parts[1] == '' && parts[0] == 'coffee:') {
+          return callback(null, {
+            coinCode : parts[2],
+            escrowPrivateKey : parts[3]
+          });
+        } else if (parts.length == 3 && parts[1] == '' && parts[0] == 'coffee:') {
+          text = parts[2];
+        } else {
+          app.alertError('unknown url format: ' + text);
           return;
         }
-        return callback(null, {
-          coinCode : parts[2],
-          escrowPrivateKey : parts[3]
-        });
       }
 
       //check if text is a plain address or transaction info:
@@ -1532,20 +1540,27 @@ var app = {
       return qrcode._oDrawing._elCanvas.toDataURL("image/png");
     },
 
-    sendSocialPaymentCommit: function(coin, amount, fee) {
-
-      var tmpPrivateKey = app.sendWallet.handler.newRandomPrivateKey();
-      var tmpAddr = app.sendWallet.handler.addrFromPrivateKey(tmpPrivateKey);
-
+    sendSocialPaymentShare: function(coin, displayAmount, tmpPrivateKey) {
       var receiveLink = coin + '/' + tmpPrivateKey; //'coffee://' +
-
-      var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(amount);
-
       var subject = displayAmount + ' ' + coin + ' for you!';
       var message = subject + '\n' +
         'To receive ' + displayAmount + ' ' + coin + ' go to:\n' +
         'https://wallet.coffee/receive#' + receiveLink;
 
+      osPlugins.shareDialog(subject, message, function() {
+        app.alertInfo('Done. Recipient will now be able to withdraw this transfer.');
+      }, function(msg) {
+        app.alertError('Sharing failed with message: ' + msg);
+      });
+    },
+
+    sendSocialPaymentCommit: function(coin, amount, fee) {
+
+      var tmpPrivateKey = app.sendWallet.handler.newRandomPrivateKey();
+      var tmpAddr = app.sendWallet.handler.addrFromPrivateKey(tmpPrivateKey);
+
+
+      var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(amount);
 
       Logger.logTransaction('sendasmessage', 'sent ' + displayAmount + ' ' + coin + ' as message', {coin:coin, pk:tmpPrivateKey});
 
@@ -1553,11 +1568,7 @@ var app = {
       app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, tmpAddr, amount, fee);
       app.closeForm();
 
-      osPlugins.shareDialog(subject, message, function() {
-        app.alertInfo('Done. Recipient will now be able to withdraw this transfer.');
-      }, function(msg) {
-        app.alertError('Sharing failed with message: ' + msg);
-      });
+      app.sendSocialPaymentShare(coin, displayAmount, tmpPrivateKey);
     },
     sendSocialPayment: function() {
 
@@ -1697,12 +1708,12 @@ var app = {
 
     handleUrlOpened: function(url, callback) {
       var parts = url.split('/');
-      if (parts.length != 4 || parts[0] != 'coffee:') {
-        app.alertError('unknown url format');
-        callback && callback();
-        return;
+      if (parts.length == 4 && parts[0] == 'coffee:') {
+        app.handleReceiveMessage(parts[2], parts[3], callback);
+      } else {
+        //ignore callback not to show airdrop info on url open different than receive via msg.
+        app._parseTransactionText(url, app.handleAnyQRCode.bind(app));
       }
-      app.handleReceiveMessage(parts[2], parts[3], callback);
     },
 
     onDataLoaded: function(callback) {
@@ -1978,6 +1989,16 @@ var app = {
         });
         this.priceProviderSelect.setOptions(allPriceProviders, this.settings.get('priceProvider', 0));
 
+        rangeSlider.create(document.getElementById('sendCoinFee'), {
+            polyfill: true,
+            vertical: false,
+            min: 0,
+            max: 100,
+            step: 1,
+            value: 50,
+            borderRadius: 10,
+        });
+
         this.data.load(function(){
             navigator.splashscreen.hide();
 
@@ -2005,16 +2026,6 @@ var app = {
         }.bind(this));
 
         this.updateMarketCap();
-
-        rangeSlider.create(document.getElementById('sendCoinFee'), {
-            polyfill: true,
-            vertical: false,
-            min: 0,
-            max: 100,
-            step: 1,
-            value: 50,
-            borderRadius: 10,
-        });
 
         document.getElementById('sendCoinFee').parentElement.addEventListener ("touchstart", function() {
           document.getElementById('sendCoinFee').focus();
