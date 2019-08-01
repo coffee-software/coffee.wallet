@@ -18,20 +18,30 @@
     <link href="css/wallet.css?v4" rel="stylesheet">
     <link href="css/pages.css" rel="stylesheet">
 
-    <!--script type="text/javascript" src="appwww/vendor/web3.min.js"></script>
+    <script type="text/javascript" src="appwww/vendor/web3.min.js"></script>
     <script type="text/javascript" src="appwww/vendor/btcjs.js"></script>
     <script type="text/javascript" src="appwww/js/core.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.btcjs.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.web3js.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.cmc.js"></script>
     <script type="text/javascript" src="appwww/js/coin.apis.js"></script>
-    <script type="text/javascript">
+    <!--script type="text/javascript">
 
     document.write('<div>');
     document.write('<div id="supported">\n');
     document.write('<p>This coins have a full wallet support. You can generate an address for this coins, send and receive them in Coffee Wallet.</p>\n');
     Object.keys(allCoinApis).forEach(function(c) {
       if (('newPrivateKey' in allCoinApis[c]) && (!('testCoin' in allCoinApis[c]) || (!allCoinApis[c].testCoin))) {
+
+      //csv
+      document.write(allCoinApis[c].code+ ',');
+      document.write(allCoinApis[c].name+ ',');
+      document.write('"' + allCoinApis[c].longname + '",');
+      document.write('https://wallet.coffee//appwww/coins/' + allCoinApis[c].icon + '.svg'+ ',');
+      document.write('"' + allCoinApis[c].description.replace(/"/g, '""') + '"\n<br/>');
+      //end
+
+        /*
         document.write('<div class="coin">\n');
         document.write('<img src="appwww/coins/' + allCoinApis[c].icon + '.svg"/>\n');
         document.write('<h4>' + allCoinApis[c].longname + ' (<strong>' + allCoinApis[c].code + '</strong>)</h4>\n');
@@ -43,9 +53,10 @@
         }
         document.write('</ul>\n');
         document.write('</div>\n');
-        document.write('</div>\n');
+        document.write('</div>\n');*/
       }
     });
+    /*
     document.write('</div>\n');
     document.write('<div id="others">\n');
     document.write('<h2>Other Coins (alphabetical order)</h2>\n');
@@ -60,7 +71,7 @@
     });
     document.write('</ul>\n');
     document.write('</div>\n');
-    document.write('</div>\n');
+    document.write('</div>\n');*/
   </script-->
   </head>
   <body>
