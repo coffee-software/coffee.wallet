@@ -990,8 +990,8 @@ var app = {
 
       if ('amount' in args && args.amount){
         document.getElementById('sendCoinAmount').value = parseFloat(args.amount);
-        app.sendCoinUpdateValue();
-        app.sendCoinValidateAmount();
+        app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler);
+        app.sendCoinValidateAmount('sendCoin');
       }
     },
     _parseTransactionText: function(text, callback) {
@@ -1286,7 +1286,7 @@ var app = {
         app.sendForceTotal = (typeof forceTotal == 'undefined') ? null : forceTotal;
 
         app.validateAddr('sendCoinAddr', true);
-        app.sendCoinValidateAmount(true);
+        app.sendCoinValidateAmount('sendCoin', true);
 
         document.getElementById('sendCoinName').innerHTML = wallet.handler.code;
         document.getElementById('sendFiatName').innerHTML = app.priceProvider.getUnit();
@@ -1300,8 +1300,8 @@ var app = {
           document.getElementById('sendCoinAmount').readOnly = true;
           document.getElementById('sendCoinValue').readOnly = true;
           document.getElementById('sendCoinAmount').value = app.sendWallet.handler.systemValueToDisplayValue(app.sendForceTotal);
-          app.sendCoinUpdateValue();
-          app.sendCoinValidateAmount();
+          app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler);
+          app.sendCoinValidateAmount('sendCoin');
         }
 
         wallet.handler.getFees(function(fees){
@@ -1332,10 +1332,10 @@ var app = {
       return valid;
     },
 
-    sendCoinValidateAmount: function(focus) {
+    sendCoinValidateAmount: function(prefix, focus) {
       var valid = false;
-      var amountElem = document.getElementById('sendCoinAmount');
-      var valueElem = document.getElementById('sendCoinValue');
+      var amountElem = document.getElementById(prefix + 'Amount');
+      var valueElem = document.getElementById(prefix + 'Value');
       valueElem.parentElement.lastElementChild.innerHTML = '';
 
       amountElem.parentElement.classList.remove('invalid');
@@ -1382,8 +1382,8 @@ var app = {
               this.sendWallet.handler.systemValuesDiff(app.sendForceTotal, this.sendWallet.handler.getFeeTotalCost(fee))
             );
           }
-          app.sendCoinUpdateValue();
-          app.sendCoinValidateAmount();
+          app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler);
+          app.sendCoinValidateAmount('sendCoin');
         }
         document.getElementById('feeAmount').innerHTML =
           this.sendWallet.handler.getFeeDisplay(fee) + '&nbsp;(' + this.sendWallet.handler.getFeeValueDisplay(fee) + ')';
@@ -1394,16 +1394,16 @@ var app = {
       }
     },
 
-    sendCoinUpdateValue: function() {
-      var src = document.getElementById('sendCoinAmount').value;
-      document.getElementById('sendCoinValue').value =
-        src == '' ? '' : (src * this.priceProvider.getPrice(this.sendWallet.handler.code));
+    sendCoinUpdateValue: function(prefix, handler) {
+      var src = document.getElementById(prefix + 'Amount').value;
+      document.getElementById(prefix + 'Value').value =
+        src == '' ? '' : (src * this.priceProvider.getPrice(handler.code));
     },
 
-    sendCoinUpdateAmount: function() {
-      var src = document.getElementById('sendCoinValue').value
-      document.getElementById('sendCoinAmount').value =
-         src == '' ? src : src / this.priceProvider.getPrice(this.sendWallet.handler.code);
+    sendCoinUpdateAmount: function(prefix, handler) {
+      var src = document.getElementById(prefix + 'Value').value
+      document.getElementById(prefix + 'Amount').value =
+         src == '' ? src : src / this.priceProvider.getPrice(handler.code);
     },
     alertError: function(html, coin, debug) {
       this._alertMessage(html, coin, 'error');
@@ -1572,7 +1572,7 @@ var app = {
     },
     sendSocialPayment: function() {
 
-      if (!(this.sendCoinValidateAmount() && this.sendCoinValidateFee())) {
+      if (!(this.sendCoinValidateAmount('sendCoin') && this.sendCoinValidateFee())) {
         return;
       }
 
@@ -1738,7 +1738,7 @@ var app = {
 
     sendPayment: function() {
 
-      if (!(this.validateAddr('sendCoinAddr') && this.sendCoinValidateAmount() && this.sendCoinValidateFee())) {
+      if (!(this.validateAddr('sendCoinAddr') && this.sendCoinValidateAmount('sendCoin') && this.sendCoinValidateFee())) {
         return;
       }
 

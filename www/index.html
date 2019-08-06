@@ -549,10 +549,10 @@
                     type="number"
                     step="0.000000000001"
                     class="has-unit"
-                    onfocus="app.sendCoinValidateAmount(true)"
-                    onblur="app.sendCoinValidateAmount()"
-                    onchange="app.sendCoinUpdateValue()"
-                    onkeyup="app.sendCoinUpdateValue()"
+                    onfocus="app.sendCoinValidateAmount('sendCoin', true)"
+                    onblur="app.sendCoinValidateAmount('sendCoin')"
+                    onchange="app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler)"
+                    onkeyup="app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler)"
                     required
                   />
                   <span class="input-unit" id="sendCoinName"></span>
@@ -568,10 +568,10 @@
                     type="number"
                     step="0.000000000001"
                     class="has-unit"
-                    onfocus="app.sendCoinValidateAmount(true)"
-                    onblur="app.sendCoinValidateAmount()"
-                    onchange="app.sendCoinUpdateAmount()"
-                    onkeyup="app.sendCoinUpdateAmount()"
+                    onfocus="app.sendCoinValidateAmount('sendCoin', true)"
+                    onblur="app.sendCoinValidateAmount('sendCoin')"
+                    onchange="app.sendCoinUpdateAmount('sendCoin', app.sendWallet.handler)"
+                    onkeyup="app.sendCoinUpdateAmount('sendCoin', app.sendWallet.handler)"
                     required
                   />
                   <span class="input-unit" id="sendFiatName"></span>
