@@ -152,14 +152,8 @@ input {
   font-family: 'Poppins', serif;
   color: #463f3a;
 }
-input.dark {
-  background: #766054;
-  padding: 10px;
-  margin: 0;
-  margin-bottom: 10px;
-  color: #ffffff; /*#f7f5f2*/
-  line-height: 20px;
-  border: none;
+.field.dark input {
+  color: #ffffff;
 }
 
 textarea {
@@ -220,6 +214,10 @@ input.has-unit {
   margin-bottom: 1px;
 }
 
+.field.dark {
+  background: #766054;
+}
+
 .field .legend {
     text-align: right;
     position: absolute;
@@ -263,7 +261,7 @@ input.has-unit {
 }
 
 .field.dark label, .field.dark input, .field.dark input:focus ~ label	{
-  color: #463f3a;
+  color: #fff;
 }
 
 .field.invalid label {

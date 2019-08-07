@@ -285,15 +285,16 @@
                 sell ammount
                 (min: <a id="exchangeSellMin" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>,
                 max: <a id="exchangeSellMax" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>):
-                <input
-                  id="exchangeSellAmmount"
-                  class="dark"
-                  type="number"
-                  step="0.000000000001"
-                  value="0"
-                  onchange="app.updateExchange()"
-                  onkeyup="app.updateExchange()"
-                  required />
+                <div class="field dark">
+                  <input
+                    id="exchangeSellAmmount"
+                    type="number"
+                    step="0.000000000001"
+                    value="0"
+                    onchange="app.updateExchange()"
+                    onkeyup="app.updateExchange()"
+                    required />
+                </div>
                 value: <span id="exchangeSellValue"></span>
                 <br/>
                 (+ <span id="exchangeSellFee"></span> network fee)
@@ -303,13 +304,14 @@
                 buy coin:
                 <select onchange="app.updateExchange()" id="exchangeBuyCoin"></select>
                 estimated buy ammount:
-                <input
-                  id="exchangeBuyAmmount"
-                  class="dark"
-                  type="number"
-                  value="0"
-                  readonly
-                >
+                <div class="field dark">
+                  <input
+                    id="exchangeBuyAmmount"
+                    type="number"
+                    value="0"
+                    readonly
+                  >
+                </div>
                 value: <span id="exchangeBuyValue"></span>
                 <br/>
                 This is <b>estimated</b> and depends on current market dynamics.
@@ -407,7 +409,7 @@
                 <h2>add cryptos</h2>
               </div>
               <div style="padding:0 7px 20px 7px">
-                <div class="field dark" style="padding-bottom: 15px;">
+                <div class="field dark" style="margin-bottom: 15px;">
                   <input id="addCoinFilter" value="" required/>
                   <label for="addCoinFilter">search</label>
                 </div>
