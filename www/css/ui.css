@@ -117,8 +117,8 @@ select {
 }
 
 .formButtons .f1 {
-  border: 1px solid #766054;
-  border-radius: 25px;
+  border-left: 1px solid #766054;
+  border-top: 1px solid #766054;
   color: #ffffff; /*eadfcb*/
   padding: 12px 24px;
   font-size: 12px;
@@ -127,7 +127,6 @@ select {
 
 .formButtons .f1:first-child {
   border-left: none;
-  border-radius: 0 25px 25px 0;
   text-align: left;
 }
 .formButtons .f1:first-child img {
@@ -135,16 +134,10 @@ select {
 }
 
 .formButtons .f1:last-child {
-  border-right: none;
-  border-radius: 25px 0 0 25px;
   text-align: right;
 }
 .formButtons .f1:last-child img {
   float: left;
-}
-
-.formFields {
-    padding: 0 24px;
 }
 
 input {
@@ -153,11 +146,11 @@ input {
   width: 100%;
   box-sizing: border-box;
   border:none;
-  border-bottom:1px dashed #766054;
+  /*border-bottom:1px dashed #766054;*/
   margin: 0;
-  background: none;
-  color: #ffffff; /*#f7f5f2*/
+  background: transparent;
   font-family: 'Poppins', serif;
+  color: #463f3a;
 }
 input.dark {
   background: #766054;
@@ -171,7 +164,8 @@ input.dark {
 
 textarea {
    resize: none;
-   font-size: 14px;
+   font-size: 16px;
+   line-height: 20px;
    width: 100%;
    border: none;
    padding: 9px;
@@ -186,11 +180,11 @@ textarea {
 }
 
 input:active, input:focus {
-    border-color: #ffffff; /*#f7f5f2*/
+    /* border-color: #ffffff; */
 }
 
 .field.dark input:active, .field.dark input:focus {
-    border-color: #463f3a;
+    /* border-color: #463f3a; */
 }
 
 input::placeholder {
@@ -199,34 +193,39 @@ input::placeholder {
 
 .field.invalid input {
   color: #f36040;
-  border-color: #f36040;
+  /*border-color: #f36040;*/
 }
 
 .field.valid input {
-  color: #ddc486;
-  border-color: #ddc486;
+  /*color: #ddc486;
+  border-color: #ddc486;*/
 }
 .equalizer {
   font-size: 20px;
-  padding: 31px 10px 0 10px;
+  padding: 7px 0 0 0;
+  background: #fff;
+  margin-bottom: 1px;
 }
 
 input.has-unit {
-  padding-right: 55px;
+  padding-right: 24px;
 }
 
 .field {
   position: relative;
   text-align: center;
   font-size: 14px;
-  padding: 21px 0;
+  padding: 3px 14px;
+  background: #fff;
+  margin-bottom: 1px;
 }
 
 .field .legend {
     text-align: right;
     position: absolute;
-    left: 0;
-    right: 0;
+    right: 14px;
+    font-size: 10px;
+    bottom: 0;
 }
 
 .red {
@@ -240,27 +239,27 @@ input.has-unit {
 .field label {
   position:absolute;
   pointer-events:none;
-  left: 0;
-  top: 35px;
+  left: 14px;
+  top: 11px;
   font-size: 15px;
-  color: #fffcf8;
+  color: #766054;
   transition:0.2s linear all;
   -moz-transition:0.2s linear all;
   -webkit-transition:0.2s linear all;
 }
 
 .field input:focus ~ label, .field input:valid ~ label 		{
-  top: 10px;
-  font-size: 14px;
+  top: -1px;
+  font-size: 10px;
 }
 
 .field.filled label {
-  top: 10px;
-  font-size: 14px;
+  top: -1px;
+  font-size: 10px;
 }
 
 .field input:focus ~ label	{
-  color: #ffffff; /*#f7f5f2*/
+  color: #463f3a; /*#f7f5f2*/
 }
 
 .field.dark label, .field.dark input, .field.dark input:focus ~ label	{
@@ -280,13 +279,13 @@ input.has-unit {
 }
 .input-unit {
   position: absolute;
-  top: 35px;
-  right: 0;
+  top: 12px;
+  right: 14px;
   color: #766054;
 }
 
 .field.filled .input-unit {
-  color: #ffffff; /*#f7f5f2*/
+  color: #463f3a;
 }
 
 .range-input {

@@ -1294,6 +1294,9 @@ var app = {
 
         app.sendFees = [];
         document.getElementById('sendCoinFee').rangeSlider.update({min: 0, max: 0, value: 0});
+
+        document.getElementById('sendCoinFeeInfo').classList.add('default');
+
         app.sendCoinUpdateFee();
 
         if (app.sendForceTotal) {
@@ -1778,39 +1781,69 @@ var app = {
     },
     copyReceiveCoinAddrToClp: function() {
         osPlugins.copyToClipboard(document.getElementById('receiveCoinAddr').value);
-        app.alertInfo('copied addr to clipboard', app.receivingWallet.handler.code);
+        app.alertInfo('copied code to clipboard', app.receivingWallet.handler.code);
     },
+    shareReceivePaymentCode: function() {
+      osPlugins.shareDialog('', app.updateReceivePaymentCode(), function() {
+        app.alertInfo('Done. Recipient will be able to use code to make a payment.');
+      }, function(msg) {
+        app.alertError('Sharing failed with message: ' + msg);
+      });
+    },
+    updateReceivePaymentCode: function() {
+      var code = app.receivingAddr;
+      if (document.getElementById('receiveCoinAmount').value) {
+        var systemAmount = app.receivingWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('receiveCoinAmount').value));
+        code = app.receivingWallet.handler.name + ':' + code + '?amount=' + app.receivingWallet.handler.systemValueToDisplayValue(systemAmount);
+      }
+
+      document.getElementById('receiveCoinAddr').value = code;
+      document.getElementById('receiveCoinQrcode').innerHTML = '';
+      new QRCode(document.getElementById('receiveCoinQrcode'), {
+        text: code,
+        width: 256,
+        height: 256,
+        colorLight: '#ffffff', /*#f7f5f2*/
+        colorDark: '#463f3a'
+      });
+      return code;
+    },
+
+    popupReceiveClearAmount: function() {
+      document.getElementById('receiveCoinBottom').classList.remove('custom-amount');
+      document.getElementById('receiveCoinAmount').value = '';
+      document.getElementById('receiveCoinValue').value = '';
+      app.updateReceivePaymentCode();
+    },
+
     popupReceivePayment: function(wallet, addr) {
         this.openForm('receivePaymentPopup', 'receive ' + wallet.handler.code, 'coins/' + wallet.handler.icon + '.svg');
-        document.getElementById('receiveCoinName').innerHTML = '';
+        //document.getElementById('receiveCoinLabel').innerHTML = '';
         document.getElementById('receiveCoinAddr').value = '';
         document.getElementById('receiveCoinQrcode').innerHTML = '';
+        document.getElementById('receiveCoinName').innerHTML = wallet.handler.code;
+        document.getElementById('receiveFiatName').innerHTML = app.priceProvider.getUnit();
+
+        document.getElementById('receiveCoinBottom').classList.remove('custom-amount');
+        document.getElementById('receiveCoinValue').value = '';
+        document.getElementById('receiveCoinAmount').value = '';
 
         if (addr == null) {
-          document.getElementById('receiveCoinName').innerHTML = 'Your ' + wallet.handler.code + ' address is:';
+          //document.getElementById('receiveCoinLabel').innerHTML = 'Your ' + wallet.handler.code + ' address is:';
           document.getElementById('receiveCoinNote').innerHTML = '';
         } else {
-          document.getElementById('receiveCoinName').innerHTML = '' + wallet.handler.code + ' offline address:';
+          //document.getElementById('receiveCoinLabel').innerHTML = '' + wallet.handler.code + ' offline address:';
           document.getElementById('receiveCoinNote').innerHTML = 'This is an imported address,<br/> use it only if you control its private key!';
         }
         var addrString = addr == null ? wallet.data.addr : addr;
-
-        document.getElementById('receiveCoinAddr').value = addrString;
-
         document.getElementById('receiveCoinIdenticon').innerHTML = '';
         document.getElementById('receiveCoinIdenticon').appendChild(getCoinAddrIcon(wallet.handler, addrString));
 
-        new QRCode(document.getElementById('receiveCoinQrcode'), {
-          text: addrString,
-        	width: 256,
-        	height: 256,
-          colorLight: '#ffffff', /*#f7f5f2*/
-          colorDark: '#463f3a'
-        });
-
         this.receivingWallet = wallet;
+        this.receivingAddr = addrString;
+        this.updateReceivePaymentCode();
 
-        setTimeout(app.updateReceivingWallet, 3000);
+        //setTimeout(app.updateReceivingWallet, 3000);
     },
 
     updateReceivingWallet: function() {

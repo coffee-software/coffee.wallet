@@ -645,10 +645,18 @@ body.electron #tools {
 
 #receivePaymentPopup {
   text-align: center;
-  line-height: 24px;
   font-size: 14px;
 }
 
+#receiveCoinBottom .custom-amount  {
+  display: none;
+}
+#receiveCoinBottom.custom-amount .custom-amount {
+  display: block;
+}
+#receiveCoinBottom.custom-amount .no-custom-amount {
+  display: none;
+}
 
 .spacing {
   margin: 14px 0;
@@ -763,32 +771,38 @@ a:active {
     opacity: 0.5;
 }
 
-.receiveAddr {
-    border-top: 1px solid #766054;
-    /* border-radius: 50px; */
+.receiveCode {
+  /*  border-top: 1px solid #766054; */
     margin: 0;
+    height: 280px;
     padding: 8px 0;
     position: relative;
 }
 
-.receiveAddr label {
-  position: absolute;
-  top: -11px;
-  background: #463f3a;
-  left: 50%;
-  width: 240px;
-  margin-left: -120px;
-  font-size: 14px;
+.txt-mode-only {
+  display: none;
+}
+.txt .txt-mode-only {
+  display: block;
+}
+.txt .qr-mode-only {
+  display: none;
 }
 
 textarea#receiveCoinAddr {
-  font-size: 12px;
-  padding: 9px 0;
+  font-size: 18px;
+  padding: 24px;
   text-align: center;
-  display: block;
-  line-height: 18px;
-  height: 36px;
+  /* line-height: 18px; */
+  /* height: 36px; */
   background: none;
+  word-break: break-all;
+  border-radius: 6px;
+  background: #ffffff;
+  color: black;
+  width: 280px;
+  margin: 0 auto;
+  height: 280px;
 }
 
 textarea#mnemonic {
@@ -964,4 +978,16 @@ body.electron #uxHint {
 
 .bg-creme {
     background: #fffcf8;
+}
+
+
+#sendCoinFeeInfo.default .range-input {
+  display: none;
+}
+#sendCoinFeeInfo .customize-button {
+  display: none;
+}
+
+#sendCoinFeeInfo.default .customize-button {
+  display: block;
 }
