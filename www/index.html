@@ -655,14 +655,14 @@
                 </div>
 
                 <div class="row formButtons">
-                  <button class="f1" type="submit" onclick="app.popupReceiveClearAmount()">clear</button>
-                  <button class="f1" type="submit">OK</button>
+                  <button class="f1" type="submit" onclick="app.popupReceiveClearAmount()" style="color:#766054;"><img src="icons/ico.cancel.png"/> clear</button>
+                  <button class="f1" type="submit"><img src="icons/ico.set.png"/> OK</button>
                 </div>
               </form>
 
               <div class="no-custom-amount formButtons row">
                 <button class="f1" onclick="app.shareReceivePaymentCode()"><img src="icons/share.png"/> share</button>
-                <button class="f1" onclick="getElementById('receiveCoinBottom').classList.add('custom-amount')"><img src="icons/customize.png"/> set ammount</button>
+                <button class="f1" onclick="getElementById('receiveCoinBottom').classList.add('custom-amount')"><img src="icons/customize.png"/> <span id="setAmountLabel">set ammount</span></button>
                 <!--button class="f1 qr-mode-only" onclick="getElementById('receivePaymentPopup').classList.add('txt');"><img src="icons/txt.png"/> code</button>
                 <button class="f1 txt-mode-only" onclick="getElementById('receivePaymentPopup').classList.remove('txt');"><img src="icons/scan.png"/> QR</button-->
               </div>

@@ -1796,10 +1796,13 @@ var app = {
     },
     updateReceivePaymentCode: function() {
       var code = app.receivingAddr;
+      document.getElementById('setAmountLabel').innerHTML = 'set amount';
       if (document.getElementById('receiveCoinAmount').value) {
         var systemAmount = app.receivingWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('receiveCoinAmount').value));
         code = app.receivingWallet.handler.name + ':' + code + '?amount=' + app.receivingWallet.handler.systemValueToDisplayValue(systemAmount);
+        document.getElementById('setAmountLabel').innerHTML = 'change amount';
       }
+
 
       document.getElementById('receiveCoinAddr').value = code;
       document.getElementById('receiveCoinQrcode').innerHTML = '';
