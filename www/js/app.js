@@ -1472,20 +1472,24 @@ var app = {
       this.lockDialogConfirmCallback = null;
 
       if (this.lockDialogAuthenticate && (device.platform == "Android")) {
-        FingerprintAuth.isAvailable(function(){
-          FingerprintAuth.encrypt(
-            {
-              clientId: "coffee",
-              username: "user",
-              password: "__dummy"
-            },
-            function(){
-              app.alertSuccess("auth successfull");
-              callback();
-            }, function(err){
-              app.alertError("auth error: " + err);
-            }
-          );
+        FingerprintAuth.isAvailable(function(result){
+          if(result.isAvailable) {
+            FingerprintAuth.encrypt(
+              {
+                clientId: "coffee",
+                username: "user",
+                password: "__dummy"
+              },
+              function(){
+                app.alertSuccess("auth successfull");
+                callback();
+              }, function(err){
+                app.alertError("auth error: " + err);
+              }
+            );
+          } else {
+            callback();
+          }
         }, function(){
           callback();
         });
