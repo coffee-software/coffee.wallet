@@ -1788,7 +1788,14 @@ var app = {
         app.alertInfo('copied code to clipboard', app.receivingWallet.handler.code);
     },
     shareReceivePaymentCode: function() {
-      osPlugins.shareDialog('', app.updateReceivePaymentCode(), function() {
+      var message = 'currency: ' + app.receivingWallet.handler.code + '\naddress: ' + app.receivingAddr;
+      if (document.getElementById('receiveCoinAmount').value) {
+        var systemAmount = app.receivingWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('receiveCoinAmount').value));
+        message += '\namount: ' + app.receivingWallet.handler.systemValueToDisplayValue(systemAmount);
+      }
+      message += '\nlink: \ncoffee://' + app.updateReceivePaymentCode();
+
+      osPlugins.shareDialog('', message, function() {
         app.alertInfo('Done. Recipient will be able to use code to make a payment.');
       }, function(msg) {
         app.alertError('Sharing failed with message: ' + msg);
