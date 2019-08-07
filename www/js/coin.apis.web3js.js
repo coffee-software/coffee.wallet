@@ -36,7 +36,7 @@ var Web3JsBaseHandler = {
   },
   systemValueToDisplayValue: function(s){
     //TODO make this smarter
-    return parseFloat(this._getProvider().utils.fromWei(s, 'ether')).toFixed(8);;
+    return parseFloat(this._getProvider().utils.fromWei(s, 'ether')).toFixed(10);;
   },
   systemValueToFloatValue: function(s){
     return parseFloat(this._getProvider().utils.fromWei(s, 'ether'));

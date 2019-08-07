@@ -539,8 +539,8 @@
                     class="has-unit"
                     onfocus="app.sendCoinValidateAmount('sendCoin', true)"
                     onblur="app.sendCoinValidateAmount('sendCoin')"
-                    onchange="app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler)"
-                    onkeyup="app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler)"
+                    onchange="app.coinUpdateValue('sendCoin', app.sendWallet.handler)"
+                    onkeyup="app.coinUpdateValue('sendCoin', app.sendWallet.handler)"
                     required
                   />
                   <span class="input-unit" id="sendCoinName"></span>
@@ -558,8 +558,8 @@
                     class="has-unit"
                     onfocus="app.sendCoinValidateAmount('sendCoin', true)"
                     onblur="app.sendCoinValidateAmount('sendCoin')"
-                    onchange="app.sendCoinUpdateAmount('sendCoin', app.sendWallet.handler)"
-                    onkeyup="app.sendCoinUpdateAmount('sendCoin', app.sendWallet.handler)"
+                    onchange="app.coinUpdateAmount('sendCoin', app.sendWallet.handler)"
+                    onkeyup="app.coinUpdateAmount('sendCoin', app.sendWallet.handler)"
                     required
                   />
                   <span class="input-unit" id="sendFiatName"></span>
@@ -627,8 +627,8 @@
                       class="has-unit"
                       onfocus="app.sendCoinValidateAmount('receiveCoin', true)"
                       onblur="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onchange="app.sendCoinUpdateValue('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      onkeyup="app.sendCoinUpdateValue('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
+                      onchange="app.coinUpdateValue('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
+                      onkeyup="app.coinUpdateValue('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
                       required
                     />
                     <span class="input-unit" id="receiveCoinName"></span>
@@ -646,8 +646,8 @@
                       class="has-unit"
                       onfocus="app.sendCoinValidateAmount('receiveCoin', true)"
                       onblur="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onchange="app.sendCoinUpdateAmount('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      onkeyup="app.sendCoinUpdateAmount('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
+                      onchange="app.coinUpdateAmount('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
+                      onkeyup="app.coinUpdateAmount('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
                       required
                     />
                     <span class="input-unit" id="receiveFiatName"></span>

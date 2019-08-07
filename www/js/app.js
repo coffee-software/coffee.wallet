@@ -991,7 +991,7 @@ var app = {
 
       if ('amount' in args && args.amount){
         document.getElementById('sendCoinAmount').value = parseFloat(args.amount);
-        app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler);
+        app.coinUpdateValue('sendCoin', app.sendWallet.handler);
         app.sendCoinValidateAmount('sendCoin');
       }
     },
@@ -1306,7 +1306,7 @@ var app = {
           document.getElementById('sendCoinAmount').readOnly = true;
           document.getElementById('sendCoinValue').readOnly = true;
           document.getElementById('sendCoinAmount').value = app.sendWallet.handler.systemValueToDisplayValue(app.sendForceTotal);
-          app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler);
+          app.coinUpdateValue('sendCoin', app.sendWallet.handler);
           app.sendCoinValidateAmount('sendCoin');
         }
 
@@ -1388,7 +1388,7 @@ var app = {
               this.sendWallet.handler.systemValuesDiff(app.sendForceTotal, this.sendWallet.handler.getFeeTotalCost(fee))
             );
           }
-          app.sendCoinUpdateValue('sendCoin', app.sendWallet.handler);
+          app.coinUpdateValue('sendCoin', app.sendWallet.handler);
           app.sendCoinValidateAmount('sendCoin');
         }
         document.getElementById('feeAmount').innerHTML =
@@ -1400,16 +1400,23 @@ var app = {
       }
     },
 
-    sendCoinUpdateValue: function(prefix, handler) {
+    coinUpdateValue: function(prefix, handler) {
       var src = document.getElementById(prefix + 'Amount').value;
       document.getElementById(prefix + 'Value').value =
-        src == '' ? '' : (src * this.priceProvider.getPrice(handler.code));
+        src == '' ? '' : Number((src * this.priceProvider.getPrice(handler.code)).toFixed(2));
     },
 
-    sendCoinUpdateAmount: function(prefix, handler) {
+    coinUpdateAmount: function(prefix, handler) {
       var src = document.getElementById(prefix + 'Value').value
-      document.getElementById(prefix + 'Amount').value =
-         src == '' ? src : src / this.priceProvider.getPrice(handler.code);
+
+      if (src == '') {
+        document.getElementById(prefix + 'Amount').value = src;
+      } else {
+        var systemAmount = handler.floatValueToSystemValue(src / this.priceProvider.getPrice(handler.code));
+        document.getElementById(prefix + 'Amount').value = handler.systemValueToDisplayValue(systemAmount);
+      }
+
+
     },
     alertError: function(html, coin, debug) {
       this._alertMessage(html, coin, 'error');
@@ -1796,7 +1803,8 @@ var app = {
         var systemAmount = app.receivingWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('receiveCoinAmount').value));
         message += '\namount: ' + app.receivingWallet.handler.systemValueToDisplayValue(systemAmount);
       }
-      message += '\nlink: \ncoffee://' + app.updateReceivePaymentCode();
+      var href = 'coffee://' + app.updateReceivePaymentCode();
+      message += '\nlink: \n' + '<a href="' + href + '">' + href + '</a>';
 
       osPlugins.shareDialog('', message, function() {
         app.alertInfo('Done. Recipient will be able to use code to make a payment.');
