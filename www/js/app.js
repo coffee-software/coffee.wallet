@@ -1803,8 +1803,7 @@ var app = {
         var systemAmount = app.receivingWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('receiveCoinAmount').value));
         message += '\namount: ' + app.receivingWallet.handler.systemValueToDisplayValue(systemAmount);
       }
-      var href = 'coffee://' + app.updateReceivePaymentCode();
-      message += '\nlink: \n' + '<a href="' + href + '">' + href + '</a>';
+      message += '\nlink: \n' + 'https://wallet.coffee/request.html#' + this.updateReceivePaymentCode();
 
       osPlugins.shareDialog('', message, function() {
         app.alertInfo('Done. Recipient will be able to use code to make a payment.');

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Coffee Wallet, crypto currencies wallet and portfolio">
+    <meta name="author" content="Franciszek Szczepan Wawrzak">
+    <title>Payment Request | Coffee Wallet</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script type="text/javascript" src="vendor/qrcode.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+    <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #62422b;
+        background: -webkit-linear-gradient(to bottom right,#62422b,#2b0f0e);
+        background: linear-gradient(to bottom right,#62422b,#2b0f0e);
+        background-position: center;
+        min-height: 100vh;
+        color: #eadfcb;
+        font-family: Catamaran,Helvetica,Arial,sans-serif;
+      }
+      .hidden {
+        display: none;
+      }
+      .content {
+        max-width: 740px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      h1 {
+        margin: 0;
+        padding: 20px 0 10px 0;
+      }
+      h2 {
+        text-align: left;
+        font-size: 20px;
+      }
+      #ticket {
+        padding: 20px;
+        background: #eadfcb;
+        color: #62422b;
+        margin: 25px 0;
+        border-radius: 30px;
+      }
+      #row {
+        overflow: auto;
+      }
+      #steps {
+        float: left;
+      }
+      #codeqr {
+        float: right;
+      }
+      #codeqr img {
+        margin: 20px;
+      }
+      a {
+        color: #42221b;
+      }
+      .button {
+        color: #42221b;
+        border: 1px solid #42221b;
+        border-radius: 300px;
+        padding: 15px 20px;
+        text-decoration: none;
+        display: block;
+        margin: 20px 10px;
+      }
+      #notes {
+        text-align: left;
+      }
+      footer {
+        margin-top: 50px;
+        text-align: center;
+        color: #777;
+      }
+      footer a {
+        color: #777;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="error" class="content">
+      <h1>Error</h1>
+      <h1>URL is wrong or JavaScript is disabled</h1>
+    </div>
+    <div id="success" class="content hidden">
+      <h1><span class="amount"></span> <span class="coinname">Coins</span> Payment Request</h1>
+      <div id="ticket">
+        <h2>option 1. Pay with Coffee Wallet:</h2>
+        <p>
+          If you have Coffee Wallet installed, below link should open in application on your device:
+        </p>
+        <a id="codelink" href="#" class="button">
+          Unknown
+        </a>
+
+        <h2>option 2. Generic payment link:</h2>
+        <p>
+          If you use other wallet software,
+          below is a generic, <a target="_blank" href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki">BIP21</a> format,
+          payment link that you should be able to open:
+        </p>
+        <div>
+              <div id="biplink" style="float:left; padding:20px;">
+                Unknown
+              </div>
+              <div id="codeqr"></div>
+              <div style="clear:both;">
+                <a id="copylink">copy to clipboard</a>
+              </div>
+        </div>
+
+        <h2>option 3. Use CoinRequest:</h2>
+        <p>
+          Under construction...
+        </p>
+        <h2>option 4. Manual Info:</h2>
+        <p>
+          requested coin: <span class="coinname">Coins</span>
+          <br/>
+          to address: <span class="address"></span>
+          <br/>
+          requested amount: <span class="amount"></span>
+
+        </p>
+      </div>
+    </div>
+    <footer>
+      <div class="content">
+        <a href="http://wallet.coffee/">Coffee Wallet</a> &copy; 2018 <a href="http://software.coffee/">Coffee Software Ltd</a>
+
+      </div>
+    </footer>
+
+    <script type="text/javascript">
+
+      function setRequestParams(coin, addr, args) {
+
+        var nameElements = document.getElementsByClassName('coinname');
+        for (var i = 0; i < nameElements.length; i++) {
+          nameElements[i].innerHTML = coin.charAt(0).toUpperCase() + coin.slice(1);
+        }
+        var amountElements = document.getElementsByClassName('amount');
+        for (var i = 0; i < amountElements.length; i++) {
+          amountElements[i].innerHTML = args.get('amount');
+        }
+        var addrElements = document.getElementsByClassName('address');
+        for (var i = 0; i < addrElements.length; i++) {
+          addrElements[i].innerHTML = addr;
+        }
+
+
+        var url = 'coffee://' + addr + '?coin=' + coin + '&' + args.toString();
+        var bipUrl = coin + ':' + addr + (Array.from(args).length ? '?' + args.toString() : '');
+        new QRCode(document.getElementById('codeqr'), {
+          text: bipUrl,
+        	width: 128,
+        	height: 128,
+          colorLight: '#eadfcb',
+          colorDark: '#261f0a'
+        });
+        document.getElementById('codelink').href = url;
+        document.getElementById('codelink').innerHTML = url;
+
+        document.getElementById('copylink').href = 'javascript:copyToClipboard("' + bipUrl + '")';
+        document.getElementById('biplink').innerHTML = bipUrl;
+
+        document.getElementById('success').classList.remove('hidden');
+        document.getElementById('error').classList.add('hidden');
+      }
+
+      function copyToClipboard(url) {
+        var tmp = document.createElement('textarea');
+        tmp.value = url;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand('copy');
+        document.body.removeChild(tmp);
+        alert('copied code to clipboard');
+      };
+
+      var parts = document.location.hash.substring(1).split(':');
+      if (parts.length == 2 && parts[0].length && parts[1].length) {
+        var chunks = parts[1].split('?');
+        var args = new URLSearchParams('?' + (chunks.length > 1 ? chunks[1] : ''));
+        setRequestParams(parts[0], chunks[0], args);
+      }
+
+    </script>
+  </body>
+</html>
