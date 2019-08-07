@@ -1177,6 +1177,7 @@ var app = {
       document.getElementById('addOfflineAssetBalance').value = asset.data.balance;
       document.getElementById('addOfflineAssetComment').value = asset.data.comment;
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', asset.data.addr ? false : true);
+      document.getElementById('addOfflineAssetAddrTools').classList.toggle('hidden', asset.data.addr ? false : true);
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', asset.data.addr);
 
 
@@ -1192,6 +1193,7 @@ var app = {
       document.getElementById('addOfflineAssetBalance').value = (type == 'balance' ? value : '');
       document.getElementById('addOfflineAssetComment').value = '';
       document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', type == 'balance');
+      document.getElementById('addOfflineAssetAddrTools').classList.toggle('hidden', type == 'balance');
       document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'addr');
 
       document.getElementById('addOfflineAssetPopupSave').innerHTML = 'add';
