@@ -507,8 +507,9 @@ body.electron #tools {
   bottom: 0;
   width: 100vw;
   height: 100vh;
+  min-height: 500px;
   z-index: 200;
-  transform: translate3d(0,100vh,0);
+  transform: translate3d(0,100%,0);
   transition: transform 0.5s ease;
 }
 #formPopup.show {
