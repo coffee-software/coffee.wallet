@@ -27,10 +27,15 @@ var app = {
           }
         };
 
-        for (var i = 0; i < document.getElementById('foot').children.length; i++) {
-          fastTap(document.getElementById('foot').children[i]);
+        var footButtons = document.getElementById('foot').children;
+        for (var i = 0; i < footButtons.length; i++) {
+          fastTap(footButtons[i]);
         }
         fastTap(document.getElementById('toggleMenu'));
+        var buttons = document.getElementsByTagName('button');
+        for (var i = 0; i < buttons.length; i++) {
+          fastTap(buttons[i]);
+        }
 
         this.tabWallets();
         document.addEventListener('backbutton', this.onBackButton.bind(this), false);

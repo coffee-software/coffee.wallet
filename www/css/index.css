@@ -880,6 +880,27 @@ body.electron #uxHint {
   opacity: 1;
 }
 
+#loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(70, 63, 58, 0.8);
+  z-index: 300;
+  display: none;
+}
+#loading.show {
+  display: block;
+}
+#loading img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
 
 #airdropTasks {
   width:100%;

@@ -11,15 +11,18 @@ var osPlugins = {
       app.alertInfo('wallet info printed to console');
       success();
     } else {
+      document.getElementById('loading').classList.add('show');
       pdf.fromData(html, {
           documentSize: 'A4',
           type: 'share',
           fileName: file
       })
       .then(function(stats){
+        document.getElementById('loading').classList.remove('show');
         success();
       })
       .catch(function(err) {
+        document.getElementById('loading').classList.remove('show');
         error(err);
       });
     }
@@ -39,15 +42,28 @@ var osPlugins = {
     }
   },
   shareDialog: function(subject, message, successHandler, errorHandler) {
+
     if (device.platform == 'browser') {
       app.alertInfo('share code printed to console');
       console.log(message);
       return;
     }
-    window.plugins.socialsharing.shareWithOptions({
-      message: message,
-      subject: subject,
-    }, successHandler, errorHandler);
+    document.getElementById('loading').classList.add('show');
+    window.plugins.socialsharing.shareWithOptions(
+      {
+        message: message,
+        subject: subject,
+      },
+      function() {
+        document.getElementById('loading').classList.remove('show');
+        successHandler();
+      },
+      function(error) {
+        document.getElementById('loading').classList.remove('show');
+        errorHandler(error);
+      }
+    );
+
   },
   copyToClipboard: function(text) {
     if (device.platform == 'browser') {
