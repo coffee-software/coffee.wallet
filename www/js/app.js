@@ -889,7 +889,6 @@ var app = {
                 coin.code in app.data.wallets && app.data.wallets[coin.code].enabled,
                 function(coin){
                   app.closePopup();
-                  document.getElementById('addCoinFilter').blur();
                   setTimeout(function(){
                     app.addOrActivateCoin(coin.code, function(){
                       coin._button.classList.add('active');

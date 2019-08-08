@@ -21,6 +21,7 @@ function fastTap(target) {
       if ((Math.abs(event.changedTouches[0].pageX - fastTapStart[0]) < fastTapBoundary)
           && (Math.abs(event.changedTouches[0].pageY - fastTapStart[1]) < fastTapBoundary)) {
             event.preventDefault();
+            document.activeElement.blur();
             fastTapElement.click();
             fastTapElement = null;
             return false;
