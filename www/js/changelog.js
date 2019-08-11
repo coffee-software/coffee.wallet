@@ -22,8 +22,18 @@ function versionCompare(v1, v2) {
 window.version = "0.10.0";
 window.changelog = [
   {
+   version: '0.10.0',
+   date: '2019-08-20',
+   changes: [
+     'added: payment request feature',
+     'changed: send and receive forms user experience',
+     'fixed: auth on devices with no biometrics support',
+     'fixed: minor bugs'
+   ]
+  },
+  {
    version: '0.9.0',
-   date: '2018-02-20',
+   date: '2019-02-20',
    changes: [
      'added: separate views for single coin and single asset that shows on tap',
      'added: pull down to refresh on wallets list',
