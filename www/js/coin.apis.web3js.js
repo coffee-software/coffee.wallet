@@ -2,6 +2,8 @@
 
 
 var Web3JsBaseHandler = {
+  gasLimit: 21000,
+
   getMainnetProvider: function(){
     if (typeof this.provider == 'undefined') {
       return new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/" + config.infuraKey));
@@ -75,7 +77,7 @@ var Web3JsBaseHandler = {
       to: receiver,
       value: amount,
       gasPrice: fee[0],
-      gas: 21000
+      gas: this.gasLimit
     };
   },
 
@@ -84,11 +86,11 @@ var Web3JsBaseHandler = {
   },
   getFeeTotalCost: function(fee, tx) {
     var f = new (this._getProvider().utils.BN)(fee[0]);
-    var gas = new (this._getProvider().utils.BN)(21000);
+    var gas = new (this._getProvider().utils.BN)(this.gasLimit);
     return f.mul(gas).toString(10);
   },
   getFeeDisplay: function(fee) {
-    return this.estimateFeeFloat(fee) + '&nbsp;' + ('feeCoin' in this ? this.feeCoin.code : this.code);
+    return ('feeCoin' in this ? '~' : '') + this.estimateFeeFloat(fee) + '&nbsp;' + ('feeCoin' in this ? this.feeCoin.code : this.code);
   },
   getFeeValueDisplay: function(fee) {
     return app.priceProvider.convert(this.estimateFeeFloat(fee), ('feeCoin' in this ? this.feeCoin.code : this.code));
@@ -175,6 +177,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
   ethAbi: null,
   _getProvider: Web3JsBaseHandler.getTestnetProvider,
   feeCoin: EthTestHandler,
+  gasLimit: 200000,
 
   getBalance: function(addr, callback, errorCallback){
     var c = this._getProvider().eth.Contract;
@@ -190,13 +193,25 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
   _getTransaction: function(account, receiver, amount, fee) {
     var c = this._getProvider().eth.Contract;
     var contract = new c(this.ethAbi, this.ethContractAddr);
+
+    var gasLimit = this.gasLimit;
+    if (this.feeCoin.code in app.wallets && 'systemBalance' in app.wallets[this.feeCoin.code].data) {
+      var balance = new (this._getProvider().utils.BN)(app.wallets[this.feeCoin.code].data.systemBalance);
+      var gasPrice = new (this._getProvider().utils.BN)(fee[0]);
+      var maxGas = balance.div(gasPrice).toNumber();
+
+      if (maxGas && maxGas < gasLimit) {
+        app.alertInfo('warning: ' + this.feeCoin.code + ' balance low. Lowering gasLimit. Transaction might fail.');
+        gasLimit = maxGas;
+      }
+    }
     return {
         value: '0x0',
         from: account.address,
         to: contract._address,
         data: contract.methods.transfer(receiver, amount).encodeABI(),
         gasPrice: fee[0],
-        gas: 200000 //TODO
+        gas: gasLimit
     };
   },
   explorerLinkAddr: function(addr) {
