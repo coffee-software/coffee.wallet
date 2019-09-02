@@ -43,6 +43,7 @@ var app = {
         document.getElementById('popupContent').addEventListener("scroll", function(){
           app.togglePopupHeaderFix();
         });
+
     },
 
     targetScroll: 0,
@@ -973,7 +974,8 @@ var app = {
       for (var key in this.wallets) {
         if (this.wallets[key].handler.name == args.coin) {
           if ('sendPayment' in this.wallets[key].handler) {
-            this.popupSendPayment(this.wallets[key]);
+            var afterSendCallback = ('callback' in args ? args['callback'] : null);
+            this.popupSendPayment(this.wallets[key], null, afterSendCallback);
             this.pasteToSendForm(addr, args);
           } else {
             this.alertError('coin ' + args.coin + ' is not yet supported');
@@ -1032,7 +1034,7 @@ var app = {
 
       argsStr.split('&').forEach(function(e){
         var kp = e.split('=', 2);
-        if (kp.length>1) args[kp[0]] = kp[1];
+        if (kp.length>1) args[kp[0]] = decodeURIComponent(kp[1]);
       });
       if ('r' in args) {
         app.alertInfo('BIP72 address found. quering for payment details...');
@@ -1276,7 +1278,7 @@ var app = {
         this.toggleAll('socialSend', true);
     },
 
-    popupSendPayment: function(wallet, forceTotal) {
+    popupSendPayment: function(wallet, forceTotal, afterSendCallback) {
         app.openForm('sendPaymentPopup', 'send ' + wallet.handler.code, 'coins/' + wallet.handler.icon + '.svg');
 
         app.toggleAll('normalSend', true);
@@ -1291,6 +1293,7 @@ var app = {
         document.getElementById('sendCoinAmount').readOnly = false;
         document.getElementById('sendCoinValue').readOnly = false;
         app.sendForceTotal = (typeof forceTotal == 'undefined') ? null : forceTotal;
+        app.afterSendCallback = (typeof afterSendCallback == 'undefined') ? null : afterSendCallback;
 
         app.validateAddr('sendCoinAddr', true);
         app.sendCoinValidateAmount('sendCoin', true);
@@ -1792,7 +1795,20 @@ var app = {
         '</table>'
         ,
         function(){
-          app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee);
+          app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee, app.afterSendCallback ? function(txid) {
+            var http = new XMLHttpRequest();
+            http.open('POST', app.afterSendCallback);
+            var body = [];
+            var data = {
+              'transaction_id': txid,
+              'from_address': app.sendWallet.data.addr,
+              'to_address': addr,
+              'amount': floatAmount,
+              'coin': app.sendWallet.handler.name
+            };
+            for (var d in data) body.push(d + '=' + encodeURIComponent(data[d]));
+            http.send(body.join('&'));
+          } : null);
           app.closeForm();
         }
       );

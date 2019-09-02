@@ -37,11 +37,12 @@ var BitcoinJsBaseHandler = {
         app.setNoNetError();
       });
     },
-    sendPayment: function(priv, receiver, amount, fee) {
+    sendPayment: function(priv, receiver, amount, fee, successHandler) {
       var that = this;
       return btcjs.sendPayment(this.network, priv, receiver, amount, fee[0],
         function(response) {
           app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
+          successHandler && successHandler(response);
         }, function(error, data){
           app.alertError(error, that.code);
         });

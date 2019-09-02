@@ -108,7 +108,7 @@ var Web3JsBaseHandler = {
       ]);
     });
   },
-  sendPayment: function(priv, receiver, amount, fee) {
+  sendPayment: function(priv, receiver, amount, fee, successHandler) {
     var that = this;
     app.alertInfo('signing transaction...', that.code);
     var account = this._getProvider().eth.accounts.privateKeyToAccount(priv);
@@ -119,6 +119,7 @@ var Web3JsBaseHandler = {
           app.alertError(err, that.code);
         } else {
           app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
+          successHandler && successHandler(response);
         }
       });
     });
