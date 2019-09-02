@@ -23,11 +23,8 @@ for (var i=0; i<otherCoins.length;i++) {
   if (!(otherCoins[i].code in allCoinApis)) {
     allCoinApis[otherCoins[i].code] = otherCoins[i];
   }
-  if (allCoinApisByRank.indexOf(allCoinApis[otherCoins[i].code]) != -1) {
-    //console.log(otherCoins[i].code);
-  } else {
-    allCoinApisByRank.push(allCoinApis[otherCoins[i].code]);
-  }
+
+  allCoinApisByRank.push([allCoinApis[otherCoins[i].code], otherCoins[i].rank]);
 
   var forcedCoinsIndex = forcedCoins.indexOf(otherCoins[i].code);
   if (forcedCoinsIndex !== -1) {
@@ -36,5 +33,13 @@ for (var i=0; i<otherCoins.length;i++) {
 }
 
 for (var i=0; i< forcedCoins.length; i++) {
-  allCoinApisByRank.push(allCoinApis[forcedCoins[i]]);
+  allCoinApisByRank.push([allCoinApis[forcedCoins[i]], 3000]);
+}
+
+allCoinApisByRank.sort(function(a, b) {
+    return a[1] - b[1];
+});
+
+for (var i in allCoinApisByRank) {
+  allCoinApisByRank[i] = allCoinApisByRank[i][0];
 }
