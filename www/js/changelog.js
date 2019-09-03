@@ -22,12 +22,16 @@ function versionCompare(v1, v2) {
 window.version = "0.10.0";
 window.changelog = [
   {
-   version: '0.10.0',
+   version: '0.10.1',
    date: '2019-08-20',
    changes: [
-     'added: payment request feature',
-     'changed: send and receive forms user experience',
+     'added: request a payment feature',
+     'added: CoinRequest support'
+     'added: 100 new portfolio coins',
+     'updated: send and receive forms user experience',
+     'updated: coin icons',
      'fixed: auth on devices with no biometrics support',
+     'fixed: ERC20 feees issues',
      'fixed: minor bugs'
    ]
   },
