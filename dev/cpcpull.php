@@ -70,8 +70,6 @@ foreach($newCoins as $coin) {
   //$rank ++;
   //$icon = file_exists('www/coins/' . strtolower($coin['symbol']) . '.png') ? strtolower($coin['symbol']) : 'noicon';
 
-  $icon = strtolower($coin['symbol']);
-  shell_exec('dev/generateicon.sh ' . escapeshellarg($icon));
   $lines[]= <<<EOT
 {
     name: "{$coin['id']}",
@@ -91,6 +89,8 @@ echo "\n";
 
 $foot = "];";
 
-echo "DONE. saving coins file..\n";
+echo "saving coins file.\n";
 //echo implode(',', $lines);
 file_put_contents('www/js/coin.apis.cmc.js', $head . implode(',', $lines) . $foot);
+
+echo "DONE. remember to update icons.\n";
