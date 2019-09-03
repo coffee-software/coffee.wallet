@@ -37,10 +37,10 @@
         padding: 20px 0 10px 0;
       }
       h2 {
-        text-align: left;
+        text-align: center;
         font-size: 20px;
       }
-      #ticket {
+      .ticket {
         padding: 20px;
         background: #eadfcb;
         color: #62422b;
@@ -50,14 +50,8 @@
       #row {
         overflow: auto;
       }
-      #steps {
-        float: left;
-      }
-      #codeqr {
-        float: right;
-      }
       #codeqr img {
-        margin: 20px;
+        margin: 20px auto;
       }
       a {
         color: #42221b;
@@ -83,6 +77,9 @@
         color: #777;
         text-decoration: none;
       }
+      .small {
+        font-size: 13px;
+      }
     </style>
   </head>
   <body>
@@ -92,50 +89,41 @@
     </div>
     <div id="success" class="content hidden">
       <h1><span class="amount"></span> <span class="coinname">Coins</span> Payment Request</h1>
-      <div id="ticket">
+      <div class="ticket">
         <h2>option 1. Pay with Coffee Wallet:</h2>
-        <p>
-          If you have Coffee Wallet installed, below link should open in application on your device:
-        </p>
-        <a id="codelink" href="#" class="button">
+        <a id="codelink" href="#" class="button" style="word-break: break-all;">
           Unknown
         </a>
-
+        <p class="small">
+          If Coffee Wallet is installed on this device, above link should open the payment form:
+        </p>
+      </div>
+      <div class="ticket">
         <h2>option 2. Generic payment link:</h2>
-        <p>
-          If you use other wallet software,
-          below is a generic, <a target="_blank" href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki">BIP21</a> format,
+        <p class="small">
+          If you use other wallet, below is a generic, <a target="_blank" href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki">BIP21</a> format,
           payment link that you should be able to open:
         </p>
-        <div>
-              <div id="biplink" style="float:left; padding:20px;">
-                Unknown
-              </div>
-              <div id="codeqr"></div>
-              <div style="clear:both;">
-                <a id="copylink">copy to clipboard</a>
-              </div>
+        <div style="overflow:auto;">
+            <div id="biplink">Unknown</div>
+            <a id="copylink">copy to clipboard</a>
+            <div id="codeqr"></div>
+            <p class="small">tip: scanning this will work with Coffee Wallet as well</p>
         </div>
-
+        <p class="small">
+          Or simply manually pay <span class="amount"></span> <span class="coinname">Coins</span> to address: <span class="address"></span>
+        </p>
+      </div>
+      <div class="ticket">
         <h2>option 3. Use CoinRequest:</h2>
         <p>
-          Under construction...
-        </p>
-        <h2>option 4. Manual Info:</h2>
-        <p>
-          requested coin: <span class="coinname">Coins</span>
-          <br/>
-          to address: <span class="address"></span>
-          <br/>
-          requested amount: <span class="amount"></span>
-
+          If you would like to use other wallet software or pay using fiat money you can use <a target="_blank" id="coinrequestlink">CoinRequest.io</a>
         </p>
       </div>
     </div>
     <footer>
       <div class="content">
         <a href="http://wallet.coffee/">Coffee Wallet</a> &copy; 2018 <a href="http://software.coffee/">Coffee Software Ltd</a>
-
       </div>
     </footer>
 
@@ -147,22 +135,23 @@
         for (var i = 0; i < nameElements.length; i++) {
           nameElements[i].innerHTML = coin.charAt(0).toUpperCase() + coin.slice(1);
         }
-        var amountElements = document.getElementsByClassName('amount');
-        for (var i = 0; i < amountElements.length; i++) {
-          amountElements[i].innerHTML = args.get('amount');
+        if (args.get('amount')) {
+          var amountElements = document.getElementsByClassName('amount');
+          for (var i = 0; i < amountElements.length; i++) {
+            amountElements[i].innerHTML = args.get('amount');
+          }
         }
         var addrElements = document.getElementsByClassName('address');
         for (var i = 0; i < addrElements.length; i++) {
           addrElements[i].innerHTML = addr;
         }
 
-
         var url = 'coffee://' + addr + '?coin=' + coin + '&' + args.toString();
         var bipUrl = coin + ':' + addr + (Array.from(args).length ? '?' + args.toString() : '');
         new QRCode(document.getElementById('codeqr'), {
           text: bipUrl,
-        	width: 128,
-        	height: 128,
+        	width: 200,
+        	height: 200,
           colorLight: '#eadfcb',
           colorDark: '#261f0a'
         });
@@ -171,6 +160,9 @@
 
         document.getElementById('copylink').href = 'javascript:copyToClipboard("' + bipUrl + '")';
         document.getElementById('biplink').innerHTML = bipUrl;
+
+        document.getElementById('coinrequestlink').href = 'https://coinrequest.io/create?coin=' + coin + '&address=' + addr +
+        (args.get('amount') ? '&amount=' + args.get('amount') : '');
 
         document.getElementById('success').classList.remove('hidden');
         document.getElementById('error').classList.add('hidden');
