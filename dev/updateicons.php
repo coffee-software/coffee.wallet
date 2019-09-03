@@ -6,7 +6,7 @@ unlink('.tmp.json');
 
 foreach ($coins as $coin) {
   echo ".";
-  $icon = strtolower($coin['symbol']);
+  $icon = strtolower($coin['code']);
   shell_exec('dev/generateicon.sh ' . escapeshellarg($icon));
 }
 echo "\n";
