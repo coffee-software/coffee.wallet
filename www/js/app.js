@@ -1005,11 +1005,13 @@ var app = {
       if (text.startsWith('coffee:')) {
         var parts = text.split('/');
 
-        if (parts.length == 4 && parts[1] == '' && parts[0] == 'coffee:') {
+        if (parts.length == 4 && parts[1] == '' && parts[0] == 'coffee:' && !parts[3].startsWith('?')) {
           return callback(null, {
             coinCode : parts[2],
             escrowPrivateKey : parts[3]
           });
+        } else if (parts.length == 4 && parts[1] == '' && parts[0] == 'coffee:') {
+          text = parts[2] + parts[3];
         } else if (parts.length == 3 && parts[1] == '' && parts[0] == 'coffee:') {
           text = parts[2];
         } else {
@@ -1732,7 +1734,7 @@ var app = {
 
     handleUrlOpened: function(url, callback) {
       var parts = url.split('/');
-      if (parts.length == 4 && parts[0] == 'coffee:') {
+      if (parts.length == 4 && parts[0] == 'coffee:' && !parts[3].startsWith('?')) {
         app.handleReceiveMessage(parts[2], parts[3], callback);
       } else {
         //ignore callback not to show airdrop info on url open different than receive via msg.
@@ -1832,11 +1834,11 @@ var app = {
       });
     },
     updateReceivePaymentCode: function() {
-      var code = app.receivingAddr;
+      var code = app.receivingWallet.handler.name + ':' + app.receivingAddr;
       document.getElementById('setAmountLabel').innerHTML = 'set amount';
       if (document.getElementById('receiveCoinAmount').value) {
         var systemAmount = app.receivingWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('receiveCoinAmount').value));
-        code = app.receivingWallet.handler.name + ':' + code + '?amount=' + app.receivingWallet.handler.systemValueToDisplayValue(systemAmount);
+        code = code + '?amount=' + app.receivingWallet.handler.systemValueToDisplayValue(systemAmount);
         document.getElementById('setAmountLabel').innerHTML = 'change amount';
       }
 

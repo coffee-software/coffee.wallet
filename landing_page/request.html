@@ -162,7 +162,7 @@
         document.getElementById('biplink').innerHTML = bipUrl;
 
         document.getElementById('coinrequestlink').href = 'https://coinrequest.io/create?coin=' + coin + '&address=' + addr +
-        (args.get('amount') ? '&amount=' + args.get('amount') : '');
+        (args.get('amount') ? '&amount=' + args.get('amount') : '') + '&wallet=coffeewallet';
 
         document.getElementById('success').classList.remove('hidden');
         document.getElementById('error').classList.add('hidden');
