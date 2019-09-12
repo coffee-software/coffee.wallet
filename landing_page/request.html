@@ -57,13 +57,22 @@
         color: #42221b;
       }
       .button {
-        color: #42221b;
-        border: 1px solid #42221b;
-        border-radius: 300px;
-        padding: 15px 20px;
+        padding: 10px;
+        background: #eadfcb;
+        color: #62422b;
+        margin: 20px 10px 0 10px;
+        border-radius: 40px;
         text-decoration: none;
         display: block;
-        margin: 20px 10px;
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: bold;
+        height: 60px;
+      }
+      .button img {
+        height: 60px;
+        float: left;
+        margin-left: 25px;
       }
       #notes {
         text-align: left;
@@ -79,6 +88,21 @@
       }
       .small {
         font-size: 13px;
+        margin-top: 3px;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 1;
+        min-width: 200px;
       }
     </style>
   </head>
@@ -89,17 +113,32 @@
     </div>
     <div id="success" class="content hidden">
       <h1><span class="amount"></span> <span class="coinname">Coins</span> Payment Request</h1>
-      <div class="ticket">
-        <h2>option 1. Pay with Coffee Wallet:</h2>
-        <a id="codelink" href="#" class="button" style="word-break: break-all;">
-          Unknown
-        </a>
-        <p class="small">
-          If Coffee Wallet is installed on this device, above link should open the payment form:
-        </p>
+      <div class="row">
+        <div class="column">
+          <a id="codelink" href="#" class="button" style="word-break: break-all;">
+            <img src="img/icon.png"/>
+            Pay with
+            <br/>
+            Coffee Wallet
+          </a>
+          <p class="small">
+            If Coffee Wallet is installed on this device, click above link
+          </p>
+        </div>
+        <div class="column">
+          <a target="_blank" class="button" id="coinrequestlink">
+            <img src="img/coinrequest.png"/>
+            Pay with
+            <br/>
+            CoinRequest
+          </a>
+          <p class="small">
+            If you would like to use other wallet software use this</a>
+          </p>
+        </div>
       </div>
       <div class="ticket">
-        <h2>option 2. Generic payment link:</h2>
+        <h2>...or use generic payment link:</h2>
         <p class="small">
           If you use other wallet, below is a generic, <a target="_blank" href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki">BIP21</a> format,
           payment link that you should be able to open:
@@ -112,12 +151,6 @@
         </div>
         <p class="small">
           Or simply manually pay <span class="amount"></span> <span class="coinname">Coins</span> to address: <span class="address"></span>
-        </p>
-      </div>
-      <div class="ticket">
-        <h2>option 3. Use CoinRequest:</h2>
-        <p>
-          If you would like to use other wallet software or pay using fiat money you can use <a target="_blank" id="coinrequestlink">CoinRequest.io</a>
         </p>
       </div>
     </div>
@@ -156,7 +189,7 @@
           colorDark: '#261f0a'
         });
         document.getElementById('codelink').href = url;
-        document.getElementById('codelink').innerHTML = url;
+        //document.getElementById('codelink').innerHTML = url;
 
         document.getElementById('copylink').href = 'javascript:copyToClipboard("' + bipUrl + '")';
         document.getElementById('biplink').innerHTML = bipUrl;
