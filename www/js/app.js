@@ -5,7 +5,7 @@ function handleOpenURL(url) {
     //make sure data is loaded
     if (app.lastOpenedUrl != url) {
       app.onDataLoaded(function(callback){
-        app.alertInfo('opening url');
+        app.alertInfo('opening url: ' + url);
         app.handleUrlOpened(url, callback);
       });
     };
@@ -43,7 +43,6 @@ var app = {
         document.getElementById('popupContent').addEventListener("scroll", function(){
           app.togglePopupHeaderFix();
         });
-
     },
 
     targetScroll: 0,
@@ -1439,7 +1438,8 @@ var app = {
 
     _alertMessage: function(html, coin, type, debug) {
       Logger.log(type, coin, html, debug);
-      this._alertMessagePopup(type, this.preParseCoinMsg(html, coin));
+      var alertTxt = this.preParseCoinMsg(html, coin);
+      this._alertMessagePopup(type, alertTxt.length > 100 ? alertTxt.substr(0,98) + '...' : alertTxt);
     },
 
     _alertMessagePopup: function(type, html) {
@@ -1798,6 +1798,7 @@ var app = {
         ,
         function(){
           app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee, app.afterSendCallback ? function(txid) {
+            app.alertInfo('sending payment notification to: ' + app.afterSendCallback);
             var http = new XMLHttpRequest();
             http.open('POST', app.afterSendCallback);
             var body = [];
@@ -1809,7 +1810,13 @@ var app = {
               'coin': app.sendWallet.handler.name
             };
             for (var d in data) body.push(d + '=' + encodeURIComponent(data[d]));
+            http.onreadystatechange = function() {
+              if ( http.readyState == 4 ) {
+                app.alertInfo('status: ' + this.status);
+              }
+            }
             http.send(body.join('&'));
+
           } : null);
           app.closeForm();
         }
