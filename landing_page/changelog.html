@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Coffee Wallet, crypto currencies wallet and portfolio">
     <meta name="author" content="Coffee Software">
-    <title>Changelog - Coffee Wallet</title>
-
+    <title>Changelog | Coffee Wallet</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link href="css/new-age.min.css" rel="stylesheet">
     <link href="css/wallet.css?v4" rel="stylesheet">
     <link href="css/pages.css" rel="stylesheet">
-    <script type="text/javascript" src="appwww/js/changelog.js"></script>
-
+  </script>
   </head>
   <body>
     <!-- Navigation -->
@@ -40,6 +37,9 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="https://wallet.coffee/#features">Features</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://wallet.coffee/#airdrop">Airdrop!</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -51,25 +51,115 @@
 
     <section class="bg-primary">
     <div class="container">
-      <script type="text/javascript">
-
-        document.write('<h3>current stable: ' + window.version + '</h3>');
-
-        for (v in window.changelog) {
-          document.write('<h2>version ' + window.changelog[v].version + '</h2>');
-          document.write('<h5>released to beta on ' + window.changelog[v].date + '</h5>');
-
-          document.write('<ul>');
-          for ( var i = 0; i < window.changelog[v].changes.length; i++) {
-            document.write('<li>' + window.changelog[v].changes[i] + '</li>');
-          }
-          document.write('</ul>');
-
-        }
-      </script>
-
-	 </div>
-</section>
+<h3>current stable: 0.10.5</h3>
+<h2 id="0.10.0">version 0.10.0</h2>
+<i>released to beta on 2019-09-05</i>
+<ul>
+<li>added: request a payment feature</li>
+<li>added: CoinRequest support</li>
+<li>added: 100 new portfolio coins</li>
+<li>added: KLOWN token support</li>
+<li>updated: send and receive forms user experience</li>
+<li>updated: coin icons</li>
+<li>fixed: auth on devices with no biometrics support</li>
+<li>fixed: ERC20 fees issues</li>
+<li>fixed: minor bugs</li>
+</ul>
+<h2 id="0.9.0">version 0.9.0</h2>
+<i>released to beta on 2019-02-20</i>
+<ul>
+<li>added: separate views for single coin and single asset that shows on tap</li>
+<li>added: pull down to refresh on wallets list</li>
+<li>added: support for "back" button on android</li>
+<li>removed: "refresh" button (now works on pull down)</li>
+<li>removed: "more" button (tap coin to see advanced options)</li>
+<li>changed: renamed "assets" to "portfolio" troughout application</li>
+<li>changed: "settings" and other moved to "tools" tab. main menu was removed</li>
+<li>changed: tiny UI fixes, icons, popups with sticky headers</li>
+<li>fixed: recover wallet bug, minor bugs</li>
+</ul>
+<h2 id="0.8.0">version 0.8.0</h2>
+<i>released to beta on 2018-12-08</i>
+<ul>
+<li>added: more ERC20 tokens</li>
+<li>added: recover wallet feature</li>
+<li>added: more info for new user setup</li>
+<li>added: nice dialog on receive via message</li>
+<li>fixed: lots of minor bugs</li>
+</ul>
+<h2 id="0.7.0">version 0.7.0</h2>
+<i>released to beta on 2018-11-18</i>
+<ul>
+<li>added: ERC20 support, added top 10 tokens</li>
+<li>added: jazzicons identicons to make addresses more user friendly</li>
+<li>fixed: ETH fees issues</li>
+<li>fixed: balances storage. this will fix all "dust" errors.</li>
+<li>fixed: lots of minor bugs</li>
+</ul>
+<h2 id="0.6.0">version 0.6.0</h2>
+<i>released to beta on 2018-09-28</i>
+<ul>
+<li>added: ETH support</li>
+<li>added: "send all" feature</li>
+<li>added: online key recovery tool</li>
+<li>changed: swipe menu for list items. swipe left to see portfolio actions and swipe right to see wallet actions.</li>
+<li>fixed: animation performance</li>
+</ul>
+<h2 id="0.5.0">version 0.5.0</h2>
+<i>released to beta on 2018-08-23</i>
+<ul>
+<li>added: BTC support</li>
+<li>added: Exchange feature, using changelly.com service</li>
+<li>added: fingerprint/face authentication to confirm transactions</li>
+<li>added: clickable transaction links in history, links to address explorers in advanced options</li>
+<li>fixed: 429 issue when watching lot of address</li>
+<li>fixed: blank prices on startup, using cached values now</li>
+<li>fixed: validating address for offline asset</li>
+<li>fixed: fixed startup issue on older devices</li>
+</ul>
+<h2 id="0.4.0">version 0.4.0</h2>
+<i>released to beta on 2018-07-08</i>
+<ul>
+<li>added: LTC support</li>
+<li>added: feature to generate new wallet for offline list as pdf with QR codes.</li>
+<li>added: test ERC20 ropsten token</li>
+<li>changed: coins are ordered by total value</li>
+<li>fixed: sending coin as message to a new installation bug</li>
+<li>fixed: issues with no value coins (test tokens)</li>
+</ul>
+<h2 id="0.3.0">version 0.3.0</h2>
+<i>released to beta on 2018-06-21</i>
+<ul>
+<li>added: reading fees from network instead of using hardcoded ones</li>
+<li>added: indicate wallet contains unconfirmed transactions by blinking</li>
+<li>added: warning when sending unconfirmed inputs</li>
+<li>added: coinpaprica.com as optional price provider</li>
+</ul>
+<h2 id="0.2.0">version 0.2.0</h2>
+<i>released to beta on 2018-06-14</i>
+<ul>
+<li>added: tools tab</li>
+<li>added: send and receive coins via message feature</li>
+<li>added: scan/paste any code tool that detects coin and open given send form (or to receive coins from message)</li>
+<li>fixed: show warning when scanning different coin address when on send form.</li>
+<li>fixed: detecting proper coin on BIP72 address (so it can be used in "scan any" tool)</li>
+</ul>
+<h2 id="0.1.8">version 0.1.8</h2>
+<i>released to beta on 2018-05-31</i>
+<ul>
+<li>added: DOGE coin wallet support</li>
+<li>added: BIP39 support; private keys are generated from 12-word mnemonic passphrase</li>
+<li>added: BIP70 support (bitpay payments)</li>
+</ul>
+<h2 id="0.1.7">version 0.1.7</h2>
+<i>released to beta on 2018-04-29</i>
+<ul>
+<li>first public release</li>
+<li>basic portfolio features</li>
+<li>no wallet support</li>
+</ul>
+    </div>
+    </section>
   <footer>
     <div class="container">
 <div class="row">
@@ -78,23 +168,20 @@
           </div>
           <div class="col-md-6">
 
-      <ul class="list-inline pull-right">
-        <li class="list-inline-item">
-          <a class="social-link" target="_blank" href="https://www.reddit.com/r/CoffeeWallet/">
-  <i class="icon-social-reddit"></i>
-    </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link" target="_blank" href="https://twitter.com/CoffeeWallet">
-      <i class="icon-social-twitter"></i>
-    </a>
-        </li>
-        <li class="list-inline-item">
-    <a class="social-link" target="_blank" href="https://github.com/fsw/coffee.wallet">
-      <i class="icon-social-github"></i>
-    </a>
-        </li>
-      </ul>
+          <ul class="list-inline pull-right">
+            <li class="list-inline-item">
+              <a class="social-link" target="_blank" href="https://www.reddit.com/r/CoffeeWallet/"><i class="fa fa-reddit"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a class="social-link" target="_blank" href="https://twitter.com/CoffeeWallet"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a class="social-link" target="_blank" href="https://t.me/CoffeeWallet"><i class="fa fa-telegram"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a class="social-link" target="_blank" href="https://github.com/fsw/coffee.wallet"><i class="fa fa-github"></i></a>
+            </li>
+          </ul>
          </div>
  </div>
     </div>

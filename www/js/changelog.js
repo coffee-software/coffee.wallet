@@ -23,7 +23,7 @@ window.version = "0.10.5";
 window.changelog = [
   {
    version: '0.10.0',
-   date: '2019-09-23',
+   date: '2019-09-05',
    changes: [
      'added: request a payment feature',
      'added: CoinRequest support',
