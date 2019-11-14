@@ -22,6 +22,16 @@ function versionCompare(v1, v2) {
 window.version = "0.10.5";
 window.changelog = [
   {
+   version: '0.11.0',
+   date: '2019-11-14',
+   changes: [
+     'added: FRECNX token wallet support',
+     'added: NOW token wallet support',
+     'updated: coins and icons icons',
+     'fixed: minor bugs'
+   ]
+  },
+  {
    version: '0.10.0',
    date: '2019-09-05',
    changes: [
