@@ -11,7 +11,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/0chain/"
     },
-    rank: "1006"
+    rank: "2806"
 },{
     name: "0x",
     code: "ZRX",
@@ -21,7 +21,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/0x/"
     },
-    rank: "61"
+    rank: "41"
 },{
     name: "0xbtc",
     code: "0xBTC",
@@ -31,7 +31,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/0xbtc/"
     },
-    rank: "1343"
+    rank: "3143"
 },{
     name: "0xcert",
     code: "ZXC",
@@ -41,7 +41,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/0xcert/"
     },
-    rank: "1666"
+    rank: "3466"
 },{
     name: "1337coin",
     code: "1337",
@@ -51,7 +51,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/1337coin/"
     },
-    rank: "1354"
+    rank: "3154"
 },{
     name: "1irstcoin",
     code: "FST",
@@ -61,7 +61,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/1irstcoin/"
     },
-    rank: "76"
+    rank: "161"
 },{
     name: "1world",
     code: "1WO",
@@ -71,7 +71,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/1world/"
     },
-    rank: "1310"
+    rank: "3110"
 },{
     name: "2give",
     code: "2GIVE",
@@ -81,7 +81,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/2give/"
     },
-    rank: "1410"
+    rank: "3210"
 },{
     name: "300-token",
     code: "300",
@@ -91,7 +91,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/300-token/"
     },
-    rank: "2165"
+    rank: "3965"
 },{
     name: "42-coin",
     code: "42",
@@ -101,7 +101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/42-coin/"
     },
-    rank: "1861"
+    rank: "3661"
 },{
     name: "4new",
     code: "KWATT",
@@ -111,7 +111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/4new/"
     },
-    rank: "1428"
+    rank: "3228"
 },{
     name: "808coin",
     code: "808",
@@ -121,7 +121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/808coin/"
     },
-    rank: "1957"
+    rank: "3757"
 },{
     name: "8bit",
     code: "8BIT",
@@ -131,7 +131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/8bit/"
     },
-    rank: "2214"
+    rank: "4014"
 },{
     name: "aave",
     code: "LEND",
@@ -141,7 +141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aave/"
     },
-    rank: "489"
+    rank: "219"
 },{
     name: "ab-chain-rtb",
     code: "RTB",
@@ -151,7 +151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ab-chain-rtb/"
     },
-    rank: "1672"
+    rank: "3472"
 },{
     name: "abbc-coin",
     code: "ABBC",
@@ -161,7 +161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/abbc-coin/"
     },
-    rank: "107"
+    rank: "53"
 },{
     name: "absolute",
     code: "ABS",
@@ -171,7 +171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/absolute/"
     },
-    rank: "1699"
+    rank: "3499"
 },{
     name: "abulaba",
     code: "AAA",
@@ -181,7 +181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/abulaba/"
     },
-    rank: "1774"
+    rank: "3574"
 },{
     name: "abyss-token",
     code: "ABYSS",
@@ -191,7 +191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/abyss-token/"
     },
-    rank: "576"
+    rank: "2376"
 },{
     name: "ac3",
     code: "AC3",
@@ -201,7 +201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ac3/"
     },
-    rank: "1404"
+    rank: "3204"
 },{
     name: "accelerator-network",
     code: "ACC-1",
@@ -211,7 +211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/accelerator-network/"
     },
-    rank: "2222"
+    rank: "4022"
 },{
     name: "acchain",
     code: "ACC-2",
@@ -221,7 +221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/acchain/"
     },
-    rank: "2518"
+    rank: "4318"
 },{
     name: "ace",
     code: "ACE",
@@ -231,7 +231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ace/"
     },
-    rank: "1635"
+    rank: "3435"
 },{
     name: "aced",
     code: "ACED",
@@ -241,7 +241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aced/"
     },
-    rank: "2064"
+    rank: "3864"
 },{
     name: "achain",
     code: "ACT",
@@ -251,7 +251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/achain/"
     },
-    rank: "358"
+    rank: "331"
 },{
     name: "acoin",
     code: "ACOIN",
@@ -261,7 +261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/acoin/"
     },
-    rank: "2223"
+    rank: "4023"
 },{
     name: "acre",
     code: "ACRE",
@@ -271,7 +271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/acre/"
     },
-    rank: "2225"
+    rank: "4025"
 },{
     name: "actinium",
     code: "ACM",
@@ -281,7 +281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/actinium/"
     },
-    rank: "1634"
+    rank: "3434"
 },{
     name: "acute-angle-cloud",
     code: "AAC",
@@ -291,7 +291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/acute-angle-cloud/"
     },
-    rank: "1384"
+    rank: "3184"
 },{
     name: "adbank",
     code: "ADB",
@@ -301,7 +301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adbank/"
     },
-    rank: "1442"
+    rank: "3242"
 },{
     name: "adcoin",
     code: "ACC",
@@ -311,7 +311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adcoin/"
     },
-    rank: "2103"
+    rank: "3903"
 },{
     name: "adelphoi",
     code: "ADL",
@@ -321,7 +321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adelphoi/"
     },
-    rank: "1864"
+    rank: "3664"
 },{
     name: "adenz",
     code: "DNZ",
@@ -331,7 +331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adenz/"
     },
-    rank: "2585"
+    rank: "4385"
 },{
     name: "adhive",
     code: "ADH",
@@ -341,7 +341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adhive/"
     },
-    rank: "1498"
+    rank: "3298"
 },{
     name: "aditus",
     code: "ADI",
@@ -351,7 +351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aditus/"
     },
-    rank: "1688"
+    rank: "3488"
 },{
     name: "adshares",
     code: "ADST",
@@ -361,7 +361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adshares/"
     },
-    rank: "1350"
+    rank: "3150"
 },{
     name: "adtoken",
     code: "ADT",
@@ -371,7 +371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adtoken/"
     },
-    rank: "1016"
+    rank: "2816"
 },{
     name: "adultchain",
     code: "XXX",
@@ -381,7 +381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adultchain/"
     },
-    rank: "2057"
+    rank: "3857"
 },{
     name: "advanced-internet-blocks",
     code: "AIB",
@@ -391,7 +391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/advanced-internet-blocks/"
     },
-    rank: "2036"
+    rank: "3836"
 },{
     name: "adx-net",
     code: "ADX",
@@ -401,7 +401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adx-net/"
     },
-    rank: "399"
+    rank: "371"
 },{
     name: "adzcoin",
     code: "ADZ",
@@ -411,7 +411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adzcoin/"
     },
-    rank: "1997"
+    rank: "3797"
 },{
     name: "aegeus",
     code: "AEG",
@@ -421,7 +421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aegeus/"
     },
-    rank: "1710"
+    rank: "3510"
 },{
     name: "aelf",
     code: "ELF",
@@ -431,7 +431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aelf/"
     },
-    rank: "122"
+    rank: "115"
 },{
     name: "aencoin",
     code: "AEN",
@@ -441,7 +441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aencoin/"
     },
-    rank: "315"
+    rank: "317"
 },{
     name: "aeon",
     code: "AEON",
@@ -451,7 +451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aeon/"
     },
-    rank: "293"
+    rank: "2093"
 },{
     name: "aergo",
     code: "AERGO",
@@ -461,7 +461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aergo/"
     },
-    rank: "352"
+    rank: "446"
 },{
     name: "aeron",
     code: "ARN",
@@ -471,7 +471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aeron/"
     },
-    rank: "500"
+    rank: "516"
 },{
     name: "aeternity",
     code: "AE",
@@ -481,7 +481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aeternity/"
     },
-    rank: "95"
+    rank: "88"
 },{
     name: "agavecoin",
     code: "AGVC",
@@ -491,7 +491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/agavecoin/"
     },
-    rank: "194"
+    rank: "198"
 },{
     name: "agrello-delta",
     code: "DLT",
@@ -501,7 +501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/agrello-delta/"
     },
-    rank: "537"
+    rank: "504"
 },{
     name: "aichain",
     code: "AIT",
@@ -511,17 +511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aichain/"
     },
-    rank: "1432"
-},{
-    name: "aidcoin",
-    code: "AID",
-    icon: "aid",
-    longname: "AidCoin",
-    description: "AidCoin coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/aidcoin/"
-    },
-    rank: "1369"
+    rank: "3232"
 },{
     name: "aidoc",
     code: "AIDOC",
@@ -531,7 +521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aidoc/"
     },
-    rank: "1188"
+    rank: "2988"
 },{
     name: "aidos-kuneen",
     code: "ADK",
@@ -541,7 +531,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aidos-kuneen/"
     },
-    rank: "2417"
+    rank: "4217"
+},{
+    name: "aidus-token",
+    code: "AID",
+    icon: "aid",
+    longname: "AIDUS TOKEN",
+    description: "AIDUS TOKEN coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/aidus-token/"
+    },
+    rank: "541"
 },{
     name: "aigang",
     code: "AIX",
@@ -551,7 +551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aigang/"
     },
-    rank: "1681"
+    rank: "3481"
 },{
     name: "ailink-token",
     code: "ALI",
@@ -561,7 +561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ailink-token/"
     },
-    rank: "1406"
+    rank: "3206"
 },{
     name: "aion",
     code: "AION",
@@ -571,7 +571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aion/"
     },
-    rank: "166"
+    rank: "146"
 },{
     name: "airbloc",
     code: "ABL",
@@ -581,7 +581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/airbloc/"
     },
-    rank: "1273"
+    rank: "3073"
 },{
     name: "airswap",
     code: "AST",
@@ -591,7 +591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/airswap/"
     },
-    rank: "524"
+    rank: "514"
 },{
     name: "airwire",
     code: "WIRE",
@@ -601,7 +601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/airwire/"
     },
-    rank: "1335"
+    rank: "3135"
 },{
     name: "akroma",
     code: "AKA",
@@ -611,7 +611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/akroma/"
     },
-    rank: "1519"
+    rank: "3319"
 },{
     name: "akropolis",
     code: "AKRO",
@@ -621,7 +621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/akropolis/"
     },
-    rank: "475"
+    rank: "2275"
 },{
     name: "aladdin",
     code: "ADN",
@@ -631,7 +631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aladdin/"
     },
-    rank: "274"
+    rank: "253"
 },{
     name: "alax",
     code: "ALX",
@@ -641,7 +641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alax/"
     },
-    rank: "1403"
+    rank: "3203"
 },{
     name: "alchemint-standards",
     code: "SDS",
@@ -651,7 +651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alchemint-standards/"
     },
-    rank: "2424"
+    rank: "4224"
 },{
     name: "algorand",
     code: "ALGO",
@@ -661,7 +661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/algorand/"
     },
-    rank: "52"
+    rank: "57"
 },{
     name: "alis",
     code: "ALIS",
@@ -671,7 +671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alis/"
     },
-    rank: "1843"
+    rank: "3643"
 },{
     name: "all-sports",
     code: "SOC",
@@ -681,7 +681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/all-sports/"
     },
-    rank: "272"
+    rank: "348"
 },{
     name: "allion",
     code: "ALL",
@@ -691,7 +691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/allion/"
     },
-    rank: "2208"
+    rank: "4008"
 },{
     name: "allsafe",
     code: "ASAFE2",
@@ -701,7 +701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/allsafe/"
     },
-    rank: "1718"
+    rank: "3518"
 },{
     name: "alpha-coin",
     code: "APC",
@@ -711,7 +711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alpha-coin/"
     },
-    rank: "2301"
+    rank: "4101"
 },{
     name: "alphabitcoinfund",
     code: "ABC",
@@ -721,7 +721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alphabitcoinfund/"
     },
-    rank: "2597"
+    rank: "4397"
 },{
     name: "alphacat",
     code: "ACAT",
@@ -731,7 +731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alphacat/"
     },
-    rank: "1397"
+    rank: "3197"
 },{
     name: "alqo",
     code: "XLQ",
@@ -741,7 +741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alqo/"
     },
-    rank: "980"
+    rank: "2780"
 },{
     name: "alt-estate-token",
     code: "ALT",
@@ -751,7 +751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alt-estate-token/"
     },
-    rank: "1670"
+    rank: "3470"
 },{
     name: "altcoin-alt",
     code: "ALT-1",
@@ -761,7 +761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/altcoin-alt/"
     },
-    rank: "2104"
+    rank: "3904"
 },{
     name: "altcommunity-coin",
     code: "SONO",
@@ -771,7 +771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/altcommunity-coin/"
     },
-    rank: "2589"
+    rank: "4389"
 },{
     name: "amber",
     code: "AMB",
@@ -781,7 +781,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amber/"
     },
-    rank: "578"
+    rank: "474"
+},{
+    name: "amino-network",
+    code: "AMIO",
+    icon: "noicon",
+    longname: "Amino Network",
+    description: "Amino Network coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/amino-network/"
+    },
+    rank: "506"
 },{
     name: "amlt",
     code: "AMLT",
@@ -791,7 +801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amlt/"
     },
-    rank: "1228"
+    rank: "3028"
 },{
     name: "ammo-reloaded",
     code: "AMMO",
@@ -801,7 +811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ammo-reloaded/"
     },
-    rank: "2264"
+    rank: "4064"
 },{
     name: "amo-coin",
     code: "AMO",
@@ -811,7 +821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amo-coin/"
     },
-    rank: "563"
+    rank: "536"
 },{
     name: "amon",
     code: "AMN",
@@ -821,7 +831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amon/"
     },
-    rank: "1695"
+    rank: "3495"
 },{
     name: "amsterdamcoin",
     code: "AMS",
@@ -831,7 +841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amsterdamcoin/"
     },
-    rank: "2262"
+    rank: "4062"
 },{
     name: "anarchistsprime",
     code: "ACP",
@@ -841,7 +851,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/anarchistsprime/"
     },
-    rank: "2304"
+    rank: "4104"
+},{
+    name: "anchor",
+    code: "ANCT",
+    icon: "anct",
+    longname: "Anchor",
+    description: "Anchor coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/anchor/"
+    },
+    rank: "335"
 },{
     name: "animation-vision-cash",
     code: "AVH",
@@ -851,7 +871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/animation-vision-cash/"
     },
-    rank: "2415"
+    rank: "4215"
 },{
     name: "animecoin",
     code: "ANI",
@@ -861,7 +881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/animecoin/"
     },
-    rank: "2595"
+    rank: "4395"
 },{
     name: "ankr",
     code: "ANKR",
@@ -871,7 +891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ankr/"
     },
-    rank: "331"
+    rank: "319"
 },{
     name: "anon",
     code: "ANON",
@@ -881,7 +901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/anon/"
     },
-    rank: "2499"
+    rank: "4299"
 },{
     name: "anoncoin",
     code: "ANC",
@@ -891,7 +911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/anoncoin/"
     },
-    rank: "1828"
+    rank: "3628"
 },{
     name: "apex",
     code: "CPX",
@@ -901,7 +921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apex/"
     },
-    rank: "591"
+    rank: "2391"
 },{
     name: "aphelion",
     code: "APH",
@@ -911,7 +931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aphelion/"
     },
-    rank: "1599"
+    rank: "3399"
 },{
     name: "apis",
     code: "APIS",
@@ -921,7 +941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apis/"
     },
-    rank: "335"
+    rank: "531"
 },{
     name: "apollo-currency",
     code: "APL",
@@ -931,7 +951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apollo-currency/"
     },
-    rank: "227"
+    rank: "233"
 },{
     name: "apollon",
     code: "XAP",
@@ -941,7 +961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apollon/"
     },
-    rank: "1544"
+    rank: "3344"
 },{
     name: "appcoins",
     code: "APPC",
@@ -951,7 +971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/appcoins/"
     },
-    rank: "527"
+    rank: "517"
 },{
     name: "apr-coin",
     code: "APR",
@@ -961,7 +981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apr-coin/"
     },
-    rank: "1709"
+    rank: "3509"
 },{
     name: "apx",
     code: "APX",
@@ -971,7 +991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apx/"
     },
-    rank: "1860"
+    rank: "3660"
 },{
     name: "aquariuscoin",
     code: "ARCO",
@@ -981,7 +1001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aquariuscoin/"
     },
-    rank: "2078"
+    rank: "3878"
 },{
     name: "aragon",
     code: "ANT",
@@ -991,7 +1011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aragon/"
     },
-    rank: "219"
+    rank: "199"
 },{
     name: "arbidex",
     code: "ABX",
@@ -1001,7 +1021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arbidex/"
     },
-    rank: "1336"
+    rank: "3136"
 },{
     name: "arbit",
     code: "ARB-1",
@@ -1011,7 +1031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arbit/"
     },
-    rank: "2305"
+    rank: "4105"
 },{
     name: "arbitrage",
     code: "ARB",
@@ -1021,7 +1041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arbitrage/"
     },
-    rank: "790"
+    rank: "2590"
 },{
     name: "arbitragect",
     code: "ARCT",
@@ -1031,7 +1051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arbitragect/"
     },
-    rank: "1714"
+    rank: "3514"
 },{
     name: "arcblock",
     code: "ABT",
@@ -1041,7 +1061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arcblock/"
     },
-    rank: "201"
+    rank: "207"
 },{
     name: "archetypal-network",
     code: "ACTP",
@@ -1051,7 +1071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/archetypal-network/"
     },
-    rank: "2247"
+    rank: "4047"
 },{
     name: "arcticcoin",
     code: "ARC",
@@ -1061,7 +1081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arcticcoin/"
     },
-    rank: "1691"
+    rank: "3491"
 },{
     name: "ardor",
     code: "ARDR",
@@ -1081,7 +1101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arepacoin/"
     },
-    rank: "2151"
+    rank: "3951"
 },{
     name: "argentum",
     code: "ARG",
@@ -1091,7 +1111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/argentum/"
     },
-    rank: "1560"
+    rank: "3360"
 },{
     name: "argus",
     code: "ARGUS",
@@ -1101,7 +1121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/argus/"
     },
-    rank: "2331"
+    rank: "4131"
 },{
     name: "aricoin",
     code: "ARI",
@@ -1111,7 +1131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aricoin/"
     },
-    rank: "2067"
+    rank: "3867"
 },{
     name: "arion",
     code: "ARION",
@@ -1121,7 +1141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arion/"
     },
-    rank: "2134"
+    rank: "3934"
 },{
     name: "arionum",
     code: "ARO",
@@ -1131,7 +1151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arionum/"
     },
-    rank: "1398"
+    rank: "3198"
 },{
     name: "ark",
     code: "ARK",
@@ -1141,7 +1161,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ark/"
     },
-    rank: "179"
+    rank: "182"
+},{
+    name: "arpa-chain",
+    code: "ARPA",
+    icon: "arpa",
+    longname: "ARPA Chain",
+    description: "ARPA Chain coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/arpa-chain/"
+    },
+    rank: "368"
 },{
     name: "artbyte",
     code: "ABY",
@@ -1151,7 +1181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/artbyte/"
     },
-    rank: "1371"
+    rank: "3171"
 },{
     name: "artfinity",
     code: "AT",
@@ -1161,7 +1191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/artfinity/"
     },
-    rank: "447"
+    rank: "537"
 },{
     name: "asch",
     code: "XAS",
@@ -1171,7 +1201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/asch/"
     },
-    rank: "401"
+    rank: "385"
 },{
     name: "asiacoin",
     code: "AC",
@@ -1181,7 +1211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/asiacoin/"
     },
-    rank: "1833"
+    rank: "3633"
 },{
     name: "asiadigicoin",
     code: "ADCN",
@@ -1191,7 +1221,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/asiadigicoin/"
     },
-    rank: "2284"
+    rank: "4084"
+},{
+    name: "asian-fintech",
+    code: "AFIN",
+    icon: "afin",
+    longname: "Asian Fintech",
+    description: "Asian Fintech coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/asian-fintech/"
+    },
+    rank: "575"
 },{
     name: "aston",
     code: "ATX",
@@ -1201,7 +1241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aston/"
     },
-    rank: "883"
+    rank: "2683"
 },{
     name: "asura-coin",
     code: "ASA",
@@ -1211,7 +1251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/asura-coin/"
     },
-    rank: "2475"
+    rank: "4275"
 },{
     name: "atbcoin",
     code: "ATB",
@@ -1221,7 +1261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atbcoin/"
     },
-    rank: "1621"
+    rank: "3421"
 },{
     name: "atc-coin",
     code: "ATCC",
@@ -1231,7 +1271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atc-coin/"
     },
-    rank: "1148"
+    rank: "2948"
 },{
     name: "atheios",
     code: "ATH",
@@ -1241,7 +1281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atheios/"
     },
-    rank: "2128"
+    rank: "3928"
 },{
     name: "atidium",
     code: "ATD",
@@ -1251,7 +1291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atidium/"
     },
-    rank: "2516"
+    rank: "4316"
 },{
     name: "atlant",
     code: "ATL",
@@ -1261,7 +1301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atlant/"
     },
-    rank: "1407"
+    rank: "3207"
 },{
     name: "atlantis-blue-digital-token",
     code: "ABDT",
@@ -1271,7 +1311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atlantis-blue-digital-token/"
     },
-    rank: "2397"
+    rank: "4197"
 },{
     name: "atlas-protocol",
     code: "ATP",
@@ -1281,7 +1321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atlas-protocol/"
     },
-    rank: "75"
+    rank: "208"
 },{
     name: "atmos",
     code: "ATMOS",
@@ -1291,7 +1331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atmos/"
     },
-    rank: "1378"
+    rank: "3178"
 },{
     name: "atn",
     code: "ATN",
@@ -1301,7 +1341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atn/"
     },
-    rank: "1026"
+    rank: "2826"
 },{
     name: "atonomi",
     code: "ATMI",
@@ -1311,7 +1351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atonomi/"
     },
-    rank: "1381"
+    rank: "3181"
 },{
     name: "attention-token-of-media",
     code: "ATM",
@@ -1321,7 +1361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/attention-token-of-media/"
     },
-    rank: "1879"
+    rank: "3679"
 },{
     name: "auctus",
     code: "AUC",
@@ -1331,7 +1371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/auctus/"
     },
-    rank: "1555"
+    rank: "3355"
 },{
     name: "audiocoin",
     code: "ADC",
@@ -1341,7 +1381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/audiocoin/"
     },
-    rank: "1568"
+    rank: "3368"
 },{
     name: "augur",
     code: "REP",
@@ -1351,7 +1391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/augur/"
     },
-    rank: "67"
+    rank: "55"
 },{
     name: "aurora",
     code: "AOA",
@@ -1361,7 +1401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aurora/"
     },
-    rank: "70"
+    rank: "95"
 },{
     name: "aurora-dao",
     code: "AURA",
@@ -1371,7 +1411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aurora-dao/"
     },
-    rank: "1129"
+    rank: "2929"
 },{
     name: "auroracoin",
     code: "AUR",
@@ -1381,7 +1421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/auroracoin/"
     },
-    rank: "1214"
+    rank: "3014"
 },{
     name: "aurumcoin",
     code: "AU",
@@ -1391,7 +1431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aurumcoin/"
     },
-    rank: "925"
+    rank: "2725"
 },{
     name: "authorship",
     code: "ATS",
@@ -1401,7 +1441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/authorship/"
     },
-    rank: "1766"
+    rank: "3566"
 },{
     name: "autonio",
     code: "NIO",
@@ -1411,7 +1451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/autonio/"
     },
-    rank: "1356"
+    rank: "3156"
 },{
     name: "auxilium",
     code: "AUX",
@@ -1421,7 +1461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/auxilium/"
     },
-    rank: "1689"
+    rank: "3489"
 },{
     name: "aventus",
     code: "AVT",
@@ -1431,7 +1471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aventus/"
     },
-    rank: "1327"
+    rank: "3127"
 },{
     name: "avinoc",
     code: "AVINOC",
@@ -1441,7 +1481,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/avinoc/"
     },
-    rank: "1821"
+    rank: "3621"
+},{
+    name: "axe",
+    code: "AXE",
+    icon: "axe",
+    longname: "Axe",
+    description: "Axe coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/axe/"
+    },
+    rank: "502"
 },{
     name: "axpire",
     code: "AXPR",
@@ -1451,7 +1501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/axpire/"
     },
-    rank: "1167"
+    rank: "2967"
 },{
     name: "azart",
     code: "AZART",
@@ -1461,7 +1511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/azart/"
     },
-    rank: "1792"
+    rank: "3592"
 },{
     name: "b2bcoin",
     code: "BBC",
@@ -1471,7 +1521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/b2bcoin/"
     },
-    rank: "1264"
+    rank: "3064"
 },{
     name: "b2bx",
     code: "B2B",
@@ -1481,7 +1531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/b2bx/"
     },
-    rank: "264"
+    rank: "287"
 },{
     name: "b3coin",
     code: "KB3",
@@ -1491,7 +1541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/b3coin/"
     },
-    rank: "1366"
+    rank: "3166"
 },{
     name: "baasid",
     code: "BAAS",
@@ -1501,7 +1551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/baasid/"
     },
-    rank: "559"
+    rank: "558"
 },{
     name: "babb",
     code: "BAX",
@@ -1511,7 +1561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/babb/"
     },
-    rank: "853"
+    rank: "529"
 },{
     name: "banca",
     code: "BANCA",
@@ -1521,7 +1571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/banca/"
     },
-    rank: "1213"
+    rank: "3013"
 },{
     name: "bancor",
     code: "BNT",
@@ -1531,7 +1581,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bancor/"
     },
-    rank: "180"
+    rank: "213"
+},{
+    name: "band-protocol",
+    code: "BAND",
+    icon: "band",
+    longname: "Band Protocol",
+    description: "Band Protocol coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/band-protocol/"
+    },
+    rank: "437"
 },{
     name: "bank-coin",
     code: "BANK",
@@ -1541,7 +1601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bank-coin/"
     },
-    rank: "2199"
+    rank: "3999"
 },{
     name: "bankcoin",
     code: "B@",
@@ -1551,7 +1611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bankcoin/"
     },
-    rank: "2263"
+    rank: "4063"
 },{
     name: "bankera",
     code: "BNK",
@@ -1561,7 +1621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bankera/"
     },
-    rank: "128"
+    rank: "169"
 },{
     name: "bankex",
     code: "BKX",
@@ -1571,7 +1631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bankex/"
     },
-    rank: "1025"
+    rank: "2825"
 },{
     name: "banyan-network",
     code: "BBN",
@@ -1581,7 +1641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/banyan-network/"
     },
-    rank: "1267"
+    rank: "3067"
 },{
     name: "basic-attention-token",
     code: "BAT",
@@ -1591,7 +1651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/basic-attention-token/"
     },
-    rank: "34"
+    rank: "30"
 },{
     name: "bastonet",
     code: "BSN",
@@ -1601,7 +1661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bastonet/"
     },
-    rank: "2572"
+    rank: "4372"
 },{
     name: "bata",
     code: "BTA",
@@ -1611,7 +1671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bata/"
     },
-    rank: "2079"
+    rank: "3879"
 },{
     name: "bbscoin",
     code: "BBS",
@@ -1621,7 +1681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bbscoin/"
     },
-    rank: "1723"
+    rank: "3523"
 },{
     name: "bdt-token",
     code: "BDT",
@@ -1631,7 +1691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bdt-token/"
     },
-    rank: "1201"
+    rank: "3001"
 },{
     name: "beam",
     code: "BEAM",
@@ -1641,7 +1701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beam/"
     },
-    rank: "115"
+    rank: "145"
 },{
     name: "bean-cash",
     code: "BITB",
@@ -1651,7 +1711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bean-cash/"
     },
-    rank: "1045"
+    rank: "2845"
 },{
     name: "beat",
     code: "BEAT",
@@ -1661,7 +1721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beat/"
     },
-    rank: "2470"
+    rank: "4270"
 },{
     name: "bee-token",
     code: "BEE",
@@ -1671,7 +1731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bee-token/"
     },
-    rank: "1394"
+    rank: "3194"
 },{
     name: "beekan",
     code: "BKBT",
@@ -1681,7 +1741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beekan/"
     },
-    rank: "2388"
+    rank: "4188"
 },{
     name: "beetle-coin",
     code: "BEET",
@@ -1691,7 +1751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beetle-coin/"
     },
-    rank: "1715"
+    rank: "3515"
 },{
     name: "belacoin",
     code: "BELA",
@@ -1701,7 +1761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/belacoin/"
     },
-    rank: "1528"
+    rank: "3328"
 },{
     name: "beldex",
     code: "BDX",
@@ -1711,7 +1771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beldex/"
     },
-    rank: "87"
+    rank: "90"
 },{
     name: "benjirolls",
     code: "BENJI",
@@ -1721,7 +1781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/benjirolls/"
     },
-    rank: "2312"
+    rank: "4112"
 },{
     name: "benz",
     code: "BENZ",
@@ -1731,7 +1791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/benz/"
     },
-    rank: "2322"
+    rank: "4122"
 },{
     name: "berncash",
     code: "BERN",
@@ -1741,7 +1801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/berncash/"
     },
-    rank: "2172"
+    rank: "3972"
 },{
     name: "bethereum",
     code: "BETHER",
@@ -1751,7 +1811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bethereum/"
     },
-    rank: "1433"
+    rank: "3233"
 },{
     name: "betterbetting",
     code: "BETR",
@@ -1761,7 +1821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/betterbetting/"
     },
-    rank: "1470"
+    rank: "3270"
 },{
     name: "bettex-coin",
     code: "BTXC",
@@ -1771,7 +1831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bettex-coin/"
     },
-    rank: "1420"
+    rank: "3220"
 },{
     name: "bezant",
     code: "BZNT",
@@ -1781,7 +1841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bezant/"
     },
-    rank: "412"
+    rank: "475"
 },{
     name: "bezop",
     code: "BEZ",
@@ -1791,7 +1851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bezop/"
     },
-    rank: "1123"
+    rank: "2923"
 },{
     name: "bhex-token",
     code: "BHT",
@@ -1801,7 +1861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bhex-token/"
     },
-    rank: "130"
+    rank: "195"
 },{
     name: "bhp-coin",
     code: "BHP",
@@ -1811,7 +1871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bhp-coin/"
     },
-    rank: "184"
+    rank: "216"
 },{
     name: "bhpcash",
     code: "BHPC",
@@ -1821,7 +1881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bhpcash/"
     },
-    rank: "730"
+    rank: "2530"
 },{
     name: "biblepay",
     code: "BBP",
@@ -1831,7 +1891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/biblepay/"
     },
-    rank: "1543"
+    rank: "3343"
 },{
     name: "bibox-token",
     code: "BIX",
@@ -1841,7 +1901,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bibox-token/"
     },
-    rank: "178"
+    rank: "236"
+},{
+    name: "bidipass",
+    code: "BDP",
+    icon: "bdp",
+    longname: "BidiPass",
+    description: "BidiPass coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bidipass/"
+    },
+    rank: "489"
 },{
     name: "bigbom",
     code: "BBO",
@@ -1851,7 +1921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bigbom/"
     },
-    rank: "1584"
+    rank: "3384"
 },{
     name: "bigup",
     code: "BIGUP",
@@ -1861,7 +1931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bigup/"
     },
-    rank: "2161"
+    rank: "3961"
 },{
     name: "billionaire-token",
     code: "XBL",
@@ -1871,7 +1941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/billionaire-token/"
     },
-    rank: "2038"
+    rank: "3838"
 },{
     name: "binance-coin",
     code: "BNB",
@@ -1883,6 +1953,16 @@ var otherCoins = [{
     },
     rank: "7"
 },{
+    name: "binance-usd",
+    code: "BUSD",
+    icon: "busd",
+    longname: "Binance USD",
+    description: "Binance USD coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/binance-usd/"
+    },
+    rank: "223"
+},{
     name: "bingocoin",
     code: "BOC",
     icon: "boc",
@@ -1891,7 +1971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bingocoin/"
     },
-    rank: "2452"
+    rank: "4252"
 },{
     name: "biocoin",
     code: "BIO",
@@ -1901,7 +1981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/biocoin/"
     },
-    rank: "1947"
+    rank: "3747"
 },{
     name: "bionic",
     code: "BNC",
@@ -1911,7 +1991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bionic/"
     },
-    rank: "1793"
+    rank: "3593"
 },{
     name: "biotron",
     code: "BTRN",
@@ -1921,7 +2001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/biotron/"
     },
-    rank: "1949"
+    rank: "3749"
 },{
     name: "birake",
     code: "BIR",
@@ -1931,7 +2011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/birake/"
     },
-    rank: "1142"
+    rank: "2942"
 },{
     name: "bismuth",
     code: "BIS",
@@ -1941,7 +2021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bismuth/"
     },
-    rank: "1042"
+    rank: "2842"
 },{
     name: "bit-tube",
     code: "TUBE",
@@ -1951,7 +2031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bit-tube/"
     },
-    rank: "1046"
+    rank: "2846"
 },{
     name: "bit-z-token",
     code: "BZ",
@@ -1961,7 +2041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bit-z-token/"
     },
-    rank: "152"
+    rank: "141"
 },{
     name: "bit20",
     code: "BTWTY",
@@ -1971,7 +2051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bit20/"
     },
-    rank: "2121"
+    rank: "3921"
 },{
     name: "bitbar",
     code: "BTB-1",
@@ -1981,7 +2061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitbar/"
     },
-    rank: "2008"
+    rank: "3808"
 },{
     name: "bitbay",
     code: "BAY",
@@ -1991,7 +2071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitbay/"
     },
-    rank: "854"
+    rank: "402"
 },{
     name: "bitblocks",
     code: "BBK-1",
@@ -2001,7 +2081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitblocks/"
     },
-    rank: "1724"
+    rank: "3524"
 },{
     name: "bitbook-gambling",
     code: "BXK",
@@ -2011,7 +2091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitbook-gambling/"
     },
-    rank: "80"
+    rank: "85"
 },{
     name: "bitbtc",
     code: "BITBTC",
@@ -2021,7 +2101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitbtc/"
     },
-    rank: "1985"
+    rank: "3785"
 },{
     name: "bitcapitalvendor",
     code: "BCV",
@@ -2031,7 +2111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcapitalvendor/"
     },
-    rank: "181"
+    rank: "163"
 },{
     name: "bitclave",
     code: "CAT",
@@ -2041,7 +2121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitclave/"
     },
-    rank: "1487"
+    rank: "3287"
 },{
     name: "bitcloud",
     code: "BTDX",
@@ -2051,7 +2131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcloud/"
     },
-    rank: "1974"
+    rank: "3774"
 },{
     name: "bitcny",
     code: "BITCNY",
@@ -2061,7 +2141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcny/"
     },
-    rank: "380"
+    rank: "341"
 },{
     name: "bitcoal",
     code: "COAL",
@@ -2071,7 +2151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoal/"
     },
-    rank: "2246"
+    rank: "4046"
 },{
     name: "bitcoen",
     code: "BEN",
@@ -2081,7 +2161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoen/"
     },
-    rank: "1572"
+    rank: "3372"
 },{
     name: "bitcoin",
     code: "BTC",
@@ -2101,7 +2181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-21/"
     },
-    rank: "2131"
+    rank: "3931"
 },{
     name: "bitcoin-adult",
     code: "BTAD",
@@ -2111,7 +2191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-adult/"
     },
-    rank: "2074"
+    rank: "3874"
 },{
     name: "bitcoin-atom",
     code: "BCA",
@@ -2121,7 +2201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-atom/"
     },
-    rank: "997"
+    rank: "2797"
 },{
     name: "bitcoin-cash",
     code: "BCH",
@@ -2141,7 +2221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-diamond/"
     },
-    rank: "49"
+    rank: "68"
 },{
     name: "bitcoin-file",
     code: "BIFI",
@@ -2151,7 +2231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-file/"
     },
-    rank: "2501"
+    rank: "4301"
 },{
     name: "bitcoin-god",
     code: "GOD",
@@ -2161,7 +2241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-god/"
     },
-    rank: "2543"
+    rank: "4343"
 },{
     name: "bitcoin-gold",
     code: "BTG",
@@ -2171,7 +2251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-gold/"
     },
-    rank: "40"
+    rank: "47"
 },{
     name: "bitcoin-green",
     code: "BITG",
@@ -2181,7 +2261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-green/"
     },
-    rank: "991"
+    rank: "2791"
 },{
     name: "bitcoin-incognito",
     code: "XBI",
@@ -2191,7 +2271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-incognito/"
     },
-    rank: "1192"
+    rank: "2992"
 },{
     name: "bitcoin-interest",
     code: "BCI",
@@ -2201,7 +2281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-interest/"
     },
-    rank: "912"
+    rank: "2712"
 },{
     name: "bitcoin-one",
     code: "BTCONE",
@@ -2211,7 +2291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-one/"
     },
-    rank: "2241"
+    rank: "4041"
 },{
     name: "bitcoin-planet",
     code: "BTPL",
@@ -2221,7 +2301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-planet/"
     },
-    rank: "2282"
+    rank: "4082"
 },{
     name: "bitcoin-plus",
     code: "XBC",
@@ -2231,7 +2311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-plus/"
     },
-    rank: "1434"
+    rank: "3234"
 },{
     name: "bitcoin-private",
     code: "BTCP",
@@ -2241,7 +2321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-private/"
     },
-    rank: "690"
+    rank: "2490"
 },{
     name: "bitcoin-red",
     code: "BTCRED",
@@ -2251,7 +2331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-red/"
     },
-    rank: "2123"
+    rank: "3923"
 },{
     name: "bitcoin-rhodium",
     code: "XRC",
@@ -2261,7 +2341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-rhodium/"
     },
-    rank: "217"
+    rank: "450"
 },{
     name: "bitcoin-scrypt",
     code: "BTCS",
@@ -2271,7 +2351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-scrypt/"
     },
-    rank: "2044"
+    rank: "3844"
 },{
     name: "bitcoin-sv",
     code: "BSV",
@@ -2291,7 +2371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-token/"
     },
-    rank: "1644"
+    rank: "3444"
 },{
     name: "bitcoin-w-spectrum",
     code: "BWS",
@@ -2301,7 +2381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-w-spectrum/"
     },
-    rank: "2089"
+    rank: "3889"
 },{
     name: "bitcoin-x",
     code: "BTX-1",
@@ -2311,7 +2391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-x/"
     },
-    rank: "1737"
+    rank: "3537"
 },{
     name: "bitcoin-zero",
     code: "BZX",
@@ -2321,7 +2401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-zero/"
     },
-    rank: "2485"
+    rank: "4285"
 },{
     name: "bitcoin2",
     code: "BTC2",
@@ -2331,7 +2411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin2/"
     },
-    rank: "195"
+    rank: "171"
 },{
     name: "bitcoinfast",
     code: "BCF",
@@ -2341,7 +2421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinfast/"
     },
-    rank: "2032"
+    rank: "3832"
 },{
     name: "bitcoinhd",
     code: "BHD",
@@ -2351,7 +2431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinhd/"
     },
-    rank: "174"
+    rank: "155"
 },{
     name: "bitcoinote",
     code: "BTCN",
@@ -2361,7 +2441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinote/"
     },
-    rank: "2113"
+    rank: "3913"
 },{
     name: "bitcoinus",
     code: "BITS-1",
@@ -2371,7 +2451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinus/"
     },
-    rank: "1744"
+    rank: "3544"
 },{
     name: "bitcoinx",
     code: "BCX",
@@ -2381,7 +2461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinx/"
     },
-    rank: "2434"
+    rank: "4234"
 },{
     name: "bitcoinz",
     code: "BTCZ",
@@ -2391,7 +2471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinz/"
     },
-    rank: "1412"
+    rank: "3212"
 },{
     name: "bitcore",
     code: "BTX",
@@ -2401,7 +2481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcore/"
     },
-    rank: "430"
+    rank: "2230"
 },{
     name: "bitcrystals",
     code: "BCY",
@@ -2411,7 +2491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcrystals/"
     },
-    rank: "1524"
+    rank: "3324"
 },{
     name: "bitdeal",
     code: "BDL",
@@ -2421,7 +2501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitdeal/"
     },
-    rank: "2095"
+    rank: "3895"
 },{
     name: "bitdegree",
     code: "BDG",
@@ -2431,7 +2511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitdegree/"
     },
-    rank: "1848"
+    rank: "3648"
 },{
     name: "bitdice",
     code: "CSNO",
@@ -2441,7 +2521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitdice/"
     },
-    rank: "1172"
+    rank: "2972"
 },{
     name: "biteur",
     code: "BITEUR",
@@ -2451,7 +2531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/biteur/"
     },
-    rank: "2020"
+    rank: "3820"
 },{
     name: "bitf",
     code: "BITF",
@@ -2461,7 +2541,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitf/"
     },
-    rank: "2295"
+    rank: "4095"
+},{
+    name: "bitforex-token",
+    code: "BF",
+    icon: "bf",
+    longname: "BitForex Token",
+    description: "BitForex Token coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitforex-token/"
+    },
+    rank: "123"
 },{
     name: "bitgold",
     code: "BITGOLD",
@@ -2471,7 +2561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitgold/"
     },
-    rank: "1972"
+    rank: "3772"
 },{
     name: "bitibu-coin",
     code: "BTB",
@@ -2481,7 +2571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitibu-coin/"
     },
-    rank: "1950"
+    rank: "3750"
 },{
     name: "bitkan",
     code: "KAN",
@@ -2491,7 +2581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitkan/"
     },
-    rank: "269"
+    rank: "229"
 },{
     name: "bitmark",
     code: "BTM-1",
@@ -2501,7 +2591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitmark/"
     },
-    rank: "1978"
+    rank: "3778"
 },{
     name: "bitmart-token",
     code: "BMX",
@@ -2511,7 +2601,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitmart-token/"
     },
-    rank: "417"
+    rank: "496"
+},{
+    name: "bitmax-token",
+    code: "BTMX",
+    icon: "btmx",
+    longname: "BitMax Token",
+    description: "BitMax Token coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitmax-token/"
+    },
+    rank: "97"
 },{
     name: "bitmoney",
     code: "BIT-1",
@@ -2521,7 +2621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitmoney/"
     },
-    rank: "1667"
+    rank: "3467"
 },{
     name: "bitnation",
     code: "XPAT",
@@ -2531,7 +2631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitnation/"
     },
-    rank: "2503"
+    rank: "4303"
 },{
     name: "bitnautic-token",
     code: "BTNT",
@@ -2541,7 +2641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitnautic-token/"
     },
-    rank: "2530"
+    rank: "4330"
 },{
     name: "bitnewchain",
     code: "BTN",
@@ -2551,7 +2651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitnewchain/"
     },
-    rank: "986"
+    rank: "2786"
 },{
     name: "bitquark",
     code: "BTQ",
@@ -2561,7 +2661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitquark/"
     },
-    rank: "2274"
+    rank: "4074"
 },{
     name: "bitqy",
     code: "BQ",
@@ -2571,7 +2671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitqy/"
     },
-    rank: "1852"
+    rank: "3652"
 },{
     name: "bitradio",
     code: "BRO",
@@ -2581,7 +2681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitradio/"
     },
-    rank: "2009"
+    rank: "3809"
 },{
     name: "bitrent",
     code: "RNTB",
@@ -2591,7 +2691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitrent/"
     },
-    rank: "1395"
+    rank: "3195"
 },{
     name: "bitrewards",
     code: "BIT",
@@ -2601,7 +2701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitrewards/"
     },
-    rank: "1659"
+    rank: "3459"
 },{
     name: "bitrue-coin",
     code: "BTR",
@@ -2611,7 +2711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitrue-coin/"
     },
-    rank: "257"
+    rank: "333"
 },{
     name: "bitscreener-token",
     code: "BITX",
@@ -2621,7 +2721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitscreener-token/"
     },
-    rank: "1416"
+    rank: "3216"
 },{
     name: "bitsdaq",
     code: "BQQQ",
@@ -2631,7 +2731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitsdaq/"
     },
-    rank: "442"
+    rank: "596"
 },{
     name: "bitsend",
     code: "BSD",
@@ -2641,7 +2741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitsend/"
     },
-    rank: "1272"
+    rank: "3072"
 },{
     name: "bitshares",
     code: "BTS",
@@ -2651,7 +2751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitshares/"
     },
-    rank: "69"
+    rank: "86"
 },{
     name: "bitshares-music",
     code: "XSD",
@@ -2661,7 +2761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitshares-music/"
     },
-    rank: "1338"
+    rank: "3138"
 },{
     name: "bitsilver",
     code: "BITSILVER",
@@ -2671,7 +2771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitsilver/"
     },
-    rank: "1969"
+    rank: "3769"
 },{
     name: "bitspace",
     code: "BSX",
@@ -2681,7 +2781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitspace/"
     },
-    rank: "2326"
+    rank: "4126"
 },{
     name: "bitstar",
     code: "BITS-2",
@@ -2691,7 +2791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitstar/"
     },
-    rank: "2069"
+    rank: "3869"
 },{
     name: "bitstation",
     code: "BSTN",
@@ -2701,7 +2801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitstation/"
     },
-    rank: "2059"
+    rank: "3859"
 },{
     name: "bitsum",
     code: "BSM",
@@ -2711,7 +2811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitsum/"
     },
-    rank: "2010"
+    rank: "3810"
 },{
     name: "bitswift",
     code: "BITS",
@@ -2721,7 +2821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitswift/"
     },
-    rank: "1607"
+    rank: "3407"
 },{
     name: "bittorrent",
     code: "BTT",
@@ -2731,7 +2831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bittorrent/"
     },
-    rank: "53"
+    rank: "67"
 },{
     name: "bittwatt",
     code: "BWT",
@@ -2741,7 +2841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bittwatt/"
     },
-    rank: "1820"
+    rank: "3620"
 },{
     name: "bitup-token",
     code: "BUT",
@@ -2751,7 +2851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitup-token/"
     },
-    rank: "2410"
+    rank: "4210"
 },{
     name: "bitusd",
     code: "BITUSD",
@@ -2761,7 +2861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitusd/"
     },
-    rank: "539"
+    rank: "2339"
 },{
     name: "bitvolt",
     code: "VOLT",
@@ -2771,7 +2871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitvolt/"
     },
-    rank: "2303"
+    rank: "4103"
 },{
     name: "bitwhite",
     code: "BTW",
@@ -2781,7 +2881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitwhite/"
     },
-    rank: "1698"
+    rank: "3498"
 },{
     name: "bitzeny",
     code: "ZNY",
@@ -2791,7 +2891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitzeny/"
     },
-    rank: "1640"
+    rank: "3440"
 },{
     name: "blackcoin",
     code: "BLK",
@@ -2801,7 +2901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blackcoin/"
     },
-    rank: "471"
+    rank: "405"
 },{
     name: "blackmoon",
     code: "BMC",
@@ -2811,7 +2911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blackmoon/"
     },
-    rank: "215"
+    rank: "2015"
 },{
     name: "blakecoin",
     code: "BLC",
@@ -2821,7 +2921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blakecoin/"
     },
-    rank: "2040"
+    rank: "3840"
 },{
     name: "blakestar",
     code: "ERA",
@@ -2831,7 +2931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blakestar/"
     },
-    rank: "2591"
+    rank: "4391"
 },{
     name: "blast",
     code: "BLAST",
@@ -2841,7 +2941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blast/"
     },
-    rank: "1765"
+    rank: "3565"
 },{
     name: "blazecoin",
     code: "BLZ-1",
@@ -2851,7 +2951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blazecoin/"
     },
-    rank: "2145"
+    rank: "3945"
 },{
     name: "blitzpredict",
     code: "XBP",
@@ -2861,7 +2961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blitzpredict/"
     },
-    rank: "1650"
+    rank: "3450"
 },{
     name: "bloc-money",
     code: "BLOC",
@@ -2871,7 +2971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bloc-money/"
     },
-    rank: "1637"
+    rank: "3437"
 },{
     name: "block-array",
     code: "ARY",
@@ -2881,7 +2981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/block-array/"
     },
-    rank: "1469"
+    rank: "3269"
 },{
     name: "block-chain-com",
     code: "BC",
@@ -2891,7 +2991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/block-chain-com/"
     },
-    rank: "1895"
+    rank: "3695"
 },{
     name: "blockcat",
     code: "CAT-1",
@@ -2901,7 +3001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockcat/"
     },
-    rank: "1935"
+    rank: "3735"
 },{
     name: "blockcdn",
     code: "BCDN",
@@ -2911,7 +3011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockcdn/"
     },
-    rank: "2522"
+    rank: "4322"
 },{
     name: "blockchain-certified-data-token",
     code: "BCDT",
@@ -2921,7 +3021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockchain-certified-data-token/"
     },
-    rank: "2504"
+    rank: "4304"
 },{
     name: "blockchain-quotations-index-token",
     code: "BQT",
@@ -2931,7 +3031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockchain-quotations-index-token/"
     },
-    rank: "2432"
+    rank: "4232"
 },{
     name: "blocklancer",
     code: "LNC",
@@ -2941,17 +3041,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blocklancer/"
     },
-    rank: "1655"
+    rank: "3455"
 },{
     name: "blockmason",
     code: "BCPT",
     icon: "bcpt",
-    longname: "BlockMason Credit Protocol",
-    description: "BlockMason Credit Protocol coin",
+    longname: "Blockmason Credit Protocol",
+    description: "Blockmason Credit Protocol coin",
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockmason/"
     },
-    rank: "536"
+    rank: "524"
 },{
     name: "blockmesh",
     code: "BMH",
@@ -2961,7 +3061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockmesh/"
     },
-    rank: "2080"
+    rank: "3880"
 },{
     name: "blocknet",
     code: "BLOCK",
@@ -2971,7 +3071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blocknet/"
     },
-    rank: "337"
+    rank: "433"
 },{
     name: "blocknode",
     code: "BND",
@@ -2981,7 +3081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blocknode/"
     },
-    rank: "1708"
+    rank: "3508"
 },{
     name: "blockpass",
     code: "PASS",
@@ -2991,7 +3091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockpass/"
     },
-    rank: "1934"
+    rank: "3734"
 },{
     name: "blockpool",
     code: "BPL",
@@ -3001,7 +3101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockpool/"
     },
-    rank: "1913"
+    rank: "3713"
 },{
     name: "blockport",
     code: "BPT",
@@ -3011,7 +3111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockport/"
     },
-    rank: "1115"
+    rank: "2915"
 },{
     name: "blocktix",
     code: "TIX",
@@ -3021,7 +3121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blocktix/"
     },
-    rank: "957"
+    rank: "2757"
 },{
     name: "blockv",
     code: "VEE",
@@ -3031,7 +3131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockv/"
     },
-    rank: "458"
+    rank: "2258"
 },{
     name: "bloomtoken",
     code: "BLT",
@@ -3041,7 +3141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bloomtoken/"
     },
-    rank: "1081"
+    rank: "2881"
 },{
     name: "blox",
     code: "CDT",
@@ -3051,7 +3151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blox/"
     },
-    rank: "339"
+    rank: "328"
 },{
     name: "blue-whale-exchange",
     code: "BWX",
@@ -3061,7 +3161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blue-whale-exchange/"
     },
-    rank: "564"
+    rank: "2364"
 },{
     name: "bluecoin",
     code: "BLU",
@@ -3071,7 +3171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bluecoin/"
     },
-    rank: "1871"
+    rank: "3671"
 },{
     name: "bluzelle",
     code: "BLZ",
@@ -3081,7 +3181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bluzelle/"
     },
-    rank: "371"
+    rank: "382"
 },{
     name: "bnktothefuture",
     code: "BFT",
@@ -3091,7 +3191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bnktothefuture/"
     },
-    rank: "243"
+    rank: "276"
 },{
     name: "bobs-repair",
     code: "BOB",
@@ -3101,7 +3201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bobs-repair/"
     },
-    rank: "1497"
+    rank: "3297"
 },{
     name: "bodhi",
     code: "BOT",
@@ -3111,7 +3211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bodhi/"
     },
-    rank: "1227"
+    rank: "3027"
 },{
     name: "bodhi-eth",
     code: "BOE",
@@ -3121,7 +3221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bodhi-eth/"
     },
-    rank: "1620"
+    rank: "3420"
 },{
     name: "bolenum",
     code: "BLN",
@@ -3131,7 +3231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bolenum/"
     },
-    rank: "1808"
+    rank: "3608"
 },{
     name: "bolivarcoin",
     code: "BOLI",
@@ -3141,7 +3241,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bolivarcoin/"
     },
-    rank: "2132"
+    rank: "3932"
+},{
+    name: "bolt",
+    code: "BOLT",
+    icon: "bolt",
+    longname: "BOLT",
+    description: "BOLT coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bolt/"
+    },
+    rank: "509"
 },{
     name: "bonpay",
     code: "BON",
@@ -3151,7 +3261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bonpay/"
     },
-    rank: "1600"
+    rank: "3400"
 },{
     name: "boolberry",
     code: "BBR",
@@ -3161,7 +3271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boolberry/"
     },
-    rank: "407"
+    rank: "2207"
 },{
     name: "boostcoin",
     code: "BOST",
@@ -3171,7 +3281,27 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boostcoin/"
     },
-    rank: "2169"
+    rank: "3969"
+},{
+    name: "bora",
+    code: "BORA",
+    icon: "bora",
+    longname: "BORA",
+    description: "BORA coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bora/"
+    },
+    rank: "355"
+},{
+    name: "bosagora",
+    code: "BOA",
+    icon: "boa",
+    longname: "BOSAGORA",
+    description: "BOSAGORA coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bosagora/"
+    },
+    rank: "360"
 },{
     name: "boscoin",
     code: "BOS",
@@ -3181,7 +3311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boscoin/"
     },
-    rank: "482"
+    rank: "546"
 },{
     name: "bottos",
     code: "BTO",
@@ -3191,7 +3321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bottos/"
     },
-    rank: "521"
+    rank: "552"
 },{
     name: "botxcoin",
     code: "BOTX",
@@ -3201,7 +3331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/botxcoin/"
     },
-    rank: "233"
+    rank: "133"
 },{
     name: "bounty0x",
     code: "BNTY",
@@ -3211,7 +3341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bounty0x/"
     },
-    rank: "1892"
+    rank: "3692"
 },{
     name: "boutspro",
     code: "BOUTS",
@@ -3221,7 +3351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boutspro/"
     },
-    rank: "1576"
+    rank: "3376"
 },{
     name: "bowscoin",
     code: "BSC",
@@ -3231,17 +3361,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bowscoin/"
     },
-    rank: "2302"
+    rank: "4102"
 },{
     name: "box-token",
-    code: "BOX",
-    icon: "box",
+    code: "BOX-1",
+    icon: "box-1",
     longname: "BOX Token",
     description: "BOX Token coin",
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/box-token/"
     },
-    rank: "450"
+    rank: "456"
 },{
     name: "boxx-token-blockparty",
     code: "BOXX",
@@ -3251,7 +3381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boxx-token-blockparty/"
     },
-    rank: "1300"
+    rank: "3100"
 },{
     name: "bqt",
     code: "BQTX",
@@ -3261,7 +3391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bqt/"
     },
-    rank: "140"
+    rank: "212"
 },{
     name: "brahmaos",
     code: "BRM",
@@ -3271,7 +3401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/brahmaos/"
     },
-    rank: "1089"
+    rank: "2889"
 },{
     name: "brat",
     code: "BRAT",
@@ -3281,7 +3411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/brat/"
     },
-    rank: "2287"
+    rank: "4087"
 },{
     name: "bread",
     code: "BRD",
@@ -3291,7 +3421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bread/"
     },
-    rank: "182"
+    rank: "162"
 },{
     name: "breakout",
     code: "BRK",
@@ -3301,7 +3431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/breakout/"
     },
-    rank: "1523"
+    rank: "3323"
 },{
     name: "breakout-stake",
     code: "BRX",
@@ -3311,7 +3441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/breakout-stake/"
     },
-    rank: "1479"
+    rank: "3279"
 },{
     name: "breezecoin",
     code: "BRZC",
@@ -3321,7 +3451,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/breezecoin/"
     },
-    rank: "851"
+    rank: "2651"
+},{
+    name: "breezecoin",
+    code: "BRZE",
+    icon: "brze",
+    longname: "Breezecoin",
+    description: "Breezecoin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/breezecoin/"
+    },
+    rank: "114"
 },{
     name: "briacoin",
     code: "BRIA",
@@ -3331,7 +3471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/briacoin/"
     },
-    rank: "1704"
+    rank: "3504"
 },{
     name: "brickblock",
     code: "BBK",
@@ -3341,7 +3481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/brickblock/"
     },
-    rank: "1135"
+    rank: "2935"
 },{
     name: "bridge-protocol",
     code: "TOLL",
@@ -3351,7 +3491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bridge-protocol/"
     },
-    rank: "1573"
+    rank: "3373"
 },{
     name: "bridgecoin",
     code: "BCO",
@@ -3361,7 +3501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bridgecoin/"
     },
-    rank: "822"
+    rank: "2622"
 },{
     name: "britcoin",
     code: "BRIT",
@@ -3371,7 +3511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/britcoin/"
     },
-    rank: "2086"
+    rank: "3886"
 },{
     name: "brokernekonetwork",
     code: "BNN",
@@ -3381,7 +3521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/brokernekonetwork/"
     },
-    rank: "2212"
+    rank: "4012"
 },{
     name: "btcmoon",
     code: "BTCM",
@@ -3391,7 +3531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/btcmoon/"
     },
-    rank: "2588"
+    rank: "4388"
 },{
     name: "btctalkcoin",
     code: "TALK",
@@ -3401,7 +3541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/btctalkcoin/"
     },
-    rank: "2053"
+    rank: "3853"
 },{
     name: "btu-protocol",
     code: "BTU",
@@ -3411,7 +3551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/btu-protocol/"
     },
-    rank: "186"
+    rank: "231"
 },{
     name: "bubble",
     code: "BUB",
@@ -3421,7 +3561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bubble/"
     },
-    rank: "2598"
+    rank: "4398"
 },{
     name: "budbo",
     code: "BUBO",
@@ -3431,7 +3571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/budbo/"
     },
-    rank: "2531"
+    rank: "4331"
 },{
     name: "buggyra-coin-zero",
     code: "BCZERO",
@@ -3441,7 +3581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/buggyra-coin-zero/"
     },
-    rank: "131"
+    rank: "134"
 },{
     name: "bullion",
     code: "CBX",
@@ -3451,7 +3591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bullion/"
     },
-    rank: "1878"
+    rank: "3678"
 },{
     name: "bulwark",
     code: "BWK",
@@ -3461,7 +3601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bulwark/"
     },
-    rank: "978"
+    rank: "2778"
 },{
     name: "bumbacoin",
     code: "BUMBA",
@@ -3471,7 +3611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bumbacoin/"
     },
-    rank: "2268"
+    rank: "4068"
 },{
     name: "bumo",
     code: "BU",
@@ -3481,7 +3621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bumo/"
     },
-    rank: "2344"
+    rank: "4144"
 },{
     name: "bunnycoin",
     code: "BUN",
@@ -3491,7 +3631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bunnycoin/"
     },
-    rank: "1912"
+    rank: "3712"
 },{
     name: "bunnytoken",
     code: "BUNNY",
@@ -3501,7 +3641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bunnytoken/"
     },
-    rank: "1747"
+    rank: "3547"
 },{
     name: "burst",
     code: "BURST",
@@ -3511,7 +3651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/burst/"
     },
-    rank: "316"
+    rank: "392"
 },{
     name: "business-credit-alliance-chain",
     code: "BCAC",
@@ -3521,7 +3661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/business-credit-alliance-chain/"
     },
-    rank: "575"
+    rank: "2375"
 },{
     name: "buzzcoin",
     code: "BUZZ",
@@ -3531,7 +3671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/buzzcoin/"
     },
-    rank: "1580"
+    rank: "3380"
 },{
     name: "bytecoin-bcn",
     code: "BCN",
@@ -3541,7 +3681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bytecoin-bcn/"
     },
-    rank: "63"
+    rank: "76"
 },{
     name: "bytom",
     code: "BTM",
@@ -3551,7 +3691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bytom/"
     },
-    rank: "79"
+    rank: "58"
 },{
     name: "bzlcoin",
     code: "BZL",
@@ -3561,7 +3701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bzlcoin/"
     },
-    rank: "1786"
+    rank: "3586"
 },{
     name: "c-bit",
     code: "XCT",
@@ -3571,7 +3711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/c-bit/"
     },
-    rank: "2235"
+    rank: "4035"
 },{
     name: "c20",
     code: "C20",
@@ -3581,7 +3721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/c20/"
     },
-    rank: "202"
+    rank: "214"
 },{
     name: "cabbage",
     code: "CAB",
@@ -3591,7 +3731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cabbage/"
     },
-    rank: "2258"
+    rank: "4058"
 },{
     name: "cajutel",
     code: "CAJ",
@@ -3601,7 +3741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cajutel/"
     },
-    rank: "466"
+    rank: "527"
 },{
     name: "californium",
     code: "CF",
@@ -3611,7 +3751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/californium/"
     },
-    rank: "2272"
+    rank: "4072"
 },{
     name: "callisto-network",
     code: "CLO",
@@ -3621,7 +3761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/callisto-network/"
     },
-    rank: "1058"
+    rank: "2858"
 },{
     name: "campuscoin",
     code: "CMPCO",
@@ -3631,7 +3771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/campuscoin/"
     },
-    rank: "1673"
+    rank: "3473"
 },{
     name: "canada-ecoin",
     code: "CDN",
@@ -3641,7 +3781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/canada-ecoin/"
     },
-    rank: "1976"
+    rank: "3776"
 },{
     name: "candy",
     code: "CANDY",
@@ -3651,7 +3791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/candy/"
     },
-    rank: "2525"
+    rank: "4325"
 },{
     name: "cannabiscoin",
     code: "CANN",
@@ -3661,7 +3801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cannabiscoin/"
     },
-    rank: "1537"
+    rank: "3337"
 },{
     name: "cannation",
     code: "CNNC",
@@ -3671,7 +3811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cannation/"
     },
-    rank: "2257"
+    rank: "4057"
 },{
     name: "canyacoin",
     code: "CAN",
@@ -3681,7 +3821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/canyacoin/"
     },
-    rank: "1392"
+    rank: "3192"
 },{
     name: "capdaxtoken",
     code: "XCD",
@@ -3691,7 +3831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/capdaxtoken/"
     },
-    rank: "2558"
+    rank: "4358"
 },{
     name: "cappasity",
     code: "CAPP",
@@ -3701,7 +3841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cappasity/"
     },
-    rank: "1260"
+    rank: "3060"
 },{
     name: "capricoin",
     code: "CPC-1",
@@ -3711,7 +3851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/capricoin/"
     },
-    rank: "1353"
+    rank: "3153"
 },{
     name: "carat",
     code: "CARAT",
@@ -3721,7 +3861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carat/"
     },
-    rank: "2396"
+    rank: "4196"
 },{
     name: "carblock",
     code: "CAR",
@@ -3731,7 +3871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carblock/"
     },
-    rank: "2406"
+    rank: "4206"
 },{
     name: "carboncoin",
     code: "CARBON",
@@ -3741,7 +3881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carboncoin/"
     },
-    rank: "1893"
+    rank: "3693"
 },{
     name: "carboneum-c8-token",
     code: "C8",
@@ -3751,7 +3891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carboneum-c8-token/"
     },
-    rank: "1526"
+    rank: "3326"
 },{
     name: "cardano",
     code: "ADA",
@@ -3761,7 +3901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cardano/"
     },
-    rank: "12"
+    rank: "13"
 },{
     name: "cardbuyers",
     code: "BCARD",
@@ -3771,7 +3911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cardbuyers/"
     },
-    rank: "2553"
+    rank: "4353"
 },{
     name: "cardstack",
     code: "CARD",
@@ -3781,7 +3921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cardstack/"
     },
-    rank: "1190"
+    rank: "2990"
 },{
     name: "carebit",
     code: "CARE",
@@ -3791,7 +3931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carebit/"
     },
-    rank: "2140"
+    rank: "3940"
 },{
     name: "cargox",
     code: "CXO",
@@ -3801,7 +3941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cargox/"
     },
-    rank: "1179"
+    rank: "2979"
 },{
     name: "carinet",
     code: "CIT",
@@ -3811,7 +3951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carinet/"
     },
-    rank: "2473"
+    rank: "4273"
 },{
     name: "carlive-chain",
     code: "IOV",
@@ -3821,7 +3961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carlive-chain/"
     },
-    rank: "2409"
+    rank: "4209"
 },{
     name: "carry",
     code: "CRE",
@@ -3831,7 +3971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carry/"
     },
-    rank: "223"
+    rank: "272"
 },{
     name: "cartaxi-token",
     code: "CTX",
@@ -3841,7 +3981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cartaxi-token/"
     },
-    rank: "1953"
+    rank: "3753"
 },{
     name: "carvertical",
     code: "CV",
@@ -3851,7 +3991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carvertical/"
     },
-    rank: "1146"
+    rank: "2946"
 },{
     name: "cashaa",
     code: "CAS",
@@ -3861,7 +4001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cashaa/"
     },
-    rank: "901"
+    rank: "465"
 },{
     name: "cashbery-coin",
     code: "CBC-1",
@@ -3871,7 +4011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cashbery-coin/"
     },
-    rank: "1463"
+    rank: "3263"
 },{
     name: "cashbet-coin",
     code: "CBC",
@@ -3881,7 +4021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cashbet-coin/"
     },
-    rank: "1212"
+    rank: "3012"
 },{
     name: "cashcoin",
     code: "CASH",
@@ -3891,7 +4031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cashcoin/"
     },
-    rank: "2081"
+    rank: "3881"
 },{
     name: "casinocoin",
     code: "CSC",
@@ -3901,7 +4041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/casinocoin/"
     },
-    rank: "231"
+    rank: "321"
 },{
     name: "caspian",
     code: "CSP",
@@ -3911,7 +4051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/caspian/"
     },
-    rank: "600"
+    rank: "569"
 },{
     name: "castle",
     code: "CSTL",
@@ -3921,7 +4061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/castle/"
     },
-    rank: "1548"
+    rank: "3348"
 },{
     name: "catocoin",
     code: "CATO",
@@ -3931,7 +4071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/catocoin/"
     },
-    rank: "1730"
+    rank: "3530"
 },{
     name: "cazcoin",
     code: "CAZ",
@@ -3941,7 +4081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cazcoin/"
     },
-    rank: "2043"
+    rank: "3843"
 },{
     name: "ccore",
     code: "CCO",
@@ -3951,7 +4091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ccore/"
     },
-    rank: "2090"
+    rank: "3890"
 },{
     name: "cedex-coin",
     code: "CEDEX",
@@ -3961,7 +4101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cedex-coin/"
     },
-    rank: "2532"
+    rank: "4332"
 },{
     name: "ceek-vr",
     code: "CEEK",
@@ -3971,7 +4111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ceek-vr/"
     },
-    rank: "1082"
+    rank: "2882"
 },{
     name: "celer-network",
     code: "CELR",
@@ -3981,7 +4121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/celer-network/"
     },
-    rank: "206"
+    rank: "256"
 },{
     name: "celsius",
     code: "CEL",
@@ -3991,7 +4131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/celsius/"
     },
-    rank: "2511"
+    rank: "4311"
 },{
     name: "centaure",
     code: "CEN-1",
@@ -4001,7 +4141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/centaure/"
     },
-    rank: "2580"
+    rank: "4380"
 },{
     name: "centrality",
     code: "CENNZ",
@@ -4011,7 +4151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/centrality/"
     },
-    rank: "214"
+    rank: "45"
 },{
     name: "centurion",
     code: "CNT",
@@ -4021,7 +4161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/centurion/"
     },
-    rank: "2220"
+    rank: "4020"
 },{
     name: "cfun",
     code: "CFUN",
@@ -4031,7 +4171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cfun/"
     },
-    rank: "1674"
+    rank: "3474"
 },{
     name: "chainlink",
     code: "LINK",
@@ -4041,7 +4181,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chainlink/"
     },
-    rank: "20"
+    rank: "14"
+},{
+    name: "chainx",
+    code: "PCX",
+    icon: "pcx",
+    longname: "ChainX",
+    description: "ChainX coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/chainx/"
+    },
+    rank: "397"
 },{
     name: "change",
     code: "CAG",
@@ -4051,7 +4201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/change/"
     },
-    rank: "513"
+    rank: "583"
 },{
     name: "chatcoin",
     code: "CHAT",
@@ -4061,7 +4211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chatcoin/"
     },
-    rank: "587"
+    rank: "2387"
 },{
     name: "cheesecoin",
     code: "CHEESE",
@@ -4071,7 +4221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cheesecoin/"
     },
-    rank: "2221"
+    rank: "4021"
 },{
     name: "chesscoin",
     code: "CHESS",
@@ -4081,7 +4231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chesscoin/"
     },
-    rank: "2087"
+    rank: "3887"
 },{
     name: "chex",
     code: "CHEX",
@@ -4091,7 +4241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chex/"
     },
-    rank: "2416"
+    rank: "4216"
 },{
     name: "chiliz",
     code: "CHZ",
@@ -4101,7 +4251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chiliz/"
     },
-    rank: "197"
+    rank: "101"
 },{
     name: "chimpion",
     code: "BNANA",
@@ -4111,7 +4261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chimpion/"
     },
-    rank: "446"
+    rank: "515"
 },{
     name: "chips",
     code: "CHIPS",
@@ -4121,7 +4271,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chips/"
     },
-    rank: "1838"
+    rank: "3638"
+},{
+    name: "chromia",
+    code: "CHR",
+    icon: "chr",
+    longname: "Chromia",
+    description: "Chromia coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/chromia/"
+    },
+    rank: "589"
 },{
     name: "chronobank",
     code: "TIME",
@@ -4131,7 +4291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chronobank/"
     },
-    rank: "1289"
+    rank: "3089"
 },{
     name: "chronologic",
     code: "DAY",
@@ -4141,7 +4301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chronologic/"
     },
-    rank: "1936"
+    rank: "3736"
 },{
     name: "cindicator",
     code: "CND",
@@ -4151,7 +4311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cindicator/"
     },
-    rank: "328"
+    rank: "249"
 },{
     name: "circuits-of-value",
     code: "COVAL",
@@ -4161,7 +4321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/circuits-of-value/"
     },
-    rank: "1222"
+    rank: "3022"
 },{
     name: "citadel",
     code: "CTL",
@@ -4171,7 +4331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/citadel/"
     },
-    rank: "2001"
+    rank: "3801"
 },{
     name: "civic",
     code: "CVC",
@@ -4181,7 +4341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/civic/"
     },
-    rank: "252"
+    rank: "173"
 },{
     name: "cjs",
     code: "CJS",
@@ -4191,7 +4351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cjs/"
     },
-    rank: "2333"
+    rank: "4133"
 },{
     name: "ckusd",
     code: "CKUSD",
@@ -4201,7 +4361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ckusd/"
     },
-    rank: "2337"
+    rank: "4137"
 },{
     name: "clams",
     code: "CLAM",
@@ -4211,7 +4371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clams/"
     },
-    rank: "278"
+    rank: "2078"
 },{
     name: "clearcoin",
     code: "XCLR",
@@ -4221,7 +4381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clearcoin/"
     },
-    rank: "1645"
+    rank: "3445"
 },{
     name: "clearpoll",
     code: "POLL",
@@ -4231,7 +4391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clearpoll/"
     },
-    rank: "1402"
+    rank: "3202"
 },{
     name: "clipper-coin",
     code: "CCCX",
@@ -4241,7 +4401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clipper-coin/"
     },
-    rank: "66"
+    rank: "1866"
 },{
     name: "cloakcoin",
     code: "CLOAK",
@@ -4251,7 +4411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cloakcoin/"
     },
-    rank: "917"
+    rank: "2717"
 },{
     name: "clubcoin",
     code: "CLUB",
@@ -4261,7 +4421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clubcoin/"
     },
-    rank: "2497"
+    rank: "4297"
 },{
     name: "cmitcoin",
     code: "CMIT",
@@ -4271,7 +4431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cmitcoin/"
     },
-    rank: "2534"
+    rank: "4334"
 },{
     name: "cobinhood",
     code: "COB",
@@ -4281,7 +4441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cobinhood/"
     },
-    rank: "1008"
+    rank: "2808"
 },{
     name: "cobrabytes",
     code: "COBRA",
@@ -4291,7 +4451,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cobrabytes/"
     },
-    rank: "2517"
+    rank: "4317"
+},{
+    name: "cocos-bcx",
+    code: "COCOS",
+    icon: "cocos",
+    longname: "Cocos-BCX",
+    description: "Cocos-BCX coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cocos-bcx/"
+    },
+    rank: "241"
 },{
     name: "coffeecoin",
     code: "CFC",
@@ -4301,7 +4471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coffeecoin/"
     },
-    rank: "2570"
+    rank: "4370"
 },{
     name: "cofound-it",
     code: "CFI",
@@ -4311,7 +4481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cofound-it/"
     },
-    rank: "1818"
+    rank: "3618"
 },{
     name: "coimatic-2",
     code: "CTIC2",
@@ -4321,7 +4491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coimatic-2/"
     },
-    rank: "2309"
+    rank: "4109"
 },{
     name: "coimatic-3",
     code: "CTIC3",
@@ -4331,7 +4501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coimatic-3/"
     },
-    rank: "2329"
+    rank: "4129"
 },{
     name: "coin",
     code: "CNO",
@@ -4341,7 +4511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coin/"
     },
-    rank: "2130"
+    rank: "3930"
 },{
     name: "coin-lion",
     code: "LION",
@@ -4351,7 +4521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coin-lion/"
     },
-    rank: "1890"
+    rank: "3690"
 },{
     name: "coin2-1",
     code: "C2",
@@ -4361,7 +4531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coin2-1/"
     },
-    rank: "2182"
+    rank: "3982"
 },{
     name: "coin2play",
     code: "C2P",
@@ -4371,7 +4541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coin2play/"
     },
-    rank: "2546"
+    rank: "4346"
 },{
     name: "coinfi",
     code: "COFI",
@@ -4381,7 +4551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinfi/"
     },
-    rank: "1471"
+    rank: "3271"
 },{
     name: "coinlancer",
     code: "CL",
@@ -4391,7 +4561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinlancer/"
     },
-    rank: "1680"
+    rank: "3480"
 },{
     name: "coinmeet",
     code: "MEET",
@@ -4401,7 +4571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinmeet/"
     },
-    rank: "2393"
+    rank: "4193"
 },{
     name: "coinonat",
     code: "CXT",
@@ -4411,7 +4581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinonat/"
     },
-    rank: "2321"
+    rank: "4121"
 },{
     name: "coinonatx",
     code: "XCXT",
@@ -4421,7 +4591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinonatx/"
     },
-    rank: "2228"
+    rank: "4028"
 },{
     name: "coinpoker",
     code: "CHP",
@@ -4431,7 +4601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinpoker/"
     },
-    rank: "562"
+    rank: "2362"
 },{
     name: "coinsuper-ecosystem-network",
     code: "CEN",
@@ -4441,7 +4611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinsuper-ecosystem-network/"
     },
-    rank: "1399"
+    rank: "3199"
 },{
     name: "cointogo",
     code: "2GO",
@@ -4451,7 +4621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cointogo/"
     },
-    rank: "1653"
+    rank: "3453"
 },{
     name: "coinus",
     code: "CNUS",
@@ -4461,7 +4631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinus/"
     },
-    rank: "577"
+    rank: "2377"
 },{
     name: "coinvest",
     code: "COIN",
@@ -4471,7 +4641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinvest/"
     },
-    rank: "1839"
+    rank: "3639"
 },{
     name: "colossusxt",
     code: "COLX",
@@ -4481,7 +4651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/colossusxt/"
     },
-    rank: "528"
+    rank: "2328"
 },{
     name: "colu-local-network",
     code: "CLN",
@@ -4491,7 +4661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/colu-local-network/"
     },
-    rank: "1426"
+    rank: "3226"
 },{
     name: "comet",
     code: "CMT-1",
@@ -4501,7 +4671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/comet/"
     },
-    rank: "2255"
+    rank: "4055"
 },{
     name: "commerce-data-connection",
     code: "CDC",
@@ -4511,7 +4681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/commerce-data-connection/"
     },
-    rank: "2502"
+    rank: "4302"
 },{
     name: "commerceblock",
     code: "CBT",
@@ -4521,7 +4691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/commerceblock/"
     },
-    rank: "280"
+    rank: "381"
 },{
     name: "commercium",
     code: "CMM",
@@ -4531,7 +4701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/commercium/"
     },
-    rank: "2141"
+    rank: "3941"
 },{
     name: "commodity-ad-network",
     code: "CDX",
@@ -4541,7 +4711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/commodity-ad-network/"
     },
-    rank: "1970"
+    rank: "3770"
 },{
     name: "compound-coin",
     code: "COMP",
@@ -4551,7 +4721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/compound-coin/"
     },
-    rank: "2002"
+    rank: "3802"
 },{
     name: "compucoin",
     code: "CPN",
@@ -4561,7 +4731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/compucoin/"
     },
-    rank: "2239"
+    rank: "4039"
 },{
     name: "comsa-eth",
     code: "CMS",
@@ -4571,7 +4741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/comsa-eth/"
     },
-    rank: "2468"
+    rank: "4268"
 },{
     name: "comsa-xem",
     code: "CMS-1",
@@ -4581,7 +4751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/comsa-xem/"
     },
-    rank: "2486"
+    rank: "4286"
 },{
     name: "concierge-coin",
     code: "CCC",
@@ -4591,7 +4761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/concierge-coin/"
     },
-    rank: "2568"
+    rank: "4368"
 },{
     name: "concoin",
     code: "CONX",
@@ -4601,7 +4771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/concoin/"
     },
-    rank: "2317"
+    rank: "4117"
 },{
     name: "condensate",
     code: "RAIN",
@@ -4611,7 +4781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/condensate/"
     },
-    rank: "1925"
+    rank: "3725"
 },{
     name: "condominium",
     code: "CDM",
@@ -4621,7 +4791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/condominium/"
     },
-    rank: "1676"
+    rank: "3476"
 },{
     name: "coni",
     code: "CONI",
@@ -4631,7 +4801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coni/"
     },
-    rank: "2471"
+    rank: "4271"
 },{
     name: "connectjob",
     code: "CJT",
@@ -4641,7 +4811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/connectjob/"
     },
-    rank: "2238"
+    rank: "4038"
 },{
     name: "cononchain",
     code: "CZR",
@@ -4651,7 +4821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cononchain/"
     },
-    rank: "538"
+    rank: "2338"
 },{
     name: "consensus",
     code: "SEN",
@@ -4661,7 +4831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/consensus/"
     },
-    rank: "1092"
+    rank: "2892"
 },{
     name: "consentium",
     code: "CSM",
@@ -4671,7 +4841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/consentium/"
     },
-    rank: "2382"
+    rank: "4182"
 },{
     name: "constellation",
     code: "DAG",
@@ -4681,7 +4851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/constellation/"
     },
-    rank: "404"
+    rank: "237"
 },{
     name: "content-and-ad-network",
     code: "CAN-1",
@@ -4691,7 +4861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/content-and-ad-network/"
     },
-    rank: "2490"
+    rank: "4290"
 },{
     name: "content-neutrality-network",
     code: "CNN",
@@ -4701,7 +4871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/content-neutrality-network/"
     },
-    rank: "441"
+    rank: "591"
 },{
     name: "content-value-network",
     code: "CVNT",
@@ -4711,27 +4881,27 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/content-value-network/"
     },
-    rank: "242"
+    rank: "329"
 },{
     name: "contentbox",
-    code: "BOX-1",
-    icon: "box-1",
+    code: "BOX",
+    icon: "box",
     longname: "ContentBox",
     description: "ContentBox coin",
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/contentbox/"
     },
-    rank: "1196"
+    rank: "443"
 },{
-    name: "contentos",
-    code: "COS",
-    icon: "cos",
-    longname: "Contentos",
-    description: "Contentos coin",
+    name: "contents-protocol",
+    code: "CPT",
+    icon: "cpt",
+    longname: "Contents Protocol",
+    description: "Contents Protocol coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/contentos/"
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/contents-protocol/"
     },
-    rank: "263"
+    rank: "383"
 },{
     name: "contractnet",
     code: "CNET",
@@ -4741,7 +4911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/contractnet/"
     },
-    rank: "2551"
+    rank: "4351"
 },{
     name: "copytrack",
     code: "CPY",
@@ -4751,7 +4921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/copytrack/"
     },
-    rank: "1344"
+    rank: "3144"
 },{
     name: "corion",
     code: "COR",
@@ -4761,7 +4931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/corion/"
     },
-    rank: "2586"
+    rank: "4386"
 },{
     name: "cortex",
     code: "CTXC",
@@ -4771,7 +4941,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cortex/"
     },
-    rank: "251"
+    rank: "283"
+},{
+    name: "cos",
+    code: "COS",
+    icon: "cos",
+    longname: "COS",
+    description: "COS coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cos/"
+    },
+    rank: "572"
 },{
     name: "cosmo-coin",
     code: "COSM",
@@ -4781,7 +4961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cosmo-coin/"
     },
-    rank: "344"
+    rank: "454"
 },{
     name: "cosmos",
     code: "ATOM",
@@ -4791,7 +4971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cosmos/"
     },
-    rank: "25"
+    rank: "19"
 },{
     name: "coss",
     code: "COSS",
@@ -4801,7 +4981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coss/"
     },
-    rank: "920"
+    rank: "2720"
 },{
     name: "cottoncoin",
     code: "COTN",
@@ -4811,7 +4991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cottoncoin/"
     },
-    rank: "2583"
+    rank: "4383"
 },{
     name: "couchain",
     code: "COU",
@@ -4821,7 +5001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/couchain/"
     },
-    rank: "2460"
+    rank: "4260"
 },{
     name: "counterparty",
     code: "XCP",
@@ -4831,7 +5011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/counterparty/"
     },
-    rank: "435"
+    rank: "2235"
 },{
     name: "coupecoin",
     code: "COUPE",
@@ -4841,7 +5021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coupecoin/"
     },
-    rank: "2289"
+    rank: "4089"
 },{
     name: "covesting",
     code: "COV",
@@ -4851,7 +5031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/covesting/"
     },
-    rank: "902"
+    rank: "2702"
 },{
     name: "cpchain",
     code: "CPC",
@@ -4861,7 +5041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cpchain/"
     },
-    rank: "495"
+    rank: "2295"
 },{
     name: "cpollo",
     code: "CPLO",
@@ -4871,7 +5051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cpollo/"
     },
-    rank: "1424"
+    rank: "3224"
 },{
     name: "crave",
     code: "CRAVE",
@@ -4881,7 +5061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crave/"
     },
-    rank: "1994"
+    rank: "3794"
 },{
     name: "crea",
     code: "CREA",
@@ -4891,7 +5071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crea/"
     },
-    rank: "1682"
+    rank: "3482"
 },{
     name: "cream",
     code: "CRM",
@@ -4901,7 +5081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cream/"
     },
-    rank: "2066"
+    rank: "3866"
 },{
     name: "credit-tag-chain",
     code: "CTC",
@@ -4911,7 +5091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/credit-tag-chain/"
     },
-    rank: "1466"
+    rank: "3266"
 },{
     name: "creditbit",
     code: "CRB",
@@ -4921,7 +5101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/creditbit/"
     },
-    rank: "2177"
+    rank: "3977"
 },{
     name: "credits",
     code: "CS",
@@ -4931,7 +5111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/credits/"
     },
-    rank: "224"
+    rank: "243"
 },{
     name: "credo",
     code: "CREDO",
@@ -4941,7 +5121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/credo/"
     },
-    rank: "761"
+    rank: "2561"
 },{
     name: "crevacoin",
     code: "CREVA",
@@ -4951,7 +5131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crevacoin/"
     },
-    rank: "1806"
+    rank: "3606"
 },{
     name: "croat",
     code: "CROAT",
@@ -4961,7 +5141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/croat/"
     },
-    rank: "2084"
+    rank: "3884"
 },{
     name: "crowd-machine",
     code: "CMCT",
@@ -4971,7 +5151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crowd-machine/"
     },
-    rank: "1200"
+    rank: "3000"
 },{
     name: "crowdholding",
     code: "YUP",
@@ -4981,7 +5161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crowdholding/"
     },
-    rank: "2082"
+    rank: "3882"
 },{
     name: "crowdwiz",
     code: "WIZ",
@@ -4991,7 +5171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crowdwiz/"
     },
-    rank: "1697"
+    rank: "3497"
 },{
     name: "crown",
     code: "CRW",
@@ -5001,7 +5181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crown/"
     },
-    rank: "1065"
+    rank: "2865"
 },{
     name: "crpt",
     code: "CRPT",
@@ -5011,7 +5191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crpt/"
     },
-    rank: "156"
+    rank: "116"
 },{
     name: "cruisebit",
     code: "CRBT",
@@ -5021,7 +5201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cruisebit/"
     },
-    rank: "1445"
+    rank: "3245"
 },{
     name: "crycash",
     code: "CRC",
@@ -5031,7 +5211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crycash/"
     },
-    rank: "1701"
+    rank: "3501"
 },{
     name: "cryptaldash",
     code: "CRD",
@@ -5041,17 +5221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptaldash/"
     },
-    rank: "504"
-},{
-    name: "cryptaur",
-    code: "CPT",
-    icon: "cpt",
-    longname: "Cryptaur",
-    description: "Cryptaur coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptaur/"
-    },
-    rank: "421"
+    rank: "2304"
 },{
     name: "crypticcoin",
     code: "CRYP",
@@ -5061,27 +5231,27 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypticcoin/"
     },
-    rank: "2375"
+    rank: "4175"
 },{
     name: "crypto-com",
     code: "MCO",
     icon: "mco",
-    longname: "Crypto.com",
-    description: "Crypto.com coin",
+    longname: "MCO",
+    description: "MCO coin",
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypto-com/"
     },
-    rank: "105"
+    rank: "89"
 },{
-    name: "crypto-com-chain",
+    name: "crypto-com-coin",
     code: "CRO",
     icon: "cro",
-    longname: "Crypto.com Chain",
-    description: "Crypto.com Chain coin",
+    longname: "Crypto.com Coin",
+    description: "Crypto.com Coin coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypto-com-chain/"
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypto-com-coin/"
     },
-    rank: "27"
+    rank: "25"
 },{
     name: "crypto-harbor-exchange",
     code: "CHE",
@@ -5091,7 +5261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypto-harbor-exchange/"
     },
-    rank: "2505"
+    rank: "4305"
 },{
     name: "cryptocarbon",
     code: "CCRB",
@@ -5101,7 +5271,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptocarbon/"
     },
-    rank: "1533"
+    rank: "3333"
+},{
+    name: "cryptocean",
+    code: "CRON",
+    icon: "cron",
+    longname: "Cryptocean",
+    description: "Cryptocean coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptocean/"
+    },
+    rank: "587"
 },{
     name: "cryptoflow",
     code: "CFL",
@@ -5111,7 +5291,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptoflow/"
     },
-    rank: "1646"
+    rank: "3446"
+},{
+    name: "cryptofranc",
+    code: "XCHF",
+    icon: "xchf",
+    longname: "CryptoFranc",
+    description: "CryptoFranc coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptofranc/"
+    },
+    rank: "295"
 },{
     name: "cryptoindex-com-100",
     code: "CIX100",
@@ -5121,7 +5311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptoindex-com-100/"
     },
-    rank: "114"
+    rank: "122"
 },{
     name: "cryptojacks",
     code: "CJ",
@@ -5131,7 +5321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptojacks/"
     },
-    rank: "2189"
+    rank: "3989"
 },{
     name: "cryptonex",
     code: "CNX",
@@ -5141,7 +5331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptonex/"
     },
-    rank: "237"
+    rank: "59"
 },{
     name: "cryptonite",
     code: "XCN",
@@ -5151,7 +5341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptonite/"
     },
-    rank: "1941"
+    rank: "3741"
 },{
     name: "cryptopay",
     code: "CPAY",
@@ -5161,7 +5351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptopay/"
     },
-    rank: "1851"
+    rank: "3651"
 },{
     name: "cryptopiafeeshares",
     code: "CEFS",
@@ -5171,7 +5361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptopiafeeshares/"
     },
-    rank: "2549"
+    rank: "4349"
 },{
     name: "cryptoping",
     code: "PING",
@@ -5181,7 +5371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptoping/"
     },
-    rank: "1946"
+    rank: "3746"
 },{
     name: "cryptosolartech",
     code: "CST",
@@ -5191,7 +5381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptosolartech/"
     },
-    rank: "1316"
+    rank: "3116"
 },{
     name: "cryptosoul",
     code: "SOUL-1",
@@ -5201,7 +5391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptosoul/"
     },
-    rank: "1756"
+    rank: "3556"
 },{
     name: "cryptoverificationcoin",
     code: "CVCC",
@@ -5211,7 +5401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptoverificationcoin/"
     },
-    rank: "135"
+    rank: "129"
 },{
     name: "cryptrust",
     code: "CTRT",
@@ -5221,7 +5411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptrust/"
     },
-    rank: "1787"
+    rank: "3587"
 },{
     name: "crystal-clear",
     code: "CCT",
@@ -5231,7 +5421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crystal-clear/"
     },
-    rank: "2110"
+    rank: "3910"
 },{
     name: "crystal-token",
     code: "CYL",
@@ -5241,7 +5431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crystal-token/"
     },
-    rank: "1742"
+    rank: "3542"
 },{
     name: "cube",
     code: "AUTO",
@@ -5251,7 +5441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cube/"
     },
-    rank: "376"
+    rank: "525"
 },{
     name: "curecoin",
     code: "CURE",
@@ -5261,7 +5451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/curecoin/"
     },
-    rank: "1368"
+    rank: "3168"
 },{
     name: "cvcoin",
     code: "CVN",
@@ -5271,7 +5461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cvcoin/"
     },
-    rank: "1164"
+    rank: "2964"
 },{
     name: "cwv-chain",
     code: "CWV",
@@ -5281,7 +5471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cwv-chain/"
     },
-    rank: "461"
+    rank: "373"
 },{
     name: "cyber-movie-chain",
     code: "CMCT-1",
@@ -5291,7 +5481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cyber-movie-chain/"
     },
-    rank: "1803"
+    rank: "3603"
 },{
     name: "cyberfm",
     code: "CYFM",
@@ -5301,7 +5491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cyberfm/"
     },
-    rank: "1639"
+    rank: "3439"
 },{
     name: "cybermiles",
     code: "CMT",
@@ -5311,7 +5501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cybermiles/"
     },
-    rank: "188"
+    rank: "238"
 },{
     name: "cybermusic",
     code: "CYMT",
@@ -5321,7 +5511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cybermusic/"
     },
-    rank: "1746"
+    rank: "3546"
 },{
     name: "cybervein",
     code: "CVT",
@@ -5331,7 +5521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cybervein/"
     },
-    rank: "338"
+    rank: "390"
 },{
     name: "cyclean",
     code: "CCL",
@@ -5341,7 +5531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cyclean/"
     },
-    rank: "1325"
+    rank: "3125"
 },{
     name: "dacc",
     code: "DACC",
@@ -5351,7 +5541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dacc/"
     },
-    rank: "2366"
+    rank: "4166"
 },{
     name: "dach-coin",
     code: "DACH",
@@ -5361,7 +5551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dach-coin/"
     },
-    rank: "1777"
+    rank: "3577"
 },{
     name: "dacsee",
     code: "DACS",
@@ -5371,17 +5561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dacsee/"
     },
-    rank: "1173"
-},{
-    name: "dadi",
-    code: "DADI",
-    icon: "dadi",
-    longname: "DADI",
-    description: "DADI coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/dadi/"
-    },
-    rank: "486"
+    rank: "2973"
 },{
     name: "daex",
     code: "DAX",
@@ -5391,7 +5571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/daex/"
     },
-    rank: "1253"
+    rank: "3053"
 },{
     name: "dai",
     code: "DAI",
@@ -5401,7 +5581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dai/"
     },
-    rank: "84"
+    rank: "61"
 },{
     name: "dalecoin",
     code: "DALC",
@@ -5411,7 +5591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dalecoin/"
     },
-    rank: "2290"
+    rank: "4090"
 },{
     name: "daneel",
     code: "DAN",
@@ -5421,7 +5601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/daneel/"
     },
-    rank: "1456"
+    rank: "3256"
 },{
     name: "dao-casino",
     code: "BET",
@@ -5431,7 +5611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dao-casino/"
     },
-    rank: "397"
+    rank: "423"
 },{
     name: "daostack",
     code: "GEN",
@@ -5441,7 +5621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/daostack/"
     },
-    rank: "573"
+    rank: "520"
 },{
     name: "daps-token",
     code: "DAPS",
@@ -5451,7 +5631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/daps-token/"
     },
-    rank: "203"
+    rank: "347"
 },{
     name: "darcio-ecosystem-coin",
     code: "DEC",
@@ -5461,7 +5641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/darcio-ecosystem-coin/"
     },
-    rank: "477"
+    rank: "400"
 },{
     name: "darcrus",
     code: "DAR",
@@ -5471,7 +5651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/darcrus/"
     },
-    rank: "1887"
+    rank: "3687"
 },{
     name: "darextravel",
     code: "DART",
@@ -5481,7 +5661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/darextravel/"
     },
-    rank: "1735"
+    rank: "3535"
 },{
     name: "darkpaycoin",
     code: "DKPC",
@@ -5491,7 +5671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/darkpaycoin/"
     },
-    rank: "2484"
+    rank: "4284"
 },{
     name: "darsek",
     code: "KED",
@@ -5501,7 +5681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/darsek/"
     },
-    rank: "2120"
+    rank: "3920"
 },{
     name: "dascoin",
     code: "DASC",
@@ -5511,7 +5691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dascoin/"
     },
-    rank: "2436"
+    rank: "4236"
 },{
     name: "dash",
     code: "DASH",
@@ -5521,7 +5701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dash/"
     },
-    rank: "17"
+    rank: "22"
 },{
     name: "data",
     code: "DTA",
@@ -5531,7 +5711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/data/"
     },
-    rank: "385"
+    rank: "513"
 },{
     name: "data-exchange",
     code: "DTX",
@@ -5541,7 +5721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/data-exchange/"
     },
-    rank: "1630"
+    rank: "3430"
 },{
     name: "data-transaction-token",
     code: "XD",
@@ -5551,7 +5731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/data-transaction-token/"
     },
-    rank: "302"
+    rank: "2102"
 },{
     name: "databits",
     code: "DTB",
@@ -5561,7 +5741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/databits/"
     },
-    rank: "1230"
+    rank: "3030"
 },{
     name: "datacoin",
     code: "DTC",
@@ -5571,7 +5751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datacoin/"
     },
-    rank: "2202"
+    rank: "4002"
 },{
     name: "datarius-credit",
     code: "DTRC",
@@ -5581,7 +5761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datarius-credit/"
     },
-    rank: "1727"
+    rank: "3527"
 },{
     name: "datawallet",
     code: "DXT",
@@ -5591,7 +5771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datawallet/"
     },
-    rank: "1355"
+    rank: "3155"
 },{
     name: "datum",
     code: "DAT",
@@ -5601,7 +5781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datum/"
     },
-    rank: "1367"
+    rank: "3167"
 },{
     name: "datx",
     code: "DATX",
@@ -5611,7 +5791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datx/"
     },
-    rank: "1159"
+    rank: "2959"
 },{
     name: "dav-coin",
     code: "DAV",
@@ -5621,7 +5801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dav-coin/"
     },
-    rank: "1233"
+    rank: "3033"
 },{
     name: "davinci-coin",
     code: "DAC",
@@ -5631,7 +5811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/davinci-coin/"
     },
-    rank: "238"
+    rank: "298"
 },{
     name: "ddkoin",
     code: "DDK",
@@ -5641,7 +5821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ddkoin/"
     },
-    rank: "220"
+    rank: "301"
 },{
     name: "debitum-network",
     code: "DEB",
@@ -5651,7 +5831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/debitum-network/"
     },
-    rank: "1333"
+    rank: "3133"
 },{
     name: "decent",
     code: "DCT",
@@ -5661,7 +5841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decent/"
     },
-    rank: "995"
+    rank: "2795"
 },{
     name: "decent-bet",
     code: "DBET",
@@ -5671,7 +5851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decent-bet/"
     },
-    rank: "1079"
+    rank: "2879"
 },{
     name: "decentraland",
     code: "MANA",
@@ -5681,7 +5861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decentraland/"
     },
-    rank: "139"
+    rank: "152"
 },{
     name: "decentralized-asset-trading-platform",
     code: "DATP",
@@ -5691,7 +5871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decentralized-asset-trading-platform/"
     },
-    rank: "1790"
+    rank: "3590"
 },{
     name: "decentralized-machine-learning",
     code: "DML",
@@ -5701,7 +5881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decentralized-machine-learning/"
     },
-    rank: "1915"
+    rank: "3715"
 },{
     name: "decision-token",
     code: "HST",
@@ -5711,7 +5891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decision-token/"
     },
-    rank: "1108"
+    rank: "2908"
 },{
     name: "decred",
     code: "DCR",
@@ -5721,7 +5901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decred/"
     },
-    rank: "33"
+    rank: "35"
 },{
     name: "deepbrain-chain",
     code: "DBC",
@@ -5731,7 +5911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deepbrain-chain/"
     },
-    rank: "374"
+    rank: "425"
 },{
     name: "deeponion",
     code: "ONION",
@@ -5741,7 +5921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deeponion/"
     },
-    rank: "526"
+    rank: "2326"
 },{
     name: "deex",
     code: "DEEX",
@@ -5751,7 +5931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deex/"
     },
-    rank: "2455"
+    rank: "4255"
 },{
     name: "delizia",
     code: "DELIZ",
@@ -5761,7 +5941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/delizia/"
     },
-    rank: "2482"
+    rank: "4282"
 },{
     name: "delphy",
     code: "DPY",
@@ -5771,7 +5951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/delphy/"
     },
-    rank: "1105"
+    rank: "576"
 },{
     name: "delta-chain",
     code: "DELTA",
@@ -5781,7 +5961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/delta-chain/"
     },
-    rank: "1780"
+    rank: "3580"
 },{
     name: "denarius-dnr",
     code: "D",
@@ -5791,7 +5971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/denarius-dnr/"
     },
-    rank: "1894"
+    rank: "3694"
 },{
     name: "dent",
     code: "DENT",
@@ -5801,7 +5981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dent/"
     },
-    rank: "134"
+    rank: "220"
 },{
     name: "dentacoin",
     code: "DCN",
@@ -5811,7 +5991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dentacoin/"
     },
-    rank: "299"
+    rank: "228"
 },{
     name: "dero",
     code: "DERO",
@@ -5821,7 +6001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dero/"
     },
-    rank: "392"
+    rank: "471"
 },{
     name: "desire",
     code: "DSR",
@@ -5831,7 +6011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/desire/"
     },
-    rank: "1785"
+    rank: "3585"
 },{
     name: "dether",
     code: "DTH",
@@ -5841,7 +6021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dether/"
     },
-    rank: "1873"
+    rank: "3673"
 },{
     name: "deuscoin",
     code: "DEUS",
@@ -5851,7 +6031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deuscoin/"
     },
-    rank: "2181"
+    rank: "3981"
 },{
     name: "deutsche-emark",
     code: "DEM",
@@ -5861,7 +6041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deutsche-emark/"
     },
-    rank: "1965"
+    rank: "3765"
 },{
     name: "devery",
     code: "EVE",
@@ -5871,7 +6051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/devery/"
     },
-    rank: "1438"
+    rank: "3238"
 },{
     name: "deviantcoin",
     code: "DEV",
@@ -5881,7 +6061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deviantcoin/"
     },
-    rank: "1258"
+    rank: "3058"
 },{
     name: "dew",
     code: "DEW",
@@ -5891,7 +6071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dew/"
     },
-    rank: "893"
+    rank: "2693"
 },{
     name: "dex",
     code: "DEX",
@@ -5901,7 +6081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dex/"
     },
-    rank: "198"
+    rank: "494"
 },{
     name: "diamond",
     code: "DMD",
@@ -5911,7 +6091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/diamond/"
     },
-    rank: "1039"
+    rank: "2839"
 },{
     name: "diamond-platform-token",
     code: "DPT",
@@ -5921,7 +6101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/diamond-platform-token/"
     },
-    rank: "277"
+    rank: "247"
 },{
     name: "dietbitcoin",
     code: "DDX",
@@ -5931,7 +6111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dietbitcoin/"
     },
-    rank: "2076"
+    rank: "3876"
 },{
     name: "digibyte",
     code: "DGB",
@@ -5941,7 +6121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digibyte/"
     },
-    rank: "56"
+    rank: "69"
 },{
     name: "digifinextoken",
     code: "DFT-1",
@@ -5951,7 +6131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digifinextoken/"
     },
-    rank: "2354"
+    rank: "4154"
 },{
     name: "digital-asset-guarantee-token",
     code: "DAGT",
@@ -5961,7 +6141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digital-asset-guarantee-token/"
     },
-    rank: "1423"
+    rank: "3223"
 },{
     name: "digital-insurance-token",
     code: "DIT",
@@ -5971,7 +6151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digital-insurance-token/"
     },
-    rank: "2005"
+    rank: "3805"
 },{
     name: "digital-money-bits",
     code: "DMB",
@@ -5981,7 +6161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digital-money-bits/"
     },
-    rank: "2195"
+    rank: "3995"
 },{
     name: "digitalcoin",
     code: "DGC",
@@ -5991,7 +6171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitalcoin/"
     },
-    rank: "1979"
+    rank: "3779"
 },{
     name: "digitalnote",
     code: "XDN",
@@ -6001,7 +6181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitalnote/"
     },
-    rank: "393"
+    rank: "436"
 },{
     name: "digitalprice",
     code: "DP",
@@ -6011,7 +6191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitalprice/"
     },
-    rank: "1962"
+    rank: "3762"
 },{
     name: "digitex-futures",
     code: "DGTX",
@@ -6021,7 +6201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitex-futures/"
     },
-    rank: "162"
+    rank: "143"
 },{
     name: "digiwage",
     code: "WAGE",
@@ -6031,7 +6211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digiwage/"
     },
-    rank: "2091"
+    rank: "3891"
 },{
     name: "digix-gold-token",
     code: "DGX",
@@ -6041,7 +6221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digix-gold-token/"
     },
-    rank: "439"
+    rank: "418"
 },{
     name: "digixdao",
     code: "DGD",
@@ -6051,7 +6231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digixdao/"
     },
-    rank: "147"
+    rank: "181"
 },{
     name: "dignity",
     code: "DIG",
@@ -6061,7 +6241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dignity/"
     },
-    rank: "943"
+    rank: "2743"
 },{
     name: "dimcoin",
     code: "DIM",
@@ -6071,7 +6251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dimcoin/"
     },
-    rank: "1147"
+    rank: "2947"
 },{
     name: "dimecoin",
     code: "DIME",
@@ -6081,7 +6261,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dimecoin/"
     },
-    rank: "1101"
+    rank: "2901"
+},{
+    name: "dimension-chain",
+    code: "EON",
+    icon: "eon",
+    longname: "Dimension Chain",
+    description: "Dimension Chain coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/dimension-chain/"
+    },
+    rank: "81"
 },{
     name: "dinastycoin",
     code: "DCY",
@@ -6091,7 +6281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dinastycoin/"
     },
-    rank: "1999"
+    rank: "3799"
 },{
     name: "dinero",
     code: "DIN",
@@ -6101,7 +6291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dinero/"
     },
-    rank: "1788"
+    rank: "3588"
 },{
     name: "dipnet",
     code: "DPN",
@@ -6111,7 +6301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dipnet/"
     },
-    rank: "2400"
+    rank: "4200"
 },{
     name: "distributed-credit-chain",
     code: "DCC",
@@ -6121,7 +6311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/distributed-credit-chain/"
     },
-    rank: "1088"
+    rank: "2888"
 },{
     name: "district0x",
     code: "DNT",
@@ -6131,7 +6321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/district0x/"
     },
-    rank: "485"
+    rank: "503"
 },{
     name: "divi",
     code: "DIVI",
@@ -6141,7 +6331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/divi/"
     },
-    rank: "207"
+    rank: "248"
 },{
     name: "divi-exchange-token",
     code: "DIVX",
@@ -6151,7 +6341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/divi-exchange-token/"
     },
-    rank: "1531"
+    rank: "3331"
 },{
     name: "dix-asset",
     code: "DIX",
@@ -6161,7 +6351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dix-asset/"
     },
-    rank: "2179"
+    rank: "3979"
 },{
     name: "dmarket",
     code: "DMT",
@@ -6171,7 +6361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dmarket/"
     },
-    rank: "456"
+    rank: "421"
 },{
     name: "dnotes",
     code: "NOTE",
@@ -6181,7 +6371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dnotes/"
     },
-    rank: "1328"
+    rank: "3128"
 },{
     name: "doc-com-token",
     code: "MTC",
@@ -6191,7 +6381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/doc-com-token/"
     },
-    rank: "349"
+    rank: "430"
 },{
     name: "dock",
     code: "DOCK",
@@ -6201,7 +6391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dock/"
     },
-    rank: "548"
+    rank: "419"
 },{
     name: "dogecoin",
     code: "DOGE",
@@ -6211,7 +6401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dogecoin/"
     },
-    rank: "30"
+    rank: "31"
 },{
     name: "dollar-online",
     code: "DOLLAR",
@@ -6221,7 +6411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dollar-online/"
     },
-    rank: "2310"
+    rank: "4110"
 },{
     name: "dollarcoin",
     code: "DLC",
@@ -6231,7 +6421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dollarcoin/"
     },
-    rank: "2200"
+    rank: "4000"
 },{
     name: "domraider",
     code: "DRT",
@@ -6241,7 +6431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/domraider/"
     },
-    rank: "1208"
+    rank: "3008"
 },{
     name: "dopecoin",
     code: "DOPE",
@@ -6251,7 +6441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dopecoin/"
     },
-    rank: "1530"
+    rank: "3330"
 },{
     name: "dorado",
     code: "DOR",
@@ -6261,7 +6451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dorado/"
     },
-    rank: "1716"
+    rank: "3516"
 },{
     name: "dotcoin",
     code: "DOT",
@@ -6271,7 +6461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dotcoin/"
     },
-    rank: "1206"
+    rank: "3006"
 },{
     name: "doubloon",
     code: "BOAT",
@@ -6281,7 +6471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/doubloon/"
     },
-    rank: "2164"
+    rank: "3964"
 },{
     name: "dovu",
     code: "DOV",
@@ -6291,7 +6481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dovu/"
     },
-    rank: "1315"
+    rank: "3115"
 },{
     name: "dowcoin",
     code: "DOW",
@@ -6301,7 +6491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dowcoin/"
     },
-    rank: "1443"
+    rank: "3243"
 },{
     name: "dprating",
     code: "RATING",
@@ -6311,7 +6501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dprating/"
     },
-    rank: "1546"
+    rank: "3346"
 },{
     name: "draftcoin",
     code: "DFT",
@@ -6321,7 +6511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/draftcoin/"
     },
-    rank: "1707"
+    rank: "3507"
 },{
     name: "dragon-coins",
     code: "DRG",
@@ -6331,7 +6521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dragon-coins/"
     },
-    rank: "106"
+    rank: "150"
 },{
     name: "dragonchain",
     code: "DRGN",
@@ -6341,7 +6531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dragonchain/"
     },
-    rank: "265"
+    rank: "339"
 },{
     name: "dragonglass",
     code: "DGS",
@@ -6351,7 +6541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dragonglass/"
     },
-    rank: "2129"
+    rank: "3929"
 },{
     name: "dreamcoin",
     code: "DRM",
@@ -6361,7 +6551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dreamcoin/"
     },
-    rank: "2226"
+    rank: "4026"
 },{
     name: "dropil",
     code: "DROP",
@@ -6371,7 +6561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dropil/"
     },
-    rank: "363"
+    rank: "387"
 },{
     name: "droxne",
     code: "DRXNE",
@@ -6381,7 +6571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/droxne/"
     },
-    rank: "2186"
+    rank: "3986"
 },{
     name: "drp-utility",
     code: "DRPU",
@@ -6391,7 +6581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/drp-utility/"
     },
-    rank: "1981"
+    rank: "3781"
 },{
     name: "dubaicoin-dbix",
     code: "DBIX",
@@ -6401,7 +6591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dubaicoin-dbix/"
     },
-    rank: "1292"
+    rank: "3092"
 },{
     name: "dusk-network",
     code: "DUSK",
@@ -6411,7 +6601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dusk-network/"
     },
-    rank: "305"
+    rank: "367"
 },{
     name: "dws",
     code: "DWS",
@@ -6421,7 +6611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dws/"
     },
-    rank: "2453"
+    rank: "4253"
 },{
     name: "dxchain-token",
     code: "DX",
@@ -6431,7 +6621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dxchain-token/"
     },
-    rank: "287"
+    rank: "70"
 },{
     name: "dynamic",
     code: "DYN",
@@ -6441,7 +6631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dynamic/"
     },
-    rank: "1387"
+    rank: "3187"
 },{
     name: "dynamic-trading-rights",
     code: "DTR",
@@ -6451,7 +6641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dynamic-trading-rights/"
     },
-    rank: "127"
+    rank: "130"
 },{
     name: "dynamiccoin",
     code: "DMC",
@@ -6461,7 +6651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dynamiccoin/"
     },
-    rank: "2587"
+    rank: "4387"
 },{
     name: "dystem",
     code: "DTEM",
@@ -6471,7 +6661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dystem/"
     },
-    rank: "2102"
+    rank: "3902"
 },{
     name: "e-dinar-coin",
     code: "EDR-1",
@@ -6481,7 +6671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/e-dinar-coin/"
     },
-    rank: "850"
+    rank: "2650"
 },{
     name: "e-gulden",
     code: "EFL",
@@ -6491,7 +6681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/e-gulden/"
     },
-    rank: "1927"
+    rank: "3727"
 },{
     name: "eaglex",
     code: "EGX",
@@ -6501,7 +6691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eaglex/"
     },
-    rank: "2210"
+    rank: "4010"
 },{
     name: "earth-token",
     code: "EARTH",
@@ -6511,7 +6701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/earth-token/"
     },
-    rank: "1767"
+    rank: "3567"
 },{
     name: "ebcoin",
     code: "EBC",
@@ -6521,7 +6711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ebcoin/"
     },
-    rank: "1100"
+    rank: "2900"
 },{
     name: "eboostcoin",
     code: "EBST",
@@ -6531,7 +6721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eboostcoin/"
     },
-    rank: "1542"
+    rank: "3342"
 },{
     name: "ebtcnew",
     code: "EBTC",
@@ -6541,7 +6731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ebtcnew/"
     },
-    rank: "1619"
+    rank: "3419"
 },{
     name: "eccoin",
     code: "ECC",
@@ -6551,7 +6741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eccoin/"
     },
-    rank: "590"
+    rank: "2390"
 },{
     name: "echolink",
     code: "EKO",
@@ -6561,7 +6751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/echolink/"
     },
-    rank: "1299"
+    rank: "3099"
 },{
     name: "ecobit",
     code: "ECOB",
@@ -6571,7 +6761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ecobit/"
     },
-    rank: "1823"
+    rank: "3623"
 },{
     name: "ecocoin",
     code: "ECO",
@@ -6581,7 +6771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ecocoin/"
     },
-    rank: "2300"
+    rank: "4100"
 },{
     name: "ecoreal-estate",
     code: "ECOREAL",
@@ -6591,7 +6781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ecoreal-estate/"
     },
-    rank: "119"
+    rank: "185"
 },{
     name: "edc-blockchain",
     code: "EDC",
@@ -6601,7 +6791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/edc-blockchain/"
     },
-    rank: "261"
+    rank: "211"
 },{
     name: "eden",
     code: "EDN",
@@ -6611,7 +6801,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eden/"
     },
-    rank: "1155"
+    rank: "2955"
+},{
+    name: "edge",
+    code: "DADI",
+    icon: "dadi",
+    longname: "Edge",
+    description: "Edge coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/edge/"
+    },
+    rank: "1101"
 },{
     name: "edgeless",
     code: "EDG",
@@ -6621,7 +6821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/edgeless/"
     },
-    rank: "598"
+    rank: "2398"
 },{
     name: "edrcoin",
     code: "EDRC",
@@ -6631,7 +6831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/edrcoin/"
     },
-    rank: "1490"
+    rank: "3290"
 },{
     name: "edu-coin",
     code: "EDU",
@@ -6641,7 +6841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/edu-coin/"
     },
-    rank: "2358"
+    rank: "4158"
 },{
     name: "educare",
     code: "EKT",
@@ -6651,7 +6851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/educare/"
     },
-    rank: "55"
+    rank: "64"
 },{
     name: "education-ecosystem",
     code: "LEDU",
@@ -6661,7 +6861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/education-ecosystem/"
     },
-    rank: "1409"
+    rank: "3209"
 },{
     name: "effect-ai",
     code: "EFX",
@@ -6671,7 +6871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/effect-ai/"
     },
-    rank: "1345"
+    rank: "3145"
 },{
     name: "egretia",
     code: "EGT",
@@ -6681,7 +6881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/egretia/"
     },
-    rank: "86"
+    rank: "275"
 },{
     name: "eidoo",
     code: "EDO",
@@ -6691,7 +6891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eidoo/"
     },
-    rank: "216"
+    rank: "240"
 },{
     name: "einsteinium",
     code: "EMC2",
@@ -6701,7 +6901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/einsteinium/"
     },
-    rank: "258"
+    rank: "307"
 },{
     name: "ejoy",
     code: "EJOY",
@@ -6711,7 +6911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ejoy/"
     },
-    rank: "2474"
+    rank: "4274"
 },{
     name: "elastos",
     code: "ELA",
@@ -6721,7 +6921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elastos/"
     },
-    rank: "123"
+    rank: "153"
 },{
     name: "elcoin-el",
     code: "EL",
@@ -6731,7 +6931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elcoin-el/"
     },
-    rank: "2041"
+    rank: "3841"
 },{
     name: "electra",
     code: "ECA",
@@ -6741,7 +6941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/electra/"
     },
-    rank: "496"
+    rank: "473"
 },{
     name: "electrifyasia",
     code: "ELEC",
@@ -6751,7 +6951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/electrifyasia/"
     },
-    rank: "1094"
+    rank: "2894"
 },{
     name: "electroneum",
     code: "ETN",
@@ -6761,7 +6961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/electroneum/"
     },
-    rank: "137"
+    rank: "136"
 },{
     name: "elementrem",
     code: "ELE",
@@ -6771,7 +6971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elementrem/"
     },
-    rank: "1990"
+    rank: "3790"
 },{
     name: "eligma-token",
     code: "ELI",
@@ -6781,7 +6981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eligma-token/"
     },
-    rank: "463"
+    rank: "401"
 },{
     name: "elitium",
     code: "EUM",
@@ -6791,7 +6991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elitium/"
     },
-    rank: "386"
+    rank: "285"
 },{
     name: "elixir",
     code: "ELIX",
@@ -6801,7 +7001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elixir/"
     },
-    rank: "1514"
+    rank: "3314"
 },{
     name: "ellaism",
     code: "ELLA",
@@ -6811,7 +7011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ellaism/"
     },
-    rank: "1995"
+    rank: "3795"
 },{
     name: "elliot-coin",
     code: "ELLI",
@@ -6821,7 +7021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elliot-coin/"
     },
-    rank: "2539"
+    rank: "4339"
 },{
     name: "elrond",
     code: "ERD",
@@ -6831,7 +7031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elrond/"
     },
-    rank: "259"
+    rank: "251"
 },{
     name: "eltcoin",
     code: "ELTCOIN",
@@ -6841,7 +7041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eltcoin/"
     },
-    rank: "1761"
+    rank: "3561"
 },{
     name: "elysian",
     code: "ELY",
@@ -6851,7 +7051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elysian/"
     },
-    rank: "1693"
+    rank: "3493"
 },{
     name: "elysium",
     code: "ELS",
@@ -6861,7 +7061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elysium/"
     },
-    rank: "2266"
+    rank: "4066"
 },{
     name: "embercoin",
     code: "EMB",
@@ -6871,7 +7071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/embercoin/"
     },
-    rank: "2523"
+    rank: "4323"
 },{
     name: "embers",
     code: "MBRS",
@@ -6881,7 +7081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/embers/"
     },
-    rank: "2158"
+    rank: "3958"
 },{
     name: "emerald",
     code: "EMD",
@@ -6891,7 +7091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/emerald/"
     },
-    rank: "2062"
+    rank: "3862"
 },{
     name: "emercoin",
     code: "EMC",
@@ -6901,7 +7101,27 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/emercoin/"
     },
-    rank: "436"
+    rank: "477"
+},{
+    name: "eminer",
+    code: "EM",
+    icon: "em",
+    longname: "Eminer",
+    description: "Eminer coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/eminer/"
+    },
+    rank: "464"
+},{
+    name: "emirex-token",
+    code: "EMRX",
+    icon: "emrx",
+    longname: "Emirex Token",
+    description: "Emirex Token coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/emirex-token/"
+    },
+    rank: "316"
 },{
     name: "emphy",
     code: "EPY",
@@ -6911,7 +7131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/emphy/"
     },
-    rank: "2065"
+    rank: "3865"
 },{
     name: "empowr-coin",
     code: "EMPR",
@@ -6921,7 +7141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/empowr-coin/"
     },
-    rank: "2446"
+    rank: "4246"
 },{
     name: "encrypgen",
     code: "DNA",
@@ -6931,7 +7151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/encrypgen/"
     },
-    rank: "1304"
+    rank: "3104"
 },{
     name: "encryptotel",
     code: "ETT",
@@ -6941,7 +7161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/encryptotel/"
     },
-    rank: "1535"
+    rank: "3335"
 },{
     name: "encryptotel-eth",
     code: "ETT-1",
@@ -6951,7 +7171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/encryptotel-eth/"
     },
-    rank: "2462"
+    rank: "4262"
 },{
     name: "endor-protocol",
     code: "EDR",
@@ -6961,7 +7181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/endor-protocol/"
     },
-    rank: "462"
+    rank: "542"
 },{
     name: "endorsit",
     code: "EDS",
@@ -6971,7 +7191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/endorsit/"
     },
-    rank: "2521"
+    rank: "4321"
 },{
     name: "energi",
     code: "NRG",
@@ -6981,7 +7201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/energi/"
     },
-    rank: "59"
+    rank: "100"
 },{
     name: "energitoken",
     code: "ETK",
@@ -6991,7 +7211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/energitoken/"
     },
-    rank: "1199"
+    rank: "2999"
 },{
     name: "energo",
     code: "TSL",
@@ -7001,7 +7221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/energo/"
     },
-    rank: "1373"
+    rank: "3173"
 },{
     name: "engagement-token",
     code: "ENGT",
@@ -7011,7 +7231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/engagement-token/"
     },
-    rank: "1668"
+    rank: "3468"
 },{
     name: "engine",
     code: "EGCC",
@@ -7021,7 +7241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/engine/"
     },
-    rank: "2387"
+    rank: "4187"
 },{
     name: "enigma",
     code: "ENG",
@@ -7031,7 +7251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/enigma/"
     },
-    rank: "167"
+    rank: "196"
 },{
     name: "enjin-coin",
     code: "ENJ",
@@ -7041,7 +7261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/enjin-coin/"
     },
-    rank: "94"
+    rank: "104"
 },{
     name: "envion",
     code: "EVN",
@@ -7051,7 +7271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/envion/"
     },
-    rank: "271"
+    rank: "200"
 },{
     name: "eos",
     code: "EOS",
@@ -7063,6 +7283,16 @@ var otherCoins = [{
     },
     rank: "8"
 },{
+    name: "eos-force",
+    code: "EOSC",
+    icon: "eosc",
+    longname: "EOS Force",
+    description: "EOS Force coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/eos-force/"
+    },
+    rank: "305"
+},{
     name: "eosblack",
     code: "BLACK",
     icon: "black",
@@ -7071,7 +7301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eosblack/"
     },
-    rank: "2500"
+    rank: "4300"
 },{
     name: "eosdac",
     code: "EOSDAC",
@@ -7081,7 +7311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eosdac/"
     },
-    rank: "572"
+    rank: "577"
 },{
     name: "eplus-coin",
     code: "EPLUS",
@@ -7091,7 +7321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eplus-coin/"
     },
-    rank: "2592"
+    rank: "4392"
 },{
     name: "equal",
     code: "EQL",
@@ -7101,7 +7331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/equal/"
     },
-    rank: "1622"
+    rank: "3422"
 },{
     name: "equitrader",
     code: "EQT",
@@ -7111,7 +7341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/equitrader/"
     },
-    rank: "1660"
+    rank: "3460"
 },{
     name: "erc20",
     code: "ERC20",
@@ -7131,7 +7361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ergo/"
     },
-    rank: "1453"
+    rank: "3253"
 },{
     name: "eristica",
     code: "ERT",
@@ -7141,7 +7371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eristica/"
     },
-    rank: "1467"
+    rank: "3267"
 },{
     name: "eroscoin",
     code: "ERO",
@@ -7151,7 +7381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eroscoin/"
     },
-    rank: "1234"
+    rank: "3034"
 },{
     name: "eryllium",
     code: "ERY",
@@ -7161,7 +7391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eryllium/"
     },
-    rank: "2271"
+    rank: "4071"
 },{
     name: "escroco-emerald",
     code: "ESCE",
@@ -7171,7 +7401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/escroco-emerald/"
     },
-    rank: "2157"
+    rank: "3957"
 },{
     name: "escrowcoin",
     code: "ESCO",
@@ -7181,7 +7411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/escrowcoin/"
     },
-    rank: "2465"
+    rank: "4265"
 },{
     name: "espers",
     code: "ESP",
@@ -7191,7 +7421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/espers/"
     },
-    rank: "1120"
+    rank: "2920"
 },{
     name: "esportbits",
     code: "HLT",
@@ -7201,7 +7431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/esportbits/"
     },
-    rank: "544"
+    rank: "600"
 },{
     name: "esports-token",
     code: "EST",
@@ -7211,7 +7441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/esports-token/"
     },
-    rank: "2538"
+    rank: "4338"
 },{
     name: "essentia",
     code: "ESS",
@@ -7221,7 +7451,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/essentia/"
     },
-    rank: "2395"
+    rank: "4195"
+},{
+    name: "eterbase-coin",
+    code: "XBASE",
+    icon: "xbase",
+    longname: "Eterbase Coin",
+    description: "Eterbase Coin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/eterbase-coin/"
+    },
+    rank: "590"
 },{
     name: "eternal-token",
     code: "XET",
@@ -7231,7 +7471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eternal-token/"
     },
-    rank: "72"
+    rank: "267"
 },{
     name: "eternity",
     code: "ENT",
@@ -7241,7 +7481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eternity/"
     },
-    rank: "2218"
+    rank: "4018"
 },{
     name: "ethbet",
     code: "EBET",
@@ -7251,7 +7491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethbet/"
     },
-    rank: "2170"
+    rank: "3970"
 },{
     name: "ethbits",
     code: "ETBS",
@@ -7261,7 +7501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethbits/"
     },
-    rank: "1868"
+    rank: "3668"
 },{
     name: "etheera",
     code: "ETA",
@@ -7271,7 +7511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etheera/"
     },
-    rank: "1455"
+    rank: "3255"
 },{
     name: "ether-1",
     code: "ETHO",
@@ -7281,7 +7521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ether-1/"
     },
-    rank: "1642"
+    rank: "3442"
 },{
     name: "ether-kingdoms-token",
     code: "IMP",
@@ -7291,7 +7531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ether-kingdoms-token/"
     },
-    rank: "1801"
+    rank: "3601"
 },{
     name: "ether-zero",
     code: "ETZ",
@@ -7301,7 +7541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ether-zero/"
     },
-    rank: "391"
+    rank: "486"
 },{
     name: "ethereum",
     code: "ETH",
@@ -7321,7 +7561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-blue/"
     },
-    rank: "1473"
+    rank: "3273"
 },{
     name: "ethereum-classic",
     code: "ETC",
@@ -7331,7 +7571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-classic/"
     },
-    rank: "16"
+    rank: "23"
 },{
     name: "ethereum-dark",
     code: "ETHD",
@@ -7341,7 +7581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-dark/"
     },
-    rank: "2173"
+    rank: "3973"
 },{
     name: "ethereum-gold",
     code: "ETG",
@@ -7351,7 +7591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-gold/"
     },
-    rank: "2070"
+    rank: "3870"
 },{
     name: "ethereum-meta",
     code: "ETHM",
@@ -7361,7 +7601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-meta/"
     },
-    rank: "2512"
+    rank: "4312"
 },{
     name: "ethereumcash",
     code: "ECASH",
@@ -7371,7 +7611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereumcash/"
     },
-    rank: "2014"
+    rank: "3814"
 },{
     name: "ethergem",
     code: "EGEM",
@@ -7381,7 +7621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethergem/"
     },
-    rank: "1626"
+    rank: "3426"
 },{
     name: "etherinc",
     code: "ETI",
@@ -7391,7 +7631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etherinc/"
     },
-    rank: "2481"
+    rank: "4281"
 },{
     name: "etheriya",
     code: "RIYA",
@@ -7401,7 +7641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etheriya/"
     },
-    rank: "1963"
+    rank: "3763"
 },{
     name: "etheroll",
     code: "DICE",
@@ -7411,7 +7651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etheroll/"
     },
-    rank: "1127"
+    rank: "2927"
 },{
     name: "etherparty",
     code: "FUEL",
@@ -7421,7 +7661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etherparty/"
     },
-    rank: "974"
+    rank: "535"
 },{
     name: "ethersocial",
     code: "ESN",
@@ -7431,7 +7671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethersocial/"
     },
-    rank: "1269"
+    rank: "3069"
 },{
     name: "ethersportz",
     code: "ESZ",
@@ -7441,7 +7681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethersportz/"
     },
-    rank: "1993"
+    rank: "3793"
 },{
     name: "ethorse",
     code: "HORSE",
@@ -7451,7 +7691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethorse/"
     },
-    rank: "1904"
+    rank: "3704"
 },{
     name: "ethos",
     code: "ETHOS",
@@ -7461,7 +7701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethos/"
     },
-    rank: "343"
+    rank: "493"
 },{
     name: "euno",
     code: "EUNO",
@@ -7471,7 +7711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/euno/"
     },
-    rank: "1496"
+    rank: "3296"
 },{
     name: "eunomia",
     code: "ENTS",
@@ -7481,7 +7721,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eunomia/"
     },
-    rank: "1685"
+    rank: "3485"
+},{
+    name: "eurbase",
+    code: "EBASE",
+    icon: "ebase",
+    longname: "EURBASE",
+    description: "EURBASE coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/eurbase/"
+    },
+    rank: "549"
 },{
     name: "eurocoin",
     code: "EUC",
@@ -7491,7 +7741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eurocoin/"
     },
-    rank: "2245"
+    rank: "4045"
 },{
     name: "evencoin",
     code: "EVN-1",
@@ -7501,7 +7751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/evencoin/"
     },
-    rank: "1396"
+    rank: "3196"
 },{
     name: "eventchain",
     code: "EVC",
@@ -7511,7 +7761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eventchain/"
     },
-    rank: "1459"
+    rank: "3259"
 },{
     name: "everex",
     code: "EVX",
@@ -7521,7 +7771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/everex/"
     },
-    rank: "306"
+    rank: "345"
 },{
     name: "evergreencoin",
     code: "EGC",
@@ -7531,7 +7781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/evergreencoin/"
     },
-    rank: "1623"
+    rank: "3423"
 },{
     name: "everipedia",
     code: "IQ",
@@ -7541,7 +7791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/everipedia/"
     },
-    rank: "296"
+    rank: "288"
 },{
     name: "everus",
     code: "EVR",
@@ -7551,7 +7801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/everus/"
     },
-    rank: "365"
+    rank: "363"
 },{
     name: "evil-coin",
     code: "EVIL",
@@ -7561,7 +7811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/evil-coin/"
     },
-    rank: "2183"
+    rank: "3983"
 },{
     name: "evimeria",
     code: "EVI",
@@ -7571,7 +7821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/evimeria/"
     },
-    rank: "1665"
+    rank: "3465"
 },{
     name: "excaliburcoin",
     code: "EXC-1",
@@ -7581,7 +7831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/excaliburcoin/"
     },
-    rank: "2554"
+    rank: "4354"
 },{
     name: "exchange-union",
     code: "XUC",
@@ -7591,7 +7841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/exchange-union/"
     },
-    rank: "2412"
+    rank: "4212"
 },{
     name: "exclusivecoin",
     code: "EXCL",
@@ -7601,7 +7851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/exclusivecoin/"
     },
-    rank: "1391"
+    rank: "3191"
 },{
     name: "eximchain",
     code: "EXC",
@@ -7611,7 +7861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eximchain/"
     },
-    rank: "1170"
+    rank: "2970"
 },{
     name: "exmr",
     code: "EXMR",
@@ -7621,7 +7871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/exmr/"
     },
-    rank: "1641"
+    rank: "3441"
 },{
     name: "expanse",
     code: "EXP",
@@ -7631,7 +7881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/expanse/"
     },
-    rank: "1326"
+    rank: "3126"
 },{
     name: "experience-points",
     code: "XP",
@@ -7641,7 +7891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/experience-points/"
     },
-    rank: "1107"
+    rank: "2907"
 },{
     name: "experience-token",
     code: "EXT",
@@ -7651,7 +7901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/experience-token/"
     },
-    rank: "2442"
+    rank: "4242"
 },{
     name: "experty",
     code: "EXY",
@@ -7661,7 +7911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/experty/"
     },
-    rank: "1279"
+    rank: "3079"
 },{
     name: "exrnchain",
     code: "EXRN",
@@ -7671,7 +7921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/exrnchain/"
     },
-    rank: "1266"
+    rank: "3066"
 },{
     name: "ezoow",
     code: "EZW",
@@ -7681,7 +7931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ezoow/"
     },
-    rank: "1930"
+    rank: "3730"
 },{
     name: "eztoken",
     code: "EZT",
@@ -7691,7 +7941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eztoken/"
     },
-    rank: "1658"
+    rank: "3458"
 },{
     name: "fabric-token",
     code: "FT",
@@ -7701,7 +7951,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fabric-token/"
     },
-    rank: "2004"
+    rank: "3804"
+},{
+    name: "fabrk",
+    code: "FAB",
+    icon: "fab",
+    longname: "FABRK",
+    description: "FABRK coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/fabrk/"
+    },
+    rank: "178"
 },{
     name: "faceter",
     code: "FACE",
@@ -7711,7 +7971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/faceter/"
     },
-    rank: "1492"
+    rank: "3292"
 },{
     name: "factom",
     code: "FCT",
@@ -7721,7 +7981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/factom/"
     },
-    rank: "148"
+    rank: "172"
 },{
     name: "faircoin",
     code: "FAIR",
@@ -7731,7 +7991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/faircoin/"
     },
-    rank: "962"
+    rank: "2762"
 },{
     name: "fairgame",
     code: "FAIR-1",
@@ -7741,7 +8001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fairgame/"
     },
-    rank: "2361"
+    rank: "4161"
 },{
     name: "fanstime",
     code: "FTI",
@@ -7751,7 +8011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fanstime/"
     },
-    rank: "1104"
+    rank: "2904"
 },{
     name: "fantasy-cash",
     code: "FANS",
@@ -7761,7 +8021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fantasy-cash/"
     },
-    rank: "2117"
+    rank: "3917"
 },{
     name: "fantasygold",
     code: "FGC",
@@ -7771,7 +8031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fantasygold/"
     },
-    rank: "1984"
+    rank: "3784"
 },{
     name: "fantom",
     code: "FTM",
@@ -7781,7 +8041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fantom/"
     },
-    rank: "144"
+    rank: "189"
 },{
     name: "fargocoin",
     code: "FRGC",
@@ -7791,7 +8051,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fargocoin/"
     },
-    rank: "2569"
+    rank: "4369"
+},{
+    name: "fatcoin",
+    code: "FAT",
+    icon: "noicon",
+    longname: "Fatcoin",
+    description: "Fatcoin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/fatcoin/"
+    },
+    rank: "597"
 },{
     name: "feathercoin",
     code: "FTC",
@@ -7801,7 +8071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/feathercoin/"
     },
-    rank: "540"
+    rank: "595"
 },{
     name: "fedoracoin",
     code: "TIPS",
@@ -7811,17 +8081,27 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fedoracoin/"
     },
-    rank: "1491"
+    rank: "3291"
 },{
     name: "fetch",
     code: "FET",
     icon: "fet",
-    longname: "Fetch",
-    description: "Fetch coin",
+    longname: "Fetch.ai",
+    description: "Fetch.ai coin",
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fetch/"
     },
-    rank: "176"
+    rank: "179"
+},{
+    name: "fibos",
+    code: "FO",
+    icon: "fo",
+    longname: "FIBOS",
+    description: "FIBOS coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/fibos/"
+    },
+    rank: "270"
 },{
     name: "fidelium",
     code: "FID",
@@ -7831,7 +8111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fidelium/"
     },
-    rank: "1847"
+    rank: "3647"
 },{
     name: "fidentiax",
     code: "FDX",
@@ -7841,7 +8121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fidentiax/"
     },
-    rank: "1866"
+    rank: "3666"
 },{
     name: "filecoin",
     code: "FIL",
@@ -7851,7 +8131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/filecoin/"
     },
-    rank: "2348"
+    rank: "4148"
 },{
     name: "fintab",
     code: "FNTB",
@@ -7861,7 +8141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fintab/"
     },
-    rank: "2206"
+    rank: "4006"
 },{
     name: "fintrux-network",
     code: "FTX",
@@ -7871,7 +8151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fintrux-network/"
     },
-    rank: "1429"
+    rank: "3229"
 },{
     name: "fire-lotto",
     code: "FLOT",
@@ -7881,7 +8161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fire-lotto/"
     },
-    rank: "1553"
+    rank: "3353"
 },{
     name: "first-bitcoin",
     code: "BIT-2",
@@ -7891,7 +8171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/first-bitcoin/"
     },
-    rank: "2593"
+    rank: "4393"
 },{
     name: "firstblood",
     code: "1ST",
@@ -7901,7 +8181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/firstblood/"
     },
-    rank: "284"
+    rank: "302"
 },{
     name: "firstcoin",
     code: "FRST",
@@ -7911,7 +8191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/firstcoin/"
     },
-    rank: "1991"
+    rank: "3791"
 },{
     name: "fivebalance",
     code: "FBN",
@@ -7921,7 +8201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fivebalance/"
     },
-    rank: "1719"
+    rank: "3519"
 },{
     name: "flash",
     code: "FLASH",
@@ -7931,7 +8211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flash/"
     },
-    rank: "1109"
+    rank: "2909"
 },{
     name: "flaxscript",
     code: "FLAX",
@@ -7941,7 +8221,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flaxscript/"
     },
-    rank: "2252"
+    rank: "4052"
+},{
+    name: "fleta",
+    code: "FLETA",
+    icon: "fleta",
+    longname: "FLETA",
+    description: "FLETA coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/fleta/"
+    },
+    rank: "497"
 },{
     name: "flexacoin",
     code: "FXC",
@@ -7951,7 +8241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flexacoin/"
     },
-    rank: "96"
+    rank: "98"
 },{
     name: "flik",
     code: "FLIK",
@@ -7961,7 +8251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flik/"
     },
-    rank: "2188"
+    rank: "3988"
 },{
     name: "flip",
     code: "FLP",
@@ -7971,7 +8261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flip/"
     },
-    rank: "1342"
+    rank: "3142"
 },{
     name: "flixxo",
     code: "FLIXX",
@@ -7981,7 +8271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flixxo/"
     },
-    rank: "1283"
+    rank: "3083"
 },{
     name: "flo",
     code: "FLO",
@@ -7991,7 +8281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flo/"
     },
-    rank: "383"
+    rank: "448"
 },{
     name: "flowchain",
     code: "FLC",
@@ -8001,7 +8291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flowchain/"
     },
-    rank: "571"
+    rank: "2371"
 },{
     name: "fluz-fluz",
     code: "FLUZ",
@@ -8011,7 +8301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fluz-fluz/"
     },
-    rank: "1876"
+    rank: "3676"
 },{
     name: "flypme",
     code: "FYP",
@@ -8021,7 +8311,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flypme/"
     },
-    rank: "1563"
+    rank: "3363"
+},{
+    name: "fnb-protocol",
+    code: "FNB",
+    icon: "fnb",
+    longname: "FNB Protocol",
+    description: "FNB Protocol coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/fnb-protocol/"
+    },
+    rank: "352"
 },{
     name: "fnkos",
     code: "FNKOS",
@@ -8031,7 +8331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fnkos/"
     },
-    rank: "1844"
+    rank: "3644"
 },{
     name: "foam",
     code: "FOAM",
@@ -8041,7 +8341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/foam/"
     },
-    rank: "359"
+    rank: "384"
 },{
     name: "foin",
     code: "FOIN",
@@ -8051,7 +8351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/foin/"
     },
-    rank: "2384"
+    rank: "4184"
 },{
     name: "foldingcoin",
     code: "FLDC",
@@ -8061,7 +8361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/foldingcoin/"
     },
-    rank: "1365"
+    rank: "3165"
 },{
     name: "folmcoin",
     code: "FLM",
@@ -8071,7 +8371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/folmcoin/"
     },
-    rank: "2175"
+    rank: "3975"
 },{
     name: "food",
     code: "FOOD",
@@ -8081,17 +8381,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/food/"
     },
-    rank: "1363"
+    rank: "3163"
 },{
-    name: "force",
+    name: "force-protocol",
     code: "FOR",
     icon: "for",
-    longname: "FORCE",
-    description: "FORCE coin",
+    longname: "Force Protocol",
+    description: "Force Protocol coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/force/"
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/force-protocol/"
     },
-    rank: "1633"
+    rank: "330"
 },{
     name: "forkcoin",
     code: "FORK",
@@ -8101,7 +8401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/forkcoin/"
     },
-    rank: "1364"
+    rank: "3164"
 },{
     name: "formosa-financial",
     code: "FMF",
@@ -8111,7 +8411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/formosa-financial/"
     },
-    rank: "1309"
+    rank: "3109"
 },{
     name: "fortuna",
     code: "FOTA",
@@ -8121,7 +8421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fortuna/"
     },
-    rank: "960"
+    rank: "2760"
 },{
     name: "fox-trading",
     code: "FOXT",
@@ -8131,7 +8431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fox-trading/"
     },
-    rank: "1393"
+    rank: "3193"
 },{
     name: "free-coin",
     code: "FREE",
@@ -8141,7 +8441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/free-coin/"
     },
-    rank: "709"
+    rank: "2509"
 },{
     name: "freicoin",
     code: "FRC",
@@ -8151,7 +8451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/freicoin/"
     },
-    rank: "2013"
+    rank: "3813"
 },{
     name: "freyrchain",
     code: "FREC",
@@ -8161,7 +8461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/freyrchain/"
     },
-    rank: "1596"
+    rank: "3396"
 },{
     name: "friends",
     code: "FDZ",
@@ -8171,7 +8471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/friends/"
     },
-    rank: "1347"
+    rank: "3147"
 },{
     name: "fsbt-api-token",
     code: "FSBT",
@@ -8181,7 +8481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fsbt-api-token/"
     },
-    rank: "1567"
+    rank: "3367"
 },{
     name: "ftx-token",
     code: "FTT",
@@ -8191,7 +8491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ftx-token/"
     },
-    rank: "155"
+    rank: "84"
 },{
     name: "fujicoin",
     code: "FJC",
@@ -8201,7 +8501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fujicoin/"
     },
-    rank: "1968"
+    rank: "3768"
 },{
     name: "fujinto",
     code: "NTO",
@@ -8211,7 +8511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fujinto/"
     },
-    rank: "2297"
+    rank: "4097"
 },{
     name: "function-x",
     code: "FX",
@@ -8221,7 +8521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/function-x/"
     },
-    rank: "190"
+    rank: "263"
 },{
     name: "fundrequest",
     code: "FND",
@@ -8231,7 +8531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fundrequest/"
     },
-    rank: "1683"
+    rank: "3483"
 },{
     name: "fundtoken",
     code: "FUNDZ",
@@ -8241,7 +8541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fundtoken/"
     },
-    rank: "2438"
+    rank: "4238"
 },{
     name: "funfair",
     code: "FUN",
@@ -8251,7 +8551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/funfair/"
     },
-    rank: "218"
+    rank: "183"
 },{
     name: "fusion",
     code: "FSN",
@@ -8261,7 +8561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fusion/"
     },
-    rank: "173"
+    rank: "197"
 },{
     name: "futurax",
     code: "FTXT",
@@ -8271,7 +8571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/futurax/"
     },
-    rank: "1578"
+    rank: "3378"
 },{
     name: "future1coin",
     code: "F1C",
@@ -8281,7 +8581,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/future1coin/"
     },
-    rank: "2520"
+    rank: "4320"
+},{
+    name: "futurepia",
+    code: "PIA",
+    icon: "pia",
+    longname: "Futurepia",
+    description: "Futurepia coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/futurepia/"
+    },
+    rank: "593"
 },{
     name: "futurocoin",
     code: "FTO",
@@ -8291,7 +8601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/futurocoin/"
     },
-    rank: "2392"
+    rank: "4192"
 },{
     name: "fuzex",
     code: "FXT",
@@ -8301,7 +8611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fuzex/"
     },
-    rank: "1096"
+    rank: "2896"
 },{
     name: "fuzzballs",
     code: "FUZZ",
@@ -8311,7 +8621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fuzzballs/"
     },
-    rank: "2265"
+    rank: "4065"
 },{
     name: "gainer",
     code: "GNR",
@@ -8321,7 +8631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gainer/"
     },
-    rank: "1929"
+    rank: "3729"
 },{
     name: "galactrum",
     code: "ORE",
@@ -8331,7 +8641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/galactrum/"
     },
-    rank: "1610"
+    rank: "3410"
 },{
     name: "gambit",
     code: "GAM",
@@ -8341,7 +8651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gambit/"
     },
-    rank: "1238"
+    rank: "3038"
 },{
     name: "gamblecoin",
     code: "GMCN",
@@ -8351,7 +8661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gamblecoin/"
     },
-    rank: "2231"
+    rank: "4031"
 },{
     name: "game",
     code: "GTC",
@@ -8361,7 +8671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/game/"
     },
-    rank: "473"
+    rank: "543"
 },{
     name: "game-stars",
     code: "GST",
@@ -8371,7 +8681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/game-stars/"
     },
-    rank: "2357"
+    rank: "4157"
 },{
     name: "gamechain",
     code: "GCS",
@@ -8381,7 +8691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gamechain/"
     },
-    rank: "2541"
+    rank: "4341"
 },{
     name: "gamecredits",
     code: "GAME",
@@ -8391,17 +8701,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gamecredits/"
     },
-    rank: "566"
+    rank: "2366"
 },{
-    name: "gapcoin",
+    name: "gaps",
     code: "GAP",
     icon: "gap",
-    longname: "Gapcoin",
-    description: "Gapcoin coin",
+    longname: "GAPS",
+    description: "GAPS coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/gapcoin/"
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/gaps/"
     },
-    rank: "2033"
+    rank: "77"
 },{
     name: "garlicoin",
     code: "GRLC",
@@ -8411,7 +8721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/garlicoin/"
     },
-    rank: "2194"
+    rank: "3994"
 },{
     name: "gas",
     code: "GAS",
@@ -8423,6 +8733,16 @@ var otherCoins = [{
     },
     rank: "239"
 },{
+    name: "gatechain-token",
+    code: "GT",
+    icon: "gt",
+    longname: "Gatechain Token",
+    description: "Gatechain Token coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/gatechain-token/"
+    },
+    rank: "188"
+},{
     name: "gazecoin",
     code: "GZE",
     icon: "gze",
@@ -8431,7 +8751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gazecoin/"
     },
-    rank: "2476"
+    rank: "4276"
 },{
     name: "gcn-coin",
     code: "GCN",
@@ -8441,7 +8761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gcn-coin/"
     },
-    rank: "1559"
+    rank: "3359"
 },{
     name: "geertcoin",
     code: "GEERT",
@@ -8451,7 +8771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/geertcoin/"
     },
-    rank: "2319"
+    rank: "4119"
 },{
     name: "gemini-dollar",
     code: "GUSD",
@@ -8461,7 +8781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gemini-dollar/"
     },
-    rank: "309"
+    rank: "453"
 },{
     name: "gems-protocol",
     code: "GEM",
@@ -8471,7 +8791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gems-protocol/"
     },
-    rank: "1262"
+    rank: "3062"
 },{
     name: "genaro-network",
     code: "GNX",
@@ -8481,7 +8801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/genaro-network/"
     },
-    rank: "470"
+    rank: "545"
 },{
     name: "gene-source-code-chain",
     code: "GENE",
@@ -8491,7 +8811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gene-source-code-chain/"
     },
-    rank: "546"
+    rank: "2346"
 },{
     name: "general-attention-currency",
     code: "XAC",
@@ -8501,7 +8821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/general-attention-currency/"
     },
-    rank: "192"
+    rank: "201"
 },{
     name: "genesis-vision",
     code: "GVT",
@@ -8511,7 +8831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/genesis-vision/"
     },
-    rank: "434"
+    rank: "435"
 },{
     name: "genesisx",
     code: "XGS",
@@ -8521,7 +8841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/genesisx/"
     },
-    rank: "1520"
+    rank: "3320"
 },{
     name: "gentarium",
     code: "GTM",
@@ -8531,7 +8851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gentarium/"
     },
-    rank: "1297"
+    rank: "3097"
 },{
     name: "geocoin",
     code: "GEO",
@@ -8541,7 +8861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/geocoin/"
     },
-    rank: "1294"
+    rank: "3094"
 },{
     name: "get-protocol",
     code: "GET",
@@ -8551,7 +8871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/get-protocol/"
     },
-    rank: "494"
+    rank: "479"
 },{
     name: "geysercoin",
     code: "GSR",
@@ -8561,7 +8881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/geysercoin/"
     },
-    rank: "2232"
+    rank: "4032"
 },{
     name: "giant-coin",
     code: "GIC",
@@ -8571,7 +8891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/giant-coin/"
     },
-    rank: "1509"
+    rank: "3309"
 },{
     name: "gifto",
     code: "GTO",
@@ -8581,7 +8901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gifto/"
     },
-    rank: "301"
+    rank: "336"
 },{
     name: "gincoin",
     code: "GIN",
@@ -8591,7 +8911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gincoin/"
     },
-    rank: "924"
+    rank: "2724"
 },{
     name: "gladius-token",
     code: "GLA",
@@ -8601,7 +8921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gladius-token/"
     },
-    rank: "1618"
+    rank: "3418"
 },{
     name: "global-awards-token",
     code: "GAT",
@@ -8611,7 +8931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/global-awards-token/"
     },
-    rank: "1414"
+    rank: "3214"
 },{
     name: "global-cryptocurrency",
     code: "GCC",
@@ -8621,7 +8941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/global-cryptocurrency/"
     },
-    rank: "511"
+    rank: "2311"
 },{
     name: "global-currency-reserve",
     code: "GCR",
@@ -8631,7 +8951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/global-currency-reserve/"
     },
-    rank: "1055"
+    rank: "561"
 },{
     name: "global-social-chain",
     code: "GSC",
@@ -8641,7 +8961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/global-social-chain/"
     },
-    rank: "481"
+    rank: "566"
 },{
     name: "globalboost-y",
     code: "BSTY",
@@ -8651,7 +8971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/globalboost-y/"
     },
-    rank: "2184"
+    rank: "3984"
 },{
     name: "globaltoken",
     code: "GLT",
@@ -8661,7 +8981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/globaltoken/"
     },
-    rank: "2153"
+    rank: "3953"
 },{
     name: "globalvillage-ecosystem",
     code: "GVE",
@@ -8671,7 +8991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/globalvillage-ecosystem/"
     },
-    rank: "2408"
+    rank: "4208"
 },{
     name: "gnosis-gno",
     code: "GNO",
@@ -8681,7 +9001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gnosis-gno/"
     },
-    rank: "236"
+    rank: "227"
 },{
     name: "gny",
     code: "GNY",
@@ -8691,7 +9011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gny/"
     },
-    rank: "327"
+    rank: "221"
 },{
     name: "gobyte",
     code: "GBX",
@@ -8701,7 +9021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gobyte/"
     },
-    rank: "1293"
+    rank: "3093"
 },{
     name: "gochain",
     code: "GO",
@@ -8711,7 +9031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gochain/"
     },
-    rank: "351"
+    rank: "369"
 },{
     name: "gohelpfund",
     code: "HELP",
@@ -8721,7 +9041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gohelpfund/"
     },
-    rank: "1663"
+    rank: "3463"
 },{
     name: "gold-bits-coin",
     code: "GBC",
@@ -8731,7 +9051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gold-bits-coin/"
     },
-    rank: "707"
+    rank: "2507"
 },{
     name: "gold-poker",
     code: "GPKR",
@@ -8741,7 +9061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gold-poker/"
     },
-    rank: "1684"
+    rank: "3484"
 },{
     name: "goldblocks",
     code: "GB",
@@ -8751,7 +9071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/goldblocks/"
     },
-    rank: "2118"
+    rank: "3918"
 },{
     name: "goldcoin",
     code: "GLD",
@@ -8761,7 +9081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/goldcoin/"
     },
-    rank: "1377"
+    rank: "3177"
 },{
     name: "goldmint",
     code: "MNTP",
@@ -8771,7 +9091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/goldmint/"
     },
-    rank: "1511"
+    rank: "3311"
 },{
     name: "golem-network-tokens",
     code: "GNT",
@@ -8781,7 +9101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/golem-network-tokens/"
     },
-    rank: "100"
+    rank: "110"
 },{
     name: "golfcoin",
     code: "GOLF",
@@ -8791,7 +9111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/golfcoin/"
     },
-    rank: "2094"
+    rank: "3894"
 },{
     name: "golos",
     code: "GOLOS",
@@ -8801,7 +9121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/golos/"
     },
-    rank: "1362"
+    rank: "3162"
 },{
     name: "golos-gold",
     code: "GBG",
@@ -8811,7 +9131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/golos-gold/"
     },
-    rank: "2550"
+    rank: "4350"
 },{
     name: "gonetwork",
     code: "GOT-1",
@@ -8821,7 +9141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gonetwork/"
     },
-    rank: "1217"
+    rank: "3017"
 },{
     name: "goodomy",
     code: "GOOD",
@@ -8831,7 +9151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/goodomy/"
     },
-    rank: "1889"
+    rank: "3689"
 },{
     name: "gossipcoin",
     code: "GOSS",
@@ -8841,7 +9161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gossipcoin/"
     },
-    rank: "1791"
+    rank: "3591"
 },{
     name: "gowithmi",
     code: "GMAT",
@@ -8851,7 +9171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gowithmi/"
     },
-    rank: "262"
+    rank: "299"
 },{
     name: "graft",
     code: "GRFT",
@@ -8861,7 +9181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/graft/"
     },
-    rank: "1070"
+    rank: "2870"
 },{
     name: "grandcoin",
     code: "GDC",
@@ -8871,7 +9191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/grandcoin/"
     },
-    rank: "2093"
+    rank: "3893"
 },{
     name: "graphcoin",
     code: "GRPH",
@@ -8881,7 +9201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/graphcoin/"
     },
-    rank: "2098"
+    rank: "3898"
 },{
     name: "graviocoin",
     code: "GIO",
@@ -8891,7 +9211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/graviocoin/"
     },
-    rank: "2527"
+    rank: "4327"
 },{
     name: "gravity",
     code: "GZRO",
@@ -8901,7 +9221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gravity/"
     },
-    rank: "1856"
+    rank: "3656"
 },{
     name: "greenmed",
     code: "GRMD",
@@ -8911,7 +9231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/greenmed/"
     },
-    rank: "1771"
+    rank: "3571"
 },{
     name: "greenpower",
     code: "GRN",
@@ -8921,7 +9241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/greenpower/"
     },
-    rank: "160"
+    rank: "262"
 },{
     name: "grid",
     code: "GRID",
@@ -8931,7 +9251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/grid/"
     },
-    rank: "1829"
+    rank: "3629"
 },{
     name: "gridcoin",
     code: "GRC",
@@ -8941,7 +9261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gridcoin/"
     },
-    rank: "1157"
+    rank: "2957"
 },{
     name: "grimcoin",
     code: "GRIM",
@@ -8951,7 +9271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/grimcoin/"
     },
-    rank: "2291"
+    rank: "4091"
 },{
     name: "grin",
     code: "GRIN",
@@ -8961,7 +9281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/grin/"
     },
-    rank: "117"
+    rank: "124"
 },{
     name: "groestlcoin",
     code: "GRS",
@@ -8971,7 +9291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/groestlcoin/"
     },
-    rank: "225"
+    rank: "235"
 },{
     name: "growers-international",
     code: "GRWI",
@@ -8981,7 +9301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/growers-international/"
     },
-    rank: "2115"
+    rank: "3915"
 },{
     name: "gsenetwork",
     code: "GSE",
@@ -8991,7 +9311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gsenetwork/"
     },
-    rank: "2441"
+    rank: "4241"
 },{
     name: "guaranteed-ethurance-token-extra",
     code: "GETX",
@@ -9001,7 +9321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/guaranteed-ethurance-token-extra/"
     },
-    rank: "1579"
+    rank: "3379"
 },{
     name: "guccionecoin",
     code: "GCC-1",
@@ -9011,7 +9331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/guccionecoin/"
     },
-    rank: "2167"
+    rank: "3967"
 },{
     name: "guess",
     code: "GUESS",
@@ -9021,7 +9341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/guess/"
     },
-    rank: "1781"
+    rank: "3581"
 },{
     name: "gulden",
     code: "NLG",
@@ -9031,7 +9351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gulden/"
     },
-    rank: "507"
+    rank: "500"
 },{
     name: "guppy",
     code: "GUP",
@@ -9041,7 +9361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/guppy/"
     },
-    rank: "1276"
+    rank: "3076"
 },{
     name: "gxchain",
     code: "GXC",
@@ -9051,7 +9371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gxchain/"
     },
-    rank: "104"
+    rank: "128"
 },{
     name: "gxchain",
     code: "GXS",
@@ -9061,7 +9381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gxchain/"
     },
-    rank: "689"
+    rank: "2489"
 },{
     name: "hacken",
     code: "HKN",
@@ -9071,7 +9391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hacken/"
     },
-    rank: "1241"
+    rank: "3041"
 },{
     name: "hackspace-capital",
     code: "HAC",
@@ -9081,7 +9401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hackspace-capital/"
     },
-    rank: "1960"
+    rank: "3760"
 },{
     name: "halcyon",
     code: "HAL",
@@ -9091,7 +9411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/halcyon/"
     },
-    rank: "2112"
+    rank: "3912"
 },{
     name: "halloween-coin",
     code: "HALLO",
@@ -9101,7 +9421,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/halloween-coin/"
     },
-    rank: "2590"
+    rank: "4390"
+},{
+    name: "halo-platform",
+    code: "HALO",
+    icon: "halo",
+    longname: "Halo Platform",
+    description: "Halo Platform coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/halo-platform/"
+    },
+    rank: "488"
 },{
     name: "happycoin",
     code: "HPC",
@@ -9111,7 +9441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/happycoin/"
     },
-    rank: "968"
+    rank: "2768"
 },{
     name: "haracoin",
     code: "HRC",
@@ -9121,7 +9451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/haracoin/"
     },
-    rank: "2529"
+    rank: "4329"
 },{
     name: "harmony",
     code: "ONE",
@@ -9131,7 +9461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/harmony/"
     },
-    rank: "185"
+    rank: "246"
 },{
     name: "harmonycoin-hmc",
     code: "HMC-1",
@@ -9141,7 +9471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/harmonycoin-hmc/"
     },
-    rank: "2335"
+    rank: "4135"
 },{
     name: "harvest-masternode-coin",
     code: "HC-1",
@@ -9151,7 +9481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/harvest-masternode-coin/"
     },
-    rank: "2219"
+    rank: "4019"
 },{
     name: "hashcoin",
     code: "HSC",
@@ -9161,7 +9491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hashcoin/"
     },
-    rank: "1205"
+    rank: "3005"
 },{
     name: "hashgard",
     code: "GARD",
@@ -9173,6 +9503,16 @@ var otherCoins = [{
     },
     rank: "582"
 },{
+    name: "hashsbx",
+    code: "HBX",
+    icon: "hbx",
+    longname: "HashBX ",
+    description: "HashBX  coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/hashsbx/"
+    },
+    rank: "580"
+},{
     name: "haven-protocol",
     code: "XHV",
     icon: "xhv",
@@ -9181,7 +9521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/haven-protocol/"
     },
-    rank: "952"
+    rank: "2752"
 },{
     name: "havven",
     code: "HAV",
@@ -9191,7 +9531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/havven/"
     },
-    rank: "1085"
+    rank: "2885"
 },{
     name: "havy",
     code: "HAVY",
@@ -9201,7 +9541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/havy/"
     },
-    rank: "1794"
+    rank: "3594"
 },{
     name: "hdac",
     code: "HDAC",
@@ -9211,7 +9551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hdac/"
     },
-    rank: "2433"
+    rank: "4233"
 },{
     name: "heartbout",
     code: "HB",
@@ -9221,7 +9561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/heartbout/"
     },
-    rank: "1485"
+    rank: "3285"
 },{
     name: "heat-ledger",
     code: "HEAT",
@@ -9231,7 +9571,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/heat-ledger/"
     },
-    rank: "1862"
+    rank: "3662"
+},{
+    name: "hedera-hashgraph",
+    code: "HBAR",
+    icon: "hbar",
+    longname: "Hedera Hashgraph",
+    description: "Hedera Hashgraph coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/hedera-hashgraph/"
+    },
+    rank: "190"
 },{
     name: "hedgetrade",
     code: "HEDG",
@@ -9241,7 +9591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hedgetrade/"
     },
-    rank: "32"
+    rank: "40"
 },{
     name: "helbiz",
     code: "HBZ",
@@ -9251,7 +9601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/helbiz/"
     },
-    rank: "1477"
+    rank: "3277"
 },{
     name: "helium",
     code: "HLM",
@@ -9261,7 +9611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/helium/"
     },
-    rank: "1291"
+    rank: "3091"
 },{
     name: "helleniccoin",
     code: "HNC",
@@ -9271,7 +9621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/helleniccoin/"
     },
-    rank: "1961"
+    rank: "3761"
 },{
     name: "hellogold",
     code: "HGT",
@@ -9281,7 +9631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hellogold/"
     },
-    rank: "1881"
+    rank: "3681"
 },{
     name: "help-the-homeless-coin",
     code: "HTH",
@@ -9291,7 +9641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/help-the-homeless-coin/"
     },
-    rank: "2156"
+    rank: "3956"
 },{
     name: "helper-search-token",
     code: "HSN",
@@ -9301,7 +9651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/helper-search-token/"
     },
-    rank: "2566"
+    rank: "4366"
 },{
     name: "hempcoin",
     code: "THC",
@@ -9311,7 +9661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hempcoin/"
     },
-    rank: "1134"
+    rank: "2934"
 },{
     name: "herocoin",
     code: "PLAY",
@@ -9321,7 +9671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/herocoin/"
     },
-    rank: "1475"
+    rank: "3275"
 },{
     name: "heronode",
     code: "HER",
@@ -9331,7 +9681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/heronode/"
     },
-    rank: "1383"
+    rank: "3183"
 },{
     name: "hexx",
     code: "HXX",
@@ -9341,7 +9691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hexx/"
     },
-    rank: "1447"
+    rank: "3247"
 },{
     name: "hi-mutual-society",
     code: "HMC",
@@ -9351,7 +9701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hi-mutual-society/"
     },
-    rank: "480"
+    rank: "481"
 },{
     name: "hicoin",
     code: "XHI",
@@ -9361,7 +9711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hicoin/"
     },
-    rank: "1400"
+    rank: "3200"
 },{
     name: "high-performance-blockchain",
     code: "HPB",
@@ -9371,7 +9721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/high-performance-blockchain/"
     },
-    rank: "260"
+    rank: "427"
 },{
     name: "high-voltage",
     code: "HVCO",
@@ -9381,7 +9731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/high-voltage/"
     },
-    rank: "2249"
+    rank: "4049"
 },{
     name: "hirematch",
     code: "HIRE",
@@ -9391,7 +9741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hirematch/"
     },
-    rank: "1980"
+    rank: "3780"
 },{
     name: "hitchain",
     code: "HIT",
@@ -9401,7 +9751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hitchain/"
     },
-    rank: "2364"
+    rank: "4164"
 },{
     name: "hiveterminal-token",
     code: "HVN",
@@ -9411,7 +9761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hiveterminal-token/"
     },
-    rank: "1063"
+    rank: "2863"
 },{
     name: "hodlcoin",
     code: "HODL",
@@ -9421,7 +9771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hodlcoin/"
     },
-    rank: "2031"
+    rank: "3831"
 },{
     name: "hold",
     code: "HOLD",
@@ -9431,7 +9781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hold/"
     },
-    rank: "1481"
+    rank: "3281"
 },{
     name: "hollywoodcoin",
     code: "HWC",
@@ -9441,7 +9791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hollywoodcoin/"
     },
-    rank: "1180"
+    rank: "2980"
 },{
     name: "homeblockcoin",
     code: "HBC",
@@ -9451,7 +9801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/homeblockcoin/"
     },
-    rank: "2236"
+    rank: "4036"
 },{
     name: "hondaiscoin",
     code: "HNDC",
@@ -9461,7 +9811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hondaiscoin/"
     },
-    rank: "2557"
+    rank: "4357"
 },{
     name: "honey",
     code: "HONEY",
@@ -9471,7 +9821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/honey/"
     },
-    rank: "2133"
+    rank: "3933"
 },{
     name: "hoqu",
     code: "HQX",
@@ -9481,7 +9831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hoqu/"
     },
-    rank: "1385"
+    rank: "3185"
 },{
     name: "horuspay",
     code: "HORUS",
@@ -9491,7 +9841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/horuspay/"
     },
-    rank: "945"
+    rank: "2745"
 },{
     name: "howdoo",
     code: "UDOO",
@@ -9501,7 +9851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/howdoo/"
     },
-    rank: "1163"
+    rank: "2963"
 },{
     name: "html-coin",
     code: "HTML",
@@ -9511,7 +9861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/html-coin/"
     },
-    rank: "1044"
+    rank: "2844"
 },{
     name: "hubii-network",
     code: "HBT",
@@ -9521,7 +9871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hubii-network/"
     },
-    rank: "410"
+    rank: "581"
 },{
     name: "humaniq",
     code: "HMQ",
@@ -9531,7 +9881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/humaniq/"
     },
-    rank: "1207"
+    rank: "3007"
 },{
     name: "humanscape",
     code: "HUM",
@@ -9541,7 +9891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/humanscape/"
     },
-    rank: "959"
+    rank: "459"
 },{
     name: "huntercoin",
     code: "HUC",
@@ -9551,7 +9901,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/huntercoin/"
     },
-    rank: "1586"
+    rank: "3386"
+},{
+    name: "huobi-pool-token",
+    code: "HPT",
+    icon: "hpt",
+    longname: "Huobi Pool Token",
+    description: "Huobi Pool Token coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/huobi-pool-token/"
+    },
+    rank: "126"
 },{
     name: "huobi-token",
     code: "HT",
@@ -9561,7 +9921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/huobi-token/"
     },
-    rank: "15"
+    rank: "16"
 },{
     name: "hurify",
     code: "HUR",
@@ -9571,7 +9931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hurify/"
     },
-    rank: "1636"
+    rank: "3436"
 },{
     name: "hush",
     code: "HUSH",
@@ -9581,7 +9941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hush/"
     },
-    rank: "1916"
+    rank: "3716"
 },{
     name: "huzu",
     code: "HUZU",
@@ -9591,7 +9951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/huzu/"
     },
-    rank: "1686"
+    rank: "3486"
 },{
     name: "hybrid-block",
     code: "HYB",
@@ -9601,7 +9961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hybrid-block/"
     },
-    rank: "2493"
+    rank: "4293"
 },{
     name: "hycon",
     code: "HYC",
@@ -9611,7 +9971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hycon/"
     },
-    rank: "300"
+    rank: "296"
 },{
     name: "hydro-protocol",
     code: "HOT-1",
@@ -9621,7 +9981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hydro-protocol/"
     },
-    rank: "1152"
+    rank: "2952"
 },{
     name: "hydro-protocol",
     code: "HOT",
@@ -9631,7 +9991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hydro-protocol/"
     },
-    rank: "420"
+    rank: "548"
 },{
     name: "hydrogen",
     code: "HYDRO",
@@ -9641,7 +10001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hydrogen/"
     },
-    rank: "312"
+    rank: "372"
 },{
     name: "hypercash",
     code: "HC",
@@ -9651,7 +10011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hypercash/"
     },
-    rank: "65"
+    rank: "73"
 },{
     name: "hyperion",
     code: "HYN",
@@ -9661,7 +10021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hyperion/"
     },
-    rank: "209"
+    rank: "191"
 },{
     name: "hyperquant",
     code: "HQT",
@@ -9671,7 +10031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hyperquant/"
     },
-    rank: "2359"
+    rank: "4159"
 },{
     name: "hyperstake",
     code: "HYP",
@@ -9681,7 +10041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hyperstake/"
     },
-    rank: "1931"
+    rank: "3731"
 },{
     name: "i0coin",
     code: "I0C",
@@ -9691,7 +10051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/i0coin/"
     },
-    rank: "1911"
+    rank: "3711"
 },{
     name: "ibank",
     code: "IBANK",
@@ -9701,7 +10061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ibank/"
     },
-    rank: "2283"
+    rank: "4083"
 },{
     name: "ibtc",
     code: "IBTC",
@@ -9711,7 +10071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ibtc/"
     },
-    rank: "2146"
+    rank: "3946"
 },{
     name: "ice-rock-mining",
     code: "ROCK2",
@@ -9721,7 +10081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ice-rock-mining/"
     },
-    rank: "1049"
+    rank: "2849"
 },{
     name: "ico-openledger",
     code: "ICOO",
@@ -9731,7 +10091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ico-openledger/"
     },
-    rank: "2142"
+    rank: "3942"
 },{
     name: "icobid",
     code: "ICOB",
@@ -9741,7 +10101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/icobid/"
     },
-    rank: "2279"
+    rank: "4079"
 },{
     name: "icon",
     code: "ICX",
@@ -9751,7 +10111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/icon/"
     },
-    rank: "57"
+    rank: "74"
 },{
     name: "iconic",
     code: "ICON",
@@ -9761,7 +10121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iconic/"
     },
-    rank: "2277"
+    rank: "4077"
 },{
     name: "iconiq-lab-token",
     code: "ICNQ",
@@ -9771,7 +10131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iconiq-lab-token/"
     },
-    rank: "2456"
+    rank: "4256"
 },{
     name: "iconomi",
     code: "ICN",
@@ -9781,7 +10141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iconomi/"
     },
-    rank: "763"
+    rank: "2563"
 },{
     name: "idealcash",
     code: "DEAL",
@@ -9791,7 +10151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/idealcash/"
     },
-    rank: "2051"
+    rank: "3851"
 },{
     name: "idex",
     code: "IDEX",
@@ -9801,7 +10161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/idex/"
     },
-    rank: "322"
+    rank: "420"
 },{
     name: "idex-membership",
     code: "IDXM",
@@ -9811,7 +10171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/idex-membership/"
     },
-    rank: "1507"
+    rank: "3307"
 },{
     name: "idol-coin",
     code: "IDOL",
@@ -9821,7 +10181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/idol-coin/"
     },
-    rank: "2565"
+    rank: "4365"
 },{
     name: "iethereum",
     code: "IETH",
@@ -9831,7 +10191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iethereum/"
     },
-    rank: "1924"
+    rank: "3724"
 },{
     name: "ifoods-chain",
     code: "IFOOD",
@@ -9841,7 +10201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ifoods-chain/"
     },
-    rank: "1248"
+    rank: "3048"
 },{
     name: "ignis",
     code: "IGNIS",
@@ -9851,7 +10211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ignis/"
     },
-    rank: "172"
+    rank: "168"
 },{
     name: "ignition",
     code: "IC",
@@ -9861,7 +10221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ignition/"
     },
-    rank: "2029"
+    rank: "3829"
 },{
     name: "igtoken",
     code: "IG",
@@ -9871,7 +10231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/igtoken/"
     },
-    rank: "1717"
+    rank: "3517"
 },{
     name: "iht-real-estate-protocol",
     code: "IHT",
@@ -9881,7 +10241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iht-real-estate-protocol/"
     },
-    rank: "588"
+    rank: "2388"
 },{
     name: "ilcoin",
     code: "ILC",
@@ -9891,7 +10251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ilcoin/"
     },
-    rank: "290"
+    rank: "121"
 },{
     name: "imagecoin",
     code: "IMG",
@@ -9901,7 +10261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/imagecoin/"
     },
-    rank: "519"
+    rank: "2319"
 },{
     name: "imbrex",
     code: "REX",
@@ -9911,7 +10271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/imbrex/"
     },
-    rank: "1920"
+    rank: "3720"
 },{
     name: "impact",
     code: "IMX",
@@ -9921,7 +10281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/impact/"
     },
-    rank: "2147"
+    rank: "3947"
 },{
     name: "incakoin",
     code: "NKA",
@@ -9931,7 +10291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/incakoin/"
     },
-    rank: "1959"
+    rank: "3759"
 },{
     name: "incent",
     code: "INCNT",
@@ -9941,7 +10301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/incent/"
     },
-    rank: "321"
+    rank: "374"
 },{
     name: "incodium",
     code: "INCO",
@@ -9951,7 +10311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/incodium/"
     },
-    rank: "2495"
+    rank: "4295"
 },{
     name: "indahash",
     code: "IDH",
@@ -9961,7 +10321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/indahash/"
     },
-    rank: "533"
+    rank: "2333"
 },{
     name: "independent-money-system",
     code: "IMS",
@@ -9971,7 +10331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/independent-money-system/"
     },
-    rank: "2242"
+    rank: "4042"
 },{
     name: "indinode",
     code: "XIND",
@@ -9981,7 +10341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/indinode/"
     },
-    rank: "2211"
+    rank: "4011"
 },{
     name: "indorse-token",
     code: "IND",
@@ -9991,7 +10351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/indorse-token/"
     },
-    rank: "1549"
+    rank: "3349"
 },{
     name: "infinitecoin",
     code: "IFC",
@@ -10001,7 +10361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/infinitecoin/"
     },
-    rank: "2444"
+    rank: "4244"
 },{
     name: "infinity-economics",
     code: "XIN-1",
@@ -10011,7 +10371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/infinity-economics/"
     },
-    rank: "2339"
+    rank: "4139"
 },{
     name: "inflationcoin",
     code: "IFLT",
@@ -10021,7 +10381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/inflationcoin/"
     },
-    rank: "1722"
+    rank: "3522"
 },{
     name: "influence-chain",
     code: "INC",
@@ -10031,7 +10391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/influence-chain/"
     },
-    rank: "2402"
+    rank: "4202"
 },{
     name: "ink",
     code: "INK",
@@ -10041,7 +10401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ink/"
     },
-    rank: "1084"
+    rank: "2884"
 },{
     name: "ink-protocol",
     code: "XNK",
@@ -10051,7 +10411,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ink-protocol/"
     },
-    rank: "1254"
+    rank: "3054"
+},{
+    name: "inlock",
+    code: "ILK",
+    icon: "ilk",
+    longname: "INLOCK",
+    description: "INLOCK coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/inlock/"
+    },
+    rank: "544"
 },{
     name: "innova",
     code: "INN",
@@ -10061,7 +10431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/innova/"
     },
-    rank: "1992"
+    rank: "3792"
 },{
     name: "ino-coin",
     code: "INO",
@@ -10071,7 +10441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ino-coin/"
     },
-    rank: "28"
+    rank: "27"
 },{
     name: "insanecoin-insn",
     code: "INSN",
@@ -10081,7 +10451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insanecoin-insn/"
     },
-    rank: "1757"
+    rank: "3557"
 },{
     name: "insight-chain",
     code: "INB",
@@ -10091,7 +10461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insight-chain/"
     },
-    rank: "50"
+    rank: "36"
 },{
     name: "insights-network",
     code: "INSTAR",
@@ -10101,7 +10471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insights-network/"
     },
-    rank: "512"
+    rank: "2312"
 },{
     name: "insolar",
     code: "INS",
@@ -10111,7 +10481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insolar/"
     },
-    rank: "340"
+    rank: "394"
 },{
     name: "insurchain",
     code: "INSUR",
@@ -10121,7 +10491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insurchain/"
     },
-    rank: "2389"
+    rank: "4189"
 },{
     name: "insurepal",
     code: "IPL",
@@ -10131,7 +10501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insurepal/"
     },
-    rank: "1380"
+    rank: "3180"
 },{
     name: "insureum",
     code: "ISR",
@@ -10141,7 +10511,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insureum/"
     },
-    rank: "1095"
+    rank: "2895"
+},{
+    name: "int-chain",
+    code: "INT",
+    icon: "int",
+    longname: "INT Chain",
+    description: "INT Chain coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/int-chain/"
+    },
+    rank: "326"
 },{
     name: "intelligent-investment-chain",
     code: "IIC",
@@ -10151,7 +10531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intelligent-investment-chain/"
     },
-    rank: "2390"
+    rank: "4190"
 },{
     name: "intelligent-trading-foundation",
     code: "ITT",
@@ -10161,7 +10541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intelligent-trading-foundation/"
     },
-    rank: "1749"
+    rank: "3549"
 },{
     name: "intellishare",
     code: "INE",
@@ -10171,7 +10551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intellishare/"
     },
-    rank: "378"
+    rank: "482"
 },{
     name: "intercrone",
     code: "ICR",
@@ -10181,7 +10561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intercrone/"
     },
-    rank: "1430"
+    rank: "3230"
 },{
     name: "internationalcryptox",
     code: "INCX",
@@ -10191,17 +10571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/internationalcryptox/"
     },
-    rank: "2429"
-},{
-    name: "internet-node-token",
-    code: "INT",
-    icon: "int",
-    longname: "Internet Node Token",
-    description: "Internet Node Token coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/internet-node-token/"
-    },
-    rank: "951"
+    rank: "4229"
 },{
     name: "internet-of-people",
     code: "IOP",
@@ -10211,7 +10581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/internet-of-people/"
     },
-    rank: "1427"
+    rank: "3227"
 },{
     name: "internet-of-things",
     code: "XOT",
@@ -10221,7 +10591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/internet-of-things/"
     },
-    rank: "2579"
+    rank: "4379"
 },{
     name: "internxt",
     code: "INXT",
@@ -10231,7 +10601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/internxt/"
     },
-    rank: "1444"
+    rank: "3244"
 },{
     name: "intervalue",
     code: "INVE",
@@ -10241,7 +10611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intervalue/"
     },
-    rank: "1483"
+    rank: "3283"
 },{
     name: "interzone",
     code: "ITZ",
@@ -10251,7 +10621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/interzone/"
     },
-    rank: "2328"
+    rank: "4128"
 },{
     name: "invacio",
     code: "INV",
@@ -10261,7 +10631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/invacio/"
     },
-    rank: "1440"
+    rank: "3240"
 },{
     name: "investdigital",
     code: "IDT",
@@ -10271,7 +10641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/investdigital/"
     },
-    rank: "2407"
+    rank: "4207"
 },{
     name: "investfeed",
     code: "IFT",
@@ -10281,7 +10651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/investfeed/"
     },
-    rank: "1898"
+    rank: "3698"
 },{
     name: "invictus-hyperion-fund",
     code: "IHF",
@@ -10291,7 +10661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/invictus-hyperion-fund/"
     },
-    rank: "2537"
+    rank: "491"
 },{
     name: "iocoin",
     code: "IOC",
@@ -10301,7 +10671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iocoin/"
     },
-    rank: "597"
+    rank: "2397"
 },{
     name: "ion",
     code: "ION",
@@ -10311,7 +10681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ion/"
     },
-    rank: "985"
+    rank: "2785"
 },{
     name: "ionchain",
     code: "IONC",
@@ -10321,7 +10691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ionchain/"
     },
-    rank: "1675"
+    rank: "3475"
 },{
     name: "iostoken",
     code: "IOST",
@@ -10331,7 +10701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iostoken/"
     },
-    rank: "73"
+    rank: "80"
 },{
     name: "iot-chain",
     code: "ITC",
@@ -10341,7 +10711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iot-chain/"
     },
-    rank: "250"
+    rank: "291"
 },{
     name: "iota",
     code: "MIOTA",
@@ -10351,7 +10721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iota/"
     },
-    rank: "19"
+    rank: "18"
 },{
     name: "iotex",
     code: "IOTX",
@@ -10361,7 +10731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iotex/"
     },
-    rank: "210"
+    rank: "177"
 },{
     name: "ip-exchange",
     code: "IPSX",
@@ -10371,7 +10741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ip-exchange/"
     },
-    rank: "1422"
+    rank: "3222"
 },{
     name: "ipchain",
     code: "IPC",
@@ -10381,7 +10751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ipchain/"
     },
-    rank: "138"
+    rank: "478"
 },{
     name: "iqcash",
     code: "IQ-1",
@@ -10391,7 +10761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iqcash/"
     },
-    rank: "2139"
+    rank: "3939"
 },{
     name: "iqeon",
     code: "IQN",
@@ -10401,7 +10771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iqeon/"
     },
-    rank: "1593"
+    rank: "585"
 },{
     name: "iridium",
     code: "IRD",
@@ -10411,7 +10781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iridium/"
     },
-    rank: "2017"
+    rank: "3817"
 },{
     name: "irishcoin",
     code: "IRL",
@@ -10421,7 +10791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/irishcoin/"
     },
-    rank: "2150"
+    rank: "3950"
 },{
     name: "irisnet",
     code: "IRIS",
@@ -10431,7 +10801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/irisnet/"
     },
-    rank: "304"
+    rank: "277"
 },{
     name: "italian-lira",
     code: "ITL",
@@ -10441,7 +10811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/italian-lira/"
     },
-    rank: "1725"
+    rank: "3525"
 },{
     name: "iticoin",
     code: "ITI",
@@ -10451,7 +10821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iticoin/"
     },
-    rank: "2068"
+    rank: "3868"
 },{
     name: "iungo",
     code: "ING",
@@ -10461,7 +10831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iungo/"
     },
-    rank: "1652"
+    rank: "3452"
 },{
     name: "ivy",
     code: "IVY",
@@ -10471,7 +10841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ivy/"
     },
-    rank: "1133"
+    rank: "2933"
 },{
     name: "ixcoin",
     code: "IXC",
@@ -10481,7 +10851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ixcoin/"
     },
-    rank: "1902"
+    rank: "3702"
 },{
     name: "ixledger",
     code: "IXT",
@@ -10491,7 +10861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ixledger/"
     },
-    rank: "1218"
+    rank: "3018"
 },{
     name: "ixtus-edutainment",
     code: "IXE",
@@ -10501,7 +10871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ixtus-edutainment/"
     },
-    rank: "1784"
+    rank: "3584"
 },{
     name: "japan-content-token",
     code: "JCT",
@@ -10511,7 +10881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/japan-content-token/"
     },
-    rank: "111"
+    rank: "1911"
 },{
     name: "javascript-token",
     code: "JS",
@@ -10521,7 +10891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/javascript-token/"
     },
-    rank: "2256"
+    rank: "4056"
 },{
     name: "jesus-coin",
     code: "JC",
@@ -10531,7 +10901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jesus-coin/"
     },
-    rank: "2035"
+    rank: "3835"
 },{
     name: "jet8",
     code: "J8T",
@@ -10541,7 +10911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jet8/"
     },
-    rank: "1458"
+    rank: "3258"
 },{
     name: "jetcoin",
     code: "JET",
@@ -10551,7 +10921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jetcoin/"
     },
-    rank: "1745"
+    rank: "3545"
 },{
     name: "jibrel-network",
     code: "JNT",
@@ -10561,7 +10931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jibrel-network/"
     },
-    rank: "425"
+    rank: "505"
 },{
     name: "jin-coin",
     code: "JIN",
@@ -10571,7 +10941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jin-coin/"
     },
-    rank: "2096"
+    rank: "3896"
 },{
     name: "jingtum-tech",
     code: "SWTC",
@@ -10581,7 +10951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jingtum-tech/"
     },
-    rank: "2513"
+    rank: "4313"
 },{
     name: "jiyo",
     code: "JIYOX",
@@ -10591,7 +10961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jiyo/"
     },
-    rank: "2261"
+    rank: "4061"
 },{
     name: "jiyo-old",
     code: "JIYO",
@@ -10601,7 +10971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jiyo-old/"
     },
-    rank: "2299"
+    rank: "4099"
 },{
     name: "joincoin",
     code: "J",
@@ -10611,7 +10981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/joincoin/"
     },
-    rank: "2107"
+    rank: "3907"
 },{
     name: "joint-ventures",
     code: "JOINT",
@@ -10621,7 +10991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/joint-ventures/"
     },
-    rank: "1800"
+    rank: "3600"
 },{
     name: "joulecoin",
     code: "XJO",
@@ -10631,7 +11001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/joulecoin/"
     },
-    rank: "1967"
+    rank: "3767"
 },{
     name: "jsecoin",
     code: "JSE",
@@ -10641,7 +11011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jsecoin/"
     },
-    rank: "1449"
+    rank: "3249"
 },{
     name: "jury-online-token",
     code: "JOT",
@@ -10651,7 +11021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jury-online-token/"
     },
-    rank: "1628"
+    rank: "3428"
 },{
     name: "kalkulus",
     code: "KLKS",
@@ -10661,7 +11031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kalkulus/"
     },
-    rank: "1631"
+    rank: "3431"
 },{
     name: "kanadecoin",
     code: "KNDC",
@@ -10671,7 +11041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kanadecoin/"
     },
-    rank: "2039"
+    rank: "3839"
 },{
     name: "karatgold-coin",
     code: "KBC",
@@ -10681,7 +11051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/karatgold-coin/"
     },
-    rank: "71"
+    rank: "82"
 },{
     name: "karbo",
     code: "KRB",
@@ -10691,7 +11061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/karbo/"
     },
-    rank: "1539"
+    rank: "3339"
 },{
     name: "karma",
     code: "KRM",
@@ -10701,7 +11071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/karma/"
     },
-    rank: "1189"
+    rank: "2989"
 },{
     name: "karma-eos",
     code: "KARMA",
@@ -10711,7 +11081,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/karma-eos/"
     },
-    rank: "1826"
+    rank: "3626"
+},{
+    name: "kava",
+    code: "KAVA",
+    icon: "kava",
+    longname: "Kava",
+    description: "Kava coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/kava/"
+    },
+    rank: "376"
 },{
     name: "kcash",
     code: "KCASH",
@@ -10721,7 +11101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kcash/"
     },
-    rank: "516"
+    rank: "563"
 },{
     name: "kekcoin",
     code: "KEK",
@@ -10731,7 +11111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kekcoin/"
     },
-    rank: "1964"
+    rank: "3764"
 },{
     name: "key",
     code: "KEY-1",
@@ -10741,7 +11121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/key/"
     },
-    rank: "2428"
+    rank: "4228"
 },{
     name: "kickico",
     code: "KICK",
@@ -10751,7 +11131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kickico/"
     },
-    rank: "1027"
+    rank: "2827"
 },{
     name: "kin",
     code: "KIN",
@@ -10761,7 +11141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kin/"
     },
-    rank: "283"
+    rank: "411"
 },{
     name: "kind-ads-token",
     code: "KIND",
@@ -10771,7 +11151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kind-ads-token/"
     },
-    rank: "1849"
+    rank: "3649"
 },{
     name: "kingn-coin",
     code: "KNC-1",
@@ -10781,7 +11161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kingn-coin/"
     },
-    rank: "2244"
+    rank: "4044"
 },{
     name: "kingxchain",
     code: "KXC",
@@ -10791,7 +11171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kingxchain/"
     },
-    rank: "2507"
+    rank: "4307"
 },{
     name: "kleros",
     code: "PNK",
@@ -10801,7 +11181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kleros/"
     },
-    rank: "1417"
+    rank: "3217"
 },{
     name: "knekted",
     code: "KNT-1",
@@ -10811,7 +11191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/knekted/"
     },
-    rank: "2050"
+    rank: "3850"
 },{
     name: "know",
     code: "KNOW",
@@ -10821,7 +11201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/know/"
     },
-    rank: "2352"
+    rank: "4152"
 },{
     name: "knoxstertoken",
     code: "FKX",
@@ -10831,7 +11211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/knoxstertoken/"
     },
-    rank: "1951"
+    rank: "3751"
 },{
     name: "kobocoin",
     code: "KOBO",
@@ -10841,7 +11221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kobocoin/"
     },
-    rank: "1945"
+    rank: "3745"
 },{
     name: "kolion",
     code: "KLN",
@@ -10851,7 +11231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kolion/"
     },
-    rank: "1643"
+    rank: "3443"
 },{
     name: "komodo",
     code: "KMD",
@@ -10861,7 +11241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/komodo/"
     },
-    rank: "82"
+    rank: "62"
 },{
     name: "kora-network-token",
     code: "KNT",
@@ -10871,7 +11251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kora-network-token/"
     },
-    rank: "1522"
+    rank: "3322"
 },{
     name: "korecoin",
     code: "KORE",
@@ -10881,7 +11261,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/korecoin/"
     },
-    rank: "1411"
+    rank: "3211"
+},{
+    name: "krios",
+    code: "KRI",
+    icon: "kri",
+    longname: "Krios",
+    description: "Krios coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/krios/"
+    },
+    rank: "507"
 },{
     name: "kronecoin",
     code: "KRONE",
@@ -10891,7 +11281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kronecoin/"
     },
-    rank: "2278"
+    rank: "4078"
 },{
     name: "kryll",
     code: "KRL",
@@ -10901,7 +11291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kryll/"
     },
-    rank: "1581"
+    rank: "3381"
 },{
     name: "kubera-coin",
     code: "KBR",
@@ -10911,7 +11301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kubera-coin/"
     },
-    rank: "2276"
+    rank: "4076"
 },{
     name: "kucoin-shares",
     code: "KCS",
@@ -10921,7 +11311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kucoin-shares/"
     },
-    rank: "48"
+    rank: "63"
 },{
     name: "kun",
     code: "KUN",
@@ -10931,7 +11321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kun/"
     },
-    rank: "1799"
+    rank: "3599"
 },{
     name: "kurrent",
     code: "KURT",
@@ -10941,7 +11331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kurrent/"
     },
-    rank: "2191"
+    rank: "3991"
 },{
     name: "kwhcoin",
     code: "KWH",
@@ -10951,7 +11341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kwhcoin/"
     },
-    rank: "2419"
+    rank: "4219"
 },{
     name: "kyber-network",
     code: "KNC",
@@ -10961,7 +11351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kyber-network/"
     },
-    rank: "163"
+    rank: "158"
 },{
     name: "kz-cash",
     code: "KZC",
@@ -10971,7 +11361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kz-cash/"
     },
-    rank: "2030"
+    rank: "3830"
 },{
     name: "labh-coin",
     code: "LABH",
@@ -10981,7 +11371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/labh-coin/"
     },
-    rank: "2599"
+    rank: "4399"
 },{
     name: "lala-world",
     code: "LALA",
@@ -10991,7 +11381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lala-world/"
     },
-    rank: "1508"
+    rank: "3308"
 },{
     name: "lambda",
     code: "LAMB",
@@ -11001,7 +11391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lambda/"
     },
-    rank: "62"
+    rank: "160"
 },{
     name: "lamden",
     code: "TAU",
@@ -11011,7 +11401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lamden/"
     },
-    rank: "1071"
+    rank: "2871"
 },{
     name: "lampix",
     code: "PIX",
@@ -11021,7 +11411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lampix/"
     },
-    rank: "1882"
+    rank: "3682"
 },{
     name: "lanacoin",
     code: "LANA",
@@ -11031,7 +11421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lanacoin/"
     },
-    rank: "2073"
+    rank: "3873"
 },{
     name: "latiumx",
     code: "LATX",
@@ -11041,7 +11431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/latiumx/"
     },
-    rank: "1431"
+    rank: "3231"
 },{
     name: "latoken",
     code: "LA",
@@ -11051,7 +11441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/latoken/"
     },
-    rank: "158"
+    rank: "149"
 },{
     name: "leadcoin",
     code: "LDC",
@@ -11061,7 +11451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/leadcoin/"
     },
-    rank: "1616"
+    rank: "3416"
 },{
     name: "legolas-exchange",
     code: "LGO",
@@ -11071,7 +11461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/legolas-exchange/"
     },
-    rank: "950"
+    rank: "2750"
 },{
     name: "lemochain",
     code: "LEMO",
@@ -11081,7 +11471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lemochain/"
     },
-    rank: "2440"
+    rank: "4240"
 },{
     name: "lendingblock",
     code: "LND",
@@ -11091,7 +11481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lendingblock/"
     },
-    rank: "406"
+    rank: "2206"
 },{
     name: "lendroid-support-token",
     code: "LST",
@@ -11101,17 +11491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lendroid-support-token/"
     },
-    rank: "2548"
-},{
-    name: "leocoin",
-    code: "LEO",
-    icon: "leo",
-    longname: "LEOcoin",
-    description: "LEOcoin coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/leocoin/"
-    },
-    rank: "586"
+    rank: "4348"
 },{
     name: "lethean",
     code: "LTHN",
@@ -11121,7 +11501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lethean/"
     },
-    rank: "1484"
+    rank: "3284"
 },{
     name: "level-up",
     code: "LUC",
@@ -11131,7 +11511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/level-up/"
     },
-    rank: "1446"
+    rank: "3246"
 },{
     name: "leverj",
     code: "LEV",
@@ -11141,7 +11521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/leverj/"
     },
-    rank: "1837"
+    rank: "3637"
 },{
     name: "leviar",
     code: "XLC",
@@ -11151,7 +11531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/leviar/"
     },
-    rank: "2152"
+    rank: "3952"
 },{
     name: "levolution",
     code: "LEVL",
@@ -11161,7 +11541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/levolution/"
     },
-    rank: "295"
+    rank: "310"
 },{
     name: "libra-credit",
     code: "LBA",
@@ -11171,7 +11551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/libra-credit/"
     },
-    rank: "292"
+    rank: "264"
 },{
     name: "library-credit",
     code: "LBC",
@@ -11181,7 +11561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/library-credit/"
     },
-    rank: "510"
+    rank: "2310"
 },{
     name: "life",
     code: "LIFE",
@@ -11191,7 +11571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/life/"
     },
-    rank: "1390"
+    rank: "3190"
 },{
     name: "lightchain",
     code: "LIGHT",
@@ -11201,17 +11581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightchain/"
     },
-    rank: "2379"
-},{
-    name: "lightning-bitcoin",
-    code: "LBTC",
-    icon: "lbtc",
-    longname: "Lightning Bitcoin",
-    description: "Lightning Bitcoin coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightning-bitcoin/"
-    },
-    rank: "330"
+    rank: "4179"
 },{
     name: "lightning-bitcoin",
     code: "LBTC-1",
@@ -11221,7 +11591,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightning-bitcoin/"
     },
-    rank: "2374"
+    rank: "4174"
+},{
+    name: "lightning-bitcoin",
+    code: "LBTC",
+    icon: "lbtc",
+    longname: "Lightning Bitcoin",
+    description: "Lightning Bitcoin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightning-bitcoin/"
+    },
+    rank: "320"
 },{
     name: "lightpaycoin",
     code: "LPC",
@@ -11231,7 +11611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightpaycoin/"
     },
-    rank: "1320"
+    rank: "3120"
 },{
     name: "likecoin",
     code: "LIKE",
@@ -11241,7 +11621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/likecoin/"
     },
-    rank: "1493"
+    rank: "3293"
 },{
     name: "lina",
     code: "LINA",
@@ -11251,7 +11631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lina/"
     },
-    rank: "177"
+    rank: "202"
 },{
     name: "linda",
     code: "LINDA",
@@ -11261,7 +11641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linda/"
     },
-    rank: "972"
+    rank: "2772"
 },{
     name: "linfinity",
     code: "LFT",
@@ -11271,7 +11651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linfinity/"
     },
-    rank: "1824"
+    rank: "3624"
 },{
     name: "linker-coin",
     code: "LNC-1",
@@ -11281,7 +11661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linker-coin/"
     },
-    rank: "1867"
+    rank: "3667"
 },{
     name: "linkey",
     code: "LKY",
@@ -11291,7 +11671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linkey/"
     },
-    rank: "704"
+    rank: "2504"
 },{
     name: "linkeye",
     code: "LET",
@@ -11301,7 +11681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linkeye/"
     },
-    rank: "542"
+    rank: "2342"
 },{
     name: "linx",
     code: "LINX",
@@ -11311,7 +11691,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linx/"
     },
-    rank: "1713"
+    rank: "3513"
+},{
+    name: "liquid-apps",
+    code: "DAPP",
+    icon: "dapp",
+    longname: "LiquidApps",
+    description: "LiquidApps coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/liquid-apps/"
+    },
+    rank: "469"
 },{
     name: "liquidity-network",
     code: "LQD",
@@ -11321,7 +11711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/liquidity-network/"
     },
-    rank: "1193"
+    rank: "2993"
 },{
     name: "lisk",
     code: "LSK",
@@ -11331,7 +11721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lisk/"
     },
-    rank: "46"
+    rank: "66"
 },{
     name: "litebar",
     code: "LTB",
@@ -11341,7 +11731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litebar/"
     },
-    rank: "2092"
+    rank: "3892"
 },{
     name: "litecoin",
     code: "LTC",
@@ -11351,7 +11741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecoin/"
     },
-    rank: "5"
+    rank: "6"
 },{
     name: "litecoin-cash",
     code: "LCC",
@@ -11361,7 +11751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecoin-cash/"
     },
-    rank: "226"
+    rank: "315"
 },{
     name: "litecoin-plus",
     code: "LCP",
@@ -11371,7 +11761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecoin-plus/"
     },
-    rank: "1743"
+    rank: "3543"
 },{
     name: "litecoin-ultra",
     code: "LTCU",
@@ -11381,7 +11771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecoin-ultra/"
     },
-    rank: "2311"
+    rank: "4111"
 },{
     name: "litecred",
     code: "LTCR",
@@ -11391,7 +11781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecred/"
     },
-    rank: "2260"
+    rank: "4060"
 },{
     name: "litedoge",
     code: "LDOGE",
@@ -11401,7 +11791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litedoge/"
     },
-    rank: "1482"
+    rank: "3282"
 },{
     name: "litex",
     code: "LXT",
@@ -11411,7 +11801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litex/"
     },
-    rank: "150"
+    rank: "424"
 },{
     name: "live-stars",
     code: "LIVE",
@@ -11421,7 +11811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/live-stars/"
     },
-    rank: "2006"
+    rank: "3806"
 },{
     name: "lobstex",
     code: "LOBS",
@@ -11431,7 +11821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lobstex/"
     },
-    rank: "1705"
+    rank: "3505"
 },{
     name: "local-coin-swap",
     code: "LCS",
@@ -11441,7 +11831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/local-coin-swap/"
     },
-    rank: "1141"
+    rank: "2941"
 },{
     name: "local-world-forwarders",
     code: "LWF",
@@ -11451,7 +11841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/local-world-forwarders/"
     },
-    rank: "1741"
+    rank: "3541"
 },{
     name: "locicoin",
     code: "LOCI",
@@ -11461,7 +11851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/locicoin/"
     },
-    rank: "1512"
+    rank: "3312"
 },{
     name: "lockchain",
     code: "LOC",
@@ -11471,7 +11861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lockchain/"
     },
-    rank: "388"
+    rank: "370"
 },{
     name: "logiscoin",
     code: "LGS",
@@ -11481,7 +11871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/logiscoin/"
     },
-    rank: "1502"
+    rank: "3302"
 },{
     name: "loki",
     code: "LOKI",
@@ -11491,7 +11881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/loki/"
     },
-    rank: "422"
+    rank: "268"
 },{
     name: "lomocoin",
     code: "LMC",
@@ -11501,7 +11891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lomocoin/"
     },
-    rank: "1835"
+    rank: "3635"
 },{
     name: "loom-network",
     code: "LOOM",
@@ -11511,7 +11901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/loom-network/"
     },
-    rank: "161"
+    rank: "204"
 },{
     name: "loopring",
     code: "LRC",
@@ -11521,7 +11911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/loopring/"
     },
-    rank: "151"
+    rank: "164"
 },{
     name: "loopring-neo",
     code: "LRN",
@@ -11531,7 +11921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/loopring-neo/"
     },
-    rank: "599"
+    rank: "2399"
 },{
     name: "loyalcoin",
     code: "LYL",
@@ -11541,7 +11931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/loyalcoin/"
     },
-    rank: "921"
+    rank: "2721"
 },{
     name: "lto-network",
     code: "LTO",
@@ -11551,17 +11941,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lto-network/"
     },
-    rank: "281"
+    rank: "447"
 },{
-    name: "luna-coin",
+    name: "luna",
     code: "LUNA",
     icon: "luna",
-    longname: "Luna Coin",
-    description: "Luna Coin coin",
+    longname: "LUNA",
+    description: "LUNA coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/luna-coin/"
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/luna/"
     },
-    rank: "2306"
+    rank: "60"
 },{
     name: "lunyr",
     code: "LUN",
@@ -11571,7 +11961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lunyr/"
     },
-    rank: "1012"
+    rank: "2812"
 },{
     name: "luxcoin",
     code: "LUX",
@@ -11581,7 +11971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/luxcoin/"
     },
-    rank: "1125"
+    rank: "2925"
 },{
     name: "lykke",
     code: "LKK",
@@ -11591,7 +11981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lykke/"
     },
-    rank: "1815"
+    rank: "3615"
 },{
     name: "lympo",
     code: "LYM",
@@ -11601,7 +11991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lympo/"
     },
-    rank: "437"
+    rank: "495"
 },{
     name: "lynx",
     code: "LYNX",
@@ -11611,7 +12001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lynx/"
     },
-    rank: "1597"
+    rank: "3397"
 },{
     name: "machine-xchange-coin",
     code: "MXC",
@@ -11621,7 +12011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/machine-xchange-coin/"
     },
-    rank: "565"
+    rank: "578"
 },{
     name: "maecenas",
     code: "ART",
@@ -11631,7 +12021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maecenas/"
     },
-    rank: "1832"
+    rank: "3632"
 },{
     name: "maggie",
     code: "MAG",
@@ -11641,7 +12031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maggie/"
     },
-    rank: "2488"
+    rank: "4288"
 },{
     name: "magi",
     code: "XMG",
@@ -11651,7 +12041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/magi/"
     },
-    rank: "2055"
+    rank: "3855"
 },{
     name: "magiccoin",
     code: "MAGE",
@@ -11661,7 +12051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/magiccoin/"
     },
-    rank: "2049"
+    rank: "3849"
 },{
     name: "magnum",
     code: "MGM",
@@ -11671,7 +12061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/magnum/"
     },
-    rank: "2330"
+    rank: "4130"
 },{
     name: "maidsafecoin",
     code: "MAID",
@@ -11681,7 +12071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maidsafecoin/"
     },
-    rank: "74"
+    rank: "94"
 },{
     name: "mainframe",
     code: "MFT",
@@ -11691,7 +12081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mainframe/"
     },
-    rank: "325"
+    rank: "314"
 },{
     name: "mainstream-for-the-underground",
     code: "MFTU",
@@ -11701,7 +12091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mainstream-for-the-underground/"
     },
-    rank: "1796"
+    rank: "3596"
 },{
     name: "maker",
     code: "MKR",
@@ -11711,7 +12101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maker/"
     },
-    rank: "22"
+    rank: "21"
 },{
     name: "mallcoin",
     code: "MLC",
@@ -11721,7 +12111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mallcoin/"
     },
-    rank: "1425"
+    rank: "3225"
 },{
     name: "manna",
     code: "MANNA",
@@ -11731,7 +12121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/manna/"
     },
-    rank: "1883"
+    rank: "3683"
 },{
     name: "mao-zedong",
     code: "MAO",
@@ -11741,7 +12131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mao-zedong/"
     },
-    rank: "1662"
+    rank: "3462"
 },{
     name: "marijuanacoin",
     code: "MAR",
@@ -11751,7 +12141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/marijuanacoin/"
     },
-    rank: "2273"
+    rank: "4073"
 },{
     name: "mark-space",
     code: "MRK",
@@ -11761,7 +12151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mark-space/"
     },
-    rank: "1091"
+    rank: "2891"
 },{
     name: "marscoin",
     code: "MARS",
@@ -11771,7 +12161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/marscoin/"
     },
-    rank: "2100"
+    rank: "3900"
 },{
     name: "martexcoin",
     code: "MXT",
@@ -11781,7 +12171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/martexcoin/"
     },
-    rank: "1986"
+    rank: "3786"
 },{
     name: "masari",
     code: "MSR",
@@ -11791,7 +12181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/masari/"
     },
-    rank: "1243"
+    rank: "3043"
 },{
     name: "massgrid",
     code: "MGD",
@@ -11801,7 +12191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/massgrid/"
     },
-    rank: "553"
+    rank: "2353"
 },{
     name: "master-contract-token",
     code: "MCT",
@@ -11811,7 +12201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/master-contract-token/"
     },
-    rank: "2431"
+    rank: "4231"
 },{
     name: "master-swiscoin",
     code: "MSCN",
@@ -11821,7 +12211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/master-swiscoin/"
     },
-    rank: "2203"
+    rank: "4003"
 },{
     name: "masternet",
     code: "MASH",
@@ -11831,7 +12221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/masternet/"
     },
-    rank: "1552"
+    rank: "3352"
 },{
     name: "masternodecoin",
     code: "MTNC",
@@ -11841,7 +12231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/masternodecoin/"
     },
-    rank: "2105"
+    rank: "3905"
 },{
     name: "matic-network",
     code: "MATIC",
@@ -11851,7 +12241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/matic-network/"
     },
-    rank: "154"
+    rank: "139"
 },{
     name: "matrix-ai-network",
     code: "MAN",
@@ -11861,7 +12251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/matrix-ai-network/"
     },
-    rank: "275"
+    rank: "205"
 },{
     name: "matryx",
     code: "MTX",
@@ -11871,7 +12261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/matryx/"
     },
-    rank: "1489"
+    rank: "3289"
 },{
     name: "maverick-chain",
     code: "MVC",
@@ -11881,7 +12271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maverick-chain/"
     },
-    rank: "1585"
+    rank: "3385"
 },{
     name: "maxcoin",
     code: "MAX",
@@ -11891,7 +12281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maxcoin/"
     },
-    rank: "1896"
+    rank: "3696"
 },{
     name: "maximine-coin",
     code: "MXM",
@@ -11901,7 +12291,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maximine-coin/"
     },
-    rank: "109"
+    rank: "1909"
+},{
+    name: "mb8-coin",
+    code: "MB8",
+    icon: "mb8",
+    longname: "MB8 Coin",
+    description: "MB8 Coin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/mb8-coin/"
+    },
+    rank: "250"
 },{
     name: "mcap",
     code: "MCAP",
@@ -11911,7 +12311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mcap/"
     },
-    rank: "1755"
+    rank: "3555"
 },{
     name: "measurable-data-token",
     code: "MDT",
@@ -11921,7 +12321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/measurable-data-token/"
     },
-    rank: "465"
+    rank: "353"
 },{
     name: "medibit",
     code: "MEDIBIT",
@@ -11931,17 +12331,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medibit/"
     },
-    rank: "2519"
+    rank: "4319"
 },{
     name: "medibloc",
     code: "MED",
     icon: "med",
-    longname: "MediBloc [QRC20]",
-    description: "MediBloc [QRC20] coin",
+    longname: "MediBloc",
+    description: "MediBloc coin",
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medibloc/"
     },
-    rank: "298"
+    rank: "289"
 },{
     name: "medical-chain",
     code: "MTN",
@@ -11951,7 +12351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medical-chain/"
     },
-    rank: "1245"
+    rank: "3045"
 },{
     name: "mediccoin",
     code: "MEDIC",
@@ -11961,7 +12361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mediccoin/"
     },
-    rank: "1540"
+    rank: "3340"
 },{
     name: "medishares",
     code: "MDS",
@@ -11971,7 +12371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medishares/"
     },
-    rank: "484"
+    rank: "540"
 },{
     name: "medx",
     code: "MEDX",
@@ -11981,7 +12381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medx/"
     },
-    rank: "247"
+    rank: "245"
 },{
     name: "meetone",
     code: "MEETONE",
@@ -11991,7 +12391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/meetone/"
     },
-    rank: "574"
+    rank: "594"
 },{
     name: "megacoin",
     code: "MEC",
@@ -12001,7 +12401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/megacoin/"
     },
-    rank: "2025"
+    rank: "3825"
 },{
     name: "melon",
     code: "MLN",
@@ -12011,7 +12411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/melon/"
     },
-    rank: "454"
+    rank: "439"
 },{
     name: "memetic",
     code: "MEME",
@@ -12021,7 +12421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/memetic/"
     },
-    rank: "1488"
+    rank: "3288"
 },{
     name: "menapay",
     code: "MPAY",
@@ -12031,7 +12431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/menapay/"
     },
-    rank: "459"
+    rank: "562"
 },{
     name: "merculet",
     code: "MVP",
@@ -12041,7 +12441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/merculet/"
     },
-    rank: "1337"
+    rank: "3137"
 },{
     name: "mercury",
     code: "MER",
@@ -12051,7 +12451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mercury/"
     },
-    rank: "938"
+    rank: "2738"
 },{
     name: "messe-token",
     code: "MESSE",
@@ -12061,7 +12461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/messe-token/"
     },
-    rank: "2487"
+    rank: "4287"
 },{
     name: "metadium",
     code: "META",
@@ -12071,7 +12471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metadium/"
     },
-    rank: "294"
+    rank: "361"
 },{
     name: "metahash",
     code: "MHC",
@@ -12081,7 +12481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metahash/"
     },
-    rank: "353"
+    rank: "462"
 },{
     name: "metal",
     code: "MTL",
@@ -12091,7 +12491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metal/"
     },
-    rank: "204"
+    rank: "224"
 },{
     name: "metamorph",
     code: "METM",
@@ -12101,7 +12501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metamorph/"
     },
-    rank: "1556"
+    rank: "3356"
 },{
     name: "metaverse",
     code: "ETP",
@@ -12111,7 +12511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metaverse/"
     },
-    rank: "97"
+    rank: "132"
 },{
     name: "metrix-coin",
     code: "MRX",
@@ -12121,7 +12521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metrix-coin/"
     },
-    rank: "413"
+    rank: "2213"
 },{
     name: "metronome",
     code: "MET",
@@ -12131,7 +12531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metronome/"
     },
-    rank: "438"
+    rank: "386"
 },{
     name: "mex",
     code: "MEX",
@@ -12141,7 +12541,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mex/"
     },
-    rank: "2376"
+    rank: "4176"
+},{
+    name: "mexc-token",
+    code: "MEXC",
+    icon: "mexc",
+    longname: "MEXC Token",
+    description: "MEXC Token coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/mexc-token/"
+    },
+    rank: "37"
 },{
     name: "mfit-coin",
     code: "MFIT",
@@ -12151,7 +12561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mfit-coin/"
     },
-    rank: "1694"
+    rank: "3494"
 },{
     name: "mib-coin",
     code: "MIB",
@@ -12161,7 +12571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mib-coin/"
     },
-    rank: "1301"
+    rank: "3101"
 },{
     name: "microbitcoin",
     code: "MBC",
@@ -12171,7 +12581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/microbitcoin/"
     },
-    rank: "398"
+    rank: "209"
 },{
     name: "micromines",
     code: "MICRO",
@@ -12181,7 +12591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/micromines/"
     },
-    rank: "1753"
+    rank: "3553"
 },{
     name: "micromoney",
     code: "AMM",
@@ -12191,7 +12601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/micromoney/"
     },
-    rank: "1732"
+    rank: "3532"
 },{
     name: "midasprotocol",
     code: "MAS",
@@ -12201,7 +12611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/midasprotocol/"
     },
-    rank: "1226"
+    rank: "3026"
 },{
     name: "milocoin",
     code: "MILO",
@@ -12211,7 +12621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/milocoin/"
     },
-    rank: "2288"
+    rank: "4088"
 },{
     name: "mincoin",
     code: "MNC",
@@ -12221,7 +12631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mincoin/"
     },
-    rank: "2159"
+    rank: "3959"
 },{
     name: "mindexcoin",
     code: "MIC",
@@ -12231,7 +12641,27 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mindexcoin/"
     },
-    rank: "342"
+    rank: "2142"
+},{
+    name: "mindol",
+    code: "MIN",
+    icon: "min",
+    longname: "MINDOL",
+    description: "MINDOL coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/mindol/"
+    },
+    rank: "39"
+},{
+    name: "minebee",
+    code: "MB",
+    icon: "mb",
+    longname: "MineBee",
+    description: "MineBee coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/minebee/"
+    },
+    rank: "103"
 },{
     name: "minereum",
     code: "MNE",
@@ -12241,7 +12671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/minereum/"
     },
-    rank: "2144"
+    rank: "3944"
 },{
     name: "miners-reward-token",
     code: "MRT",
@@ -12251,7 +12681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/miners-reward-token/"
     },
-    rank: "1418"
+    rank: "3218"
 },{
     name: "minexcoin",
     code: "MNX",
@@ -12261,7 +12691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/minexcoin/"
     },
-    rank: "1020"
+    rank: "2820"
 },{
     name: "mintcoin",
     code: "MINT",
@@ -12271,7 +12701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mintcoin/"
     },
-    rank: "592"
+    rank: "2392"
 },{
     name: "mir-coin",
     code: "MIR",
@@ -12281,7 +12711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mir-coin/"
     },
-    rank: "594"
+    rank: "2394"
 },{
     name: "mirai",
     code: "MRI",
@@ -12291,7 +12721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mirai/"
     },
-    rank: "1769"
+    rank: "3569"
 },{
     name: "mirq",
     code: "MRQ",
@@ -12301,7 +12731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mirq/"
     },
-    rank: "2573"
+    rank: "4373"
 },{
     name: "mithril",
     code: "MITH",
@@ -12311,7 +12741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mithril/"
     },
-    rank: "256"
+    rank: "334"
 },{
     name: "mithril-ore",
     code: "MORE-1",
@@ -12321,7 +12751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mithril-ore/"
     },
-    rank: "2027"
+    rank: "3827"
 },{
     name: "mixin",
     code: "XIN",
@@ -12331,7 +12761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mixin/"
     },
-    rank: "60"
+    rank: "54"
 },{
     name: "mktcoin",
     code: "MLM",
@@ -12341,7 +12771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mktcoin/"
     },
-    rank: "1181"
+    rank: "2981"
 },{
     name: "mmocoin",
     code: "MMO",
@@ -12351,7 +12781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mmocoin/"
     },
-    rank: "1648"
+    rank: "3448"
 },{
     name: "mnpcoin",
     code: "MNP",
@@ -12361,7 +12791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mnpcoin/"
     },
-    rank: "1529"
+    rank: "3329"
 },{
     name: "moac",
     code: "MOAC",
@@ -12371,7 +12801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moac/"
     },
-    rank: "171"
+    rank: "194"
 },{
     name: "mobilego",
     code: "MGO",
@@ -12381,7 +12811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mobilego/"
     },
-    rank: "675"
+    rank: "2475"
 },{
     name: "mobilinktoken",
     code: "MOLK",
@@ -12391,7 +12821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mobilinktoken/"
     },
-    rank: "2533"
+    rank: "4333"
 },{
     name: "mobius",
     code: "MOBI",
@@ -12401,7 +12831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mobius/"
     },
-    rank: "905"
+    rank: "528"
 },{
     name: "model-x-coin",
     code: "MODX",
@@ -12411,7 +12841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/model-x-coin/"
     },
-    rank: "1805"
+    rank: "3605"
 },{
     name: "modultrade",
     code: "MTRC",
@@ -12421,7 +12851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/modultrade/"
     },
-    rank: "1638"
+    rank: "3438"
 },{
     name: "modum",
     code: "MOD",
@@ -12431,7 +12861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/modum/"
     },
-    rank: "886"
+    rank: "2686"
 },{
     name: "moeda-loyalty-points",
     code: "MDA",
@@ -12441,7 +12871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moeda-loyalty-points/"
     },
-    rank: "276"
+    rank: "257"
 },{
     name: "moin",
     code: "MOIN",
@@ -12451,7 +12881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moin/"
     },
-    rank: "2007"
+    rank: "3807"
 },{
     name: "mojocoin",
     code: "MOJO",
@@ -12461,7 +12891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mojocoin/"
     },
-    rank: "2196"
+    rank: "3996"
 },{
     name: "molecular-future",
     code: "MOF",
@@ -12471,7 +12901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/molecular-future/"
     },
-    rank: "2367"
+    rank: "131"
 },{
     name: "molecule",
     code: "MOL",
@@ -12481,7 +12911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/molecule/"
     },
-    rank: "1261"
+    rank: "3061"
 },{
     name: "monacocoin",
     code: "XMCC",
@@ -12491,7 +12921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monacocoin/"
     },
-    rank: "1571"
+    rank: "3371"
 },{
     name: "monacoin",
     code: "MONA",
@@ -12501,7 +12931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monacoin/"
     },
-    rank: "77"
+    rank: "87"
 },{
     name: "monero",
     code: "XMR",
@@ -12511,7 +12941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monero/"
     },
-    rank: "10"
+    rank: "12"
 },{
     name: "monero-classic",
     code: "XMC",
@@ -12521,7 +12951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monero-classic/"
     },
-    rank: "2479"
+    rank: "399"
 },{
     name: "monero-original",
     code: "XMO",
@@ -12531,7 +12961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monero-original/"
     },
-    rank: "2526"
+    rank: "4326"
 },{
     name: "monetaryunit",
     code: "MUE",
@@ -12541,7 +12971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monetaryunit/"
     },
-    rank: "1137"
+    rank: "2937"
 },{
     name: "monetha",
     code: "MTH",
@@ -12551,7 +12981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monetha/"
     },
-    rank: "357"
+    rank: "422"
 },{
     name: "moneytoken",
     code: "IMT",
@@ -12561,7 +12991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moneytoken/"
     },
-    rank: "1028"
+    rank: "2828"
 },{
     name: "monkey-project",
     code: "MONK",
@@ -12571,7 +13001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monkey-project/"
     },
-    rank: "1574"
+    rank: "3374"
 },{
     name: "monolith",
     code: "TKN",
@@ -12581,7 +13011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monolith/"
     },
-    rank: "245"
+    rank: "274"
 },{
     name: "monster-byte",
     code: "MBI",
@@ -12591,7 +13021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monster-byte/"
     },
-    rank: "1886"
+    rank: "3686"
 },{
     name: "mooncoin",
     code: "MOON",
@@ -12601,7 +13031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mooncoin/"
     },
-    rank: "2567"
+    rank: "4367"
 },{
     name: "more-coin",
     code: "MORE",
@@ -12611,7 +13041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/more-coin/"
     },
-    rank: "1654"
+    rank: "3454"
 },{
     name: "morpheus-labs",
     code: "MITX",
@@ -12621,7 +13051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/morpheus-labs/"
     },
-    rank: "362"
+    rank: "480"
 },{
     name: "morpheus-network",
     code: "MRPH",
@@ -12631,7 +13061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/morpheus-network/"
     },
-    rank: "382"
+    rank: "463"
 },{
     name: "moss-coin",
     code: "MOC",
@@ -12641,7 +13071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moss-coin/"
     },
-    rank: "402"
+    rank: "487"
 },{
     name: "mothership",
     code: "MSP",
@@ -12651,7 +13081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mothership/"
     },
-    rank: "970"
+    rank: "2770"
 },{
     name: "motocoin",
     code: "MOTO",
@@ -12661,7 +13091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/motocoin/"
     },
-    rank: "1846"
+    rank: "3646"
 },{
     name: "moviebloc",
     code: "MBL",
@@ -12671,7 +13101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moviebloc/"
     },
-    rank: "395"
+    rank: "365"
 },{
     name: "moving-cloud-coin",
     code: "MCC",
@@ -12681,7 +13111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moving-cloud-coin/"
     },
-    rank: "2448"
+    rank: "4248"
 },{
     name: "msd",
     code: "MSD",
@@ -12691,7 +13121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/msd/"
     },
-    rank: "2447"
+    rank: "4247"
 },{
     name: "mtc-mesh-network",
     code: "MTC-1",
@@ -12701,7 +13131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mtc-mesh-network/"
     },
-    rank: "1527"
+    rank: "3327"
 },{
     name: "multivac",
     code: "MTV",
@@ -12711,7 +13141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/multivac/"
     },
-    rank: "501"
+    rank: "2301"
 },{
     name: "musicoin",
     code: "MUSIC",
@@ -12721,7 +13151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/musicoin/"
     },
-    rank: "1225"
+    rank: "3025"
 },{
     name: "musiconomi",
     code: "MCI",
@@ -12731,7 +13161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/musiconomi/"
     },
-    rank: "2034"
+    rank: "3834"
 },{
     name: "mustangcoin",
     code: "MST",
@@ -12741,7 +13171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mustangcoin/"
     },
-    rank: "2294"
+    rank: "4094"
 },{
     name: "mvl",
     code: "MVL",
@@ -12751,7 +13181,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mvl/"
     },
-    rank: "550"
+    rank: "2350"
+},{
+    name: "mx-token",
+    code: "MX",
+    icon: "mx",
+    longname: "MX Token",
+    description: "MX Token coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/mx-token/"
+    },
+    rank: "125"
 },{
     name: "mybit",
     code: "MYB",
@@ -12761,7 +13201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mybit/"
     },
-    rank: "1401"
+    rank: "3201"
 },{
     name: "myriad",
     code: "XMY",
@@ -12771,7 +13211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/myriad/"
     },
-    rank: "1111"
+    rank: "2911"
 },{
     name: "mysterium",
     code: "MYST",
@@ -12781,7 +13221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mysterium/"
     },
-    rank: "1250"
+    rank: "3050"
 },{
     name: "mytoken",
     code: "MT",
@@ -12791,7 +13231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mytoken/"
     },
-    rank: "2385"
+    rank: "4185"
 },{
     name: "mywish",
     code: "WISH",
@@ -12801,7 +13241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mywish/"
     },
-    rank: "1521"
+    rank: "3321"
 },{
     name: "naga",
     code: "NGC",
@@ -12811,7 +13251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/naga/"
     },
-    rank: "880"
+    rank: "2680"
 },{
     name: "nam-coin",
     code: "NAM",
@@ -12821,7 +13261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nam-coin/"
     },
-    rank: "2545"
+    rank: "4345"
 },{
     name: "namecoin",
     code: "NMC",
@@ -12831,7 +13271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/namecoin/"
     },
-    rank: "303"
+    rank: "380"
 },{
     name: "nanjcoin",
     code: "NANJ",
@@ -12841,7 +13281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nanjcoin/"
     },
-    rank: "1053"
+    rank: "2853"
 },{
     name: "nano",
     code: "NANO",
@@ -12851,7 +13291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nano/"
     },
-    rank: "47"
+    rank: "52"
 },{
     name: "napoleonx",
     code: "NPX",
@@ -12861,7 +13301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/napoleonx/"
     },
-    rank: "387"
+    rank: "396"
 },{
     name: "narrative",
     code: "NRVE",
@@ -12871,7 +13311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/narrative/"
     },
-    rank: "1566"
+    rank: "3366"
 },{
     name: "nasdacoin",
     code: "NSD",
@@ -12881,7 +13321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nasdacoin/"
     },
-    rank: "720"
+    rank: "2520"
 },{
     name: "nash-exchange",
     code: "NEX",
@@ -12891,7 +13331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nash-exchange/"
     },
-    rank: "78"
+    rank: "138"
 },{
     name: "native-coin",
     code: "N8V",
@@ -12901,7 +13341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/native-coin/"
     },
-    rank: "581"
+    rank: "2381"
 },{
     name: "nav-coin",
     code: "NAV",
@@ -12911,7 +13351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nav-coin/"
     },
-    rank: "361"
+    rank: "395"
 },{
     name: "naviaddress",
     code: "NAVI",
@@ -12921,7 +13361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/naviaddress/"
     },
-    rank: "1613"
+    rank: "3413"
 },{
     name: "ndex",
     code: "NDX",
@@ -12931,7 +13371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ndex/"
     },
-    rank: "1706"
+    rank: "3506"
 },{
     name: "neblio",
     code: "NEBL",
@@ -12941,7 +13381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neblio/"
     },
-    rank: "350"
+    rank: "358"
 },{
     name: "nebula-ai",
     code: "NBAI",
@@ -12951,7 +13391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nebula-ai/"
     },
-    rank: "1268"
+    rank: "3068"
 },{
     name: "nebulas-token",
     code: "NAS",
@@ -12961,7 +13401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nebulas-token/"
     },
-    rank: "143"
+    rank: "147"
 },{
     name: "nectar",
     code: "NEC",
@@ -12971,7 +13411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nectar/"
     },
-    rank: "427"
+    rank: "378"
 },{
     name: "nekonium",
     code: "NUKO",
@@ -12981,7 +13421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nekonium/"
     },
-    rank: "2269"
+    rank: "4069"
 },{
     name: "nem",
     code: "XEM",
@@ -12991,7 +13431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nem/"
     },
-    rank: "23"
+    rank: "28"
 },{
     name: "neo",
     code: "NEO",
@@ -13001,7 +13441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neo/"
     },
-    rank: "21"
+    rank: "17"
 },{
     name: "neoscoin",
     code: "NEOS",
@@ -13011,7 +13451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neoscoin/"
     },
-    rank: "1389"
+    rank: "3189"
 },{
     name: "neoworld-cash",
     code: "NASH",
@@ -13021,7 +13461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neoworld-cash/"
     },
-    rank: "585"
+    rank: "2385"
 },{
     name: "nerva",
     code: "XNV",
@@ -13031,7 +13471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nerva/"
     },
-    rank: "2506"
+    rank: "4306"
 },{
     name: "nerves",
     code: "NER",
@@ -13041,7 +13481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nerves/"
     },
-    rank: "2019"
+    rank: "3819"
 },{
     name: "netko",
     code: "NETKO",
@@ -13051,7 +13491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/netko/"
     },
-    rank: "2083"
+    rank: "3883"
 },{
     name: "netkoin",
     code: "NTK-1",
@@ -13061,7 +13501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/netkoin/"
     },
-    rank: "1733"
+    rank: "3533"
 },{
     name: "neumark",
     code: "NEU",
@@ -13071,7 +13511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neumark/"
     },
-    rank: "560"
+    rank: "2360"
 },{
     name: "neural-protocol",
     code: "NRP",
@@ -13081,7 +13521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neural-protocol/"
     },
-    rank: "1763"
+    rank: "3563"
 },{
     name: "neuro",
     code: "NRO",
@@ -13091,7 +13531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neuro/"
     },
-    rank: "2204"
+    rank: "4004"
 },{
     name: "neurochain",
     code: "NCC",
@@ -13101,7 +13541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neurochain/"
     },
-    rank: "1177"
+    rank: "2977"
 },{
     name: "neurotoken",
     code: "NTK",
@@ -13111,7 +13551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neurotoken/"
     },
-    rank: "1281"
+    rank: "3081"
 },{
     name: "neutron",
     code: "NTRN",
@@ -13121,7 +13561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neutron/"
     },
-    rank: "1569"
+    rank: "3369"
 },{
     name: "nevacoin",
     code: "NEVA",
@@ -13131,7 +13571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nevacoin/"
     },
-    rank: "2190"
+    rank: "3990"
 },{
     name: "neverdie",
     code: "NDC",
@@ -13141,7 +13581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neverdie/"
     },
-    rank: "1988"
+    rank: "3788"
 },{
     name: "new-power-coin",
     code: "NPW",
@@ -13151,7 +13591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/new-power-coin/"
     },
-    rank: "1176"
+    rank: "2976"
 },{
     name: "nework",
     code: "NKC",
@@ -13161,7 +13601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nework/"
     },
-    rank: "1348"
+    rank: "3148"
 },{
     name: "newstoken",
     code: "NEWOS",
@@ -13171,7 +13611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newstoken/"
     },
-    rank: "2492"
+    rank: "4292"
 },{
     name: "newton",
     code: "NEW",
@@ -13181,7 +13621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newton/"
     },
-    rank: "146"
+    rank: "113"
 },{
     name: "newton-coin-project",
     code: "NCP",
@@ -13191,7 +13631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newton-coin-project/"
     },
-    rank: "1983"
+    rank: "3783"
 },{
     name: "newyork-exchange",
     code: "NYE",
@@ -13201,7 +13641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newyork-exchange/"
     },
-    rank: "433"
+    rank: "284"
 },{
     name: "newyorkcoin",
     code: "NYC",
@@ -13211,7 +13651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newyorkcoin/"
     },
-    rank: "1286"
+    rank: "3086"
 },{
     name: "nexium",
     code: "NXC",
@@ -13221,7 +13661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nexium/"
     },
-    rank: "1906"
+    rank: "3706"
 },{
     name: "nexo",
     code: "NEXO",
@@ -13231,7 +13671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nexo/"
     },
-    rank: "124"
+    rank: "93"
 },{
     name: "next",
     code: "NET",
@@ -13241,7 +13681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/next/"
     },
-    rank: "81"
+    rank: "109"
 },{
     name: "nexty",
     code: "NTY",
@@ -13251,7 +13691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nexty/"
     },
-    rank: "864"
+    rank: "2664"
 },{
     name: "nexus",
     code: "NXS",
@@ -13261,7 +13701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nexus/"
     },
-    rank: "241"
+    rank: "225"
 },{
     name: "nimiq",
     code: "NIM",
@@ -13271,7 +13711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nimiq/"
     },
-    rank: "525"
+    rank: "2325"
 },{
     name: "niobio-cash",
     code: "NBR",
@@ -13281,7 +13721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/niobio-cash/"
     },
-    rank: "1452"
+    rank: "3252"
 },{
     name: "niobium-coin",
     code: "NBC",
@@ -13291,7 +13731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/niobium-coin/"
     },
-    rank: "1154"
+    rank: "2954"
 },{
     name: "nitro",
     code: "NOX",
@@ -13301,7 +13741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nitro/"
     },
-    rank: "2216"
+    rank: "4016"
 },{
     name: "nix",
     code: "NIX",
@@ -13311,7 +13751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nix/"
     },
-    rank: "418"
+    rank: "2218"
 },{
     name: "nkn",
     code: "NKN",
@@ -13321,7 +13761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nkn/"
     },
-    rank: "308"
+    rank: "258"
 },{
     name: "no-bs-crypto",
     code: "NOBS",
@@ -13331,7 +13771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/no-bs-crypto/"
     },
-    rank: "1678"
+    rank: "3478"
 },{
     name: "noah-coin",
     code: "NOAH",
@@ -13341,7 +13781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/noah-coin/"
     },
-    rank: "268"
+    rank: "118"
 },{
     name: "noblecoin",
     code: "NOBL",
@@ -13351,7 +13791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/noblecoin/"
     },
-    rank: "1908"
+    rank: "3708"
 },{
     name: "noir",
     code: "NOR",
@@ -13361,7 +13801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/noir/"
     },
-    rank: "2564"
+    rank: "4364"
 },{
     name: "noku",
     code: "NOKU",
@@ -13371,7 +13811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/noku/"
     },
-    rank: "1853"
+    rank: "3653"
 },{
     name: "nolimitcoin",
     code: "NLC2",
@@ -13381,7 +13821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nolimitcoin/"
     },
-    rank: "1306"
+    rank: "3106"
 },{
     name: "nos",
     code: "NOS",
@@ -13391,7 +13831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nos/"
     },
-    rank: "2383"
+    rank: "4183"
 },{
     name: "novacoin",
     code: "NVC",
@@ -13401,7 +13841,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/novacoin/"
     },
-    rank: "1296"
+    rank: "3096"
+},{
+    name: "npcoin",
+    code: "NPC",
+    icon: "npc",
+    longname: "NPCoin",
+    description: "NPCoin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/npcoin/"
+    },
+    rank: "560"
 },{
     name: "nper",
     code: "NPER",
@@ -13411,7 +13861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nper/"
     },
-    rank: "1435"
+    rank: "3235"
 },{
     name: "nubits",
     code: "USNBT",
@@ -13421,7 +13871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nubits/"
     },
-    rank: "1515"
+    rank: "3315"
 },{
     name: "nucleus-vision",
     code: "NCASH",
@@ -13431,7 +13881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nucleus-vision/"
     },
-    rank: "375"
+    rank: "404"
 },{
     name: "nuggets",
     code: "NUG",
@@ -13441,7 +13891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nuggets/"
     },
-    rank: "2528"
+    rank: "4328"
 },{
     name: "nullex",
     code: "NLX",
@@ -13451,7 +13901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nullex/"
     },
-    rank: "1582"
+    rank: "3382"
 },{
     name: "nuls",
     code: "NULS",
@@ -13461,7 +13911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nuls/"
     },
-    rank: "149"
+    rank: "151"
 },{
     name: "numeraire",
     code: "NMR",
@@ -13471,7 +13921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/numeraire/"
     },
-    rank: "379"
+    rank: "294"
 },{
     name: "numus",
     code: "NMS",
@@ -13481,7 +13931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/numus/"
     },
-    rank: "1779"
+    rank: "3579"
 },{
     name: "nusd",
     code: "NUSD",
@@ -13491,7 +13941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nusd/"
     },
-    rank: "1324"
+    rank: "3124"
 },{
     name: "nushares",
     code: "NSR",
@@ -13501,7 +13951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nushares/"
     },
-    rank: "2003"
+    rank: "3803"
 },{
     name: "nxt",
     code: "NXT",
@@ -13511,7 +13961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nxt/"
     },
-    rank: "232"
+    rank: "266"
 },{
     name: "nyancoin",
     code: "NYAN",
@@ -13521,7 +13971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nyancoin/"
     },
-    rank: "2058"
+    rank: "3858"
 },{
     name: "nyerium",
     code: "NYEX",
@@ -13531,7 +13981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nyerium/"
     },
-    rank: "1795"
+    rank: "3595"
 },{
     name: "oasis-city",
     code: "OSC",
@@ -13541,7 +13991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oasis-city/"
     },
-    rank: "54"
+    rank: "1854"
 },{
     name: "oax",
     code: "OAX",
@@ -13551,7 +14001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oax/"
     },
-    rank: "426"
+    rank: "428"
 },{
     name: "obits",
     code: "OBITS",
@@ -13561,7 +14011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/obits/"
     },
-    rank: "1454"
+    rank: "3254"
 },{
     name: "obsidian",
     code: "ODN",
@@ -13571,7 +14021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/obsidian/"
     },
-    rank: "1768"
+    rank: "3568"
 },{
     name: "obxcoin",
     code: "OBX",
@@ -13581,7 +14031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/obxcoin/"
     },
-    rank: "2561"
+    rank: "4361"
 },{
     name: "obyte",
     code: "GBYTE",
@@ -13591,7 +14041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/obyte/"
     },
-    rank: "221"
+    rank: "244"
 },{
     name: "ocean-protocol",
     code: "OCEAN",
@@ -13601,7 +14051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ocean-protocol/"
     },
-    rank: "381"
+    rank: "297"
 },{
     name: "oceanchain",
     code: "OC",
@@ -13611,7 +14061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oceanchain/"
     },
-    rank: "2457"
+    rank: "4257"
 },{
     name: "oceanlab",
     code: "OCL",
@@ -13621,7 +14071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oceanlab/"
     },
-    rank: "1598"
+    rank: "3398"
 },{
     name: "octoin-coin",
     code: "OCC",
@@ -13631,7 +14081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/octoin-coin/"
     },
-    rank: "1632"
+    rank: "3432"
 },{
     name: "odem",
     code: "ODE",
@@ -13641,7 +14091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/odem/"
     },
-    rank: "136"
+    rank: "157"
 },{
     name: "odyssey",
     code: "OCN",
@@ -13651,7 +14101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/odyssey/"
     },
-    rank: "355"
+    rank: "431"
 },{
     name: "ofcoin",
     code: "OF",
@@ -13661,7 +14111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ofcoin/"
     },
-    rank: "2394"
+    rank: "4194"
 },{
     name: "okb",
     code: "OKB",
@@ -13671,7 +14121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/okb/"
     },
-    rank: "102"
+    rank: "91"
 },{
     name: "okcash",
     code: "OK",
@@ -13681,7 +14131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/okcash/"
     },
-    rank: "552"
+    rank: "2352"
 },{
     name: "olive",
     code: "OLE",
@@ -13691,7 +14141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/olive/"
     },
-    rank: "1332"
+    rank: "3132"
 },{
     name: "olympic",
     code: "OLMP",
@@ -13701,7 +14151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/olympic/"
     },
-    rank: "2292"
+    rank: "4092"
 },{
     name: "olympus-labs",
     code: "MOT",
@@ -13711,7 +14161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/olympus-labs/"
     },
-    rank: "1112"
+    rank: "2912"
 },{
     name: "omencoin",
     code: "OMEN",
@@ -13721,7 +14171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/omencoin/"
     },
-    rank: "2576"
+    rank: "4376"
 },{
     name: "omisego",
     code: "OMG",
@@ -13731,7 +14181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/omisego/"
     },
-    rank: "44"
+    rank: "49"
 },{
     name: "omni",
     code: "OMNI",
@@ -13741,7 +14191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/omni/"
     },
-    rank: "1240"
+    rank: "567"
 },{
     name: "omnitude",
     code: "ECOM",
@@ -13751,7 +14201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/omnitude/"
     },
-    rank: "492"
+    rank: "592"
 },{
     name: "on-live",
     code: "ONL",
@@ -13761,7 +14211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/on-live/"
     },
-    rank: "1285"
+    rank: "3085"
 },{
     name: "ondori",
     code: "RSTR",
@@ -13771,7 +14221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ondori/"
     },
-    rank: "1830"
+    rank: "3630"
 },{
     name: "oneledger",
     code: "OLT",
@@ -13781,7 +14231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oneledger/"
     },
-    rank: "445"
+    rank: "530"
 },{
     name: "oneroot-network",
     code: "RNT",
@@ -13791,7 +14241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oneroot-network/"
     },
-    rank: "384"
+    rank: "551"
 },{
     name: "ong",
     code: "ONG-1",
@@ -13801,7 +14251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ong/"
     },
-    rank: "2372"
+    rank: "4172"
 },{
     name: "ongsocial",
     code: "ONG",
@@ -13811,7 +14261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ongsocial/"
     },
-    rank: "1525"
+    rank: "3325"
 },{
     name: "onix",
     code: "ONX",
@@ -13821,7 +14271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/onix/"
     },
-    rank: "2099"
+    rank: "3899"
 },{
     name: "online",
     code: "OIO",
@@ -13831,7 +14281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/online/"
     },
-    rank: "1066"
+    rank: "2866"
 },{
     name: "ontology",
     code: "ONT",
@@ -13841,7 +14291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ontology/"
     },
-    rank: "26"
+    rank: "24"
 },{
     name: "op-coin",
     code: "OPC",
@@ -13851,7 +14301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/op-coin/"
     },
-    rank: "1998"
+    rank: "3798"
 },{
     name: "opal",
     code: "OPAL",
@@ -13861,7 +14311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/opal/"
     },
-    rank: "1977"
+    rank: "3777"
 },{
     name: "opcoinx",
     code: "OPCX",
@@ -13871,7 +14321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/opcoinx/"
     },
-    rank: "2072"
+    rank: "3872"
 },{
     name: "open-platform",
     code: "OPEN",
@@ -13881,7 +14331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/open-platform/"
     },
-    rank: "1850"
+    rank: "3650"
 },{
     name: "open-trading-network",
     code: "OTN",
@@ -13891,7 +14341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/open-trading-network/"
     },
-    rank: "1928"
+    rank: "3728"
 },{
     name: "optimal-shelf-availability-token",
     code: "OSA",
@@ -13901,7 +14351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/optimal-shelf-availability-token/"
     },
-    rank: "777"
+    rank: "2577"
 },{
     name: "optitoken",
     code: "OPTI",
@@ -13911,7 +14361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/optitoken/"
     },
-    rank: "1450"
+    rank: "3250"
 },{
     name: "opus",
     code: "OPT",
@@ -13921,7 +14371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/opus/"
     },
-    rank: "1500"
+    rank: "3300"
 },{
     name: "oraclechain",
     code: "OCT",
@@ -13931,7 +14381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oraclechain/"
     },
-    rank: "1223"
+    rank: "3023"
 },{
     name: "orbis-token",
     code: "OBT",
@@ -13941,7 +14391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/orbis-token/"
     },
-    rank: "2028"
+    rank: "3828"
 },{
     name: "orbitcoin",
     code: "ORB",
@@ -13951,7 +14401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/orbitcoin/"
     },
-    rank: "1940"
+    rank: "3740"
 },{
     name: "orbs",
     code: "ORBS",
@@ -13961,7 +14411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/orbs/"
     },
-    rank: "169"
+    rank: "210"
 },{
     name: "ordocoin",
     code: "RDC",
@@ -13971,7 +14421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ordocoin/"
     },
-    rank: "2489"
+    rank: "4289"
 },{
     name: "origami",
     code: "ORI",
@@ -13981,7 +14431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/origami/"
     },
-    rank: "2024"
+    rank: "3824"
 },{
     name: "origin-sport",
     code: "ORS",
@@ -13991,7 +14441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/origin-sport/"
     },
-    rank: "596"
+    rank: "391"
 },{
     name: "origintrail",
     code: "TRAC",
@@ -14001,7 +14451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/origintrail/"
     },
-    rank: "502"
+    rank: "564"
 },{
     name: "origo",
     code: "OGO",
@@ -14011,7 +14461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/origo/"
     },
-    rank: "267"
+    rank: "349"
 },{
     name: "ormeus-coin",
     code: "ORME",
@@ -14021,7 +14471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ormeus-coin/"
     },
-    rank: "1265"
+    rank: "3065"
 },{
     name: "ors-group",
     code: "ORS-1",
@@ -14031,7 +14481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ors-group/"
     },
-    rank: "2443"
+    rank: "4243"
 },{
     name: "ost",
     code: "OST",
@@ -14041,7 +14491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ost/"
     },
-    rank: "367"
+    rank: "346"
 },{
     name: "otcbtc-token",
     code: "OTB",
@@ -14051,7 +14501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/otcbtc-token/"
     },
-    rank: "2472"
+    rank: "4272"
 },{
     name: "otocash",
     code: "OTO",
@@ -14061,7 +14511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/otocash/"
     },
-    rank: "320"
+    rank: "306"
 },{
     name: "ourcoin",
     code: "OUR",
@@ -14071,7 +14521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ourcoin/"
     },
-    rank: "2320"
+    rank: "4120"
 },{
     name: "own",
     code: "CHX",
@@ -14081,7 +14531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/own/"
     },
-    rank: "431"
+    rank: "2231"
 },{
     name: "owndata",
     code: "OWN",
@@ -14091,7 +14541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/owndata/"
     },
-    rank: "1158"
+    rank: "2958"
 },{
     name: "oxycoin",
     code: "OXY",
@@ -14101,7 +14551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oxycoin/"
     },
-    rank: "1854"
+    rank: "3654"
 },{
     name: "oyster",
     code: "PRL",
@@ -14111,7 +14561,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oyster/"
     },
-    rank: "1809"
+    rank: "3609"
+},{
+    name: "pac-global",
+    code: "PAC",
+    icon: "pac",
+    longname: "PAC Global",
+    description: "PAC Global coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/pac-global/"
+    },
+    rank: "588"
 },{
     name: "paccoin",
     code: "$PAC",
@@ -14121,7 +14581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paccoin/"
     },
-    rank: "1019"
+    rank: "2819"
 },{
     name: "pakcoin",
     code: "PAK",
@@ -14131,7 +14591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pakcoin/"
     },
-    rank: "2136"
+    rank: "3936"
 },{
     name: "pal-network",
     code: "PAL",
@@ -14141,7 +14601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pal-network/"
     },
-    rank: "1149"
+    rank: "2949"
 },{
     name: "palletone",
     code: "PTN",
@@ -14151,7 +14611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/palletone/"
     },
-    rank: "2371"
+    rank: "4171"
 },{
     name: "pandacoin-pnd",
     code: "PND",
@@ -14161,7 +14621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pandacoin-pnd/"
     },
-    rank: "1132"
+    rank: "2932"
 },{
     name: "pandemia",
     code: "PNDM",
@@ -14171,7 +14631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pandemia/"
     },
-    rank: "2555"
+    rank: "4355"
 },{
     name: "paragon",
     code: "PRG",
@@ -14181,7 +14641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paragon/"
     },
-    rank: "1024"
+    rank: "2824"
 },{
     name: "parallelcoin",
     code: "DUO",
@@ -14191,7 +14651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/parallelcoin/"
     },
-    rank: "1775"
+    rank: "3575"
 },{
     name: "pareto-network",
     code: "PARETO",
@@ -14201,7 +14661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pareto-network/"
     },
-    rank: "1486"
+    rank: "3286"
 },{
     name: "parkbyte",
     code: "PKB",
@@ -14211,7 +14671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/parkbyte/"
     },
-    rank: "2180"
+    rank: "3980"
 },{
     name: "parkgene",
     code: "GENE-1",
@@ -14221,7 +14681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/parkgene/"
     },
-    rank: "1611"
+    rank: "3411"
 },{
     name: "parkingo",
     code: "GOT",
@@ -14231,7 +14691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/parkingo/"
     },
-    rank: "416"
+    rank: "2216"
 },{
     name: "particl",
     code: "PART",
@@ -14241,7 +14701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/particl/"
     },
-    rank: "279"
+    rank: "303"
 },{
     name: "pascal-coin",
     code: "PASC",
@@ -14251,7 +14711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pascal-coin/"
     },
-    rank: "589"
+    rank: "2389"
 },{
     name: "pascal-lite",
     code: "PASL",
@@ -14261,7 +14721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pascal-lite/"
     },
-    rank: "2125"
+    rank: "3925"
 },{
     name: "patientory",
     code: "PTOY",
@@ -14271,7 +14731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/patientory/"
     },
-    rank: "1303"
+    rank: "3103"
 },{
     name: "patron",
     code: "PAT",
@@ -14281,7 +14741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/patron/"
     },
-    rank: "949"
+    rank: "2749"
 },{
     name: "paws-fund",
     code: "PAWS",
@@ -14291,7 +14751,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paws-fund/"
     },
-    rank: "2496"
+    rank: "4296"
+},{
+    name: "pax-gold",
+    code: "PAXG",
+    icon: "paxg",
+    longname: "PAX Gold",
+    description: "PAX Gold coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/pax-gold/"
+    },
+    rank: "406"
 },{
     name: "paxex",
     code: "PAXEX",
@@ -14301,17 +14771,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paxex/"
     },
-    rank: "1778"
+    rank: "3578"
 },{
-    name: "paxos-standard-token",
+    name: "paxos-standard",
     code: "PAX",
     icon: "pax",
-    longname: "Paxos Standard Token",
-    description: "Paxos Standard Token coin",
+    longname: "Paxos Standard",
+    description: "Paxos Standard coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/paxos-standard-token/"
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/paxos-standard/"
     },
-    rank: "38"
+    rank: "34"
 },{
     name: "paycent",
     code: "PYN",
@@ -14321,7 +14791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paycent/"
     },
-    rank: "1215"
+    rank: "3015"
 },{
     name: "paycoin2",
     code: "XPY",
@@ -14331,7 +14801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paycoin2/"
     },
-    rank: "2012"
+    rank: "3812"
 },{
     name: "payfair",
     code: "PFR",
@@ -14341,7 +14811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/payfair/"
     },
-    rank: "1910"
+    rank: "3710"
 },{
     name: "paymon",
     code: "PMNT",
@@ -14351,7 +14821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paymon/"
     },
-    rank: "1606"
+    rank: "3406"
 },{
     name: "paypex",
     code: "PAYX",
@@ -14361,7 +14831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paypex/"
     },
-    rank: "1220"
+    rank: "3020"
 },{
     name: "paypie",
     code: "PPP",
@@ -14371,7 +14841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paypie/"
     },
-    rank: "1819"
+    rank: "3619"
 },{
     name: "pchain",
     code: "PI",
@@ -14381,7 +14851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pchain/"
     },
-    rank: "554"
+    rank: "2354"
 },{
     name: "peculium",
     code: "PCL",
@@ -14391,7 +14861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peculium/"
     },
-    rank: "1126"
+    rank: "2926"
 },{
     name: "pecunio",
     code: "PCO",
@@ -14401,7 +14871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pecunio/"
     },
-    rank: "2559"
+    rank: "4359"
 },{
     name: "pedity",
     code: "PEDI",
@@ -14411,7 +14881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pedity/"
     },
-    rank: "1219"
+    rank: "3019"
 },{
     name: "peepcoin",
     code: "PCN",
@@ -14421,7 +14891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peepcoin/"
     },
-    rank: "1657"
+    rank: "3457"
 },{
     name: "peercoin",
     code: "PPC",
@@ -14431,7 +14901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peercoin/"
     },
-    rank: "333"
+    rank: "407"
 },{
     name: "peerplays-ppy",
     code: "PPY",
@@ -14441,7 +14911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peerplays-ppy/"
     },
-    rank: "517"
+    rank: "2317"
 },{
     name: "penguin-coin",
     code: "PENG",
@@ -14451,7 +14921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/penguin-coin/"
     },
-    rank: "1595"
+    rank: "3395"
 },{
     name: "penta",
     code: "PNT",
@@ -14461,7 +14931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/penta/"
     },
-    rank: "468"
+    rank: "559"
 },{
     name: "peony",
     code: "PNY",
@@ -14471,7 +14941,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peony/"
     },
-    rank: "1802"
+    rank: "3602"
+},{
+    name: "peos",
+    code: "PEOS",
+    icon: "peos",
+    longname: "pEOS",
+    description: "pEOS coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/peos/"
+    },
+    rank: "573"
 },{
     name: "pepe-cash",
     code: "PEPECASH",
@@ -14481,7 +14961,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pepe-cash/"
     },
-    rank: "444"
+    rank: "2244"
+},{
+    name: "perlin",
+    code: "PERL",
+    icon: "perl",
+    longname: "Perlin",
+    description: "Perlin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/perlin/"
+    },
+    rank: "356"
 },{
     name: "pesetacoin",
     code: "PTC",
@@ -14491,7 +14981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pesetacoin/"
     },
-    rank: "1587"
+    rank: "3387"
 },{
     name: "petrodollar",
     code: "XPD",
@@ -14501,7 +14991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/petrodollar/"
     },
-    rank: "1859"
+    rank: "3659"
 },{
     name: "phantasma",
     code: "SOUL",
@@ -14511,7 +15001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phantasma/"
     },
-    rank: "568"
+    rank: "571"
 },{
     name: "phantomx",
     code: "PNX",
@@ -14521,7 +15011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phantomx/"
     },
-    rank: "2267"
+    rank: "4067"
 },{
     name: "phi-token",
     code: "PHI",
@@ -14531,7 +15021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phi-token/"
     },
-    rank: "1900"
+    rank: "3700"
 },{
     name: "phoenixcoin",
     code: "PXC",
@@ -14541,7 +15031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phoenixcoin/"
     },
-    rank: "1996"
+    rank: "3796"
 },{
     name: "phonecoin",
     code: "PHON",
@@ -14551,7 +15041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phonecoin/"
     },
-    rank: "1770"
+    rank: "3570"
 },{
     name: "phore",
     code: "PHR",
@@ -14561,7 +15051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phore/"
     },
-    rank: "1073"
+    rank: "2873"
 },{
     name: "photon",
     code: "PHO",
@@ -14571,7 +15061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/photon/"
     },
-    rank: "1955"
+    rank: "3755"
 },{
     name: "pigeoncoin",
     code: "PGN",
@@ -14581,7 +15071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pigeoncoin/"
     },
-    rank: "1690"
+    rank: "366"
 },{
     name: "piggycoin",
     code: "PIGGY",
@@ -14591,7 +15081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/piggycoin/"
     },
-    rank: "2026"
+    rank: "3826"
 },{
     name: "pikciochain",
     code: "PKC",
@@ -14601,7 +15091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pikciochain/"
     },
-    rank: "1874"
+    rank: "3674"
 },{
     name: "pillar",
     code: "PLR",
@@ -14611,7 +15101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pillar/"
     },
-    rank: "368"
+    rank: "292"
 },{
     name: "pinkcoin",
     code: "PINK",
@@ -14621,7 +15111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pinkcoin/"
     },
-    rank: "1386"
+    rank: "3186"
 },{
     name: "pioneer-coin",
     code: "PCOIN",
@@ -14631,7 +15121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pioneer-coin/"
     },
-    rank: "2281"
+    rank: "4081"
 },{
     name: "piplcoin",
     code: "PIPL",
@@ -14641,7 +15131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/piplcoin/"
     },
-    rank: "2077"
+    rank: "3877"
 },{
     name: "pirate-chain",
     code: "ARRR",
@@ -14651,7 +15141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pirate-chain/"
     },
-    rank: "514"
+    rank: "393"
 },{
     name: "pirl",
     code: "PIRL",
@@ -14661,7 +15151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pirl/"
     },
-    rank: "1357"
+    rank: "3157"
 },{
     name: "pitiscoin",
     code: "PTS",
@@ -14671,7 +15161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pitiscoin/"
     },
-    rank: "1577"
+    rank: "3377"
 },{
     name: "pivot-token",
     code: "PVT",
@@ -14681,7 +15171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pivot-token/"
     },
-    rank: "428"
+    rank: "490"
 },{
     name: "pivx",
     code: "PIVX",
@@ -14691,7 +15181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pivx/"
     },
-    rank: "199"
+    rank: "259"
 },{
     name: "pixie-coin",
     code: "PXC-1",
@@ -14701,7 +15191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pixie-coin/"
     },
-    rank: "2454"
+    rank: "4254"
 },{
     name: "pkg-token",
     code: "PKG",
@@ -14711,7 +15201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pkg-token/"
     },
-    rank: "1748"
+    rank: "3548"
 },{
     name: "plancoin",
     code: "PLAN",
@@ -14721,7 +15211,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/plancoin/"
     },
-    rank: "2063"
+    rank: "3863"
+},{
+    name: "planet",
+    code: "PLA",
+    icon: "pla",
+    longname: "PLANET",
+    description: "PLANET coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/planet/"
+    },
+    rank: "554"
 },{
     name: "platincoin",
     code: "PLC",
@@ -14731,7 +15231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/platincoin/"
     },
-    rank: "42"
+    rank: "148"
 },{
     name: "platincoin",
     code: "PLC-1",
@@ -14741,7 +15241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/platincoin/"
     },
-    rank: "2347"
+    rank: "4147"
 },{
     name: "platinumbar",
     code: "XPTX",
@@ -14751,17 +15251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/platinumbar/"
     },
-    rank: "1679"
-},{
-    name: "playchip",
-    code: "PLA",
-    icon: "pla",
-    longname: "PlayChip",
-    description: "PlayChip coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/playchip/"
-    },
-    rank: "246"
+    rank: "3479"
 },{
     name: "playcoin",
     code: "PLY-1",
@@ -14771,7 +15261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playcoin/"
     },
-    rank: "2350"
+    rank: "4150"
 },{
     name: "playcoin-erc20",
     code: "PLY",
@@ -14781,7 +15271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playcoin-erc20/"
     },
-    rank: "1817"
+    rank: "533"
 },{
     name: "playercoin",
     code: "PLACO",
@@ -14791,7 +15281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playercoin/"
     },
-    rank: "2307"
+    rank: "4107"
 },{
     name: "playgroundz",
     code: "IOG",
@@ -14801,7 +15291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playgroundz/"
     },
-    rank: "999"
+    rank: "2799"
 },{
     name: "playkey",
     code: "PKT",
@@ -14811,7 +15301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playkey/"
     },
-    rank: "1439"
+    rank: "3239"
 },{
     name: "plexcoin",
     code: "PLX",
@@ -14821,7 +15311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/plexcoin/"
     },
-    rank: "2584"
+    rank: "4384"
 },{
     name: "plncoin",
     code: "PLNC",
@@ -14831,7 +15321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/plncoin/"
     },
-    rank: "2298"
+    rank: "4098"
 },{
     name: "pluracoin",
     code: "PLURA",
@@ -14841,7 +15331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pluracoin/"
     },
-    rank: "2197"
+    rank: "3997"
 },{
     name: "plusonecoin",
     code: "PLUS1",
@@ -14851,7 +15341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/plusonecoin/"
     },
-    rank: "2560"
+    rank: "4360"
 },{
     name: "pluton",
     code: "PLU",
@@ -14861,17 +15351,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pluton/"
     },
-    rank: "1602"
+    rank: "3402"
 },{
-    name: "poa-network",
+    name: "poa",
     code: "POA",
     icon: "poa",
-    longname: "POA Network",
-    description: "POA Network coin",
+    longname: "POA",
+    description: "POA coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/poa-network/"
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/poa/"
     },
-    rank: "543"
+    rank: "523"
 },{
     name: "poet",
     code: "POE",
@@ -14881,7 +15371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/poet/"
     },
-    rank: "345"
+    rank: "351"
 },{
     name: "polis",
     code: "POLIS",
@@ -14891,7 +15381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/polis/"
     },
-    rank: "478"
+    rank: "318"
 },{
     name: "poly-ai",
     code: "AI",
@@ -14901,7 +15391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/poly-ai/"
     },
-    rank: "2334"
+    rank: "4134"
 },{
     name: "polybius",
     code: "PLBT",
@@ -14911,7 +15401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/polybius/"
     },
-    rank: "400"
+    rank: "553"
 },{
     name: "polymath-network",
     code: "POLY",
@@ -14921,7 +15411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/polymath-network/"
     },
-    rank: "230"
+    rank: "273"
 },{
     name: "polyswarm",
     code: "NCT",
@@ -14931,7 +15421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/polyswarm/"
     },
-    rank: "1099"
+    rank: "501"
 },{
     name: "ponzicoin",
     code: "PONZI",
@@ -14941,7 +15431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ponzicoin/"
     },
-    rank: "2327"
+    rank: "4127"
 },{
     name: "popchain",
     code: "PCH",
@@ -14951,7 +15441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/popchain/"
     },
-    rank: "558"
+    rank: "2358"
 },{
     name: "popularcoin",
     code: "POP",
@@ -14961,7 +15451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/popularcoin/"
     },
-    rank: "1989"
+    rank: "3789"
 },{
     name: "populous",
     code: "PPT",
@@ -14971,7 +15461,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/populous/"
     },
-    rank: "170"
+    rank: "154"
+},{
+    name: "poseidon-network",
+    code: "QQQ",
+    icon: "qqq",
+    longname: "Poseidon Network",
+    description: "Poseidon Network coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/poseidon-network/"
+    },
+    rank: "510"
 },{
     name: "posex",
     code: "PEX",
@@ -14981,7 +15481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/posex/"
     },
-    rank: "2253"
+    rank: "4053"
 },{
     name: "postcoin",
     code: "POST",
@@ -14991,7 +15491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/postcoin/"
     },
-    rank: "2240"
+    rank: "4040"
 },{
     name: "postoken",
     code: "POS",
@@ -15001,7 +15501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/postoken/"
     },
-    rank: "2229"
+    rank: "4029"
 },{
     name: "posw-coin",
     code: "POSW",
@@ -15011,7 +15511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/posw-coin/"
     },
-    rank: "1952"
+    rank: "3752"
 },{
     name: "potcoin",
     code: "POT",
@@ -15021,7 +15521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/potcoin/"
     },
-    rank: "1117"
+    rank: "2917"
 },{
     name: "power-ledger",
     code: "POWR",
@@ -15031,7 +15531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/power-ledger/"
     },
-    rank: "183"
+    rank: "215"
 },{
     name: "powercoin",
     code: "PWR",
@@ -15041,7 +15541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/powercoin/"
     },
-    rank: "1919"
+    rank: "3719"
 },{
     name: "prasm",
     code: "PSM",
@@ -15051,7 +15551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prasm/"
     },
-    rank: "1270"
+    rank: "3070"
 },{
     name: "prcoin",
     code: "PRC",
@@ -15061,7 +15561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prcoin/"
     },
-    rank: "1804"
+    rank: "3604"
 },{
     name: "presearch",
     code: "PRE",
@@ -15071,7 +15571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/presearch/"
     },
-    rank: "982"
+    rank: "2782"
 },{
     name: "pressone",
     code: "PRS",
@@ -15081,7 +15581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pressone/"
     },
-    rank: "282"
+    rank: "313"
 },{
     name: "primalbase",
     code: "PBT",
@@ -15091,7 +15591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/primalbase/"
     },
-    rank: "992"
+    rank: "2792"
 },{
     name: "primas",
     code: "PST",
@@ -15101,7 +15601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/primas/"
     },
-    rank: "472"
+    rank: "2272"
 },{
     name: "prime-xi",
     code: "PXI",
@@ -15111,7 +15611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prime-xi/"
     },
-    rank: "2296"
+    rank: "4096"
 },{
     name: "primecoin",
     code: "XPM",
@@ -15121,7 +15621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/primecoin/"
     },
-    rank: "487"
+    rank: "598"
 },{
     name: "primestone",
     code: "PSC",
@@ -15131,7 +15631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/primestone/"
     },
-    rank: "1669"
+    rank: "3469"
 },{
     name: "printex",
     code: "PRTX",
@@ -15141,7 +15641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/printex/"
     },
-    rank: "2154"
+    rank: "3954"
 },{
     name: "privatix",
     code: "PRIX",
@@ -15151,7 +15651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/privatix/"
     },
-    rank: "1460"
+    rank: "3260"
 },{
     name: "privcy",
     code: "PRIV",
@@ -15161,7 +15661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/privcy/"
     },
-    rank: "2085"
+    rank: "3885"
 },{
     name: "prizm",
     code: "PZM",
@@ -15171,7 +15671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prizm/"
     },
-    rank: "205"
+    rank: "33"
 },{
     name: "prochain",
     code: "PRA",
@@ -15181,7 +15681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prochain/"
     },
-    rank: "529"
+    rank: "2329"
 },{
     name: "procurrency",
     code: "PROC",
@@ -15191,7 +15691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/procurrency/"
     },
-    rank: "2127"
+    rank: "3927"
 },{
     name: "profile-utility-token",
     code: "PUT",
@@ -15201,7 +15701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/profile-utility-token/"
     },
-    rank: "1516"
+    rank: "3316"
 },{
     name: "project-coin",
     code: "PRJ",
@@ -15211,17 +15711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/project-coin/"
     },
-    rank: "1671"
-},{
-    name: "project-pai",
-    code: "PAI-1",
-    icon: "pai-1",
-    longname: "Project Pai",
-    description: "Project Pai coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/project-pai/"
-    },
-    rank: "2341"
+    rank: "3471"
 },{
     name: "project-pai",
     code: "PAI",
@@ -15231,7 +15721,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/project-pai/"
     },
-    rank: "132"
+    rank: "166"
+},{
+    name: "project-pai",
+    code: "PAI-1",
+    icon: "pai-1",
+    longname: "Project Pai",
+    description: "Project Pai coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/project-pai/"
+    },
+    rank: "4141"
 },{
     name: "project-x",
     code: "NANOX",
@@ -15241,7 +15741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/project-x/"
     },
-    rank: "2325"
+    rank: "4125"
 },{
     name: "promotion-coin",
     code: "PC",
@@ -15251,7 +15751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/promotion-coin/"
     },
-    rank: "2418"
+    rank: "4218"
 },{
     name: "propy",
     code: "PRO",
@@ -15261,7 +15761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/propy/"
     },
-    rank: "346"
+    rank: "470"
 },{
     name: "proton-token",
     code: "PTT",
@@ -15271,7 +15771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/proton-token/"
     },
-    rank: "234"
+    rank: "2034"
 },{
     name: "proud-money",
     code: "PROUD",
@@ -15281,7 +15781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/proud-money/"
     },
-    rank: "2600"
+    rank: "4400"
 },{
     name: "provoco-token",
     code: "VOCO",
@@ -15291,7 +15791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/provoco-token/"
     },
-    rank: "1625"
+    rank: "3425"
 },{
     name: "proxeus",
     code: "XES",
@@ -15301,7 +15801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/proxeus/"
     },
-    rank: "1825"
+    rank: "3625"
 },{
     name: "proximax",
     code: "XPX",
@@ -15311,7 +15811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/proximax/"
     },
-    rank: "336"
+    rank: "359"
 },{
     name: "publica",
     code: "PBL",
@@ -15321,7 +15821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/publica/"
     },
-    rank: "1922"
+    rank: "3722"
 },{
     name: "pumapay",
     code: "PMA",
@@ -15331,7 +15831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pumapay/"
     },
-    rank: "366"
+    rank: "413"
 },{
     name: "pundi-x",
     code: "NPXS",
@@ -15341,7 +15841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pundi-x/"
     },
-    rank: "68"
+    rank: "119"
 },{
     name: "pundi-x-nem",
     code: "NPXSXEM",
@@ -15351,7 +15851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pundi-x-nem/"
     },
-    rank: "1534"
+    rank: "570"
 },{
     name: "pura",
     code: "PURA",
@@ -15361,7 +15861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pura/"
     },
-    rank: "1178"
+    rank: "2978"
 },{
     name: "puregold-token",
     code: "PGT",
@@ -15371,7 +15871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/puregold-token/"
     },
-    rank: "1834"
+    rank: "3634"
 },{
     name: "purevidz",
     code: "VIDZ",
@@ -15381,7 +15881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/purevidz/"
     },
-    rank: "2149"
+    rank: "3949"
 },{
     name: "purex",
     code: "PUREX",
@@ -15391,7 +15891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/purex/"
     },
-    rank: "2122"
+    rank: "3922"
 },{
     name: "putincoin",
     code: "PUT-1",
@@ -15401,7 +15901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/putincoin/"
     },
-    rank: "1703"
+    rank: "3503"
 },{
     name: "pylon-network",
     code: "PYLNT",
@@ -15411,7 +15911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pylon-network/"
     },
-    rank: "1605"
+    rank: "3405"
 },{
     name: "pyrexcoin",
     code: "PYX",
@@ -15421,7 +15921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pyrexcoin/"
     },
-    rank: "2022"
+    rank: "3822"
 },{
     name: "q-dao-governance-token",
     code: "QDAO",
@@ -15431,7 +15931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/q-dao-governance-token/"
     },
-    rank: "497"
+    rank: "2297"
 },{
     name: "qash",
     code: "QASH",
@@ -15441,7 +15941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qash/"
     },
-    rank: "142"
+    rank: "218"
 },{
     name: "qbao",
     code: "QBT",
@@ -15451,7 +15951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qbao/"
     },
-    rank: "1341"
+    rank: "3141"
 },{
     name: "qbic",
     code: "QBIC",
@@ -15461,7 +15961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qbic/"
     },
-    rank: "2230"
+    rank: "4030"
 },{
     name: "qchi",
     code: "QCH",
@@ -15471,7 +15971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qchi/"
     },
-    rank: "1408"
+    rank: "3208"
 },{
     name: "qitmeer",
     code: "HLC",
@@ -15481,7 +15981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qitmeer/"
     },
-    rank: "584"
+    rank: "2384"
 },{
     name: "qlink",
     code: "QLC",
@@ -15491,7 +15991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qlink/"
     },
-    rank: "534"
+    rank: "492"
 },{
     name: "qtum",
     code: "QTUM",
@@ -15501,7 +16001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qtum/"
     },
-    rank: "37"
+    rank: "38"
 },{
     name: "quant",
     code: "QNT",
@@ -15511,7 +16011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quant/"
     },
-    rank: "91"
+    rank: "72"
 },{
     name: "quanta-utility-token",
     code: "QNTU",
@@ -15521,7 +16021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quanta-utility-token/"
     },
-    rank: "545"
+    rank: "2345"
 },{
     name: "quantis-network",
     code: "QUAN",
@@ -15531,7 +16031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quantis-network/"
     },
-    rank: "1624"
+    rank: "3424"
 },{
     name: "quantstamp",
     code: "QSP",
@@ -15541,7 +16041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quantstamp/"
     },
-    rank: "370"
+    rank: "364"
 },{
     name: "quantum-resistant-ledger",
     code: "QRL",
@@ -15551,7 +16051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quantum-resistant-ledger/"
     },
-    rank: "288"
+    rank: "311"
 },{
     name: "quark",
     code: "QRK",
@@ -15561,7 +16061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quark/"
     },
-    rank: "1899"
+    rank: "3699"
 },{
     name: "quarkchain",
     code: "QKC",
@@ -15571,7 +16071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quarkchain/"
     },
-    rank: "165"
+    rank: "279"
 },{
     name: "quasarcoin",
     code: "QAC",
@@ -15581,7 +16081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quasarcoin/"
     },
-    rank: "2450"
+    rank: "4250"
 },{
     name: "quatloo",
     code: "QTL",
@@ -15591,7 +16091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quatloo/"
     },
-    rank: "2171"
+    rank: "3971"
 },{
     name: "qube",
     code: "QUBE",
@@ -15601,7 +16101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qube/"
     },
-    rank: "2571"
+    rank: "4371"
 },{
     name: "qubitcoin",
     code: "Q2C",
@@ -15611,7 +16111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qubitcoin/"
     },
-    rank: "1943"
+    rank: "3743"
 },{
     name: "qubitica",
     code: "QBIT",
@@ -15621,7 +16121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qubitica/"
     },
-    rank: "89"
+    rank: "170"
 },{
     name: "quebecoin",
     code: "QBC",
@@ -15631,7 +16131,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quebecoin/"
     },
-    rank: "2217"
+    rank: "4017"
+},{
+    name: "quickx-protocol",
+    code: "QCX",
+    icon: "qcx",
+    longname: "QuickX Protocol",
+    description: "QuickX Protocol coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/quickx-protocol/"
+    },
+    rank: "467"
 },{
     name: "qunqun",
     code: "QUN",
@@ -15641,7 +16151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qunqun/"
     },
-    rank: "409"
+    rank: "484"
 },{
     name: "quotient",
     code: "XQN",
@@ -15651,7 +16161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quotient/"
     },
-    rank: "2594"
+    rank: "4394"
 },{
     name: "qurito",
     code: "QURO",
@@ -15661,7 +16171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qurito/"
     },
-    rank: "2209"
+    rank: "4009"
 },{
     name: "qvolta",
     code: "QVT",
@@ -15671,7 +16181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qvolta/"
     },
-    rank: "2254"
+    rank: "4054"
 },{
     name: "qwark",
     code: "QWARK",
@@ -15681,7 +16191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qwark/"
     },
-    rank: "1287"
+    rank: "3087"
 },{
     name: "qyno",
     code: "QNO",
@@ -15691,7 +16201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qyno/"
     },
-    rank: "1734"
+    rank: "3534"
 },{
     name: "rabbitcoin",
     code: "RBBT",
@@ -15701,7 +16211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rabbitcoin/"
     },
-    rank: "2562"
+    rank: "4362"
 },{
     name: "radium",
     code: "RADS",
@@ -15711,7 +16221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/radium/"
     },
-    rank: "1143"
+    rank: "2943"
 },{
     name: "ragnarok",
     code: "RAGNA",
@@ -15721,7 +16231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ragnarok/"
     },
-    rank: "2280"
+    rank: "4080"
 },{
     name: "raiden-network-token",
     code: "RDN",
@@ -15731,7 +16241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/raiden-network-token/"
     },
-    rank: "324"
+    rank: "338"
 },{
     name: "rapids",
     code: "RPD",
@@ -15741,7 +16251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rapids/"
     },
-    rank: "1627"
+    rank: "3427"
 },{
     name: "rate3",
     code: "RTE",
@@ -15751,7 +16261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rate3/"
     },
-    rank: "1405"
+    rank: "3205"
 },{
     name: "ratecoin",
     code: "XRA-1",
@@ -15761,7 +16271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ratecoin/"
     },
-    rank: "2075"
+    rank: "3875"
 },{
     name: "ravencoin",
     code: "RVN",
@@ -15771,7 +16281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ravencoin/"
     },
-    rank: "45"
+    rank: "50"
 },{
     name: "rchain",
     code: "RHOC",
@@ -15781,7 +16291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rchain/"
     },
-    rank: "212"
+    rank: "2012"
 },{
     name: "read",
     code: "READ",
@@ -15791,7 +16301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/read/"
     },
-    rank: "2469"
+    rank: "4269"
 },{
     name: "real",
     code: "REAL",
@@ -15801,7 +16311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/real/"
     },
-    rank: "1274"
+    rank: "3074"
 },{
     name: "realchain",
     code: "RCT",
@@ -15811,7 +16321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/realchain/"
     },
-    rank: "1612"
+    rank: "3412"
 },{
     name: "realtract",
     code: "RET",
@@ -15821,7 +16331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/realtract/"
     },
-    rank: "208"
+    rank: "304"
 },{
     name: "rebl",
     code: "REBL",
@@ -15831,7 +16341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rebl/"
     },
-    rank: "1865"
+    rank: "3665"
 },{
     name: "record",
     code: "RCD",
@@ -15841,7 +16351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/record/"
     },
-    rank: "2574"
+    rank: "4374"
 },{
     name: "red",
     code: "RED",
@@ -15851,7 +16361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/red/"
     },
-    rank: "1330"
+    rank: "3130"
 },{
     name: "red-pulse",
     code: "PHX",
@@ -15861,7 +16371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/red-pulse/"
     },
-    rank: "460"
+    rank: "442"
 },{
     name: "redcoin",
     code: "RED-1",
@@ -15871,7 +16381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/redcoin/"
     },
-    rank: "2185"
+    rank: "3985"
 },{
     name: "reddcoin",
     code: "RDD",
@@ -15881,7 +16391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/reddcoin/"
     },
-    rank: "126"
+    rank: "193"
 },{
     name: "redfox-labs",
     code: "RFOX",
@@ -15891,7 +16401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/redfox-labs/"
     },
-    rank: "549"
+    rank: "2349"
 },{
     name: "refereum",
     code: "RFR",
@@ -15901,7 +16411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/refereum/"
     },
-    rank: "490"
+    rank: "526"
 },{
     name: "reftoken",
     code: "REF",
@@ -15911,7 +16421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/reftoken/"
     },
-    rank: "1575"
+    rank: "3375"
 },{
     name: "regalcoin",
     code: "REC",
@@ -15921,7 +16431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/regalcoin/"
     },
-    rank: "2088"
+    rank: "3888"
 },{
     name: "relex",
     code: "RLX",
@@ -15931,7 +16441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/relex/"
     },
-    rank: "1388"
+    rank: "3188"
 },{
     name: "remme",
     code: "REM",
@@ -15941,7 +16451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/remme/"
     },
-    rank: "1150"
+    rank: "2950"
 },{
     name: "ren",
     code: "REN",
@@ -15951,7 +16461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ren/"
     },
-    rank: "112"
+    rank: "107"
 },{
     name: "renos",
     code: "RNS",
@@ -15961,7 +16471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/renos/"
     },
-    rank: "1773"
+    rank: "3573"
 },{
     name: "rentberry",
     code: "BERRY",
@@ -15971,7 +16481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rentberry/"
     },
-    rank: "1499"
+    rank: "3299"
 },{
     name: "repme",
     code: "RPM",
@@ -15981,7 +16491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/repme/"
     },
-    rank: "1510"
+    rank: "3310"
 },{
     name: "repo",
     code: "REPO",
@@ -15991,7 +16501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/repo/"
     },
-    rank: "944"
+    rank: "354"
 },{
     name: "request",
     code: "REQ",
@@ -16001,7 +16511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/request/"
     },
-    rank: "341"
+    rank: "278"
 },{
     name: "reserve-rights",
     code: "RSR",
@@ -16011,7 +16521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/reserve-rights/"
     },
-    rank: "289"
+    rank: "322"
 },{
     name: "restart-energy-mwat",
     code: "MWAT",
@@ -16021,7 +16531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/restart-energy-mwat/"
     },
-    rank: "285"
+    rank: "414"
 },{
     name: "revain",
     code: "R",
@@ -16031,7 +16541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/revain/"
     },
-    rank: "129"
+    rank: "192"
 },{
     name: "revolutionvr",
     code: "RVR",
@@ -16041,7 +16551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/revolutionvr/"
     },
-    rank: "1048"
+    rank: "2848"
 },{
     name: "revolvercoin",
     code: "XRE",
@@ -16051,7 +16561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/revolvercoin/"
     },
-    rank: "2174"
+    rank: "3974"
 },{
     name: "rhenium",
     code: "XRH",
@@ -16061,7 +16571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rhenium/"
     },
-    rank: "2205"
+    rank: "4005"
 },{
     name: "rialto",
     code: "XRL",
@@ -16071,7 +16581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rialto/"
     },
-    rank: "1814"
+    rank: "3614"
 },{
     name: "rif-token",
     code: "RIF",
@@ -16081,7 +16591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rif-token/"
     },
-    rank: "90"
+    rank: "106"
 },{
     name: "rightmesh",
     code: "RMESH",
@@ -16091,7 +16601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rightmesh/"
     },
-    rank: "1280"
+    rank: "3080"
 },{
     name: "rimbit",
     code: "RBT",
@@ -16101,7 +16611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rimbit/"
     },
-    rank: "2114"
+    rank: "3914"
 },{
     name: "ripio-credit-network",
     code: "RCN",
@@ -16111,7 +16621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ripio-credit-network/"
     },
-    rank: "360"
+    rank: "184"
 },{
     name: "ripple",
     code: "XRP",
@@ -16131,7 +16641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rise/"
     },
-    rank: "1118"
+    rank: "2918"
 },{
     name: "rivetz",
     code: "RVT",
@@ -16141,7 +16651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rivetz/"
     },
-    rank: "1302"
+    rank: "3102"
 },{
     name: "rlc",
     code: "RLC",
@@ -16151,7 +16661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rlc/"
     },
-    rank: "229"
+    rank: "96"
 },{
     name: "robet",
     code: "ROBET",
@@ -16161,7 +16671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/robet/"
     },
-    rank: "1246"
+    rank: "3046"
 },{
     name: "robotina",
     code: "ROX",
@@ -16171,7 +16681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/robotina/"
     },
-    rank: "244"
+    rank: "230"
 },{
     name: "rock",
     code: "RKT",
@@ -16181,7 +16691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rock/"
     },
-    rank: "1811"
+    rank: "3611"
 },{
     name: "rocket-pool",
     code: "RPL",
@@ -16191,7 +16701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rocket-pool/"
     },
-    rank: "2581"
+    rank: "408"
 },{
     name: "rocketcoin",
     code: "ROCK",
@@ -16201,7 +16711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rocketcoin/"
     },
-    rank: "2314"
+    rank: "4114"
 },{
     name: "ronpaulcoin",
     code: "RPC",
@@ -16211,7 +16721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ronpaulcoin/"
     },
-    rank: "2207"
+    rank: "4007"
 },{
     name: "rookiecoin",
     code: "RKC",
@@ -16221,7 +16731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rookiecoin/"
     },
-    rank: "1590"
+    rank: "3390"
 },{
     name: "rotharium",
     code: "RTH",
@@ -16231,7 +16741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rotharium/"
     },
-    rank: "882"
+    rank: "2682"
 },{
     name: "roulettetoken",
     code: "RLT",
@@ -16241,7 +16751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/roulettetoken/"
     },
-    rank: "1750"
+    rank: "3550"
 },{
     name: "royal-kingdom-coin",
     code: "RKC-1",
@@ -16251,7 +16761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/royal-kingdom-coin/"
     },
-    rank: "2308"
+    rank: "4108"
 },{
     name: "rpicoin",
     code: "RPI",
@@ -16261,7 +16771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rpicoin/"
     },
-    rank: "2071"
+    rank: "3871"
 },{
     name: "rrcoin",
     code: "RRC",
@@ -16271,7 +16781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rrcoin/"
     },
-    rank: "2494"
+    rank: "4294"
 },{
     name: "rubex-money",
     code: "RBMC",
@@ -16281,7 +16791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rubex-money/"
     },
-    rank: "2556"
+    rank: "4356"
 },{
     name: "rubies",
     code: "RBIES",
@@ -16291,7 +16801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rubies/"
     },
-    rank: "2119"
+    rank: "3919"
 },{
     name: "rublix",
     code: "RBLX",
@@ -16301,7 +16811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rublix/"
     },
-    rank: "452"
+    rank: "2252"
 },{
     name: "rubycoin",
     code: "RBY",
@@ -16311,7 +16821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rubycoin/"
     },
-    rank: "1822"
+    rank: "3622"
 },{
     name: "ruff",
     code: "RUFF",
@@ -16321,7 +16831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ruff/"
     },
-    rank: "311"
+    rank: "342"
 },{
     name: "rupaya",
     code: "RUPX",
@@ -16331,7 +16841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rupaya/"
     },
-    rank: "1692"
+    rank: "3492"
 },{
     name: "rupee",
     code: "RUP",
@@ -16341,7 +16851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rupee/"
     },
-    rank: "1604"
+    rank: "3404"
 },{
     name: "rusgas",
     code: "RGS",
@@ -16351,7 +16861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rusgas/"
     },
-    rank: "1807"
+    rank: "3607"
 },{
     name: "russiacoin",
     code: "RC",
@@ -16361,7 +16871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/russiacoin/"
     },
-    rank: "1918"
+    rank: "3718"
 },{
     name: "russian-mining-coin",
     code: "RMC",
@@ -16371,7 +16881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/russian-mining-coin/"
     },
-    rank: "1840"
+    rank: "3640"
 },{
     name: "ryo-currency",
     code: "RYO",
@@ -16381,7 +16891,27 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ryo-currency/"
     },
-    rank: "1461"
+    rank: "3261"
+},{
+    name: "s4fe",
+    code: "S4F",
+    icon: "s4f",
+    longname: "S4FE",
+    description: "S4FE coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/s4fe/"
+    },
+    rank: "290"
+},{
+    name: "safe",
+    code: "SAFE",
+    icon: "safe",
+    longname: "Safe",
+    description: "Safe coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/safe/"
+    },
+    rank: "271"
 },{
     name: "safe-exchange-coin",
     code: "SAFEX",
@@ -16391,7 +16921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/safe-exchange-coin/"
     },
-    rank: "815"
+    rank: "2615"
 },{
     name: "safe-trade-coin",
     code: "XSTC",
@@ -16401,7 +16931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/safe-trade-coin/"
     },
-    rank: "2166"
+    rank: "3966"
 },{
     name: "safeinsure",
     code: "SINS",
@@ -16411,7 +16941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/safeinsure/"
     },
-    rank: "1047"
+    rank: "2847"
 },{
     name: "sagacoin",
     code: "SAGA",
@@ -16421,7 +16951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sagacoin/"
     },
-    rank: "2046"
+    rank: "3846"
 },{
     name: "sakecoin",
     code: "SAKE",
@@ -16431,7 +16961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sakecoin/"
     },
-    rank: "2162"
+    rank: "3962"
 },{
     name: "sakura-bloom",
     code: "SKB",
@@ -16441,7 +16971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sakura-bloom/"
     },
-    rank: "1030"
+    rank: "2830"
 },{
     name: "salt",
     code: "SALT",
@@ -16451,7 +16981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/salt/"
     },
-    rank: "317"
+    rank: "388"
 },{
     name: "salus",
     code: "SLS",
@@ -16461,7 +16991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/salus/"
     },
-    rank: "228"
+    rank: "398"
 },{
     name: "santiment",
     code: "SAN",
@@ -16471,7 +17001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/santiment/"
     },
-    rank: "157"
+    rank: "226"
 },{
     name: "sapien",
     code: "SPN",
@@ -16481,7 +17011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sapien/"
     },
-    rank: "1541"
+    rank: "3341"
 },{
     name: "save-and-gain",
     code: "SANDG",
@@ -16491,7 +17021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/save-and-gain/"
     },
-    rank: "2323"
+    rank: "4123"
 },{
     name: "savedroid",
     code: "SVD",
@@ -16501,7 +17031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/savedroid/"
     },
-    rank: "1340"
+    rank: "3140"
 },{
     name: "savenode",
     code: "SNO",
@@ -16511,7 +17041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/savenode/"
     },
-    rank: "2536"
+    rank: "4336"
 },{
     name: "scorum-coins",
     code: "SCR",
@@ -16521,7 +17051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/scorum-coins/"
     },
-    rank: "1059"
+    rank: "2859"
 },{
     name: "scriv-network",
     code: "SCRIV",
@@ -16531,7 +17061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/scriv-network/"
     },
-    rank: "1726"
+    rank: "3526"
 },{
     name: "scroll",
     code: "SCRL",
@@ -16541,7 +17071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/scroll/"
     },
-    rank: "914"
+    rank: "2714"
 },{
     name: "scryinfo",
     code: "DDD",
@@ -16551,7 +17081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/scryinfo/"
     },
-    rank: "411"
+    rank: "538"
 },{
     name: "sdchain",
     code: "SDA",
@@ -16561,17 +17091,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sdchain/"
     },
-    rank: "593"
+    rank: "2393"
 },{
-    name: "seal-network",
+    name: "sealchain",
     code: "SEAL",
     icon: "seal",
-    longname: "Seal Network",
-    description: "Seal Network coin",
+    longname: "Sealchain",
+    description: "Sealchain coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/seal-network/"
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/sealchain/"
     },
-    rank: "1897"
+    rank: "472"
 },{
     name: "secretcoin",
     code: "SCRT",
@@ -16581,7 +17111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/secretcoin/"
     },
-    rank: "2178"
+    rank: "3978"
 },{
     name: "securecoin",
     code: "SRC",
@@ -16591,7 +17121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/securecoin/"
     },
-    rank: "2192"
+    rank: "3992"
 },{
     name: "seele",
     code: "SEELE",
@@ -16601,7 +17131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/seele/"
     },
-    rank: "211"
+    rank: "78"
 },{
     name: "seer",
     code: "SEER",
@@ -16611,7 +17141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/seer/"
     },
-    rank: "2461"
+    rank: "4261"
 },{
     name: "segwit2x",
     code: "B2X",
@@ -16621,7 +17151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/segwit2x/"
     },
-    rank: "2380"
+    rank: "4180"
 },{
     name: "selfkey",
     code: "KEY",
@@ -16631,7 +17161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/selfkey/"
     },
-    rank: "488"
+    rank: "461"
 },{
     name: "selfsell",
     code: "SSC",
@@ -16641,7 +17171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/selfsell/"
     },
-    rank: "1307"
+    rank: "3107"
 },{
     name: "semux",
     code: "SEM",
@@ -16651,7 +17181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/semux/"
     },
-    rank: "1139"
+    rank: "2939"
 },{
     name: "senderon",
     code: "SDRN",
@@ -16661,7 +17191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/senderon/"
     },
-    rank: "2135"
+    rank: "3935"
 },{
     name: "sense",
     code: "SENSE",
@@ -16671,7 +17201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sense/"
     },
-    rank: "1415"
+    rank: "3215"
 },{
     name: "sentinel",
     code: "SENT",
@@ -16681,7 +17211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sentinel/"
     },
-    rank: "414"
+    rank: "2214"
 },{
     name: "sentinel-chain",
     code: "SENC",
@@ -16691,7 +17221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sentinel-chain/"
     },
-    rank: "1513"
+    rank: "3313"
 },{
     name: "sentinel-protocol",
     code: "UPP",
@@ -16701,7 +17231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sentinel-protocol/"
     },
-    rank: "503"
+    rank: "521"
 },{
     name: "sentivate",
     code: "SNTVT",
@@ -16711,7 +17241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sentivate/"
     },
-    rank: "561"
+    rank: "586"
 },{
     name: "sequence",
     code: "SEQ",
@@ -16721,7 +17251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sequence/"
     },
-    rank: "1841"
+    rank: "3641"
 },{
     name: "sessia",
     code: "KICKS",
@@ -16731,7 +17261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sessia/"
     },
-    rank: "570"
+    rank: "2370"
 },{
     name: "sether",
     code: "SETH",
@@ -16741,7 +17271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sether/"
     },
-    rank: "1923"
+    rank: "3723"
 },{
     name: "sgpay",
     code: "SGP",
@@ -16751,7 +17281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sgpay/"
     },
-    rank: "2052"
+    rank: "3852"
 },{
     name: "shade-token",
     code: "SHADE",
@@ -16761,7 +17291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shade-token/"
     },
-    rank: "2332"
+    rank: "4132"
 },{
     name: "shadow-token",
     code: "SHDW",
@@ -16771,7 +17301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shadow-token/"
     },
-    rank: "2101"
+    rank: "3901"
 },{
     name: "shard",
     code: "SHARD",
@@ -16781,7 +17311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shard/"
     },
-    rank: "1570"
+    rank: "3370"
 },{
     name: "sharder",
     code: "SS",
@@ -16791,7 +17321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharder/"
     },
-    rank: "1216"
+    rank: "3016"
 },{
     name: "sharechain",
     code: "SSS",
@@ -16801,7 +17331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharechain/"
     },
-    rank: "1558"
+    rank: "3358"
 },{
     name: "sharex",
     code: "SEXC",
@@ -16811,7 +17341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharex/"
     },
-    rank: "1589"
+    rank: "3389"
 },{
     name: "sharpay",
     code: "S",
@@ -16821,7 +17351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharpay/"
     },
-    rank: "1554"
+    rank: "3354"
 },{
     name: "sharpe-platform-token",
     code: "SHP",
@@ -16831,7 +17361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharpe-platform-token/"
     },
-    rank: "1359"
+    rank: "3159"
 },{
     name: "shekel",
     code: "JEW",
@@ -16841,7 +17371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shekel/"
     },
-    rank: "2109"
+    rank: "3909"
 },{
     name: "shield-xsh",
     code: "XSH",
@@ -16851,7 +17381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shield-xsh/"
     },
-    rank: "1360"
+    rank: "3160"
 },{
     name: "shift",
     code: "SHIFT",
@@ -16861,7 +17391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shift/"
     },
-    rank: "580"
+    rank: "2380"
 },{
     name: "shinechain",
     code: "SHE",
@@ -16871,7 +17401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shinechain/"
     },
-    rank: "2355"
+    rank: "4155"
 },{
     name: "shipchain",
     code: "SHIP",
@@ -16881,7 +17411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shipchain/"
     },
-    rank: "1372"
+    rank: "3172"
 },{
     name: "shivom",
     code: "OMX",
@@ -16891,7 +17421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shivom/"
     },
-    rank: "1249"
+    rank: "3049"
 },{
     name: "shopzcoin",
     code: "SZC",
@@ -16901,7 +17431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shopzcoin/"
     },
-    rank: "2464"
+    rank: "4264"
 },{
     name: "show",
     code: "SHOW",
@@ -16911,7 +17441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/show/"
     },
-    rank: "2426"
+    rank: "4226"
 },{
     name: "showhand",
     code: "HAND",
@@ -16921,7 +17451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/showhand/"
     },
-    rank: "1702"
+    rank: "3502"
 },{
     name: "shping",
     code: "SHPING",
@@ -16931,7 +17461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shping/"
     },
-    rank: "2000"
+    rank: "3800"
 },{
     name: "siacoin",
     code: "SC",
@@ -16941,7 +17471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/siacoin/"
     },
-    rank: "83"
+    rank: "71"
 },{
     name: "sibcoin",
     code: "SIB",
@@ -16951,7 +17481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sibcoin/"
     },
-    rank: "1361"
+    rank: "3161"
 },{
     name: "sigmacoin",
     code: "SIGMA",
@@ -16961,7 +17491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sigmacoin/"
     },
-    rank: "2498"
+    rank: "4298"
 },{
     name: "signal-token",
     code: "SIG",
@@ -16971,7 +17501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/signal-token/"
     },
-    rank: "1562"
+    rank: "3362"
 },{
     name: "signals-network",
     code: "SGN",
@@ -16981,7 +17511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/signals-network/"
     },
-    rank: "1954"
+    rank: "3754"
 },{
     name: "signatum",
     code: "SIGT",
@@ -16991,7 +17521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/signatum/"
     },
-    rank: "2155"
+    rank: "3955"
 },{
     name: "silent-notary",
     code: "SNTR",
@@ -17001,7 +17531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/silent-notary/"
     },
-    rank: "1346"
+    rank: "3146"
 },{
     name: "silverway",
     code: "SLV",
@@ -17011,7 +17541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/silverway/"
     },
-    rank: "273"
+    rank: "65"
 },{
     name: "simdaq",
     code: "SMQ",
@@ -17021,7 +17551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/simdaq/"
     },
-    rank: "1583"
+    rank: "3383"
 },{
     name: "simmitri",
     code: "SIM",
@@ -17031,7 +17561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/simmitri/"
     },
-    rank: "2315"
+    rank: "4115"
 },{
     name: "singulardtv",
     code: "SNGLS",
@@ -17041,7 +17571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/singulardtv/"
     },
-    rank: "493"
+    rank: "410"
 },{
     name: "singularitynet",
     code: "AGI",
@@ -17051,7 +17581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/singularitynet/"
     },
-    rank: "222"
+    rank: "282"
 },{
     name: "sinovate",
     code: "SIN",
@@ -17061,7 +17591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sinovate/"
     },
-    rank: "595"
+    rank: "2395"
 },{
     name: "sirin-labs-token",
     code: "SRN",
@@ -17071,7 +17601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sirin-labs-token/"
     },
-    rank: "455"
+    rank: "485"
 },{
     name: "six",
     code: "SIX",
@@ -17081,7 +17611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/six/"
     },
-    rank: "332"
+    rank: "429"
 },{
     name: "sixeleven",
     code: "611",
@@ -17091,7 +17621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sixeleven/"
     },
-    rank: "2193"
+    rank: "3993"
 },{
     name: "skeincoin",
     code: "SKC",
@@ -17101,7 +17631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skeincoin/"
     },
-    rank: "1939"
+    rank: "3739"
 },{
     name: "skincoin",
     code: "SKIN",
@@ -17111,7 +17641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skincoin/"
     },
-    rank: "1532"
+    rank: "3332"
 },{
     name: "skrumble-network",
     code: "SKM",
@@ -17121,7 +17651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skrumble-network/"
     },
-    rank: "531"
+    rank: "1189"
 },{
     name: "skycoin",
     code: "SKY",
@@ -17131,7 +17661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skycoin/"
     },
-    rank: "310"
+    rank: "300"
 },{
     name: "skyhub-coin",
     code: "SHB",
@@ -17141,7 +17671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skyhub-coin/"
     },
-    rank: "1687"
+    rank: "3487"
 },{
     name: "smartcash",
     code: "SMART",
@@ -17151,7 +17681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartcash/"
     },
-    rank: "424"
+    rank: "476"
 },{
     name: "smartcoin",
     code: "SMC",
@@ -17161,7 +17691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartcoin/"
     },
-    rank: "2108"
+    rank: "3908"
 },{
     name: "smartfox",
     code: "FOX",
@@ -17171,7 +17701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartfox/"
     },
-    rank: "2198"
+    rank: "3998"
 },{
     name: "smartlands",
     code: "SLT",
@@ -17181,7 +17711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartlands/"
     },
-    rank: "491"
+    rank: "2291"
 },{
     name: "smartmesh",
     code: "SMT",
@@ -17191,7 +17721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartmesh/"
     },
-    rank: "408"
+    rank: "415"
 },{
     name: "smartofgiving",
     code: "AOG",
@@ -17201,7 +17731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartofgiving/"
     },
-    rank: "1592"
+    rank: "3392"
 },{
     name: "smartshare",
     code: "SSP",
@@ -17211,7 +17741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartshare/"
     },
-    rank: "464"
+    rank: "2264"
 },{
     name: "smileycoin",
     code: "SMLY",
@@ -17221,7 +17751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smileycoin/"
     },
-    rank: "1926"
+    rank: "3726"
 },{
     name: "smoke",
     code: "SMOKE",
@@ -17231,7 +17761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smoke/"
     },
-    rank: "1863"
+    rank: "3663"
 },{
     name: "snetwork",
     code: "SNET",
@@ -17241,7 +17771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snetwork/"
     },
-    rank: "1175"
+    rank: "412"
 },{
     name: "snipcoin",
     code: "SNIP",
@@ -17251,7 +17781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snipcoin/"
     },
-    rank: "2535"
+    rank: "4335"
 },{
     name: "snodecoin",
     code: "SND",
@@ -17261,7 +17791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snodecoin/"
     },
-    rank: "1551"
+    rank: "3351"
 },{
     name: "snovio",
     code: "SNOV",
@@ -17271,7 +17801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snovio/"
     },
-    rank: "1379"
+    rank: "3179"
 },{
     name: "snowgem",
     code: "XSG",
@@ -17281,7 +17811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snowgem/"
     },
-    rank: "1545"
+    rank: "3345"
 },{
     name: "soarcoin",
     code: "SOAR",
@@ -17291,7 +17821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/soarcoin/"
     },
-    rank: "1080"
+    rank: "2880"
 },{
     name: "social-lending-token",
     code: "SLT-1",
@@ -17301,7 +17831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/social-lending-token/"
     },
-    rank: "2508"
+    rank: "4308"
 },{
     name: "social-send",
     code: "SEND",
@@ -17311,7 +17841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/social-send/"
     },
-    rank: "1472"
+    rank: "3272"
 },{
     name: "socialcoin-socc",
     code: "SOCC",
@@ -17321,7 +17851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/socialcoin-socc/"
     },
-    rank: "2286"
+    rank: "4086"
 },{
     name: "sociall",
     code: "SCL",
@@ -17331,7 +17861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sociall/"
     },
-    rank: "1888"
+    rank: "3688"
 },{
     name: "soilcoin",
     code: "SOIL",
@@ -17341,7 +17871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/soilcoin/"
     },
-    rank: "2259"
+    rank: "4059"
 },{
     name: "sola-token",
     code: "SOL",
@@ -17351,7 +17881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sola-token/"
     },
-    rank: "2056"
+    rank: "3856"
 },{
     name: "solarcoin",
     code: "SLR",
@@ -17361,7 +17891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/solarcoin/"
     },
-    rank: "1278"
+    rank: "3078"
 },{
     name: "solaris",
     code: "XLR",
@@ -17371,7 +17901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/solaris/"
     },
-    rank: "1259"
+    rank: "3059"
 },{
     name: "solve",
     code: "SOLVE",
@@ -17381,7 +17911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/solve/"
     },
-    rank: "125"
+    rank: "135"
 },{
     name: "soma",
     code: "SCT",
@@ -17391,7 +17921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/soma/"
     },
-    rank: "1614"
+    rank: "3414"
 },{
     name: "sonder",
     code: "SNR",
@@ -17401,7 +17931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sonder/"
     },
-    rank: "1772"
+    rank: "3572"
 },{
     name: "songcoin",
     code: "SONG",
@@ -17411,7 +17941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/songcoin/"
     },
-    rank: "2318"
+    rank: "4118"
 },{
     name: "soniq",
     code: "SONIQ",
@@ -17421,7 +17951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/soniq/"
     },
-    rank: "1857"
+    rank: "3657"
 },{
     name: "sonm",
     code: "SNM",
@@ -17431,7 +17961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sonm/"
     },
-    rank: "508"
+    rank: "434"
 },{
     name: "sooncoin",
     code: "SOON",
@@ -17441,7 +17971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sooncoin/"
     },
-    rank: "2233"
+    rank: "4033"
 },{
     name: "sopay",
     code: "SOP",
@@ -17451,7 +17981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sopay/"
     },
-    rank: "2510"
+    rank: "4310"
 },{
     name: "sophiatx",
     code: "SPHTX",
@@ -17461,7 +17991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sophiatx/"
     },
-    rank: "967"
+    rank: "2767"
 },{
     name: "sovereign-hero",
     code: "HERO",
@@ -17471,7 +18001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sovereign-hero/"
     },
-    rank: "1869"
+    rank: "3669"
 },{
     name: "sp8de",
     code: "SPX",
@@ -17481,7 +18011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sp8de/"
     },
-    rank: "1501"
+    rank: "3301"
 },{
     name: "spacechain",
     code: "SPC",
@@ -17491,7 +18021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spacechain/"
     },
-    rank: "1064"
+    rank: "2864"
 },{
     name: "spankchain",
     code: "SPANK",
@@ -17501,7 +18031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spankchain/"
     },
-    rank: "896"
+    rank: "2696"
 },{
     name: "sparks",
     code: "SPK",
@@ -17511,7 +18041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sparks/"
     },
-    rank: "2213"
+    rank: "4013"
 },{
     name: "spectre-dividend",
     code: "SXDT",
@@ -17521,7 +18051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spectre-dividend/"
     },
-    rank: "1810"
+    rank: "3610"
 },{
     name: "spectre-utility",
     code: "SXUT",
@@ -17531,7 +18061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spectre-utility/"
     },
-    rank: "1247"
+    rank: "3047"
 },{
     name: "spectrecoin",
     code: "XSPEC",
@@ -17541,7 +18071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spectrecoin/"
     },
-    rank: "449"
+    rank: "2249"
 },{
     name: "speed-mining-service",
     code: "SMS",
@@ -17551,7 +18081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/speed-mining-service/"
     },
-    rank: "1966"
+    rank: "3766"
 },{
     name: "speedcash",
     code: "SCS",
@@ -17561,7 +18091,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/speedcash/"
     },
-    rank: "2270"
+    rank: "4070"
+},{
+    name: "spendcoin",
+    code: "SPND",
+    icon: "spnd",
+    longname: "Spendcoin",
+    description: "Spendcoin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/spendcoin/"
+    },
+    rank: "565"
 },{
     name: "sphere",
     code: "SPHR",
@@ -17571,7 +18111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sphere/"
     },
-    rank: "1349"
+    rank: "3149"
 },{
     name: "sphre-air",
     code: "XID",
@@ -17581,7 +18121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sphre-air/"
     },
-    rank: "2578"
+    rank: "4378"
 },{
     name: "spindle",
     code: "SPD",
@@ -17591,7 +18131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spindle/"
     },
-    rank: "989"
+    rank: "2789"
 },{
     name: "sport-and-leisure",
     code: "SNL",
@@ -17601,7 +18141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sport-and-leisure/"
     },
-    rank: "373"
+    rank: "362"
 },{
     name: "sportyco",
     code: "SPF",
@@ -17611,7 +18151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sportyco/"
     },
-    rank: "1609"
+    rank: "3409"
 },{
     name: "spreadcoin",
     code: "SPR",
@@ -17621,7 +18161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spreadcoin/"
     },
-    rank: "2045"
+    rank: "3845"
 },{
     name: "sprouts",
     code: "SPRTS",
@@ -17631,7 +18171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sprouts/"
     },
-    rank: "1441"
+    rank: "3241"
 },{
     name: "srcoin",
     code: "SRCOIN",
@@ -17641,7 +18181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/srcoin/"
     },
-    rank: "1518"
+    rank: "3318"
 },{
     name: "stableusd",
     code: "USDS",
@@ -17651,7 +18191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stableusd/"
     },
-    rank: "509"
+    rank: "519"
 },{
     name: "stacs",
     code: "STACS",
@@ -17661,7 +18201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stacs/"
     },
-    rank: "453"
+    rank: "460"
 },{
     name: "stakenet",
     code: "XSN",
@@ -17671,7 +18211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stakenet/"
     },
-    rank: "372"
+    rank: "416"
 },{
     name: "staker",
     code: "STR",
@@ -17681,7 +18221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/staker/"
     },
-    rank: "2285"
+    rank: "4085"
 },{
     name: "starbase",
     code: "STAR",
@@ -17691,7 +18231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/starbase/"
     },
-    rank: "1358"
+    rank: "3158"
 },{
     name: "starchain",
     code: "STC",
@@ -17701,7 +18241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/starchain/"
     },
-    rank: "2373"
+    rank: "4173"
 },{
     name: "starcointv",
     code: "KST",
@@ -17711,7 +18251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/starcointv/"
     },
-    rank: "2467"
+    rank: "4267"
 },{
     name: "starta",
     code: "STA",
@@ -17721,7 +18261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/starta/"
     },
-    rank: "1252"
+    rank: "3052"
 },{
     name: "startcoin",
     code: "START",
@@ -17731,7 +18271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/startcoin/"
     },
-    rank: "1729"
+    rank: "3529"
 },{
     name: "startercoin",
     code: "STAC",
@@ -17741,7 +18281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/startercoin/"
     },
-    rank: "1956"
+    rank: "3756"
 },{
     name: "stasis-euro",
     code: "EURS",
@@ -17751,7 +18291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stasis-euro/"
     },
-    rank: "133"
+    rank: "137"
 },{
     name: "status",
     code: "SNT",
@@ -17761,7 +18301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/status/"
     },
-    rank: "101"
+    rank: "108"
 },{
     name: "stealth",
     code: "XST",
@@ -17771,7 +18311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stealth/"
     },
-    rank: "1202"
+    rank: "584"
 },{
     name: "steem",
     code: "STEEM",
@@ -17781,7 +18321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/steem/"
     },
-    rank: "98"
+    rank: "105"
 },{
     name: "steem-dollars",
     code: "SBD",
@@ -17791,7 +18331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/steem-dollars/"
     },
-    rank: "390"
+    rank: "449"
 },{
     name: "steepcoin",
     code: "STEEP",
@@ -17801,7 +18341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/steepcoin/"
     },
-    rank: "2176"
+    rank: "3976"
 },{
     name: "stellar",
     code: "XLM",
@@ -17811,7 +18351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stellar/"
     },
-    rank: "11"
+    rank: "10"
 },{
     name: "stellite",
     code: "XTL",
@@ -17821,7 +18361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stellite/"
     },
-    rank: "1275"
+    rank: "3075"
 },{
     name: "stem-cell-coin",
     code: "SCC",
@@ -17831,7 +18371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stem-cell-coin/"
     },
-    rank: "329"
+    rank: "2129"
 },{
     name: "steneum-coin",
     code: "STN",
@@ -17841,7 +18381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/steneum-coin/"
     },
-    rank: "1752"
+    rank: "3552"
 },{
     name: "stex",
     code: "STEX",
@@ -17851,7 +18391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stex/"
     },
-    rank: "2575"
+    rank: "4375"
 },{
     name: "stipend",
     code: "SPD-1",
@@ -17861,7 +18401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stipend/"
     },
-    rank: "1907"
+    rank: "3707"
 },{
     name: "stk",
     code: "STK",
@@ -17871,7 +18411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stk/"
     },
-    rank: "1204"
+    rank: "3004"
 },{
     name: "stockchain",
     code: "SCC-1",
@@ -17881,7 +18421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stockchain/"
     },
-    rank: "2414"
+    rank: "4214"
 },{
     name: "storeum",
     code: "STO",
@@ -17891,7 +18431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/storeum/"
     },
-    rank: "556"
+    rank: "426"
 },{
     name: "storiqa",
     code: "STQ",
@@ -17901,7 +18441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/storiqa/"
     },
-    rank: "889"
+    rank: "2689"
 },{
     name: "storj",
     code: "STORJ",
@@ -17911,7 +18451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/storj/"
     },
-    rank: "191"
+    rank: "222"
 },{
     name: "storm",
     code: "STORM",
@@ -17921,7 +18461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/storm/"
     },
-    rank: "314"
+    rank: "309"
 },{
     name: "stox",
     code: "STX",
@@ -17931,7 +18471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stox/"
     },
-    rank: "1421"
+    rank: "3221"
 },{
     name: "stpt",
     code: "STPT",
@@ -17941,7 +18481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stpt/"
     },
-    rank: "479"
+    rank: "375"
 },{
     name: "straks",
     code: "STAK",
@@ -17951,7 +18491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/straks/"
     },
-    rank: "1938"
+    rank: "3738"
 },{
     name: "stratis",
     code: "STRAT",
@@ -17961,7 +18501,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stratis/"
     },
-    rank: "120"
+    rank: "159"
+},{
+    name: "streamit-coin",
+    code: "STREAM",
+    icon: "stream",
+    longname: "Streamit Coin",
+    description: "Streamit Coin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/streamit-coin/"
+    },
+    rank: "234"
 },{
     name: "streamr-datacoin",
     code: "DATA",
@@ -17971,7 +18521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/streamr-datacoin/"
     },
-    rank: "347"
+    rank: "337"
 },{
     name: "stronghands",
     code: "SHND",
@@ -17981,7 +18531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stronghands/"
     },
-    rank: "1419"
+    rank: "3219"
 },{
     name: "student-coin",
     code: "STU",
@@ -17991,7 +18541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/student-coin/"
     },
-    rank: "1495"
+    rank: "3295"
 },{
     name: "sub-invest",
     code: "SUBX",
@@ -18001,7 +18551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sub-invest/"
     },
-    rank: "1762"
+    rank: "3562"
 },{
     name: "substratum",
     code: "SUB",
@@ -18011,7 +18561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/substratum/"
     },
-    rank: "419"
+    rank: "2219"
 },{
     name: "sugar-exchange",
     code: "SGR",
@@ -18021,7 +18571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sugar-exchange/"
     },
-    rank: "2023"
+    rank: "3823"
 },{
     name: "sumokoin",
     code: "SUMO",
@@ -18031,7 +18581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sumokoin/"
     },
-    rank: "1557"
+    rank: "3357"
 },{
     name: "suncontract",
     code: "SNC",
@@ -18041,7 +18591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/suncontract/"
     },
-    rank: "530"
+    rank: "599"
 },{
     name: "super-bitcoin",
     code: "SBTC",
@@ -18051,7 +18601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/super-bitcoin/"
     },
-    rank: "2369"
+    rank: "4169"
 },{
     name: "supercoin",
     code: "SUPER",
@@ -18061,7 +18611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/supercoin/"
     },
-    rank: "1905"
+    rank: "3705"
 },{
     name: "superior-coin",
     code: "SUP",
@@ -18071,7 +18621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/superior-coin/"
     },
-    rank: "2577"
+    rank: "4377"
 },{
     name: "suqa",
     code: "SUQA",
@@ -18081,7 +18631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/suqa/"
     },
-    rank: "1183"
+    rank: "2983"
 },{
     name: "sureremit",
     code: "RMT",
@@ -18091,7 +18641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sureremit/"
     },
-    rank: "1069"
+    rank: "2869"
 },{
     name: "suretly",
     code: "SUR",
@@ -18101,7 +18651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/suretly/"
     },
-    rank: "1720"
+    rank: "3520"
 },{
     name: "surety",
     code: "SURE",
@@ -18111,7 +18661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/surety/"
     },
-    rank: "2224"
+    rank: "4024"
 },{
     name: "susd",
     code: "SUSD",
@@ -18121,7 +18671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/susd/"
     },
-    rank: "569"
+    rank: "357"
 },{
     name: "swarm-city",
     code: "SWT",
@@ -18131,7 +18681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swarm-city/"
     },
-    rank: "1351"
+    rank: "3151"
 },{
     name: "swarm-fund",
     code: "SWM",
@@ -18141,7 +18691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swarm-fund/"
     },
-    rank: "483"
+    rank: "574"
 },{
     name: "swftcoin",
     code: "SWFTC",
@@ -18151,7 +18701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swftcoin/"
     },
-    rank: "451"
+    rank: "483"
 },{
     name: "swing",
     code: "SWING",
@@ -18161,7 +18711,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swing/"
     },
-    rank: "2097"
+    rank: "3897"
+},{
+    name: "swipe",
+    code: "SXP",
+    icon: "sxp",
+    longname: "Swipe",
+    description: "Swipe coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/swipe/"
+    },
+    rank: "75"
 },{
     name: "swissborg",
     code: "CHSB",
@@ -18171,7 +18731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swissborg/"
     },
-    rank: "405"
+    rank: "441"
 },{
     name: "swisscoin",
     code: "SIC",
@@ -18181,7 +18741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swisscoin/"
     },
-    rank: "1376"
+    rank: "3176"
 },{
     name: "switcheo",
     code: "SWTH",
@@ -18191,7 +18751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/switcheo/"
     },
-    rank: "1061"
+    rank: "2861"
 },{
     name: "syncfab",
     code: "MFG",
@@ -18201,7 +18761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/syncfab/"
     },
-    rank: "1603"
+    rank: "3403"
 },{
     name: "syndicate",
     code: "SYNX",
@@ -18211,7 +18771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/syndicate/"
     },
-    rank: "1331"
+    rank: "3131"
 },{
     name: "synereo",
     code: "AMP",
@@ -18221,7 +18781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/synereo/"
     },
-    rank: "1221"
+    rank: "3021"
 },{
     name: "synergy",
     code: "SNRG",
@@ -18231,7 +18791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/synergy/"
     },
-    rank: "2021"
+    rank: "3821"
 },{
     name: "synthetix-network-token",
     code: "SNX",
@@ -18241,7 +18801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/synthetix-network-token/"
     },
-    rank: "103"
+    rank: "56"
 },{
     name: "syscoin",
     code: "SYS",
@@ -18251,7 +18811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/syscoin/"
     },
-    rank: "249"
+    rank: "252"
 },{
     name: "taas",
     code: "TAAS",
@@ -18261,7 +18821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/taas/"
     },
-    rank: "1831"
+    rank: "3631"
 },{
     name: "tael",
     code: "WABI",
@@ -18271,7 +18831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tael/"
     },
-    rank: "307"
+    rank: "261"
 },{
     name: "tagcoin",
     code: "TAG",
@@ -18281,7 +18841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tagcoin/"
     },
-    rank: "1975"
+    rank: "3775"
 },{
     name: "tajcoin",
     code: "TAJ",
@@ -18291,7 +18851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tajcoin/"
     },
-    rank: "2234"
+    rank: "4034"
 },{
     name: "talao",
     code: "TALAO",
@@ -18301,7 +18861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/talao/"
     },
-    rank: "1937"
+    rank: "3737"
 },{
     name: "tao",
     code: "XTO",
@@ -18311,7 +18871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tao/"
     },
-    rank: "1816"
+    rank: "3616"
 },{
     name: "target-coin",
     code: "TGT",
@@ -18321,7 +18881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/target-coin/"
     },
-    rank: "1948"
+    rank: "3748"
 },{
     name: "tarush",
     code: "TAS",
@@ -18331,7 +18891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tarush/"
     },
-    rank: "356"
+    rank: "2156"
 },{
     name: "tatatu",
     code: "TTU",
@@ -18341,7 +18901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tatatu/"
     },
-    rank: "1038"
+    rank: "2838"
 },{
     name: "tcash",
     code: "TCASH",
@@ -18351,7 +18911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tcash/"
     },
-    rank: "457"
+    rank: "2257"
 },{
     name: "tcoin",
     code: "TCN",
@@ -18361,7 +18921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tcoin/"
     },
-    rank: "2466"
+    rank: "4266"
 },{
     name: "te-food",
     code: "TFD",
@@ -18371,7 +18931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/te-food/"
     },
-    rank: "1022"
+    rank: "2822"
 },{
     name: "tekcoin",
     code: "TEK",
@@ -18381,7 +18941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tekcoin/"
     },
-    rank: "2124"
+    rank: "3924"
 },{
     name: "telcoin",
     code: "TEL",
@@ -18391,7 +18951,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/telcoin/"
     },
-    rank: "187"
+    rank: "255"
+},{
+    name: "telos",
+    code: "TLOS",
+    icon: "tlos",
+    longname: "Telos",
+    description: "Telos coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/telos/"
+    },
+    rank: "203"
 },{
     name: "teloscoin",
     code: "TELOS",
@@ -18401,7 +18971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/teloscoin/"
     },
-    rank: "1740"
+    rank: "3540"
 },{
     name: "temco",
     code: "TEMCO",
@@ -18411,7 +18981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/temco/"
     },
-    rank: "474"
+    rank: "2274"
 },{
     name: "tenx",
     code: "PAY",
@@ -18421,7 +18991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tenx/"
     },
-    rank: "266"
+    rank: "312"
 },{
     name: "tera",
     code: "TERA",
@@ -18431,7 +19001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tera/"
     },
-    rank: "389"
+    rank: "409"
 },{
     name: "ternio",
     code: "TERN",
@@ -18441,7 +19011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ternio/"
     },
-    rank: "499"
+    rank: "2299"
 },{
     name: "terracoin",
     code: "TRC",
@@ -18451,7 +19021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/terracoin/"
     },
-    rank: "1506"
+    rank: "3306"
 },{
     name: "terranova",
     code: "TER",
@@ -18461,7 +19031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/terranova/"
     },
-    rank: "2547"
+    rank: "4347"
 },{
     name: "teslacoin",
     code: "TES",
@@ -18471,7 +19041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/teslacoin/"
     },
-    rank: "1914"
+    rank: "3714"
 },{
     name: "tether",
     code: "USDT",
@@ -18481,7 +19051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tether/"
     },
-    rank: "6"
+    rank: "5"
 },{
     name: "tezos",
     code: "XTZ",
@@ -18491,7 +19061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tezos/"
     },
-    rank: "18"
+    rank: "20"
 },{
     name: "tgame",
     code: "TGAME",
@@ -18501,7 +19071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tgame/"
     },
-    rank: "1478"
+    rank: "3278"
 },{
     name: "the-champcoin",
     code: "TCC",
@@ -18511,7 +19081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/the-champcoin/"
     },
-    rank: "1601"
+    rank: "3401"
 },{
     name: "the-midas-touch-gold",
     code: "TMTG",
@@ -18521,7 +19091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/the-midas-touch-gold/"
     },
-    rank: "2345"
+    rank: "4145"
 },{
     name: "thekey",
     code: "TKY",
@@ -18531,7 +19101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thekey/"
     },
-    rank: "323"
+    rank: "340"
 },{
     name: "themis",
     code: "GET-1",
@@ -18541,7 +19111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/themis/"
     },
-    rank: "2377"
+    rank: "4177"
 },{
     name: "theresa-may-coin",
     code: "MAY",
@@ -18551,7 +19121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/theresa-may-coin/"
     },
-    rank: "2243"
+    rank: "4043"
 },{
     name: "theta",
     code: "THETA",
@@ -18561,7 +19131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/theta/"
     },
-    rank: "64"
+    rank: "83"
 },{
     name: "theta-fuel",
     code: "TFUEL",
@@ -18571,7 +19141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/theta-fuel/"
     },
-    rank: "213"
+    rank: "269"
 },{
     name: "thingschain",
     code: "TIC",
@@ -18581,7 +19151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thingschain/"
     },
-    rank: "1480"
+    rank: "3280"
 },{
     name: "thingsoperatingsystem",
     code: "TOS",
@@ -18591,7 +19161,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thingsoperatingsystem/"
     },
-    rank: "2480"
+    rank: "4280"
+},{
+    name: "thorchain",
+    code: "RUNE",
+    icon: "rune",
+    longname: "THORChain",
+    description: "THORChain coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/thorchain/"
+    },
+    rank: "445"
 },{
     name: "thore-cash",
     code: "TCH",
@@ -18601,7 +19181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thore-cash/"
     },
-    rank: "1789"
+    rank: "3589"
 },{
     name: "thorecoin",
     code: "THR",
@@ -18611,7 +19191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thorecoin/"
     },
-    rank: "41"
+    rank: "48"
 },{
     name: "thorenext",
     code: "THX",
@@ -18621,7 +19201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thorenext/"
     },
-    rank: "36"
+    rank: "42"
 },{
     name: "thrive-token",
     code: "THRT",
@@ -18631,7 +19211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thrive-token/"
     },
-    rank: "1504"
+    rank: "3304"
 },{
     name: "thunder-token",
     code: "TT",
@@ -18641,7 +19221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thunder-token/"
     },
-    rank: "253"
+    rank: "165"
 },{
     name: "thunderstake",
     code: "TSC",
@@ -18651,7 +19231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thunderstake/"
     },
-    rank: "2168"
+    rank: "3968"
 },{
     name: "ti-value",
     code: "TV",
@@ -18661,7 +19241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ti-value/"
     },
-    rank: "2435"
+    rank: "4235"
 },{
     name: "tidex-token",
     code: "TDX",
@@ -18671,7 +19251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tidex-token/"
     },
-    rank: "2015"
+    rank: "568"
 },{
     name: "tierion",
     code: "TNT",
@@ -18681,7 +19261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tierion/"
     },
-    rank: "255"
+    rank: "142"
 },{
     name: "tiesdb",
     code: "TIE",
@@ -18691,7 +19271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tiesdb/"
     },
-    rank: "1932"
+    rank: "3732"
 },{
     name: "tigereum",
     code: "TIG",
@@ -18701,7 +19281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tigereum/"
     },
-    rank: "1875"
+    rank: "3675"
 },{
     name: "time-new-bank",
     code: "TNB",
@@ -18711,7 +19291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/time-new-bank/"
     },
-    rank: "334"
+    rank: "350"
 },{
     name: "timicoin",
     code: "TMC",
@@ -18721,7 +19301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/timicoin/"
     },
-    rank: "923"
+    rank: "2723"
 },{
     name: "titcoin",
     code: "TIT",
@@ -18731,7 +19311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/titcoin/"
     },
-    rank: "2137"
+    rank: "3937"
 },{
     name: "tittiecoin",
     code: "TTC-1",
@@ -18741,7 +19321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tittiecoin/"
     },
-    rank: "2042"
+    rank: "3842"
 },{
     name: "toacoin",
     code: "TOA",
@@ -18751,7 +19331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/toacoin/"
     },
-    rank: "1031"
+    rank: "2831"
 },{
     name: "tokenbox",
     code: "TBX",
@@ -18761,7 +19341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenbox/"
     },
-    rank: "1517"
+    rank: "3317"
 },{
     name: "tokenclub",
     code: "TCT",
@@ -18771,7 +19351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenclub/"
     },
-    rank: "348"
+    rank: "389"
 },{
     name: "tokendesk",
     code: "TDS",
@@ -18781,7 +19361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokendesk/"
     },
-    rank: "1776"
+    rank: "3576"
 },{
     name: "tokenomy",
     code: "TEN",
@@ -18791,7 +19371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenomy/"
     },
-    rank: "364"
+    rank: "377"
 },{
     name: "tokenpay",
     code: "TPAY",
@@ -18801,7 +19381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenpay/"
     },
-    rank: "443"
+    rank: "2243"
 },{
     name: "tokenstars",
     code: "TEAM",
@@ -18811,7 +19391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenstars/"
     },
-    rank: "1760"
+    rank: "3560"
 },{
     name: "tokes",
     code: "TKS",
@@ -18821,7 +19401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokes/"
     },
-    rank: "1382"
+    rank: "3182"
 },{
     name: "tokia",
     code: "TKA",
@@ -18831,7 +19411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokia/"
     },
-    rank: "2016"
+    rank: "3816"
 },{
     name: "tokugawa",
     code: "TOK",
@@ -18841,7 +19421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokugawa/"
     },
-    rank: "2148"
+    rank: "3948"
 },{
     name: "tokyo",
     code: "TOKC",
@@ -18851,7 +19431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokyo/"
     },
-    rank: "2106"
+    rank: "3906"
 },{
     name: "tolar",
     code: "TOL",
@@ -18861,7 +19441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tolar/"
     },
-    rank: "1197"
+    rank: "2997"
 },{
     name: "tomochain",
     code: "TOMO",
@@ -18871,7 +19451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tomochain/"
     },
-    rank: "153"
+    rank: "186"
 },{
     name: "top",
     code: "TOP",
@@ -18881,7 +19461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/top/"
     },
-    rank: "313"
+    rank: "323"
 },{
     name: "topchain",
     code: "TOPC",
@@ -18891,7 +19471,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/topchain/"
     },
-    rank: "2370"
+    rank: "4170"
+},{
+    name: "touchcon",
+    code: "TOC",
+    icon: "toc",
+    longname: "TouchCon",
+    description: "TouchCon coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/touchcon/"
+    },
+    rank: "556"
 },{
     name: "tourist-token",
     code: "TOTO",
@@ -18901,7 +19491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tourist-token/"
     },
-    rank: "1758"
+    rank: "3558"
 },{
     name: "traceability-chain",
     code: "TAC",
@@ -18911,7 +19501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/traceability-chain/"
     },
-    rank: "448"
+    rank: "550"
 },{
     name: "trackr",
     code: "TKR",
@@ -18921,7 +19511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trackr/"
     },
-    rank: "2248"
+    rank: "4048"
 },{
     name: "tracto",
     code: "TRCT",
@@ -18931,7 +19521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tracto/"
     },
-    rank: "1982"
+    rank: "3782"
 },{
     name: "trade-token-x",
     code: "TIOX",
@@ -18941,7 +19531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trade-token-x/"
     },
-    rank: "532"
+    rank: "1796"
 },{
     name: "traid",
     code: "TRAID",
@@ -18951,7 +19541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/traid/"
     },
-    rank: "2582"
+    rank: "4382"
 },{
     name: "trakinvest",
     code: "TRAK",
@@ -18961,7 +19551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trakinvest/"
     },
-    rank: "1476"
+    rank: "3276"
 },{
     name: "transcodium",
     code: "TNS",
@@ -18971,7 +19561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/transcodium/"
     },
-    rank: "1728"
+    rank: "3528"
 },{
     name: "transfercoin",
     code: "TX",
@@ -18981,7 +19571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/transfercoin/"
     },
-    rank: "1474"
+    rank: "3274"
 },{
     name: "travala",
     code: "AVA",
@@ -18991,7 +19581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/travala/"
     },
-    rank: "396"
+    rank: "466"
 },{
     name: "travelflex",
     code: "TRF",
@@ -19001,7 +19591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/travelflex/"
     },
-    rank: "1547"
+    rank: "3347"
 },{
     name: "traxia",
     code: "TMT",
@@ -19011,7 +19601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/traxia/"
     },
-    rank: "1184"
+    rank: "2984"
 },{
     name: "trezarcoin",
     code: "TZC",
@@ -19021,7 +19611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trezarcoin/"
     },
-    rank: "1617"
+    rank: "3417"
 },{
     name: "triangles",
     code: "TRI",
@@ -19031,7 +19621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/triangles/"
     },
-    rank: "2018"
+    rank: "3818"
 },{
     name: "trias",
     code: "TRY",
@@ -19041,7 +19631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trias/"
     },
-    rank: "547"
+    rank: "2347"
 },{
     name: "trident",
     code: "TRDT",
@@ -19051,7 +19641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trident/"
     },
-    rank: "2215"
+    rank: "4015"
 },{
     name: "trinity-network-credit",
     code: "TNC",
@@ -19061,7 +19651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trinity-network-credit/"
     },
-    rank: "1288"
+    rank: "3088"
 },{
     name: "tripio",
     code: "TRIO",
@@ -19071,7 +19661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tripio/"
     },
-    rank: "270"
+    rank: "343"
 },{
     name: "trittium",
     code: "TRTT",
@@ -19081,7 +19671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trittium/"
     },
-    rank: "1494"
+    rank: "3294"
 },{
     name: "trollcoin",
     code: "TROLL",
@@ -19091,7 +19681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trollcoin/"
     },
-    rank: "1917"
+    rank: "3717"
 },{
     name: "tron",
     code: "TRX",
@@ -19101,7 +19691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tron/"
     },
-    rank: "14"
+    rank: "11"
 },{
     name: "tronclassic",
     code: "TRXC",
@@ -19111,7 +19701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tronclassic/"
     },
-    rank: "856"
+    rank: "2656"
 },{
     name: "truckcoin",
     code: "TRK",
@@ -19121,7 +19711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/truckcoin/"
     },
-    rank: "1971"
+    rank: "3771"
 },{
     name: "truechain",
     code: "TRUE",
@@ -19141,7 +19731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/truedeck/"
     },
-    rank: "903"
+    rank: "2703"
 },{
     name: "trueflip",
     code: "TFL",
@@ -19151,7 +19741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trueflip/"
     },
-    rank: "1256"
+    rank: "3056"
 },{
     name: "trueusd",
     code: "TUSD",
@@ -19161,7 +19751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trueusd/"
     },
-    rank: "39"
+    rank: "43"
 },{
     name: "trumpcoin",
     code: "TRUMP",
@@ -19171,7 +19761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trumpcoin/"
     },
-    rank: "1987"
+    rank: "3787"
 },{
     name: "trust",
     code: "TRST",
@@ -19181,7 +19771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trust/"
     },
-    rank: "1329"
+    rank: "3129"
 },{
     name: "trustnote",
     code: "TTT",
@@ -19191,7 +19781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trustnote/"
     },
-    rank: "1277"
+    rank: "3077"
 },{
     name: "trustverse",
     code: "TRV",
@@ -19201,7 +19791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trustverse/"
     },
-    rank: "432"
+    rank: "452"
 },{
     name: "ttc",
     code: "TTC",
@@ -19211,7 +19801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ttc/"
     },
-    rank: "200"
+    rank: "265"
 },{
     name: "turtlecoin",
     code: "TRTL",
@@ -19221,7 +19811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/turtlecoin/"
     },
-    rank: "1298"
+    rank: "3098"
 },{
     name: "tv-two",
     code: "TTV",
@@ -19231,7 +19821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tv-two/"
     },
-    rank: "1035"
+    rank: "2835"
 },{
     name: "twinkle",
     code: "TKT",
@@ -19241,7 +19831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/twinkle/"
     },
-    rank: "2430"
+    rank: "4230"
 },{
     name: "twist",
     code: "TWIST",
@@ -19251,7 +19841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/twist/"
     },
-    rank: "2563"
+    rank: "4363"
 },{
     name: "typerium",
     code: "TYPE",
@@ -19261,7 +19851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/typerium/"
     },
-    rank: "1759"
+    rank: "3559"
 },{
     name: "u-network",
     code: "UUU",
@@ -19271,7 +19861,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/u-network/"
     },
-    rank: "286"
+    rank: "432"
 },{
     name: "ubcoin-market",
     code: "UBC",
@@ -19281,7 +19871,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ubcoin-market/"
     },
-    rank: "1536"
+    rank: "3336"
 },{
     name: "ubex",
     code: "UBEX",
@@ -19291,7 +19881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ubex/"
     },
-    rank: "1209"
+    rank: "3009"
 },{
     name: "ubiq",
     code: "UBQ",
@@ -19301,7 +19891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ubiq/"
     },
-    rank: "469"
+    rank: "511"
 },{
     name: "ubique-chain-of-things",
     code: "UCT",
@@ -19311,7 +19901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ubique-chain-of-things/"
     },
-    rank: "2404"
+    rank: "4204"
 },{
     name: "ucash",
     code: "UCASH",
@@ -19321,7 +19911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ucash/"
     },
-    rank: "1255"
+    rank: "3055"
 },{
     name: "uchain",
     code: "UCN",
@@ -19331,7 +19921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uchain/"
     },
-    rank: "1448"
+    rank: "3248"
 },{
     name: "ugas",
     code: "UGAS",
@@ -19341,7 +19931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ugas/"
     },
-    rank: "240"
+    rank: "325"
 },{
     name: "ugchain",
     code: "UGC",
@@ -19351,7 +19941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ugchain/"
     },
-    rank: "1313"
+    rank: "3113"
 },{
     name: "ulord",
     code: "UT",
@@ -19361,7 +19951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ulord/"
     },
-    rank: "1161"
+    rank: "2961"
 },{
     name: "ultiledger",
     code: "ULT",
@@ -19371,7 +19961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultiledger/"
     },
-    rank: "193"
+    rank: "217"
 },{
     name: "ultimate-secure-cash",
     code: "USC",
@@ -19381,7 +19971,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultimate-secure-cash/"
     },
-    rank: "2143"
+    rank: "3943"
+},{
+    name: "ultra",
+    code: "UOS",
+    icon: "uos",
+    longname: "Ultra",
+    description: "Ultra coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultra/"
+    },
+    rank: "522"
 },{
     name: "ultra-salescoud",
     code: "UST",
@@ -19391,7 +19991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultra-salescoud/"
     },
-    rank: "2478"
+    rank: "4278"
 },{
     name: "ultracoin",
     code: "UTC",
@@ -19401,7 +20001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultracoin/"
     },
-    rank: "2037"
+    rank: "3837"
 },{
     name: "ultranote-coin",
     code: "XUN",
@@ -19411,7 +20011,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultranote-coin/"
     },
-    rank: "1712"
+    rank: "3512"
+},{
+    name: "uni-coin",
+    code: "UNI",
+    icon: "uni",
+    longname: "UNI COIN",
+    description: "UNI COIN coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/uni-coin/"
+    },
+    rank: "112"
 },{
     name: "unibright",
     code: "UBT",
@@ -19421,7 +20031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unibright/"
     },
-    rank: "1211"
+    rank: "3011"
 },{
     name: "uniform-fiscal-object",
     code: "UFO",
@@ -19431,7 +20041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uniform-fiscal-object/"
     },
-    rank: "1877"
+    rank: "3677"
 },{
     name: "unify",
     code: "UNIFY",
@@ -19441,7 +20051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unify/"
     },
-    rank: "1736"
+    rank: "3536"
 },{
     name: "unikoin-gold",
     code: "UKG",
@@ -19451,7 +20061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unikoin-gold/"
     },
-    rank: "557"
+    rank: "2357"
 },{
     name: "united-bitcoin",
     code: "UBTC",
@@ -19461,7 +20071,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/united-bitcoin/"
     },
-    rank: "2405"
+    rank: "4205"
 },{
     name: "unitus",
     code: "UIS",
@@ -19471,7 +20081,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unitus/"
     },
-    rank: "2054"
+    rank: "3854"
 },{
     name: "universa",
     code: "UTNP",
@@ -19481,7 +20091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/universa/"
     },
-    rank: "440"
+    rank: "403"
 },{
     name: "universal-currency",
     code: "UNIT",
@@ -19491,17 +20101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/universal-currency/"
     },
-    rank: "1591"
-},{
-    name: "universe",
-    code: "UNI",
-    icon: "uni",
-    longname: "Universe",
-    description: "Universe coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/universe/"
-    },
-    rank: "1933"
+    rank: "3391"
 },{
     name: "unlimitedip",
     code: "UIP",
@@ -19511,7 +20111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unlimitedip/"
     },
-    rank: "196"
+    rank: "254"
 },{
     name: "unobtanium",
     code: "UNO",
@@ -19521,7 +20121,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unobtanium/"
     },
-    rank: "254"
+    rank: "280"
+},{
+    name: "unus-sed-leo",
+    code: "LEO",
+    icon: "leo",
+    longname: "UNUS SED LEO",
+    description: "UNUS SED LEO coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/unus-sed-leo/"
+    },
+    rank: "15"
 },{
     name: "upfiring",
     code: "UFR",
@@ -19531,7 +20141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/upfiring/"
     },
-    rank: "1413"
+    rank: "3213"
 },{
     name: "uptoken",
     code: "UP",
@@ -19541,7 +20151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uptoken/"
     },
-    rank: "1165"
+    rank: "2965"
 },{
     name: "uquid-coin",
     code: "UQC",
@@ -19551,7 +20161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uquid-coin/"
     },
-    rank: "1374"
+    rank: "3174"
 },{
     name: "uralscoin",
     code: "URALS",
@@ -19561,7 +20171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uralscoin/"
     },
-    rank: "2251"
+    rank: "4051"
 },{
     name: "usd-coin",
     code: "USDC",
@@ -19571,7 +20181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/usd-coin/"
     },
-    rank: "24"
+    rank: "26"
 },{
     name: "usdk",
     code: "USDK",
@@ -19581,7 +20191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/usdk/"
     },
-    rank: "159"
+    rank: "167"
 },{
     name: "usdq",
     code: "USDQ",
@@ -19591,7 +20201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/usdq/"
     },
-    rank: "423"
+    rank: "417"
 },{
     name: "usechain-token",
     code: "USE",
@@ -19601,7 +20211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/usechain-token/"
     },
-    rank: "2363"
+    rank: "4163"
 },{
     name: "utrum",
     code: "OOT",
@@ -19611,17 +20221,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/utrum/"
     },
-    rank: "1565"
+    rank: "3365"
 },{
     name: "utrust",
     code: "UTK",
     icon: "utk",
-    longname: "UTRUST",
-    description: "UTRUST coin",
+    longname: "Utrust",
+    description: "Utrust coin",
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/utrust/"
     },
-    rank: "291"
+    rank: "327"
 },{
     name: "uttoken",
     code: "UTT",
@@ -19631,7 +20241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uttoken/"
     },
-    rank: "235"
+    rank: "2035"
 },{
     name: "v-id",
     code: "VIDT",
@@ -19641,7 +20251,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/v-id/"
     },
-    rank: "523"
+    rank: "534"
 },{
     name: "v-systems",
     code: "VSYS",
@@ -19651,7 +20261,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/v-systems/"
     },
-    rank: "31"
+    rank: "46"
 },{
     name: "valor-token",
     code: "VALOR",
@@ -19661,7 +20271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/valor-token/"
     },
-    rank: "189"
+    rank: "332"
 },{
     name: "valuecybertoken",
     code: "VCT",
@@ -19671,7 +20281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/valuecybertoken/"
     },
-    rank: "2451"
+    rank: "4251"
 },{
     name: "valuto",
     code: "VLU",
@@ -19681,7 +20291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/valuto/"
     },
-    rank: "2540"
+    rank: "4340"
 },{
     name: "vaperscoin",
     code: "VPRC",
@@ -19691,7 +20301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vaperscoin/"
     },
-    rank: "2324"
+    rank: "4124"
 },{
     name: "vechain",
     code: "VET",
@@ -19701,7 +20311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vechain/"
     },
-    rank: "35"
+    rank: "29"
 },{
     name: "vector",
     code: "VEC2",
@@ -19711,7 +20321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vector/"
     },
-    rank: "2227"
+    rank: "4027"
 },{
     name: "veil",
     code: "VEIL",
@@ -19721,7 +20331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veil/"
     },
-    rank: "476"
+    rank: "512"
 },{
     name: "veltor",
     code: "VLT",
@@ -19731,7 +20341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veltor/"
     },
-    rank: "2316"
+    rank: "4116"
 },{
     name: "verge",
     code: "XVG",
@@ -19741,7 +20351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/verge/"
     },
-    rank: "88"
+    rank: "92"
 },{
     name: "veriblock",
     code: "VBK",
@@ -19751,7 +20361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veriblock/"
     },
-    rank: "318"
+    rank: "438"
 },{
     name: "vericoin",
     code: "VRC",
@@ -19761,7 +20371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vericoin/"
     },
-    rank: "1194"
+    rank: "2994"
 },{
     name: "veridocglobal",
     code: "VDG",
@@ -19771,7 +20381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veridocglobal/"
     },
-    rank: "520"
+    rank: "532"
 },{
     name: "verify",
     code: "CRED",
@@ -19781,7 +20391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/verify/"
     },
-    rank: "1901"
+    rank: "3701"
 },{
     name: "verime",
     code: "VME",
@@ -19791,7 +20401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/verime/"
     },
-    rank: "1647"
+    rank: "3447"
 },{
     name: "veritaseum",
     code: "VERI",
@@ -19801,7 +20411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veritaseum/"
     },
-    rank: "145"
+    rank: "111"
 },{
     name: "veriumreserve",
     code: "VRM",
@@ -19811,7 +20421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veriumreserve/"
     },
-    rank: "1891"
+    rank: "3691"
 },{
     name: "veros",
     code: "VRS",
@@ -19821,7 +20431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veros/"
     },
-    rank: "1451"
+    rank: "3251"
 },{
     name: "version",
     code: "V",
@@ -19831,7 +20441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/version/"
     },
-    rank: "2111"
+    rank: "3911"
 },{
     name: "vertcoin",
     code: "VTC",
@@ -19841,7 +20451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vertcoin/"
     },
-    rank: "248"
+    rank: "260"
 },{
     name: "vestchain",
     code: "VEST",
@@ -19851,7 +20461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vestchain/"
     },
-    rank: "108"
+    rank: "117"
 },{
     name: "vethor-token",
     code: "VTHO",
@@ -19861,7 +20471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vethor-token/"
     },
-    rank: "2391"
+    rank: "4191"
 },{
     name: "vetri",
     code: "VLD",
@@ -19871,7 +20481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vetri/"
     },
-    rank: "1232"
+    rank: "3032"
 },{
     name: "vexanium",
     code: "VEX",
@@ -19881,7 +20491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vexanium/"
     },
-    rank: "515"
+    rank: "2315"
 },{
     name: "vezt",
     code: "VZT",
@@ -19891,7 +20501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vezt/"
     },
-    rank: "1855"
+    rank: "3655"
 },{
     name: "viacoin",
     code: "VIA",
@@ -19901,7 +20511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/viacoin/"
     },
-    rank: "429"
+    rank: "458"
 },{
     name: "vibe",
     code: "VIBE",
@@ -19911,7 +20521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vibe/"
     },
-    rank: "498"
+    rank: "457"
 },{
     name: "viberate",
     code: "VIB",
@@ -19921,7 +20531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/viberate/"
     },
-    rank: "551"
+    rank: "444"
 },{
     name: "vice-industry-token",
     code: "VIT",
@@ -19931,7 +20541,27 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vice-industry-token/"
     },
-    rank: "1858"
+    rank: "3658"
+},{
+    name: "videocoin",
+    code: "VID",
+    icon: "vid",
+    longname: "VideoCoin",
+    description: "VideoCoin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/videocoin/"
+    },
+    rank: "547"
+},{
+    name: "vidy",
+    code: "VIDY",
+    icon: "vidy",
+    longname: "VIDY",
+    description: "VIDY coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/vidy/"
+    },
+    rank: "293"
 },{
     name: "vikkytoken",
     code: "VIKKY",
@@ -19941,7 +20571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vikkytoken/"
     },
-    rank: "1764"
+    rank: "3564"
 },{
     name: "vinchain",
     code: "VIN",
@@ -19951,7 +20581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vinchain/"
     },
-    rank: "1235"
+    rank: "3035"
 },{
     name: "vipstar-coin",
     code: "VIPS",
@@ -19961,7 +20591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vipstar-coin/"
     },
-    rank: "1021"
+    rank: "2821"
 },{
     name: "virtacoin",
     code: "VTA",
@@ -19971,7 +20601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/virtacoin/"
     },
-    rank: "2293"
+    rank: "4093"
 },{
     name: "visionx",
     code: "VNX",
@@ -19981,7 +20611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/visionx/"
     },
-    rank: "2362"
+    rank: "4162"
 },{
     name: "vitae",
     code: "VITAE",
@@ -19991,7 +20621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vitae/"
     },
-    rank: "116"
+    rank: "232"
 },{
     name: "vite",
     code: "VITE",
@@ -20001,7 +20631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vite/"
     },
-    rank: "326"
+    rank: "451"
 },{
     name: "vites",
     code: "VITES",
@@ -20011,7 +20641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vites/"
     },
-    rank: "1334"
+    rank: "3134"
 },{
     name: "viuly",
     code: "VIU",
@@ -20021,7 +20651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/viuly/"
     },
-    rank: "2138"
+    rank: "3938"
 },{
     name: "vivid-coin",
     code: "VIVID",
@@ -20031,7 +20661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vivid-coin/"
     },
-    rank: "1942"
+    rank: "3742"
 },{
     name: "vivo",
     code: "VIVO",
@@ -20041,7 +20671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vivo/"
     },
-    rank: "2061"
+    rank: "3861"
 },{
     name: "vnt-chain",
     code: "VNT",
@@ -20051,7 +20681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vnt-chain/"
     },
-    rank: "467"
+    rank: "379"
 },{
     name: "voisecom",
     code: "VOISE",
@@ -20061,7 +20691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/voisecom/"
     },
-    rank: "1944"
+    rank: "3744"
 },{
     name: "volt",
     code: "ACDC",
@@ -20071,7 +20701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/volt/"
     },
-    rank: "2386"
+    rank: "4186"
 },{
     name: "votecoin",
     code: "VOT",
@@ -20081,7 +20711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/votecoin/"
     },
-    rank: "2126"
+    rank: "3926"
 },{
     name: "vslice",
     code: "VSL",
@@ -20091,7 +20721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vslice/"
     },
-    rank: "2047"
+    rank: "3847"
 },{
     name: "vsportcoin",
     code: "VSC",
@@ -20101,7 +20731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vsportcoin/"
     },
-    rank: "2445"
+    rank: "4245"
 },{
     name: "vsync-vsx",
     code: "VSX",
@@ -20111,7 +20741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vsync-vsx/"
     },
-    rank: "1629"
+    rank: "3429"
 },{
     name: "vulcano",
     code: "VULC",
@@ -20121,7 +20751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vulcano/"
     },
-    rank: "1505"
+    rank: "3305"
 },{
     name: "w3coin",
     code: "W3C",
@@ -20131,7 +20761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/w3coin/"
     },
-    rank: "1880"
+    rank: "3680"
 },{
     name: "wabnetwork",
     code: "WAB",
@@ -20141,7 +20771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wabnetwork/"
     },
-    rank: "1308"
+    rank: "3108"
 },{
     name: "wagerr",
     code: "WGR",
@@ -20151,7 +20781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wagerr/"
     },
-    rank: "297"
+    rank: "281"
 },{
     name: "waletoken",
     code: "WTN",
@@ -20161,7 +20791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waletoken/"
     },
-    rank: "1731"
+    rank: "3531"
 },{
     name: "waltonchain",
     code: "WTC",
@@ -20171,7 +20801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waltonchain/"
     },
-    rank: "110"
+    rank: "156"
 },{
     name: "wanchain",
     code: "WAN",
@@ -20181,7 +20811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wanchain/"
     },
-    rank: "118"
+    rank: "187"
 },{
     name: "wandx",
     code: "WAND",
@@ -20191,7 +20821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wandx/"
     },
-    rank: "1921"
+    rank: "3721"
 },{
     name: "waves",
     code: "WAVES",
@@ -20201,7 +20831,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waves/"
     },
-    rank: "51"
+    rank: "79"
 },{
     name: "waves-community-token",
     code: "WCT",
@@ -20211,7 +20841,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waves-community-token/"
     },
-    rank: "1098"
+    rank: "2898"
 },{
     name: "wavesgo",
     code: "WGO",
@@ -20221,7 +20851,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wavesgo/"
     },
-    rank: "1739"
+    rank: "3539"
 },{
     name: "wax",
     code: "WAX",
@@ -20231,7 +20861,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wax/"
     },
-    rank: "121"
+    rank: "1921"
+},{
+    name: "wax",
+    code: "WAXP",
+    icon: "waxp",
+    longname: "WAX",
+    description: "WAX coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wax/"
+    },
+    rank: "206"
 },{
     name: "waykichain",
     code: "WICC",
@@ -20241,7 +20881,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waykichain/"
     },
-    rank: "164"
+    rank: "174"
 },{
     name: "wearesatoshi",
     code: "WSX",
@@ -20251,7 +20891,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wearesatoshi/"
     },
-    rank: "1229"
+    rank: "3029"
 },{
     name: "webchain",
     code: "WEB-1",
@@ -20261,7 +20901,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/webchain/"
     },
-    rank: "1973"
+    rank: "3773"
 },{
     name: "webcoin",
     code: "WEB",
@@ -20271,7 +20911,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/webcoin/"
     },
-    rank: "1651"
+    rank: "3451"
 },{
     name: "well",
     code: "WELL",
@@ -20281,7 +20921,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/well/"
     },
-    rank: "2011"
+    rank: "3811"
 },{
     name: "welltrado",
     code: "WTL",
@@ -20291,7 +20931,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/welltrado/"
     },
-    rank: "1295"
+    rank: "3095"
 },{
     name: "wepower",
     code: "WPR",
@@ -20301,7 +20941,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wepower/"
     },
-    rank: "535"
+    rank: "468"
 },{
     name: "weshow-token",
     code: "WET",
@@ -20311,7 +20951,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/weshow-token/"
     },
-    rank: "1056"
+    rank: "2856"
 },{
     name: "weth",
     code: "WETH",
@@ -20321,7 +20961,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/weth/"
     },
-    rank: "2401"
+    rank: "4201"
 },{
     name: "wetoken",
     code: "WT",
@@ -20331,7 +20971,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wetoken/"
     },
-    rank: "2437"
+    rank: "4237"
 },{
     name: "whalecoin",
     code: "WHL",
@@ -20341,7 +20981,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/whalecoin/"
     },
-    rank: "1751"
+    rank: "3551"
 },{
     name: "white-standard",
     code: "WSD",
@@ -20351,7 +20991,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/white-standard/"
     },
-    rank: "1909"
+    rank: "3709"
 },{
     name: "whitecoin",
     code: "XWC",
@@ -20361,7 +21001,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/whitecoin/"
     },
-    rank: "415"
+    rank: "2215"
 },{
     name: "wiki-token",
     code: "WIKI",
@@ -20371,7 +21011,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wiki-token/"
     },
-    rank: "2399"
+    rank: "4199"
 },{
     name: "wild-beast-block",
     code: "WBB",
@@ -20381,7 +21021,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wild-beast-block/"
     },
-    rank: "2313"
+    rank: "4113"
 },{
     name: "wild-crypto",
     code: "WILD",
@@ -20391,7 +21031,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wild-crypto/"
     },
-    rank: "2116"
+    rank: "3916"
 },{
     name: "win-coin",
     code: "WC",
@@ -20401,7 +21041,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/win-coin/"
     },
-    rank: "2459"
+    rank: "4259"
 },{
     name: "winding-tree",
     code: "LIF",
@@ -20411,7 +21051,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/winding-tree/"
     },
-    rank: "1052"
+    rank: "2852"
 },{
     name: "wings",
     code: "WINGS",
@@ -20421,7 +21061,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wings/"
     },
-    rank: "522"
+    rank: "1795"
 },{
     name: "wink-tronbet",
     code: "WIN",
@@ -20431,7 +21071,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wink-tronbet/"
     },
-    rank: "92"
+    rank: "140"
+},{
+    name: "wirex-token",
+    code: "WXT",
+    icon: "wxt",
+    longname: "Wirex Token",
+    description: "Wirex Token coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wirex-token/"
+    },
+    rank: "242"
 },{
     name: "wispr",
     code: "WSP",
@@ -20441,7 +21091,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wispr/"
     },
-    rank: "2048"
+    rank: "3848"
 },{
     name: "witchain",
     code: "WIT",
@@ -20451,7 +21101,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/witchain/"
     },
-    rank: "1738"
+    rank: "3538"
 },{
     name: "wixlar",
     code: "WIX",
@@ -20461,7 +21111,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wixlar/"
     },
-    rank: "85"
+    rank: "176"
 },{
     name: "wizbl",
     code: "WBL",
@@ -20471,7 +21121,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wizbl/"
     },
-    rank: "2427"
+    rank: "4227"
 },{
     name: "women",
     code: "WOMEN",
@@ -20481,7 +21131,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/women/"
     },
-    rank: "1538"
+    rank: "3338"
 },{
     name: "woodcoin",
     code: "LOG",
@@ -20491,7 +21141,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/woodcoin/"
     },
-    rank: "1436"
+    rank: "3236"
 },{
     name: "worldcoin",
     code: "WDC",
@@ -20501,7 +21151,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/worldcoin/"
     },
-    rank: "1903"
+    rank: "3703"
 },{
     name: "worldcore",
     code: "WRC",
@@ -20511,7 +21161,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/worldcore/"
     },
-    rank: "1465"
+    rank: "3265"
 },{
     name: "wowbit",
     code: "WWB",
@@ -20521,7 +21171,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wowbit/"
     },
-    rank: "583"
+    rank: "2383"
 },{
     name: "wrapped-bitcoin",
     code: "WBTC",
@@ -20531,7 +21181,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wrapped-bitcoin/"
     },
-    rank: "403"
+    rank: "440"
 },{
     name: "wxcoins",
     code: "WXC",
@@ -20541,7 +21191,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wxcoins/"
     },
-    rank: "2422"
+    rank: "4222"
 },{
     name: "x-cash",
     code: "XCASH",
@@ -20551,7 +21201,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/x-cash/"
     },
-    rank: "1656"
+    rank: "3456"
 },{
     name: "x-coin",
     code: "XCO",
@@ -20561,7 +21211,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/x-coin/"
     },
-    rank: "2187"
+    rank: "3987"
 },{
     name: "x12-coin",
     code: "X12",
@@ -20571,7 +21221,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/x12-coin/"
     },
-    rank: "2524"
+    rank: "4324"
 },{
     name: "x8x-token",
     code: "X8X",
@@ -20581,7 +21231,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/x8x-token/"
     },
-    rank: "1842"
+    rank: "3642"
 },{
     name: "xaurum",
     code: "XAUR",
@@ -20591,7 +21241,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xaurum/"
     },
-    rank: "541"
+    rank: "539"
 },{
     name: "xceltoken",
     code: "XCEL",
@@ -20601,7 +21251,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xceltoken/"
     },
-    rank: "1561"
+    rank: "3361"
+},{
+    name: "xceltoken-plus",
+    code: "XLAB",
+    icon: "xlab",
+    longname: "XcelToken Plus",
+    description: "XcelToken Plus coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/xceltoken-plus/"
+    },
+    rank: "344"
 },{
     name: "xchange",
     code: "XCG",
@@ -20611,7 +21271,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xchange/"
     },
-    rank: "1696"
+    rank: "3496"
 },{
     name: "xdna",
     code: "XDNA",
@@ -20621,7 +21281,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xdna/"
     },
-    rank: "1664"
+    rank: "3464"
 },{
     name: "xel",
     code: "XEL",
@@ -20631,7 +21291,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xel/"
     },
-    rank: "1068"
+    rank: "2868"
 },{
     name: "xenon",
     code: "XNN",
@@ -20641,7 +21301,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xenon/"
     },
-    rank: "1885"
+    rank: "3685"
 },{
     name: "xgox",
     code: "XGOX",
@@ -20651,7 +21311,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xgox/"
     },
-    rank: "1700"
+    rank: "3500"
 },{
     name: "xinfin-network",
     code: "XDCE",
@@ -20661,7 +21321,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xinfin-network/"
     },
-    rank: "906"
+    rank: "518"
 },{
     name: "xmax",
     code: "XMX",
@@ -20671,7 +21331,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xmax/"
     },
-    rank: "168"
+    rank: "144"
 },{
     name: "xmct",
     code: "XMCT",
@@ -20681,7 +21341,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xmct/"
     },
-    rank: "1594"
+    rank: "3394"
 },{
     name: "xovbank",
     code: "XOV",
@@ -20691,7 +21351,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xovbank/"
     },
-    rank: "1721"
+    rank: "3521"
 },{
     name: "xpa",
     code: "XPA",
@@ -20701,7 +21361,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xpa/"
     },
-    rank: "1290"
+    rank: "3090"
 },{
     name: "xriba",
     code: "XRA",
@@ -20711,7 +21371,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xriba/"
     },
-    rank: "1195"
+    rank: "2995"
 },{
     name: "xrt-token",
     code: "XRT",
@@ -20721,7 +21381,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xrt-token/"
     },
-    rank: "2542"
+    rank: "4342"
 },{
     name: "xtrabytes",
     code: "XBY",
@@ -20731,7 +21391,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xtrabytes/"
     },
-    rank: "506"
+    rank: "2306"
 },{
     name: "xtrd",
     code: "XTRD",
@@ -20741,7 +21401,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xtrd/"
     },
-    rank: "2509"
+    rank: "4309"
 },{
     name: "xyo",
     code: "XYO",
@@ -20751,7 +21411,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xyo/"
     },
-    rank: "505"
+    rank: "579"
 },{
     name: "yee",
     code: "YEE",
@@ -20761,7 +21421,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yee/"
     },
-    rank: "1136"
+    rank: "2936"
 },{
     name: "yeed",
     code: "YEED",
@@ -20771,7 +21431,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yeed/"
     },
-    rank: "567"
+    rank: "2367"
 },{
     name: "yenten",
     code: "YTN",
@@ -20781,7 +21441,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yenten/"
     },
-    rank: "2336"
+    rank: "4136"
 },{
     name: "yocoin",
     code: "YOC",
@@ -20791,7 +21451,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yocoin/"
     },
-    rank: "1160"
+    rank: "2960"
 },{
     name: "yolocash",
     code: "YLC",
@@ -20801,7 +21461,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yolocash/"
     },
-    rank: "1797"
+    rank: "3597"
 },{
     name: "you-coin",
     code: "YOU",
@@ -20811,7 +21471,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/you-coin/"
     },
-    rank: "2421"
+    rank: "180"
 },{
     name: "youlive-coin",
     code: "UC",
@@ -20821,7 +21481,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/youlive-coin/"
     },
-    rank: "2411"
+    rank: "4211"
 },{
     name: "yoyow",
     code: "YOYOW",
@@ -20831,7 +21491,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yoyow/"
     },
-    rank: "518"
+    rank: "499"
 },{
     name: "yuan-chain-coin",
     code: "YCC",
@@ -20841,7 +21501,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yuan-chain-coin/"
     },
-    rank: "2420"
+    rank: "4220"
 },{
     name: "yuki",
     code: "YUKI",
@@ -20851,7 +21511,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yuki/"
     },
-    rank: "2552"
+    rank: "4352"
 },{
     name: "zap",
     code: "ZAP",
@@ -20861,7 +21521,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zap/"
     },
-    rank: "1339"
+    rank: "3139"
 },{
     name: "zayedcoin",
     code: "ZYD",
@@ -20871,7 +21531,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zayedcoin/"
     },
-    rank: "2250"
+    rank: "4050"
 },{
     name: "zb",
     code: "ZB",
@@ -20881,7 +21541,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zb/"
     },
-    rank: "43"
+    rank: "51"
 },{
     name: "zcash",
     code: "ZEC",
@@ -20891,7 +21551,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zcash/"
     },
-    rank: "29"
+    rank: "32"
 },{
     name: "zclassic",
     code: "ZCL",
@@ -20901,7 +21561,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zclassic/"
     },
-    rank: "579"
+    rank: "2379"
 },{
     name: "zcoin",
     code: "XZC",
@@ -20911,7 +21571,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zcoin/"
     },
-    rank: "113"
+    rank: "120"
 },{
     name: "zcore",
     code: "ZCR",
@@ -20921,7 +21581,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zcore/"
     },
-    rank: "1503"
+    rank: "3303"
 },{
     name: "zebi",
     code: "ZCO",
@@ -20931,7 +21591,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zebi/"
     },
-    rank: "1103"
+    rank: "2903"
 },{
     name: "zeepin",
     code: "ZPT",
@@ -20941,7 +21601,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zeepin/"
     },
-    rank: "1041"
+    rank: "557"
 },{
     name: "zeitcoin",
     code: "ZEIT",
@@ -20951,7 +21611,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zeitcoin/"
     },
-    rank: "1872"
+    rank: "3672"
 },{
     name: "zelcash",
     code: "ZEL",
@@ -20961,7 +21621,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zelcash/"
     },
-    rank: "369"
+    rank: "455"
 },{
     name: "zen-protocol",
     code: "ZP",
@@ -20971,7 +21631,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zen-protocol/"
     },
-    rank: "1033"
+    rank: "2833"
 },{
     name: "zencash",
     code: "ZEN",
@@ -20981,7 +21641,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zencash/"
     },
-    rank: "141"
+    rank: "127"
 },{
     name: "zengold",
     code: "ZENGOLD",
@@ -20991,7 +21651,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zengold/"
     },
-    rank: "2596"
+    rank: "4396"
 },{
     name: "zennies",
     code: "ZENI",
@@ -21001,7 +21661,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zennies/"
     },
-    rank: "1958"
+    rank: "3758"
 },{
     name: "zenswap-network-token",
     code: "ZNT",
@@ -21011,7 +21671,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zenswap-network-token/"
     },
-    rank: "1782"
+    rank: "3582"
 },{
     name: "zephyr",
     code: "ZEPH",
@@ -21021,7 +21681,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zephyr/"
     },
-    rank: "1242"
+    rank: "3042"
 },{
     name: "zero",
     code: "ZER",
@@ -21031,7 +21691,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zero/"
     },
-    rank: "1437"
+    rank: "3237"
 },{
     name: "zest",
     code: "ZEST",
@@ -21041,7 +21701,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zest/"
     },
-    rank: "1649"
+    rank: "3449"
 },{
     name: "zetacoin",
     code: "ZET",
@@ -21051,7 +21711,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zetacoin/"
     },
-    rank: "1677"
+    rank: "3477"
 },{
     name: "zeusnetwork",
     code: "ZEUS",
@@ -21061,7 +21721,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zeusnetwork/"
     },
-    rank: "1754"
+    rank: "3554"
 },{
     name: "zeusshield",
     code: "ZSC",
@@ -21071,7 +21731,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zeusshield/"
     },
-    rank: "1237"
+    rank: "3037"
 },{
     name: "zilla",
     code: "ZLA",
@@ -21081,7 +21741,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zilla/"
     },
-    rank: "1457"
+    rank: "3257"
 },{
     name: "zilliqa",
     code: "ZIL",
@@ -21091,7 +21751,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zilliqa/"
     },
-    rank: "93"
+    rank: "102"
 },{
     name: "zinc",
     code: "ZINC",
@@ -21101,7 +21761,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zinc/"
     },
-    rank: "1588"
+    rank: "3388"
 },{
     name: "zip",
     code: "ZIP",
@@ -21111,7 +21771,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zip/"
     },
-    rank: "377"
+    rank: "508"
 },{
     name: "zippie",
     code: "ZIPT",
@@ -21121,7 +21781,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zippie/"
     },
-    rank: "1550"
+    rank: "3350"
 },{
     name: "zmine",
     code: "ZMN",
@@ -21131,7 +21791,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zmine/"
     },
-    rank: "1239"
+    rank: "3039"
 },{
     name: "zoomba",
     code: "ZBA",
@@ -21141,7 +21801,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zoomba/"
     },
-    rank: "2163"
+    rank: "3963"
 },{
     name: "zozocoin",
     code: "ZZC",
@@ -21151,7 +21811,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zozocoin/"
     },
-    rank: "2237"
+    rank: "4037"
 },{
     name: "zper",
     code: "ZPR",
@@ -21161,7 +21821,7 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zper/"
     },
-    rank: "1151"
+    rank: "2951"
 },{
     name: "zrcoin",
     code: "ZRC",
@@ -21171,7 +21831,17 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zrcoin/"
     },
-    rank: "394"
+    rank: "286"
+},{
+    name: "ztcoin",
+    code: "ZT",
+    icon: "zt",
+    longname: "ZTCoin",
+    description: "ZTCoin coin",
+    links: {
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/ztcoin/"
+    },
+    rank: "324"
 },{
     name: "zurcoin",
     code: "ZUR",
@@ -21181,5 +21851,5 @@ var otherCoins = [{
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zurcoin/"
     },
-    rank: "2160"
+    rank: "3960"
 }];

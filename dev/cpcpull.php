@@ -68,7 +68,7 @@ foreach($newCoins as $coin) {
   echo ".";
   //echo "$coin[name]\n";
   //$rank ++;
-  //$icon = file_exists('www/coins/' . strtolower($coin['symbol']) . '.png') ? strtolower($coin['symbol']) : 'noicon';
+  $icon = file_exists('www/coins/' . strtolower($coin['symbol']) . '.svg') ? strtolower($coin['symbol']) : 'noicon';
 
   $lines[]= <<<EOT
 {

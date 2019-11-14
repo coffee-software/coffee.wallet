@@ -2,8 +2,13 @@
 
 code=$1
 codeuc=$(echo $code | awk '{print toupper($0)}')
+path1="dev/custom_coins/$code.svg"
 path="../cryptocurrency-icons/svg/white/$code.svg"
-if [ -f $path ]; then
+
+if [ -f $path1 ]; then
+	cp $path1 www/coins/$code.svg
+	echo "using custom"
+elif [ -f $path ]; then
 	#sed '0,/\<path/{s/<path/<path fill="#766054"/}' $path > tmp.svg
 	#sed -i 's/"#1.1.1."/"#766054"/g' tmp.svg
 	#sed -i 's/"#0.0.0."/"#766054"/g' tmp.svg
