@@ -832,7 +832,7 @@ var app = {
       }));
 
       if (wallet.totalOffline + wallet.totalOnline <= 0) {
-        advanced.appendChild(app.createAdvancedOption('remove', 'remove coin', app.removeCoin.bind(app, advancedWallet)));
+        advanced.appendChild(app.createAdvancedOption('remove', 'remove wallet', app.removeCoin.bind(app, advancedWallet)));
       }
 
       //document.getElementById('coinInfoWallet').appendChild(getCoinAddrIcon(wallet.handler, wallet.data.addr));
@@ -1997,7 +1997,7 @@ var app = {
             '<img src="coins/btc.svg" width="32" alt="BTC">&nbsp; &nbsp; &nbsp;' +
             '<img src="coins/eth.svg" width="32" alt="ETH">' +
             '</div>' +
-            '<p>Bitcoin and Ethereum wallets are already added for your convinience. You can add different coins using "add currencies" option. Use "help" menu option for more info. </p>',
+            '<p>Bitcoin and Ethereum wallets are already added for your convinience. You can add different coins using "add wallet" option. Use "help" menu option for more info. </p>',
             function() {
               app.onDataLoaded();
             },
@@ -2011,7 +2011,7 @@ var app = {
       app.confirmBeforeContinue(
         'Wallet Recovered',
         '<p>All your new wallets will be generated using your recovery phrase.<p>' +
-        '<p>Please <strong>add currencies</strong> you were holding and refresh balances.<p>',
+        '<p>Please <strong>add wallets</strong> you were holding and refresh balances.<p>',
         function() {
           app.onDataLoaded();
         }),
