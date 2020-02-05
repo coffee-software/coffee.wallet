@@ -1,6 +1,15 @@
 'use strict'
 
-var changelly = {
+var exchangeChangelly = ExtendObject(exchange, {
+
+  key: "changelly",
+
+  name: "Changelly",
+
+  url: "changelly.com",
+
+  logo: "changelly.png",
+
   _callApi : function(message, callback) {
     var post = JSON.stringify(message);
     var xhr = new XMLHttpRequest();
@@ -40,7 +49,7 @@ var changelly = {
     }, callback);
   },
 
-  getExchangeAmount : function(from, to, amount, callback) {
+  estimateExchangeAmount : function(from, to, amount, callback) {
     this._callApi({
       "jsonrpc": "2.0",
       "method": "getExchangeAmount",
@@ -66,8 +75,9 @@ var changelly = {
       },
       "id": 1
     }, callback);
-  },
+  }
 
+  /*,
   getTransactions : function(to, returnTo, callback) {
     this._callApi({
       "jsonrpc": "2.0",
@@ -92,7 +102,7 @@ var changelly = {
       },
       "id": 1
     }, callback);
-  }
+  } */
 
 
-}
+});

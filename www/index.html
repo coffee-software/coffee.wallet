@@ -270,9 +270,16 @@
             </div>
             <div id="exchangePopup" style="display:none;">
               <div class="bg-creme popup-head">
-                <div class="rowIcon"><img class="coinIcon coinBig" src="icons/changelly_color.png"/></div>
+                <!--div class="rowIcon"><img class="coinIcon coinBig" src="icons/changelly_color.png"/></div-->
                 <h2>Exchange</h2>
-                <h3>Powered by Changelly</h3>
+                <!--h3>Powered by Changelly</h3-->
+              </div>
+              <div class="section">
+                exchange:
+                <select onchange="app.updateExchange()" id="exchangeProvider">
+                  <option value="now">ChangeNOW</option>
+                  <option value="changelly">Changelly</option>
+                </select>
               </div>
               <div style="margin: 15px 0;">
                   Usually a transaction is completed within <b>5&#8209;30&nbsp;minutes</b> but it can take longer.
@@ -786,7 +793,9 @@
         <script type="text/javascript" src="js/widget.coinbutton.js"></script>
         <script type="text/javascript" src="js/changelog.js"></script>
         <script type="text/javascript" src="js/config.js"></script>
-        <script type="text/javascript" src="js/changelly.js"></script>
+        <script type="text/javascript" src="js/exchange.js"></script>
+        <script type="text/javascript" src="js/exchange.now.js"></script>
+        <script type="text/javascript" src="js/exchange.changelly.js"></script>
         <script type="text/javascript" src="js/airdrop.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
     </body>

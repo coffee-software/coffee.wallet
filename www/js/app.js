@@ -583,6 +583,8 @@ var app = {
       return li;
     },
     doExchange: function() {
+      var provider = document.getElementById("exchangeProvider").value == "now" ? exchangeNow : exchangeChangelly;
+
       var sellCoin = document.getElementById("exchangeSellCoin").value;
       var sellAmmount = app.wallets[sellCoin].handler.floatValueToSystemValue(parseFloat(document.getElementById("exchangeSellAmmount").value));
       var buyCoin = document.getElementById("exchangeBuyCoin").value;
@@ -590,7 +592,7 @@ var app = {
       var buyAmmount = document.getElementById("exchangeBuyAmmount").value;
 
       var displaySellAmount = app.wallets[sellCoin].handler.systemValueToDisplayValue(sellAmmount);
-      changelly.createTransaction(
+      provider.createTransaction(
         sellCoin,
         buyCoin,
         app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount),
@@ -604,11 +606,11 @@ var app = {
             '<tr class="second"><td>' + shortAmount(displaySellAmount, sellCoin, 13) + '</td><td></td><td>' + shortAmount(buyAmmount, buyCoin, 13) + '</td></tr>' +
             '</table>',
             '<table class="niceTable">' +
-            '<tr><th colspan="2" style="width:26%;">changelly payinAddress:</th></tr><tr><td colspan="2">' + ret.payinAddress + '</td></tr>' +
+            '<tr><th colspan="2" style="width:26%;">payinAddress:</th></tr><tr><td colspan="2">' + ret.payinAddress + '</td></tr>' +
             '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displaySellAmount + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount), sellCoin) + '</td></tr>' +
             '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.wallets[sellCoin].handler.getFeeValueDisplay(fee) + '</td></tr>' +
             '<tr><th colspan="2">estimated return:</th></tr><tr><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
-            '<tr><th colspan="2">changelly ID:</th></tr><tr><td colspan="2">' + ret.id + '</td></tr>' +
+            '<tr><th colspan="2">' + provider.name + ' ID:</th></tr><tr><td colspan="2">' + ret.id + '</td></tr>' +
             '</table>'
             ,
             function(){
@@ -622,9 +624,28 @@ var app = {
       );
     },
     updateExchange: function() {
+      var provider = document.getElementById("exchangeProvider").value == "now" ? exchangeNow : exchangeChangelly;
+      if (provider.key != app.lastExchangeProvider) {
+        (new Select(document.getElementById("exchangeSellCoin"))).setOptions({}, null);
+        (new Select(document.getElementById("exchangeBuyCoin"))).setOptions({}, null);
+        app.lastExchangeProvider = provider.key;
+        app.getExchangeableCoins(provider, function(currencies){
+          var available = {'':{'name': '- please select -'}};
+          for (var i in currencies) {
+            if (currencies[i] in app.wallets) {
+              available[currencies[i]] = {'name': currencies[i]};
+            }
+          }
+          (new Select(document.getElementById("exchangeSellCoin"))).setOptions(available, sellCoin);
+          (new Select(document.getElementById("exchangeBuyCoin"))).setOptions(available, buyCoin);
+          app.updateExchange();
+        });
+      }
+
       var sellCoin = document.getElementById("exchangeSellCoin").value;
       var sellAmmount = document.getElementById("exchangeSellAmmount").value;
       var buyCoin = document.getElementById("exchangeBuyCoin").value;
+
       var fee = null;
 
       if (sellCoin) {
@@ -650,13 +671,13 @@ var app = {
       var goodPair = sellCoin && buyCoin && (sellCoin != buyCoin);
       if (goodPair) {
         var minKey = sellCoin + '#' + buyCoin;
-        if (minKey in app.exchangeMinAmmounts) {
-          document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[minKey];
+        if (minKey in app.exchangeMinAmmounts[provider.key]) {
+          document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[provider.key][minKey];
         } else {
           document.getElementById("exchangeSellMin").textContent = '';
-          changelly.getMinAmount(sellCoin, buyCoin, function(ret){
-            app.exchangeMinAmmounts[minKey] = ret;
-            document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[minKey];
+          provider.getMinAmount(sellCoin, buyCoin, function(ret){
+            app.exchangeMinAmmounts[provider.key][minKey] = ret;
+            document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[provider.key][minKey];
           });
         }
         /*changelly.getTransactions(buyCoin, app.wallets[buyCoin].data.addr, function(ret){
@@ -667,7 +688,7 @@ var app = {
       }
 
       if (goodPair && (sellAmmount > 0)) {
-        changelly.getExchangeAmount(
+        provider.estimateExchangeAmount(
           sellCoin,
           buyCoin,
           sellAmmount,
@@ -683,8 +704,8 @@ var app = {
       document.getElementById("exchangeButton").disabled = !(goodPair && (sellAmmount > 0) && (fee !== null));
     },
 
-    getExchangeableCoins: function(callback) {
-      changelly.getCurrencies(function(currencies){
+    getExchangeableCoins: function(provider, callback) {
+      provider.getCurrencies(function(currencies){
         var ret = new Array();
         for (var i in currencies) {
           var key = currencies[i].toUpperCase();
@@ -698,22 +719,13 @@ var app = {
 
     popupExchange: function(sellCoin, buyCoin) {
       this.exchangeDefaultFees = {};
-      this.exchangeMinAmmounts = {};
+      this.exchangeMinAmmounts = {'now' : {}, 'changelly' : {}};
+
       document.getElementById("exchangeSellAmmount").value = 0;
       this.openPopup('exchangePopup', 'Exchange', 'icons/changelly_color.png');
       app.settings.set('airdropTaskExchange', true);
 
-      app.getExchangeableCoins(function(currencies){
-        var available = {'':{'name': '- please select -'}};
-        for (var i in currencies) {
-          if (currencies[i] in app.wallets) {
-            available[currencies[i]] = {'name': currencies[i]};
-          }
-        }
-        (new Select(document.getElementById("exchangeSellCoin"))).setOptions(available, sellCoin);
-        (new Select(document.getElementById("exchangeBuyCoin"))).setOptions(available, buyCoin);
-        app.updateExchange();
-      });
+      app.updateExchange();
     },
     cancelSentViaMessage: function(coin, pk) {
       navigator.notification.confirm('Are you sure you want to CANCEL this? Recipients of message will no longer be able to redeem those coins.',
@@ -792,6 +804,7 @@ var app = {
         }));
       }
 
+      /* TODO
       if ('exchangeableCoinsCache' in app && (app.exchangeableCoinsCache.indexOf(wallet.handler.code) != -1)) {
         advanced.appendChild(app.createAdvancedOption('sell', 'sell coin', function(){
           app.popupExchange(wallet.handler.code, null);
@@ -800,6 +813,7 @@ var app = {
           app.popupExchange(null, wallet.handler.code);
         }));
       }
+      */
 
       if ('explorerLinkAddr' in wallet.handler) {
         advanced.appendChild(app.createAdvancedOption('link', 'history (external)', function(){
@@ -2117,7 +2131,8 @@ var app = {
           document.getElementById('sendCoinFee').focus();
         });
 
-        app.getExchangeableCoins(function(list){app.exchangeableCoinsCache = list});
+        // TODO
+        //app.getExchangeableCoins(function(list){app.exchangeableCoinsCache = list});
 
         PullToRefresh.init({
           triggerElement: '#walletsTab',
