@@ -6,6 +6,8 @@ var exchangeNow = ExtendObject(exchange, {
 
   name: "ChangeNow",
 
+  description: "...",
+
   url: "changenow.io",
 
   logo: null

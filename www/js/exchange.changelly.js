@@ -6,6 +6,8 @@ var exchangeChangelly = ExtendObject(exchange, {
 
   name: "Changelly",
 
+  description: "Usually a swap is completed within <b>5&#8209;30&nbsp;minutes</b> but can take longer.",
+
   url: "changelly.com",
 
   logo: "changelly.png",

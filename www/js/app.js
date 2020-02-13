@@ -626,6 +626,10 @@ var app = {
     updateExchange: function() {
       var provider = document.getElementById("exchangeProvider").value == "now" ? exchangeNow : exchangeChangelly;
       if (provider.key != app.lastExchangeProvider) {
+        document.getElementById("exchangeDescription").innerHTML =
+          provider.description + '<br/>' +
+          'Refer to <a href="#" onclick="osPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a> for more info.';
+
         (new Select(document.getElementById("exchangeSellCoin"))).setOptions({}, null);
         (new Select(document.getElementById("exchangeBuyCoin"))).setOptions({}, null);
         app.lastExchangeProvider = provider.key;
