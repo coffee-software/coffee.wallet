@@ -5,6 +5,10 @@ var config = {
     apiKey: '',
     apiSecret: ''
   },
+  now: {
+    apiKey: '',
+    apiSecret: ''
+  },
   infuraKey: '',
   airdrop: {
     coin: '',
