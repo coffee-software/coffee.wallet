@@ -626,9 +626,9 @@ var app = {
     updateExchange: function() {
       var provider = document.getElementById("exchangeProvider").value == "now" ? exchangeNow : exchangeChangelly;
       if (provider.key != app.lastExchangeProvider) {
-        document.getElementById("exchangeDescription").innerHTML =
-          provider.description + '<br/>' +
-          'Refer to <a href="#" onclick="osPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a> for more info.';
+
+        document.getElementById("exchangeLink").innerHTML = '<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a>';
+        document.getElementById("exchangeIcon").src = 'img/exchanges/' + provider.key + '.png';
 
         (new Select(document.getElementById("exchangeSellCoin"))).setOptions({}, null);
         (new Select(document.getElementById("exchangeBuyCoin"))).setOptions({}, null);
@@ -655,9 +655,9 @@ var app = {
       if (sellCoin) {
         if (sellCoin in app.exchangeDefaultFees) {
           fee = app.exchangeDefaultFees[sellCoin];
-          document.getElementById("exchangeSellFee").textContent = app.wallets[sellCoin].handler.getFeeDisplay(fee);
+          document.getElementById("exchangeSellFee").innerHTML = app.wallets[sellCoin].handler.getFeeDisplay(fee);
         } else {
-          document.getElementById("exchangeSellFee").textContent = 'pending...';
+          document.getElementById("exchangeSellFee").innerHTML = 'pending...';
           var fees = app.wallets[sellCoin].handler.getFees(function(fees){
             app.exchangeDefaultFees[sellCoin] = fees[Math.floor((fees.length - 1) / 2)];
             app.updateExchange();
@@ -726,7 +726,7 @@ var app = {
       this.exchangeMinAmmounts = {'now' : {}, 'changelly' : {}};
 
       document.getElementById("exchangeSellAmmount").value = 0;
-      this.openPopup('exchangePopup', 'Exchange', 'icons/changelly_color.png');
+      this.openPopup('exchangePopup', 'Exchange');
       app.settings.set('airdropTaskExchange', true);
 
       app.updateExchange();
@@ -810,7 +810,6 @@ var app = {
         }));
       }
 
-      /* TODO
       if ('exchangeableCoinsCache' in app && (app.exchangeableCoinsCache.indexOf(wallet.handler.code) != -1)) {
         advanced.appendChild(app.createAdvancedOption('sell', 'sell coin', function(){
           app.popupExchange(wallet.handler.code, null);
@@ -819,7 +818,6 @@ var app = {
           app.popupExchange(null, wallet.handler.code);
         }));
       }
-      */
 
       if ('explorerLinkAddr' in wallet.handler) {
         advanced.appendChild(app.createAdvancedOption('link', 'history (external)', function(){
@@ -2137,8 +2135,22 @@ var app = {
           document.getElementById('sendCoinFee').focus();
         });
 
-        // TODO
-        //app.getExchangeableCoins(function(list){app.exchangeableCoinsCache = list});
+        //
+        var allExchangeProviders = [exchangeNow, exchangeChangelly];
+        this.exchangeableCoinsCache = [];
+        for (var key in allExchangeProviders) {
+          var provider = allExchangeProviders[key];
+          app.getExchangeableCoins(
+            provider,
+            function(list) {
+              for (var i in list){
+                if (app.exchangeableCoinsCache.indexOf(list[i]) == -1) {
+                  app.exchangeableCoinsCache.push(list[i]);
+                }
+              }
+            }
+          );
+        }
 
         PullToRefresh.init({
           triggerElement: '#walletsTab',

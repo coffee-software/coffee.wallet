@@ -15,8 +15,6 @@ var exchangeNow = ExtendObject(exchange, {
 
   name: "ChangeNow",
 
-  description: "...",
-
   url: "changenow.io",
 
   logo: null,
@@ -71,18 +69,18 @@ var exchangeNow = ExtendObject(exchange, {
   },
 
   getCurrencies: function(callback) {
-   this._callGetApi(
-     {
-       method: "currencies",
-       params: {
-         active: true,
-         fixedRate: true,
-       },
-     },
-     function(data) {
-       callback(data.map(elem => elem.ticker))
-     }
-   )
+  this._callGetApi(
+    {
+      method: "currencies",
+      params: {
+        active: true,
+        fixedRate: true,
+      },
+    },
+    function(data) {
+      callback(data.map(elem => elem.ticker))
+    }
+  )
   },
 
   getMinAmount: function(from, to, callback) {

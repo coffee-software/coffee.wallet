@@ -6,8 +6,6 @@ var exchange = {
 
   name: null,
 
-  description: "",
-
   url: null,
 
   logo: null,
