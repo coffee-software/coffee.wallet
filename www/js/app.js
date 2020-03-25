@@ -787,6 +787,8 @@ var app = {
 
       document.getElementById('coinInfoName').innerHTML = wallet.handler.code;
       document.getElementById('coinInfoSubName').innerHTML = wallet.handler.longname;
+      document.getElementById('coinInfoCurrentPrice').innerHTML =
+      'current price: ' + this.priceProvider.getPrice(wallet.handler.code) + ' ' + this.priceProvider.getUnit();
 
       document.getElementById('coinInfoButtons').innerHTML = '';
 
