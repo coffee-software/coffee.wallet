@@ -22,6 +22,19 @@ function versionCompare(v1, v2) {
 window.version = "0.11.0";
 window.changelog = [
   {
+   version: '0.12.0',
+   date: '2020-04-08',
+   changes: [
+     'added: multiple exchange providers support',
+     'added: ChangeNOW exchange support',
+     'added: CoinGecko price provider',
+     'updated: coins and icons data',
+     'fixed: price update error issue by switching to CoinGecko API as default',
+     'fixed: added dafault template for coins to reduce app size',
+     'fixed: minor bugs'
+   ]
+  },
+  {
    version: '0.11.0',
    date: '2019-11-14',
    changes: [
