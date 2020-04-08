@@ -664,7 +664,8 @@ var app = {
           });
         }
         //TODO system value
-        document.getElementById("exchangeSellMax").textContent = app.wallets[sellCoin].data.balance - (fee === null ? 0 : app.wallets[sellCoin].handler.estimateFeeFloat(fee));
+        var maxSell = app.wallets[sellCoin].data.balance - (fee === null ? 0 : app.wallets[sellCoin].handler.estimateFeeFloat(fee));
+        document.getElementById("exchangeSellMax").textContent = maxSell > 0 ? maxSell : 0;
         document.getElementById("exchangeSellValue").innerHTML = app.priceProvider.convert(sellAmmount, sellCoin);
       } else {
         document.getElementById("exchangeSellMax").textContent = '';
