@@ -894,7 +894,7 @@ var app = {
 
       for (var i=0; i< allCoinApisByRank.length; i++){
         var coin = allCoinApisByRank[i];
-        var show = coin._search.search(query) != -1;
+        var show = coin._search.indexOf(query) != -1;
         //if (onlySupportedRead) show = show && ('getBalance' in coin);
         if (onlySupportedWrite) show = show && ('sendPayment' in coin);
         if (!includeTestCoins) show = show && (!('testCoin' in coin) || (!coin.testCoin));
