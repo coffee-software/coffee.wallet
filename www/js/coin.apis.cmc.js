@@ -5,13 +5,14 @@
 var otherCoins = [{
     name: "0chain",
     code: "ZCN",
-    icon: "zcn",
+    icon: "noicon",
     longname: "0chain",
     description: "0chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/0chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/0chain/"
     },
-    rank: "2806"
+    rank: "1000"
 },{
     name: "0x",
     code: "ZRX",
@@ -19,6 +20,7 @@ var otherCoins = [{
     longname: "0x",
     description: "0x coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/0x",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/0x/"
     },
     rank: "41"
@@ -29,49 +31,54 @@ var otherCoins = [{
     longname: "0xBitcoin",
     description: "0xBitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/0xbtc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/0xbtc/"
     },
-    rank: "3143"
+    rank: "1000"
 },{
     name: "0xcert",
     code: "ZXC",
-    icon: "zxc",
+    icon: "noicon",
     longname: "0xcert",
     description: "0xcert coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/0xcert",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/0xcert/"
     },
-    rank: "3466"
+    rank: "1000"
 },{
     name: "1337coin",
     code: "1337",
-    icon: "1337",
+    icon: "noicon",
     longname: "Elite",
     description: "Elite coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/1337coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/1337coin/"
     },
-    rank: "3154"
+    rank: "1000"
 },{
     name: "1irstcoin",
     code: "FST",
-    icon: "fst",
+    icon: "noicon",
     longname: "1irstcoin",
     description: "1irstcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/1irstcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/1irstcoin/"
     },
-    rank: "161"
+    rank: "1000"
 },{
     name: "1world",
     code: "1WO",
-    icon: "1wo",
+    icon: "noicon",
     longname: "1World",
     description: "1World coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/1world",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/1world/"
     },
-    rank: "3110"
+    rank: "1000"
 },{
     name: "2give",
     code: "2GIVE",
@@ -79,169 +86,175 @@ var otherCoins = [{
     longname: "2GIVE",
     description: "2GIVE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/2give",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/2give/"
     },
-    rank: "3210"
+    rank: "1000"
 },{
     name: "300-token",
     code: "300",
-    icon: "300",
+    icon: "noicon",
     longname: "300 Token",
     description: "300 Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/300-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/300-token/"
     },
-    rank: "3965"
+    rank: "1000"
 },{
     name: "42-coin",
     code: "42",
-    icon: "42",
+    icon: "noicon",
     longname: "42-coin",
     description: "42-coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/42-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/42-coin/"
     },
-    rank: "3661"
+    rank: "1000"
 },{
     name: "4new",
     code: "KWATT",
-    icon: "kwatt",
+    icon: "noicon",
     longname: "4NEW",
     description: "4NEW coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/4new",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/4new/"
     },
-    rank: "3228"
+    rank: "1000"
 },{
     name: "808coin",
     code: "808",
-    icon: "808",
+    icon: "noicon",
     longname: "808Coin",
     description: "808Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/808coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/808coin/"
     },
-    rank: "3757"
+    rank: "1000"
 },{
     name: "8bit",
     code: "8BIT",
-    icon: "8bit",
+    icon: "noicon",
     longname: "8Bit",
     description: "8Bit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/8bit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/8bit/"
     },
-    rank: "4014"
-},{
-    name: "aave",
-    code: "LEND",
-    icon: "lend",
-    longname: "Aave",
-    description: "Aave coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/aave/"
-    },
-    rank: "219"
+    rank: "1000"
 },{
     name: "ab-chain-rtb",
     code: "RTB",
-    icon: "rtb",
+    icon: "noicon",
     longname: "AB-Chain RTB",
     description: "AB-Chain RTB coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ab-chain-rtb",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ab-chain-rtb/"
     },
-    rank: "3472"
+    rank: "1000"
 },{
     name: "abbc-coin",
     code: "ABBC",
-    icon: "abbc",
+    icon: "noicon",
     longname: "ABBC Coin",
     description: "ABBC Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/abbc-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/abbc-coin/"
     },
-    rank: "53"
+    rank: "1000"
 },{
     name: "absolute",
     code: "ABS",
-    icon: "abs",
+    icon: "noicon",
     longname: "Absolute",
     description: "Absolute coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/absolute",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/absolute/"
     },
-    rank: "3499"
+    rank: "1000"
 },{
     name: "abulaba",
     code: "AAA",
-    icon: "aaa",
+    icon: "noicon",
     longname: "Abulaba",
     description: "Abulaba coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/abulaba",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/abulaba/"
     },
-    rank: "3574"
+    rank: "1000"
 },{
     name: "abyss-token",
     code: "ABYSS",
-    icon: "abyss",
+    icon: "noicon",
     longname: "Abyss Token",
     description: "Abyss Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/abyss-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/abyss-token/"
     },
-    rank: "2376"
+    rank: "1000"
 },{
     name: "ac3",
     code: "AC3",
-    icon: "ac3",
+    icon: "noicon",
     longname: "AC3",
     description: "AC3 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ac3",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ac3/"
     },
-    rank: "3204"
+    rank: "1000"
 },{
     name: "accelerator-network",
     code: "ACC-1",
-    icon: "acc-1",
+    icon: "noicon",
     longname: "Accelerator Network",
     description: "Accelerator Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/accelerator-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/accelerator-network/"
     },
-    rank: "4022"
+    rank: "1000"
 },{
     name: "acchain",
     code: "ACC-2",
-    icon: "acc-2",
+    icon: "noicon",
     longname: "ACChain",
     description: "ACChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/acchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/acchain/"
     },
-    rank: "4318"
+    rank: "1000"
 },{
     name: "ace",
     code: "ACE",
-    icon: "ace",
+    icon: "noicon",
     longname: "ACE (TokenStars)",
     description: "ACE (TokenStars) coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ace",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ace/"
     },
-    rank: "3435"
+    rank: "1000"
 },{
     name: "aced",
     code: "ACED",
-    icon: "aced",
+    icon: "noicon",
     longname: "AceD",
     description: "AceD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aced",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aced/"
     },
-    rank: "3864"
+    rank: "1000"
 },{
     name: "achain",
     code: "ACT",
@@ -249,149 +262,164 @@ var otherCoins = [{
     longname: "Achain",
     description: "Achain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/achain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/achain/"
     },
-    rank: "331"
+    rank: "1000"
 },{
     name: "acoin",
     code: "ACOIN",
-    icon: "acoin",
+    icon: "noicon",
     longname: "Acoin",
     description: "Acoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/acoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/acoin/"
     },
-    rank: "4023"
+    rank: "1000"
 },{
     name: "acre",
     code: "ACRE",
-    icon: "acre",
+    icon: "noicon",
     longname: "ACRE",
     description: "ACRE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/acre",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/acre/"
     },
-    rank: "4025"
+    rank: "1000"
 },{
     name: "actinium",
     code: "ACM",
-    icon: "acm",
+    icon: "noicon",
     longname: "Actinium",
     description: "Actinium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/actinium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/actinium/"
     },
-    rank: "3434"
+    rank: "1000"
 },{
     name: "acute-angle-cloud",
     code: "AAC",
-    icon: "aac",
+    icon: "noicon",
     longname: "Acute Angle Cloud",
     description: "Acute Angle Cloud coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/acute-angle-cloud",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/acute-angle-cloud/"
     },
-    rank: "3184"
+    rank: "1000"
 },{
     name: "adbank",
     code: "ADB",
-    icon: "adb",
+    icon: "noicon",
     longname: "adbank",
     description: "adbank coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adbank",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adbank/"
     },
-    rank: "3242"
+    rank: "1000"
 },{
     name: "adcoin",
     code: "ACC",
-    icon: "acc",
+    icon: "noicon",
     longname: "AdCoin",
     description: "AdCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adcoin/"
     },
-    rank: "3903"
+    rank: "1000"
 },{
     name: "adelphoi",
     code: "ADL",
-    icon: "adl",
+    icon: "noicon",
     longname: "Adelphoi",
     description: "Adelphoi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adelphoi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adelphoi/"
     },
-    rank: "3664"
+    rank: "1000"
 },{
     name: "adenz",
     code: "DNZ",
-    icon: "dnz",
+    icon: "noicon",
     longname: "Adenz",
     description: "Adenz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adenz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adenz/"
     },
-    rank: "4385"
+    rank: "1000"
 },{
     name: "adhive",
     code: "ADH",
-    icon: "adh",
+    icon: "noicon",
     longname: "AdHive",
     description: "AdHive coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adhive",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adhive/"
     },
-    rank: "3298"
+    rank: "1000"
 },{
     name: "aditus",
     code: "ADI",
-    icon: "adi",
+    icon: "noicon",
     longname: "Aditus",
     description: "Aditus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aditus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aditus/"
     },
-    rank: "3488"
+    rank: "1000"
 },{
     name: "adshares",
     code: "ADST",
-    icon: "adst",
+    icon: "noicon",
     longname: "AdShares",
     description: "AdShares coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adshares",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adshares/"
     },
-    rank: "3150"
+    rank: "1000"
 },{
     name: "adtoken",
     code: "ADT",
-    icon: "adt",
+    icon: "noicon",
     longname: "adToken",
     description: "adToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adtoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adtoken/"
     },
-    rank: "2816"
+    rank: "1000"
 },{
     name: "adultchain",
     code: "XXX",
-    icon: "xxx",
+    icon: "noicon",
     longname: "AdultChain",
     description: "AdultChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adultchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adultchain/"
     },
-    rank: "3857"
+    rank: "1000"
 },{
     name: "advanced-internet-blocks",
     code: "AIB",
-    icon: "aib",
+    icon: "noicon",
     longname: "Advanced Internet Blocks",
     description: "Advanced Internet Blocks coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/advanced-internet-blocks",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/advanced-internet-blocks/"
     },
-    rank: "3836"
+    rank: "1000"
 },{
     name: "adx-net",
     code: "ADX",
@@ -399,29 +427,32 @@ var otherCoins = [{
     longname: "AdEx",
     description: "AdEx coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adx-net",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adx-net/"
     },
-    rank: "371"
+    rank: "1000"
 },{
     name: "adzcoin",
     code: "ADZ",
-    icon: "adz",
+    icon: "noicon",
     longname: "Adzcoin",
     description: "Adzcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/adzcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/adzcoin/"
     },
-    rank: "3797"
+    rank: "1000"
 },{
     name: "aegeus",
     code: "AEG",
-    icon: "aeg",
+    icon: "noicon",
     longname: "Aegeus",
     description: "Aegeus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aegeus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aegeus/"
     },
-    rank: "3510"
+    rank: "1000"
 },{
     name: "aelf",
     code: "ELF",
@@ -429,19 +460,21 @@ var otherCoins = [{
     longname: "aelf",
     description: "aelf coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aelf",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aelf/"
     },
-    rank: "115"
+    rank: "106"
 },{
     name: "aencoin",
     code: "AEN",
-    icon: "aen",
+    icon: "noicon",
     longname: "Aencoin",
     description: "Aencoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aencoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aencoin/"
     },
-    rank: "317"
+    rank: "1000"
 },{
     name: "aeon",
     code: "AEON",
@@ -449,19 +482,21 @@ var otherCoins = [{
     longname: "Aeon",
     description: "Aeon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aeon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aeon/"
     },
-    rank: "2093"
+    rank: "1000"
 },{
     name: "aergo",
     code: "AERGO",
-    icon: "aergo",
+    icon: "noicon",
     longname: "Aergo",
     description: "Aergo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aergo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aergo/"
     },
-    rank: "446"
+    rank: "249"
 },{
     name: "aeron",
     code: "ARN",
@@ -469,9 +504,10 @@ var otherCoins = [{
     longname: "Aeron",
     description: "Aeron coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aeron",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aeron/"
     },
-    rank: "516"
+    rank: "1000"
 },{
     name: "aeternity",
     code: "AE",
@@ -479,19 +515,21 @@ var otherCoins = [{
     longname: "Aeternity",
     description: "Aeternity coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aeternity",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aeternity/"
     },
-    rank: "88"
+    rank: "91"
 },{
     name: "agavecoin",
     code: "AGVC",
-    icon: "agvc",
+    icon: "noicon",
     longname: "AgaveCoin",
     description: "AgaveCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/agavecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/agavecoin/"
     },
-    rank: "198"
+    rank: "1000"
 },{
     name: "agrello-delta",
     code: "DLT",
@@ -499,69 +537,76 @@ var otherCoins = [{
     longname: "Agrello",
     description: "Agrello coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/agrello-delta",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/agrello-delta/"
     },
-    rank: "504"
+    rank: "1000"
 },{
     name: "aichain",
     code: "AIT",
-    icon: "ait",
+    icon: "noicon",
     longname: "AICHAIN",
     description: "AICHAIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aichain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aichain/"
     },
-    rank: "3232"
+    rank: "1000"
 },{
     name: "aidoc",
     code: "AIDOC",
-    icon: "aidoc",
+    icon: "noicon",
     longname: "AI Doctor",
     description: "AI Doctor coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aidoc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aidoc/"
     },
-    rank: "2988"
+    rank: "1000"
 },{
     name: "aidos-kuneen",
     code: "ADK",
-    icon: "adk",
+    icon: "noicon",
     longname: "Aidos Kuneen",
     description: "Aidos Kuneen coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aidos-kuneen",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aidos-kuneen/"
     },
-    rank: "4217"
+    rank: "1000"
 },{
     name: "aidus-token",
     code: "AID",
-    icon: "aid",
+    icon: "noicon",
     longname: "AIDUS TOKEN",
     description: "AIDUS TOKEN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aidus-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aidus-token/"
     },
-    rank: "541"
+    rank: "1000"
 },{
     name: "aigang",
     code: "AIX",
-    icon: "aix",
+    icon: "noicon",
     longname: "Aigang",
     description: "Aigang coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aigang",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aigang/"
     },
-    rank: "3481"
+    rank: "1000"
 },{
     name: "ailink-token",
     code: "ALI",
-    icon: "ali",
+    icon: "noicon",
     longname: "AiLink Token",
     description: "AiLink Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ailink-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ailink-token/"
     },
-    rank: "3206"
+    rank: "1000"
 },{
     name: "aion",
     code: "AION",
@@ -569,19 +614,21 @@ var otherCoins = [{
     longname: "Aion",
     description: "Aion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aion/"
     },
-    rank: "146"
+    rank: "113"
 },{
     name: "airbloc",
     code: "ABL",
-    icon: "abl",
+    icon: "noicon",
     longname: "Airbloc",
     description: "Airbloc coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/airbloc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/airbloc/"
     },
-    rank: "3073"
+    rank: "1000"
 },{
     name: "airswap",
     code: "AST",
@@ -589,89 +636,98 @@ var otherCoins = [{
     longname: "AirSwap",
     description: "AirSwap coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/airswap",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/airswap/"
     },
-    rank: "514"
+    rank: "1000"
 },{
     name: "airwire",
     code: "WIRE",
-    icon: "wire",
+    icon: "noicon",
     longname: "AirWire",
     description: "AirWire coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/airwire",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/airwire/"
     },
-    rank: "3135"
+    rank: "1000"
 },{
     name: "akroma",
     code: "AKA",
-    icon: "aka",
+    icon: "noicon",
     longname: "Akroma",
     description: "Akroma coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/akroma",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/akroma/"
     },
-    rank: "3319"
+    rank: "1000"
 },{
     name: "akropolis",
     code: "AKRO",
-    icon: "akro",
+    icon: "noicon",
     longname: "Akropolis ",
     description: "Akropolis  coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/akropolis",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/akropolis/"
     },
-    rank: "2275"
+    rank: "1000"
 },{
     name: "aladdin",
     code: "ADN",
-    icon: "adn",
+    icon: "noicon",
     longname: "Aladdin",
     description: "Aladdin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aladdin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aladdin/"
     },
-    rank: "253"
+    rank: "1000"
 },{
     name: "alax",
     code: "ALX",
-    icon: "alx",
+    icon: "noicon",
     longname: "ALAX",
     description: "ALAX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/alax",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alax/"
     },
-    rank: "3203"
+    rank: "1000"
 },{
     name: "alchemint-standards",
     code: "SDS",
-    icon: "sds",
+    icon: "noicon",
     longname: "Alchemint Standards",
     description: "Alchemint Standards coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/alchemint-standards",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alchemint-standards/"
     },
-    rank: "4224"
+    rank: "1000"
 },{
     name: "algorand",
     code: "ALGO",
-    icon: "algo",
+    icon: "noicon",
     longname: "Algorand",
     description: "Algorand coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/algorand",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/algorand/"
     },
-    rank: "57"
+    rank: "38"
 },{
     name: "alis",
     code: "ALIS",
-    icon: "alis",
+    icon: "noicon",
     longname: "ALIS",
     description: "ALIS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/alis",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alis/"
     },
-    rank: "3643"
+    rank: "1000"
 },{
     name: "all-sports",
     code: "SOC",
@@ -679,99 +735,109 @@ var otherCoins = [{
     longname: "All Sports",
     description: "All Sports coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/all-sports",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/all-sports/"
     },
-    rank: "348"
+    rank: "1000"
 },{
     name: "allion",
     code: "ALL",
-    icon: "all",
+    icon: "noicon",
     longname: "Allion",
     description: "Allion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/allion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/allion/"
     },
-    rank: "4008"
+    rank: "1000"
 },{
     name: "allsafe",
     code: "ASAFE2",
-    icon: "asafe2",
+    icon: "noicon",
     longname: "AllSafe",
     description: "AllSafe coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/allsafe",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/allsafe/"
     },
-    rank: "3518"
+    rank: "1000"
 },{
     name: "alpha-coin",
     code: "APC",
-    icon: "apc",
+    icon: "noicon",
     longname: "Alpha Coin",
     description: "Alpha Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/alpha-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alpha-coin/"
     },
-    rank: "4101"
+    rank: "1000"
 },{
     name: "alphabitcoinfund",
     code: "ABC",
-    icon: "abc",
+    icon: "noicon",
     longname: "Alphabit",
     description: "Alphabit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/alphabitcoinfund",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alphabitcoinfund/"
     },
-    rank: "4397"
+    rank: "1000"
 },{
     name: "alphacat",
     code: "ACAT",
-    icon: "acat",
+    icon: "noicon",
     longname: "Alphacat",
     description: "Alphacat coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/alphacat",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alphacat/"
     },
-    rank: "3197"
+    rank: "1000"
 },{
     name: "alqo",
     code: "XLQ",
-    icon: "xlq",
+    icon: "noicon",
     longname: "ALQO",
     description: "ALQO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/alqo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alqo/"
     },
-    rank: "2780"
+    rank: "1000"
 },{
     name: "alt-estate-token",
     code: "ALT",
-    icon: "alt",
+    icon: "noicon",
     longname: "Alt.Estate token",
     description: "Alt.Estate token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/alt-estate-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/alt-estate-token/"
     },
-    rank: "3470"
+    rank: "1000"
 },{
     name: "altcoin-alt",
     code: "ALT-1",
-    icon: "alt-1",
+    icon: "noicon",
     longname: "Altcoin",
     description: "Altcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/altcoin-alt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/altcoin-alt/"
     },
-    rank: "3904"
+    rank: "1000"
 },{
     name: "altcommunity-coin",
     code: "SONO",
-    icon: "sono",
+    icon: "noicon",
     longname: "SONO",
     description: "SONO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/altcommunity-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/altcommunity-coin/"
     },
-    rank: "4389"
+    rank: "1000"
 },{
     name: "amber",
     code: "AMB",
@@ -779,9 +845,10 @@ var otherCoins = [{
     longname: "Ambrosus",
     description: "Ambrosus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/amber",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amber/"
     },
-    rank: "474"
+    rank: "1000"
 },{
     name: "amino-network",
     code: "AMIO",
@@ -789,179 +856,197 @@ var otherCoins = [{
     longname: "Amino Network",
     description: "Amino Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/amino-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amino-network/"
     },
-    rank: "506"
+    rank: "1000"
 },{
     name: "amlt",
     code: "AMLT",
-    icon: "amlt",
+    icon: "noicon",
     longname: "AMLT",
     description: "AMLT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/amlt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amlt/"
     },
-    rank: "3028"
+    rank: "1000"
 },{
     name: "ammo-reloaded",
     code: "AMMO",
-    icon: "ammo",
+    icon: "noicon",
     longname: "Ammo Reloaded",
     description: "Ammo Reloaded coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ammo-reloaded",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ammo-reloaded/"
     },
-    rank: "4064"
+    rank: "1000"
 },{
     name: "amo-coin",
     code: "AMO",
-    icon: "amo",
+    icon: "noicon",
     longname: "AMO Coin",
     description: "AMO Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/amo-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amo-coin/"
     },
-    rank: "536"
+    rank: "1000"
 },{
     name: "amon",
     code: "AMN",
-    icon: "amn",
+    icon: "noicon",
     longname: "Amon",
     description: "Amon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/amon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amon/"
     },
-    rank: "3495"
+    rank: "1000"
 },{
     name: "amsterdamcoin",
     code: "AMS",
-    icon: "ams",
+    icon: "noicon",
     longname: "AmsterdamCoin",
     description: "AmsterdamCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/amsterdamcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/amsterdamcoin/"
     },
-    rank: "4062"
+    rank: "1000"
 },{
     name: "anarchistsprime",
     code: "ACP",
-    icon: "acp",
+    icon: "noicon",
     longname: "AnarchistsPrime",
     description: "AnarchistsPrime coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/anarchistsprime",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/anarchistsprime/"
     },
-    rank: "4104"
+    rank: "1000"
 },{
     name: "anchor",
     code: "ANCT",
-    icon: "anct",
+    icon: "noicon",
     longname: "Anchor",
     description: "Anchor coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/anchor",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/anchor/"
     },
-    rank: "335"
+    rank: "1000"
 },{
     name: "animation-vision-cash",
     code: "AVH",
-    icon: "avh",
+    icon: "noicon",
     longname: "Animation Vision Cash",
     description: "Animation Vision Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/animation-vision-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/animation-vision-cash/"
     },
-    rank: "4215"
+    rank: "1000"
 },{
     name: "animecoin",
     code: "ANI",
-    icon: "ani",
+    icon: "noicon",
     longname: "Animecoin",
     description: "Animecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/animecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/animecoin/"
     },
-    rank: "4395"
+    rank: "1000"
 },{
     name: "ankr",
     code: "ANKR",
-    icon: "ankr",
+    icon: "noicon",
     longname: "Ankr",
     description: "Ankr coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ankr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ankr/"
     },
-    rank: "319"
+    rank: "1000"
 },{
     name: "anon",
     code: "ANON",
-    icon: "anon",
+    icon: "noicon",
     longname: "ANON",
     description: "ANON coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/anon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/anon/"
     },
-    rank: "4299"
+    rank: "1000"
 },{
     name: "anoncoin",
     code: "ANC",
-    icon: "anc",
+    icon: "noicon",
     longname: "Anoncoin",
     description: "Anoncoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/anoncoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/anoncoin/"
     },
-    rank: "3628"
+    rank: "1000"
 },{
     name: "apex",
     code: "CPX",
-    icon: "cpx",
+    icon: "noicon",
     longname: "Apex",
     description: "Apex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/apex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apex/"
     },
-    rank: "2391"
+    rank: "1000"
 },{
     name: "aphelion",
     code: "APH",
-    icon: "aph",
+    icon: "noicon",
     longname: "Aphelion",
     description: "Aphelion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aphelion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aphelion/"
     },
-    rank: "3399"
+    rank: "1000"
 },{
     name: "apis",
     code: "APIS",
-    icon: "apis",
+    icon: "noicon",
     longname: "APIS",
     description: "APIS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/apis",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apis/"
     },
-    rank: "531"
+    rank: "1000"
 },{
-    name: "apollo-currency",
+    name: "apollo",
     code: "APL",
-    icon: "apl",
-    longname: "Apollo Currency",
-    description: "Apollo Currency coin",
+    icon: "noicon",
+    longname: "Apollo",
+    description: "Apollo coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/apollo-currency/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/apollo",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/apollo/"
     },
-    rank: "233"
+    rank: "192"
 },{
     name: "apollon",
     code: "XAP",
-    icon: "xap",
+    icon: "noicon",
     longname: "Apollon",
     description: "Apollon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/apollon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apollon/"
     },
-    rank: "3344"
+    rank: "1000"
 },{
     name: "appcoins",
     code: "APPC",
@@ -969,39 +1054,43 @@ var otherCoins = [{
     longname: "AppCoins",
     description: "AppCoins coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/appcoins",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/appcoins/"
     },
-    rank: "517"
+    rank: "1000"
 },{
     name: "apr-coin",
     code: "APR",
-    icon: "apr",
+    icon: "noicon",
     longname: "APR Coin",
     description: "APR Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/apr-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apr-coin/"
     },
-    rank: "3509"
+    rank: "1000"
 },{
     name: "apx",
     code: "APX",
-    icon: "apx",
+    icon: "noicon",
     longname: "APX",
     description: "APX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/apx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/apx/"
     },
-    rank: "3660"
+    rank: "1000"
 },{
     name: "aquariuscoin",
     code: "ARCO",
-    icon: "arco",
+    icon: "noicon",
     longname: "AquariusCoin",
     description: "AquariusCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aquariuscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aquariuscoin/"
     },
-    rank: "3878"
+    rank: "1000"
 },{
     name: "aragon",
     code: "ANT",
@@ -1009,49 +1098,54 @@ var otherCoins = [{
     longname: "Aragon",
     description: "Aragon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aragon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aragon/"
     },
-    rank: "199"
+    rank: "107"
 },{
     name: "arbidex",
     code: "ABX",
-    icon: "abx",
+    icon: "noicon",
     longname: "Arbidex",
     description: "Arbidex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arbidex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arbidex/"
     },
-    rank: "3136"
+    rank: "1000"
 },{
     name: "arbit",
     code: "ARB-1",
-    icon: "arb-1",
+    icon: "noicon",
     longname: "ARbit",
     description: "ARbit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arbit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arbit/"
     },
-    rank: "4105"
+    rank: "1000"
 },{
     name: "arbitrage",
     code: "ARB",
-    icon: "arb",
+    icon: "noicon",
     longname: "ARBITRAGE",
     description: "ARBITRAGE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arbitrage",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arbitrage/"
     },
-    rank: "2590"
+    rank: "1000"
 },{
     name: "arbitragect",
     code: "ARCT",
-    icon: "arct",
+    icon: "noicon",
     longname: "ArbitrageCT",
     description: "ArbitrageCT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arbitragect",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arbitragect/"
     },
-    rank: "3514"
+    rank: "1000"
 },{
     name: "arcblock",
     code: "ABT",
@@ -1059,29 +1153,32 @@ var otherCoins = [{
     longname: "Arcblock",
     description: "Arcblock coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arcblock",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arcblock/"
     },
-    rank: "207"
+    rank: "208"
 },{
     name: "archetypal-network",
     code: "ACTP",
-    icon: "actp",
+    icon: "noicon",
     longname: "Archetypal Network",
     description: "Archetypal Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/archetypal-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/archetypal-network/"
     },
-    rank: "4047"
+    rank: "1000"
 },{
     name: "arcticcoin",
     code: "ARC",
-    icon: "arc",
+    icon: "noicon",
     longname: "Advanced Technology Coin",
     description: "Advanced Technology Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arcticcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arcticcoin/"
     },
-    rank: "3491"
+    rank: "1000"
 },{
     name: "ardor",
     code: "ARDR",
@@ -1089,19 +1186,21 @@ var otherCoins = [{
     longname: "Ardor",
     description: "Ardor coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ardor",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ardor/"
     },
-    rank: "99"
+    rank: "98"
 },{
     name: "arepacoin",
     code: "AREPA",
-    icon: "arepa",
+    icon: "noicon",
     longname: "Arepacoin",
     description: "Arepacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arepacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arepacoin/"
     },
-    rank: "3951"
+    rank: "1000"
 },{
     name: "argentum",
     code: "ARG",
@@ -1109,49 +1208,54 @@ var otherCoins = [{
     longname: "Argentum",
     description: "Argentum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/argentum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/argentum/"
     },
-    rank: "3360"
+    rank: "1000"
 },{
     name: "argus",
     code: "ARGUS",
-    icon: "argus",
+    icon: "noicon",
     longname: "Argus",
     description: "Argus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/argus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/argus/"
     },
-    rank: "4131"
+    rank: "1000"
 },{
     name: "aricoin",
     code: "ARI",
-    icon: "ari",
+    icon: "noicon",
     longname: "Aricoin",
     description: "Aricoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aricoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aricoin/"
     },
-    rank: "3867"
+    rank: "1000"
 },{
     name: "arion",
     code: "ARION",
-    icon: "arion",
+    icon: "noicon",
     longname: "Arion",
     description: "Arion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arion/"
     },
-    rank: "3934"
+    rank: "1000"
 },{
     name: "arionum",
     code: "ARO",
-    icon: "aro",
+    icon: "noicon",
     longname: "Arionum",
     description: "Arionum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arionum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arionum/"
     },
-    rank: "3198"
+    rank: "1000"
 },{
     name: "ark",
     code: "ARK",
@@ -1159,39 +1263,43 @@ var otherCoins = [{
     longname: "Ark",
     description: "Ark coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ark",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ark/"
     },
-    rank: "182"
+    rank: "120"
 },{
     name: "arpa-chain",
     code: "ARPA",
-    icon: "arpa",
+    icon: "noicon",
     longname: "ARPA Chain",
     description: "ARPA Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/arpa-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/arpa-chain/"
     },
-    rank: "368"
+    rank: "1000"
 },{
     name: "artbyte",
     code: "ABY",
-    icon: "aby",
+    icon: "noicon",
     longname: "ArtByte",
     description: "ArtByte coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/artbyte",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/artbyte/"
     },
-    rank: "3171"
+    rank: "1000"
 },{
     name: "artfinity",
     code: "AT",
-    icon: "at",
+    icon: "noicon",
     longname: "Artfinity",
     description: "Artfinity coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/artfinity",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/artfinity/"
     },
-    rank: "537"
+    rank: "1000"
 },{
     name: "asch",
     code: "XAS",
@@ -1199,159 +1307,175 @@ var otherCoins = [{
     longname: "Asch",
     description: "Asch coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/asch",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/asch/"
     },
-    rank: "385"
+    rank: "1000"
 },{
     name: "asiacoin",
     code: "AC",
-    icon: "ac",
+    icon: "noicon",
     longname: "AsiaCoin",
     description: "AsiaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/asiacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/asiacoin/"
     },
-    rank: "3633"
+    rank: "1000"
 },{
     name: "asiadigicoin",
     code: "ADCN",
-    icon: "adcn",
+    icon: "noicon",
     longname: "Asiadigicoin",
     description: "Asiadigicoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/asiadigicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/asiadigicoin/"
     },
-    rank: "4084"
+    rank: "1000"
 },{
     name: "asian-fintech",
     code: "AFIN",
-    icon: "afin",
+    icon: "noicon",
     longname: "Asian Fintech",
     description: "Asian Fintech coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/asian-fintech",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/asian-fintech/"
     },
-    rank: "575"
+    rank: "1000"
 },{
     name: "aston",
     code: "ATX",
-    icon: "atx",
+    icon: "noicon",
     longname: "Aston",
     description: "Aston coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aston",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aston/"
     },
-    rank: "2683"
+    rank: "1000"
 },{
     name: "asura-coin",
     code: "ASA",
-    icon: "asa",
+    icon: "noicon",
     longname: "Asura Coin",
     description: "Asura Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/asura-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/asura-coin/"
     },
-    rank: "4275"
+    rank: "1000"
 },{
     name: "atbcoin",
     code: "ATB",
-    icon: "atb",
+    icon: "noicon",
     longname: "ATBCoin",
     description: "ATBCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atbcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atbcoin/"
     },
-    rank: "3421"
+    rank: "1000"
 },{
     name: "atc-coin",
     code: "ATCC",
-    icon: "atcc",
+    icon: "noicon",
     longname: "ATC Coin",
     description: "ATC Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atc-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atc-coin/"
     },
-    rank: "2948"
+    rank: "1000"
 },{
     name: "atheios",
     code: "ATH",
-    icon: "ath",
+    icon: "noicon",
     longname: "Atheios",
     description: "Atheios coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atheios",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atheios/"
     },
-    rank: "3928"
+    rank: "1000"
 },{
     name: "atidium",
     code: "ATD",
-    icon: "atd",
+    icon: "noicon",
     longname: "Atidium",
     description: "Atidium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atidium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atidium/"
     },
-    rank: "4316"
+    rank: "1000"
 },{
     name: "atlant",
     code: "ATL",
-    icon: "atl",
+    icon: "noicon",
     longname: "ATLANT",
     description: "ATLANT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atlant",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atlant/"
     },
-    rank: "3207"
+    rank: "1000"
 },{
     name: "atlantis-blue-digital-token",
     code: "ABDT",
-    icon: "abdt",
+    icon: "noicon",
     longname: "Atlantis Blue Digital Token",
     description: "Atlantis Blue Digital Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atlantis-blue-digital-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atlantis-blue-digital-token/"
     },
-    rank: "4197"
+    rank: "1000"
 },{
     name: "atlas-protocol",
     code: "ATP",
-    icon: "atp",
+    icon: "noicon",
     longname: "Atlas Protocol",
     description: "Atlas Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atlas-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atlas-protocol/"
     },
-    rank: "208"
+    rank: "1000"
 },{
     name: "atmos",
     code: "ATMOS",
-    icon: "atmos",
+    icon: "noicon",
     longname: "Atmos",
     description: "Atmos coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atmos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atmos/"
     },
-    rank: "3178"
+    rank: "1000"
 },{
     name: "atn",
     code: "ATN",
-    icon: "atn",
+    icon: "noicon",
     longname: "ATN",
     description: "ATN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atn",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atn/"
     },
-    rank: "2826"
+    rank: "1000"
 },{
     name: "atonomi",
     code: "ATMI",
-    icon: "atmi",
+    icon: "noicon",
     longname: "Atonomi",
     description: "Atonomi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/atonomi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/atonomi/"
     },
-    rank: "3181"
+    rank: "1000"
 },{
     name: "attention-token-of-media",
     code: "ATM",
@@ -1359,29 +1483,32 @@ var otherCoins = [{
     longname: "ATMChain",
     description: "ATMChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/attention-token-of-media",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/attention-token-of-media/"
     },
-    rank: "3679"
+    rank: "1000"
 },{
     name: "auctus",
     code: "AUC",
-    icon: "auc",
+    icon: "noicon",
     longname: "Auctus",
     description: "Auctus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/auctus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/auctus/"
     },
-    rank: "3355"
+    rank: "1000"
 },{
     name: "audiocoin",
     code: "ADC",
-    icon: "adc",
+    icon: "noicon",
     longname: "AudioCoin",
     description: "AudioCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/audiocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/audiocoin/"
     },
-    rank: "3368"
+    rank: "1000"
 },{
     name: "augur",
     code: "REP",
@@ -1389,59 +1516,76 @@ var otherCoins = [{
     longname: "Augur",
     description: "Augur coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/augur",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/augur/"
     },
-    rank: "55"
+    rank: "42"
 },{
     name: "aurora",
     code: "AOA",
-    icon: "aoa",
+    icon: "noicon",
     longname: "Aurora",
     description: "Aurora coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aurora",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aurora/"
     },
-    rank: "95"
+    rank: "1000"
+},{
+    name: "aurora-dao",
+    code: "IDEX",
+    icon: "noicon",
+    longname: "IDEX",
+    description: "IDEX coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aurora-dao",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/aurora-dao/"
+    },
+    rank: "228"
 },{
     name: "aurora-dao",
     code: "AURA",
-    icon: "aura",
+    icon: "noicon",
     longname: "Aurora DAO",
     description: "Aurora DAO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aurora-dao",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aurora-dao/"
     },
-    rank: "2929"
+    rank: "1000"
 },{
     name: "auroracoin",
     code: "AUR",
-    icon: "aur",
+    icon: "noicon",
     longname: "Auroracoin",
     description: "Auroracoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/auroracoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/auroracoin/"
     },
-    rank: "3014"
+    rank: "1000"
 },{
     name: "aurumcoin",
     code: "AU",
-    icon: "au",
+    icon: "noicon",
     longname: "AurumCoin",
     description: "AurumCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aurumcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aurumcoin/"
     },
-    rank: "2725"
+    rank: "1000"
 },{
     name: "authorship",
     code: "ATS",
-    icon: "ats",
+    icon: "noicon",
     longname: "Authorship",
     description: "Authorship coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/authorship",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/authorship/"
     },
-    rank: "3566"
+    rank: "1000"
 },{
     name: "autonio",
     code: "NIO",
@@ -1449,199 +1593,241 @@ var otherCoins = [{
     longname: "Autonio",
     description: "Autonio coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/autonio",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/autonio/"
     },
-    rank: "3156"
+    rank: "1000"
 },{
     name: "auxilium",
     code: "AUX",
-    icon: "aux",
+    icon: "noicon",
     longname: "Auxilium",
     description: "Auxilium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/auxilium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/auxilium/"
     },
-    rank: "3489"
+    rank: "1000"
 },{
     name: "aventus",
     code: "AVT",
-    icon: "avt",
+    icon: "noicon",
     longname: "Aventus",
     description: "Aventus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/aventus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/aventus/"
     },
-    rank: "3127"
+    rank: "1000"
 },{
     name: "avinoc",
     code: "AVINOC",
-    icon: "avinoc",
+    icon: "noicon",
     longname: "AVINOC",
     description: "AVINOC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/avinoc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/avinoc/"
     },
-    rank: "3621"
+    rank: "1000"
 },{
     name: "axe",
     code: "AXE",
-    icon: "axe",
+    icon: "noicon",
     longname: "Axe",
     description: "Axe coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/axe",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/axe/"
     },
-    rank: "502"
+    rank: "1000"
+},{
+    name: "axel",
+    code: "AXEL",
+    icon: "noicon",
+    longname: "AXEL",
+    description: "AXEL coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/axel",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/axel/"
+    },
+    rank: "148"
 },{
     name: "axpire",
     code: "AXPR",
-    icon: "axpr",
+    icon: "noicon",
     longname: "aXpire",
     description: "aXpire coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/axpire",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/axpire/"
     },
-    rank: "2967"
+    rank: "1000"
 },{
     name: "azart",
     code: "AZART",
-    icon: "azart",
+    icon: "noicon",
     longname: "Azart",
     description: "Azart coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/azart",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/azart/"
     },
-    rank: "3592"
+    rank: "1000"
 },{
-    name: "b2bcoin",
-    code: "BBC",
-    icon: "bbc",
-    longname: "TraDove B2BCoin",
-    description: "TraDove B2BCoin coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/b2bcoin/"
-    },
-    rank: "3064"
-},{
-    name: "b2bx",
+    name: "b2b",
     code: "B2B",
-    icon: "b2b",
+    icon: "noicon",
     longname: "B2BX",
     description: "B2BX coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/b2bx/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/b2b",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/b2b/"
     },
-    rank: "287"
+    rank: "205"
+},{
+    name: "b2bcoin",
+    code: "BBC",
+    icon: "noicon",
+    longname: "TraDove B2BCoin",
+    description: "TraDove B2BCoin coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/b2bcoin",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/b2bcoin/"
+    },
+    rank: "1000"
 },{
     name: "b3coin",
     code: "KB3",
-    icon: "kb3",
+    icon: "noicon",
     longname: "B3Coin",
     description: "B3Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/b3coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/b3coin/"
     },
-    rank: "3166"
+    rank: "1000"
 },{
     name: "baasid",
     code: "BAAS",
-    icon: "baas",
+    icon: "noicon",
     longname: "BaaSid",
     description: "BaaSid coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/baasid",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/baasid/"
     },
-    rank: "558"
+    rank: "1000"
 },{
     name: "babb",
     code: "BAX",
-    icon: "bax",
+    icon: "noicon",
     longname: "BABB",
     description: "BABB coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/babb",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/babb/"
     },
-    rank: "529"
+    rank: "1000"
+},{
+    name: "banana-token",
+    code: "BNANA",
+    icon: "noicon",
+    longname: "Chimpion",
+    description: "Chimpion coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/banana-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/banana-token/"
+    },
+    rank: "150"
 },{
     name: "banca",
     code: "BANCA",
-    icon: "banca",
+    icon: "noicon",
     longname: "Banca",
     description: "Banca coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/banca",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/banca/"
     },
-    rank: "3013"
+    rank: "1000"
 },{
     name: "bancor",
     code: "BNT",
     icon: "bnt",
-    longname: "Bancor",
-    description: "Bancor coin",
+    longname: "Bancor Network Token",
+    description: "Bancor Network Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bancor",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bancor/"
     },
-    rank: "213"
+    rank: "164"
 },{
     name: "band-protocol",
     code: "BAND",
-    icon: "band",
+    icon: "noicon",
     longname: "Band Protocol",
     description: "Band Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/band-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/band-protocol/"
     },
-    rank: "437"
+    rank: "244"
 },{
     name: "bank-coin",
     code: "BANK",
-    icon: "bank",
+    icon: "noicon",
     longname: "Bank Coin",
     description: "Bank Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bank-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bank-coin/"
     },
-    rank: "3999"
+    rank: "1000"
 },{
     name: "bankcoin",
     code: "B@",
-    icon: "b@",
+    icon: "noicon",
     longname: "Bankcoin",
     description: "Bankcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bankcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bankcoin/"
     },
-    rank: "4063"
+    rank: "1000"
 },{
     name: "bankera",
     code: "BNK",
-    icon: "bnk",
+    icon: "noicon",
     longname: "Bankera",
     description: "Bankera coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bankera",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bankera/"
     },
-    rank: "169"
+    rank: "1000"
 },{
     name: "bankex",
     code: "BKX",
-    icon: "bkx",
+    icon: "noicon",
     longname: "BANKEX",
     description: "BANKEX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bankex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bankex/"
     },
-    rank: "2825"
+    rank: "1000"
 },{
     name: "banyan-network",
     code: "BBN",
-    icon: "bbn",
+    icon: "noicon",
     longname: "Banyan Network",
     description: "Banyan Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/banyan-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/banyan-network/"
     },
-    rank: "3067"
+    rank: "1000"
 },{
     name: "basic-attention-token",
     code: "BAT",
@@ -1649,109 +1835,120 @@ var otherCoins = [{
     longname: "Basic Attention Token",
     description: "Basic Attention Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/basic-attention-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/basic-attention-token/"
     },
-    rank: "30"
+    rank: "32"
 },{
     name: "bastonet",
     code: "BSN",
-    icon: "bsn",
+    icon: "noicon",
     longname: "Bastonet",
     description: "Bastonet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bastonet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bastonet/"
     },
-    rank: "4372"
+    rank: "1000"
 },{
     name: "bata",
     code: "BTA",
-    icon: "bta",
+    icon: "noicon",
     longname: "Bata",
     description: "Bata coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bata",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bata/"
     },
-    rank: "3879"
+    rank: "1000"
 },{
     name: "bbscoin",
     code: "BBS",
-    icon: "bbs",
+    icon: "noicon",
     longname: "BBSCoin",
     description: "BBSCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bbscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bbscoin/"
     },
-    rank: "3523"
+    rank: "1000"
 },{
     name: "bdt-token",
     code: "BDT",
-    icon: "bdt",
+    icon: "noicon",
     longname: "BDT Token",
     description: "BDT Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bdt-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bdt-token/"
     },
-    rank: "3001"
+    rank: "1000"
 },{
     name: "beam",
     code: "BEAM",
     icon: "beam",
-    longname: "Beam",
-    description: "Beam coin",
+    longname: "BEAM",
+    description: "BEAM coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/beam",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beam/"
     },
-    rank: "145"
+    rank: "151"
 },{
     name: "bean-cash",
     code: "BITB",
-    icon: "bitb",
+    icon: "noicon",
     longname: "Bean Cash",
     description: "Bean Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bean-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bean-cash/"
     },
-    rank: "2845"
+    rank: "1000"
 },{
     name: "beat",
     code: "BEAT",
-    icon: "beat",
+    icon: "noicon",
     longname: "BEAT",
     description: "BEAT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/beat",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beat/"
     },
-    rank: "4270"
+    rank: "1000"
 },{
     name: "bee-token",
     code: "BEE",
-    icon: "bee",
+    icon: "noicon",
     longname: "Bee Token",
     description: "Bee Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bee-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bee-token/"
     },
-    rank: "3194"
+    rank: "1000"
 },{
     name: "beekan",
     code: "BKBT",
-    icon: "bkbt",
+    icon: "noicon",
     longname: "BeeKan",
     description: "BeeKan coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/beekan",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beekan/"
     },
-    rank: "4188"
+    rank: "1000"
 },{
     name: "beetle-coin",
     code: "BEET",
-    icon: "beet",
+    icon: "noicon",
     longname: "Beetle Coin",
     description: "Beetle Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/beetle-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beetle-coin/"
     },
-    rank: "3515"
+    rank: "1000"
 },{
     name: "belacoin",
     code: "BELA",
@@ -1759,139 +1956,153 @@ var otherCoins = [{
     longname: "Bela",
     description: "Bela coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/belacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/belacoin/"
     },
-    rank: "3328"
+    rank: "1000"
 },{
     name: "beldex",
     code: "BDX",
-    icon: "bdx",
+    icon: "noicon",
     longname: "Beldex",
     description: "Beldex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/beldex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/beldex/"
     },
-    rank: "90"
+    rank: "1000"
 },{
     name: "benjirolls",
     code: "BENJI",
-    icon: "benji",
+    icon: "noicon",
     longname: "BenjiRolls",
     description: "BenjiRolls coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/benjirolls",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/benjirolls/"
     },
-    rank: "4112"
+    rank: "1000"
 },{
     name: "benz",
     code: "BENZ",
-    icon: "benz",
+    icon: "noicon",
     longname: "Benz",
     description: "Benz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/benz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/benz/"
     },
-    rank: "4122"
+    rank: "1000"
 },{
     name: "berncash",
     code: "BERN",
-    icon: "bern",
+    icon: "noicon",
     longname: "BERNcash",
     description: "BERNcash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/berncash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/berncash/"
     },
-    rank: "3972"
+    rank: "1000"
 },{
     name: "bethereum",
     code: "BETHER",
-    icon: "bether",
+    icon: "noicon",
     longname: "Bethereum",
     description: "Bethereum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bethereum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bethereum/"
     },
-    rank: "3233"
+    rank: "1000"
 },{
     name: "betterbetting",
     code: "BETR",
-    icon: "betr",
+    icon: "noicon",
     longname: "BetterBetting",
     description: "BetterBetting coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/betterbetting",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/betterbetting/"
     },
-    rank: "3270"
+    rank: "1000"
 },{
     name: "bettex-coin",
     code: "BTXC",
-    icon: "btxc",
+    icon: "noicon",
     longname: "Bettex Coin",
     description: "Bettex Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bettex-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bettex-coin/"
     },
-    rank: "3220"
+    rank: "1000"
 },{
     name: "bezant",
     code: "BZNT",
-    icon: "bznt",
+    icon: "noicon",
     longname: "Bezant",
     description: "Bezant coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bezant",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bezant/"
     },
-    rank: "475"
+    rank: "1000"
 },{
     name: "bezop",
     code: "BEZ",
-    icon: "bez",
+    icon: "noicon",
     longname: "Bezop",
     description: "Bezop coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bezop",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bezop/"
     },
-    rank: "2923"
+    rank: "1000"
 },{
     name: "bhex-token",
     code: "BHT",
-    icon: "bht",
+    icon: "noicon",
     longname: "BHEX Token",
     description: "BHEX Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bhex-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bhex-token/"
     },
-    rank: "195"
+    rank: "1000"
 },{
     name: "bhp-coin",
     code: "BHP",
-    icon: "bhp",
+    icon: "noicon",
     longname: "BHPCoin",
     description: "BHPCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bhp-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bhp-coin/"
     },
-    rank: "216"
+    rank: "1000"
 },{
     name: "bhpcash",
     code: "BHPC",
-    icon: "bhpc",
+    icon: "noicon",
     longname: "BHPCash",
     description: "BHPCash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bhpcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bhpcash/"
     },
-    rank: "2530"
+    rank: "1000"
 },{
     name: "biblepay",
     code: "BBP",
-    icon: "bbp",
+    icon: "noicon",
     longname: "BiblePay",
     description: "BiblePay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/biblepay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/biblepay/"
     },
-    rank: "3343"
+    rank: "1000"
 },{
     name: "bibox-token",
     code: "BIX",
@@ -1899,169 +2110,186 @@ var otherCoins = [{
     longname: "Bibox Token",
     description: "Bibox Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bibox-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bibox-token/"
     },
-    rank: "236"
+    rank: "199"
 },{
     name: "bidipass",
     code: "BDP",
-    icon: "bdp",
+    icon: "noicon",
     longname: "BidiPass",
     description: "BidiPass coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bidipass",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bidipass/"
     },
-    rank: "489"
+    rank: "1000"
 },{
     name: "bigbom",
     code: "BBO",
-    icon: "bbo",
+    icon: "noicon",
     longname: "Bigbom",
     description: "Bigbom coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bigbom",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bigbom/"
     },
-    rank: "3384"
+    rank: "1000"
 },{
     name: "bigup",
     code: "BIGUP",
-    icon: "bigup",
+    icon: "noicon",
     longname: "BigUp",
     description: "BigUp coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bigup",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bigup/"
     },
-    rank: "3961"
+    rank: "1000"
 },{
     name: "billionaire-token",
     code: "XBL",
-    icon: "xbl",
+    icon: "noicon",
     longname: "Billionaire Token",
     description: "Billionaire Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/billionaire-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/billionaire-token/"
     },
-    rank: "3838"
+    rank: "1000"
 },{
-    name: "binance-coin",
+    name: "binance-usd",
+    code: "BUSD",
+    icon: "noicon",
+    longname: "Binance USD",
+    description: "Binance USD coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/binance-usd",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/binance-usd/"
+    },
+    rank: "1000"
+},{
+    name: "binancecoin",
     code: "BNB",
     icon: "bnb",
     longname: "Binance Coin",
     description: "Binance Coin coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/binance-coin/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/binancecoin",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/binancecoin/"
     },
-    rank: "7"
-},{
-    name: "binance-usd",
-    code: "BUSD",
-    icon: "busd",
-    longname: "Binance USD",
-    description: "Binance USD coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/binance-usd/"
-    },
-    rank: "223"
+    rank: "8"
 },{
     name: "bingocoin",
     code: "BOC",
-    icon: "boc",
+    icon: "noicon",
     longname: "BingoCoin",
     description: "BingoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bingocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bingocoin/"
     },
-    rank: "4252"
+    rank: "1000"
 },{
     name: "biocoin",
     code: "BIO",
-    icon: "bio",
+    icon: "noicon",
     longname: "BioCoin",
     description: "BioCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/biocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/biocoin/"
     },
-    rank: "3747"
+    rank: "1000"
 },{
     name: "bionic",
     code: "BNC",
-    icon: "bnc",
+    icon: "noicon",
     longname: "Bionic",
     description: "Bionic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bionic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bionic/"
     },
-    rank: "3593"
+    rank: "1000"
 },{
     name: "biotron",
     code: "BTRN",
-    icon: "btrn",
+    icon: "noicon",
     longname: "Biotron",
     description: "Biotron coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/biotron",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/biotron/"
     },
-    rank: "3749"
+    rank: "1000"
 },{
     name: "birake",
     code: "BIR",
-    icon: "bir",
+    icon: "noicon",
     longname: "Birake",
     description: "Birake coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/birake",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/birake/"
     },
-    rank: "2942"
+    rank: "1000"
 },{
     name: "bismuth",
     code: "BIS",
-    icon: "bis",
+    icon: "noicon",
     longname: "Bismuth",
     description: "Bismuth coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bismuth",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bismuth/"
     },
-    rank: "2842"
+    rank: "1000"
 },{
     name: "bit-tube",
     code: "TUBE",
-    icon: "tube",
+    icon: "noicon",
     longname: "BitTube",
     description: "BitTube coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bit-tube",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bit-tube/"
     },
-    rank: "2846"
+    rank: "1000"
 },{
     name: "bit-z-token",
     code: "BZ",
-    icon: "bz",
+    icon: "noicon",
     longname: "Bit-Z Token",
     description: "Bit-Z Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bit-z-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bit-z-token/"
     },
-    rank: "141"
+    rank: "138"
 },{
     name: "bit20",
     code: "BTWTY",
-    icon: "btwty",
+    icon: "noicon",
     longname: "Bit20",
     description: "Bit20 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bit20",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bit20/"
     },
-    rank: "3921"
+    rank: "1000"
 },{
     name: "bitbar",
     code: "BTB-1",
-    icon: "btb-1",
+    icon: "noicon",
     longname: "BitBar",
     description: "BitBar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitbar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitbar/"
     },
-    rank: "3808"
+    rank: "1000"
 },{
     name: "bitbay",
     code: "BAY",
@@ -2069,59 +2297,65 @@ var otherCoins = [{
     longname: "BitBay",
     description: "BitBay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitbay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitbay/"
     },
-    rank: "402"
+    rank: "1000"
 },{
     name: "bitblocks",
     code: "BBK-1",
-    icon: "bbk-1",
+    icon: "noicon",
     longname: "Bitblocks",
     description: "Bitblocks coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitblocks",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitblocks/"
     },
-    rank: "3524"
+    rank: "1000"
 },{
     name: "bitbook-gambling",
     code: "BXK",
-    icon: "bxk",
+    icon: "noicon",
     longname: "Bitbook Gambling",
     description: "Bitbook Gambling coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitbook-gambling",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitbook-gambling/"
     },
-    rank: "85"
+    rank: "1000"
 },{
     name: "bitbtc",
     code: "BITBTC",
-    icon: "bitbtc",
+    icon: "noicon",
     longname: "bitBTC",
     description: "bitBTC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitbtc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitbtc/"
     },
-    rank: "3785"
+    rank: "1000"
 },{
     name: "bitcapitalvendor",
     code: "BCV",
-    icon: "bcv",
+    icon: "noicon",
     longname: "BitCapitalVendor",
     description: "BitCapitalVendor coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcapitalvendor",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcapitalvendor/"
     },
-    rank: "163"
+    rank: "1000"
 },{
     name: "bitclave",
     code: "CAT",
-    icon: "cat",
+    icon: "noicon",
     longname: "BitClave",
     description: "BitClave coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitclave",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitclave/"
     },
-    rank: "3287"
+    rank: "1000"
 },{
     name: "bitcloud",
     code: "BTDX",
@@ -2129,39 +2363,43 @@ var otherCoins = [{
     longname: "Bitcloud",
     description: "Bitcloud coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcloud",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcloud/"
     },
-    rank: "3774"
+    rank: "1000"
 },{
     name: "bitcny",
     code: "BITCNY",
-    icon: "bitcny",
+    icon: "noicon",
     longname: "bitCNY",
     description: "bitCNY coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcny",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcny/"
     },
-    rank: "341"
+    rank: "1000"
 },{
     name: "bitcoal",
     code: "COAL",
-    icon: "coal",
+    icon: "noicon",
     longname: "BitCoal",
     description: "BitCoal coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoal",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoal/"
     },
-    rank: "4046"
+    rank: "1000"
 },{
     name: "bitcoen",
     code: "BEN",
-    icon: "ben",
+    icon: "noicon",
     longname: "BitCoen",
     description: "BitCoen coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoen",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoen/"
     },
-    rank: "3372"
+    rank: "1000"
 },{
     name: "bitcoin",
     code: "BTC",
@@ -2169,39 +2407,43 @@ var otherCoins = [{
     longname: "Bitcoin",
     description: "Bitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin/"
     },
-    rank: "1"
+    rank: "0"
 },{
     name: "bitcoin-21",
     code: "XBTC21",
-    icon: "xbtc21",
+    icon: "noicon",
     longname: "Bitcoin 21",
     description: "Bitcoin 21 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-21",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-21/"
     },
-    rank: "3931"
+    rank: "1000"
 },{
     name: "bitcoin-adult",
     code: "BTAD",
-    icon: "btad",
+    icon: "noicon",
     longname: "Bitcoin Adult",
     description: "Bitcoin Adult coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-adult",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-adult/"
     },
-    rank: "3874"
+    rank: "1000"
 },{
     name: "bitcoin-atom",
     code: "BCA",
-    icon: "bca",
+    icon: "noicon",
     longname: "Bitcoin Atom",
     description: "Bitcoin Atom coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-atom",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-atom/"
     },
-    rank: "2797"
+    rank: "1000"
 },{
     name: "bitcoin-cash",
     code: "BCH",
@@ -2209,9 +2451,21 @@ var otherCoins = [{
     longname: "Bitcoin Cash",
     description: "Bitcoin Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-cash/"
     },
     rank: "4"
+},{
+    name: "bitcoin-cash-sv",
+    code: "BSV",
+    icon: "bsv",
+    longname: "Bitcoin SV",
+    description: "Bitcoin SV coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-cash-sv",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-cash-sv/"
+    },
+    rank: "5"
 },{
     name: "bitcoin-diamond",
     code: "BCD",
@@ -2219,29 +2473,32 @@ var otherCoins = [{
     longname: "Bitcoin Diamond",
     description: "Bitcoin Diamond coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-diamond",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-diamond/"
     },
-    rank: "68"
+    rank: "45"
 },{
     name: "bitcoin-file",
     code: "BIFI",
-    icon: "bifi",
+    icon: "noicon",
     longname: "Bitcoin File",
     description: "Bitcoin File coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-file",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-file/"
     },
-    rank: "4301"
+    rank: "1000"
 },{
     name: "bitcoin-god",
     code: "GOD",
-    icon: "god",
+    icon: "noicon",
     longname: "Bitcoin God",
     description: "Bitcoin God coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-god",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-god/"
     },
-    rank: "4343"
+    rank: "1000"
 },{
     name: "bitcoin-gold",
     code: "BTG",
@@ -2249,59 +2506,65 @@ var otherCoins = [{
     longname: "Bitcoin Gold",
     description: "Bitcoin Gold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-gold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-gold/"
     },
-    rank: "47"
+    rank: "33"
 },{
     name: "bitcoin-green",
     code: "BITG",
-    icon: "bitg",
+    icon: "noicon",
     longname: "Bitcoin Green",
     description: "Bitcoin Green coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-green",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-green/"
     },
-    rank: "2791"
+    rank: "1000"
 },{
     name: "bitcoin-incognito",
     code: "XBI",
-    icon: "xbi",
+    icon: "noicon",
     longname: "Bitcoin Incognito",
     description: "Bitcoin Incognito coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-incognito",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-incognito/"
     },
-    rank: "2992"
+    rank: "1000"
 },{
     name: "bitcoin-interest",
     code: "BCI",
-    icon: "bci",
+    icon: "noicon",
     longname: "Bitcoin Interest",
     description: "Bitcoin Interest coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-interest",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-interest/"
     },
-    rank: "2712"
+    rank: "1000"
 },{
     name: "bitcoin-one",
     code: "BTCONE",
-    icon: "btcone",
+    icon: "noicon",
     longname: "BitCoin One",
     description: "BitCoin One coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-one",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-one/"
     },
-    rank: "4041"
+    rank: "1000"
 },{
     name: "bitcoin-planet",
     code: "BTPL",
-    icon: "btpl",
+    icon: "noicon",
     longname: "Bitcoin Planet",
     description: "Bitcoin Planet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-planet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-planet/"
     },
-    rank: "4082"
+    rank: "1000"
 },{
     name: "bitcoin-plus",
     code: "XBC",
@@ -2309,9 +2572,10 @@ var otherCoins = [{
     longname: "Bitcoin Plus",
     description: "Bitcoin Plus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-plus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-plus/"
     },
-    rank: "3234"
+    rank: "1000"
 },{
     name: "bitcoin-private",
     code: "BTCP",
@@ -2319,149 +2583,153 @@ var otherCoins = [{
     longname: "Bitcoin Private",
     description: "Bitcoin Private coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-private",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-private/"
     },
-    rank: "2490"
+    rank: "1000"
 },{
     name: "bitcoin-red",
     code: "BTCRED",
-    icon: "btcred",
+    icon: "noicon",
     longname: "Bitcoin Red",
     description: "Bitcoin Red coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-red",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-red/"
     },
-    rank: "3923"
+    rank: "1000"
 },{
     name: "bitcoin-rhodium",
     code: "XRC",
-    icon: "xrc",
+    icon: "noicon",
     longname: "Bitcoin Rhodium",
     description: "Bitcoin Rhodium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-rhodium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-rhodium/"
     },
-    rank: "450"
+    rank: "1000"
 },{
     name: "bitcoin-scrypt",
     code: "BTCS",
-    icon: "btcs",
+    icon: "noicon",
     longname: "Bitcoin Scrypt",
     description: "Bitcoin Scrypt coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-scrypt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-scrypt/"
     },
-    rank: "3844"
-},{
-    name: "bitcoin-sv",
-    code: "BSV",
-    icon: "bsv",
-    longname: "Bitcoin SV",
-    description: "Bitcoin SV coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-sv/"
-    },
-    rank: "9"
+    rank: "1000"
 },{
     name: "bitcoin-token",
     code: "BTK",
-    icon: "btk",
+    icon: "noicon",
     longname: "Bitcoin Token",
     description: "Bitcoin Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-token/"
     },
-    rank: "3444"
+    rank: "1000"
 },{
     name: "bitcoin-w-spectrum",
     code: "BWS",
-    icon: "bws",
+    icon: "noicon",
     longname: "Bitcoin W Spectrum",
     description: "Bitcoin W Spectrum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-w-spectrum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-w-spectrum/"
     },
-    rank: "3889"
+    rank: "1000"
 },{
     name: "bitcoin-x",
     code: "BTX-1",
-    icon: "btx-1",
+    icon: "noicon",
     longname: "Bitcoin X",
     description: "Bitcoin X coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-x",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-x/"
     },
-    rank: "3537"
+    rank: "1000"
 },{
     name: "bitcoin-zero",
     code: "BZX",
-    icon: "bzx",
+    icon: "noicon",
     longname: "Bitcoin Zero",
     description: "Bitcoin Zero coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin-zero",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-zero/"
     },
-    rank: "4285"
+    rank: "1000"
 },{
     name: "bitcoin2",
     code: "BTC2",
-    icon: "btc2",
+    icon: "noicon",
     longname: "Bitcoin 2",
     description: "Bitcoin 2 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoin2",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin2/"
     },
-    rank: "171"
+    rank: "1000"
 },{
     name: "bitcoinfast",
     code: "BCF",
-    icon: "bcf",
+    icon: "noicon",
     longname: "Bitcoin Fast",
     description: "Bitcoin Fast coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoinfast",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinfast/"
     },
-    rank: "3832"
+    rank: "1000"
 },{
     name: "bitcoinhd",
     code: "BHD",
-    icon: "bhd",
+    icon: "noicon",
     longname: "BitcoinHD",
     description: "BitcoinHD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoinhd",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinhd/"
     },
-    rank: "155"
+    rank: "1000"
 },{
     name: "bitcoinote",
     code: "BTCN",
-    icon: "btcn",
+    icon: "noicon",
     longname: "BitcoiNote",
     description: "BitcoiNote coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoinote",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinote/"
     },
-    rank: "3913"
+    rank: "1000"
 },{
     name: "bitcoinus",
     code: "BITS-1",
-    icon: "bits-1",
+    icon: "noicon",
     longname: "Bitcoinus",
     description: "Bitcoinus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoinus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinus/"
     },
-    rank: "3544"
+    rank: "1000"
 },{
     name: "bitcoinx",
     code: "BCX",
-    icon: "bcx",
+    icon: "noicon",
     longname: "BitcoinX",
     description: "BitcoinX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoinx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinx/"
     },
-    rank: "4234"
+    rank: "1000"
 },{
     name: "bitcoinz",
     code: "BTCZ",
@@ -2469,9 +2737,10 @@ var otherCoins = [{
     longname: "BitcoinZ",
     description: "BitcoinZ coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcoinz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoinz/"
     },
-    rank: "3212"
+    rank: "1000"
 },{
     name: "bitcore",
     code: "BTX",
@@ -2479,19 +2748,21 @@ var otherCoins = [{
     longname: "Bitcore",
     description: "Bitcore coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcore",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcore/"
     },
-    rank: "2230"
+    rank: "1000"
 },{
     name: "bitcrystals",
     code: "BCY",
-    icon: "bcy",
+    icon: "noicon",
     longname: "BitCrystals",
     description: "BitCrystals coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitcrystals",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcrystals/"
     },
-    rank: "3324"
+    rank: "1000"
 },{
     name: "bitdeal",
     code: "BDL",
@@ -2499,169 +2770,164 @@ var otherCoins = [{
     longname: "Bitdeal",
     description: "Bitdeal coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitdeal",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitdeal/"
     },
-    rank: "3895"
+    rank: "1000"
 },{
     name: "bitdegree",
     code: "BDG",
-    icon: "bdg",
+    icon: "noicon",
     longname: "BitDegree",
     description: "BitDegree coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitdegree",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitdegree/"
     },
-    rank: "3648"
+    rank: "1000"
 },{
     name: "bitdice",
     code: "CSNO",
-    icon: "csno",
+    icon: "noicon",
     longname: "BitDice",
     description: "BitDice coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitdice",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitdice/"
     },
-    rank: "2972"
+    rank: "1000"
 },{
     name: "biteur",
     code: "BITEUR",
-    icon: "biteur",
+    icon: "noicon",
     longname: "bitEUR",
     description: "bitEUR coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/biteur",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/biteur/"
     },
-    rank: "3820"
+    rank: "1000"
 },{
     name: "bitf",
     code: "BITF",
-    icon: "bitf",
+    icon: "noicon",
     longname: "BitF",
     description: "BitF coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitf",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitf/"
     },
-    rank: "4095"
+    rank: "1000"
 },{
     name: "bitforex-token",
     code: "BF",
-    icon: "bf",
+    icon: "noicon",
     longname: "BitForex Token",
     description: "BitForex Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitforex-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitforex-token/"
     },
-    rank: "123"
+    rank: "1000"
 },{
     name: "bitgold",
     code: "BITGOLD",
-    icon: "bitgold",
+    icon: "noicon",
     longname: "bitGold",
     description: "bitGold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitgold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitgold/"
     },
-    rank: "3772"
+    rank: "1000"
 },{
     name: "bitibu-coin",
     code: "BTB",
-    icon: "btb",
+    icon: "noicon",
     longname: "Bitibu Coin",
     description: "Bitibu Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitibu-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitibu-coin/"
     },
-    rank: "3750"
-},{
-    name: "bitkan",
-    code: "KAN",
-    icon: "kan",
-    longname: "BitKan",
-    description: "BitKan coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitkan/"
-    },
-    rank: "229"
+    rank: "1000"
 },{
     name: "bitmark",
     code: "BTM-1",
-    icon: "btm-1",
+    icon: "noicon",
     longname: "Bitmark",
     description: "Bitmark coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitmark",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitmark/"
     },
-    rank: "3778"
+    rank: "1000"
 },{
     name: "bitmart-token",
     code: "BMX",
-    icon: "bmx",
+    icon: "noicon",
     longname: "BitMart Token",
     description: "BitMart Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitmart-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitmart-token/"
     },
-    rank: "496"
-},{
-    name: "bitmax-token",
-    code: "BTMX",
-    icon: "btmx",
-    longname: "BitMax Token",
-    description: "BitMax Token coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitmax-token/"
-    },
-    rank: "97"
+    rank: "1000"
 },{
     name: "bitmoney",
     code: "BIT-1",
-    icon: "bit-1",
+    icon: "noicon",
     longname: "BitMoney",
     description: "BitMoney coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitmoney",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitmoney/"
     },
-    rank: "3467"
+    rank: "1000"
 },{
     name: "bitnation",
     code: "XPAT",
-    icon: "xpat",
+    icon: "noicon",
     longname: "Bitnation",
     description: "Bitnation coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitnation",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitnation/"
     },
-    rank: "4303"
+    rank: "1000"
 },{
     name: "bitnautic-token",
     code: "BTNT",
-    icon: "btnt",
+    icon: "noicon",
     longname: "BitNautic Token",
     description: "BitNautic Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitnautic-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitnautic-token/"
     },
-    rank: "4330"
+    rank: "1000"
 },{
     name: "bitnewchain",
     code: "BTN",
-    icon: "btn",
+    icon: "noicon",
     longname: "BitNewChain",
     description: "BitNewChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitnewchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitnewchain/"
     },
-    rank: "2786"
+    rank: "1000"
 },{
     name: "bitquark",
     code: "BTQ",
-    icon: "btq",
+    icon: "noicon",
     longname: "BitQuark",
     description: "BitQuark coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitquark",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitquark/"
     },
-    rank: "4074"
+    rank: "1000"
 },{
     name: "bitqy",
     code: "BQ",
@@ -2669,69 +2935,76 @@ var otherCoins = [{
     longname: "bitqy",
     description: "bitqy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitqy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitqy/"
     },
-    rank: "3652"
+    rank: "1000"
 },{
     name: "bitradio",
     code: "BRO",
-    icon: "bro",
+    icon: "noicon",
     longname: "Bitradio",
     description: "Bitradio coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitradio",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitradio/"
     },
-    rank: "3809"
+    rank: "1000"
 },{
     name: "bitrent",
     code: "RNTB",
-    icon: "rntb",
+    icon: "noicon",
     longname: "BitRent",
     description: "BitRent coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitrent",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitrent/"
     },
-    rank: "3195"
+    rank: "1000"
 },{
     name: "bitrewards",
     code: "BIT",
-    icon: "bit",
+    icon: "noicon",
     longname: "BitRewards",
     description: "BitRewards coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitrewards",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitrewards/"
     },
-    rank: "3459"
+    rank: "1000"
 },{
     name: "bitrue-coin",
     code: "BTR",
-    icon: "btr",
+    icon: "noicon",
     longname: "Bitrue Coin",
     description: "Bitrue Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitrue-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitrue-coin/"
     },
-    rank: "333"
+    rank: "1000"
 },{
     name: "bitscreener-token",
     code: "BITX",
-    icon: "bitx",
+    icon: "noicon",
     longname: "BitScreener Token",
     description: "BitScreener Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitscreener-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitscreener-token/"
     },
-    rank: "3216"
+    rank: "1000"
 },{
     name: "bitsdaq",
     code: "BQQQ",
-    icon: "bqqq",
+    icon: "noicon",
     longname: "Bitsdaq",
     description: "Bitsdaq coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitsdaq",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitsdaq/"
     },
-    rank: "596"
+    rank: "1000"
 },{
     name: "bitsend",
     code: "BSD",
@@ -2739,9 +3012,10 @@ var otherCoins = [{
     longname: "BitSend",
     description: "BitSend coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitsend",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitsend/"
     },
-    rank: "3072"
+    rank: "1000"
 },{
     name: "bitshares",
     code: "BTS",
@@ -2749,149 +3023,164 @@ var otherCoins = [{
     longname: "BitShares",
     description: "BitShares coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitshares",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitshares/"
     },
-    rank: "86"
+    rank: "81"
 },{
     name: "bitshares-music",
     code: "XSD",
-    icon: "xsd",
+    icon: "noicon",
     longname: "SounDAC",
     description: "SounDAC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitshares-music",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitshares-music/"
     },
-    rank: "3138"
+    rank: "1000"
 },{
     name: "bitsilver",
     code: "BITSILVER",
-    icon: "bitsilver",
+    icon: "noicon",
     longname: "bitSilver",
     description: "bitSilver coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitsilver",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitsilver/"
     },
-    rank: "3769"
+    rank: "1000"
 },{
     name: "bitspace",
     code: "BSX",
-    icon: "bsx",
+    icon: "noicon",
     longname: "Bitspace",
     description: "Bitspace coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitspace",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitspace/"
     },
-    rank: "4126"
+    rank: "1000"
 },{
     name: "bitstar",
     code: "BITS-2",
-    icon: "bits-2",
+    icon: "noicon",
     longname: "Bitstar",
     description: "Bitstar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitstar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitstar/"
     },
-    rank: "3869"
+    rank: "1000"
 },{
     name: "bitstation",
     code: "BSTN",
-    icon: "bstn",
+    icon: "noicon",
     longname: "BitStation",
     description: "BitStation coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitstation",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitstation/"
     },
-    rank: "3859"
+    rank: "1000"
 },{
     name: "bitsum",
     code: "BSM",
-    icon: "bsm",
+    icon: "noicon",
     longname: "Bitsum",
     description: "Bitsum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitsum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitsum/"
     },
-    rank: "3810"
+    rank: "1000"
 },{
     name: "bitswift",
     code: "BITS",
-    icon: "bits",
+    icon: "noicon",
     longname: "Bitswift",
     description: "Bitswift coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitswift",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitswift/"
     },
-    rank: "3407"
+    rank: "1000"
 },{
-    name: "bittorrent",
+    name: "bittorrent-2",
     code: "BTT",
     icon: "btt",
     longname: "BitTorrent",
     description: "BitTorrent coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bittorrent/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bittorrent-2",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bittorrent-2/"
     },
-    rank: "67"
+    rank: "75"
 },{
     name: "bittwatt",
     code: "BWT",
-    icon: "bwt",
+    icon: "noicon",
     longname: "Bittwatt",
     description: "Bittwatt coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bittwatt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bittwatt/"
     },
-    rank: "3620"
+    rank: "1000"
 },{
     name: "bitup-token",
     code: "BUT",
-    icon: "but",
+    icon: "noicon",
     longname: "BitUP Token",
     description: "BitUP Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitup-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitup-token/"
     },
-    rank: "4210"
+    rank: "1000"
 },{
     name: "bitusd",
     code: "BITUSD",
-    icon: "bitusd",
+    icon: "noicon",
     longname: "bitUSD",
     description: "bitUSD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitusd",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitusd/"
     },
-    rank: "2339"
+    rank: "1000"
 },{
     name: "bitvolt",
     code: "VOLT",
-    icon: "volt",
+    icon: "noicon",
     longname: "Bitvolt",
     description: "Bitvolt coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitvolt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitvolt/"
     },
-    rank: "4103"
+    rank: "1000"
 },{
     name: "bitwhite",
     code: "BTW",
-    icon: "btw",
+    icon: "noicon",
     longname: "BitWhite",
     description: "BitWhite coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitwhite",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitwhite/"
     },
-    rank: "3498"
+    rank: "1000"
 },{
     name: "bitzeny",
     code: "ZNY",
-    icon: "zny",
+    icon: "noicon",
     longname: "Bitzeny",
     description: "Bitzeny coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bitzeny",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitzeny/"
     },
-    rank: "3440"
+    rank: "1000"
 },{
     name: "blackcoin",
     code: "BLK",
@@ -2899,59 +3188,65 @@ var otherCoins = [{
     longname: "BlackCoin",
     description: "BlackCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blackcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blackcoin/"
     },
-    rank: "405"
+    rank: "1000"
 },{
     name: "blackmoon",
     code: "BMC",
-    icon: "bmc",
+    icon: "noicon",
     longname: "Blackmoon",
     description: "Blackmoon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blackmoon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blackmoon/"
     },
-    rank: "2015"
+    rank: "1000"
 },{
     name: "blakecoin",
     code: "BLC",
-    icon: "blc",
+    icon: "noicon",
     longname: "Blakecoin",
     description: "Blakecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blakecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blakecoin/"
     },
-    rank: "3840"
+    rank: "1000"
 },{
     name: "blakestar",
     code: "ERA",
-    icon: "era",
+    icon: "noicon",
     longname: "ERA",
     description: "ERA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blakestar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blakestar/"
     },
-    rank: "4391"
+    rank: "1000"
 },{
     name: "blast",
     code: "BLAST",
-    icon: "blast",
+    icon: "noicon",
     longname: "BLAST",
     description: "BLAST coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blast",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blast/"
     },
-    rank: "3565"
+    rank: "1000"
 },{
     name: "blazecoin",
     code: "BLZ-1",
-    icon: "blz-1",
+    icon: "noicon",
     longname: "BlazeCoin",
     description: "BlazeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blazecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blazecoin/"
     },
-    rank: "3945"
+    rank: "1000"
 },{
     name: "blitzpredict",
     code: "XBP",
@@ -2959,19 +3254,21 @@ var otherCoins = [{
     longname: "BlitzPredict",
     description: "BlitzPredict coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blitzpredict",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blitzpredict/"
     },
-    rank: "3450"
+    rank: "1000"
 },{
     name: "bloc-money",
     code: "BLOC",
-    icon: "bloc",
+    icon: "noicon",
     longname: "BLOC.MONEY",
     description: "BLOC.MONEY coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bloc-money",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bloc-money/"
     },
-    rank: "3437"
+    rank: "1000"
 },{
     name: "block-array",
     code: "ARY",
@@ -2979,69 +3276,76 @@ var otherCoins = [{
     longname: "Block Array",
     description: "Block Array coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/block-array",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/block-array/"
     },
-    rank: "3269"
+    rank: "1000"
 },{
     name: "block-chain-com",
     code: "BC",
-    icon: "bc",
+    icon: "noicon",
     longname: "Block-Chain.com",
     description: "Block-Chain.com coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/block-chain-com",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/block-chain-com/"
     },
-    rank: "3695"
+    rank: "1000"
 },{
     name: "blockcat",
     code: "CAT-1",
-    icon: "cat-1",
+    icon: "noicon",
     longname: "BlockCAT",
     description: "BlockCAT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockcat",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockcat/"
     },
-    rank: "3735"
+    rank: "1000"
 },{
     name: "blockcdn",
     code: "BCDN",
-    icon: "bcdn",
+    icon: "noicon",
     longname: "BlockCDN",
     description: "BlockCDN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockcdn",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockcdn/"
     },
-    rank: "4322"
+    rank: "1000"
 },{
     name: "blockchain-certified-data-token",
     code: "BCDT",
-    icon: "bcdt",
+    icon: "noicon",
     longname: "Blockchain Certified Data Token",
     description: "Blockchain Certified Data Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockchain-certified-data-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockchain-certified-data-token/"
     },
-    rank: "4304"
+    rank: "1000"
 },{
     name: "blockchain-quotations-index-token",
     code: "BQT",
-    icon: "bqt",
+    icon: "noicon",
     longname: "Blockchain Quotations Index Token",
     description: "Blockchain Quotations Index Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockchain-quotations-index-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockchain-quotations-index-token/"
     },
-    rank: "4232"
+    rank: "1000"
 },{
     name: "blocklancer",
     code: "LNC",
-    icon: "lnc",
+    icon: "noicon",
     longname: "Blocklancer",
     description: "Blocklancer coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blocklancer",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blocklancer/"
     },
-    rank: "3455"
+    rank: "1000"
 },{
     name: "blockmason",
     code: "BCPT",
@@ -3049,19 +3353,21 @@ var otherCoins = [{
     longname: "Blockmason Credit Protocol",
     description: "Blockmason Credit Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockmason",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockmason/"
     },
-    rank: "524"
+    rank: "1000"
 },{
     name: "blockmesh",
     code: "BMH",
-    icon: "bmh",
+    icon: "noicon",
     longname: "BlockMesh",
     description: "BlockMesh coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockmesh",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockmesh/"
     },
-    rank: "3880"
+    rank: "1000"
 },{
     name: "blocknet",
     code: "BLOCK",
@@ -3069,39 +3375,43 @@ var otherCoins = [{
     longname: "Blocknet",
     description: "Blocknet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blocknet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blocknet/"
     },
-    rank: "433"
+    rank: "1000"
 },{
     name: "blocknode",
     code: "BND",
-    icon: "bnd",
+    icon: "noicon",
     longname: "Blocknode",
     description: "Blocknode coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blocknode",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blocknode/"
     },
-    rank: "3508"
+    rank: "1000"
 },{
     name: "blockpass",
     code: "PASS",
-    icon: "pass",
+    icon: "noicon",
     longname: "Blockpass",
     description: "Blockpass coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockpass",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockpass/"
     },
-    rank: "3734"
+    rank: "1000"
 },{
     name: "blockpool",
     code: "BPL",
-    icon: "bpl",
+    icon: "noicon",
     longname: "Blockpool",
     description: "Blockpool coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockpool",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockpool/"
     },
-    rank: "3713"
+    rank: "1000"
 },{
     name: "blockport",
     code: "BPT",
@@ -3109,9 +3419,21 @@ var otherCoins = [{
     longname: "Blockport",
     description: "Blockport coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockport",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockport/"
     },
-    rank: "2915"
+    rank: "1000"
+},{
+    name: "blockstack",
+    code: "STX",
+    icon: "noicon",
+    longname: "Blockstack",
+    description: "Blockstack coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockstack",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockstack/"
+    },
+    rank: "70"
 },{
     name: "blocktix",
     code: "TIX",
@@ -3119,29 +3441,32 @@ var otherCoins = [{
     longname: "Blocktix",
     description: "Blocktix coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blocktix",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blocktix/"
     },
-    rank: "2757"
+    rank: "1000"
 },{
     name: "blockv",
     code: "VEE",
-    icon: "vee",
+    icon: "noicon",
     longname: "BLOCKv",
     description: "BLOCKv coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blockv",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blockv/"
     },
-    rank: "2258"
+    rank: "1000"
 },{
     name: "bloomtoken",
     code: "BLT",
-    icon: "blt",
+    icon: "noicon",
     longname: "Bloom",
     description: "Bloom coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bloomtoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bloomtoken/"
     },
-    rank: "2881"
+    rank: "1000"
 },{
     name: "blox",
     code: "CDT",
@@ -3149,29 +3474,32 @@ var otherCoins = [{
     longname: "Blox",
     description: "Blox coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blox",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blox/"
     },
-    rank: "328"
+    rank: "1000"
 },{
     name: "blue-whale-exchange",
     code: "BWX",
-    icon: "bwx",
+    icon: "noicon",
     longname: "Blue Whale EXchange",
     description: "Blue Whale EXchange coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/blue-whale-exchange",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/blue-whale-exchange/"
     },
-    rank: "2364"
+    rank: "1000"
 },{
     name: "bluecoin",
     code: "BLU",
-    icon: "blu",
+    icon: "noicon",
     longname: "BlueCoin",
     description: "BlueCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bluecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bluecoin/"
     },
-    rank: "3671"
+    rank: "1000"
 },{
     name: "bluzelle",
     code: "BLZ",
@@ -3179,129 +3507,153 @@ var otherCoins = [{
     longname: "Bluzelle",
     description: "Bluzelle coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bluzelle",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bluzelle/"
     },
-    rank: "382"
+    rank: "1000"
+},{
+    name: "bmax",
+    code: "BTMX",
+    icon: "noicon",
+    longname: "Bitmax Token",
+    description: "Bitmax Token coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bmax",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bmax/"
+    },
+    rank: "100"
 },{
     name: "bnktothefuture",
     code: "BFT",
-    icon: "bft",
+    icon: "noicon",
     longname: "BnkToTheFuture",
     description: "BnkToTheFuture coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bnktothefuture",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bnktothefuture/"
     },
-    rank: "276"
+    rank: "1000"
 },{
     name: "bobs-repair",
     code: "BOB",
-    icon: "bob",
+    icon: "noicon",
     longname: "Bob's Repair",
     description: "Bob's Repair coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bobs-repair",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bobs-repair/"
     },
-    rank: "3297"
+    rank: "1000"
 },{
     name: "bodhi",
     code: "BOT",
-    icon: "bot",
+    icon: "noicon",
     longname: "Bodhi",
     description: "Bodhi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bodhi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bodhi/"
     },
-    rank: "3027"
+    rank: "1000"
 },{
     name: "bodhi-eth",
     code: "BOE",
-    icon: "boe",
+    icon: "noicon",
     longname: "Bodhi [ETH]",
     description: "Bodhi [ETH] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bodhi-eth",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bodhi-eth/"
     },
-    rank: "3420"
+    rank: "1000"
 },{
     name: "bolenum",
     code: "BLN",
-    icon: "bln",
+    icon: "noicon",
     longname: "Bolenum",
     description: "Bolenum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bolenum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bolenum/"
     },
-    rank: "3608"
+    rank: "1000"
 },{
     name: "bolivarcoin",
     code: "BOLI",
-    icon: "boli",
+    icon: "noicon",
     longname: "Bolivarcoin",
     description: "Bolivarcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bolivarcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bolivarcoin/"
     },
-    rank: "3932"
+    rank: "1000"
 },{
     name: "bolt",
     code: "BOLT",
-    icon: "bolt",
+    icon: "noicon",
     longname: "BOLT",
     description: "BOLT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bolt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bolt/"
     },
-    rank: "509"
+    rank: "1000"
 },{
     name: "bonpay",
     code: "BON",
-    icon: "bon",
+    icon: "noicon",
     longname: "Bonpay",
     description: "Bonpay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bonpay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bonpay/"
     },
-    rank: "3400"
+    rank: "1000"
 },{
     name: "boolberry",
     code: "BBR",
-    icon: "bbr",
+    icon: "noicon",
     longname: "Boolberry",
     description: "Boolberry coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/boolberry",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boolberry/"
     },
-    rank: "2207"
+    rank: "1000"
 },{
     name: "boostcoin",
     code: "BOST",
-    icon: "bost",
+    icon: "noicon",
     longname: "BoostCoin",
     description: "BoostCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/boostcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boostcoin/"
     },
-    rank: "3969"
+    rank: "1000"
 },{
     name: "bora",
     code: "BORA",
-    icon: "bora",
+    icon: "noicon",
     longname: "BORA",
     description: "BORA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bora",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bora/"
     },
-    rank: "355"
+    rank: "1000"
 },{
     name: "bosagora",
     code: "BOA",
-    icon: "boa",
+    icon: "noicon",
     longname: "BOSAGORA",
     description: "BOSAGORA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bosagora",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bosagora/"
     },
-    rank: "360"
+    rank: "157"
 },{
     name: "boscoin",
     code: "BOS",
@@ -3309,29 +3661,32 @@ var otherCoins = [{
     longname: "BOScoin",
     description: "BOScoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/boscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boscoin/"
     },
-    rank: "546"
+    rank: "1000"
 },{
     name: "bottos",
     code: "BTO",
-    icon: "bto",
+    icon: "noicon",
     longname: "Bottos",
     description: "Bottos coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bottos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bottos/"
     },
-    rank: "552"
+    rank: "1000"
 },{
     name: "botxcoin",
     code: "BOTX",
-    icon: "botx",
+    icon: "noicon",
     longname: "botXcoin",
     description: "botXcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/botxcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/botxcoin/"
     },
-    rank: "133"
+    rank: "1000"
 },{
     name: "bounty0x",
     code: "BNTY",
@@ -3339,79 +3694,87 @@ var otherCoins = [{
     longname: "Bounty0x",
     description: "Bounty0x coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bounty0x",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bounty0x/"
     },
-    rank: "3692"
+    rank: "1000"
 },{
     name: "boutspro",
     code: "BOUTS",
-    icon: "bouts",
+    icon: "noicon",
     longname: "BoutsPro",
     description: "BoutsPro coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/boutspro",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boutspro/"
     },
-    rank: "3376"
+    rank: "1000"
 },{
     name: "bowscoin",
     code: "BSC",
-    icon: "bsc",
+    icon: "noicon",
     longname: "BowsCoin",
     description: "BowsCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bowscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bowscoin/"
     },
-    rank: "4102"
+    rank: "1000"
 },{
     name: "box-token",
     code: "BOX-1",
-    icon: "box-1",
+    icon: "noicon",
     longname: "BOX Token",
     description: "BOX Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/box-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/box-token/"
     },
-    rank: "456"
+    rank: "1000"
 },{
     name: "boxx-token-blockparty",
     code: "BOXX",
-    icon: "boxx",
+    icon: "noicon",
     longname: "BOXX Token [Blockparty]",
     description: "BOXX Token [Blockparty] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/boxx-token-blockparty",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/boxx-token-blockparty/"
     },
-    rank: "3100"
+    rank: "1000"
 },{
     name: "bqt",
     code: "BQTX",
-    icon: "bqtx",
+    icon: "noicon",
     longname: "BQT",
     description: "BQT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bqt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bqt/"
     },
-    rank: "212"
+    rank: "1000"
 },{
     name: "brahmaos",
     code: "BRM",
-    icon: "brm",
+    icon: "noicon",
     longname: "BrahmaOS",
     description: "BrahmaOS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/brahmaos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/brahmaos/"
     },
-    rank: "2889"
+    rank: "1000"
 },{
     name: "brat",
     code: "BRAT",
-    icon: "brat",
+    icon: "noicon",
     longname: "BROTHER",
     description: "BROTHER coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/brat",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/brat/"
     },
-    rank: "4087"
+    rank: "1000"
 },{
     name: "bread",
     code: "BRD",
@@ -3419,79 +3782,87 @@ var otherCoins = [{
     longname: "Bread",
     description: "Bread coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bread",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bread/"
     },
-    rank: "162"
+    rank: "216"
 },{
     name: "breakout",
     code: "BRK",
-    icon: "brk",
+    icon: "noicon",
     longname: "Breakout",
     description: "Breakout coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/breakout",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/breakout/"
     },
-    rank: "3323"
+    rank: "1000"
 },{
     name: "breakout-stake",
     code: "BRX",
-    icon: "brx",
+    icon: "noicon",
     longname: "Breakout Stake",
     description: "Breakout Stake coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/breakout-stake",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/breakout-stake/"
     },
-    rank: "3279"
+    rank: "1000"
 },{
     name: "breezecoin",
     code: "BRZC",
-    icon: "brzc",
+    icon: "noicon",
     longname: "Breezecoin",
     description: "Breezecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/breezecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/breezecoin/"
     },
-    rank: "2651"
+    rank: "1000"
 },{
     name: "breezecoin",
     code: "BRZE",
-    icon: "brze",
+    icon: "noicon",
     longname: "Breezecoin",
     description: "Breezecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/breezecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/breezecoin/"
     },
-    rank: "114"
+    rank: "1000"
 },{
     name: "briacoin",
     code: "BRIA",
-    icon: "bria",
+    icon: "noicon",
     longname: "BriaCoin",
     description: "BriaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/briacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/briacoin/"
     },
-    rank: "3504"
+    rank: "1000"
 },{
     name: "brickblock",
     code: "BBK",
-    icon: "bbk",
+    icon: "noicon",
     longname: "Brickblock",
     description: "Brickblock coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/brickblock",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/brickblock/"
     },
-    rank: "2935"
+    rank: "1000"
 },{
     name: "bridge-protocol",
     code: "TOLL",
-    icon: "toll",
+    icon: "noicon",
     longname: "Bridge Protocol",
     description: "Bridge Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bridge-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bridge-protocol/"
     },
-    rank: "3373"
+    rank: "1000"
 },{
     name: "bridgecoin",
     code: "BCO",
@@ -3499,149 +3870,164 @@ var otherCoins = [{
     longname: "BridgeCoin",
     description: "BridgeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bridgecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bridgecoin/"
     },
-    rank: "2622"
+    rank: "1000"
 },{
     name: "britcoin",
     code: "BRIT",
-    icon: "brit",
+    icon: "noicon",
     longname: "BritCoin",
     description: "BritCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/britcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/britcoin/"
     },
-    rank: "3886"
+    rank: "1000"
 },{
     name: "brokernekonetwork",
     code: "BNN",
-    icon: "bnn",
+    icon: "noicon",
     longname: "BrokerNekoNetwork",
     description: "BrokerNekoNetwork coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/brokernekonetwork",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/brokernekonetwork/"
     },
-    rank: "4012"
+    rank: "1000"
 },{
     name: "btcmoon",
     code: "BTCM",
-    icon: "btcm",
+    icon: "noicon",
     longname: "BTCMoon",
     description: "BTCMoon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/btcmoon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/btcmoon/"
     },
-    rank: "4388"
+    rank: "1000"
 },{
     name: "btctalkcoin",
     code: "TALK",
-    icon: "talk",
+    icon: "noicon",
     longname: "BTCtalkcoin",
     description: "BTCtalkcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/btctalkcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/btctalkcoin/"
     },
-    rank: "3853"
+    rank: "1000"
 },{
     name: "btu-protocol",
     code: "BTU",
-    icon: "btu",
+    icon: "noicon",
     longname: "BTU Protocol",
     description: "BTU Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/btu-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/btu-protocol/"
     },
-    rank: "231"
+    rank: "1000"
 },{
     name: "bubble",
     code: "BUB",
-    icon: "bub",
+    icon: "noicon",
     longname: "Bubble",
     description: "Bubble coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bubble",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bubble/"
     },
-    rank: "4398"
+    rank: "1000"
 },{
     name: "budbo",
     code: "BUBO",
-    icon: "bubo",
+    icon: "noicon",
     longname: "Budbo",
     description: "Budbo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/budbo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/budbo/"
     },
-    rank: "4331"
+    rank: "1000"
 },{
     name: "buggyra-coin-zero",
     code: "BCZERO",
-    icon: "bczero",
+    icon: "noicon",
     longname: "Buggyra Coin Zero",
     description: "Buggyra Coin Zero coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/buggyra-coin-zero",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/buggyra-coin-zero/"
     },
-    rank: "134"
+    rank: "1000"
 },{
     name: "bullion",
     code: "CBX",
-    icon: "cbx",
+    icon: "noicon",
     longname: "Bullion",
     description: "Bullion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bullion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bullion/"
     },
-    rank: "3678"
+    rank: "1000"
 },{
     name: "bulwark",
     code: "BWK",
-    icon: "bwk",
+    icon: "noicon",
     longname: "Bulwark",
     description: "Bulwark coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bulwark",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bulwark/"
     },
-    rank: "2778"
+    rank: "1000"
 },{
     name: "bumbacoin",
     code: "BUMBA",
-    icon: "bumba",
+    icon: "noicon",
     longname: "BumbaCoin",
     description: "BumbaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bumbacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bumbacoin/"
     },
-    rank: "4068"
+    rank: "1000"
 },{
     name: "bumo",
     code: "BU",
-    icon: "bu",
+    icon: "noicon",
     longname: "BUMO",
     description: "BUMO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bumo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bumo/"
     },
-    rank: "4144"
+    rank: "1000"
 },{
     name: "bunnycoin",
     code: "BUN",
-    icon: "bun",
+    icon: "noicon",
     longname: "BunnyCoin",
     description: "BunnyCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bunnycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bunnycoin/"
     },
-    rank: "3712"
+    rank: "1000"
 },{
     name: "bunnytoken",
     code: "BUNNY",
-    icon: "bunny",
+    icon: "noicon",
     longname: "BunnyToken",
     description: "BunnyToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bunnytoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bunnytoken/"
     },
-    rank: "3547"
+    rank: "1000"
 },{
     name: "burst",
     code: "BURST",
@@ -3649,39 +4035,54 @@ var otherCoins = [{
     longname: "Burst",
     description: "Burst coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/burst",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/burst/"
     },
-    rank: "392"
+    rank: "221"
 },{
     name: "business-credit-alliance-chain",
     code: "BCAC",
-    icon: "bcac",
+    icon: "noicon",
     longname: "Business Credit Alliance Chain",
     description: "Business Credit Alliance Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/business-credit-alliance-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/business-credit-alliance-chain/"
     },
-    rank: "2375"
+    rank: "1000"
 },{
     name: "buzzcoin",
     code: "BUZZ",
-    icon: "buzz",
+    icon: "noicon",
     longname: "BuzzCoin",
     description: "BuzzCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/buzzcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/buzzcoin/"
     },
-    rank: "3380"
+    rank: "1000"
 },{
-    name: "bytecoin-bcn",
+    name: "byteball",
+    code: "GBYTE",
+    icon: "gbyte",
+    longname: "Obyte",
+    description: "Obyte coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/byteball",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/byteball/"
+    },
+    rank: "165"
+},{
+    name: "bytecoin",
     code: "BCN",
     icon: "bcn",
     longname: "Bytecoin",
     description: "Bytecoin coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bytecoin-bcn/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bytecoin",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/bytecoin/"
     },
-    rank: "76"
+    rank: "82"
 },{
     name: "bytom",
     code: "BTM",
@@ -3689,89 +4090,87 @@ var otherCoins = [{
     longname: "Bytom",
     description: "Bytom coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bytom",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bytom/"
     },
-    rank: "58"
+    rank: "46"
 },{
     name: "bzlcoin",
     code: "BZL",
-    icon: "bzl",
+    icon: "noicon",
     longname: "BZLCOIN",
     description: "BZLCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/bzlcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bzlcoin/"
     },
-    rank: "3586"
+    rank: "1000"
 },{
     name: "c-bit",
     code: "XCT",
-    icon: "xct",
+    icon: "noicon",
     longname: "C-Bit",
     description: "C-Bit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/c-bit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/c-bit/"
     },
-    rank: "4035"
-},{
-    name: "c20",
-    code: "C20",
-    icon: "c20",
-    longname: "CRYPTO20",
-    description: "CRYPTO20 coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/c20/"
-    },
-    rank: "214"
+    rank: "1000"
 },{
     name: "cabbage",
     code: "CAB",
-    icon: "cab",
+    icon: "noicon",
     longname: "Cabbage",
     description: "Cabbage coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cabbage",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cabbage/"
     },
-    rank: "4058"
+    rank: "1000"
 },{
     name: "cajutel",
     code: "CAJ",
-    icon: "caj",
+    icon: "noicon",
     longname: "Cajutel",
     description: "Cajutel coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cajutel",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cajutel/"
     },
-    rank: "527"
+    rank: "1000"
 },{
     name: "californium",
     code: "CF",
-    icon: "cf",
+    icon: "noicon",
     longname: "Californium",
     description: "Californium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/californium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/californium/"
     },
-    rank: "4072"
+    rank: "1000"
 },{
     name: "callisto-network",
     code: "CLO",
-    icon: "clo",
+    icon: "noicon",
     longname: "Callisto Network",
     description: "Callisto Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/callisto-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/callisto-network/"
     },
-    rank: "2858"
+    rank: "1000"
 },{
     name: "campuscoin",
     code: "CMPCO",
-    icon: "cmpco",
+    icon: "noicon",
     longname: "CampusCoin",
     description: "CampusCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/campuscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/campuscoin/"
     },
-    rank: "3473"
+    rank: "1000"
 },{
     name: "canada-ecoin",
     code: "CDN",
@@ -3779,119 +4178,131 @@ var otherCoins = [{
     longname: "Canada eCoin",
     description: "Canada eCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/canada-ecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/canada-ecoin/"
     },
-    rank: "3776"
+    rank: "1000"
 },{
     name: "candy",
     code: "CANDY",
-    icon: "candy",
+    icon: "noicon",
     longname: "Candy",
     description: "Candy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/candy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/candy/"
     },
-    rank: "4325"
+    rank: "1000"
 },{
     name: "cannabiscoin",
     code: "CANN",
-    icon: "cann",
+    icon: "noicon",
     longname: "CannabisCoin",
     description: "CannabisCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cannabiscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cannabiscoin/"
     },
-    rank: "3337"
+    rank: "1000"
 },{
     name: "cannation",
     code: "CNNC",
-    icon: "cnnc",
+    icon: "noicon",
     longname: "Cannation",
     description: "Cannation coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cannation",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cannation/"
     },
-    rank: "4057"
+    rank: "1000"
 },{
     name: "canyacoin",
     code: "CAN",
-    icon: "can",
+    icon: "noicon",
     longname: "CanYaCoin",
     description: "CanYaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/canyacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/canyacoin/"
     },
-    rank: "3192"
+    rank: "1000"
 },{
     name: "capdaxtoken",
     code: "XCD",
-    icon: "xcd",
+    icon: "noicon",
     longname: "CapdaxToken",
     description: "CapdaxToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/capdaxtoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/capdaxtoken/"
     },
-    rank: "4358"
+    rank: "1000"
 },{
     name: "cappasity",
     code: "CAPP",
-    icon: "capp",
+    icon: "noicon",
     longname: "Cappasity",
     description: "Cappasity coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cappasity",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cappasity/"
     },
-    rank: "3060"
+    rank: "1000"
 },{
     name: "capricoin",
     code: "CPC-1",
-    icon: "cpc-1",
+    icon: "noicon",
     longname: "Capricoin",
     description: "Capricoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/capricoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/capricoin/"
     },
-    rank: "3153"
+    rank: "1000"
 },{
     name: "carat",
     code: "CARAT",
-    icon: "carat",
+    icon: "noicon",
     longname: "CARAT",
     description: "CARAT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/carat",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carat/"
     },
-    rank: "4196"
+    rank: "1000"
 },{
     name: "carblock",
     code: "CAR",
-    icon: "car",
+    icon: "noicon",
     longname: "CarBlock",
     description: "CarBlock coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/carblock",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carblock/"
     },
-    rank: "4206"
+    rank: "1000"
 },{
     name: "carboncoin",
     code: "CARBON",
-    icon: "carbon",
+    icon: "noicon",
     longname: "Carboncoin",
     description: "Carboncoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/carboncoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carboncoin/"
     },
-    rank: "3693"
+    rank: "1000"
 },{
     name: "carboneum-c8-token",
     code: "C8",
-    icon: "c8",
+    icon: "noicon",
     longname: "Carboneum [C8] Token",
     description: "Carboneum [C8] Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/carboneum-c8-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carboneum-c8-token/"
     },
-    rank: "3326"
+    rank: "1000"
 },{
     name: "cardano",
     code: "ADA",
@@ -3899,309 +4310,351 @@ var otherCoins = [{
     longname: "Cardano",
     description: "Cardano coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cardano",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cardano/"
     },
-    rank: "13"
+    rank: "11"
 },{
     name: "cardbuyers",
     code: "BCARD",
-    icon: "bcard",
+    icon: "noicon",
     longname: "CARDbuyers",
     description: "CARDbuyers coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cardbuyers",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cardbuyers/"
     },
-    rank: "4353"
+    rank: "1000"
 },{
     name: "cardstack",
     code: "CARD",
-    icon: "card",
+    icon: "noicon",
     longname: "Cardstack",
     description: "Cardstack coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cardstack",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cardstack/"
     },
-    rank: "2990"
+    rank: "1000"
 },{
     name: "carebit",
     code: "CARE",
-    icon: "care",
+    icon: "noicon",
     longname: "Carebit",
     description: "Carebit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/carebit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carebit/"
     },
-    rank: "3940"
+    rank: "1000"
 },{
     name: "cargox",
     code: "CXO",
-    icon: "cxo",
+    icon: "noicon",
     longname: "CargoX",
     description: "CargoX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cargox",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cargox/"
     },
-    rank: "2979"
+    rank: "1000"
 },{
     name: "carinet",
     code: "CIT",
-    icon: "cit",
+    icon: "noicon",
     longname: "CariNet",
     description: "CariNet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/carinet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carinet/"
     },
-    rank: "4273"
+    rank: "1000"
 },{
     name: "carlive-chain",
     code: "IOV",
-    icon: "iov",
+    icon: "noicon",
     longname: "Carlive Chain",
     description: "Carlive Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/carlive-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carlive-chain/"
     },
-    rank: "4209"
+    rank: "1000"
 },{
     name: "carry",
     code: "CRE",
-    icon: "cre",
+    icon: "noicon",
     longname: "Carry",
     description: "Carry coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/carry",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carry/"
     },
-    rank: "272"
+    rank: "1000"
 },{
     name: "cartaxi-token",
     code: "CTX",
-    icon: "ctx",
+    icon: "noicon",
     longname: "CarTaxi Token",
     description: "CarTaxi Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cartaxi-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cartaxi-token/"
     },
-    rank: "3753"
+    rank: "1000"
 },{
     name: "carvertical",
     code: "CV",
-    icon: "cv",
+    icon: "noicon",
     longname: "carVertical",
     description: "carVertical coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/carvertical",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/carvertical/"
     },
-    rank: "2946"
+    rank: "1000"
 },{
     name: "cashaa",
     code: "CAS",
-    icon: "cas",
+    icon: "noicon",
     longname: "Cashaa",
     description: "Cashaa coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cashaa",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cashaa/"
     },
-    rank: "465"
+    rank: "1000"
 },{
     name: "cashbery-coin",
     code: "CBC-1",
-    icon: "cbc-1",
+    icon: "noicon",
     longname: "Cashbery Coin",
     description: "Cashbery Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cashbery-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cashbery-coin/"
     },
-    rank: "3263"
+    rank: "1000"
 },{
     name: "cashbet-coin",
     code: "CBC",
-    icon: "cbc",
+    icon: "noicon",
     longname: "CashBet Coin",
     description: "CashBet Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cashbet-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cashbet-coin/"
     },
-    rank: "3012"
+    rank: "1000"
 },{
     name: "cashcoin",
     code: "CASH",
-    icon: "cash",
+    icon: "noicon",
     longname: "Cashcoin",
     description: "Cashcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cashcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cashcoin/"
     },
-    rank: "3881"
+    rank: "1000"
 },{
     name: "casinocoin",
     code: "CSC",
-    icon: "csc",
+    icon: "noicon",
     longname: "CasinoCoin",
     description: "CasinoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/casinocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/casinocoin/"
     },
-    rank: "321"
+    rank: "1000"
 },{
     name: "caspian",
     code: "CSP",
-    icon: "csp",
+    icon: "noicon",
     longname: "Caspian",
     description: "Caspian coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/caspian",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/caspian/"
     },
-    rank: "569"
+    rank: "1000"
 },{
     name: "castle",
     code: "CSTL",
-    icon: "cstl",
+    icon: "noicon",
     longname: "Castle",
     description: "Castle coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/castle",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/castle/"
     },
-    rank: "3348"
+    rank: "1000"
 },{
     name: "catocoin",
     code: "CATO",
-    icon: "cato",
+    icon: "noicon",
     longname: "CatoCoin",
     description: "CatoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/catocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/catocoin/"
     },
-    rank: "3530"
+    rank: "1000"
 },{
     name: "cazcoin",
     code: "CAZ",
-    icon: "caz",
+    icon: "noicon",
     longname: "Cazcoin",
     description: "Cazcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cazcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cazcoin/"
     },
-    rank: "3843"
+    rank: "1000"
 },{
     name: "ccore",
     code: "CCO",
-    icon: "cco",
+    icon: "noicon",
     longname: "Ccore",
     description: "Ccore coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ccore",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ccore/"
     },
-    rank: "3890"
+    rank: "1000"
+},{
+    name: "cdai",
+    code: "CDAI",
+    icon: "noicon",
+    longname: "Compound Dai",
+    description: "Compound Dai coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cdai",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cdai/"
+    },
+    rank: "115"
 },{
     name: "cedex-coin",
     code: "CEDEX",
-    icon: "cedex",
+    icon: "noicon",
     longname: "CEDEX Coin",
     description: "CEDEX Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cedex-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cedex-coin/"
     },
-    rank: "4332"
+    rank: "1000"
 },{
     name: "ceek-vr",
     code: "CEEK",
-    icon: "ceek",
+    icon: "noicon",
     longname: "CEEK VR",
     description: "CEEK VR coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ceek-vr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ceek-vr/"
     },
-    rank: "2882"
+    rank: "1000"
 },{
     name: "celer-network",
     code: "CELR",
-    icon: "celr",
+    icon: "noicon",
     longname: "Celer Network",
     description: "Celer Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/celer-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/celer-network/"
     },
-    rank: "256"
+    rank: "236"
 },{
-    name: "celsius",
+    name: "celsius-degree-token",
     code: "CEL",
-    icon: "cel",
-    longname: "Celsius",
-    description: "Celsius coin",
+    icon: "noicon",
+    longname: "Celsius Network",
+    description: "Celsius Network coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/celsius/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/celsius-degree-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/celsius-degree-token/"
     },
-    rank: "4311"
+    rank: "92"
 },{
     name: "centaure",
     code: "CEN-1",
-    icon: "cen-1",
+    icon: "noicon",
     longname: "Centaure",
     description: "Centaure coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/centaure",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/centaure/"
     },
-    rank: "4380"
+    rank: "1000"
 },{
     name: "centrality",
     code: "CENNZ",
-    icon: "cennz",
+    icon: "noicon",
     longname: "Centrality",
     description: "Centrality coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/centrality",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/centrality/"
     },
-    rank: "45"
+    rank: "1000"
 },{
     name: "centurion",
     code: "CNT",
-    icon: "cnt",
+    icon: "noicon",
     longname: "Centurion",
     description: "Centurion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/centurion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/centurion/"
     },
-    rank: "4020"
+    rank: "1000"
 },{
     name: "cfun",
     code: "CFUN",
-    icon: "cfun",
+    icon: "noicon",
     longname: "CFun",
     description: "CFun coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cfun",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cfun/"
     },
-    rank: "3474"
+    rank: "1000"
 },{
     name: "chainlink",
     code: "LINK",
     icon: "link",
-    longname: "Chainlink",
-    description: "Chainlink coin",
+    longname: "ChainLink",
+    description: "ChainLink coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chainlink",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chainlink/"
     },
-    rank: "14"
+    rank: "12"
 },{
     name: "chainx",
     code: "PCX",
-    icon: "pcx",
+    icon: "noicon",
     longname: "ChainX",
     description: "ChainX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chainx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chainx/"
     },
-    rank: "397"
+    rank: "1000"
 },{
     name: "change",
     code: "CAG",
-    icon: "cag",
+    icon: "noicon",
     longname: "Change",
     description: "Change coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/change",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/change/"
     },
-    rank: "583"
+    rank: "1000"
 },{
     name: "chatcoin",
     code: "CHAT",
@@ -4209,59 +4662,54 @@ var otherCoins = [{
     longname: "ChatCoin",
     description: "ChatCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chatcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chatcoin/"
     },
-    rank: "2387"
+    rank: "1000"
 },{
     name: "cheesecoin",
     code: "CHEESE",
-    icon: "cheese",
+    icon: "noicon",
     longname: "Cheesecoin",
     description: "Cheesecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cheesecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cheesecoin/"
     },
-    rank: "4021"
+    rank: "1000"
 },{
     name: "chesscoin",
     code: "CHESS",
-    icon: "chess",
+    icon: "noicon",
     longname: "ChessCoin",
     description: "ChessCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chesscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chesscoin/"
     },
-    rank: "3887"
+    rank: "1000"
 },{
     name: "chex",
     code: "CHEX",
-    icon: "chex",
+    icon: "noicon",
     longname: "CHEX",
     description: "CHEX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chex/"
     },
-    rank: "4216"
+    rank: "1000"
 },{
     name: "chiliz",
     code: "CHZ",
-    icon: "chz",
+    icon: "noicon",
     longname: "Chiliz",
     description: "Chiliz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chiliz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chiliz/"
     },
     rank: "101"
-},{
-    name: "chimpion",
-    code: "BNANA",
-    icon: "bnana",
-    longname: "Chimpion",
-    description: "Chimpion coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/chimpion/"
-    },
-    rank: "515"
 },{
     name: "chips",
     code: "CHIPS",
@@ -4269,39 +4717,43 @@ var otherCoins = [{
     longname: "CHIPS",
     description: "CHIPS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chips",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chips/"
     },
-    rank: "3638"
+    rank: "1000"
 },{
     name: "chromia",
     code: "CHR",
-    icon: "chr",
+    icon: "noicon",
     longname: "Chromia",
     description: "Chromia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chromia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chromia/"
     },
-    rank: "589"
+    rank: "1000"
 },{
     name: "chronobank",
     code: "TIME",
-    icon: "time",
+    icon: "noicon",
     longname: "Chronobank",
     description: "Chronobank coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chronobank",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chronobank/"
     },
-    rank: "3089"
+    rank: "1000"
 },{
     name: "chronologic",
     code: "DAY",
-    icon: "day",
+    icon: "noicon",
     longname: "Chronologic",
     description: "Chronologic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/chronologic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/chronologic/"
     },
-    rank: "3736"
+    rank: "1000"
 },{
     name: "cindicator",
     code: "CND",
@@ -4309,29 +4761,32 @@ var otherCoins = [{
     longname: "Cindicator",
     description: "Cindicator coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cindicator",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cindicator/"
     },
-    rank: "249"
+    rank: "214"
 },{
     name: "circuits-of-value",
     code: "COVAL",
-    icon: "coval",
+    icon: "noicon",
     longname: "Circuits of Value",
     description: "Circuits of Value coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/circuits-of-value",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/circuits-of-value/"
     },
-    rank: "3022"
+    rank: "1000"
 },{
     name: "citadel",
     code: "CTL",
-    icon: "ctl",
+    icon: "noicon",
     longname: "Citadel",
     description: "Citadel coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/citadel",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/citadel/"
     },
-    rank: "3801"
+    rank: "1000"
 },{
     name: "civic",
     code: "CVC",
@@ -4339,29 +4794,32 @@ var otherCoins = [{
     longname: "Civic",
     description: "Civic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/civic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/civic/"
     },
-    rank: "173"
+    rank: "163"
 },{
     name: "cjs",
     code: "CJS",
-    icon: "cjs",
+    icon: "noicon",
     longname: "CJs",
     description: "CJs coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cjs",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cjs/"
     },
-    rank: "4133"
+    rank: "1000"
 },{
     name: "ckusd",
     code: "CKUSD",
-    icon: "ckusd",
+    icon: "noicon",
     longname: "CK USD",
     description: "CK USD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ckusd",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ckusd/"
     },
-    rank: "4137"
+    rank: "1000"
 },{
     name: "clams",
     code: "CLAM",
@@ -4369,39 +4827,43 @@ var otherCoins = [{
     longname: "Clams",
     description: "Clams coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/clams",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clams/"
     },
-    rank: "2078"
+    rank: "1000"
 },{
     name: "clearcoin",
     code: "XCLR",
-    icon: "xclr",
+    icon: "noicon",
     longname: "ClearCoin",
     description: "ClearCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/clearcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clearcoin/"
     },
-    rank: "3445"
+    rank: "1000"
 },{
     name: "clearpoll",
     code: "POLL",
-    icon: "poll",
+    icon: "noicon",
     longname: "ClearPoll",
     description: "ClearPoll coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/clearpoll",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clearpoll/"
     },
-    rank: "3202"
+    rank: "1000"
 },{
     name: "clipper-coin",
     code: "CCCX",
-    icon: "cccx",
+    icon: "noicon",
     longname: "Clipper Coin",
     description: "Clipper Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/clipper-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clipper-coin/"
     },
-    rank: "1866"
+    rank: "1000"
 },{
     name: "cloakcoin",
     code: "CLOAK",
@@ -4409,29 +4871,32 @@ var otherCoins = [{
     longname: "CloakCoin",
     description: "CloakCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cloakcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cloakcoin/"
     },
-    rank: "2717"
+    rank: "1000"
 },{
     name: "clubcoin",
     code: "CLUB",
-    icon: "club",
+    icon: "noicon",
     longname: "ClubCoin",
     description: "ClubCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/clubcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/clubcoin/"
     },
-    rank: "4297"
+    rank: "1000"
 },{
     name: "cmitcoin",
     code: "CMIT",
-    icon: "cmit",
+    icon: "noicon",
     longname: "CMITCOIN",
     description: "CMITCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cmitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cmitcoin/"
     },
-    rank: "4334"
+    rank: "1000"
 },{
     name: "cobinhood",
     code: "COB",
@@ -4439,209 +4904,241 @@ var otherCoins = [{
     longname: "Cobinhood",
     description: "Cobinhood coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cobinhood",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cobinhood/"
     },
-    rank: "2808"
+    rank: "1000"
 },{
     name: "cobrabytes",
     code: "COBRA",
-    icon: "cobra",
+    icon: "noicon",
     longname: "Cobrabytes",
     description: "Cobrabytes coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cobrabytes",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cobrabytes/"
     },
-    rank: "4317"
+    rank: "1000"
 },{
     name: "cocos-bcx",
     code: "COCOS",
-    icon: "cocos",
-    longname: "Cocos-BCX",
-    description: "Cocos-BCX coin",
+    icon: "noicon",
+    longname: "COCOS BCX",
+    description: "COCOS BCX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cocos-bcx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cocos-bcx/"
     },
-    rank: "241"
+    rank: "243"
 },{
     name: "coffeecoin",
     code: "CFC",
-    icon: "cfc",
+    icon: "noicon",
     longname: "CoffeeCoin",
     description: "CoffeeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coffeecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coffeecoin/"
     },
-    rank: "4370"
+    rank: "1000"
 },{
     name: "cofound-it",
     code: "CFI",
-    icon: "cfi",
+    icon: "noicon",
     longname: "Cofound.it",
     description: "Cofound.it coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cofound-it",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cofound-it/"
     },
-    rank: "3618"
+    rank: "1000"
 },{
     name: "coimatic-2",
     code: "CTIC2",
-    icon: "ctic2",
+    icon: "noicon",
     longname: "Coimatic 2.0",
     description: "Coimatic 2.0 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coimatic-2",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coimatic-2/"
     },
-    rank: "4109"
+    rank: "1000"
 },{
     name: "coimatic-3",
     code: "CTIC3",
-    icon: "ctic3",
+    icon: "noicon",
     longname: "Coimatic 3.0",
     description: "Coimatic 3.0 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coimatic-3",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coimatic-3/"
     },
-    rank: "4129"
+    rank: "1000"
 },{
     name: "coin",
     code: "CNO",
-    icon: "cno",
+    icon: "noicon",
     longname: "Coin(O)",
     description: "Coin(O) coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coin/"
     },
-    rank: "3930"
+    rank: "1000"
 },{
     name: "coin-lion",
     code: "LION",
-    icon: "lion",
+    icon: "noicon",
     longname: "Coin Lion",
     description: "Coin Lion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coin-lion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coin-lion/"
     },
-    rank: "3690"
+    rank: "1000"
 },{
     name: "coin2-1",
     code: "C2",
-    icon: "c2",
+    icon: "noicon",
     longname: "Coin2.1",
     description: "Coin2.1 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coin2-1",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coin2-1/"
     },
-    rank: "3982"
+    rank: "1000"
 },{
     name: "coin2play",
     code: "C2P",
-    icon: "c2p",
+    icon: "noicon",
     longname: "Coin2Play",
     description: "Coin2Play coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coin2play",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coin2play/"
     },
-    rank: "4346"
+    rank: "1000"
 },{
     name: "coinfi",
     code: "COFI",
-    icon: "cofi",
+    icon: "noicon",
     longname: "CoinFi",
     description: "CoinFi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinfi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinfi/"
     },
-    rank: "3271"
+    rank: "1000"
+},{
+    name: "coinhe-token",
+    code: "CHT",
+    icon: "noicon",
+    longname: "CoinHe Token",
+    description: "CoinHe Token coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinhe-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinhe-token/"
+    },
+    rank: "246"
 },{
     name: "coinlancer",
     code: "CL",
-    icon: "cl",
+    icon: "noicon",
     longname: "Coinlancer",
     description: "Coinlancer coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinlancer",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinlancer/"
     },
-    rank: "3480"
+    rank: "1000"
 },{
     name: "coinmeet",
     code: "MEET",
-    icon: "meet",
+    icon: "noicon",
     longname: "CoinMeet",
     description: "CoinMeet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinmeet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinmeet/"
     },
-    rank: "4193"
+    rank: "1000"
 },{
     name: "coinonat",
     code: "CXT",
-    icon: "cxt",
+    icon: "noicon",
     longname: "Coinonat",
     description: "Coinonat coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinonat",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinonat/"
     },
-    rank: "4121"
+    rank: "1000"
 },{
     name: "coinonatx",
     code: "XCXT",
-    icon: "xcxt",
+    icon: "noicon",
     longname: "CoinonatX",
     description: "CoinonatX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinonatx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinonatx/"
     },
-    rank: "4028"
+    rank: "1000"
 },{
     name: "coinpoker",
     code: "CHP",
-    icon: "chp",
+    icon: "noicon",
     longname: "CoinPoker",
     description: "CoinPoker coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinpoker",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinpoker/"
     },
-    rank: "2362"
+    rank: "1000"
 },{
     name: "coinsuper-ecosystem-network",
     code: "CEN",
-    icon: "cen",
+    icon: "noicon",
     longname: "Coinsuper Ecosystem Network",
     description: "Coinsuper Ecosystem Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinsuper-ecosystem-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinsuper-ecosystem-network/"
     },
-    rank: "3199"
+    rank: "1000"
 },{
     name: "cointogo",
     code: "2GO",
-    icon: "2go",
+    icon: "noicon",
     longname: "CoinToGo",
     description: "CoinToGo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cointogo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cointogo/"
     },
-    rank: "3453"
+    rank: "1000"
 },{
     name: "coinus",
     code: "CNUS",
-    icon: "cnus",
+    icon: "noicon",
     longname: "CoinUs",
     description: "CoinUs coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinus/"
     },
-    rank: "2377"
+    rank: "1000"
 },{
     name: "coinvest",
     code: "COIN",
-    icon: "coin",
+    icon: "noicon",
     longname: "Coinvest",
     description: "Coinvest coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coinvest",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coinvest/"
     },
-    rank: "3639"
+    rank: "1000"
 },{
     name: "colossusxt",
     code: "COLX",
@@ -4649,49 +5146,54 @@ var otherCoins = [{
     longname: "ColossusXT",
     description: "ColossusXT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/colossusxt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/colossusxt/"
     },
-    rank: "2328"
+    rank: "1000"
 },{
     name: "colu-local-network",
     code: "CLN",
-    icon: "cln",
+    icon: "noicon",
     longname: "Colu Local Network",
     description: "Colu Local Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/colu-local-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/colu-local-network/"
     },
-    rank: "3226"
+    rank: "1000"
 },{
     name: "comet",
     code: "CMT-1",
-    icon: "cmt-1",
+    icon: "noicon",
     longname: "Comet",
     description: "Comet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/comet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/comet/"
     },
-    rank: "4055"
+    rank: "1000"
 },{
     name: "commerce-data-connection",
     code: "CDC",
-    icon: "cdc",
+    icon: "noicon",
     longname: "Commerce Data Connection",
     description: "Commerce Data Connection coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/commerce-data-connection",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/commerce-data-connection/"
     },
-    rank: "4302"
+    rank: "1000"
 },{
     name: "commerceblock",
     code: "CBT",
-    icon: "cbt",
+    icon: "noicon",
     longname: "CommerceBlock",
     description: "CommerceBlock coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/commerceblock",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/commerceblock/"
     },
-    rank: "381"
+    rank: "1000"
 },{
     name: "commercium",
     code: "CMM",
@@ -4699,239 +5201,296 @@ var otherCoins = [{
     longname: "Commercium",
     description: "Commercium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/commercium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/commercium/"
     },
-    rank: "3941"
+    rank: "1000"
 },{
     name: "commodity-ad-network",
     code: "CDX",
-    icon: "cdx",
+    icon: "noicon",
     longname: "Commodity Ad Network",
     description: "Commodity Ad Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/commodity-ad-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/commodity-ad-network/"
     },
-    rank: "3770"
+    rank: "1000"
 },{
     name: "compound-coin",
     code: "COMP",
-    icon: "comp",
+    icon: "noicon",
     longname: "Compound Coin",
     description: "Compound Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/compound-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/compound-coin/"
     },
-    rank: "3802"
+    rank: "1000"
+},{
+    name: "compound-ether",
+    code: "CETH",
+    icon: "noicon",
+    longname: "Compound Ether",
+    description: "Compound Ether coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/compound-ether",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/compound-ether/"
+    },
+    rank: "80"
+},{
+    name: "compound-usd-coin",
+    code: "CUSDC",
+    icon: "noicon",
+    longname: "Compound USD Coin",
+    description: "Compound USD Coin coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/compound-usd-coin",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/compound-usd-coin/"
+    },
+    rank: "88"
 },{
     name: "compucoin",
     code: "CPN",
-    icon: "cpn",
+    icon: "noicon",
     longname: "CompuCoin",
     description: "CompuCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/compucoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/compucoin/"
     },
-    rank: "4039"
+    rank: "1000"
 },{
     name: "comsa-eth",
     code: "CMS",
-    icon: "cms",
+    icon: "noicon",
     longname: "COMSA [ETH]",
     description: "COMSA [ETH] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/comsa-eth",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/comsa-eth/"
     },
-    rank: "4268"
+    rank: "1000"
 },{
     name: "comsa-xem",
     code: "CMS-1",
-    icon: "cms-1",
+    icon: "noicon",
     longname: "COMSA [XEM]",
     description: "COMSA [XEM] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/comsa-xem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/comsa-xem/"
     },
-    rank: "4286"
+    rank: "1000"
 },{
     name: "concierge-coin",
     code: "CCC",
-    icon: "ccc",
+    icon: "noicon",
     longname: "Concierge Coin",
     description: "Concierge Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/concierge-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/concierge-coin/"
     },
-    rank: "4368"
+    rank: "1000"
 },{
     name: "concoin",
     code: "CONX",
-    icon: "conx",
+    icon: "noicon",
     longname: "Concoin",
     description: "Concoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/concoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/concoin/"
     },
-    rank: "4117"
+    rank: "1000"
 },{
     name: "condensate",
     code: "RAIN",
-    icon: "rain",
+    icon: "noicon",
     longname: "Condensate",
     description: "Condensate coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/condensate",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/condensate/"
     },
-    rank: "3725"
+    rank: "1000"
 },{
     name: "condominium",
     code: "CDM",
-    icon: "cdm",
+    icon: "noicon",
     longname: "Condominium",
     description: "Condominium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/condominium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/condominium/"
     },
-    rank: "3476"
+    rank: "1000"
 },{
     name: "coni",
     code: "CONI",
-    icon: "coni",
+    icon: "noicon",
     longname: "Coni",
     description: "Coni coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coni",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coni/"
     },
-    rank: "4271"
+    rank: "1000"
 },{
     name: "connectjob",
     code: "CJT",
-    icon: "cjt",
+    icon: "noicon",
     longname: "ConnectJob",
     description: "ConnectJob coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/connectjob",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/connectjob/"
     },
-    rank: "4038"
+    rank: "1000"
 },{
     name: "cononchain",
     code: "CZR",
-    icon: "czr",
+    icon: "noicon",
     longname: "CanonChain",
     description: "CanonChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cononchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cononchain/"
     },
-    rank: "2338"
+    rank: "1000"
 },{
     name: "consensus",
     code: "SEN",
-    icon: "sen",
+    icon: "noicon",
     longname: "Consensus",
     description: "Consensus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/consensus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/consensus/"
     },
-    rank: "2892"
+    rank: "1000"
 },{
     name: "consentium",
     code: "CSM",
-    icon: "csm",
+    icon: "noicon",
     longname: "Consentium",
     description: "Consentium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/consentium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/consentium/"
     },
-    rank: "4182"
+    rank: "1000"
 },{
-    name: "constellation",
+    name: "constellation-labs",
     code: "DAG",
-    icon: "dag",
+    icon: "noicon",
     longname: "Constellation",
     description: "Constellation coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/constellation/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/constellation-labs",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/constellation-labs/"
     },
-    rank: "237"
+    rank: "191"
 },{
     name: "content-and-ad-network",
     code: "CAN-1",
-    icon: "can-1",
+    icon: "noicon",
     longname: "Content and AD Network",
     description: "Content and AD Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/content-and-ad-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/content-and-ad-network/"
     },
-    rank: "4290"
+    rank: "1000"
 },{
     name: "content-neutrality-network",
     code: "CNN",
-    icon: "cnn",
+    icon: "noicon",
     longname: "Content Neutrality Network",
     description: "Content Neutrality Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/content-neutrality-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/content-neutrality-network/"
     },
-    rank: "591"
+    rank: "1000"
 },{
     name: "content-value-network",
     code: "CVNT",
-    icon: "cvnt",
+    icon: "noicon",
     longname: "Content Value Network",
     description: "Content Value Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/content-value-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/content-value-network/"
     },
-    rank: "329"
+    rank: "1000"
 },{
     name: "contentbox",
     code: "BOX",
-    icon: "box",
+    icon: "noicon",
     longname: "ContentBox",
     description: "ContentBox coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/contentbox",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/contentbox/"
     },
-    rank: "443"
+    rank: "1000"
+},{
+    name: "contentos",
+    code: "COS",
+    icon: "noicon",
+    longname: "Contentos",
+    description: "Contentos coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/contentos",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/contentos/"
+    },
+    rank: "181"
 },{
     name: "contents-protocol",
     code: "CPT",
-    icon: "cpt",
+    icon: "noicon",
     longname: "Contents Protocol",
     description: "Contents Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/contents-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/contents-protocol/"
     },
-    rank: "383"
+    rank: "1000"
 },{
     name: "contractnet",
     code: "CNET",
-    icon: "cnet",
+    icon: "noicon",
     longname: "ContractNet",
     description: "ContractNet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/contractnet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/contractnet/"
     },
-    rank: "4351"
+    rank: "1000"
 },{
     name: "copytrack",
     code: "CPY",
-    icon: "cpy",
+    icon: "noicon",
     longname: "COPYTRACK",
     description: "COPYTRACK coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/copytrack",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/copytrack/"
     },
-    rank: "3144"
+    rank: "1000"
 },{
     name: "corion",
     code: "COR",
-    icon: "cor",
+    icon: "noicon",
     longname: "CORION",
     description: "CORION coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/corion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/corion/"
     },
-    rank: "4386"
+    rank: "1000"
 },{
     name: "cortex",
     code: "CTXC",
@@ -4939,29 +5498,21 @@ var otherCoins = [{
     longname: "Cortex",
     description: "Cortex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cortex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cortex/"
     },
-    rank: "283"
-},{
-    name: "cos",
-    code: "COS",
-    icon: "cos",
-    longname: "COS",
-    description: "COS coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cos/"
-    },
-    rank: "572"
+    rank: "1000"
 },{
     name: "cosmo-coin",
     code: "COSM",
-    icon: "cosm",
+    icon: "noicon",
     longname: "Cosmo Coin",
     description: "Cosmo Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cosmo-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cosmo-coin/"
     },
-    rank: "454"
+    rank: "1000"
 },{
     name: "cosmos",
     code: "ATOM",
@@ -4969,39 +5520,54 @@ var otherCoins = [{
     longname: "Cosmos",
     description: "Cosmos coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cosmos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cosmos/"
     },
-    rank: "19"
+    rank: "24"
 },{
     name: "coss",
     code: "COSS",
-    icon: "coss",
+    icon: "noicon",
     longname: "COSS",
     description: "COSS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coss",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coss/"
     },
-    rank: "2720"
+    rank: "1000"
+},{
+    name: "coti",
+    code: "COTI",
+    icon: "noicon",
+    longname: "COTI",
+    description: "COTI coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coti",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/coti/"
+    },
+    rank: "195"
 },{
     name: "cottoncoin",
     code: "COTN",
-    icon: "cotn",
+    icon: "noicon",
     longname: "CottonCoin",
     description: "CottonCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cottoncoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cottoncoin/"
     },
-    rank: "4383"
+    rank: "1000"
 },{
     name: "couchain",
     code: "COU",
-    icon: "cou",
+    icon: "noicon",
     longname: "Couchain",
     description: "Couchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/couchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/couchain/"
     },
-    rank: "4260"
+    rank: "1000"
 },{
     name: "counterparty",
     code: "XCP",
@@ -5009,99 +5575,109 @@ var otherCoins = [{
     longname: "Counterparty",
     description: "Counterparty coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/counterparty",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/counterparty/"
     },
-    rank: "2235"
+    rank: "1000"
 },{
     name: "coupecoin",
     code: "COUPE",
-    icon: "coupe",
+    icon: "noicon",
     longname: "Coupecoin",
     description: "Coupecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/coupecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/coupecoin/"
     },
-    rank: "4089"
+    rank: "1000"
 },{
     name: "covesting",
     code: "COV",
-    icon: "cov",
+    icon: "noicon",
     longname: "Covesting",
     description: "Covesting coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/covesting",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/covesting/"
     },
-    rank: "2702"
+    rank: "1000"
 },{
     name: "cpchain",
     code: "CPC",
-    icon: "cpc",
+    icon: "noicon",
     longname: "CPChain",
     description: "CPChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cpchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cpchain/"
     },
-    rank: "2295"
+    rank: "1000"
 },{
     name: "cpollo",
     code: "CPLO",
-    icon: "cplo",
+    icon: "noicon",
     longname: "Cpollo",
     description: "Cpollo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cpollo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cpollo/"
     },
-    rank: "3224"
+    rank: "1000"
 },{
     name: "crave",
     code: "CRAVE",
-    icon: "crave",
+    icon: "noicon",
     longname: "Crave",
     description: "Crave coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crave",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crave/"
     },
-    rank: "3794"
+    rank: "1000"
 },{
     name: "crea",
     code: "CREA",
-    icon: "crea",
+    icon: "noicon",
     longname: "CREA",
     description: "CREA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crea",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crea/"
     },
-    rank: "3482"
+    rank: "1000"
 },{
     name: "cream",
     code: "CRM",
-    icon: "crm",
+    icon: "noicon",
     longname: "Cream",
     description: "Cream coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cream",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cream/"
     },
-    rank: "3866"
+    rank: "1000"
 },{
     name: "credit-tag-chain",
     code: "CTC",
-    icon: "ctc",
+    icon: "noicon",
     longname: "Credit Tag Chain",
     description: "Credit Tag Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/credit-tag-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/credit-tag-chain/"
     },
-    rank: "3266"
+    rank: "1000"
 },{
     name: "creditbit",
     code: "CRB",
-    icon: "crb",
+    icon: "noicon",
     longname: "Creditbit",
     description: "Creditbit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/creditbit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/creditbit/"
     },
-    rank: "3977"
+    rank: "1000"
 },{
     name: "credits",
     code: "CS",
@@ -5109,69 +5685,76 @@ var otherCoins = [{
     longname: "Credits",
     description: "Credits coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/credits",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/credits/"
     },
-    rank: "243"
+    rank: "1000"
 },{
     name: "credo",
     code: "CREDO",
-    icon: "credo",
+    icon: "noicon",
     longname: "Credo",
     description: "Credo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/credo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/credo/"
     },
-    rank: "2561"
+    rank: "1000"
 },{
     name: "crevacoin",
     code: "CREVA",
-    icon: "creva",
+    icon: "noicon",
     longname: "CrevaCoin",
     description: "CrevaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crevacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crevacoin/"
     },
-    rank: "3606"
+    rank: "1000"
 },{
     name: "croat",
     code: "CROAT",
-    icon: "croat",
+    icon: "noicon",
     longname: "CROAT",
     description: "CROAT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/croat",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/croat/"
     },
-    rank: "3884"
+    rank: "1000"
 },{
     name: "crowd-machine",
     code: "CMCT",
-    icon: "cmct",
+    icon: "noicon",
     longname: "Crowd Machine",
     description: "Crowd Machine coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crowd-machine",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crowd-machine/"
     },
-    rank: "3000"
+    rank: "1000"
 },{
     name: "crowdholding",
     code: "YUP",
-    icon: "yup",
+    icon: "noicon",
     longname: "Crowdholding",
     description: "Crowdholding coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crowdholding",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crowdholding/"
     },
-    rank: "3882"
+    rank: "1000"
 },{
     name: "crowdwiz",
     code: "WIZ",
-    icon: "wiz",
+    icon: "noicon",
     longname: "CrowdWiz",
     description: "CrowdWiz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crowdwiz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crowdwiz/"
     },
-    rank: "3497"
+    rank: "1000"
 },{
     name: "crown",
     code: "CRW",
@@ -5179,149 +5762,164 @@ var otherCoins = [{
     longname: "Crown",
     description: "Crown coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crown",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crown/"
     },
-    rank: "2865"
+    rank: "1000"
 },{
-    name: "crpt",
+    name: "cruisebit",
+    code: "CRBT",
+    icon: "noicon",
+    longname: "Cruisebit",
+    description: "Cruisebit coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cruisebit",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cruisebit/"
+    },
+    rank: "1000"
+},{
+    name: "crycash",
+    code: "CRC",
+    icon: "noicon",
+    longname: "CryCash",
+    description: "CryCash coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crycash",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crycash/"
+    },
+    rank: "1000"
+},{
+    name: "cryptaldash",
+    code: "CRD",
+    icon: "noicon",
+    longname: "CryptalDash",
+    description: "CryptalDash coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptaldash",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptaldash/"
+    },
+    rank: "1000"
+},{
+    name: "crypterium",
     code: "CRPT",
     icon: "crpt",
     longname: "Crypterium",
     description: "Crypterium coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crpt/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crypterium",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypterium/"
     },
-    rank: "116"
-},{
-    name: "cruisebit",
-    code: "CRBT",
-    icon: "crbt",
-    longname: "Cruisebit",
-    description: "Cruisebit coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cruisebit/"
-    },
-    rank: "3245"
-},{
-    name: "crycash",
-    code: "CRC",
-    icon: "crc",
-    longname: "CryCash",
-    description: "CryCash coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crycash/"
-    },
-    rank: "3501"
-},{
-    name: "cryptaldash",
-    code: "CRD",
-    icon: "crd",
-    longname: "CryptalDash",
-    description: "CryptalDash coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptaldash/"
-    },
-    rank: "2304"
+    rank: "124"
 },{
     name: "crypticcoin",
     code: "CRYP",
-    icon: "cryp",
+    icon: "noicon",
     longname: "CrypticCoin",
     description: "CrypticCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crypticcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypticcoin/"
     },
-    rank: "4175"
+    rank: "1000"
 },{
-    name: "crypto-com",
-    code: "MCO",
-    icon: "mco",
-    longname: "MCO",
-    description: "MCO coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypto-com/"
-    },
-    rank: "89"
-},{
-    name: "crypto-com-coin",
+    name: "crypto-com-chain",
     code: "CRO",
-    icon: "cro",
+    icon: "noicon",
     longname: "Crypto.com Coin",
     description: "Crypto.com Coin coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypto-com-coin/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crypto-com-chain",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypto-com-chain/"
     },
-    rank: "25"
+    rank: "18"
 },{
     name: "crypto-harbor-exchange",
     code: "CHE",
-    icon: "che",
+    icon: "noicon",
     longname: "Crypto Harbor Exchange",
     description: "Crypto Harbor Exchange coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crypto-harbor-exchange",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypto-harbor-exchange/"
     },
-    rank: "4305"
+    rank: "1000"
+},{
+    name: "crypto20",
+    code: "C20",
+    icon: "noicon",
+    longname: "CRYPTO20",
+    description: "CRYPTO20 coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crypto20",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/crypto20/"
+    },
+    rank: "160"
 },{
     name: "cryptocarbon",
     code: "CCRB",
-    icon: "ccrb",
+    icon: "noicon",
     longname: "CryptoCarbon",
     description: "CryptoCarbon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptocarbon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptocarbon/"
     },
-    rank: "3333"
+    rank: "1000"
 },{
     name: "cryptocean",
     code: "CRON",
-    icon: "cron",
+    icon: "noicon",
     longname: "Cryptocean",
     description: "Cryptocean coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptocean",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptocean/"
     },
-    rank: "587"
+    rank: "1000"
 },{
     name: "cryptoflow",
     code: "CFL",
-    icon: "cfl",
+    icon: "noicon",
     longname: "CryptoFlow",
     description: "CryptoFlow coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptoflow",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptoflow/"
     },
-    rank: "3446"
+    rank: "1000"
 },{
     name: "cryptofranc",
     code: "XCHF",
-    icon: "xchf",
+    icon: "noicon",
     longname: "CryptoFranc",
     description: "CryptoFranc coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptofranc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptofranc/"
     },
-    rank: "295"
+    rank: "1000"
 },{
     name: "cryptoindex-com-100",
     code: "CIX100",
-    icon: "cix100",
+    icon: "noicon",
     longname: "Cryptoindex.com 100",
     description: "Cryptoindex.com 100 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptoindex-com-100",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptoindex-com-100/"
     },
-    rank: "122"
+    rank: "1000"
 },{
     name: "cryptojacks",
     code: "CJ",
-    icon: "cj",
+    icon: "noicon",
     longname: "Cryptojacks",
     description: "Cryptojacks coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptojacks",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptojacks/"
     },
-    rank: "3989"
+    rank: "1000"
 },{
     name: "cryptonex",
     code: "CNX",
@@ -5329,109 +5927,120 @@ var otherCoins = [{
     longname: "Cryptonex",
     description: "Cryptonex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptonex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptonex/"
     },
-    rank: "59"
+    rank: "1000"
 },{
     name: "cryptonite",
     code: "XCN",
-    icon: "xcn",
+    icon: "noicon",
     longname: "Cryptonite",
     description: "Cryptonite coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptonite",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptonite/"
     },
-    rank: "3741"
+    rank: "1000"
 },{
     name: "cryptopay",
     code: "CPAY",
-    icon: "cpay",
+    icon: "noicon",
     longname: "Cryptopay",
     description: "Cryptopay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptopay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptopay/"
     },
-    rank: "3651"
+    rank: "1000"
 },{
     name: "cryptopiafeeshares",
     code: "CEFS",
-    icon: "cefs",
+    icon: "noicon",
     longname: "CryptopiaFeeShares",
     description: "CryptopiaFeeShares coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptopiafeeshares",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptopiafeeshares/"
     },
-    rank: "4349"
+    rank: "1000"
 },{
     name: "cryptoping",
     code: "PING",
-    icon: "ping",
+    icon: "noicon",
     longname: "CryptoPing",
     description: "CryptoPing coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptoping",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptoping/"
     },
-    rank: "3746"
+    rank: "1000"
 },{
     name: "cryptosolartech",
     code: "CST",
-    icon: "cst",
+    icon: "noicon",
     longname: "Cryptosolartech",
     description: "Cryptosolartech coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptosolartech",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptosolartech/"
     },
-    rank: "3116"
+    rank: "1000"
 },{
     name: "cryptosoul",
     code: "SOUL-1",
-    icon: "soul-1",
+    icon: "noicon",
     longname: "CryptoSoul",
     description: "CryptoSoul coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptosoul",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptosoul/"
     },
-    rank: "3556"
+    rank: "1000"
 },{
     name: "cryptoverificationcoin",
     code: "CVCC",
-    icon: "cvcc",
+    icon: "noicon",
     longname: "CryptoVerificationCoin",
     description: "CryptoVerificationCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptoverificationcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptoverificationcoin/"
     },
-    rank: "129"
+    rank: "1000"
 },{
     name: "cryptrust",
     code: "CTRT",
-    icon: "ctrt",
+    icon: "noicon",
     longname: "Cryptrust",
     description: "Cryptrust coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cryptrust",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cryptrust/"
     },
-    rank: "3587"
+    rank: "1000"
 },{
     name: "crystal-clear",
     code: "CCT",
-    icon: "cct",
+    icon: "noicon",
     longname: "Crystal Clear ",
     description: "Crystal Clear  coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crystal-clear",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crystal-clear/"
     },
-    rank: "3910"
+    rank: "1000"
 },{
     name: "crystal-token",
     code: "CYL",
-    icon: "cyl",
+    icon: "noicon",
     longname: "Crystal Token",
     description: "Crystal Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/crystal-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/crystal-token/"
     },
-    rank: "3542"
+    rank: "1000"
 },{
     name: "cube",
     code: "AUTO",
@@ -5439,59 +6048,65 @@ var otherCoins = [{
     longname: "Cube",
     description: "Cube coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cube",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cube/"
     },
-    rank: "525"
+    rank: "1000"
 },{
     name: "curecoin",
     code: "CURE",
-    icon: "cure",
+    icon: "noicon",
     longname: "Curecoin",
     description: "Curecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/curecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/curecoin/"
     },
-    rank: "3168"
+    rank: "1000"
 },{
     name: "cvcoin",
     code: "CVN",
-    icon: "cvn",
+    icon: "noicon",
     longname: "CVCoin",
     description: "CVCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cvcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cvcoin/"
     },
-    rank: "2964"
+    rank: "1000"
 },{
     name: "cwv-chain",
     code: "CWV",
-    icon: "cwv",
+    icon: "noicon",
     longname: "CWV Chain",
     description: "CWV Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cwv-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cwv-chain/"
     },
-    rank: "373"
+    rank: "1000"
 },{
     name: "cyber-movie-chain",
     code: "CMCT-1",
-    icon: "cmct-1",
+    icon: "noicon",
     longname: "Cyber Movie Chain",
     description: "Cyber Movie Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cyber-movie-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cyber-movie-chain/"
     },
-    rank: "3603"
+    rank: "1000"
 },{
     name: "cyberfm",
     code: "CYFM",
-    icon: "cyfm",
+    icon: "noicon",
     longname: "CyberFM",
     description: "CyberFM coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cyberfm",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cyberfm/"
     },
-    rank: "3439"
+    rank: "1000"
 },{
     name: "cybermiles",
     code: "CMT",
@@ -5499,79 +6114,87 @@ var otherCoins = [{
     longname: "CyberMiles",
     description: "CyberMiles coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cybermiles",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cybermiles/"
     },
     rank: "238"
 },{
     name: "cybermusic",
     code: "CYMT",
-    icon: "cymt",
+    icon: "noicon",
     longname: "CyberMusic",
     description: "CyberMusic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cybermusic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cybermusic/"
     },
-    rank: "3546"
+    rank: "1000"
 },{
     name: "cybervein",
     code: "CVT",
-    icon: "cvt",
+    icon: "noicon",
     longname: "CyberVein",
     description: "CyberVein coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cybervein",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cybervein/"
     },
-    rank: "390"
+    rank: "1000"
 },{
     name: "cyclean",
     code: "CCL",
-    icon: "ccl",
+    icon: "noicon",
     longname: "CYCLEAN",
     description: "CYCLEAN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/cyclean",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/cyclean/"
     },
-    rank: "3125"
+    rank: "1000"
 },{
     name: "dacc",
     code: "DACC",
-    icon: "dacc",
+    icon: "noicon",
     longname: "DACC",
     description: "DACC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dacc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dacc/"
     },
-    rank: "4166"
+    rank: "1000"
 },{
     name: "dach-coin",
     code: "DACH",
-    icon: "dach",
+    icon: "noicon",
     longname: "DACH Coin",
     description: "DACH Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dach-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dach-coin/"
     },
-    rank: "3577"
+    rank: "1000"
 },{
     name: "dacsee",
     code: "DACS",
-    icon: "dacs",
+    icon: "noicon",
     longname: "DACSEE",
     description: "DACSEE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dacsee",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dacsee/"
     },
-    rank: "2973"
+    rank: "1000"
 },{
     name: "daex",
     code: "DAX",
-    icon: "dax",
+    icon: "noicon",
     longname: "DAEX",
     description: "DAEX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/daex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/daex/"
     },
-    rank: "3053"
+    rank: "1000"
 },{
     name: "dai",
     code: "DAI",
@@ -5579,119 +6202,131 @@ var otherCoins = [{
     longname: "Dai",
     description: "Dai coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dai",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dai/"
     },
-    rank: "61"
+    rank: "57"
 },{
     name: "dalecoin",
     code: "DALC",
-    icon: "dalc",
+    icon: "noicon",
     longname: "Dalecoin",
     description: "Dalecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dalecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dalecoin/"
     },
-    rank: "4090"
+    rank: "1000"
 },{
     name: "daneel",
     code: "DAN",
-    icon: "dan",
+    icon: "noicon",
     longname: "Daneel",
     description: "Daneel coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/daneel",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/daneel/"
     },
-    rank: "3256"
+    rank: "1000"
 },{
     name: "dao-casino",
     code: "BET",
-    icon: "bet",
+    icon: "noicon",
     longname: "DAO.Casino",
     description: "DAO.Casino coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dao-casino",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dao-casino/"
     },
-    rank: "423"
+    rank: "1000"
 },{
     name: "daostack",
     code: "GEN",
-    icon: "gen",
+    icon: "noicon",
     longname: "DAOstack",
     description: "DAOstack coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/daostack",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/daostack/"
     },
-    rank: "520"
+    rank: "1000"
 },{
     name: "daps-token",
     code: "DAPS",
-    icon: "daps",
+    icon: "noicon",
     longname: "DAPS Token",
     description: "DAPS Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/daps-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/daps-token/"
     },
-    rank: "347"
-},{
-    name: "darcio-ecosystem-coin",
-    code: "DEC",
-    icon: "dec",
-    longname: "Darico Ecosystem Coin",
-    description: "Darico Ecosystem Coin coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/darcio-ecosystem-coin/"
-    },
-    rank: "400"
+    rank: "1000"
 },{
     name: "darcrus",
     code: "DAR",
-    icon: "dar",
+    icon: "noicon",
     longname: "Darcrus",
     description: "Darcrus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/darcrus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/darcrus/"
     },
-    rank: "3687"
+    rank: "1000"
 },{
     name: "darextravel",
     code: "DART",
-    icon: "dart",
+    icon: "noicon",
     longname: "DarexTravel",
     description: "DarexTravel coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/darextravel",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/darextravel/"
     },
-    rank: "3535"
+    rank: "1000"
+},{
+    name: "darico",
+    code: "DEC",
+    icon: "noicon",
+    longname: "Darico Ecosystem Coin",
+    description: "Darico Ecosystem Coin coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/darico",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/darico/"
+    },
+    rank: "240"
 },{
     name: "darkpaycoin",
     code: "DKPC",
-    icon: "dkpc",
+    icon: "noicon",
     longname: "DarkPayCoin",
     description: "DarkPayCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/darkpaycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/darkpaycoin/"
     },
-    rank: "4284"
+    rank: "1000"
 },{
     name: "darsek",
     code: "KED",
-    icon: "ked",
+    icon: "noicon",
     longname: "Darsek",
     description: "Darsek coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/darsek",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/darsek/"
     },
-    rank: "3920"
+    rank: "1000"
 },{
     name: "dascoin",
     code: "DASC",
-    icon: "dasc",
+    icon: "noicon",
     longname: "DasCoin",
     description: "DasCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dascoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dascoin/"
     },
-    rank: "4236"
+    rank: "1000"
 },{
     name: "dash",
     code: "DASH",
@@ -5699,9 +6334,10 @@ var otherCoins = [{
     longname: "Dash",
     description: "Dash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dash/"
     },
-    rank: "22"
+    rank: "20"
 },{
     name: "data",
     code: "DTA",
@@ -5709,69 +6345,76 @@ var otherCoins = [{
     longname: "DATA",
     description: "DATA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/data",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/data/"
     },
-    rank: "513"
+    rank: "1000"
 },{
     name: "data-exchange",
     code: "DTX",
-    icon: "dtx",
+    icon: "noicon",
     longname: "DaTa eXchange",
     description: "DaTa eXchange coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/data-exchange",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/data-exchange/"
     },
-    rank: "3430"
+    rank: "1000"
 },{
     name: "data-transaction-token",
     code: "XD",
-    icon: "xd",
+    icon: "noicon",
     longname: "Data Transaction Token",
     description: "Data Transaction Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/data-transaction-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/data-transaction-token/"
     },
-    rank: "2102"
+    rank: "1000"
 },{
     name: "databits",
     code: "DTB",
-    icon: "dtb",
+    icon: "noicon",
     longname: "Databits",
     description: "Databits coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/databits",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/databits/"
     },
-    rank: "3030"
+    rank: "1000"
 },{
     name: "datacoin",
     code: "DTC",
-    icon: "dtc",
+    icon: "noicon",
     longname: "Datacoin",
     description: "Datacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/datacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datacoin/"
     },
-    rank: "4002"
+    rank: "1000"
 },{
     name: "datarius-credit",
     code: "DTRC",
-    icon: "dtrc",
+    icon: "noicon",
     longname: "Datarius Credit",
     description: "Datarius Credit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/datarius-credit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datarius-credit/"
     },
-    rank: "3527"
+    rank: "1000"
 },{
     name: "datawallet",
     code: "DXT",
-    icon: "dxt",
+    icon: "noicon",
     longname: "Datawallet",
     description: "Datawallet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/datawallet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datawallet/"
     },
-    rank: "3155"
+    rank: "1000"
 },{
     name: "datum",
     code: "DAT",
@@ -5779,79 +6422,87 @@ var otherCoins = [{
     longname: "Datum",
     description: "Datum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/datum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datum/"
     },
-    rank: "3167"
+    rank: "1000"
 },{
     name: "datx",
     code: "DATX",
-    icon: "datx",
+    icon: "noicon",
     longname: "DATx",
     description: "DATx coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/datx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/datx/"
     },
-    rank: "2959"
+    rank: "1000"
 },{
     name: "dav-coin",
     code: "DAV",
-    icon: "dav",
+    icon: "noicon",
     longname: "DAV Coin",
     description: "DAV Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dav-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dav-coin/"
     },
-    rank: "3033"
+    rank: "1000"
 },{
     name: "davinci-coin",
     code: "DAC",
-    icon: "dac",
+    icon: "noicon",
     longname: "Davinci Coin",
     description: "Davinci Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/davinci-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/davinci-coin/"
     },
-    rank: "298"
+    rank: "1000"
 },{
     name: "ddkoin",
     code: "DDK",
-    icon: "ddk",
+    icon: "noicon",
     longname: "DDKoin",
     description: "DDKoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ddkoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ddkoin/"
     },
-    rank: "301"
+    rank: "1000"
 },{
     name: "debitum-network",
     code: "DEB",
-    icon: "deb",
+    icon: "noicon",
     longname: "Debitum",
     description: "Debitum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/debitum-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/debitum-network/"
     },
-    rank: "3133"
+    rank: "1000"
 },{
     name: "decent",
     code: "DCT",
-    icon: "dct",
+    icon: "noicon",
     longname: "DECENT",
     description: "DECENT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/decent",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decent/"
     },
-    rank: "2795"
+    rank: "1000"
 },{
     name: "decent-bet",
     code: "DBET",
-    icon: "dbet",
+    icon: "noicon",
     longname: "DecentBet",
     description: "DecentBet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/decent-bet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decent-bet/"
     },
-    rank: "2879"
+    rank: "1000"
 },{
     name: "decentraland",
     code: "MANA",
@@ -5859,39 +6510,43 @@ var otherCoins = [{
     longname: "Decentraland",
     description: "Decentraland coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/decentraland",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decentraland/"
     },
-    rank: "152"
+    rank: "93"
 },{
     name: "decentralized-asset-trading-platform",
     code: "DATP",
-    icon: "datp",
+    icon: "noicon",
     longname: "Decentralized Asset Trading Platform",
     description: "Decentralized Asset Trading Platform coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/decentralized-asset-trading-platform",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decentralized-asset-trading-platform/"
     },
-    rank: "3590"
+    rank: "1000"
 },{
     name: "decentralized-machine-learning",
     code: "DML",
-    icon: "dml",
+    icon: "noicon",
     longname: "Decentralized Machine Learning",
     description: "Decentralized Machine Learning coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/decentralized-machine-learning",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decentralized-machine-learning/"
     },
-    rank: "3715"
+    rank: "1000"
 },{
     name: "decision-token",
     code: "HST",
-    icon: "hst",
+    icon: "noicon",
     longname: "Decision Token",
     description: "Decision Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/decision-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decision-token/"
     },
-    rank: "2908"
+    rank: "1000"
 },{
     name: "decred",
     code: "DCR",
@@ -5899,6 +6554,7 @@ var otherCoins = [{
     longname: "Decred",
     description: "Decred coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/decred",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/decred/"
     },
     rank: "35"
@@ -5909,59 +6565,65 @@ var otherCoins = [{
     longname: "DeepBrain Chain",
     description: "DeepBrain Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/deepbrain-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deepbrain-chain/"
     },
-    rank: "425"
+    rank: "1000"
 },{
     name: "deeponion",
     code: "ONION",
-    icon: "onion",
+    icon: "noicon",
     longname: "DeepOnion",
     description: "DeepOnion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/deeponion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deeponion/"
     },
-    rank: "2326"
+    rank: "1000"
 },{
     name: "deex",
     code: "DEEX",
-    icon: "deex",
+    icon: "noicon",
     longname: "DEEX",
     description: "DEEX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/deex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deex/"
     },
-    rank: "4255"
+    rank: "1000"
 },{
     name: "delizia",
     code: "DELIZ",
-    icon: "deliz",
+    icon: "noicon",
     longname: "Delizia",
     description: "Delizia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/delizia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/delizia/"
     },
-    rank: "4282"
+    rank: "1000"
 },{
     name: "delphy",
     code: "DPY",
-    icon: "dpy",
+    icon: "noicon",
     longname: "Delphy",
     description: "Delphy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/delphy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/delphy/"
     },
-    rank: "576"
+    rank: "1000"
 },{
     name: "delta-chain",
     code: "DELTA",
-    icon: "delta",
+    icon: "noicon",
     longname: "DeltaChain",
     description: "DeltaChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/delta-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/delta-chain/"
     },
-    rank: "3580"
+    rank: "1000"
 },{
     name: "denarius-dnr",
     code: "D",
@@ -5969,9 +6631,10 @@ var otherCoins = [{
     longname: "Denarius",
     description: "Denarius coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/denarius-dnr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/denarius-dnr/"
     },
-    rank: "3694"
+    rank: "1000"
 },{
     name: "dent",
     code: "DENT",
@@ -5979,9 +6642,10 @@ var otherCoins = [{
     longname: "Dent",
     description: "Dent coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dent",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dent/"
     },
-    rank: "220"
+    rank: "194"
 },{
     name: "dentacoin",
     code: "DCN",
@@ -5989,29 +6653,32 @@ var otherCoins = [{
     longname: "Dentacoin",
     description: "Dentacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dentacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dentacoin/"
     },
-    rank: "228"
+    rank: "1000"
 },{
     name: "dero",
     code: "DERO",
-    icon: "dero",
+    icon: "noicon",
     longname: "Dero",
     description: "Dero coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dero",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dero/"
     },
-    rank: "471"
+    rank: "1000"
 },{
     name: "desire",
     code: "DSR",
-    icon: "dsr",
+    icon: "noicon",
     longname: "Desire",
     description: "Desire coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/desire",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/desire/"
     },
-    rank: "3585"
+    rank: "1000"
 },{
     name: "dether",
     code: "DTH",
@@ -6019,49 +6686,54 @@ var otherCoins = [{
     longname: "Dether",
     description: "Dether coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dether",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dether/"
     },
-    rank: "3673"
+    rank: "1000"
 },{
     name: "deuscoin",
     code: "DEUS",
-    icon: "deus",
+    icon: "noicon",
     longname: "DeusCoin",
     description: "DeusCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/deuscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deuscoin/"
     },
-    rank: "3981"
+    rank: "1000"
 },{
     name: "deutsche-emark",
     code: "DEM",
-    icon: "dem",
+    icon: "noicon",
     longname: "Deutsche eMark",
     description: "Deutsche eMark coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/deutsche-emark",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deutsche-emark/"
     },
-    rank: "3765"
+    rank: "1000"
 },{
     name: "devery",
     code: "EVE",
-    icon: "eve",
+    icon: "noicon",
     longname: "Devery",
     description: "Devery coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/devery",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/devery/"
     },
-    rank: "3238"
+    rank: "1000"
 },{
     name: "deviantcoin",
     code: "DEV",
-    icon: "dev",
+    icon: "noicon",
     longname: "DeviantCoin",
     description: "DeviantCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/deviantcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/deviantcoin/"
     },
-    rank: "3058"
+    rank: "1000"
 },{
     name: "dew",
     code: "DEW",
@@ -6069,49 +6741,54 @@ var otherCoins = [{
     longname: "DEW",
     description: "DEW coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dew",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dew/"
     },
-    rank: "2693"
+    rank: "1000"
 },{
     name: "dex",
     code: "DEX",
-    icon: "dex",
+    icon: "noicon",
     longname: "DEX",
     description: "DEX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dex/"
     },
-    rank: "494"
+    rank: "1000"
 },{
     name: "diamond",
     code: "DMD",
-    icon: "dmd",
+    icon: "noicon",
     longname: "Diamond",
     description: "Diamond coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/diamond",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/diamond/"
     },
-    rank: "2839"
+    rank: "1000"
 },{
     name: "diamond-platform-token",
     code: "DPT",
-    icon: "dpt",
+    icon: "noicon",
     longname: "Diamond Platform Token",
     description: "Diamond Platform Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/diamond-platform-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/diamond-platform-token/"
     },
-    rank: "247"
+    rank: "1000"
 },{
     name: "dietbitcoin",
     code: "DDX",
-    icon: "ddx",
+    icon: "noicon",
     longname: "dietbitcoin",
     description: "dietbitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dietbitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dietbitcoin/"
     },
-    rank: "3876"
+    rank: "1000"
 },{
     name: "digibyte",
     code: "DGB",
@@ -6119,59 +6796,76 @@ var otherCoins = [{
     longname: "DigiByte",
     description: "DigiByte coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digibyte",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digibyte/"
     },
-    rank: "69"
+    rank: "55"
 },{
     name: "digifinextoken",
     code: "DFT-1",
-    icon: "dft-1",
+    icon: "noicon",
     longname: "DigiFinexToken",
     description: "DigiFinexToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digifinextoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digifinextoken/"
     },
-    rank: "4154"
+    rank: "1000"
 },{
     name: "digital-asset-guarantee-token",
     code: "DAGT",
-    icon: "dagt",
+    icon: "noicon",
     longname: "Digital Asset Guarantee Token",
     description: "Digital Asset Guarantee Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digital-asset-guarantee-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digital-asset-guarantee-token/"
     },
-    rank: "3223"
+    rank: "1000"
 },{
     name: "digital-insurance-token",
     code: "DIT",
-    icon: "dit",
+    icon: "noicon",
     longname: "Digital Insurance Token",
     description: "Digital Insurance Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digital-insurance-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digital-insurance-token/"
     },
-    rank: "3805"
+    rank: "1000"
 },{
     name: "digital-money-bits",
     code: "DMB",
-    icon: "dmb",
+    icon: "noicon",
     longname: "Digital Money Bits",
     description: "Digital Money Bits coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digital-money-bits",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digital-money-bits/"
     },
-    rank: "3995"
+    rank: "1000"
+},{
+    name: "digitalbits",
+    code: "XDB",
+    icon: "noicon",
+    longname: "DigitalBits",
+    description: "DigitalBits coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digitalbits",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitalbits/"
+    },
+    rank: "226"
 },{
     name: "digitalcoin",
     code: "DGC",
-    icon: "dgc",
+    icon: "noicon",
     longname: "Digitalcoin",
     description: "Digitalcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digitalcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitalcoin/"
     },
-    rank: "3779"
+    rank: "1000"
 },{
     name: "digitalnote",
     code: "XDN",
@@ -6179,49 +6873,54 @@ var otherCoins = [{
     longname: "DigitalNote",
     description: "DigitalNote coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digitalnote",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitalnote/"
     },
-    rank: "436"
+    rank: "1000"
 },{
     name: "digitalprice",
     code: "DP",
-    icon: "dp",
+    icon: "noicon",
     longname: "DigitalPrice",
     description: "DigitalPrice coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digitalprice",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitalprice/"
     },
-    rank: "3762"
+    rank: "1000"
 },{
-    name: "digitex-futures",
+    name: "digitex-futures-exchange",
     code: "DGTX",
-    icon: "dgtx",
-    longname: "Digitex Futures",
-    description: "Digitex Futures coin",
+    icon: "noicon",
+    longname: "Digitex Futures Exchange",
+    description: "Digitex Futures Exchange coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitex-futures/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digitex-futures-exchange",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/digitex-futures-exchange/"
     },
-    rank: "143"
+    rank: "85"
 },{
     name: "digiwage",
     code: "WAGE",
-    icon: "wage",
+    icon: "noicon",
     longname: "Digiwage",
     description: "Digiwage coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digiwage",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digiwage/"
     },
-    rank: "3891"
+    rank: "1000"
 },{
     name: "digix-gold-token",
     code: "DGX",
-    icon: "dgx",
+    icon: "noicon",
     longname: "Digix Gold Token",
     description: "Digix Gold Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digix-gold-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digix-gold-token/"
     },
-    rank: "418"
+    rank: "1000"
 },{
     name: "digixdao",
     code: "DGD",
@@ -6229,39 +6928,43 @@ var otherCoins = [{
     longname: "DigixDAO",
     description: "DigixDAO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/digixdao",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/digixdao/"
     },
-    rank: "181"
+    rank: "66"
 },{
     name: "dignity",
     code: "DIG",
-    icon: "dig",
+    icon: "noicon",
     longname: "Dignity",
     description: "Dignity coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dignity",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dignity/"
     },
-    rank: "2743"
+    rank: "1000"
 },{
     name: "dimcoin",
     code: "DIM",
-    icon: "dim",
+    icon: "noicon",
     longname: "DIMCOIN",
     description: "DIMCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dimcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dimcoin/"
     },
-    rank: "2947"
+    rank: "1000"
 },{
     name: "dimecoin",
     code: "DIME",
-    icon: "dime",
+    icon: "noicon",
     longname: "Dimecoin",
     description: "Dimecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dimecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dimecoin/"
     },
-    rank: "2901"
+    rank: "1000"
 },{
     name: "dimension-chain",
     code: "EON",
@@ -6269,49 +6972,54 @@ var otherCoins = [{
     longname: "Dimension Chain",
     description: "Dimension Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dimension-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dimension-chain/"
     },
-    rank: "81"
+    rank: "1000"
 },{
     name: "dinastycoin",
     code: "DCY",
-    icon: "dcy",
+    icon: "noicon",
     longname: "Dinastycoin",
     description: "Dinastycoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dinastycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dinastycoin/"
     },
-    rank: "3799"
+    rank: "1000"
 },{
     name: "dinero",
     code: "DIN",
-    icon: "din",
+    icon: "noicon",
     longname: "Dinero",
     description: "Dinero coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dinero",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dinero/"
     },
-    rank: "3588"
+    rank: "1000"
 },{
     name: "dipnet",
     code: "DPN",
-    icon: "dpn",
+    icon: "noicon",
     longname: "DIPNET",
     description: "DIPNET coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dipnet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dipnet/"
     },
-    rank: "4200"
+    rank: "1000"
 },{
     name: "distributed-credit-chain",
     code: "DCC",
-    icon: "dcc",
+    icon: "noicon",
     longname: "Distributed Credit Chain",
     description: "Distributed Credit Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/distributed-credit-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/distributed-credit-chain/"
     },
-    rank: "2888"
+    rank: "1000"
 },{
     name: "district0x",
     code: "DNT",
@@ -6319,69 +7027,65 @@ var otherCoins = [{
     longname: "district0x",
     description: "district0x coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/district0x",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/district0x/"
     },
-    rank: "503"
+    rank: "1000"
 },{
     name: "divi",
     code: "DIVI",
-    icon: "divi",
+    icon: "noicon",
     longname: "Divi",
     description: "Divi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/divi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/divi/"
     },
-    rank: "248"
+    rank: "153"
 },{
     name: "divi-exchange-token",
     code: "DIVX",
-    icon: "divx",
+    icon: "noicon",
     longname: "Divi Exchange Token",
     description: "Divi Exchange Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/divi-exchange-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/divi-exchange-token/"
     },
-    rank: "3331"
+    rank: "1000"
 },{
     name: "dix-asset",
     code: "DIX",
-    icon: "dix",
+    icon: "noicon",
     longname: "Dix Asset",
     description: "Dix Asset coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dix-asset",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dix-asset/"
     },
-    rank: "3979"
+    rank: "1000"
 },{
     name: "dmarket",
     code: "DMT",
-    icon: "dmt",
+    icon: "noicon",
     longname: "DMarket",
     description: "DMarket coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dmarket",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dmarket/"
     },
-    rank: "421"
+    rank: "248"
 },{
     name: "dnotes",
     code: "NOTE",
-    icon: "note",
+    icon: "noicon",
     longname: "DNotes",
     description: "DNotes coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dnotes",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dnotes/"
     },
-    rank: "3128"
-},{
-    name: "doc-com-token",
-    code: "MTC",
-    icon: "mtc",
-    longname: "doc.com Token",
-    description: "doc.com Token coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/doc-com-token/"
-    },
-    rank: "430"
+    rank: "1000"
 },{
     name: "dock",
     code: "DOCK",
@@ -6389,9 +7093,10 @@ var otherCoins = [{
     longname: "Dock",
     description: "Dock coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dock",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dock/"
     },
-    rank: "419"
+    rank: "1000"
 },{
     name: "dogecoin",
     code: "DOGE",
@@ -6399,129 +7104,142 @@ var otherCoins = [{
     longname: "Dogecoin",
     description: "Dogecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dogecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dogecoin/"
     },
     rank: "31"
 },{
     name: "dollar-online",
     code: "DOLLAR",
-    icon: "dollar",
+    icon: "noicon",
     longname: "Dollar Online",
     description: "Dollar Online coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dollar-online",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dollar-online/"
     },
-    rank: "4110"
+    rank: "1000"
 },{
     name: "dollarcoin",
     code: "DLC",
-    icon: "dlc",
+    icon: "noicon",
     longname: "Dollarcoin",
     description: "Dollarcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dollarcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dollarcoin/"
     },
-    rank: "4000"
+    rank: "1000"
 },{
     name: "domraider",
     code: "DRT",
-    icon: "drt",
+    icon: "noicon",
     longname: "DomRaider",
     description: "DomRaider coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/domraider",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/domraider/"
     },
-    rank: "3008"
+    rank: "1000"
 },{
     name: "dopecoin",
     code: "DOPE",
-    icon: "dope",
+    icon: "noicon",
     longname: "DopeCoin",
     description: "DopeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dopecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dopecoin/"
     },
-    rank: "3330"
+    rank: "1000"
 },{
     name: "dorado",
     code: "DOR",
-    icon: "dor",
+    icon: "noicon",
     longname: "Dorado",
     description: "Dorado coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dorado",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dorado/"
     },
-    rank: "3516"
+    rank: "1000"
 },{
     name: "dotcoin",
     code: "DOT",
-    icon: "dot",
+    icon: "noicon",
     longname: "Dotcoin",
     description: "Dotcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dotcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dotcoin/"
     },
-    rank: "3006"
+    rank: "1000"
 },{
     name: "doubloon",
     code: "BOAT",
-    icon: "boat",
+    icon: "noicon",
     longname: "BOAT",
     description: "BOAT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/doubloon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/doubloon/"
     },
-    rank: "3964"
+    rank: "1000"
 },{
     name: "dovu",
     code: "DOV",
-    icon: "dov",
+    icon: "noicon",
     longname: "Dovu",
     description: "Dovu coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dovu",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dovu/"
     },
-    rank: "3115"
+    rank: "1000"
 },{
     name: "dowcoin",
     code: "DOW",
-    icon: "dow",
+    icon: "noicon",
     longname: "DOWCOIN",
     description: "DOWCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dowcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dowcoin/"
     },
-    rank: "3243"
+    rank: "1000"
 },{
     name: "dprating",
     code: "RATING",
-    icon: "rating",
+    icon: "noicon",
     longname: "DPRating",
     description: "DPRating coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dprating",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dprating/"
     },
-    rank: "3346"
+    rank: "1000"
 },{
     name: "draftcoin",
     code: "DFT",
-    icon: "dft",
+    icon: "noicon",
     longname: "DraftCoin",
     description: "DraftCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/draftcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/draftcoin/"
     },
-    rank: "3507"
+    rank: "1000"
 },{
     name: "dragon-coins",
     code: "DRG",
-    icon: "drg",
+    icon: "noicon",
     longname: "Dragon Coins",
     description: "Dragon Coins coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dragon-coins",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dragon-coins/"
     },
-    rank: "150"
+    rank: "1000"
 },{
     name: "dragonchain",
     code: "DRGN",
@@ -6529,29 +7247,32 @@ var otherCoins = [{
     longname: "Dragonchain",
     description: "Dragonchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dragonchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dragonchain/"
     },
-    rank: "339"
+    rank: "235"
 },{
     name: "dragonglass",
     code: "DGS",
-    icon: "dgs",
+    icon: "noicon",
     longname: "Dragonglass",
     description: "Dragonglass coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dragonglass",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dragonglass/"
     },
-    rank: "3929"
+    rank: "1000"
 },{
     name: "dreamcoin",
     code: "DRM",
-    icon: "drm",
+    icon: "noicon",
     longname: "Dreamcoin",
     description: "Dreamcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dreamcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dreamcoin/"
     },
-    rank: "4026"
+    rank: "1000"
 },{
     name: "dropil",
     code: "DROP",
@@ -6559,79 +7280,87 @@ var otherCoins = [{
     longname: "Dropil",
     description: "Dropil coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dropil",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dropil/"
     },
-    rank: "387"
+    rank: "1000"
 },{
     name: "droxne",
     code: "DRXNE",
-    icon: "drxne",
+    icon: "noicon",
     longname: "DROXNE",
     description: "DROXNE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/droxne",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/droxne/"
     },
-    rank: "3986"
+    rank: "1000"
 },{
     name: "drp-utility",
     code: "DRPU",
-    icon: "drpu",
+    icon: "noicon",
     longname: "DCORP Utility",
     description: "DCORP Utility coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/drp-utility",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/drp-utility/"
     },
-    rank: "3781"
+    rank: "1000"
 },{
     name: "dubaicoin-dbix",
     code: "DBIX",
-    icon: "dbix",
+    icon: "noicon",
     longname: "DubaiCoin",
     description: "DubaiCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dubaicoin-dbix",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dubaicoin-dbix/"
     },
-    rank: "3092"
+    rank: "1000"
 },{
     name: "dusk-network",
     code: "DUSK",
-    icon: "dusk",
+    icon: "noicon",
     longname: "Dusk Network",
     description: "Dusk Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dusk-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dusk-network/"
     },
-    rank: "367"
+    rank: "1000"
 },{
     name: "dws",
     code: "DWS",
-    icon: "dws",
+    icon: "noicon",
     longname: "DWS",
     description: "DWS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dws",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dws/"
     },
-    rank: "4253"
+    rank: "1000"
 },{
-    name: "dxchain-token",
+    name: "dxchain",
     code: "DX",
-    icon: "dx",
+    icon: "noicon",
     longname: "DxChain Token",
     description: "DxChain Token coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/dxchain-token/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dxchain",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/dxchain/"
     },
-    rank: "70"
+    rank: "61"
 },{
     name: "dynamic",
     code: "DYN",
-    icon: "dyn",
+    icon: "noicon",
     longname: "Dynamic",
     description: "Dynamic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dynamic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dynamic/"
     },
-    rank: "3187"
+    rank: "1000"
 },{
     name: "dynamic-trading-rights",
     code: "DTR",
@@ -6639,79 +7368,87 @@ var otherCoins = [{
     longname: "Dynamic Trading Rights",
     description: "Dynamic Trading Rights coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dynamic-trading-rights",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dynamic-trading-rights/"
     },
-    rank: "130"
+    rank: "1000"
 },{
     name: "dynamiccoin",
     code: "DMC",
-    icon: "dmc",
+    icon: "noicon",
     longname: "DynamicCoin",
     description: "DynamicCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dynamiccoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dynamiccoin/"
     },
-    rank: "4387"
+    rank: "1000"
 },{
     name: "dystem",
     code: "DTEM",
-    icon: "dtem",
+    icon: "noicon",
     longname: "Dystem",
     description: "Dystem coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/dystem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/dystem/"
     },
-    rank: "3902"
+    rank: "1000"
 },{
     name: "e-dinar-coin",
     code: "EDR-1",
-    icon: "edr-1",
+    icon: "noicon",
     longname: "E-Dinar Coin",
     description: "E-Dinar Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/e-dinar-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/e-dinar-coin/"
     },
-    rank: "2650"
+    rank: "1000"
 },{
     name: "e-gulden",
     code: "EFL",
-    icon: "efl",
+    icon: "noicon",
     longname: "e-Gulden",
     description: "e-Gulden coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/e-gulden",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/e-gulden/"
     },
-    rank: "3727"
+    rank: "1000"
 },{
     name: "eaglex",
     code: "EGX",
-    icon: "egx",
+    icon: "noicon",
     longname: "EagleX",
     description: "EagleX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eaglex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eaglex/"
     },
-    rank: "4010"
+    rank: "1000"
 },{
     name: "earth-token",
     code: "EARTH",
-    icon: "earth",
+    icon: "noicon",
     longname: "Earth Token",
     description: "Earth Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/earth-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/earth-token/"
     },
-    rank: "3567"
+    rank: "1000"
 },{
     name: "ebcoin",
     code: "EBC",
-    icon: "ebc",
+    icon: "noicon",
     longname: "EBCoin",
     description: "EBCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ebcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ebcoin/"
     },
-    rank: "2900"
+    rank: "1000"
 },{
     name: "eboostcoin",
     code: "EBST",
@@ -6719,99 +7456,109 @@ var otherCoins = [{
     longname: "eBoost",
     description: "eBoost coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eboostcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eboostcoin/"
     },
-    rank: "3342"
+    rank: "1000"
 },{
     name: "ebtcnew",
     code: "EBTC",
-    icon: "ebtc",
+    icon: "noicon",
     longname: "eBitcoin",
     description: "eBitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ebtcnew",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ebtcnew/"
     },
-    rank: "3419"
+    rank: "1000"
 },{
     name: "eccoin",
     code: "ECC",
-    icon: "ecc",
+    icon: "noicon",
     longname: "ECC",
     description: "ECC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eccoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eccoin/"
     },
-    rank: "2390"
+    rank: "1000"
 },{
     name: "echolink",
     code: "EKO",
-    icon: "eko",
+    icon: "noicon",
     longname: "EchoLink",
     description: "EchoLink coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/echolink",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/echolink/"
     },
-    rank: "3099"
+    rank: "1000"
 },{
     name: "ecobit",
     code: "ECOB",
-    icon: "ecob",
+    icon: "noicon",
     longname: "Ecobit",
     description: "Ecobit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ecobit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ecobit/"
     },
-    rank: "3623"
+    rank: "1000"
 },{
     name: "ecocoin",
     code: "ECO",
-    icon: "eco",
+    icon: "noicon",
     longname: "EcoCoin",
     description: "EcoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ecocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ecocoin/"
     },
-    rank: "4100"
+    rank: "1000"
 },{
     name: "ecoreal-estate",
     code: "ECOREAL",
-    icon: "ecoreal",
+    icon: "noicon",
     longname: "Ecoreal Estate",
     description: "Ecoreal Estate coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ecoreal-estate",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ecoreal-estate/"
     },
-    rank: "185"
+    rank: "1000"
 },{
     name: "edc-blockchain",
     code: "EDC",
-    icon: "edc",
+    icon: "noicon",
     longname: "EDC Blockchain",
     description: "EDC Blockchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/edc-blockchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/edc-blockchain/"
     },
-    rank: "211"
+    rank: "1000"
 },{
     name: "eden",
     code: "EDN",
-    icon: "edn",
+    icon: "noicon",
     longname: "Eden",
     description: "Eden coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eden",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eden/"
     },
-    rank: "2955"
+    rank: "1000"
 },{
     name: "edge",
     code: "DADI",
-    icon: "dadi",
+    icon: "noicon",
     longname: "Edge",
     description: "Edge coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/edge",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/edge/"
     },
-    rank: "1101"
+    rank: "1000"
 },{
     name: "edgeless",
     code: "EDG",
@@ -6819,69 +7566,76 @@ var otherCoins = [{
     longname: "Edgeless",
     description: "Edgeless coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/edgeless",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/edgeless/"
     },
-    rank: "2398"
+    rank: "1000"
 },{
     name: "edrcoin",
     code: "EDRC",
-    icon: "edrc",
+    icon: "noicon",
     longname: "EDRCoin",
     description: "EDRCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/edrcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/edrcoin/"
     },
-    rank: "3290"
+    rank: "1000"
 },{
     name: "edu-coin",
     code: "EDU",
-    icon: "edu",
+    icon: "noicon",
     longname: "EduCoin",
     description: "EduCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/edu-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/edu-coin/"
     },
-    rank: "4158"
+    rank: "1000"
 },{
     name: "educare",
     code: "EKT",
-    icon: "ekt",
+    icon: "noicon",
     longname: "EDUCare",
     description: "EDUCare coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/educare",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/educare/"
     },
-    rank: "64"
+    rank: "1000"
 },{
     name: "education-ecosystem",
     code: "LEDU",
-    icon: "ledu",
+    icon: "noicon",
     longname: "Education Ecosystem",
     description: "Education Ecosystem coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/education-ecosystem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/education-ecosystem/"
     },
-    rank: "3209"
+    rank: "1000"
 },{
     name: "effect-ai",
     code: "EFX",
-    icon: "efx",
+    icon: "noicon",
     longname: "Effect.AI",
     description: "Effect.AI coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/effect-ai",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/effect-ai/"
     },
-    rank: "3145"
+    rank: "1000"
 },{
     name: "egretia",
     code: "EGT",
-    icon: "egt",
+    icon: "noicon",
     longname: "Egretia",
     description: "Egretia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/egretia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/egretia/"
     },
-    rank: "275"
+    rank: "1000"
 },{
     name: "eidoo",
     code: "EDO",
@@ -6889,9 +7643,10 @@ var otherCoins = [{
     longname: "Eidoo",
     description: "Eidoo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eidoo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eidoo/"
     },
-    rank: "240"
+    rank: "1000"
 },{
     name: "einsteinium",
     code: "EMC2",
@@ -6899,19 +7654,21 @@ var otherCoins = [{
     longname: "Einsteinium",
     description: "Einsteinium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/einsteinium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/einsteinium/"
     },
-    rank: "307"
+    rank: "202"
 },{
     name: "ejoy",
     code: "EJOY",
-    icon: "ejoy",
+    icon: "noicon",
     longname: "EJOY",
     description: "EJOY coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ejoy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ejoy/"
     },
-    rank: "4274"
+    rank: "1000"
 },{
     name: "elastos",
     code: "ELA",
@@ -6919,19 +7676,21 @@ var otherCoins = [{
     longname: "Elastos",
     description: "Elastos coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/elastos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elastos/"
     },
-    rank: "153"
+    rank: "146"
 },{
     name: "elcoin-el",
     code: "EL",
-    icon: "el",
+    icon: "noicon",
     longname: "Elcoin",
     description: "Elcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/elcoin-el",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elcoin-el/"
     },
-    rank: "3841"
+    rank: "1000"
 },{
     name: "electra",
     code: "ECA",
@@ -6939,9 +7698,10 @@ var otherCoins = [{
     longname: "Electra",
     description: "Electra coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/electra",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/electra/"
     },
-    rank: "473"
+    rank: "1000"
 },{
     name: "electrifyasia",
     code: "ELEC",
@@ -6949,9 +7709,21 @@ var otherCoins = [{
     longname: "Electrify.Asia",
     description: "Electrify.Asia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/electrifyasia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/electrifyasia/"
     },
-    rank: "2894"
+    rank: "1000"
+},{
+    name: "electronero",
+    code: "ETNX",
+    icon: "noicon",
+    longname: "Electronero",
+    description: "Electronero coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/electronero",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/electronero/"
+    },
+    rank: "175"
 },{
     name: "electroneum",
     code: "ETN",
@@ -6959,39 +7731,43 @@ var otherCoins = [{
     longname: "Electroneum",
     description: "Electroneum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/electroneum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/electroneum/"
     },
-    rank: "136"
+    rank: "127"
 },{
     name: "elementrem",
     code: "ELE",
-    icon: "ele",
+    icon: "noicon",
     longname: "Elementrem",
     description: "Elementrem coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/elementrem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elementrem/"
     },
-    rank: "3790"
+    rank: "1000"
 },{
     name: "eligma-token",
     code: "ELI",
-    icon: "eli",
+    icon: "noicon",
     longname: "Eligma Token",
     description: "Eligma Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eligma-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eligma-token/"
     },
-    rank: "401"
+    rank: "1000"
 },{
     name: "elitium",
     code: "EUM",
-    icon: "eum",
+    icon: "noicon",
     longname: "Elitium",
     description: "Elitium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/elitium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elitium/"
     },
-    rank: "285"
+    rank: "1000"
 },{
     name: "elixir",
     code: "ELIX",
@@ -6999,9 +7775,10 @@ var otherCoins = [{
     longname: "Elixir",
     description: "Elixir coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/elixir",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elixir/"
     },
-    rank: "3314"
+    rank: "1000"
 },{
     name: "ellaism",
     code: "ELLA",
@@ -7009,89 +7786,98 @@ var otherCoins = [{
     longname: "Ellaism",
     description: "Ellaism coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ellaism",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ellaism/"
     },
-    rank: "3795"
+    rank: "1000"
 },{
     name: "elliot-coin",
     code: "ELLI",
-    icon: "elli",
+    icon: "noicon",
     longname: "Elliot Coin",
     description: "Elliot Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/elliot-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elliot-coin/"
     },
-    rank: "4339"
+    rank: "1000"
 },{
     name: "elrond",
     code: "ERD",
-    icon: "erd",
+    icon: "noicon",
     longname: "Elrond",
     description: "Elrond coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/elrond",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elrond/"
     },
-    rank: "251"
+    rank: "197"
 },{
     name: "eltcoin",
     code: "ELTCOIN",
-    icon: "eltcoin",
+    icon: "noicon",
     longname: "ELTCOIN",
     description: "ELTCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eltcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eltcoin/"
     },
-    rank: "3561"
+    rank: "1000"
 },{
     name: "elysian",
     code: "ELY",
-    icon: "ely",
+    icon: "noicon",
     longname: "Elysian",
     description: "Elysian coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/elysian",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elysian/"
     },
-    rank: "3493"
+    rank: "1000"
 },{
     name: "elysium",
     code: "ELS",
-    icon: "els",
+    icon: "noicon",
     longname: "Elysium",
     description: "Elysium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/elysium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/elysium/"
     },
-    rank: "4066"
+    rank: "1000"
 },{
     name: "embercoin",
     code: "EMB",
-    icon: "emb",
+    icon: "noicon",
     longname: "EmberCoin",
     description: "EmberCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/embercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/embercoin/"
     },
-    rank: "4323"
+    rank: "1000"
 },{
     name: "embers",
     code: "MBRS",
-    icon: "mbrs",
+    icon: "noicon",
     longname: "Embers",
     description: "Embers coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/embers",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/embers/"
     },
-    rank: "3958"
+    rank: "1000"
 },{
     name: "emerald",
     code: "EMD",
-    icon: "emd",
+    icon: "noicon",
     longname: "Emerald Crypto",
     description: "Emerald Crypto coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/emerald",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/emerald/"
     },
-    rank: "3862"
+    rank: "1000"
 },{
     name: "emercoin",
     code: "EMC",
@@ -7099,149 +7885,164 @@ var otherCoins = [{
     longname: "Emercoin",
     description: "Emercoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/emercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/emercoin/"
     },
-    rank: "477"
+    rank: "1000"
 },{
     name: "eminer",
     code: "EM",
-    icon: "em",
+    icon: "noicon",
     longname: "Eminer",
     description: "Eminer coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eminer",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eminer/"
     },
-    rank: "464"
+    rank: "1000"
 },{
     name: "emirex-token",
     code: "EMRX",
-    icon: "emrx",
+    icon: "noicon",
     longname: "Emirex Token",
     description: "Emirex Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/emirex-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/emirex-token/"
     },
-    rank: "316"
+    rank: "1000"
 },{
     name: "emphy",
     code: "EPY",
-    icon: "epy",
+    icon: "noicon",
     longname: "Emphy",
     description: "Emphy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/emphy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/emphy/"
     },
-    rank: "3865"
+    rank: "1000"
 },{
     name: "empowr-coin",
     code: "EMPR",
-    icon: "empr",
+    icon: "noicon",
     longname: "empowr coin",
     description: "empowr coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/empowr-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/empowr-coin/"
     },
-    rank: "4246"
+    rank: "1000"
 },{
     name: "encrypgen",
     code: "DNA",
-    icon: "dna",
+    icon: "noicon",
     longname: "EncrypGen",
     description: "EncrypGen coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/encrypgen",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/encrypgen/"
     },
-    rank: "3104"
+    rank: "1000"
 },{
     name: "encryptotel",
     code: "ETT",
-    icon: "ett",
+    icon: "noicon",
     longname: "EncryptoTel [WAVES]",
     description: "EncryptoTel [WAVES] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/encryptotel",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/encryptotel/"
     },
-    rank: "3335"
+    rank: "1000"
 },{
     name: "encryptotel-eth",
     code: "ETT-1",
-    icon: "ett-1",
+    icon: "noicon",
     longname: "EncryptoTel [ETH]",
     description: "EncryptoTel [ETH] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/encryptotel-eth",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/encryptotel-eth/"
     },
-    rank: "4262"
+    rank: "1000"
 },{
     name: "endor-protocol",
     code: "EDR",
-    icon: "edr",
+    icon: "noicon",
     longname: "Endor Protocol",
     description: "Endor Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/endor-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/endor-protocol/"
     },
-    rank: "542"
+    rank: "1000"
 },{
     name: "endorsit",
     code: "EDS",
-    icon: "eds",
+    icon: "noicon",
     longname: "Endorsit",
     description: "Endorsit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/endorsit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/endorsit/"
     },
-    rank: "4321"
+    rank: "1000"
 },{
     name: "energi",
     code: "NRG",
-    icon: "nrg",
+    icon: "noicon",
     longname: "Energi",
     description: "Energi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/energi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/energi/"
     },
-    rank: "100"
+    rank: "68"
 },{
     name: "energitoken",
     code: "ETK",
-    icon: "etk",
+    icon: "noicon",
     longname: "EnergiToken",
     description: "EnergiToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/energitoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/energitoken/"
     },
-    rank: "2999"
+    rank: "1000"
 },{
     name: "energo",
     code: "TSL",
-    icon: "tsl",
+    icon: "noicon",
     longname: "Energo",
     description: "Energo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/energo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/energo/"
     },
-    rank: "3173"
+    rank: "1000"
 },{
     name: "engagement-token",
     code: "ENGT",
-    icon: "engt",
+    icon: "noicon",
     longname: "Engagement Token",
     description: "Engagement Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/engagement-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/engagement-token/"
     },
-    rank: "3468"
+    rank: "1000"
 },{
     name: "engine",
     code: "EGCC",
-    icon: "egcc",
+    icon: "noicon",
     longname: "Engine",
     description: "Engine coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/engine",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/engine/"
     },
-    rank: "4187"
+    rank: "1000"
 },{
     name: "enigma",
     code: "ENG",
@@ -7249,29 +8050,32 @@ var otherCoins = [{
     longname: "Enigma",
     description: "Enigma coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/enigma",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/enigma/"
     },
-    rank: "196"
+    rank: "185"
 },{
-    name: "enjin-coin",
+    name: "enjincoin",
     code: "ENJ",
     icon: "enj",
     longname: "Enjin Coin",
     description: "Enjin Coin coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/enjin-coin/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/enjincoin",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/enjincoin/"
     },
-    rank: "104"
+    rank: "50"
 },{
     name: "envion",
     code: "EVN",
-    icon: "evn",
+    icon: "noicon",
     longname: "Envion",
     description: "Envion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/envion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/envion/"
     },
-    rank: "200"
+    rank: "1000"
 },{
     name: "eos",
     code: "EOS",
@@ -7279,269 +8083,296 @@ var otherCoins = [{
     longname: "EOS",
     description: "EOS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eos/"
     },
-    rank: "8"
+    rank: "7"
 },{
     name: "eos-force",
     code: "EOSC",
-    icon: "eosc",
+    icon: "noicon",
     longname: "EOS Force",
     description: "EOS Force coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eos-force",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eos-force/"
     },
-    rank: "305"
+    rank: "1000"
 },{
     name: "eosblack",
     code: "BLACK",
-    icon: "black",
+    icon: "noicon",
     longname: "eosBLACK",
     description: "eosBLACK coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eosblack",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eosblack/"
     },
-    rank: "4300"
+    rank: "1000"
 },{
     name: "eosdac",
     code: "EOSDAC",
-    icon: "eosdac",
+    icon: "noicon",
     longname: "eosDAC",
     description: "eosDAC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eosdac",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eosdac/"
     },
-    rank: "577"
+    rank: "1000"
 },{
     name: "eplus-coin",
     code: "EPLUS",
-    icon: "eplus",
+    icon: "noicon",
     longname: "EPLUS Coin",
     description: "EPLUS Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eplus-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eplus-coin/"
     },
-    rank: "4392"
+    rank: "1000"
 },{
     name: "equal",
     code: "EQL",
-    icon: "eql",
+    icon: "noicon",
     longname: "Equal",
     description: "Equal coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/equal",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/equal/"
     },
-    rank: "3422"
+    rank: "1000"
 },{
     name: "equitrader",
     code: "EQT",
-    icon: "eqt",
+    icon: "noicon",
     longname: "EquiTrader",
     description: "EquiTrader coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/equitrader",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/equitrader/"
     },
-    rank: "3460"
+    rank: "1000"
 },{
     name: "erc20",
     code: "ERC20",
-    icon: "erc20",
+    icon: "noicon",
     longname: "ERC20",
     description: "ERC20 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/erc20",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/erc20/"
     },
-    rank: "555"
+    rank: "1000"
 },{
     name: "ergo",
     code: "EFYT",
-    icon: "efyt",
+    icon: "noicon",
     longname: "Ergo",
     description: "Ergo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ergo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ergo/"
     },
-    rank: "3253"
+    rank: "1000"
 },{
     name: "eristica",
     code: "ERT",
-    icon: "ert",
+    icon: "noicon",
     longname: "Eristica",
     description: "Eristica coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eristica",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eristica/"
     },
-    rank: "3267"
+    rank: "1000"
 },{
     name: "eroscoin",
     code: "ERO",
-    icon: "ero",
+    icon: "noicon",
     longname: "Eroscoin",
     description: "Eroscoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eroscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eroscoin/"
     },
-    rank: "3034"
+    rank: "1000"
 },{
     name: "eryllium",
     code: "ERY",
-    icon: "ery",
+    icon: "noicon",
     longname: "Eryllium",
     description: "Eryllium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eryllium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eryllium/"
     },
-    rank: "4071"
+    rank: "1000"
 },{
     name: "escroco-emerald",
     code: "ESCE",
-    icon: "esce",
+    icon: "noicon",
     longname: "Escroco Emerald",
     description: "Escroco Emerald coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/escroco-emerald",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/escroco-emerald/"
     },
-    rank: "3957"
+    rank: "1000"
 },{
     name: "escrowcoin",
     code: "ESCO",
-    icon: "esco",
+    icon: "noicon",
     longname: "EscrowCoin",
     description: "EscrowCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/escrowcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/escrowcoin/"
     },
-    rank: "4265"
+    rank: "1000"
 },{
     name: "espers",
     code: "ESP",
-    icon: "esp",
+    icon: "noicon",
     longname: "Espers",
     description: "Espers coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/espers",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/espers/"
     },
-    rank: "2920"
+    rank: "1000"
 },{
     name: "esportbits",
     code: "HLT",
-    icon: "hlt",
+    icon: "noicon",
     longname: "Esportbits",
     description: "Esportbits coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/esportbits",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/esportbits/"
     },
-    rank: "600"
+    rank: "1000"
 },{
     name: "esports-token",
     code: "EST",
-    icon: "est",
+    icon: "noicon",
     longname: "Esports Token",
     description: "Esports Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/esports-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/esports-token/"
     },
-    rank: "4338"
+    rank: "1000"
 },{
     name: "essentia",
     code: "ESS",
-    icon: "ess",
+    icon: "noicon",
     longname: "Essentia",
     description: "Essentia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/essentia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/essentia/"
     },
-    rank: "4195"
+    rank: "1000"
 },{
     name: "eterbase-coin",
     code: "XBASE",
-    icon: "xbase",
+    icon: "noicon",
     longname: "Eterbase Coin",
     description: "Eterbase Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eterbase-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eterbase-coin/"
     },
-    rank: "590"
+    rank: "1000"
 },{
     name: "eternal-token",
     code: "XET",
-    icon: "xet",
+    icon: "noicon",
     longname: "ETERNAL TOKEN",
     description: "ETERNAL TOKEN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eternal-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eternal-token/"
     },
-    rank: "267"
+    rank: "1000"
 },{
     name: "eternity",
     code: "ENT",
-    icon: "ent",
+    icon: "noicon",
     longname: "Eternity",
     description: "Eternity coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eternity",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eternity/"
     },
-    rank: "4018"
+    rank: "1000"
 },{
     name: "ethbet",
     code: "EBET",
-    icon: "ebet",
+    icon: "noicon",
     longname: "EthBet",
     description: "EthBet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethbet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethbet/"
     },
-    rank: "3970"
+    rank: "1000"
 },{
     name: "ethbits",
     code: "ETBS",
-    icon: "etbs",
+    icon: "noicon",
     longname: "Ethbits",
     description: "Ethbits coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethbits",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethbits/"
     },
-    rank: "3668"
+    rank: "1000"
 },{
     name: "etheera",
     code: "ETA",
-    icon: "eta",
+    icon: "noicon",
     longname: "Etheera",
     description: "Etheera coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/etheera",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etheera/"
     },
-    rank: "3255"
+    rank: "1000"
 },{
     name: "ether-1",
     code: "ETHO",
-    icon: "etho",
+    icon: "noicon",
     longname: "Ether-1",
     description: "Ether-1 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ether-1",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ether-1/"
     },
-    rank: "3442"
+    rank: "1000"
 },{
     name: "ether-kingdoms-token",
     code: "IMP",
-    icon: "imp",
+    icon: "noicon",
     longname: "Ether Kingdoms Token",
     description: "Ether Kingdoms Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ether-kingdoms-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ether-kingdoms-token/"
     },
-    rank: "3601"
+    rank: "1000"
 },{
     name: "ether-zero",
     code: "ETZ",
-    icon: "etz",
+    icon: "noicon",
     longname: "Ether Zero",
     description: "Ether Zero coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ether-zero",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ether-zero/"
     },
-    rank: "486"
+    rank: "1000"
 },{
     name: "ethereum",
     code: "ETH",
@@ -7549,19 +8380,21 @@ var otherCoins = [{
     longname: "Ethereum",
     description: "Ethereum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethereum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum/"
     },
-    rank: "2"
+    rank: "1"
 },{
     name: "ethereum-blue",
     code: "BLUE",
-    icon: "blue",
+    icon: "noicon",
     longname: "Blue Protocol",
     description: "Blue Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethereum-blue",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-blue/"
     },
-    rank: "3273"
+    rank: "1000"
 },{
     name: "ethereum-classic",
     code: "ETC",
@@ -7569,89 +8402,98 @@ var otherCoins = [{
     longname: "Ethereum Classic",
     description: "Ethereum Classic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethereum-classic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-classic/"
     },
-    rank: "23"
+    rank: "21"
 },{
     name: "ethereum-dark",
     code: "ETHD",
-    icon: "ethd",
+    icon: "noicon",
     longname: "Ethereum Dark",
     description: "Ethereum Dark coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethereum-dark",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-dark/"
     },
-    rank: "3973"
+    rank: "1000"
 },{
     name: "ethereum-gold",
     code: "ETG",
-    icon: "etg",
+    icon: "noicon",
     longname: "Ethereum Gold",
     description: "Ethereum Gold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethereum-gold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-gold/"
     },
-    rank: "3870"
+    rank: "1000"
 },{
     name: "ethereum-meta",
     code: "ETHM",
-    icon: "ethm",
+    icon: "noicon",
     longname: "Ethereum Meta",
     description: "Ethereum Meta coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethereum-meta",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereum-meta/"
     },
-    rank: "4312"
+    rank: "1000"
 },{
     name: "ethereumcash",
     code: "ECASH",
-    icon: "ecash",
+    icon: "noicon",
     longname: "Ethereum Cash",
     description: "Ethereum Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethereumcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethereumcash/"
     },
-    rank: "3814"
+    rank: "1000"
 },{
     name: "ethergem",
     code: "EGEM",
-    icon: "egem",
+    icon: "noicon",
     longname: "EtherGem",
     description: "EtherGem coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethergem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethergem/"
     },
-    rank: "3426"
+    rank: "1000"
 },{
     name: "etherinc",
     code: "ETI",
-    icon: "eti",
+    icon: "noicon",
     longname: "EtherInc",
     description: "EtherInc coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/etherinc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etherinc/"
     },
-    rank: "4281"
+    rank: "1000"
 },{
     name: "etheriya",
     code: "RIYA",
-    icon: "riya",
+    icon: "noicon",
     longname: "Etheriya",
     description: "Etheriya coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/etheriya",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etheriya/"
     },
-    rank: "3763"
+    rank: "1000"
 },{
     name: "etheroll",
     code: "DICE",
-    icon: "dice",
+    icon: "noicon",
     longname: "Etheroll",
     description: "Etheroll coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/etheroll",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etheroll/"
     },
-    rank: "2927"
+    rank: "1000"
 },{
     name: "etherparty",
     code: "FUEL",
@@ -7659,39 +8501,54 @@ var otherCoins = [{
     longname: "Etherparty",
     description: "Etherparty coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/etherparty",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/etherparty/"
     },
-    rank: "535"
+    rank: "1000"
 },{
     name: "ethersocial",
     code: "ESN",
-    icon: "esn",
+    icon: "noicon",
     longname: "Ethersocial",
     description: "Ethersocial coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethersocial",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethersocial/"
     },
-    rank: "3069"
+    rank: "1000"
 },{
     name: "ethersportz",
     code: "ESZ",
-    icon: "esz",
+    icon: "noicon",
     longname: "EtherSportz",
     description: "EtherSportz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethersportz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethersportz/"
     },
-    rank: "3793"
+    rank: "1000"
+},{
+    name: "ethlend",
+    code: "LEND",
+    icon: "lend",
+    longname: "Aave",
+    description: "Aave coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethlend",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethlend/"
+    },
+    rank: "116"
 },{
     name: "ethorse",
     code: "HORSE",
-    icon: "horse",
+    icon: "noicon",
     longname: "Ethorse",
     description: "Ethorse coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethorse",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethorse/"
     },
-    rank: "3704"
+    rank: "1000"
 },{
     name: "ethos",
     code: "ETHOS",
@@ -7699,69 +8556,76 @@ var otherCoins = [{
     longname: "Ethos",
     description: "Ethos coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ethos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ethos/"
     },
-    rank: "493"
+    rank: "1000"
 },{
     name: "euno",
     code: "EUNO",
-    icon: "euno",
+    icon: "noicon",
     longname: "EUNO",
     description: "EUNO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/euno",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/euno/"
     },
-    rank: "3296"
+    rank: "1000"
 },{
     name: "eunomia",
     code: "ENTS",
-    icon: "ents",
+    icon: "noicon",
     longname: "EUNOMIA",
     description: "EUNOMIA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eunomia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eunomia/"
     },
-    rank: "3485"
+    rank: "1000"
 },{
     name: "eurbase",
     code: "EBASE",
-    icon: "ebase",
+    icon: "noicon",
     longname: "EURBASE",
     description: "EURBASE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eurbase",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eurbase/"
     },
-    rank: "549"
+    rank: "1000"
 },{
     name: "eurocoin",
     code: "EUC",
-    icon: "euc",
+    icon: "noicon",
     longname: "Eurocoin",
     description: "Eurocoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eurocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eurocoin/"
     },
-    rank: "4045"
+    rank: "1000"
 },{
     name: "evencoin",
     code: "EVN-1",
-    icon: "evn-1",
+    icon: "noicon",
     longname: "EvenCoin",
     description: "EvenCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/evencoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/evencoin/"
     },
-    rank: "3196"
+    rank: "1000"
 },{
     name: "eventchain",
     code: "EVC",
-    icon: "evc",
+    icon: "noicon",
     longname: "EventChain",
     description: "EventChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eventchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eventchain/"
     },
-    rank: "3259"
+    rank: "1000"
 },{
     name: "everex",
     code: "EVX",
@@ -7769,19 +8633,21 @@ var otherCoins = [{
     longname: "Everex",
     description: "Everex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/everex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/everex/"
     },
-    rank: "345"
+    rank: "1000"
 },{
     name: "evergreencoin",
     code: "EGC",
-    icon: "egc",
+    icon: "noicon",
     longname: "EverGreenCoin",
     description: "EverGreenCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/evergreencoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/evergreencoin/"
     },
-    rank: "3423"
+    rank: "1000"
 },{
     name: "everipedia",
     code: "IQ",
@@ -7789,49 +8655,54 @@ var otherCoins = [{
     longname: "Everipedia",
     description: "Everipedia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/everipedia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/everipedia/"
     },
-    rank: "288"
+    rank: "1000"
 },{
     name: "everus",
     code: "EVR",
-    icon: "evr",
+    icon: "noicon",
     longname: "Everus",
     description: "Everus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/everus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/everus/"
     },
-    rank: "363"
+    rank: "1000"
 },{
     name: "evil-coin",
     code: "EVIL",
-    icon: "evil",
+    icon: "noicon",
     longname: "Evil Coin",
     description: "Evil Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/evil-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/evil-coin/"
     },
-    rank: "3983"
+    rank: "1000"
 },{
     name: "evimeria",
     code: "EVI",
-    icon: "evi",
+    icon: "noicon",
     longname: "Evimeria",
     description: "Evimeria coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/evimeria",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/evimeria/"
     },
-    rank: "3465"
+    rank: "1000"
 },{
     name: "excaliburcoin",
     code: "EXC-1",
-    icon: "exc-1",
+    icon: "noicon",
     longname: "Excaliburcoin",
     description: "Excaliburcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/excaliburcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/excaliburcoin/"
     },
-    rank: "4354"
+    rank: "1000"
 },{
     name: "exchange-union",
     code: "XUC",
@@ -7839,39 +8710,43 @@ var otherCoins = [{
     longname: "Exchange Union",
     description: "Exchange Union coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/exchange-union",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/exchange-union/"
     },
-    rank: "4212"
+    rank: "1000"
 },{
     name: "exclusivecoin",
     code: "EXCL",
-    icon: "excl",
+    icon: "noicon",
     longname: "ExclusiveCoin",
     description: "ExclusiveCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/exclusivecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/exclusivecoin/"
     },
-    rank: "3191"
+    rank: "1000"
 },{
     name: "eximchain",
     code: "EXC",
-    icon: "exc",
+    icon: "noicon",
     longname: "Eximchain",
     description: "Eximchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eximchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eximchain/"
     },
-    rank: "2970"
+    rank: "1000"
 },{
     name: "exmr",
     code: "EXMR",
-    icon: "exmr",
+    icon: "noicon",
     longname: "EXMR",
     description: "EXMR coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/exmr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/exmr/"
     },
-    rank: "3441"
+    rank: "1000"
 },{
     name: "expanse",
     code: "EXP",
@@ -7879,9 +8754,10 @@ var otherCoins = [{
     longname: "Expanse",
     description: "Expanse coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/expanse",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/expanse/"
     },
-    rank: "3126"
+    rank: "1000"
 },{
     name: "experience-points",
     code: "XP",
@@ -7889,89 +8765,98 @@ var otherCoins = [{
     longname: "Experience Points",
     description: "Experience Points coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/experience-points",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/experience-points/"
     },
-    rank: "2907"
+    rank: "1000"
 },{
     name: "experience-token",
     code: "EXT",
-    icon: "ext",
+    icon: "noicon",
     longname: "Experience Token",
     description: "Experience Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/experience-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/experience-token/"
     },
-    rank: "4242"
+    rank: "1000"
 },{
     name: "experty",
     code: "EXY",
-    icon: "exy",
+    icon: "noicon",
     longname: "Experty",
     description: "Experty coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/experty",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/experty/"
     },
-    rank: "3079"
+    rank: "1000"
 },{
     name: "exrnchain",
     code: "EXRN",
-    icon: "exrn",
+    icon: "noicon",
     longname: "EXRNchain",
     description: "EXRNchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/exrnchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/exrnchain/"
     },
-    rank: "3066"
+    rank: "1000"
 },{
     name: "ezoow",
     code: "EZW",
-    icon: "ezw",
+    icon: "noicon",
     longname: "EZOOW",
     description: "EZOOW coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ezoow",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ezoow/"
     },
-    rank: "3730"
+    rank: "1000"
 },{
     name: "eztoken",
     code: "EZT",
-    icon: "ezt",
+    icon: "noicon",
     longname: "EZToken",
     description: "EZToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/eztoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/eztoken/"
     },
-    rank: "3458"
+    rank: "1000"
 },{
     name: "fabric-token",
     code: "FT",
-    icon: "ft",
+    icon: "noicon",
     longname: "Fabric Token",
     description: "Fabric Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fabric-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fabric-token/"
     },
-    rank: "3804"
+    rank: "1000"
 },{
     name: "fabrk",
     code: "FAB",
-    icon: "fab",
+    icon: "noicon",
     longname: "FABRK",
     description: "FABRK coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fabrk",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fabrk/"
     },
-    rank: "178"
+    rank: "1000"
 },{
     name: "faceter",
     code: "FACE",
-    icon: "face",
+    icon: "noicon",
     longname: "Faceter",
     description: "Faceter coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/faceter",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/faceter/"
     },
-    rank: "3292"
+    rank: "1000"
 },{
     name: "factom",
     code: "FCT",
@@ -7979,9 +8864,10 @@ var otherCoins = [{
     longname: "Factom",
     description: "Factom coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/factom",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/factom/"
     },
-    rank: "172"
+    rank: "155"
 },{
     name: "faircoin",
     code: "FAIR",
@@ -7989,69 +8875,76 @@ var otherCoins = [{
     longname: "FairCoin",
     description: "FairCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/faircoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/faircoin/"
     },
-    rank: "2762"
+    rank: "1000"
 },{
     name: "fairgame",
     code: "FAIR-1",
-    icon: "fair-1",
+    icon: "noicon",
     longname: "FairGame",
     description: "FairGame coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fairgame",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fairgame/"
     },
-    rank: "4161"
+    rank: "1000"
 },{
     name: "fanstime",
     code: "FTI",
-    icon: "fti",
+    icon: "noicon",
     longname: "FansTime",
     description: "FansTime coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fanstime",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fanstime/"
     },
-    rank: "2904"
+    rank: "1000"
 },{
     name: "fantasy-cash",
     code: "FANS",
-    icon: "fans",
+    icon: "noicon",
     longname: "Fantasy Cash",
     description: "Fantasy Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fantasy-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fantasy-cash/"
     },
-    rank: "3917"
+    rank: "1000"
 },{
     name: "fantasygold",
     code: "FGC",
-    icon: "fgc",
+    icon: "noicon",
     longname: "FantasyGold",
     description: "FantasyGold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fantasygold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fantasygold/"
     },
-    rank: "3784"
+    rank: "1000"
 },{
     name: "fantom",
     code: "FTM",
-    icon: "ftm",
+    icon: "noicon",
     longname: "Fantom",
     description: "Fantom coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fantom",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fantom/"
     },
-    rank: "189"
+    rank: "220"
 },{
     name: "fargocoin",
     code: "FRGC",
-    icon: "frgc",
+    icon: "noicon",
     longname: "Fargocoin",
     description: "Fargocoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fargocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fargocoin/"
     },
-    rank: "4369"
+    rank: "1000"
 },{
     name: "fatcoin",
     code: "FAT",
@@ -8059,9 +8952,10 @@ var otherCoins = [{
     longname: "Fatcoin",
     description: "Fatcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fatcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fatcoin/"
     },
-    rank: "597"
+    rank: "1000"
 },{
     name: "feathercoin",
     code: "FTC",
@@ -8069,59 +8963,65 @@ var otherCoins = [{
     longname: "Feathercoin",
     description: "Feathercoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/feathercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/feathercoin/"
     },
-    rank: "595"
+    rank: "1000"
 },{
     name: "fedoracoin",
     code: "TIPS",
-    icon: "tips",
+    icon: "noicon",
     longname: "FedoraCoin",
     description: "FedoraCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fedoracoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fedoracoin/"
     },
-    rank: "3291"
+    rank: "1000"
 },{
     name: "fetch",
     code: "FET",
-    icon: "fet",
+    icon: "noicon",
     longname: "Fetch.ai",
     description: "Fetch.ai coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fetch",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fetch/"
     },
-    rank: "179"
+    rank: "1000"
 },{
     name: "fibos",
     code: "FO",
-    icon: "fo",
+    icon: "noicon",
     longname: "FIBOS",
     description: "FIBOS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fibos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fibos/"
     },
-    rank: "270"
+    rank: "1000"
 },{
     name: "fidelium",
     code: "FID",
-    icon: "fid",
+    icon: "noicon",
     longname: "Fidelium",
     description: "Fidelium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fidelium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fidelium/"
     },
-    rank: "3647"
+    rank: "1000"
 },{
     name: "fidentiax",
     code: "FDX",
-    icon: "fdx",
+    icon: "noicon",
     longname: "FidentiaX",
     description: "FidentiaX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fidentiax",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fidentiax/"
     },
-    rank: "3666"
+    rank: "1000"
 },{
     name: "filecoin",
     code: "FIL",
@@ -8129,149 +9029,164 @@ var otherCoins = [{
     longname: "Filecoin [Futures]",
     description: "Filecoin [Futures] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/filecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/filecoin/"
     },
-    rank: "4148"
+    rank: "1000"
 },{
     name: "fintab",
     code: "FNTB",
-    icon: "fntb",
+    icon: "noicon",
     longname: "Fintab",
     description: "Fintab coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fintab",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fintab/"
     },
-    rank: "4006"
+    rank: "1000"
 },{
     name: "fintrux-network",
     code: "FTX",
-    icon: "ftx",
+    icon: "noicon",
     longname: "FintruX Network",
     description: "FintruX Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fintrux-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fintrux-network/"
     },
-    rank: "3229"
+    rank: "1000"
 },{
     name: "fire-lotto",
     code: "FLOT",
-    icon: "flot",
+    icon: "noicon",
     longname: "Fire Lotto",
     description: "Fire Lotto coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fire-lotto",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fire-lotto/"
     },
-    rank: "3353"
+    rank: "1000"
 },{
     name: "first-bitcoin",
     code: "BIT-2",
-    icon: "bit-2",
+    icon: "noicon",
     longname: "First Bitcoin",
     description: "First Bitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/first-bitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/first-bitcoin/"
     },
-    rank: "4393"
+    rank: "1000"
 },{
     name: "firstblood",
     code: "1ST",
-    icon: "1st",
+    icon: "noicon",
     longname: "FirstBlood",
     description: "FirstBlood coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/firstblood",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/firstblood/"
     },
-    rank: "302"
+    rank: "1000"
 },{
     name: "firstcoin",
     code: "FRST",
-    icon: "frst",
+    icon: "noicon",
     longname: "FirstCoin",
     description: "FirstCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/firstcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/firstcoin/"
     },
-    rank: "3791"
+    rank: "1000"
 },{
     name: "fivebalance",
     code: "FBN",
-    icon: "fbn",
+    icon: "noicon",
     longname: "Fivebalance",
     description: "Fivebalance coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fivebalance",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fivebalance/"
     },
-    rank: "3519"
+    rank: "1000"
 },{
     name: "flash",
     code: "FLASH",
-    icon: "flash",
+    icon: "noicon",
     longname: "Flash",
     description: "Flash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/flash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flash/"
     },
-    rank: "2909"
+    rank: "1000"
 },{
     name: "flaxscript",
     code: "FLAX",
-    icon: "flax",
+    icon: "noicon",
     longname: "Flaxscript",
     description: "Flaxscript coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/flaxscript",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flaxscript/"
     },
-    rank: "4052"
+    rank: "1000"
 },{
     name: "fleta",
     code: "FLETA",
-    icon: "fleta",
+    icon: "noicon",
     longname: "FLETA",
     description: "FLETA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fleta",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fleta/"
     },
-    rank: "497"
+    rank: "1000"
 },{
     name: "flexacoin",
     code: "FXC",
-    icon: "fxc",
+    icon: "noicon",
     longname: "Flexacoin",
     description: "Flexacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/flexacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flexacoin/"
     },
-    rank: "98"
+    rank: "1000"
 },{
     name: "flik",
     code: "FLIK",
-    icon: "flik",
+    icon: "noicon",
     longname: "FLiK",
     description: "FLiK coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/flik",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flik/"
     },
-    rank: "3988"
+    rank: "1000"
 },{
     name: "flip",
     code: "FLP",
-    icon: "flp",
+    icon: "noicon",
     longname: "FLIP",
     description: "FLIP coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/flip",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flip/"
     },
-    rank: "3142"
+    rank: "1000"
 },{
     name: "flixxo",
     code: "FLIXX",
-    icon: "flixx",
+    icon: "noicon",
     longname: "Flixxo",
     description: "Flixxo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/flixxo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flixxo/"
     },
-    rank: "3083"
+    rank: "1000"
 },{
     name: "flo",
     code: "FLO",
@@ -8279,79 +9194,87 @@ var otherCoins = [{
     longname: "FLO",
     description: "FLO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/flo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flo/"
     },
-    rank: "448"
+    rank: "1000"
 },{
     name: "flowchain",
     code: "FLC",
-    icon: "flc",
+    icon: "noicon",
     longname: "Flowchain",
     description: "Flowchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/flowchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flowchain/"
     },
-    rank: "2371"
+    rank: "1000"
 },{
     name: "fluz-fluz",
     code: "FLUZ",
-    icon: "fluz",
+    icon: "noicon",
     longname: "Fluz Fluz",
     description: "Fluz Fluz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fluz-fluz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fluz-fluz/"
     },
-    rank: "3676"
+    rank: "1000"
 },{
     name: "flypme",
     code: "FYP",
-    icon: "fyp",
+    icon: "noicon",
     longname: "FlypMe",
     description: "FlypMe coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/flypme",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/flypme/"
     },
-    rank: "3363"
+    rank: "1000"
 },{
     name: "fnb-protocol",
     code: "FNB",
-    icon: "fnb",
+    icon: "noicon",
     longname: "FNB Protocol",
     description: "FNB Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fnb-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fnb-protocol/"
     },
-    rank: "352"
+    rank: "1000"
 },{
     name: "fnkos",
     code: "FNKOS",
-    icon: "fnkos",
+    icon: "noicon",
     longname: "FNKOS",
     description: "FNKOS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fnkos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fnkos/"
     },
-    rank: "3644"
+    rank: "1000"
 },{
     name: "foam",
     code: "FOAM",
-    icon: "foam",
+    icon: "noicon",
     longname: "FOAM",
     description: "FOAM coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/foam",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/foam/"
     },
-    rank: "384"
+    rank: "1000"
 },{
     name: "foin",
     code: "FOIN",
-    icon: "foin",
+    icon: "noicon",
     longname: "FOIN",
     description: "FOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/foin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/foin/"
     },
-    rank: "4184"
+    rank: "1000"
 },{
     name: "foldingcoin",
     code: "FLDC",
@@ -8359,139 +9282,153 @@ var otherCoins = [{
     longname: "FoldingCoin",
     description: "FoldingCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/foldingcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/foldingcoin/"
     },
-    rank: "3165"
+    rank: "1000"
 },{
     name: "folmcoin",
     code: "FLM",
-    icon: "flm",
+    icon: "noicon",
     longname: "FolmCoin",
     description: "FolmCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/folmcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/folmcoin/"
     },
-    rank: "3975"
+    rank: "1000"
 },{
     name: "food",
     code: "FOOD",
-    icon: "food",
+    icon: "noicon",
     longname: "FoodCoin",
     description: "FoodCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/food",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/food/"
     },
-    rank: "3163"
+    rank: "1000"
 },{
     name: "force-protocol",
     code: "FOR",
-    icon: "for",
+    icon: "noicon",
     longname: "Force Protocol",
     description: "Force Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/force-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/force-protocol/"
     },
-    rank: "330"
+    rank: "1000"
 },{
     name: "forkcoin",
     code: "FORK",
-    icon: "fork",
+    icon: "noicon",
     longname: "Forkcoin",
     description: "Forkcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/forkcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/forkcoin/"
     },
-    rank: "3164"
+    rank: "1000"
 },{
     name: "formosa-financial",
     code: "FMF",
-    icon: "fmf",
+    icon: "noicon",
     longname: "Formosa Financial",
     description: "Formosa Financial coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/formosa-financial",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/formosa-financial/"
     },
-    rank: "3109"
+    rank: "1000"
 },{
     name: "fortuna",
     code: "FOTA",
-    icon: "fota",
+    icon: "noicon",
     longname: "Fortuna",
     description: "Fortuna coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fortuna",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fortuna/"
     },
-    rank: "2760"
+    rank: "1000"
 },{
     name: "fox-trading",
     code: "FOXT",
-    icon: "foxt",
+    icon: "noicon",
     longname: "Fox Trading",
     description: "Fox Trading coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fox-trading",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fox-trading/"
     },
-    rank: "3193"
+    rank: "1000"
 },{
     name: "free-coin",
     code: "FREE",
-    icon: "free",
+    icon: "noicon",
     longname: "FREE Coin",
     description: "FREE Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/free-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/free-coin/"
     },
-    rank: "2509"
+    rank: "1000"
 },{
     name: "freicoin",
     code: "FRC",
-    icon: "frc",
+    icon: "noicon",
     longname: "Freicoin",
     description: "Freicoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/freicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/freicoin/"
     },
-    rank: "3813"
+    rank: "1000"
 },{
     name: "freyrchain",
     code: "FREC",
-    icon: "frec",
+    icon: "noicon",
     longname: "Freyrchain",
     description: "Freyrchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/freyrchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/freyrchain/"
     },
-    rank: "3396"
+    rank: "1000"
 },{
     name: "friends",
     code: "FDZ",
-    icon: "fdz",
+    icon: "noicon",
     longname: "Friendz",
     description: "Friendz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/friends",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/friends/"
     },
-    rank: "3147"
+    rank: "1000"
 },{
     name: "fsbt-api-token",
     code: "FSBT",
-    icon: "fsbt",
+    icon: "noicon",
     longname: "FSBT API Token",
     description: "FSBT API Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fsbt-api-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fsbt-api-token/"
     },
-    rank: "3367"
+    rank: "1000"
 },{
     name: "ftx-token",
     code: "FTT",
-    icon: "ftt",
+    icon: "noicon",
     longname: "FTX Token",
     description: "FTX Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ftx-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ftx-token/"
     },
-    rank: "84"
+    rank: "60"
 },{
     name: "fujicoin",
     code: "FJC",
@@ -8499,49 +9436,54 @@ var otherCoins = [{
     longname: "FujiCoin",
     description: "FujiCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fujicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fujicoin/"
     },
-    rank: "3768"
+    rank: "1000"
 },{
     name: "fujinto",
     code: "NTO",
-    icon: "nto",
+    icon: "noicon",
     longname: "Fujinto",
     description: "Fujinto coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fujinto",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fujinto/"
     },
-    rank: "4097"
+    rank: "1000"
 },{
     name: "function-x",
     code: "FX",
-    icon: "fx",
+    icon: "noicon",
     longname: "Function X",
     description: "Function X coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/function-x",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/function-x/"
     },
-    rank: "263"
+    rank: "1000"
 },{
     name: "fundrequest",
     code: "FND",
-    icon: "fnd",
+    icon: "noicon",
     longname: "FundRequest",
     description: "FundRequest coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fundrequest",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fundrequest/"
     },
-    rank: "3483"
+    rank: "1000"
 },{
     name: "fundtoken",
     code: "FUNDZ",
-    icon: "fundz",
+    icon: "noicon",
     longname: "FundToken",
     description: "FundToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fundtoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fundtoken/"
     },
-    rank: "4238"
+    rank: "1000"
 },{
     name: "funfair",
     code: "FUN",
@@ -8549,9 +9491,10 @@ var otherCoins = [{
     longname: "FunFair",
     description: "FunFair coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/funfair",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/funfair/"
     },
-    rank: "183"
+    rank: "187"
 },{
     name: "fusion",
     code: "FSN",
@@ -8559,139 +9502,153 @@ var otherCoins = [{
     longname: "Fusion",
     description: "Fusion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fusion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fusion/"
     },
-    rank: "197"
+    rank: "1000"
 },{
     name: "futurax",
     code: "FTXT",
-    icon: "ftxt",
+    icon: "noicon",
     longname: "FUTURAX",
     description: "FUTURAX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/futurax",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/futurax/"
     },
-    rank: "3378"
+    rank: "1000"
 },{
     name: "future1coin",
     code: "F1C",
-    icon: "f1c",
+    icon: "noicon",
     longname: "Future1coin",
     description: "Future1coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/future1coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/future1coin/"
     },
-    rank: "4320"
+    rank: "1000"
 },{
     name: "futurepia",
     code: "PIA",
-    icon: "pia",
+    icon: "noicon",
     longname: "Futurepia",
     description: "Futurepia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/futurepia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/futurepia/"
     },
-    rank: "593"
+    rank: "1000"
 },{
     name: "futurocoin",
     code: "FTO",
-    icon: "fto",
+    icon: "noicon",
     longname: "FuturoCoin",
     description: "FuturoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/futurocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/futurocoin/"
     },
-    rank: "4192"
+    rank: "1000"
 },{
     name: "fuzex",
     code: "FXT",
-    icon: "fxt",
+    icon: "noicon",
     longname: "FuzeX",
     description: "FuzeX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fuzex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fuzex/"
     },
-    rank: "2896"
+    rank: "1000"
 },{
     name: "fuzzballs",
     code: "FUZZ",
-    icon: "fuzz",
+    icon: "noicon",
     longname: "FuzzBalls",
     description: "FuzzBalls coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/fuzzballs",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/fuzzballs/"
     },
-    rank: "4065"
+    rank: "1000"
 },{
     name: "gainer",
     code: "GNR",
-    icon: "gnr",
+    icon: "noicon",
     longname: "Gainer",
     description: "Gainer coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gainer",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gainer/"
     },
-    rank: "3729"
+    rank: "1000"
 },{
     name: "galactrum",
     code: "ORE",
-    icon: "ore",
+    icon: "noicon",
     longname: "Galactrum",
     description: "Galactrum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/galactrum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/galactrum/"
     },
-    rank: "3410"
+    rank: "1000"
 },{
     name: "gambit",
     code: "GAM",
-    icon: "gam",
+    icon: "noicon",
     longname: "Gambit",
     description: "Gambit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gambit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gambit/"
     },
-    rank: "3038"
+    rank: "1000"
 },{
     name: "gamblecoin",
     code: "GMCN",
-    icon: "gmcn",
+    icon: "noicon",
     longname: "GambleCoin",
     description: "GambleCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gamblecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gamblecoin/"
     },
-    rank: "4031"
+    rank: "1000"
 },{
     name: "game",
     code: "GTC",
-    icon: "gtc",
+    icon: "noicon",
     longname: "Game.com",
     description: "Game.com coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/game",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/game/"
     },
-    rank: "543"
+    rank: "1000"
 },{
     name: "game-stars",
     code: "GST",
-    icon: "gst",
+    icon: "noicon",
     longname: "Game Stars",
     description: "Game Stars coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/game-stars",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/game-stars/"
     },
-    rank: "4157"
+    rank: "1000"
 },{
     name: "gamechain",
     code: "GCS",
-    icon: "gcs",
+    icon: "noicon",
     longname: "GameChain System",
     description: "GameChain System coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gamechain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gamechain/"
     },
-    rank: "4341"
+    rank: "1000"
 },{
     name: "gamecredits",
     code: "GAME",
@@ -8699,29 +9656,32 @@ var otherCoins = [{
     longname: "GameCredits",
     description: "GameCredits coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gamecredits",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gamecredits/"
     },
-    rank: "2366"
+    rank: "1000"
 },{
     name: "gaps",
     code: "GAP",
-    icon: "gap",
+    icon: "noicon",
     longname: "GAPS",
     description: "GAPS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gaps",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gaps/"
     },
-    rank: "77"
+    rank: "1000"
 },{
     name: "garlicoin",
     code: "GRLC",
-    icon: "grlc",
+    icon: "noicon",
     longname: "Garlicoin",
     description: "Garlicoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/garlicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/garlicoin/"
     },
-    rank: "3994"
+    rank: "1000"
 },{
     name: "gas",
     code: "GAS",
@@ -8729,49 +9689,54 @@ var otherCoins = [{
     longname: "Gas",
     description: "Gas coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gas",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gas/"
     },
-    rank: "239"
+    rank: "154"
 },{
     name: "gatechain-token",
     code: "GT",
-    icon: "gt",
+    icon: "noicon",
     longname: "Gatechain Token",
     description: "Gatechain Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gatechain-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gatechain-token/"
     },
-    rank: "188"
+    rank: "48"
 },{
     name: "gazecoin",
     code: "GZE",
-    icon: "gze",
+    icon: "noicon",
     longname: "GazeCoin",
     description: "GazeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gazecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gazecoin/"
     },
-    rank: "4276"
+    rank: "1000"
 },{
     name: "gcn-coin",
     code: "GCN",
-    icon: "gcn",
+    icon: "noicon",
     longname: "GCN Coin",
     description: "GCN Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gcn-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gcn-coin/"
     },
-    rank: "3359"
+    rank: "1000"
 },{
     name: "geertcoin",
     code: "GEERT",
-    icon: "geert",
+    icon: "noicon",
     longname: "GeertCoin",
     description: "GeertCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/geertcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/geertcoin/"
     },
-    rank: "4119"
+    rank: "1000"
 },{
     name: "gemini-dollar",
     code: "GUSD",
@@ -8779,49 +9744,54 @@ var otherCoins = [{
     longname: "Gemini Dollar",
     description: "Gemini Dollar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gemini-dollar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gemini-dollar/"
     },
-    rank: "453"
+    rank: "247"
 },{
     name: "gems-protocol",
     code: "GEM",
-    icon: "gem",
+    icon: "noicon",
     longname: "Gems ",
     description: "Gems  coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gems-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gems-protocol/"
     },
-    rank: "3062"
+    rank: "1000"
 },{
     name: "genaro-network",
     code: "GNX",
-    icon: "gnx",
+    icon: "noicon",
     longname: "Genaro Network",
     description: "Genaro Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/genaro-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/genaro-network/"
     },
-    rank: "545"
+    rank: "1000"
 },{
     name: "gene-source-code-chain",
     code: "GENE",
-    icon: "gene",
+    icon: "noicon",
     longname: "Gene Source Code Chain",
     description: "Gene Source Code Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gene-source-code-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gene-source-code-chain/"
     },
-    rank: "2346"
+    rank: "1000"
 },{
     name: "general-attention-currency",
     code: "XAC",
-    icon: "xac",
+    icon: "noicon",
     longname: "General Attention Currency",
     description: "General Attention Currency coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/general-attention-currency",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/general-attention-currency/"
     },
-    rank: "201"
+    rank: "1000"
 },{
     name: "genesis-vision",
     code: "GVT",
@@ -8829,69 +9799,76 @@ var otherCoins = [{
     longname: "Genesis Vision",
     description: "Genesis Vision coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/genesis-vision",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/genesis-vision/"
     },
-    rank: "435"
+    rank: "1000"
 },{
     name: "genesisx",
     code: "XGS",
-    icon: "xgs",
+    icon: "noicon",
     longname: "GenesisX",
     description: "GenesisX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/genesisx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/genesisx/"
     },
-    rank: "3320"
+    rank: "1000"
 },{
     name: "gentarium",
     code: "GTM",
-    icon: "gtm",
+    icon: "noicon",
     longname: "Gentarium",
     description: "Gentarium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gentarium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gentarium/"
     },
-    rank: "3097"
+    rank: "1000"
 },{
     name: "geocoin",
     code: "GEO",
-    icon: "geo",
+    icon: "noicon",
     longname: "GeoCoin",
     description: "GeoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/geocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/geocoin/"
     },
-    rank: "3094"
+    rank: "1000"
 },{
     name: "get-protocol",
     code: "GET",
-    icon: "get",
+    icon: "noicon",
     longname: "GET Protocol",
     description: "GET Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/get-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/get-protocol/"
     },
-    rank: "479"
+    rank: "1000"
 },{
     name: "geysercoin",
     code: "GSR",
-    icon: "gsr",
+    icon: "noicon",
     longname: "GeyserCoin",
     description: "GeyserCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/geysercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/geysercoin/"
     },
-    rank: "4032"
+    rank: "1000"
 },{
     name: "giant-coin",
     code: "GIC",
-    icon: "gic",
+    icon: "noicon",
     longname: "Giant",
     description: "Giant coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/giant-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/giant-coin/"
     },
-    rank: "3309"
+    rank: "1000"
 },{
     name: "gifto",
     code: "GTO",
@@ -8899,9 +9876,10 @@ var otherCoins = [{
     longname: "Gifto",
     description: "Gifto coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gifto",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gifto/"
     },
-    rank: "336"
+    rank: "239"
 },{
     name: "gincoin",
     code: "GIN",
@@ -8909,49 +9887,54 @@ var otherCoins = [{
     longname: "GINcoin",
     description: "GINcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gincoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gincoin/"
     },
-    rank: "2724"
+    rank: "1000"
 },{
     name: "gladius-token",
     code: "GLA",
-    icon: "gla",
+    icon: "noicon",
     longname: "Gladius Token",
     description: "Gladius Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gladius-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gladius-token/"
     },
-    rank: "3418"
+    rank: "1000"
 },{
     name: "global-awards-token",
     code: "GAT",
-    icon: "gat",
+    icon: "noicon",
     longname: "Global Awards Token",
     description: "Global Awards Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/global-awards-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/global-awards-token/"
     },
-    rank: "3214"
+    rank: "1000"
 },{
     name: "global-cryptocurrency",
     code: "GCC",
-    icon: "gcc",
+    icon: "noicon",
     longname: "Global Cryptocurrency",
     description: "Global Cryptocurrency coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/global-cryptocurrency",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/global-cryptocurrency/"
     },
-    rank: "2311"
+    rank: "1000"
 },{
     name: "global-currency-reserve",
     code: "GCR",
-    icon: "gcr",
+    icon: "noicon",
     longname: "Global Currency Reserve",
     description: "Global Currency Reserve coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/global-currency-reserve",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/global-currency-reserve/"
     },
-    rank: "561"
+    rank: "1000"
 },{
     name: "global-social-chain",
     code: "GSC",
@@ -8959,59 +9942,65 @@ var otherCoins = [{
     longname: "Global Social Chain",
     description: "Global Social Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/global-social-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/global-social-chain/"
     },
-    rank: "566"
+    rank: "1000"
 },{
     name: "globalboost-y",
     code: "BSTY",
-    icon: "bsty",
+    icon: "noicon",
     longname: "GlobalBoost-Y",
     description: "GlobalBoost-Y coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/globalboost-y",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/globalboost-y/"
     },
-    rank: "3984"
+    rank: "1000"
 },{
     name: "globaltoken",
     code: "GLT",
-    icon: "glt",
+    icon: "noicon",
     longname: "GlobalToken",
     description: "GlobalToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/globaltoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/globaltoken/"
     },
-    rank: "3953"
+    rank: "1000"
 },{
     name: "globalvillage-ecosystem",
     code: "GVE",
-    icon: "gve",
+    icon: "noicon",
     longname: "Globalvillage Ecosystem",
     description: "Globalvillage Ecosystem coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/globalvillage-ecosystem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/globalvillage-ecosystem/"
     },
-    rank: "4208"
+    rank: "1000"
 },{
-    name: "gnosis-gno",
+    name: "gnosis",
     code: "GNO",
     icon: "gno",
     longname: "Gnosis",
     description: "Gnosis coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/gnosis-gno/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gnosis",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/gnosis/"
     },
-    rank: "227"
+    rank: "162"
 },{
     name: "gny",
     code: "GNY",
-    icon: "gny",
+    icon: "noicon",
     longname: "GNY",
     description: "GNY coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gny",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gny/"
     },
-    rank: "221"
+    rank: "1000"
 },{
     name: "gobyte",
     code: "GBX",
@@ -9019,239 +10008,263 @@ var otherCoins = [{
     longname: "GoByte",
     description: "GoByte coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gobyte",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gobyte/"
     },
-    rank: "3093"
+    rank: "1000"
 },{
     name: "gochain",
     code: "GO",
-    icon: "go",
+    icon: "noicon",
     longname: "GoChain",
     description: "GoChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gochain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gochain/"
     },
-    rank: "369"
+    rank: "234"
 },{
     name: "gohelpfund",
     code: "HELP",
-    icon: "help",
+    icon: "noicon",
     longname: "GoHelpFund",
     description: "GoHelpFund coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gohelpfund",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gohelpfund/"
     },
-    rank: "3463"
+    rank: "1000"
 },{
     name: "gold-bits-coin",
     code: "GBC",
-    icon: "gbc",
+    icon: "noicon",
     longname: "Gold Bits Coin",
     description: "Gold Bits Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gold-bits-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gold-bits-coin/"
     },
-    rank: "2507"
+    rank: "1000"
 },{
     name: "gold-poker",
     code: "GPKR",
-    icon: "gpkr",
+    icon: "noicon",
     longname: "Gold Poker",
     description: "Gold Poker coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gold-poker",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gold-poker/"
     },
-    rank: "3484"
+    rank: "1000"
 },{
     name: "goldblocks",
     code: "GB",
-    icon: "gb",
+    icon: "noicon",
     longname: "GoldBlocks",
     description: "GoldBlocks coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/goldblocks",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/goldblocks/"
     },
-    rank: "3918"
+    rank: "1000"
 },{
     name: "goldcoin",
     code: "GLD",
-    icon: "gld",
+    icon: "noicon",
     longname: "GoldCoin",
     description: "GoldCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/goldcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/goldcoin/"
     },
-    rank: "3177"
+    rank: "1000"
 },{
     name: "goldmint",
     code: "MNTP",
-    icon: "mntp",
+    icon: "noicon",
     longname: "GoldMint",
     description: "GoldMint coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/goldmint",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/goldmint/"
     },
-    rank: "3311"
+    rank: "1000"
 },{
-    name: "golem-network-tokens",
+    name: "golem",
     code: "GNT",
     icon: "gnt",
     longname: "Golem",
     description: "Golem coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/golem-network-tokens/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/golem",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/golem/"
     },
-    rank: "110"
+    rank: "95"
 },{
     name: "golfcoin",
     code: "GOLF",
-    icon: "golf",
+    icon: "noicon",
     longname: "Golfcoin",
     description: "Golfcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/golfcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/golfcoin/"
     },
-    rank: "3894"
+    rank: "1000"
 },{
     name: "golos",
     code: "GOLOS",
-    icon: "golos",
+    icon: "noicon",
     longname: "Golos",
     description: "Golos coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/golos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/golos/"
     },
-    rank: "3162"
+    rank: "1000"
 },{
     name: "golos-gold",
     code: "GBG",
-    icon: "gbg",
+    icon: "noicon",
     longname: "Golos Gold",
     description: "Golos Gold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/golos-gold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/golos-gold/"
     },
-    rank: "4350"
+    rank: "1000"
 },{
     name: "gonetwork",
     code: "GOT-1",
-    icon: "got-1",
+    icon: "noicon",
     longname: "GoNetwork",
     description: "GoNetwork coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gonetwork",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gonetwork/"
     },
-    rank: "3017"
+    rank: "1000"
 },{
     name: "goodomy",
     code: "GOOD",
-    icon: "good",
+    icon: "noicon",
     longname: "Goodomy",
     description: "Goodomy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/goodomy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/goodomy/"
     },
-    rank: "3689"
+    rank: "1000"
 },{
     name: "gossipcoin",
     code: "GOSS",
-    icon: "goss",
+    icon: "noicon",
     longname: "Gossipcoin",
     description: "Gossipcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gossipcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gossipcoin/"
     },
-    rank: "3591"
+    rank: "1000"
 },{
     name: "gowithmi",
     code: "GMAT",
-    icon: "gmat",
+    icon: "noicon",
     longname: "GoWithMi",
     description: "GoWithMi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gowithmi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gowithmi/"
     },
-    rank: "299"
+    rank: "207"
 },{
     name: "graft",
     code: "GRFT",
-    icon: "grft",
+    icon: "noicon",
     longname: "Graft",
     description: "Graft coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/graft",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/graft/"
     },
-    rank: "2870"
+    rank: "1000"
 },{
     name: "grandcoin",
     code: "GDC",
-    icon: "gdc",
+    icon: "noicon",
     longname: "GrandCoin",
     description: "GrandCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/grandcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/grandcoin/"
     },
-    rank: "3893"
+    rank: "1000"
 },{
     name: "graphcoin",
     code: "GRPH",
-    icon: "grph",
+    icon: "noicon",
     longname: "Graphcoin",
     description: "Graphcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/graphcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/graphcoin/"
     },
-    rank: "3898"
+    rank: "1000"
 },{
     name: "graviocoin",
     code: "GIO",
-    icon: "gio",
+    icon: "noicon",
     longname: "Graviocoin",
     description: "Graviocoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/graviocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/graviocoin/"
     },
-    rank: "4327"
+    rank: "1000"
 },{
     name: "gravity",
     code: "GZRO",
-    icon: "gzro",
+    icon: "noicon",
     longname: "Gravity",
     description: "Gravity coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gravity",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gravity/"
     },
-    rank: "3656"
+    rank: "1000"
 },{
     name: "greenmed",
     code: "GRMD",
-    icon: "grmd",
+    icon: "noicon",
     longname: "GreenMed",
     description: "GreenMed coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/greenmed",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/greenmed/"
     },
-    rank: "3571"
+    rank: "1000"
 },{
     name: "greenpower",
     code: "GRN",
-    icon: "grn",
+    icon: "noicon",
     longname: "GreenPower",
     description: "GreenPower coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/greenpower",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/greenpower/"
     },
-    rank: "262"
+    rank: "1000"
 },{
     name: "grid",
     code: "GRID",
-    icon: "grid",
+    icon: "noicon",
     longname: "Grid+",
     description: "Grid+ coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/grid",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/grid/"
     },
-    rank: "3629"
+    rank: "1000"
 },{
     name: "gridcoin",
     code: "GRC",
@@ -9259,19 +10272,21 @@ var otherCoins = [{
     longname: "GridCoin",
     description: "GridCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gridcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gridcoin/"
     },
-    rank: "2957"
+    rank: "1000"
 },{
     name: "grimcoin",
     code: "GRIM",
-    icon: "grim",
+    icon: "noicon",
     longname: "Grimcoin",
     description: "Grimcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/grimcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/grimcoin/"
     },
-    rank: "4091"
+    rank: "1000"
 },{
     name: "grin",
     code: "GRIN",
@@ -9279,9 +10294,10 @@ var otherCoins = [{
     longname: "Grin",
     description: "Grin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/grin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/grin/"
     },
-    rank: "124"
+    rank: "132"
 },{
     name: "groestlcoin",
     code: "GRS",
@@ -9289,59 +10305,65 @@ var otherCoins = [{
     longname: "Groestlcoin",
     description: "Groestlcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/groestlcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/groestlcoin/"
     },
-    rank: "235"
+    rank: "179"
 },{
     name: "growers-international",
     code: "GRWI",
-    icon: "grwi",
+    icon: "noicon",
     longname: "Growers International",
     description: "Growers International coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/growers-international",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/growers-international/"
     },
-    rank: "3915"
+    rank: "1000"
 },{
     name: "gsenetwork",
     code: "GSE",
-    icon: "gse",
+    icon: "noicon",
     longname: "GSENetwork",
     description: "GSENetwork coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gsenetwork",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gsenetwork/"
     },
-    rank: "4241"
+    rank: "1000"
 },{
     name: "guaranteed-ethurance-token-extra",
     code: "GETX",
-    icon: "getx",
+    icon: "noicon",
     longname: "Guaranteed Ethurance Token Extra",
     description: "Guaranteed Ethurance Token Extra coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/guaranteed-ethurance-token-extra",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/guaranteed-ethurance-token-extra/"
     },
-    rank: "3379"
+    rank: "1000"
 },{
     name: "guccionecoin",
     code: "GCC-1",
-    icon: "gcc-1",
+    icon: "noicon",
     longname: "GuccioneCoin",
     description: "GuccioneCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/guccionecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/guccionecoin/"
     },
-    rank: "3967"
+    rank: "1000"
 },{
     name: "guess",
     code: "GUESS",
-    icon: "guess",
+    icon: "noicon",
     longname: "Peerguess",
     description: "Peerguess coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/guess",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/guess/"
     },
-    rank: "3581"
+    rank: "1000"
 },{
     name: "gulden",
     code: "NLG",
@@ -9349,9 +10371,10 @@ var otherCoins = [{
     longname: "Gulden",
     description: "Gulden coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gulden",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gulden/"
     },
-    rank: "500"
+    rank: "1000"
 },{
     name: "guppy",
     code: "GUP",
@@ -9359,19 +10382,21 @@ var otherCoins = [{
     longname: "Matchpool",
     description: "Matchpool coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/guppy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/guppy/"
     },
-    rank: "3076"
+    rank: "1000"
 },{
     name: "gxchain",
     code: "GXC",
-    icon: "gxc",
+    icon: "noicon",
     longname: "GXChain",
     description: "GXChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gxchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gxchain/"
     },
-    rank: "128"
+    rank: "114"
 },{
     name: "gxchain",
     code: "GXS",
@@ -9379,339 +10404,395 @@ var otherCoins = [{
     longname: "GXChain",
     description: "GXChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/gxchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/gxchain/"
     },
-    rank: "2489"
+    rank: "1000"
 },{
     name: "hacken",
     code: "HKN",
-    icon: "hkn",
+    icon: "noicon",
     longname: "Hacken",
     description: "Hacken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hacken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hacken/"
     },
-    rank: "3041"
+    rank: "1000"
 },{
     name: "hackspace-capital",
     code: "HAC",
-    icon: "hac",
+    icon: "noicon",
     longname: "Hackspace Capital",
     description: "Hackspace Capital coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hackspace-capital",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hackspace-capital/"
     },
-    rank: "3760"
+    rank: "1000"
 },{
     name: "halcyon",
     code: "HAL",
-    icon: "hal",
+    icon: "noicon",
     longname: "Halcyon",
     description: "Halcyon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/halcyon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/halcyon/"
     },
-    rank: "3912"
+    rank: "1000"
 },{
     name: "halloween-coin",
     code: "HALLO",
-    icon: "hallo",
+    icon: "noicon",
     longname: "Halloween Coin",
     description: "Halloween Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/halloween-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/halloween-coin/"
     },
-    rank: "4390"
+    rank: "1000"
 },{
     name: "halo-platform",
     code: "HALO",
-    icon: "halo",
+    icon: "noicon",
     longname: "Halo Platform",
     description: "Halo Platform coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/halo-platform",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/halo-platform/"
     },
-    rank: "488"
+    rank: "1000"
+},{
+    name: "handshake",
+    code: "HNS",
+    icon: "noicon",
+    longname: "Handshake",
+    description: "Handshake coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/handshake",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/handshake/"
+    },
+    rank: "89"
 },{
     name: "happycoin",
     code: "HPC",
-    icon: "hpc",
+    icon: "noicon",
     longname: "Happycoin",
     description: "Happycoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/happycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/happycoin/"
     },
-    rank: "2768"
+    rank: "1000"
 },{
     name: "haracoin",
     code: "HRC",
-    icon: "hrc",
+    icon: "noicon",
     longname: "Haracoin",
     description: "Haracoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/haracoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/haracoin/"
     },
-    rank: "4329"
+    rank: "1000"
 },{
     name: "harmony",
     code: "ONE",
-    icon: "one",
+    icon: "noicon",
     longname: "Harmony",
     description: "Harmony coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/harmony",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/harmony/"
     },
-    rank: "246"
+    rank: "171"
 },{
     name: "harmonycoin-hmc",
     code: "HMC-1",
-    icon: "hmc-1",
+    icon: "noicon",
     longname: "HarmonyCoin",
     description: "HarmonyCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/harmonycoin-hmc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/harmonycoin-hmc/"
     },
-    rank: "4135"
+    rank: "1000"
 },{
     name: "harvest-masternode-coin",
     code: "HC-1",
-    icon: "hc-1",
+    icon: "noicon",
     longname: "Harvest Masternode Coin",
     description: "Harvest Masternode Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/harvest-masternode-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/harvest-masternode-coin/"
     },
-    rank: "4019"
+    rank: "1000"
 },{
     name: "hashcoin",
     code: "HSC",
-    icon: "hsc",
+    icon: "noicon",
     longname: "HashCoin",
     description: "HashCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hashcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hashcoin/"
     },
-    rank: "3005"
+    rank: "1000"
 },{
     name: "hashgard",
     code: "GARD",
-    icon: "gard",
+    icon: "noicon",
     longname: "Hashgard",
     description: "Hashgard coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hashgard",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hashgard/"
     },
-    rank: "582"
+    rank: "1000"
 },{
     name: "hashsbx",
     code: "HBX",
-    icon: "hbx",
+    icon: "noicon",
     longname: "HashBX ",
     description: "HashBX  coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hashsbx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hashsbx/"
     },
-    rank: "580"
+    rank: "1000"
 },{
     name: "haven-protocol",
     code: "XHV",
-    icon: "xhv",
+    icon: "noicon",
     longname: "Haven Protocol",
     description: "Haven Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/haven-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/haven-protocol/"
     },
-    rank: "2752"
+    rank: "1000"
+},{
+    name: "havven",
+    code: "SNX",
+    icon: "noicon",
+    longname: "Synthetix Network Token",
+    description: "Synthetix Network Token coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/havven",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/havven/"
+    },
+    rank: "62"
 },{
     name: "havven",
     code: "HAV",
-    icon: "hav",
+    icon: "noicon",
     longname: "Havven",
     description: "Havven coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/havven",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/havven/"
     },
-    rank: "2885"
+    rank: "1000"
 },{
     name: "havy",
     code: "HAVY",
-    icon: "havy",
+    icon: "noicon",
     longname: "Havy",
     description: "Havy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/havy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/havy/"
     },
-    rank: "3594"
+    rank: "1000"
 },{
     name: "hdac",
     code: "HDAC",
-    icon: "hdac",
+    icon: "noicon",
     longname: "Hdac",
     description: "Hdac coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hdac",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hdac/"
     },
-    rank: "4233"
+    rank: "1000"
 },{
     name: "heartbout",
     code: "HB",
-    icon: "hb",
+    icon: "noicon",
     longname: "HeartBout",
     description: "HeartBout coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/heartbout",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/heartbout/"
     },
-    rank: "3285"
+    rank: "1000"
 },{
     name: "heat-ledger",
     code: "HEAT",
-    icon: "heat",
+    icon: "noicon",
     longname: "HEAT",
     description: "HEAT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/heat-ledger",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/heat-ledger/"
     },
-    rank: "3662"
+    rank: "1000"
 },{
     name: "hedera-hashgraph",
     code: "HBAR",
-    icon: "hbar",
+    icon: "noicon",
     longname: "Hedera Hashgraph",
     description: "Hedera Hashgraph coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hedera-hashgraph",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hedera-hashgraph/"
-    },
-    rank: "190"
-},{
-    name: "hedgetrade",
-    code: "HEDG",
-    icon: "hedg",
-    longname: "HedgeTrade",
-    description: "HedgeTrade coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/hedgetrade/"
     },
     rank: "40"
 },{
+    name: "hedgetrade",
+    code: "HEDG",
+    icon: "noicon",
+    longname: "HedgeTrade",
+    description: "HedgeTrade coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hedgetrade",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/hedgetrade/"
+    },
+    rank: "1000"
+},{
     name: "helbiz",
     code: "HBZ",
-    icon: "hbz",
+    icon: "noicon",
     longname: "Helbiz",
     description: "Helbiz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/helbiz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/helbiz/"
     },
-    rank: "3277"
+    rank: "1000"
 },{
     name: "helium",
     code: "HLM",
-    icon: "hlm",
+    icon: "noicon",
     longname: "Helium",
     description: "Helium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/helium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/helium/"
     },
-    rank: "3091"
+    rank: "1000"
 },{
     name: "helleniccoin",
     code: "HNC",
-    icon: "hnc",
+    icon: "noicon",
     longname: "Helleniccoin",
     description: "Helleniccoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/helleniccoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/helleniccoin/"
     },
-    rank: "3761"
+    rank: "1000"
 },{
     name: "hellogold",
     code: "HGT",
-    icon: "hgt",
+    icon: "noicon",
     longname: "HelloGold",
     description: "HelloGold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hellogold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hellogold/"
     },
-    rank: "3681"
+    rank: "1000"
 },{
     name: "help-the-homeless-coin",
     code: "HTH",
-    icon: "hth",
+    icon: "noicon",
     longname: "Help The Homeless Coin",
     description: "Help The Homeless Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/help-the-homeless-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/help-the-homeless-coin/"
     },
-    rank: "3956"
+    rank: "1000"
 },{
     name: "helper-search-token",
     code: "HSN",
-    icon: "hsn",
+    icon: "noicon",
     longname: "Helper Search Token",
     description: "Helper Search Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/helper-search-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/helper-search-token/"
     },
-    rank: "4366"
+    rank: "1000"
 },{
     name: "hempcoin",
     code: "THC",
-    icon: "thc",
+    icon: "noicon",
     longname: "HempCoin",
     description: "HempCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hempcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hempcoin/"
     },
-    rank: "2934"
+    rank: "1000"
 },{
     name: "herocoin",
     code: "PLAY",
-    icon: "play",
+    icon: "noicon",
     longname: "HEROcoin",
     description: "HEROcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/herocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/herocoin/"
     },
-    rank: "3275"
+    rank: "1000"
 },{
     name: "heronode",
     code: "HER",
-    icon: "her",
+    icon: "noicon",
     longname: "HeroNode",
     description: "HeroNode coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/heronode",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/heronode/"
     },
-    rank: "3183"
+    rank: "1000"
 },{
     name: "hexx",
     code: "HXX",
-    icon: "hxx",
+    icon: "noicon",
     longname: "Hexx",
     description: "Hexx coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hexx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hexx/"
     },
-    rank: "3247"
+    rank: "1000"
 },{
     name: "hi-mutual-society",
     code: "HMC",
-    icon: "hmc",
+    icon: "noicon",
     longname: "Hi Mutual Society",
     description: "Hi Mutual Society coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hi-mutual-society",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hi-mutual-society/"
     },
-    rank: "481"
+    rank: "1000"
 },{
     name: "hicoin",
     code: "XHI",
-    icon: "xhi",
+    icon: "noicon",
     longname: "HiCoin",
     description: "HiCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hicoin/"
     },
-    rank: "3200"
+    rank: "1000"
 },{
     name: "high-performance-blockchain",
     code: "HPB",
@@ -9719,49 +10800,65 @@ var otherCoins = [{
     longname: "High Performance Blockchain",
     description: "High Performance Blockchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/high-performance-blockchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/high-performance-blockchain/"
     },
-    rank: "427"
+    rank: "1000"
 },{
     name: "high-voltage",
     code: "HVCO",
-    icon: "hvco",
+    icon: "noicon",
     longname: "High Voltage",
     description: "High Voltage coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/high-voltage",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/high-voltage/"
     },
-    rank: "4049"
+    rank: "1000"
 },{
     name: "hirematch",
     code: "HIRE",
-    icon: "hire",
+    icon: "noicon",
     longname: "HireMatch",
     description: "HireMatch coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hirematch",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hirematch/"
     },
-    rank: "3780"
+    rank: "1000"
 },{
     name: "hitchain",
     code: "HIT",
-    icon: "hit",
+    icon: "noicon",
     longname: "HitChain",
     description: "HitChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hitchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hitchain/"
     },
-    rank: "4164"
+    rank: "1000"
+},{
+    name: "hive",
+    code: "HIVE",
+    icon: "noicon",
+    longname: "Hive",
+    description: "Hive coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hive",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/hive/"
+    },
+    rank: "96"
 },{
     name: "hiveterminal-token",
     code: "HVN",
-    icon: "hvn",
+    icon: "noicon",
     longname: "Hiveterminal Token",
     description: "Hiveterminal Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hiveterminal-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hiveterminal-token/"
     },
-    rank: "2863"
+    rank: "1000"
 },{
     name: "hodlcoin",
     code: "HODL",
@@ -9769,89 +10866,120 @@ var otherCoins = [{
     longname: "HOdlcoin",
     description: "HOdlcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hodlcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hodlcoin/"
     },
-    rank: "3831"
+    rank: "1000"
 },{
     name: "hold",
     code: "HOLD",
-    icon: "hold",
+    icon: "noicon",
     longname: "HOLD",
     description: "HOLD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hold/"
     },
-    rank: "3281"
+    rank: "1000"
 },{
     name: "hollywoodcoin",
     code: "HWC",
-    icon: "hwc",
+    icon: "noicon",
     longname: "HollyWoodCoin",
     description: "HollyWoodCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hollywoodcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hollywoodcoin/"
     },
-    rank: "2980"
+    rank: "1000"
+},{
+    name: "holotoken",
+    code: "HOT",
+    icon: "hot",
+    longname: "Holo",
+    description: "Holo coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/holotoken",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/holotoken/"
+    },
+    rank: "67"
 },{
     name: "homeblockcoin",
     code: "HBC",
-    icon: "hbc",
+    icon: "noicon",
     longname: "HomeBlockCoin",
     description: "HomeBlockCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/homeblockcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/homeblockcoin/"
     },
-    rank: "4036"
+    rank: "1000"
 },{
     name: "hondaiscoin",
     code: "HNDC",
-    icon: "hndc",
+    icon: "noicon",
     longname: "HondaisCoin",
     description: "HondaisCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hondaiscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hondaiscoin/"
     },
-    rank: "4357"
+    rank: "1000"
 },{
     name: "honey",
     code: "HONEY",
-    icon: "honey",
+    icon: "noicon",
     longname: "Honey",
     description: "Honey coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/honey",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/honey/"
     },
-    rank: "3933"
+    rank: "1000"
 },{
     name: "hoqu",
     code: "HQX",
-    icon: "hqx",
+    icon: "noicon",
     longname: "HOQU",
     description: "HOQU coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hoqu",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hoqu/"
     },
-    rank: "3185"
+    rank: "1000"
 },{
     name: "horuspay",
     code: "HORUS",
-    icon: "horus",
+    icon: "noicon",
     longname: "HorusPay",
     description: "HorusPay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/horuspay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/horuspay/"
     },
-    rank: "2745"
+    rank: "1000"
 },{
     name: "howdoo",
     code: "UDOO",
-    icon: "udoo",
+    icon: "noicon",
     longname: "Howdoo",
     description: "Howdoo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/howdoo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/howdoo/"
     },
-    rank: "2963"
+    rank: "1000"
+},{
+    name: "hshare",
+    code: "HC",
+    icon: "noicon",
+    longname: "HyperCash",
+    description: "HyperCash coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hshare",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/hshare/"
+    },
+    rank: "79"
 },{
     name: "html-coin",
     code: "HTML",
@@ -9859,39 +10987,43 @@ var otherCoins = [{
     longname: "HTMLCOIN",
     description: "HTMLCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/html-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/html-coin/"
     },
-    rank: "2844"
+    rank: "1000"
 },{
     name: "hubii-network",
     code: "HBT",
-    icon: "hbt",
+    icon: "noicon",
     longname: "Hubii Network",
     description: "Hubii Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hubii-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hubii-network/"
     },
-    rank: "581"
+    rank: "1000"
 },{
     name: "humaniq",
     code: "HMQ",
-    icon: "hmq",
+    icon: "noicon",
     longname: "Humaniq",
     description: "Humaniq coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/humaniq",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/humaniq/"
     },
-    rank: "3007"
+    rank: "1000"
 },{
     name: "humanscape",
     code: "HUM",
-    icon: "hum",
+    icon: "noicon",
     longname: "Humanscape",
     description: "Humanscape coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/humanscape",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/humanscape/"
     },
-    rank: "459"
+    rank: "1000"
 },{
     name: "huntercoin",
     code: "HUC",
@@ -9899,19 +11031,21 @@ var otherCoins = [{
     longname: "HunterCoin",
     description: "HunterCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/huntercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/huntercoin/"
     },
-    rank: "3386"
+    rank: "1000"
 },{
     name: "huobi-pool-token",
     code: "HPT",
-    icon: "hpt",
+    icon: "noicon",
     longname: "Huobi Pool Token",
     description: "Huobi Pool Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/huobi-pool-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/huobi-pool-token/"
     },
-    rank: "126"
+    rank: "1000"
 },{
     name: "huobi-token",
     code: "HT",
@@ -9919,19 +11053,21 @@ var otherCoins = [{
     longname: "Huobi Token",
     description: "Huobi Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/huobi-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/huobi-token/"
     },
     rank: "16"
 },{
     name: "hurify",
     code: "HUR",
-    icon: "hur",
+    icon: "noicon",
     longname: "Hurify",
     description: "Hurify coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hurify",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hurify/"
     },
-    rank: "3436"
+    rank: "1000"
 },{
     name: "hush",
     code: "HUSH",
@@ -9939,169 +11075,175 @@ var otherCoins = [{
     longname: "Hush",
     description: "Hush coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hush",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hush/"
     },
-    rank: "3716"
+    rank: "1000"
 },{
     name: "huzu",
     code: "HUZU",
-    icon: "huzu",
+    icon: "noicon",
     longname: "HUZU",
     description: "HUZU coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/huzu",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/huzu/"
     },
-    rank: "3486"
+    rank: "1000"
+},{
+    name: "hxro",
+    code: "HXRO",
+    icon: "noicon",
+    longname: "Hxro",
+    description: "Hxro coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hxro",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/hxro/"
+    },
+    rank: "177"
 },{
     name: "hybrid-block",
     code: "HYB",
-    icon: "hyb",
+    icon: "noicon",
     longname: "Hybrid Block",
     description: "Hybrid Block coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hybrid-block",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hybrid-block/"
     },
-    rank: "4293"
+    rank: "1000"
 },{
     name: "hycon",
     code: "HYC",
-    icon: "hyc",
+    icon: "noicon",
     longname: "HYCON",
     description: "HYCON coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hycon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hycon/"
     },
-    rank: "296"
+    rank: "1000"
 },{
     name: "hydro-protocol",
     code: "HOT-1",
-    icon: "hot-1",
+    icon: "noicon",
     longname: "Hydro Protocol",
     description: "Hydro Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hydro-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hydro-protocol/"
     },
-    rank: "2952"
-},{
-    name: "hydro-protocol",
-    code: "HOT",
-    icon: "hot",
-    longname: "Hydro Protocol",
-    description: "Hydro Protocol coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/hydro-protocol/"
-    },
-    rank: "548"
+    rank: "1000"
 },{
     name: "hydrogen",
     code: "HYDRO",
-    icon: "hydro",
+    icon: "noicon",
     longname: "Hydro",
     description: "Hydro coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hydrogen",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hydrogen/"
     },
-    rank: "372"
-},{
-    name: "hypercash",
-    code: "HC",
-    icon: "hc",
-    longname: "HyperCash",
-    description: "HyperCash coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/hypercash/"
-    },
-    rank: "73"
+    rank: "1000"
 },{
     name: "hyperion",
     code: "HYN",
-    icon: "hyn",
+    icon: "noicon",
     longname: "Hyperion",
     description: "Hyperion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hyperion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hyperion/"
     },
-    rank: "191"
+    rank: "156"
 },{
     name: "hyperquant",
     code: "HQT",
-    icon: "hqt",
+    icon: "noicon",
     longname: "HyperQuant",
     description: "HyperQuant coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hyperquant",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hyperquant/"
     },
-    rank: "4159"
+    rank: "1000"
 },{
     name: "hyperstake",
     code: "HYP",
-    icon: "hyp",
+    icon: "noicon",
     longname: "HyperStake",
     description: "HyperStake coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/hyperstake",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/hyperstake/"
     },
-    rank: "3731"
+    rank: "1000"
 },{
     name: "i0coin",
     code: "I0C",
-    icon: "i0c",
+    icon: "noicon",
     longname: "I0Coin",
     description: "I0Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/i0coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/i0coin/"
     },
-    rank: "3711"
+    rank: "1000"
 },{
     name: "ibank",
     code: "IBANK",
-    icon: "ibank",
+    icon: "noicon",
     longname: "iBank",
     description: "iBank coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ibank",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ibank/"
     },
-    rank: "4083"
+    rank: "1000"
 },{
     name: "ibtc",
     code: "IBTC",
-    icon: "ibtc",
+    icon: "noicon",
     longname: "iBTC",
     description: "iBTC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ibtc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ibtc/"
     },
-    rank: "3946"
+    rank: "1000"
 },{
     name: "ice-rock-mining",
     code: "ROCK2",
-    icon: "rock2",
+    icon: "noicon",
     longname: "ICE ROCK MINING",
     description: "ICE ROCK MINING coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ice-rock-mining",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ice-rock-mining/"
     },
-    rank: "2849"
+    rank: "1000"
 },{
     name: "ico-openledger",
     code: "ICOO",
-    icon: "icoo",
+    icon: "noicon",
     longname: "ICO OpenLedger",
     description: "ICO OpenLedger coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ico-openledger",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ico-openledger/"
     },
-    rank: "3942"
+    rank: "1000"
 },{
     name: "icobid",
     code: "ICOB",
-    icon: "icob",
+    icon: "noicon",
     longname: "ICOBID",
     description: "ICOBID coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/icobid",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/icobid/"
     },
-    rank: "4079"
+    rank: "1000"
 },{
     name: "icon",
     code: "ICX",
@@ -10109,29 +11251,32 @@ var otherCoins = [{
     longname: "ICON",
     description: "ICON coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/icon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/icon/"
     },
-    rank: "74"
+    rank: "39"
 },{
     name: "iconic",
     code: "ICON",
-    icon: "icon",
+    icon: "noicon",
     longname: "Iconic",
     description: "Iconic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iconic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iconic/"
     },
-    rank: "4077"
+    rank: "1000"
 },{
     name: "iconiq-lab-token",
     code: "ICNQ",
-    icon: "icnq",
+    icon: "noicon",
     longname: "Iconiq Lab Token",
     description: "Iconiq Lab Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iconiq-lab-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iconiq-lab-token/"
     },
-    rank: "4256"
+    rank: "1000"
 },{
     name: "iconomi",
     code: "ICN",
@@ -10139,69 +11284,76 @@ var otherCoins = [{
     longname: "Iconomi",
     description: "Iconomi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iconomi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iconomi/"
     },
-    rank: "2563"
+    rank: "1000"
 },{
     name: "idealcash",
     code: "DEAL",
-    icon: "deal",
+    icon: "noicon",
     longname: "iDealCash",
     description: "iDealCash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/idealcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/idealcash/"
     },
-    rank: "3851"
-},{
-    name: "idex",
-    code: "IDEX",
-    icon: "idex",
-    longname: "IDEX",
-    description: "IDEX coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/idex/"
-    },
-    rank: "420"
+    rank: "1000"
 },{
     name: "idex-membership",
     code: "IDXM",
-    icon: "idxm",
+    icon: "noicon",
     longname: "IDEX Membership",
     description: "IDEX Membership coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/idex-membership",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/idex-membership/"
     },
-    rank: "3307"
+    rank: "1000"
 },{
     name: "idol-coin",
     code: "IDOL",
-    icon: "idol",
+    icon: "noicon",
     longname: "IDOL COIN",
     description: "IDOL COIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/idol-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/idol-coin/"
     },
-    rank: "4365"
+    rank: "1000"
 },{
     name: "iethereum",
     code: "IETH",
-    icon: "ieth",
+    icon: "noicon",
     longname: "iEthereum",
     description: "iEthereum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iethereum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iethereum/"
     },
-    rank: "3724"
+    rank: "1000"
+},{
+    name: "iexec-rlc",
+    code: "RLC",
+    icon: "rlc",
+    longname: "iExec RLC",
+    description: "iExec RLC coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iexec-rlc",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/iexec-rlc/"
+    },
+    rank: "121"
 },{
     name: "ifoods-chain",
     code: "IFOOD",
-    icon: "ifood",
+    icon: "noicon",
     longname: "Ifoods Chain",
     description: "Ifoods Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ifoods-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ifoods-chain/"
     },
-    rank: "3048"
+    rank: "1000"
 },{
     name: "ignis",
     code: "IGNIS",
@@ -10209,189 +11361,208 @@ var otherCoins = [{
     longname: "Ignis",
     description: "Ignis coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ignis",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ignis/"
     },
-    rank: "168"
+    rank: "166"
 },{
     name: "ignition",
     code: "IC",
-    icon: "ic",
+    icon: "noicon",
     longname: "Ignition",
     description: "Ignition coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ignition",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ignition/"
     },
-    rank: "3829"
+    rank: "1000"
 },{
     name: "igtoken",
     code: "IG",
-    icon: "ig",
+    icon: "noicon",
     longname: "IGToken",
     description: "IGToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/igtoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/igtoken/"
     },
-    rank: "3517"
+    rank: "1000"
 },{
     name: "iht-real-estate-protocol",
     code: "IHT",
-    icon: "iht",
+    icon: "noicon",
     longname: "IHT Real Estate Protocol",
     description: "IHT Real Estate Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iht-real-estate-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iht-real-estate-protocol/"
     },
-    rank: "2388"
+    rank: "1000"
 },{
     name: "ilcoin",
     code: "ILC",
-    icon: "ilc",
+    icon: "noicon",
     longname: "ILCoin",
     description: "ILCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ilcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ilcoin/"
     },
-    rank: "121"
+    rank: "1000"
 },{
     name: "imagecoin",
     code: "IMG",
-    icon: "img",
+    icon: "noicon",
     longname: "ImageCoin",
     description: "ImageCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/imagecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/imagecoin/"
     },
-    rank: "2319"
+    rank: "1000"
 },{
     name: "imbrex",
     code: "REX",
-    icon: "rex",
+    icon: "noicon",
     longname: "imbrex",
     description: "imbrex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/imbrex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/imbrex/"
     },
-    rank: "3720"
+    rank: "1000"
 },{
     name: "impact",
     code: "IMX",
-    icon: "imx",
+    icon: "noicon",
     longname: "Impact",
     description: "Impact coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/impact",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/impact/"
     },
-    rank: "3947"
+    rank: "1000"
 },{
     name: "incakoin",
     code: "NKA",
-    icon: "nka",
+    icon: "noicon",
     longname: "IncaKoin",
     description: "IncaKoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/incakoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/incakoin/"
     },
-    rank: "3759"
+    rank: "1000"
 },{
     name: "incent",
     code: "INCNT",
-    icon: "incnt",
+    icon: "noicon",
     longname: "Incent",
     description: "Incent coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/incent",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/incent/"
     },
-    rank: "374"
+    rank: "1000"
 },{
     name: "incodium",
     code: "INCO",
-    icon: "inco",
+    icon: "noicon",
     longname: "Incodium",
     description: "Incodium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/incodium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/incodium/"
     },
-    rank: "4295"
+    rank: "1000"
 },{
     name: "indahash",
     code: "IDH",
-    icon: "idh",
+    icon: "noicon",
     longname: "indaHash",
     description: "indaHash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/indahash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/indahash/"
     },
-    rank: "2333"
+    rank: "1000"
 },{
     name: "independent-money-system",
     code: "IMS",
-    icon: "ims",
+    icon: "noicon",
     longname: "Independent Money System",
     description: "Independent Money System coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/independent-money-system",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/independent-money-system/"
     },
-    rank: "4042"
+    rank: "1000"
 },{
     name: "indinode",
     code: "XIND",
-    icon: "xind",
+    icon: "noicon",
     longname: "INDINODE",
     description: "INDINODE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/indinode",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/indinode/"
     },
-    rank: "4011"
+    rank: "1000"
 },{
     name: "indorse-token",
     code: "IND",
-    icon: "ind",
+    icon: "noicon",
     longname: "Indorse Token",
     description: "Indorse Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/indorse-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/indorse-token/"
     },
-    rank: "3349"
+    rank: "1000"
 },{
     name: "infinitecoin",
     code: "IFC",
-    icon: "ifc",
+    icon: "noicon",
     longname: "Infinitecoin",
     description: "Infinitecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/infinitecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/infinitecoin/"
     },
-    rank: "4244"
+    rank: "1000"
 },{
     name: "infinity-economics",
     code: "XIN-1",
-    icon: "xin-1",
+    icon: "noicon",
     longname: "Infinity Economics",
     description: "Infinity Economics coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/infinity-economics",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/infinity-economics/"
     },
-    rank: "4139"
+    rank: "1000"
 },{
     name: "inflationcoin",
     code: "IFLT",
-    icon: "iflt",
+    icon: "noicon",
     longname: "InflationCoin",
     description: "InflationCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/inflationcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/inflationcoin/"
     },
-    rank: "3522"
+    rank: "1000"
 },{
     name: "influence-chain",
     code: "INC",
-    icon: "inc",
+    icon: "noicon",
     longname: "Influence Chain",
     description: "Influence Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/influence-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/influence-chain/"
     },
-    rank: "4202"
+    rank: "1000"
 },{
     name: "ink",
     code: "INK",
@@ -10399,19 +11570,21 @@ var otherCoins = [{
     longname: "Ink",
     description: "Ink coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ink",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ink/"
     },
-    rank: "2884"
+    rank: "1000"
 },{
     name: "ink-protocol",
     code: "XNK",
-    icon: "xnk",
+    icon: "noicon",
     longname: "Ink Protocol",
     description: "Ink Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ink-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ink-protocol/"
     },
-    rank: "3054"
+    rank: "1000"
 },{
     name: "inlock",
     code: "ILK",
@@ -10419,59 +11592,65 @@ var otherCoins = [{
     longname: "INLOCK",
     description: "INLOCK coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/inlock",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/inlock/"
     },
-    rank: "544"
+    rank: "1000"
 },{
     name: "innova",
     code: "INN",
-    icon: "inn",
+    icon: "noicon",
     longname: "Innova",
     description: "Innova coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/innova",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/innova/"
     },
-    rank: "3792"
+    rank: "1000"
 },{
     name: "ino-coin",
     code: "INO",
-    icon: "ino",
+    icon: "noicon",
     longname: "INO COIN",
     description: "INO COIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ino-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ino-coin/"
     },
-    rank: "27"
+    rank: "1000"
 },{
     name: "insanecoin-insn",
     code: "INSN",
-    icon: "insn",
+    icon: "noicon",
     longname: "InsaneCoin",
     description: "InsaneCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/insanecoin-insn",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insanecoin-insn/"
     },
-    rank: "3557"
+    rank: "1000"
 },{
     name: "insight-chain",
     code: "INB",
-    icon: "inb",
+    icon: "noicon",
     longname: "Insight Chain",
     description: "Insight Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/insight-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insight-chain/"
     },
-    rank: "36"
+    rank: "1000"
 },{
     name: "insights-network",
     code: "INSTAR",
-    icon: "instar",
+    icon: "noicon",
     longname: "Insights Network",
     description: "Insights Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/insights-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insights-network/"
     },
-    rank: "2312"
+    rank: "1000"
 },{
     name: "insolar",
     code: "INS",
@@ -10479,99 +11658,109 @@ var otherCoins = [{
     longname: "Insolar",
     description: "Insolar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/insolar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insolar/"
     },
-    rank: "394"
+    rank: "1000"
 },{
     name: "insurchain",
     code: "INSUR",
-    icon: "insur",
+    icon: "noicon",
     longname: "InsurChain",
     description: "InsurChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/insurchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insurchain/"
     },
-    rank: "4189"
+    rank: "1000"
 },{
     name: "insurepal",
     code: "IPL",
-    icon: "ipl",
+    icon: "noicon",
     longname: "VouchForMe",
     description: "VouchForMe coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/insurepal",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insurepal/"
     },
-    rank: "3180"
+    rank: "1000"
 },{
     name: "insureum",
     code: "ISR",
-    icon: "isr",
+    icon: "noicon",
     longname: "Insureum",
     description: "Insureum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/insureum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/insureum/"
     },
-    rank: "2895"
+    rank: "1000"
 },{
     name: "int-chain",
     code: "INT",
-    icon: "int",
+    icon: "noicon",
     longname: "INT Chain",
     description: "INT Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/int-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/int-chain/"
     },
-    rank: "326"
+    rank: "1000"
 },{
     name: "intelligent-investment-chain",
     code: "IIC",
-    icon: "iic",
+    icon: "noicon",
     longname: "Intelligent Investment Chain",
     description: "Intelligent Investment Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/intelligent-investment-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intelligent-investment-chain/"
     },
-    rank: "4190"
+    rank: "1000"
 },{
     name: "intelligent-trading-foundation",
     code: "ITT",
-    icon: "itt",
+    icon: "noicon",
     longname: "Intelligent Trading Foundation",
     description: "Intelligent Trading Foundation coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/intelligent-trading-foundation",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intelligent-trading-foundation/"
     },
-    rank: "3549"
+    rank: "1000"
 },{
     name: "intellishare",
     code: "INE",
-    icon: "ine",
+    icon: "noicon",
     longname: "IntelliShare",
     description: "IntelliShare coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/intellishare",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intellishare/"
     },
-    rank: "482"
+    rank: "1000"
 },{
     name: "intercrone",
     code: "ICR",
-    icon: "icr",
+    icon: "noicon",
     longname: "InterCrone",
     description: "InterCrone coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/intercrone",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intercrone/"
     },
-    rank: "3230"
+    rank: "1000"
 },{
     name: "internationalcryptox",
     code: "INCX",
-    icon: "incx",
+    icon: "noicon",
     longname: "InternationalCryptoX",
     description: "InternationalCryptoX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/internationalcryptox",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/internationalcryptox/"
     },
-    rank: "4229"
+    rank: "1000"
 },{
     name: "internet-of-people",
     code: "IOP",
@@ -10579,99 +11768,109 @@ var otherCoins = [{
     longname: "Internet of People",
     description: "Internet of People coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/internet-of-people",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/internet-of-people/"
     },
-    rank: "3227"
+    rank: "1000"
 },{
     name: "internet-of-things",
     code: "XOT",
-    icon: "xot",
+    icon: "noicon",
     longname: "Internet of Things",
     description: "Internet of Things coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/internet-of-things",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/internet-of-things/"
     },
-    rank: "4379"
+    rank: "1000"
 },{
     name: "internxt",
     code: "INXT",
-    icon: "inxt",
+    icon: "noicon",
     longname: "Internxt",
     description: "Internxt coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/internxt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/internxt/"
     },
-    rank: "3244"
+    rank: "1000"
 },{
     name: "intervalue",
     code: "INVE",
-    icon: "inve",
+    icon: "noicon",
     longname: "InterValue",
     description: "InterValue coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/intervalue",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/intervalue/"
     },
-    rank: "3283"
+    rank: "1000"
 },{
     name: "interzone",
     code: "ITZ",
-    icon: "itz",
+    icon: "noicon",
     longname: "Interzone",
     description: "Interzone coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/interzone",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/interzone/"
     },
-    rank: "4128"
+    rank: "1000"
 },{
     name: "invacio",
     code: "INV",
-    icon: "inv",
+    icon: "noicon",
     longname: "Invacio",
     description: "Invacio coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/invacio",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/invacio/"
     },
-    rank: "3240"
+    rank: "1000"
 },{
     name: "investdigital",
     code: "IDT",
-    icon: "idt",
+    icon: "noicon",
     longname: "InvestDigital",
     description: "InvestDigital coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/investdigital",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/investdigital/"
     },
-    rank: "4207"
+    rank: "1000"
 },{
     name: "investfeed",
     code: "IFT",
-    icon: "ift",
+    icon: "noicon",
     longname: "InvestFeed",
     description: "InvestFeed coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/investfeed",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/investfeed/"
     },
-    rank: "3698"
+    rank: "1000"
 },{
     name: "invictus-hyperion-fund",
     code: "IHF",
-    icon: "ihf",
+    icon: "noicon",
     longname: "Invictus Hyperion Fund",
     description: "Invictus Hyperion Fund coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/invictus-hyperion-fund",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/invictus-hyperion-fund/"
     },
-    rank: "491"
+    rank: "1000"
 },{
     name: "iocoin",
     code: "IOC",
-    icon: "ioc",
+    icon: "noicon",
     longname: "I/O Coin",
     description: "I/O Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iocoin/"
     },
-    rank: "2397"
+    rank: "1000"
 },{
     name: "ion",
     code: "ION",
@@ -10679,19 +11878,21 @@ var otherCoins = [{
     longname: "ION",
     description: "ION coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ion/"
     },
-    rank: "2785"
+    rank: "1000"
 },{
-    name: "ionchain",
+    name: "ionchain-token",
     code: "IONC",
-    icon: "ionc",
+    icon: "noicon",
     longname: "IONChain",
     description: "IONChain coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/ionchain/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ionchain-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/ionchain-token/"
     },
-    rank: "3475"
+    rank: "152"
 },{
     name: "iostoken",
     code: "IOST",
@@ -10699,9 +11900,10 @@ var otherCoins = [{
     longname: "IOST",
     description: "IOST coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iostoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iostoken/"
     },
-    rank: "80"
+    rank: "90"
 },{
     name: "iot-chain",
     code: "ITC",
@@ -10709,9 +11911,10 @@ var otherCoins = [{
     longname: "IoT Chain",
     description: "IoT Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iot-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iot-chain/"
     },
-    rank: "291"
+    rank: "225"
 },{
     name: "iota",
     code: "MIOTA",
@@ -10719,9 +11922,10 @@ var otherCoins = [{
     longname: "IOTA",
     description: "IOTA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iota",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iota/"
     },
-    rank: "18"
+    rank: "23"
 },{
     name: "iotex",
     code: "IOTX",
@@ -10729,199 +11933,230 @@ var otherCoins = [{
     longname: "IoTeX",
     description: "IoTeX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iotex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iotex/"
     },
-    rank: "177"
+    rank: "189"
 },{
     name: "ip-exchange",
     code: "IPSX",
-    icon: "ipsx",
+    icon: "noicon",
     longname: "IP Exchange",
     description: "IP Exchange coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ip-exchange",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ip-exchange/"
     },
-    rank: "3222"
+    rank: "1000"
 },{
     name: "ipchain",
     code: "IPC",
-    icon: "ipc",
+    icon: "noicon",
     longname: "IPChain",
     description: "IPChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ipchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ipchain/"
     },
-    rank: "478"
+    rank: "1000"
 },{
     name: "iqcash",
     code: "IQ-1",
-    icon: "iq-1",
+    icon: "noicon",
     longname: "IQ.cash",
     description: "IQ.cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iqcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iqcash/"
     },
-    rank: "3939"
+    rank: "1000"
 },{
     name: "iqeon",
     code: "IQN",
-    icon: "iqn",
+    icon: "noicon",
     longname: "IQeon",
     description: "IQeon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iqeon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iqeon/"
     },
-    rank: "585"
+    rank: "242"
 },{
     name: "iridium",
     code: "IRD",
-    icon: "ird",
+    icon: "noicon",
     longname: "Iridium",
     description: "Iridium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iridium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iridium/"
     },
-    rank: "3817"
+    rank: "1000"
 },{
-    name: "irishcoin",
-    code: "IRL",
-    icon: "irl",
-    longname: "IrishCoin",
-    description: "IrishCoin coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/irishcoin/"
-    },
-    rank: "3950"
-},{
-    name: "irisnet",
+    name: "iris-network",
     code: "IRIS",
-    icon: "iris",
+    icon: "noicon",
     longname: "IRISnet",
     description: "IRISnet coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/irisnet/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iris-network",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/iris-network/"
     },
-    rank: "277"
+    rank: "227"
+},{
+    name: "irishcoin",
+    code: "IRL",
+    icon: "noicon",
+    longname: "IrishCoin",
+    description: "IrishCoin coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/irishcoin",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/irishcoin/"
+    },
+    rank: "1000"
 },{
     name: "italian-lira",
     code: "ITL",
-    icon: "itl",
+    icon: "noicon",
     longname: "Italian Lira",
     description: "Italian Lira coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/italian-lira",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/italian-lira/"
     },
-    rank: "3525"
+    rank: "1000"
 },{
     name: "iticoin",
     code: "ITI",
-    icon: "iti",
+    icon: "noicon",
     longname: "iTicoin",
     description: "iTicoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iticoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iticoin/"
     },
-    rank: "3868"
+    rank: "1000"
 },{
     name: "iungo",
     code: "ING",
-    icon: "ing",
+    icon: "noicon",
     longname: "Iungo",
     description: "Iungo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/iungo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/iungo/"
     },
-    rank: "3452"
+    rank: "1000"
 },{
     name: "ivy",
     code: "IVY",
-    icon: "ivy",
+    icon: "noicon",
     longname: "Ivy",
     description: "Ivy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ivy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ivy/"
     },
-    rank: "2933"
+    rank: "1000"
 },{
     name: "ixcoin",
     code: "IXC",
-    icon: "ixc",
+    icon: "noicon",
     longname: "Ixcoin",
     description: "Ixcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ixcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ixcoin/"
     },
-    rank: "3702"
+    rank: "1000"
 },{
     name: "ixledger",
     code: "IXT",
-    icon: "ixt",
+    icon: "noicon",
     longname: "IXT",
     description: "IXT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ixledger",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ixledger/"
     },
-    rank: "3018"
+    rank: "1000"
 },{
     name: "ixtus-edutainment",
     code: "IXE",
-    icon: "ixe",
+    icon: "noicon",
     longname: "IXTUS Edutainment",
     description: "IXTUS Edutainment coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ixtus-edutainment",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ixtus-edutainment/"
     },
-    rank: "3584"
+    rank: "1000"
 },{
     name: "japan-content-token",
     code: "JCT",
-    icon: "jct",
+    icon: "noicon",
     longname: "Japan Content Token",
     description: "Japan Content Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/japan-content-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/japan-content-token/"
     },
-    rank: "1911"
+    rank: "1000"
 },{
     name: "javascript-token",
     code: "JS",
-    icon: "js",
+    icon: "noicon",
     longname: "JavaScript Token",
     description: "JavaScript Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/javascript-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/javascript-token/"
     },
-    rank: "4056"
+    rank: "1000"
 },{
     name: "jesus-coin",
     code: "JC",
-    icon: "jc",
+    icon: "noicon",
     longname: "Jesus Coin",
     description: "Jesus Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jesus-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jesus-coin/"
     },
-    rank: "3835"
+    rank: "1000"
 },{
     name: "jet8",
     code: "J8T",
-    icon: "j8t",
+    icon: "noicon",
     longname: "JET8",
     description: "JET8 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jet8",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jet8/"
     },
-    rank: "3258"
+    rank: "1000"
 },{
     name: "jetcoin",
     code: "JET",
-    icon: "jet",
+    icon: "noicon",
     longname: "Jetcoin",
     description: "Jetcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jetcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jetcoin/"
     },
-    rank: "3545"
+    rank: "1000"
+},{
+    name: "jex-token",
+    code: "JEX",
+    icon: "noicon",
+    longname: "Jex Token",
+    description: "Jex Token coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jex-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/jex-token/"
+    },
+    rank: "183"
 },{
     name: "jibrel-network",
     code: "JNT",
@@ -10929,129 +12164,153 @@ var otherCoins = [{
     longname: "Jibrel Network",
     description: "Jibrel Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jibrel-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jibrel-network/"
     },
-    rank: "505"
+    rank: "1000"
 },{
     name: "jin-coin",
     code: "JIN",
-    icon: "jin",
+    icon: "noicon",
     longname: "Jin Coin",
     description: "Jin Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jin-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jin-coin/"
     },
-    rank: "3896"
+    rank: "1000"
 },{
     name: "jingtum-tech",
     code: "SWTC",
-    icon: "swtc",
+    icon: "noicon",
     longname: "Jingtum Tech",
     description: "Jingtum Tech coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jingtum-tech",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jingtum-tech/"
     },
-    rank: "4313"
+    rank: "1000"
 },{
     name: "jiyo",
     code: "JIYOX",
-    icon: "jiyox",
+    icon: "noicon",
     longname: "JIYO",
     description: "JIYO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jiyo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jiyo/"
     },
-    rank: "4061"
+    rank: "1000"
 },{
     name: "jiyo-old",
     code: "JIYO",
-    icon: "jiyo",
+    icon: "noicon",
     longname: "Jiyo [OLD]",
     description: "Jiyo [OLD] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jiyo-old",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jiyo-old/"
     },
-    rank: "4099"
+    rank: "1000"
 },{
     name: "joincoin",
     code: "J",
-    icon: "j",
+    icon: "noicon",
     longname: "Joincoin",
     description: "Joincoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/joincoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/joincoin/"
     },
-    rank: "3907"
+    rank: "1000"
 },{
     name: "joint-ventures",
     code: "JOINT",
-    icon: "joint",
+    icon: "noicon",
     longname: "Joint Ventures",
     description: "Joint Ventures coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/joint-ventures",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/joint-ventures/"
     },
-    rank: "3600"
+    rank: "1000"
 },{
     name: "joulecoin",
     code: "XJO",
-    icon: "xjo",
+    icon: "noicon",
     longname: "Joulecoin",
     description: "Joulecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/joulecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/joulecoin/"
     },
-    rank: "3767"
+    rank: "1000"
 },{
     name: "jsecoin",
     code: "JSE",
-    icon: "jse",
+    icon: "noicon",
     longname: "JSECOIN",
     description: "JSECOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jsecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jsecoin/"
     },
-    rank: "3249"
+    rank: "1000"
 },{
     name: "jury-online-token",
     code: "JOT",
-    icon: "jot",
+    icon: "noicon",
     longname: "Jury.Online Token",
     description: "Jury.Online Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/jury-online-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/jury-online-token/"
     },
-    rank: "3428"
+    rank: "1000"
 },{
     name: "kalkulus",
     code: "KLKS",
-    icon: "klks",
+    icon: "noicon",
     longname: "Kalkulus",
     description: "Kalkulus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kalkulus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kalkulus/"
     },
-    rank: "3431"
+    rank: "1000"
+},{
+    name: "kan",
+    code: "KAN",
+    icon: "noicon",
+    longname: "BitKan",
+    description: "BitKan coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kan",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/kan/"
+    },
+    rank: "168"
 },{
     name: "kanadecoin",
     code: "KNDC",
-    icon: "kndc",
+    icon: "noicon",
     longname: "KanadeCoin",
     description: "KanadeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kanadecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kanadecoin/"
     },
-    rank: "3839"
+    rank: "1000"
 },{
     name: "karatgold-coin",
     code: "KBC",
-    icon: "kbc",
+    icon: "noicon",
     longname: "Karatgold Coin",
     description: "Karatgold Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/karatgold-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/karatgold-coin/"
     },
-    rank: "82"
+    rank: "1000"
 },{
     name: "karbo",
     code: "KRB",
@@ -11059,79 +12318,87 @@ var otherCoins = [{
     longname: "Karbo",
     description: "Karbo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/karbo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/karbo/"
     },
-    rank: "3339"
+    rank: "1000"
 },{
     name: "karma",
     code: "KRM",
-    icon: "krm",
+    icon: "noicon",
     longname: "Karma",
     description: "Karma coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/karma",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/karma/"
     },
-    rank: "2989"
+    rank: "1000"
 },{
     name: "karma-eos",
     code: "KARMA",
-    icon: "karma",
+    icon: "noicon",
     longname: "KARMA",
     description: "KARMA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/karma-eos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/karma-eos/"
     },
-    rank: "3626"
+    rank: "1000"
 },{
     name: "kava",
     code: "KAVA",
-    icon: "kava",
+    icon: "noicon",
     longname: "Kava",
     description: "Kava coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kava",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kava/"
     },
-    rank: "376"
+    rank: "186"
 },{
     name: "kcash",
     code: "KCASH",
-    icon: "kcash",
+    icon: "noicon",
     longname: "Kcash",
     description: "Kcash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kcash/"
     },
-    rank: "563"
+    rank: "1000"
 },{
     name: "kekcoin",
     code: "KEK",
-    icon: "kek",
+    icon: "noicon",
     longname: "KekCoin",
     description: "KekCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kekcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kekcoin/"
     },
-    rank: "3764"
+    rank: "1000"
 },{
     name: "key",
     code: "KEY-1",
-    icon: "key-1",
+    icon: "noicon",
     longname: "KEY",
     description: "KEY coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/key",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/key/"
     },
-    rank: "4228"
+    rank: "1000"
 },{
     name: "kickico",
     code: "KICK",
-    icon: "kick",
+    icon: "noicon",
     longname: "KickCoin",
     description: "KickCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kickico",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kickico/"
     },
-    rank: "2827"
+    rank: "1000"
 },{
     name: "kin",
     code: "KIN",
@@ -11139,99 +12406,109 @@ var otherCoins = [{
     longname: "Kin",
     description: "Kin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kin/"
     },
-    rank: "411"
+    rank: "1000"
 },{
     name: "kind-ads-token",
     code: "KIND",
-    icon: "kind",
+    icon: "noicon",
     longname: "Kind Ads Token",
     description: "Kind Ads Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kind-ads-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kind-ads-token/"
     },
-    rank: "3649"
+    rank: "1000"
 },{
     name: "kingn-coin",
     code: "KNC-1",
-    icon: "knc-1",
+    icon: "noicon",
     longname: "KingN Coin",
     description: "KingN Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kingn-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kingn-coin/"
     },
-    rank: "4044"
+    rank: "1000"
 },{
     name: "kingxchain",
     code: "KXC",
-    icon: "kxc",
+    icon: "noicon",
     longname: "KingXChain",
     description: "KingXChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kingxchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kingxchain/"
     },
-    rank: "4307"
+    rank: "1000"
 },{
     name: "kleros",
     code: "PNK",
-    icon: "pnk",
+    icon: "noicon",
     longname: "Kleros",
     description: "Kleros coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kleros",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kleros/"
     },
-    rank: "3217"
+    rank: "241"
 },{
     name: "knekted",
     code: "KNT-1",
-    icon: "knt-1",
+    icon: "noicon",
     longname: "Knekted",
     description: "Knekted coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/knekted",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/knekted/"
     },
-    rank: "3850"
+    rank: "1000"
 },{
     name: "know",
     code: "KNOW",
-    icon: "know",
+    icon: "noicon",
     longname: "KNOW",
     description: "KNOW coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/know",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/know/"
     },
-    rank: "4152"
+    rank: "1000"
 },{
     name: "knoxstertoken",
     code: "FKX",
-    icon: "fkx",
+    icon: "noicon",
     longname: "Knoxstertoken",
     description: "Knoxstertoken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/knoxstertoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/knoxstertoken/"
     },
-    rank: "3751"
+    rank: "1000"
 },{
     name: "kobocoin",
     code: "KOBO",
-    icon: "kobo",
+    icon: "noicon",
     longname: "Kobocoin",
     description: "Kobocoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kobocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kobocoin/"
     },
-    rank: "3745"
+    rank: "1000"
 },{
     name: "kolion",
     code: "KLN",
-    icon: "kln",
+    icon: "noicon",
     longname: "Kolion",
     description: "Kolion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kolion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kolion/"
     },
-    rank: "3443"
+    rank: "1000"
 },{
     name: "komodo",
     code: "KMD",
@@ -11239,69 +12516,76 @@ var otherCoins = [{
     longname: "Komodo",
     description: "Komodo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/komodo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/komodo/"
     },
-    rank: "62"
+    rank: "74"
 },{
     name: "kora-network-token",
     code: "KNT",
-    icon: "knt",
+    icon: "noicon",
     longname: "Kora Network Token",
     description: "Kora Network Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kora-network-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kora-network-token/"
     },
-    rank: "3322"
+    rank: "1000"
 },{
     name: "korecoin",
     code: "KORE",
-    icon: "kore",
+    icon: "noicon",
     longname: "Kore",
     description: "Kore coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/korecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/korecoin/"
     },
-    rank: "3211"
+    rank: "1000"
 },{
     name: "krios",
     code: "KRI",
-    icon: "kri",
+    icon: "noicon",
     longname: "Krios",
     description: "Krios coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/krios",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/krios/"
     },
-    rank: "507"
+    rank: "1000"
 },{
     name: "kronecoin",
     code: "KRONE",
-    icon: "krone",
+    icon: "noicon",
     longname: "Kronecoin",
     description: "Kronecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kronecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kronecoin/"
     },
-    rank: "4078"
+    rank: "1000"
 },{
     name: "kryll",
     code: "KRL",
-    icon: "krl",
+    icon: "noicon",
     longname: "Kryll",
     description: "Kryll coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kryll",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kryll/"
     },
-    rank: "3381"
+    rank: "1000"
 },{
     name: "kubera-coin",
     code: "KBR",
-    icon: "kbr",
+    icon: "noicon",
     longname: "Kubera Coin",
     description: "Kubera Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kubera-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kubera-coin/"
     },
-    rank: "4076"
+    rank: "1000"
 },{
     name: "kucoin-shares",
     code: "KCS",
@@ -11309,39 +12593,54 @@ var otherCoins = [{
     longname: "KuCoin Shares",
     description: "KuCoin Shares coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kucoin-shares",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kucoin-shares/"
     },
-    rank: "63"
+    rank: "56"
 },{
     name: "kun",
     code: "KUN",
-    icon: "kun",
+    icon: "noicon",
     longname: "KUN",
     description: "KUN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kun",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kun/"
     },
-    rank: "3599"
+    rank: "1000"
 },{
     name: "kurrent",
     code: "KURT",
-    icon: "kurt",
+    icon: "noicon",
     longname: "Kurrent",
     description: "Kurrent coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kurrent",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kurrent/"
     },
-    rank: "3991"
+    rank: "1000"
+},{
+    name: "kusama",
+    code: "KSM",
+    icon: "noicon",
+    longname: "Kusama",
+    description: "Kusama coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kusama",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/kusama/"
+    },
+    rank: "147"
 },{
     name: "kwhcoin",
     code: "KWH",
-    icon: "kwh",
+    icon: "noicon",
     longname: "KWHCoin",
     description: "KWHCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kwhcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kwhcoin/"
     },
-    rank: "4219"
+    rank: "1000"
 },{
     name: "kyber-network",
     code: "KNC",
@@ -11349,49 +12648,54 @@ var otherCoins = [{
     longname: "Kyber Network",
     description: "Kyber Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kyber-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kyber-network/"
     },
-    rank: "158"
+    rank: "49"
 },{
     name: "kz-cash",
     code: "KZC",
-    icon: "kzc",
+    icon: "noicon",
     longname: "KZ Cash",
     description: "KZ Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/kz-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/kz-cash/"
     },
-    rank: "3830"
+    rank: "1000"
 },{
     name: "labh-coin",
     code: "LABH",
-    icon: "labh",
+    icon: "noicon",
     longname: "Labh Coin",
     description: "Labh Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/labh-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/labh-coin/"
     },
-    rank: "4399"
+    rank: "1000"
 },{
     name: "lala-world",
     code: "LALA",
-    icon: "lala",
+    icon: "noicon",
     longname: "LALA World",
     description: "LALA World coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lala-world",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lala-world/"
     },
-    rank: "3308"
+    rank: "1000"
 },{
     name: "lambda",
     code: "LAMB",
-    icon: "lamb",
+    icon: "noicon",
     longname: "Lambda",
     description: "Lambda coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lambda",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lambda/"
     },
-    rank: "160"
+    rank: "131"
 },{
     name: "lamden",
     code: "TAU",
@@ -11399,159 +12703,186 @@ var otherCoins = [{
     longname: "Lamden",
     description: "Lamden coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lamden",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lamden/"
     },
-    rank: "2871"
+    rank: "1000"
 },{
     name: "lampix",
     code: "PIX",
-    icon: "pix",
+    icon: "noicon",
     longname: "Lampix",
     description: "Lampix coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lampix",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lampix/"
     },
-    rank: "3682"
+    rank: "1000"
 },{
     name: "lanacoin",
     code: "LANA",
-    icon: "lana",
+    icon: "noicon",
     longname: "LanaCoin",
     description: "LanaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lanacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lanacoin/"
     },
-    rank: "3873"
+    rank: "1000"
 },{
     name: "latiumx",
     code: "LATX",
-    icon: "latx",
+    icon: "noicon",
     longname: "LatiumX",
     description: "LatiumX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/latiumx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/latiumx/"
     },
-    rank: "3231"
+    rank: "1000"
 },{
     name: "latoken",
     code: "LA",
-    icon: "la",
+    icon: "noicon",
     longname: "LATOKEN",
     description: "LATOKEN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/latoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/latoken/"
     },
-    rank: "149"
+    rank: "1000"
 },{
     name: "leadcoin",
     code: "LDC",
-    icon: "ldc",
+    icon: "noicon",
     longname: "Leadcoin",
     description: "Leadcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/leadcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/leadcoin/"
     },
-    rank: "3416"
+    rank: "1000"
 },{
     name: "legolas-exchange",
     code: "LGO",
-    icon: "lgo",
+    icon: "noicon",
     longname: "LGO Exchange",
     description: "LGO Exchange coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/legolas-exchange",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/legolas-exchange/"
     },
-    rank: "2750"
+    rank: "1000"
 },{
     name: "lemochain",
     code: "LEMO",
-    icon: "lemo",
+    icon: "noicon",
     longname: "LemoChain",
     description: "LemoChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lemochain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lemochain/"
     },
-    rank: "4240"
+    rank: "1000"
 },{
     name: "lendingblock",
     code: "LND",
-    icon: "lnd",
+    icon: "noicon",
     longname: "Lendingblock",
     description: "Lendingblock coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lendingblock",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lendingblock/"
     },
-    rank: "2206"
+    rank: "1000"
 },{
     name: "lendroid-support-token",
     code: "LST",
-    icon: "lst",
+    icon: "noicon",
     longname: "Lendroid Support Token",
     description: "Lendroid Support Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lendroid-support-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lendroid-support-token/"
     },
-    rank: "4348"
+    rank: "1000"
+},{
+    name: "leo-token",
+    code: "LEO",
+    icon: "noicon",
+    longname: "LEO Token",
+    description: "LEO Token coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/leo-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/leo-token/"
+    },
+    rank: "15"
 },{
     name: "lethean",
     code: "LTHN",
-    icon: "lthn",
+    icon: "noicon",
     longname: "Lethean",
     description: "Lethean coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lethean",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lethean/"
     },
-    rank: "3284"
+    rank: "1000"
 },{
     name: "level-up",
     code: "LUC",
-    icon: "luc",
+    icon: "noicon",
     longname: "Level Up Coin",
     description: "Level Up Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/level-up",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/level-up/"
     },
-    rank: "3246"
+    rank: "1000"
 },{
     name: "leverj",
     code: "LEV",
-    icon: "lev",
+    icon: "noicon",
     longname: "Leverj",
     description: "Leverj coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/leverj",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/leverj/"
     },
-    rank: "3637"
+    rank: "1000"
 },{
     name: "leviar",
     code: "XLC",
-    icon: "xlc",
+    icon: "noicon",
     longname: "Leviar",
     description: "Leviar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/leviar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/leviar/"
     },
-    rank: "3952"
+    rank: "1000"
 },{
     name: "levolution",
     code: "LEVL",
-    icon: "levl",
+    icon: "noicon",
     longname: "Levolution",
     description: "Levolution coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/levolution",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/levolution/"
     },
-    rank: "310"
+    rank: "1000"
 },{
     name: "libra-credit",
     code: "LBA",
-    icon: "lba",
+    icon: "noicon",
     longname: "Cred",
     description: "Cred coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/libra-credit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/libra-credit/"
     },
-    rank: "264"
+    rank: "237"
 },{
     name: "library-credit",
     code: "LBC",
@@ -11559,159 +12890,186 @@ var otherCoins = [{
     longname: "LBRY Credits",
     description: "LBRY Credits coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/library-credit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/library-credit/"
     },
-    rank: "2310"
+    rank: "1000"
 },{
     name: "life",
     code: "LIFE",
-    icon: "life",
+    icon: "noicon",
     longname: "LIFE",
     description: "LIFE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/life",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/life/"
     },
-    rank: "3190"
+    rank: "1000"
 },{
     name: "lightchain",
     code: "LIGHT",
-    icon: "light",
+    icon: "noicon",
     longname: "LightChain",
     description: "LightChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lightchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightchain/"
     },
-    rank: "4179"
-},{
-    name: "lightning-bitcoin",
-    code: "LBTC-1",
-    icon: "lbtc-1",
-    longname: "Lightning Bitcoin",
-    description: "Lightning Bitcoin coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightning-bitcoin/"
-    },
-    rank: "4174"
+    rank: "1000"
 },{
     name: "lightning-bitcoin",
     code: "LBTC",
-    icon: "lbtc",
+    icon: "noicon",
     longname: "Lightning Bitcoin",
     description: "Lightning Bitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lightning-bitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightning-bitcoin/"
     },
-    rank: "320"
+    rank: "1000"
+},{
+    name: "lightning-bitcoin",
+    code: "LBTC-1",
+    icon: "noicon",
+    longname: "Lightning Bitcoin",
+    description: "Lightning Bitcoin coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lightning-bitcoin",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightning-bitcoin/"
+    },
+    rank: "1000"
 },{
     name: "lightpaycoin",
     code: "LPC",
-    icon: "lpc",
+    icon: "noicon",
     longname: "Lightpaycoin",
     description: "Lightpaycoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lightpaycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lightpaycoin/"
     },
-    rank: "3120"
+    rank: "1000"
 },{
     name: "likecoin",
     code: "LIKE",
-    icon: "like",
+    icon: "noicon",
     longname: "LikeCoin",
     description: "LikeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/likecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/likecoin/"
     },
-    rank: "3293"
+    rank: "1000"
 },{
     name: "lina",
     code: "LINA",
-    icon: "lina",
+    icon: "noicon",
     longname: "LINA",
     description: "LINA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lina",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lina/"
     },
-    rank: "202"
+    rank: "1000"
 },{
     name: "linda",
     code: "LINDA",
-    icon: "linda",
+    icon: "noicon",
     longname: "Linda",
     description: "Linda coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/linda",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linda/"
     },
-    rank: "2772"
+    rank: "1000"
 },{
     name: "linfinity",
     code: "LFT",
-    icon: "lft",
+    icon: "noicon",
     longname: "Linfinity",
     description: "Linfinity coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/linfinity",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linfinity/"
     },
-    rank: "3624"
+    rank: "1000"
+},{
+    name: "linka",
+    code: "LINKA",
+    icon: "noicon",
+    longname: "LINKA",
+    description: "LINKA coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/linka",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/linka/"
+    },
+    rank: "203"
 },{
     name: "linker-coin",
     code: "LNC-1",
-    icon: "lnc-1",
+    icon: "noicon",
     longname: "Linker Coin",
     description: "Linker Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/linker-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linker-coin/"
     },
-    rank: "3667"
+    rank: "1000"
 },{
     name: "linkey",
     code: "LKY",
-    icon: "lky",
+    icon: "noicon",
     longname: "Linkey",
     description: "Linkey coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/linkey",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linkey/"
     },
-    rank: "2504"
+    rank: "1000"
 },{
     name: "linkeye",
     code: "LET",
-    icon: "let",
+    icon: "noicon",
     longname: "LinkEye",
     description: "LinkEye coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/linkeye",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linkeye/"
     },
-    rank: "2342"
+    rank: "1000"
 },{
     name: "linx",
     code: "LINX",
-    icon: "linx",
+    icon: "noicon",
     longname: "Linx",
     description: "Linx coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/linx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/linx/"
     },
-    rank: "3513"
+    rank: "1000"
 },{
     name: "liquid-apps",
     code: "DAPP",
-    icon: "dapp",
+    icon: "noicon",
     longname: "LiquidApps",
     description: "LiquidApps coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/liquid-apps",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/liquid-apps/"
     },
-    rank: "469"
+    rank: "1000"
 },{
     name: "liquidity-network",
     code: "LQD",
-    icon: "lqd",
+    icon: "noicon",
     longname: "Liquidity Network",
     description: "Liquidity Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/liquidity-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/liquidity-network/"
     },
-    rank: "2993"
+    rank: "1000"
 },{
     name: "lisk",
     code: "LSK",
@@ -11719,19 +13077,21 @@ var otherCoins = [{
     longname: "Lisk",
     description: "Lisk coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lisk",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lisk/"
     },
-    rank: "66"
+    rank: "34"
 },{
     name: "litebar",
     code: "LTB",
-    icon: "ltb",
+    icon: "noicon",
     longname: "LiteBar",
     description: "LiteBar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/litebar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litebar/"
     },
-    rank: "3892"
+    rank: "1000"
 },{
     name: "litecoin",
     code: "LTC",
@@ -11739,159 +13099,175 @@ var otherCoins = [{
     longname: "Litecoin",
     description: "Litecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/litecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecoin/"
     },
     rank: "6"
 },{
     name: "litecoin-cash",
     code: "LCC",
-    icon: "lcc",
+    icon: "noicon",
     longname: "Litecoin Cash",
     description: "Litecoin Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/litecoin-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecoin-cash/"
     },
-    rank: "315"
+    rank: "1000"
 },{
     name: "litecoin-plus",
     code: "LCP",
-    icon: "lcp",
+    icon: "noicon",
     longname: "Litecoin Plus",
     description: "Litecoin Plus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/litecoin-plus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecoin-plus/"
     },
-    rank: "3543"
+    rank: "1000"
 },{
     name: "litecoin-ultra",
     code: "LTCU",
-    icon: "ltcu",
+    icon: "noicon",
     longname: "LiteCoin Ultra",
     description: "LiteCoin Ultra coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/litecoin-ultra",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecoin-ultra/"
     },
-    rank: "4111"
+    rank: "1000"
 },{
     name: "litecred",
     code: "LTCR",
-    icon: "ltcr",
+    icon: "noicon",
     longname: "Litecred",
     description: "Litecred coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/litecred",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litecred/"
     },
-    rank: "4060"
+    rank: "1000"
 },{
     name: "litedoge",
     code: "LDOGE",
-    icon: "ldoge",
+    icon: "noicon",
     longname: "LiteDoge",
     description: "LiteDoge coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/litedoge",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litedoge/"
     },
-    rank: "3282"
+    rank: "1000"
 },{
     name: "litex",
     code: "LXT",
-    icon: "lxt",
+    icon: "noicon",
     longname: "Litex",
     description: "Litex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/litex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/litex/"
     },
-    rank: "424"
+    rank: "1000"
 },{
     name: "live-stars",
     code: "LIVE",
-    icon: "live",
+    icon: "noicon",
     longname: "Live Stars",
     description: "Live Stars coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/live-stars",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/live-stars/"
     },
-    rank: "3806"
+    rank: "1000"
 },{
     name: "lobstex",
     code: "LOBS",
-    icon: "lobs",
+    icon: "noicon",
     longname: "Lobstex",
     description: "Lobstex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lobstex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lobstex/"
     },
-    rank: "3505"
+    rank: "1000"
 },{
     name: "local-coin-swap",
     code: "LCS",
-    icon: "lcs",
+    icon: "noicon",
     longname: "LocalCoinSwap",
     description: "LocalCoinSwap coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/local-coin-swap",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/local-coin-swap/"
     },
-    rank: "2941"
+    rank: "1000"
 },{
     name: "local-world-forwarders",
     code: "LWF",
-    icon: "lwf",
+    icon: "noicon",
     longname: "Local World Forwarders",
     description: "Local World Forwarders coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/local-world-forwarders",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/local-world-forwarders/"
     },
-    rank: "3541"
+    rank: "1000"
 },{
     name: "locicoin",
     code: "LOCI",
-    icon: "loci",
+    icon: "noicon",
     longname: "LOCIcoin",
     description: "LOCIcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/locicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/locicoin/"
     },
-    rank: "3312"
+    rank: "1000"
 },{
     name: "lockchain",
     code: "LOC",
-    icon: "loc",
+    icon: "noicon",
     longname: "LockTrip",
     description: "LockTrip coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lockchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lockchain/"
     },
-    rank: "370"
+    rank: "1000"
 },{
     name: "logiscoin",
     code: "LGS",
-    icon: "lgs",
+    icon: "noicon",
     longname: "LogisCoin",
     description: "LogisCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/logiscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/logiscoin/"
     },
-    rank: "3302"
+    rank: "1000"
 },{
-    name: "loki",
+    name: "loki-network",
     code: "LOKI",
-    icon: "loki",
-    longname: "Loki",
-    description: "Loki coin",
+    icon: "noicon",
+    longname: "Loki Network",
+    description: "Loki Network coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/loki/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/loki-network",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/loki-network/"
     },
-    rank: "268"
+    rank: "182"
 },{
     name: "lomocoin",
     code: "LMC",
-    icon: "lmc",
+    icon: "noicon",
     longname: "LoMoCoin",
     description: "LoMoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lomocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lomocoin/"
     },
-    rank: "3635"
+    rank: "1000"
 },{
     name: "loom-network",
     code: "LOOM",
@@ -11899,9 +13275,10 @@ var otherCoins = [{
     longname: "Loom Network",
     description: "Loom Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/loom-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/loom-network/"
     },
-    rank: "204"
+    rank: "167"
 },{
     name: "loopring",
     code: "LRC",
@@ -11909,49 +13286,43 @@ var otherCoins = [{
     longname: "Loopring",
     description: "Loopring coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/loopring",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/loopring/"
     },
-    rank: "164"
+    rank: "99"
 },{
     name: "loopring-neo",
     code: "LRN",
-    icon: "lrn",
+    icon: "noicon",
     longname: "Loopring [NEO]",
     description: "Loopring [NEO] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/loopring-neo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/loopring-neo/"
     },
-    rank: "2399"
+    rank: "1000"
 },{
     name: "loyalcoin",
     code: "LYL",
-    icon: "lyl",
+    icon: "noicon",
     longname: "LoyalCoin",
     description: "LoyalCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/loyalcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/loyalcoin/"
     },
-    rank: "2721"
+    rank: "1000"
 },{
     name: "lto-network",
     code: "LTO",
-    icon: "lto",
+    icon: "noicon",
     longname: "LTO Network",
     description: "LTO Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lto-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lto-network/"
     },
-    rank: "447"
-},{
-    name: "luna",
-    code: "LUNA",
-    icon: "luna",
-    longname: "LUNA",
-    description: "LUNA coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/luna/"
-    },
-    rank: "60"
+    rank: "211"
 },{
     name: "lunyr",
     code: "LUN",
@@ -11959,19 +13330,21 @@ var otherCoins = [{
     longname: "Lunyr",
     description: "Lunyr coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lunyr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lunyr/"
     },
-    rank: "2812"
+    rank: "1000"
 },{
     name: "luxcoin",
     code: "LUX",
-    icon: "lux",
+    icon: "noicon",
     longname: "LUXCoin",
     description: "LUXCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/luxcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/luxcoin/"
     },
-    rank: "2925"
+    rank: "1000"
 },{
     name: "lykke",
     code: "LKK",
@@ -11979,59 +13352,65 @@ var otherCoins = [{
     longname: "Lykke",
     description: "Lykke coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lykke",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lykke/"
     },
-    rank: "3615"
+    rank: "1000"
 },{
     name: "lympo",
     code: "LYM",
-    icon: "lym",
+    icon: "noicon",
     longname: "Lympo",
     description: "Lympo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lympo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lympo/"
     },
-    rank: "495"
+    rank: "1000"
 },{
     name: "lynx",
     code: "LYNX",
-    icon: "lynx",
+    icon: "noicon",
     longname: "Lynx",
     description: "Lynx coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/lynx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/lynx/"
     },
-    rank: "3397"
+    rank: "1000"
 },{
     name: "machine-xchange-coin",
     code: "MXC",
-    icon: "mxc",
+    icon: "noicon",
     longname: "Machine Xchange Coin",
     description: "Machine Xchange Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/machine-xchange-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/machine-xchange-coin/"
     },
-    rank: "578"
+    rank: "1000"
 },{
     name: "maecenas",
     code: "ART",
-    icon: "art",
+    icon: "noicon",
     longname: "Maecenas",
     description: "Maecenas coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/maecenas",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maecenas/"
     },
-    rank: "3632"
+    rank: "1000"
 },{
     name: "maggie",
     code: "MAG",
-    icon: "mag",
+    icon: "noicon",
     longname: "Maggie",
     description: "Maggie coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/maggie",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maggie/"
     },
-    rank: "4288"
+    rank: "1000"
 },{
     name: "magi",
     code: "XMG",
@@ -12039,29 +13418,32 @@ var otherCoins = [{
     longname: "Magi",
     description: "Magi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/magi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/magi/"
     },
-    rank: "3855"
+    rank: "1000"
 },{
     name: "magiccoin",
     code: "MAGE",
-    icon: "mage",
+    icon: "noicon",
     longname: "MagicCoin",
     description: "MagicCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/magiccoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/magiccoin/"
     },
-    rank: "3849"
+    rank: "1000"
 },{
     name: "magnum",
     code: "MGM",
-    icon: "mgm",
+    icon: "noicon",
     longname: "Magnum",
     description: "Magnum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/magnum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/magnum/"
     },
-    rank: "4130"
+    rank: "1000"
 },{
     name: "maidsafecoin",
     code: "MAID",
@@ -12069,9 +13451,10 @@ var otherCoins = [{
     longname: "MaidSafeCoin",
     description: "MaidSafeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/maidsafecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maidsafecoin/"
     },
-    rank: "94"
+    rank: "126"
 },{
     name: "mainframe",
     code: "MFT",
@@ -12079,19 +13462,21 @@ var otherCoins = [{
     longname: "Mainframe",
     description: "Mainframe coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mainframe",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mainframe/"
     },
-    rank: "314"
+    rank: "1000"
 },{
     name: "mainstream-for-the-underground",
     code: "MFTU",
-    icon: "mftu",
+    icon: "noicon",
     longname: "Mainstream For The Underground",
     description: "Mainstream For The Underground coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mainstream-for-the-underground",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mainstream-for-the-underground/"
     },
-    rank: "3596"
+    rank: "1000"
 },{
     name: "maker",
     code: "MKR",
@@ -12099,79 +13484,87 @@ var otherCoins = [{
     longname: "Maker",
     description: "Maker coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/maker",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maker/"
     },
-    rank: "21"
+    rank: "27"
 },{
     name: "mallcoin",
     code: "MLC",
-    icon: "mlc",
+    icon: "noicon",
     longname: "Mallcoin",
     description: "Mallcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mallcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mallcoin/"
     },
-    rank: "3225"
+    rank: "1000"
 },{
     name: "manna",
     code: "MANNA",
-    icon: "manna",
+    icon: "noicon",
     longname: "Manna",
     description: "Manna coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/manna",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/manna/"
     },
-    rank: "3683"
+    rank: "1000"
 },{
     name: "mao-zedong",
     code: "MAO",
-    icon: "mao",
+    icon: "noicon",
     longname: "Mao Zedong",
     description: "Mao Zedong coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mao-zedong",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mao-zedong/"
     },
-    rank: "3462"
+    rank: "1000"
 },{
     name: "marijuanacoin",
     code: "MAR",
-    icon: "mar",
+    icon: "noicon",
     longname: "Marijuanacoin",
     description: "Marijuanacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/marijuanacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/marijuanacoin/"
     },
-    rank: "4073"
+    rank: "1000"
 },{
     name: "mark-space",
     code: "MRK",
-    icon: "mrk",
+    icon: "noicon",
     longname: "MARK.SPACE",
     description: "MARK.SPACE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mark-space",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mark-space/"
     },
-    rank: "2891"
+    rank: "1000"
 },{
     name: "marscoin",
     code: "MARS",
-    icon: "mars",
+    icon: "noicon",
     longname: "Marscoin",
     description: "Marscoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/marscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/marscoin/"
     },
-    rank: "3900"
+    rank: "1000"
 },{
     name: "martexcoin",
     code: "MXT",
-    icon: "mxt",
+    icon: "noicon",
     longname: "MarteXcoin",
     description: "MarteXcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/martexcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/martexcoin/"
     },
-    rank: "3786"
+    rank: "1000"
 },{
     name: "masari",
     code: "MSR",
@@ -12179,59 +13572,65 @@ var otherCoins = [{
     longname: "Masari",
     description: "Masari coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/masari",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/masari/"
     },
-    rank: "3043"
+    rank: "1000"
 },{
     name: "massgrid",
     code: "MGD",
-    icon: "mgd",
+    icon: "noicon",
     longname: "MassGrid",
     description: "MassGrid coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/massgrid",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/massgrid/"
     },
-    rank: "2353"
+    rank: "1000"
 },{
     name: "master-contract-token",
     code: "MCT",
-    icon: "mct",
+    icon: "noicon",
     longname: "Master Contract Token",
     description: "Master Contract Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/master-contract-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/master-contract-token/"
     },
-    rank: "4231"
+    rank: "1000"
 },{
     name: "master-swiscoin",
     code: "MSCN",
-    icon: "mscn",
+    icon: "noicon",
     longname: "Master Swiscoin",
     description: "Master Swiscoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/master-swiscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/master-swiscoin/"
     },
-    rank: "4003"
+    rank: "1000"
 },{
     name: "masternet",
     code: "MASH",
-    icon: "mash",
+    icon: "noicon",
     longname: "MASTERNET",
     description: "MASTERNET coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/masternet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/masternet/"
     },
-    rank: "3352"
+    rank: "1000"
 },{
     name: "masternodecoin",
     code: "MTNC",
-    icon: "mtnc",
+    icon: "noicon",
     longname: "Masternodecoin",
     description: "Masternodecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/masternodecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/masternodecoin/"
     },
-    rank: "3905"
+    rank: "1000"
 },{
     name: "matic-network",
     code: "MATIC",
@@ -12239,69 +13638,76 @@ var otherCoins = [{
     longname: "Matic Network",
     description: "Matic Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/matic-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/matic-network/"
     },
-    rank: "139"
+    rank: "94"
 },{
     name: "matrix-ai-network",
     code: "MAN",
-    icon: "man",
+    icon: "noicon",
     longname: "Matrix AI Network",
     description: "Matrix AI Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/matrix-ai-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/matrix-ai-network/"
     },
-    rank: "205"
+    rank: "1000"
 },{
     name: "matryx",
     code: "MTX",
-    icon: "mtx",
+    icon: "noicon",
     longname: "Matryx",
     description: "Matryx coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/matryx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/matryx/"
     },
-    rank: "3289"
+    rank: "1000"
 },{
     name: "maverick-chain",
     code: "MVC",
-    icon: "mvc",
+    icon: "noicon",
     longname: "Maverick Chain",
     description: "Maverick Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/maverick-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maverick-chain/"
     },
-    rank: "3385"
+    rank: "1000"
 },{
     name: "maxcoin",
     code: "MAX",
-    icon: "max",
+    icon: "noicon",
     longname: "MaxCoin",
     description: "MaxCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/maxcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maxcoin/"
     },
-    rank: "3696"
+    rank: "1000"
 },{
     name: "maximine-coin",
     code: "MXM",
-    icon: "mxm",
+    icon: "noicon",
     longname: "Maximine Coin",
     description: "Maximine Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/maximine-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/maximine-coin/"
     },
-    rank: "1909"
+    rank: "1000"
 },{
     name: "mb8-coin",
     code: "MB8",
-    icon: "mb8",
+    icon: "noicon",
     longname: "MB8 Coin",
     description: "MB8 Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mb8-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mb8-coin/"
     },
-    rank: "250"
+    rank: "1000"
 },{
     name: "mcap",
     code: "MCAP",
@@ -12309,59 +13715,76 @@ var otherCoins = [{
     longname: "MCAP",
     description: "MCAP coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mcap",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mcap/"
     },
-    rank: "3555"
+    rank: "1000"
 },{
     name: "measurable-data-token",
     code: "MDT",
-    icon: "mdt",
+    icon: "noicon",
     longname: "Measurable Data Token",
     description: "Measurable Data Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/measurable-data-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/measurable-data-token/"
     },
-    rank: "353"
+    rank: "1000"
 },{
     name: "medibit",
     code: "MEDIBIT",
-    icon: "medibit",
+    icon: "noicon",
     longname: "MediBit",
     description: "MediBit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/medibit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medibit/"
     },
-    rank: "4319"
+    rank: "1000"
 },{
     name: "medibloc",
     code: "MED",
     icon: "med",
-    longname: "MediBloc",
-    description: "MediBloc coin",
+    longname: "Medibloc",
+    description: "Medibloc coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/medibloc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medibloc/"
     },
-    rank: "289"
+    rank: "215"
 },{
     name: "medical-chain",
     code: "MTN",
-    icon: "mtn",
+    icon: "noicon",
     longname: "Medicalchain",
     description: "Medicalchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/medical-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medical-chain/"
     },
-    rank: "3045"
+    rank: "1000"
+},{
+    name: "medical-token-currency",
+    code: "MTC",
+    icon: "noicon",
+    longname: "Docademic",
+    description: "Docademic coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/medical-token-currency",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/medical-token-currency/"
+    },
+    rank: "212"
 },{
     name: "mediccoin",
     code: "MEDIC",
-    icon: "medic",
+    icon: "noicon",
     longname: "MedicCoin",
     description: "MedicCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mediccoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mediccoin/"
     },
-    rank: "3340"
+    rank: "1000"
 },{
     name: "medishares",
     code: "MDS",
@@ -12369,19 +13792,21 @@ var otherCoins = [{
     longname: "MediShares",
     description: "MediShares coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/medishares",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medishares/"
     },
-    rank: "540"
+    rank: "1000"
 },{
     name: "medx",
     code: "MEDX",
-    icon: "medx",
+    icon: "noicon",
     longname: "MediBloc [ERC20]",
     description: "MediBloc [ERC20] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/medx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/medx/"
     },
-    rank: "245"
+    rank: "1000"
 },{
     name: "meetone",
     code: "MEETONE",
@@ -12389,19 +13814,21 @@ var otherCoins = [{
     longname: "MEET.ONE",
     description: "MEET.ONE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/meetone",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/meetone/"
     },
-    rank: "594"
+    rank: "1000"
 },{
     name: "megacoin",
     code: "MEC",
-    icon: "mec",
+    icon: "noicon",
     longname: "Megacoin",
     description: "Megacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/megacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/megacoin/"
     },
-    rank: "3825"
+    rank: "1000"
 },{
     name: "melon",
     code: "MLN",
@@ -12409,79 +13836,87 @@ var otherCoins = [{
     longname: "Melon",
     description: "Melon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/melon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/melon/"
     },
-    rank: "439"
+    rank: "1000"
 },{
     name: "memetic",
     code: "MEME",
-    icon: "meme",
+    icon: "noicon",
     longname: "Memetic / PepeCoin",
     description: "Memetic / PepeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/memetic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/memetic/"
     },
-    rank: "3288"
+    rank: "1000"
 },{
     name: "menapay",
     code: "MPAY",
-    icon: "mpay",
+    icon: "noicon",
     longname: "MenaPay",
     description: "MenaPay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/menapay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/menapay/"
     },
-    rank: "562"
+    rank: "1000"
 },{
     name: "merculet",
     code: "MVP",
-    icon: "mvp",
+    icon: "noicon",
     longname: "Merculet",
     description: "Merculet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/merculet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/merculet/"
     },
-    rank: "3137"
+    rank: "1000"
 },{
     name: "mercury",
     code: "MER",
-    icon: "mer",
+    icon: "noicon",
     longname: "Mercury",
     description: "Mercury coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mercury",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mercury/"
     },
-    rank: "2738"
+    rank: "1000"
 },{
     name: "messe-token",
     code: "MESSE",
-    icon: "messe",
+    icon: "noicon",
     longname: "MESSE TOKEN",
     description: "MESSE TOKEN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/messe-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/messe-token/"
     },
-    rank: "4287"
+    rank: "1000"
 },{
     name: "metadium",
     code: "META",
-    icon: "meta",
+    icon: "noicon",
     longname: "Metadium",
     description: "Metadium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/metadium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metadium/"
     },
-    rank: "361"
+    rank: "1000"
 },{
     name: "metahash",
     code: "MHC",
-    icon: "mhc",
+    icon: "noicon",
     longname: "#MetaHash",
     description: "#MetaHash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/metahash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metahash/"
     },
-    rank: "462"
+    rank: "1000"
 },{
     name: "metal",
     code: "MTL",
@@ -12489,199 +13924,219 @@ var otherCoins = [{
     longname: "Metal",
     description: "Metal coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/metal",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metal/"
     },
-    rank: "224"
+    rank: "144"
 },{
     name: "metamorph",
     code: "METM",
-    icon: "metm",
+    icon: "noicon",
     longname: "MetaMorph",
     description: "MetaMorph coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/metamorph",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metamorph/"
     },
-    rank: "3356"
+    rank: "1000"
 },{
-    name: "metaverse",
+    name: "metaverse-etp",
     code: "ETP",
     icon: "etp",
     longname: "Metaverse ETP",
     description: "Metaverse ETP coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/metaverse/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/metaverse-etp",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/metaverse-etp/"
     },
-    rank: "132"
+    rank: "210"
 },{
     name: "metrix-coin",
     code: "MRX",
-    icon: "mrx",
+    icon: "noicon",
     longname: "Metrix Coin",
     description: "Metrix Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/metrix-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metrix-coin/"
     },
-    rank: "2213"
+    rank: "1000"
 },{
     name: "metronome",
     code: "MET",
-    icon: "met",
+    icon: "noicon",
     longname: "Metronome",
     description: "Metronome coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/metronome",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/metronome/"
     },
-    rank: "386"
+    rank: "1000"
 },{
     name: "mex",
     code: "MEX",
-    icon: "mex",
+    icon: "noicon",
     longname: "MEX",
     description: "MEX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mex/"
     },
-    rank: "4176"
+    rank: "1000"
 },{
     name: "mexc-token",
     code: "MEXC",
-    icon: "mexc",
+    icon: "noicon",
     longname: "MEXC Token",
     description: "MEXC Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mexc-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mexc-token/"
     },
-    rank: "37"
+    rank: "1000"
 },{
     name: "mfit-coin",
     code: "MFIT",
-    icon: "mfit",
+    icon: "noicon",
     longname: "MFIT COIN",
     description: "MFIT COIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mfit-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mfit-coin/"
     },
-    rank: "3494"
+    rank: "1000"
 },{
     name: "mib-coin",
     code: "MIB",
-    icon: "mib",
+    icon: "noicon",
     longname: "MIB Coin",
     description: "MIB Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mib-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mib-coin/"
     },
-    rank: "3101"
+    rank: "1000"
 },{
     name: "microbitcoin",
     code: "MBC",
-    icon: "mbc",
+    icon: "noicon",
     longname: "MicroBitcoin",
     description: "MicroBitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/microbitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/microbitcoin/"
     },
-    rank: "209"
+    rank: "1000"
 },{
     name: "micromines",
     code: "MICRO",
-    icon: "micro",
+    icon: "noicon",
     longname: "Micromines",
     description: "Micromines coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/micromines",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/micromines/"
     },
-    rank: "3553"
+    rank: "1000"
 },{
     name: "micromoney",
     code: "AMM",
-    icon: "amm",
+    icon: "noicon",
     longname: "MicroMoney",
     description: "MicroMoney coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/micromoney",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/micromoney/"
     },
-    rank: "3532"
+    rank: "1000"
 },{
     name: "midasprotocol",
     code: "MAS",
-    icon: "mas",
+    icon: "noicon",
     longname: "MidasProtocol",
     description: "MidasProtocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/midasprotocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/midasprotocol/"
     },
-    rank: "3026"
+    rank: "1000"
 },{
     name: "milocoin",
     code: "MILO",
-    icon: "milo",
+    icon: "noicon",
     longname: "MiloCoin",
     description: "MiloCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/milocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/milocoin/"
     },
-    rank: "4088"
+    rank: "1000"
 },{
     name: "mincoin",
     code: "MNC",
-    icon: "mnc",
+    icon: "noicon",
     longname: "Mincoin",
     description: "Mincoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mincoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mincoin/"
     },
-    rank: "3959"
+    rank: "1000"
 },{
     name: "mindexcoin",
     code: "MIC",
-    icon: "mic",
+    icon: "noicon",
     longname: "Mindexcoin",
     description: "Mindexcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mindexcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mindexcoin/"
     },
-    rank: "2142"
+    rank: "1000"
 },{
     name: "mindol",
     code: "MIN",
-    icon: "min",
+    icon: "noicon",
     longname: "MINDOL",
     description: "MINDOL coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mindol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mindol/"
     },
-    rank: "39"
+    rank: "1000"
 },{
     name: "minebee",
     code: "MB",
-    icon: "mb",
+    icon: "noicon",
     longname: "MineBee",
     description: "MineBee coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/minebee",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/minebee/"
     },
-    rank: "103"
+    rank: "1000"
 },{
     name: "minereum",
     code: "MNE",
-    icon: "mne",
+    icon: "noicon",
     longname: "Minereum",
     description: "Minereum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/minereum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/minereum/"
     },
-    rank: "3944"
+    rank: "1000"
 },{
     name: "miners-reward-token",
     code: "MRT",
-    icon: "mrt",
+    icon: "noicon",
     longname: "Miners' Reward Token",
     description: "Miners' Reward Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/miners-reward-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/miners-reward-token/"
     },
-    rank: "3218"
+    rank: "1000"
 },{
     name: "minexcoin",
     code: "MNX",
@@ -12689,49 +14144,54 @@ var otherCoins = [{
     longname: "MinexCoin",
     description: "MinexCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/minexcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/minexcoin/"
     },
-    rank: "2820"
+    rank: "1000"
 },{
     name: "mintcoin",
     code: "MINT",
-    icon: "mint",
+    icon: "noicon",
     longname: "MintCoin",
     description: "MintCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mintcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mintcoin/"
     },
-    rank: "2392"
+    rank: "1000"
 },{
     name: "mir-coin",
     code: "MIR",
-    icon: "mir",
+    icon: "noicon",
     longname: "MIR COIN",
     description: "MIR COIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mir-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mir-coin/"
     },
-    rank: "2394"
+    rank: "1000"
 },{
     name: "mirai",
     code: "MRI",
-    icon: "mri",
+    icon: "noicon",
     longname: "Mirai",
     description: "Mirai coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mirai",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mirai/"
     },
-    rank: "3569"
+    rank: "1000"
 },{
     name: "mirq",
     code: "MRQ",
-    icon: "mrq",
+    icon: "noicon",
     longname: "MIRQ",
     description: "MIRQ coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mirq",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mirq/"
     },
-    rank: "4373"
+    rank: "1000"
 },{
     name: "mithril",
     code: "MITH",
@@ -12739,19 +14199,21 @@ var otherCoins = [{
     longname: "Mithril",
     description: "Mithril coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mithril",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mithril/"
     },
-    rank: "334"
+    rank: "1000"
 },{
     name: "mithril-ore",
     code: "MORE-1",
-    icon: "more-1",
+    icon: "noicon",
     longname: "Mithril Ore",
     description: "Mithril Ore coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mithril-ore",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mithril-ore/"
     },
-    rank: "3827"
+    rank: "1000"
 },{
     name: "mixin",
     code: "XIN",
@@ -12759,39 +14221,43 @@ var otherCoins = [{
     longname: "Mixin",
     description: "Mixin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mixin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mixin/"
     },
-    rank: "54"
+    rank: "1000"
 },{
     name: "mktcoin",
     code: "MLM",
-    icon: "mlm",
+    icon: "noicon",
     longname: "MktCoin",
     description: "MktCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mktcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mktcoin/"
     },
-    rank: "2981"
+    rank: "1000"
 },{
     name: "mmocoin",
     code: "MMO",
-    icon: "mmo",
+    icon: "noicon",
     longname: "MMOCoin",
     description: "MMOCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mmocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mmocoin/"
     },
-    rank: "3448"
+    rank: "1000"
 },{
     name: "mnpcoin",
     code: "MNP",
-    icon: "mnp",
+    icon: "noicon",
     longname: "MNPCoin",
     description: "MNPCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mnpcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mnpcoin/"
     },
-    rank: "3329"
+    rank: "1000"
 },{
     name: "moac",
     code: "MOAC",
@@ -12799,59 +14265,65 @@ var otherCoins = [{
     longname: "MOAC",
     description: "MOAC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/moac",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moac/"
     },
-    rank: "194"
+    rank: "1000"
 },{
     name: "mobilego",
     code: "MGO",
-    icon: "mgo",
+    icon: "noicon",
     longname: "MobileGo",
     description: "MobileGo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mobilego",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mobilego/"
     },
-    rank: "2475"
+    rank: "1000"
 },{
     name: "mobilinktoken",
     code: "MOLK",
-    icon: "molk",
+    icon: "noicon",
     longname: "MobilinkToken",
     description: "MobilinkToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mobilinktoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mobilinktoken/"
     },
-    rank: "4333"
+    rank: "1000"
 },{
     name: "mobius",
     code: "MOBI",
-    icon: "mobi",
+    icon: "noicon",
     longname: "Mobius",
     description: "Mobius coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mobius",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mobius/"
     },
-    rank: "528"
+    rank: "1000"
 },{
     name: "model-x-coin",
     code: "MODX",
-    icon: "modx",
+    icon: "noicon",
     longname: "MODEL-X-coin",
     description: "MODEL-X-coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/model-x-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/model-x-coin/"
     },
-    rank: "3605"
+    rank: "1000"
 },{
     name: "modultrade",
     code: "MTRC",
-    icon: "mtrc",
+    icon: "noicon",
     longname: "ModulTrade",
     description: "ModulTrade coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/modultrade",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/modultrade/"
     },
-    rank: "3438"
+    rank: "1000"
 },{
     name: "modum",
     code: "MOD",
@@ -12859,9 +14331,10 @@ var otherCoins = [{
     longname: "Modum",
     description: "Modum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/modum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/modum/"
     },
-    rank: "2686"
+    rank: "1000"
 },{
     name: "moeda-loyalty-points",
     code: "MDA",
@@ -12869,49 +14342,65 @@ var otherCoins = [{
     longname: "Moeda Loyalty Points",
     description: "Moeda Loyalty Points coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/moeda-loyalty-points",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moeda-loyalty-points/"
     },
-    rank: "257"
+    rank: "230"
 },{
     name: "moin",
     code: "MOIN",
-    icon: "moin",
+    icon: "noicon",
     longname: "Moin",
     description: "Moin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/moin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moin/"
     },
-    rank: "3807"
+    rank: "1000"
 },{
     name: "mojocoin",
     code: "MOJO",
-    icon: "mojo",
+    icon: "noicon",
     longname: "MojoCoin",
     description: "MojoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mojocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mojocoin/"
     },
-    rank: "3996"
+    rank: "1000"
 },{
     name: "molecular-future",
     code: "MOF",
-    icon: "mof",
+    icon: "noicon",
     longname: "Molecular Future",
     description: "Molecular Future coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/molecular-future",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/molecular-future/"
     },
-    rank: "131"
+    rank: "1000"
 },{
     name: "molecule",
     code: "MOL",
-    icon: "mol",
+    icon: "noicon",
     longname: "Molecule",
     description: "Molecule coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/molecule",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/molecule/"
     },
-    rank: "3061"
+    rank: "1000"
+},{
+    name: "monaco",
+    code: "MCO",
+    icon: "mco",
+    longname: "MCO",
+    description: "MCO coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monaco",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/monaco/"
+    },
+    rank: "53"
 },{
     name: "monacocoin",
     code: "XMCC",
@@ -12919,9 +14408,10 @@ var otherCoins = [{
     longname: "Monoeci",
     description: "Monoeci coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monacocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monacocoin/"
     },
-    rank: "3371"
+    rank: "1000"
 },{
     name: "monacoin",
     code: "MONA",
@@ -12929,9 +14419,10 @@ var otherCoins = [{
     longname: "MonaCoin",
     description: "MonaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monacoin/"
     },
-    rank: "87"
+    rank: "47"
 },{
     name: "monero",
     code: "XMR",
@@ -12939,19 +14430,21 @@ var otherCoins = [{
     longname: "Monero",
     description: "Monero coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monero",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monero/"
     },
-    rank: "12"
+    rank: "14"
 },{
     name: "monero-classic",
     code: "XMC",
-    icon: "xmc",
+    icon: "noicon",
     longname: "Monero Classic",
     description: "Monero Classic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monero-classic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monero-classic/"
     },
-    rank: "399"
+    rank: "1000"
 },{
     name: "monero-original",
     code: "XMO",
@@ -12959,19 +14452,21 @@ var otherCoins = [{
     longname: "Monero Original",
     description: "Monero Original coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monero-original",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monero-original/"
     },
-    rank: "4326"
+    rank: "1000"
 },{
     name: "monetaryunit",
     code: "MUE",
-    icon: "mue",
+    icon: "noicon",
     longname: "MonetaryUnit",
     description: "MonetaryUnit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monetaryunit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monetaryunit/"
     },
-    rank: "2937"
+    rank: "1000"
 },{
     name: "monetha",
     code: "MTH",
@@ -12979,29 +14474,32 @@ var otherCoins = [{
     longname: "Monetha",
     description: "Monetha coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monetha",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monetha/"
     },
-    rank: "422"
+    rank: "1000"
 },{
     name: "moneytoken",
     code: "IMT",
-    icon: "imt",
+    icon: "noicon",
     longname: "Moneytoken",
     description: "Moneytoken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/moneytoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moneytoken/"
     },
-    rank: "2828"
+    rank: "1000"
 },{
     name: "monkey-project",
     code: "MONK",
-    icon: "monk",
+    icon: "noicon",
     longname: "Monkey Project",
     description: "Monkey Project coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monkey-project",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monkey-project/"
     },
-    rank: "3374"
+    rank: "1000"
 },{
     name: "monolith",
     code: "TKN",
@@ -13009,139 +14507,153 @@ var otherCoins = [{
     longname: "Monolith",
     description: "Monolith coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monolith",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monolith/"
     },
-    rank: "274"
+    rank: "1000"
 },{
     name: "monster-byte",
     code: "MBI",
-    icon: "mbi",
+    icon: "noicon",
     longname: "Monster Byte",
     description: "Monster Byte coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/monster-byte",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/monster-byte/"
     },
-    rank: "3686"
+    rank: "1000"
 },{
     name: "mooncoin",
     code: "MOON",
-    icon: "moon",
+    icon: "noicon",
     longname: "Mooncoin",
     description: "Mooncoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mooncoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mooncoin/"
     },
-    rank: "4367"
+    rank: "1000"
 },{
     name: "more-coin",
     code: "MORE",
-    icon: "more",
+    icon: "noicon",
     longname: "More Coin",
     description: "More Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/more-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/more-coin/"
     },
-    rank: "3454"
+    rank: "1000"
 },{
     name: "morpheus-labs",
     code: "MITX",
-    icon: "mitx",
+    icon: "noicon",
     longname: "Morpheus Labs",
     description: "Morpheus Labs coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/morpheus-labs",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/morpheus-labs/"
     },
-    rank: "480"
+    rank: "1000"
 },{
     name: "morpheus-network",
     code: "MRPH",
-    icon: "mrph",
+    icon: "noicon",
     longname: "Morpheus.Network",
     description: "Morpheus.Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/morpheus-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/morpheus-network/"
     },
-    rank: "463"
+    rank: "1000"
 },{
     name: "moss-coin",
     code: "MOC",
-    icon: "moc",
+    icon: "noicon",
     longname: "Moss Coin",
     description: "Moss Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/moss-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moss-coin/"
     },
-    rank: "487"
+    rank: "1000"
 },{
     name: "mothership",
     code: "MSP",
-    icon: "msp",
+    icon: "noicon",
     longname: "Mothership",
     description: "Mothership coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mothership",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mothership/"
     },
-    rank: "2770"
+    rank: "1000"
 },{
     name: "motocoin",
     code: "MOTO",
-    icon: "moto",
+    icon: "noicon",
     longname: "Motocoin",
     description: "Motocoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/motocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/motocoin/"
     },
-    rank: "3646"
+    rank: "1000"
 },{
     name: "moviebloc",
     code: "MBL",
-    icon: "mbl",
+    icon: "noicon",
     longname: "MovieBloc",
     description: "MovieBloc coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/moviebloc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moviebloc/"
     },
-    rank: "365"
+    rank: "1000"
 },{
     name: "moving-cloud-coin",
     code: "MCC",
-    icon: "mcc",
+    icon: "noicon",
     longname: "Moving Cloud Coin",
     description: "Moving Cloud Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/moving-cloud-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/moving-cloud-coin/"
     },
-    rank: "4248"
+    rank: "1000"
 },{
     name: "msd",
     code: "MSD",
-    icon: "msd",
+    icon: "noicon",
     longname: "MSD",
     description: "MSD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/msd",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/msd/"
     },
-    rank: "4247"
+    rank: "1000"
 },{
     name: "mtc-mesh-network",
     code: "MTC-1",
-    icon: "mtc-1",
+    icon: "noicon",
     longname: "MTC Mesh Network",
     description: "MTC Mesh Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mtc-mesh-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mtc-mesh-network/"
     },
-    rank: "3327"
+    rank: "1000"
 },{
     name: "multivac",
     code: "MTV",
-    icon: "mtv",
+    icon: "noicon",
     longname: "MultiVAC",
     description: "MultiVAC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/multivac",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/multivac/"
     },
-    rank: "2301"
+    rank: "1000"
 },{
     name: "musicoin",
     code: "MUSIC",
@@ -13149,59 +14661,65 @@ var otherCoins = [{
     longname: "Musicoin",
     description: "Musicoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/musicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/musicoin/"
     },
-    rank: "3025"
+    rank: "1000"
 },{
     name: "musiconomi",
     code: "MCI",
-    icon: "mci",
+    icon: "noicon",
     longname: "Musiconomi",
     description: "Musiconomi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/musiconomi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/musiconomi/"
     },
-    rank: "3834"
+    rank: "1000"
 },{
     name: "mustangcoin",
     code: "MST",
-    icon: "mst",
+    icon: "noicon",
     longname: "MustangCoin",
     description: "MustangCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mustangcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mustangcoin/"
     },
-    rank: "4094"
+    rank: "1000"
 },{
     name: "mvl",
     code: "MVL",
-    icon: "mvl",
+    icon: "noicon",
     longname: "MVL",
     description: "MVL coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mvl",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mvl/"
     },
-    rank: "2350"
+    rank: "1000"
 },{
     name: "mx-token",
     code: "MX",
-    icon: "mx",
+    icon: "noicon",
     longname: "MX Token",
     description: "MX Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mx-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mx-token/"
     },
-    rank: "125"
+    rank: "1000"
 },{
     name: "mybit",
     code: "MYB",
-    icon: "myb",
+    icon: "noicon",
     longname: "MyBit",
     description: "MyBit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mybit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mybit/"
     },
-    rank: "3201"
+    rank: "1000"
 },{
     name: "myriad",
     code: "XMY",
@@ -13209,39 +14727,43 @@ var otherCoins = [{
     longname: "Myriad",
     description: "Myriad coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/myriad",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/myriad/"
     },
-    rank: "2911"
+    rank: "1000"
 },{
     name: "mysterium",
     code: "MYST",
-    icon: "myst",
+    icon: "noicon",
     longname: "Mysterium",
     description: "Mysterium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mysterium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mysterium/"
     },
-    rank: "3050"
+    rank: "1000"
 },{
     name: "mytoken",
     code: "MT",
-    icon: "mt",
+    icon: "noicon",
     longname: "MyToken",
     description: "MyToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mytoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mytoken/"
     },
-    rank: "4185"
+    rank: "1000"
 },{
     name: "mywish",
     code: "WISH",
-    icon: "wish",
+    icon: "noicon",
     longname: "MyWish",
     description: "MyWish coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/mywish",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/mywish/"
     },
-    rank: "3321"
+    rank: "1000"
 },{
     name: "naga",
     code: "NGC",
@@ -13249,19 +14771,21 @@ var otherCoins = [{
     longname: "NAGA",
     description: "NAGA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/naga",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/naga/"
     },
-    rank: "2680"
+    rank: "1000"
 },{
     name: "nam-coin",
     code: "NAM",
-    icon: "nam",
+    icon: "noicon",
     longname: "NAM COIN",
     description: "NAM COIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nam-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nam-coin/"
     },
-    rank: "4345"
+    rank: "1000"
 },{
     name: "namecoin",
     code: "NMC",
@@ -13269,19 +14793,21 @@ var otherCoins = [{
     longname: "Namecoin",
     description: "Namecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/namecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/namecoin/"
     },
-    rank: "380"
+    rank: "1000"
 },{
     name: "nanjcoin",
     code: "NANJ",
-    icon: "nanj",
+    icon: "noicon",
     longname: "NANJCOIN",
     description: "NANJCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nanjcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nanjcoin/"
     },
-    rank: "2853"
+    rank: "1000"
 },{
     name: "nano",
     code: "NANO",
@@ -13289,59 +14815,54 @@ var otherCoins = [{
     longname: "Nano",
     description: "Nano coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nano",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nano/"
     },
-    rank: "52"
+    rank: "58"
 },{
     name: "napoleonx",
     code: "NPX",
-    icon: "npx",
+    icon: "noicon",
     longname: "NaPoleonX",
     description: "NaPoleonX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/napoleonx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/napoleonx/"
     },
-    rank: "396"
+    rank: "1000"
 },{
     name: "narrative",
     code: "NRVE",
-    icon: "nrve",
+    icon: "noicon",
     longname: "Narrative",
     description: "Narrative coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/narrative",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/narrative/"
     },
-    rank: "3366"
+    rank: "1000"
 },{
     name: "nasdacoin",
     code: "NSD",
-    icon: "nsd",
+    icon: "noicon",
     longname: "Nasdacoin",
     description: "Nasdacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nasdacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nasdacoin/"
     },
-    rank: "2520"
-},{
-    name: "nash-exchange",
-    code: "NEX",
-    icon: "nex",
-    longname: "Nash Exchange",
-    description: "Nash Exchange coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/nash-exchange/"
-    },
-    rank: "138"
+    rank: "1000"
 },{
     name: "native-coin",
     code: "N8V",
-    icon: "n8v",
+    icon: "noicon",
     longname: "NativeCoin",
     description: "NativeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/native-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/native-coin/"
     },
-    rank: "2381"
+    rank: "1000"
 },{
     name: "nav-coin",
     code: "NAV",
@@ -13349,29 +14870,32 @@ var otherCoins = [{
     longname: "NavCoin",
     description: "NavCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nav-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nav-coin/"
     },
-    rank: "395"
+    rank: "1000"
 },{
     name: "naviaddress",
     code: "NAVI",
-    icon: "navi",
+    icon: "noicon",
     longname: "Naviaddress",
     description: "Naviaddress coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/naviaddress",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/naviaddress/"
     },
-    rank: "3413"
+    rank: "1000"
 },{
     name: "ndex",
     code: "NDX",
-    icon: "ndx",
+    icon: "noicon",
     longname: "nDEX",
     description: "nDEX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ndex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ndex/"
     },
-    rank: "3506"
+    rank: "1000"
 },{
     name: "neblio",
     code: "NEBL",
@@ -13379,49 +14903,54 @@ var otherCoins = [{
     longname: "Neblio",
     description: "Neblio coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neblio",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neblio/"
     },
-    rank: "358"
+    rank: "232"
 },{
     name: "nebula-ai",
     code: "NBAI",
-    icon: "nbai",
+    icon: "noicon",
     longname: "Nebula AI",
     description: "Nebula AI coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nebula-ai",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nebula-ai/"
     },
-    rank: "3068"
+    rank: "1000"
 },{
-    name: "nebulas-token",
+    name: "nebulas",
     code: "NAS",
     icon: "nas",
     longname: "Nebulas",
     description: "Nebulas coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/nebulas-token/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nebulas",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/nebulas/"
     },
-    rank: "147"
+    rank: "170"
 },{
     name: "nectar",
     code: "NEC",
-    icon: "nec",
+    icon: "noicon",
     longname: "Nectar",
     description: "Nectar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nectar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nectar/"
     },
-    rank: "378"
+    rank: "1000"
 },{
     name: "nekonium",
     code: "NUKO",
-    icon: "nuko",
+    icon: "noicon",
     longname: "Nekonium",
     description: "Nekonium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nekonium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nekonium/"
     },
-    rank: "4069"
+    rank: "1000"
 },{
     name: "nem",
     code: "XEM",
@@ -13429,9 +14958,10 @@ var otherCoins = [{
     longname: "NEM",
     description: "NEM coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nem/"
     },
-    rank: "28"
+    rank: "26"
 },{
     name: "neo",
     code: "NEO",
@@ -13439,9 +14969,21 @@ var otherCoins = [{
     longname: "NEO",
     description: "NEO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neo/"
     },
-    rank: "17"
+    rank: "22"
+},{
+    name: "neon-exchange",
+    code: "NEX",
+    icon: "noicon",
+    longname: "Nash Exchange",
+    description: "Nash Exchange coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neon-exchange",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/neon-exchange/"
+    },
+    rank: "125"
 },{
     name: "neoscoin",
     code: "NEOS",
@@ -13449,59 +14991,76 @@ var otherCoins = [{
     longname: "NeosCoin",
     description: "NeosCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neoscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neoscoin/"
     },
-    rank: "3189"
+    rank: "1000"
 },{
     name: "neoworld-cash",
     code: "NASH",
-    icon: "nash",
+    icon: "noicon",
     longname: "NeoWorld Cash",
     description: "NeoWorld Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neoworld-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neoworld-cash/"
     },
-    rank: "2385"
+    rank: "1000"
 },{
     name: "nerva",
     code: "XNV",
-    icon: "xnv",
+    icon: "noicon",
     longname: "Nerva",
     description: "Nerva coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nerva",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nerva/"
     },
-    rank: "4306"
+    rank: "1000"
 },{
     name: "nerves",
     code: "NER",
-    icon: "ner",
+    icon: "noicon",
     longname: "Nerves",
     description: "Nerves coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nerves",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nerves/"
     },
-    rank: "3819"
+    rank: "1000"
+},{
+    name: "nervos-network",
+    code: "CKB",
+    icon: "noicon",
+    longname: "Nervos Network",
+    description: "Nervos Network coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nervos-network",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/nervos-network/"
+    },
+    rank: "54"
 },{
     name: "netko",
     code: "NETKO",
-    icon: "netko",
+    icon: "noicon",
     longname: "Netko",
     description: "Netko coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/netko",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/netko/"
     },
-    rank: "3883"
+    rank: "1000"
 },{
     name: "netkoin",
     code: "NTK-1",
-    icon: "ntk-1",
+    icon: "noicon",
     longname: "NetKoin",
     description: "NetKoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/netkoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/netkoin/"
     },
-    rank: "3533"
+    rank: "1000"
 },{
     name: "neumark",
     code: "NEU",
@@ -13509,189 +15068,208 @@ var otherCoins = [{
     longname: "Neumark",
     description: "Neumark coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neumark",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neumark/"
     },
-    rank: "2360"
+    rank: "1000"
 },{
     name: "neural-protocol",
     code: "NRP",
-    icon: "nrp",
+    icon: "noicon",
     longname: "Neural Protocol",
     description: "Neural Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neural-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neural-protocol/"
     },
-    rank: "3563"
+    rank: "1000"
 },{
     name: "neuro",
     code: "NRO",
-    icon: "nro",
+    icon: "noicon",
     longname: "Neuro",
     description: "Neuro coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neuro",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neuro/"
     },
-    rank: "4004"
+    rank: "1000"
 },{
     name: "neurochain",
     code: "NCC",
-    icon: "ncc",
+    icon: "noicon",
     longname: "NeuroChain",
     description: "NeuroChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neurochain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neurochain/"
     },
-    rank: "2977"
+    rank: "1000"
 },{
     name: "neurotoken",
     code: "NTK",
-    icon: "ntk",
+    icon: "noicon",
     longname: "Neurotoken",
     description: "Neurotoken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neurotoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neurotoken/"
     },
-    rank: "3081"
+    rank: "1000"
 },{
     name: "neutron",
     code: "NTRN",
-    icon: "ntrn",
+    icon: "noicon",
     longname: "Neutron",
     description: "Neutron coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neutron",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neutron/"
     },
-    rank: "3369"
+    rank: "1000"
 },{
     name: "nevacoin",
     code: "NEVA",
-    icon: "neva",
+    icon: "noicon",
     longname: "NevaCoin",
     description: "NevaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nevacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nevacoin/"
     },
-    rank: "3990"
+    rank: "1000"
 },{
     name: "neverdie",
     code: "NDC",
-    icon: "ndc",
+    icon: "noicon",
     longname: "NEVERDIE",
     description: "NEVERDIE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/neverdie",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/neverdie/"
     },
-    rank: "3788"
+    rank: "1000"
 },{
     name: "new-power-coin",
     code: "NPW",
-    icon: "npw",
+    icon: "noicon",
     longname: "New Power Coin",
     description: "New Power Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/new-power-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/new-power-coin/"
     },
-    rank: "2976"
+    rank: "1000"
 },{
     name: "nework",
     code: "NKC",
-    icon: "nkc",
+    icon: "noicon",
     longname: "Nework",
     description: "Nework coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nework",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nework/"
     },
-    rank: "3148"
+    rank: "1000"
 },{
     name: "newstoken",
     code: "NEWOS",
-    icon: "newos",
+    icon: "noicon",
     longname: "NewsToken",
     description: "NewsToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/newstoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newstoken/"
     },
-    rank: "4292"
+    rank: "1000"
 },{
     name: "newton",
     code: "NEW",
-    icon: "new",
+    icon: "noicon",
     longname: "Newton",
     description: "Newton coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/newton",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newton/"
     },
-    rank: "113"
+    rank: "1000"
 },{
     name: "newton-coin-project",
     code: "NCP",
-    icon: "ncp",
+    icon: "noicon",
     longname: "Newton Coin Project",
     description: "Newton Coin Project coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/newton-coin-project",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newton-coin-project/"
     },
-    rank: "3783"
+    rank: "1000"
 },{
     name: "newyork-exchange",
     code: "NYE",
-    icon: "nye",
+    icon: "noicon",
     longname: "NewYork Exchange",
     description: "NewYork Exchange coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/newyork-exchange",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newyork-exchange/"
     },
-    rank: "284"
+    rank: "1000"
 },{
     name: "newyorkcoin",
     code: "NYC",
-    icon: "nyc",
+    icon: "noicon",
     longname: "NewYorkCoin",
     description: "NewYorkCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/newyorkcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/newyorkcoin/"
     },
-    rank: "3086"
+    rank: "1000"
 },{
     name: "nexium",
     code: "NXC",
-    icon: "nxc",
+    icon: "noicon",
     longname: "Nexium",
     description: "Nexium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nexium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nexium/"
     },
-    rank: "3706"
+    rank: "1000"
 },{
     name: "nexo",
     code: "NEXO",
     icon: "nexo",
-    longname: "Nexo",
-    description: "Nexo coin",
+    longname: "NEXO",
+    description: "NEXO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nexo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nexo/"
     },
-    rank: "93"
+    rank: "64"
 },{
     name: "next",
     code: "NET",
-    icon: "net",
+    icon: "noicon",
     longname: "NEXT",
     description: "NEXT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/next",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/next/"
     },
-    rank: "109"
+    rank: "1000"
 },{
     name: "nexty",
     code: "NTY",
-    icon: "nty",
+    icon: "noicon",
     longname: "Nexty",
     description: "Nexty coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nexty",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nexty/"
     },
-    rank: "2664"
+    rank: "1000"
 },{
     name: "nexus",
     code: "NXS",
@@ -13699,119 +15277,131 @@ var otherCoins = [{
     longname: "Nexus",
     description: "Nexus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nexus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nexus/"
     },
-    rank: "225"
+    rank: "193"
 },{
     name: "nimiq",
     code: "NIM",
-    icon: "nim",
+    icon: "noicon",
     longname: "Nimiq",
     description: "Nimiq coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nimiq",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nimiq/"
     },
-    rank: "2325"
+    rank: "1000"
 },{
     name: "niobio-cash",
     code: "NBR",
-    icon: "nbr",
+    icon: "noicon",
     longname: "Niobio Cash",
     description: "Niobio Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/niobio-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/niobio-cash/"
     },
-    rank: "3252"
+    rank: "1000"
 },{
     name: "niobium-coin",
     code: "NBC",
-    icon: "nbc",
+    icon: "noicon",
     longname: "Niobium Coin",
     description: "Niobium Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/niobium-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/niobium-coin/"
     },
-    rank: "2954"
+    rank: "1000"
 },{
     name: "nitro",
     code: "NOX",
-    icon: "nox",
+    icon: "noicon",
     longname: "Nitro",
     description: "Nitro coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nitro",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nitro/"
     },
-    rank: "4016"
+    rank: "1000"
 },{
     name: "nix",
     code: "NIX",
-    icon: "nix",
+    icon: "noicon",
     longname: "NIX",
     description: "NIX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nix",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nix/"
     },
-    rank: "2218"
+    rank: "1000"
 },{
     name: "nkn",
     code: "NKN",
-    icon: "nkn",
+    icon: "noicon",
     longname: "NKN",
     description: "NKN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nkn",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nkn/"
     },
-    rank: "258"
+    rank: "198"
 },{
     name: "no-bs-crypto",
     code: "NOBS",
-    icon: "nobs",
+    icon: "noicon",
     longname: "No BS Crypto",
     description: "No BS Crypto coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/no-bs-crypto",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/no-bs-crypto/"
     },
-    rank: "3478"
+    rank: "1000"
 },{
     name: "noah-coin",
     code: "NOAH",
-    icon: "noah",
+    icon: "noicon",
     longname: "Noah Coin",
     description: "Noah Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/noah-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/noah-coin/"
     },
-    rank: "118"
+    rank: "1000"
 },{
     name: "noblecoin",
     code: "NOBL",
-    icon: "nobl",
+    icon: "noicon",
     longname: "NobleCoin",
     description: "NobleCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/noblecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/noblecoin/"
     },
-    rank: "3708"
+    rank: "1000"
 },{
     name: "noir",
     code: "NOR",
-    icon: "nor",
+    icon: "noicon",
     longname: "Noir",
     description: "Noir coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/noir",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/noir/"
     },
-    rank: "4364"
+    rank: "1000"
 },{
     name: "noku",
     code: "NOKU",
-    icon: "noku",
+    icon: "noicon",
     longname: "Noku",
     description: "Noku coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/noku",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/noku/"
     },
-    rank: "3653"
+    rank: "1000"
 },{
     name: "nolimitcoin",
     code: "NLC2",
@@ -13819,59 +15409,65 @@ var otherCoins = [{
     longname: "NoLimitCoin",
     description: "NoLimitCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nolimitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nolimitcoin/"
     },
-    rank: "3106"
+    rank: "1000"
 },{
     name: "nos",
     code: "NOS",
-    icon: "nos",
+    icon: "noicon",
     longname: "nOS",
     description: "nOS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nos/"
     },
-    rank: "4183"
+    rank: "1000"
 },{
     name: "novacoin",
     code: "NVC",
-    icon: "nvc",
+    icon: "noicon",
     longname: "Novacoin",
     description: "Novacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/novacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/novacoin/"
     },
-    rank: "3096"
+    rank: "1000"
 },{
     name: "npcoin",
     code: "NPC",
-    icon: "npc",
+    icon: "noicon",
     longname: "NPCoin",
     description: "NPCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/npcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/npcoin/"
     },
-    rank: "560"
+    rank: "1000"
 },{
     name: "nper",
     code: "NPER",
-    icon: "nper",
+    icon: "noicon",
     longname: "NPER",
     description: "NPER coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nper",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nper/"
     },
-    rank: "3235"
+    rank: "1000"
 },{
     name: "nubits",
     code: "USNBT",
-    icon: "usnbt",
+    icon: "noicon",
     longname: "NuBits",
     description: "NuBits coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nubits",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nubits/"
     },
-    rank: "3315"
+    rank: "1000"
 },{
     name: "nucleus-vision",
     code: "NCASH",
@@ -13879,119 +15475,131 @@ var otherCoins = [{
     longname: "Nucleus Vision",
     description: "Nucleus Vision coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nucleus-vision",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nucleus-vision/"
     },
-    rank: "404"
+    rank: "1000"
 },{
     name: "nuggets",
     code: "NUG",
-    icon: "nug",
+    icon: "noicon",
     longname: "Nuggets",
     description: "Nuggets coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nuggets",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nuggets/"
     },
-    rank: "4328"
+    rank: "1000"
 },{
     name: "nullex",
     code: "NLX",
-    icon: "nlx",
+    icon: "noicon",
     longname: "Nullex",
     description: "Nullex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nullex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nullex/"
     },
-    rank: "3382"
+    rank: "1000"
 },{
     name: "nuls",
     code: "NULS",
     icon: "nuls",
-    longname: "NULS",
-    description: "NULS coin",
+    longname: "Nuls",
+    description: "Nuls coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nuls",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nuls/"
     },
-    rank: "151"
+    rank: "135"
 },{
     name: "numeraire",
     code: "NMR",
-    icon: "nmr",
+    icon: "noicon",
     longname: "Numeraire",
     description: "Numeraire coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/numeraire",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/numeraire/"
     },
-    rank: "294"
+    rank: "59"
 },{
     name: "numus",
     code: "NMS",
-    icon: "nms",
+    icon: "noicon",
     longname: "Numus",
     description: "Numus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/numus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/numus/"
     },
-    rank: "3579"
+    rank: "1000"
 },{
     name: "nusd",
     code: "NUSD",
-    icon: "nusd",
+    icon: "noicon",
     longname: "nUSD",
     description: "nUSD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nusd",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nusd/"
     },
-    rank: "3124"
+    rank: "1000"
 },{
     name: "nushares",
     code: "NSR",
-    icon: "nsr",
+    icon: "noicon",
     longname: "NuShares",
     description: "NuShares coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nushares",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nushares/"
     },
-    rank: "3803"
+    rank: "1000"
 },{
     name: "nxt",
     code: "NXT",
     icon: "nxt",
-    longname: "Nxt",
-    description: "Nxt coin",
+    longname: "NXT",
+    description: "NXT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nxt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nxt/"
     },
-    rank: "266"
+    rank: "200"
 },{
     name: "nyancoin",
     code: "NYAN",
-    icon: "nyan",
+    icon: "noicon",
     longname: "Nyancoin",
     description: "Nyancoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nyancoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nyancoin/"
     },
-    rank: "3858"
+    rank: "1000"
 },{
     name: "nyerium",
     code: "NYEX",
-    icon: "nyex",
+    icon: "noicon",
     longname: "Nyerium",
     description: "Nyerium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/nyerium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/nyerium/"
     },
-    rank: "3595"
+    rank: "1000"
 },{
     name: "oasis-city",
     code: "OSC",
-    icon: "osc",
+    icon: "noicon",
     longname: "Oasis City",
     description: "Oasis City coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/oasis-city",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oasis-city/"
     },
-    rank: "1854"
+    rank: "1000"
 },{
     name: "oax",
     code: "OAX",
@@ -13999,129 +15607,131 @@ var otherCoins = [{
     longname: "OAX",
     description: "OAX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/oax",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oax/"
     },
-    rank: "428"
+    rank: "1000"
 },{
     name: "obits",
     code: "OBITS",
-    icon: "obits",
+    icon: "noicon",
     longname: "OBITS",
     description: "OBITS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/obits",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/obits/"
     },
-    rank: "3254"
+    rank: "1000"
 },{
     name: "obsidian",
     code: "ODN",
-    icon: "odn",
+    icon: "noicon",
     longname: "Obsidian",
     description: "Obsidian coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/obsidian",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/obsidian/"
     },
-    rank: "3568"
+    rank: "1000"
 },{
     name: "obxcoin",
     code: "OBX",
-    icon: "obx",
+    icon: "noicon",
     longname: "OBXcoin",
     description: "OBXcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/obxcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/obxcoin/"
     },
-    rank: "4361"
-},{
-    name: "obyte",
-    code: "GBYTE",
-    icon: "gbyte",
-    longname: "Obyte",
-    description: "Obyte coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/obyte/"
-    },
-    rank: "244"
+    rank: "1000"
 },{
     name: "ocean-protocol",
     code: "OCEAN",
-    icon: "ocean",
+    icon: "noicon",
     longname: "Ocean Protocol",
     description: "Ocean Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ocean-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ocean-protocol/"
     },
-    rank: "297"
+    rank: "137"
 },{
     name: "oceanchain",
     code: "OC",
-    icon: "oc",
+    icon: "noicon",
     longname: "OceanChain",
     description: "OceanChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/oceanchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oceanchain/"
     },
-    rank: "4257"
+    rank: "1000"
 },{
     name: "oceanlab",
     code: "OCL",
-    icon: "ocl",
+    icon: "noicon",
     longname: "Oceanlab",
     description: "Oceanlab coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/oceanlab",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oceanlab/"
     },
-    rank: "3398"
+    rank: "1000"
 },{
     name: "octoin-coin",
     code: "OCC",
-    icon: "occ",
+    icon: "noicon",
     longname: "Octoin Coin",
     description: "Octoin Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/octoin-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/octoin-coin/"
     },
-    rank: "3432"
+    rank: "1000"
 },{
     name: "odem",
     code: "ODE",
-    icon: "ode",
+    icon: "noicon",
     longname: "ODEM",
     description: "ODEM coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/odem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/odem/"
     },
-    rank: "157"
+    rank: "213"
 },{
     name: "odyssey",
     code: "OCN",
-    icon: "ocn",
+    icon: "noicon",
     longname: "Odyssey",
     description: "Odyssey coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/odyssey",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/odyssey/"
     },
-    rank: "431"
+    rank: "1000"
 },{
     name: "ofcoin",
     code: "OF",
-    icon: "of",
+    icon: "noicon",
     longname: "OFCOIN",
     description: "OFCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ofcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ofcoin/"
     },
-    rank: "4194"
+    rank: "1000"
 },{
     name: "okb",
     code: "OKB",
-    icon: "okb",
+    icon: "noicon",
     longname: "OKB",
     description: "OKB coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/okb",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/okb/"
     },
-    rank: "91"
+    rank: "10"
 },{
     name: "okcash",
     code: "OK",
@@ -14129,49 +15739,54 @@ var otherCoins = [{
     longname: "OKCash",
     description: "OKCash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/okcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/okcash/"
     },
-    rank: "2352"
+    rank: "1000"
 },{
     name: "olive",
     code: "OLE",
-    icon: "ole",
+    icon: "noicon",
     longname: "Olive",
     description: "Olive coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/olive",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/olive/"
     },
-    rank: "3132"
+    rank: "1000"
 },{
     name: "olympic",
     code: "OLMP",
-    icon: "olmp",
+    icon: "noicon",
     longname: "Olympic",
     description: "Olympic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/olympic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/olympic/"
     },
-    rank: "4092"
+    rank: "1000"
 },{
     name: "olympus-labs",
     code: "MOT",
-    icon: "mot",
+    icon: "noicon",
     longname: "Olympus Labs",
     description: "Olympus Labs coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/olympus-labs",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/olympus-labs/"
     },
-    rank: "2912"
+    rank: "1000"
 },{
     name: "omencoin",
     code: "OMEN",
-    icon: "omen",
+    icon: "noicon",
     longname: "OmenCoin",
     description: "OmenCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/omencoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/omencoin/"
     },
-    rank: "4376"
+    rank: "1000"
 },{
     name: "omisego",
     code: "OMG",
@@ -14179,9 +15794,10 @@ var otherCoins = [{
     longname: "OmiseGO",
     description: "OmiseGO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/omisego",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/omisego/"
     },
-    rank: "49"
+    rank: "51"
 },{
     name: "omni",
     code: "OMNI",
@@ -14189,69 +15805,76 @@ var otherCoins = [{
     longname: "Omni",
     description: "Omni coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/omni",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/omni/"
     },
-    rank: "567"
+    rank: "1000"
 },{
     name: "omnitude",
     code: "ECOM",
-    icon: "ecom",
+    icon: "noicon",
     longname: "Omnitude",
     description: "Omnitude coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/omnitude",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/omnitude/"
     },
-    rank: "592"
+    rank: "1000"
 },{
     name: "on-live",
     code: "ONL",
-    icon: "onl",
+    icon: "noicon",
     longname: "On.Live",
     description: "On.Live coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/on-live",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/on-live/"
     },
-    rank: "3085"
+    rank: "1000"
 },{
     name: "ondori",
     code: "RSTR",
-    icon: "rstr",
+    icon: "noicon",
     longname: "Ondori",
     description: "Ondori coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ondori",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ondori/"
     },
-    rank: "3630"
+    rank: "1000"
 },{
     name: "oneledger",
     code: "OLT",
-    icon: "olt",
+    icon: "noicon",
     longname: "OneLedger",
     description: "OneLedger coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/oneledger",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oneledger/"
     },
-    rank: "530"
+    rank: "1000"
 },{
     name: "oneroot-network",
     code: "RNT",
-    icon: "rnt",
+    icon: "noicon",
     longname: "OneRoot Network",
     description: "OneRoot Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/oneroot-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oneroot-network/"
     },
-    rank: "551"
+    rank: "1000"
 },{
     name: "ong",
     code: "ONG-1",
-    icon: "ong-1",
+    icon: "noicon",
     longname: "ONG",
     description: "ONG coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ong",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ong/"
     },
-    rank: "4172"
+    rank: "1000"
 },{
     name: "ongsocial",
     code: "ONG",
@@ -14259,29 +15882,32 @@ var otherCoins = [{
     longname: "SoMee.Social",
     description: "SoMee.Social coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ongsocial",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ongsocial/"
     },
-    rank: "3325"
+    rank: "1000"
 },{
     name: "onix",
     code: "ONX",
-    icon: "onx",
+    icon: "noicon",
     longname: "Onix",
     description: "Onix coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/onix",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/onix/"
     },
-    rank: "3899"
+    rank: "1000"
 },{
     name: "online",
     code: "OIO",
-    icon: "oio",
+    icon: "noicon",
     longname: "Online",
     description: "Online coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/online",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/online/"
     },
-    rank: "2866"
+    rank: "1000"
 },{
     name: "ontology",
     code: "ONT",
@@ -14289,199 +15915,230 @@ var otherCoins = [{
     longname: "Ontology",
     description: "Ontology coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ontology",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ontology/"
     },
-    rank: "24"
+    rank: "28"
 },{
     name: "op-coin",
     code: "OPC",
-    icon: "opc",
+    icon: "noicon",
     longname: "OP Coin",
     description: "OP Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/op-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/op-coin/"
     },
-    rank: "3798"
+    rank: "1000"
 },{
     name: "opal",
     code: "OPAL",
-    icon: "opal",
+    icon: "noicon",
     longname: "Opal",
     description: "Opal coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/opal",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/opal/"
     },
-    rank: "3777"
+    rank: "1000"
 },{
     name: "opcoinx",
     code: "OPCX",
-    icon: "opcx",
+    icon: "noicon",
     longname: "OPCoinX",
     description: "OPCoinX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/opcoinx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/opcoinx/"
     },
-    rank: "3872"
+    rank: "1000"
 },{
     name: "open-platform",
     code: "OPEN",
-    icon: "open",
+    icon: "noicon",
     longname: "Open Platform",
     description: "Open Platform coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/open-platform",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/open-platform/"
     },
-    rank: "3650"
+    rank: "1000"
 },{
     name: "open-trading-network",
     code: "OTN",
-    icon: "otn",
+    icon: "noicon",
     longname: "Open Trading Network",
     description: "Open Trading Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/open-trading-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/open-trading-network/"
     },
-    rank: "3728"
+    rank: "1000"
 },{
     name: "optimal-shelf-availability-token",
     code: "OSA",
-    icon: "osa",
+    icon: "noicon",
     longname: "Optimal Shelf Availability Token",
     description: "Optimal Shelf Availability Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/optimal-shelf-availability-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/optimal-shelf-availability-token/"
     },
-    rank: "2577"
+    rank: "1000"
 },{
     name: "optitoken",
     code: "OPTI",
-    icon: "opti",
+    icon: "noicon",
     longname: "OptiToken",
     description: "OptiToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/optitoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/optitoken/"
     },
-    rank: "3250"
+    rank: "1000"
 },{
     name: "opus",
     code: "OPT",
-    icon: "opt",
+    icon: "noicon",
     longname: "Opus",
     description: "Opus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/opus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/opus/"
     },
-    rank: "3300"
+    rank: "1000"
 },{
     name: "oraclechain",
     code: "OCT",
-    icon: "oct",
+    icon: "noicon",
     longname: "OracleChain",
     description: "OracleChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/oraclechain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oraclechain/"
     },
-    rank: "3023"
+    rank: "1000"
 },{
     name: "orbis-token",
     code: "OBT",
-    icon: "obt",
+    icon: "noicon",
     longname: "Orbis Token",
     description: "Orbis Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/orbis-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/orbis-token/"
     },
-    rank: "3828"
+    rank: "1000"
 },{
     name: "orbitcoin",
     code: "ORB",
-    icon: "orb",
+    icon: "noicon",
     longname: "Orbitcoin",
     description: "Orbitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/orbitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/orbitcoin/"
     },
-    rank: "3740"
+    rank: "1000"
 },{
     name: "orbs",
     code: "ORBS",
-    icon: "orbs",
+    icon: "noicon",
     longname: "Orbs",
     description: "Orbs coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/orbs",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/orbs/"
     },
-    rank: "210"
+    rank: "1000"
 },{
     name: "ordocoin",
     code: "RDC",
-    icon: "rdc",
+    icon: "noicon",
     longname: "Ordocoin",
     description: "Ordocoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ordocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ordocoin/"
     },
-    rank: "4289"
+    rank: "1000"
 },{
     name: "origami",
     code: "ORI",
-    icon: "ori",
+    icon: "noicon",
     longname: "Origami",
     description: "Origami coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/origami",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/origami/"
     },
-    rank: "3824"
+    rank: "1000"
+},{
+    name: "origin-protocol",
+    code: "OGN",
+    icon: "noicon",
+    longname: "Origin Protocol",
+    description: "Origin Protocol coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/origin-protocol",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/origin-protocol/"
+    },
+    rank: "218"
 },{
     name: "origin-sport",
     code: "ORS",
-    icon: "ors",
+    icon: "noicon",
     longname: "Origin Sport",
     description: "Origin Sport coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/origin-sport",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/origin-sport/"
     },
-    rank: "391"
+    rank: "1000"
 },{
     name: "origintrail",
     code: "TRAC",
-    icon: "trac",
+    icon: "noicon",
     longname: "OriginTrail",
     description: "OriginTrail coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/origintrail",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/origintrail/"
     },
-    rank: "564"
+    rank: "1000"
 },{
     name: "origo",
     code: "OGO",
-    icon: "ogo",
+    icon: "noicon",
     longname: "Origo",
     description: "Origo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/origo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/origo/"
     },
-    rank: "349"
+    rank: "1000"
 },{
     name: "ormeus-coin",
     code: "ORME",
-    icon: "orme",
+    icon: "noicon",
     longname: "Ormeus Coin",
     description: "Ormeus Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ormeus-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ormeus-coin/"
     },
-    rank: "3065"
+    rank: "1000"
 },{
     name: "ors-group",
     code: "ORS-1",
-    icon: "ors-1",
+    icon: "noicon",
     longname: "ORS Group",
     description: "ORS Group coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ors-group",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ors-group/"
     },
-    rank: "4243"
+    rank: "1000"
 },{
     name: "ost",
     code: "OST",
@@ -14489,69 +16146,76 @@ var otherCoins = [{
     longname: "OST",
     description: "OST coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ost",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ost/"
     },
-    rank: "346"
+    rank: "1000"
 },{
     name: "otcbtc-token",
     code: "OTB",
-    icon: "otb",
+    icon: "noicon",
     longname: "OTCBTC Token",
     description: "OTCBTC Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/otcbtc-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/otcbtc-token/"
     },
-    rank: "4272"
+    rank: "1000"
 },{
     name: "otocash",
     code: "OTO",
-    icon: "oto",
+    icon: "noicon",
     longname: "OTOCASH",
     description: "OTOCASH coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/otocash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/otocash/"
     },
-    rank: "306"
+    rank: "1000"
 },{
     name: "ourcoin",
     code: "OUR",
-    icon: "our",
+    icon: "noicon",
     longname: "Ourcoin",
     description: "Ourcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ourcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ourcoin/"
     },
-    rank: "4120"
+    rank: "1000"
 },{
     name: "own",
     code: "CHX",
-    icon: "chx",
+    icon: "noicon",
     longname: "Own",
     description: "Own coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/own",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/own/"
     },
-    rank: "2231"
+    rank: "1000"
 },{
     name: "owndata",
     code: "OWN",
-    icon: "own",
+    icon: "noicon",
     longname: "OWNDATA",
     description: "OWNDATA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/owndata",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/owndata/"
     },
-    rank: "2958"
+    rank: "1000"
 },{
     name: "oxycoin",
     code: "OXY",
-    icon: "oxy",
+    icon: "noicon",
     longname: "Oxycoin",
     description: "Oxycoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/oxycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oxycoin/"
     },
-    rank: "3654"
+    rank: "1000"
 },{
     name: "oyster",
     code: "PRL",
@@ -14559,19 +16223,21 @@ var otherCoins = [{
     longname: "Oyster",
     description: "Oyster coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/oyster",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/oyster/"
     },
-    rank: "3609"
+    rank: "1000"
 },{
     name: "pac-global",
     code: "PAC",
-    icon: "pac",
+    icon: "noicon",
     longname: "PAC Global",
     description: "PAC Global coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pac-global",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pac-global/"
     },
-    rank: "588"
+    rank: "1000"
 },{
     name: "paccoin",
     code: "$PAC",
@@ -14579,119 +16245,131 @@ var otherCoins = [{
     longname: "PACcoin",
     description: "PACcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paccoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paccoin/"
     },
-    rank: "2819"
+    rank: "1000"
 },{
     name: "pakcoin",
     code: "PAK",
-    icon: "pak",
+    icon: "noicon",
     longname: "Pakcoin",
     description: "Pakcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pakcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pakcoin/"
     },
-    rank: "3936"
+    rank: "1000"
 },{
     name: "pal-network",
     code: "PAL",
-    icon: "pal",
+    icon: "noicon",
     longname: "Pal Network",
     description: "Pal Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pal-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pal-network/"
     },
-    rank: "2949"
+    rank: "1000"
 },{
     name: "palletone",
     code: "PTN",
-    icon: "ptn",
+    icon: "noicon",
     longname: "PalletOne",
     description: "PalletOne coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/palletone",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/palletone/"
     },
-    rank: "4171"
+    rank: "1000"
 },{
     name: "pandacoin-pnd",
     code: "PND",
-    icon: "pnd",
+    icon: "noicon",
     longname: "Pandacoin",
     description: "Pandacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pandacoin-pnd",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pandacoin-pnd/"
     },
-    rank: "2932"
+    rank: "1000"
 },{
     name: "pandemia",
     code: "PNDM",
-    icon: "pndm",
+    icon: "noicon",
     longname: "Pandemia",
     description: "Pandemia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pandemia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pandemia/"
     },
-    rank: "4355"
+    rank: "1000"
 },{
     name: "paragon",
     code: "PRG",
-    icon: "prg",
+    icon: "noicon",
     longname: "Paragon",
     description: "Paragon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paragon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paragon/"
     },
-    rank: "2824"
+    rank: "1000"
 },{
     name: "parallelcoin",
     code: "DUO",
-    icon: "duo",
+    icon: "noicon",
     longname: "ParallelCoin",
     description: "ParallelCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/parallelcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/parallelcoin/"
     },
-    rank: "3575"
+    rank: "1000"
 },{
     name: "pareto-network",
     code: "PARETO",
-    icon: "pareto",
+    icon: "noicon",
     longname: "Pareto Network",
     description: "Pareto Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pareto-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pareto-network/"
     },
-    rank: "3286"
+    rank: "1000"
 },{
     name: "parkbyte",
     code: "PKB",
-    icon: "pkb",
+    icon: "noicon",
     longname: "ParkByte",
     description: "ParkByte coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/parkbyte",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/parkbyte/"
     },
-    rank: "3980"
+    rank: "1000"
 },{
     name: "parkgene",
     code: "GENE-1",
-    icon: "gene-1",
+    icon: "noicon",
     longname: "Parkgene",
     description: "Parkgene coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/parkgene",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/parkgene/"
     },
-    rank: "3411"
+    rank: "1000"
 },{
     name: "parkingo",
     code: "GOT",
-    icon: "got",
+    icon: "noicon",
     longname: "ParkinGo",
     description: "ParkinGo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/parkingo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/parkingo/"
     },
-    rank: "2216"
+    rank: "1000"
 },{
     name: "particl",
     code: "PART",
@@ -14699,9 +16377,10 @@ var otherCoins = [{
     longname: "Particl",
     description: "Particl coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/particl",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/particl/"
     },
-    rank: "303"
+    rank: "1000"
 },{
     name: "pascal-coin",
     code: "PASC",
@@ -14709,9 +16388,10 @@ var otherCoins = [{
     longname: "Pascal Coin",
     description: "Pascal Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pascal-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pascal-coin/"
     },
-    rank: "2389"
+    rank: "1000"
 },{
     name: "pascal-lite",
     code: "PASL",
@@ -14719,59 +16399,65 @@ var otherCoins = [{
     longname: "Pascal Lite",
     description: "Pascal Lite coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pascal-lite",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pascal-lite/"
     },
-    rank: "3925"
+    rank: "1000"
 },{
     name: "patientory",
     code: "PTOY",
-    icon: "ptoy",
+    icon: "noicon",
     longname: "Patientory",
     description: "Patientory coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/patientory",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/patientory/"
     },
-    rank: "3103"
+    rank: "1000"
 },{
     name: "patron",
     code: "PAT",
-    icon: "pat",
+    icon: "noicon",
     longname: "Patron",
     description: "Patron coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/patron",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/patron/"
     },
-    rank: "2749"
+    rank: "1000"
 },{
     name: "paws-fund",
     code: "PAWS",
-    icon: "paws",
+    icon: "noicon",
     longname: "PAWS Fund",
     description: "PAWS Fund coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paws-fund",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paws-fund/"
     },
-    rank: "4296"
+    rank: "1000"
 },{
     name: "pax-gold",
     code: "PAXG",
-    icon: "paxg",
+    icon: "noicon",
     longname: "PAX Gold",
     description: "PAX Gold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pax-gold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pax-gold/"
     },
-    rank: "406"
+    rank: "1000"
 },{
     name: "paxex",
     code: "PAXEX",
-    icon: "paxex",
+    icon: "noicon",
     longname: "PAXEX",
     description: "PAXEX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paxex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paxex/"
     },
-    rank: "3578"
+    rank: "1000"
 },{
     name: "paxos-standard",
     code: "PAX",
@@ -14779,49 +16465,54 @@ var otherCoins = [{
     longname: "Paxos Standard",
     description: "Paxos Standard coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paxos-standard",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paxos-standard/"
     },
-    rank: "34"
+    rank: "30"
 },{
     name: "paycent",
     code: "PYN",
-    icon: "pyn",
+    icon: "noicon",
     longname: "PAYCENT",
     description: "PAYCENT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paycent",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paycent/"
     },
-    rank: "3015"
+    rank: "1000"
 },{
     name: "paycoin2",
     code: "XPY",
-    icon: "xpy",
+    icon: "noicon",
     longname: "PayCoin",
     description: "PayCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paycoin2",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paycoin2/"
     },
-    rank: "3812"
+    rank: "1000"
 },{
     name: "payfair",
     code: "PFR",
-    icon: "pfr",
+    icon: "noicon",
     longname: "Payfair",
     description: "Payfair coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/payfair",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/payfair/"
     },
-    rank: "3710"
+    rank: "1000"
 },{
     name: "paymon",
     code: "PMNT",
-    icon: "pmnt",
+    icon: "noicon",
     longname: "Paymon",
     description: "Paymon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paymon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paymon/"
     },
-    rank: "3406"
+    rank: "1000"
 },{
     name: "paypex",
     code: "PAYX",
@@ -14829,9 +16520,10 @@ var otherCoins = [{
     longname: "Paypex",
     description: "Paypex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paypex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paypex/"
     },
-    rank: "3020"
+    rank: "1000"
 },{
     name: "paypie",
     code: "PPP",
@@ -14839,59 +16531,65 @@ var otherCoins = [{
     longname: "PayPie",
     description: "PayPie coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/paypie",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/paypie/"
     },
-    rank: "3619"
+    rank: "1000"
 },{
     name: "pchain",
     code: "PI",
-    icon: "pi",
+    icon: "noicon",
     longname: "PCHAIN",
     description: "PCHAIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pchain/"
     },
-    rank: "2354"
+    rank: "1000"
 },{
     name: "peculium",
     code: "PCL",
-    icon: "pcl",
+    icon: "noicon",
     longname: "Peculium",
     description: "Peculium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/peculium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peculium/"
     },
-    rank: "2926"
+    rank: "1000"
 },{
     name: "pecunio",
     code: "PCO",
-    icon: "pco",
+    icon: "noicon",
     longname: "Pecunio",
     description: "Pecunio coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pecunio",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pecunio/"
     },
-    rank: "4359"
+    rank: "1000"
 },{
     name: "pedity",
     code: "PEDI",
-    icon: "pedi",
+    icon: "noicon",
     longname: "Pedity",
     description: "Pedity coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pedity",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pedity/"
     },
-    rank: "3019"
+    rank: "1000"
 },{
     name: "peepcoin",
     code: "PCN",
-    icon: "pcn",
+    icon: "noicon",
     longname: "PeepCoin",
     description: "PeepCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/peepcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peepcoin/"
     },
-    rank: "3457"
+    rank: "1000"
 },{
     name: "peercoin",
     code: "PPC",
@@ -14899,199 +16597,219 @@ var otherCoins = [{
     longname: "Peercoin",
     description: "Peercoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/peercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peercoin/"
     },
-    rank: "407"
+    rank: "1000"
 },{
     name: "peerplays-ppy",
     code: "PPY",
-    icon: "ppy",
+    icon: "noicon",
     longname: "Peerplays",
     description: "Peerplays coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/peerplays-ppy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peerplays-ppy/"
     },
-    rank: "2317"
+    rank: "1000"
 },{
     name: "penguin-coin",
     code: "PENG",
-    icon: "peng",
+    icon: "noicon",
     longname: "Penguin Coin",
     description: "Penguin Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/penguin-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/penguin-coin/"
     },
-    rank: "3395"
+    rank: "1000"
 },{
     name: "penta",
     code: "PNT",
-    icon: "pnt",
+    icon: "noicon",
     longname: "Penta",
     description: "Penta coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/penta",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/penta/"
     },
-    rank: "559"
+    rank: "1000"
 },{
     name: "peony",
     code: "PNY",
-    icon: "pny",
+    icon: "noicon",
     longname: "Peony",
     description: "Peony coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/peony",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peony/"
     },
-    rank: "3602"
+    rank: "1000"
 },{
     name: "peos",
     code: "PEOS",
-    icon: "peos",
+    icon: "noicon",
     longname: "pEOS",
     description: "pEOS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/peos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/peos/"
     },
-    rank: "573"
+    rank: "1000"
 },{
     name: "pepe-cash",
     code: "PEPECASH",
-    icon: "pepecash",
+    icon: "noicon",
     longname: "Pepe Cash",
     description: "Pepe Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pepe-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pepe-cash/"
     },
-    rank: "2244"
+    rank: "1000"
 },{
     name: "perlin",
     code: "PERL",
-    icon: "perl",
+    icon: "noicon",
     longname: "Perlin",
     description: "Perlin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/perlin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/perlin/"
     },
-    rank: "356"
+    rank: "1000"
 },{
     name: "pesetacoin",
     code: "PTC",
-    icon: "ptc",
+    icon: "noicon",
     longname: "Pesetacoin",
     description: "Pesetacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pesetacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pesetacoin/"
     },
-    rank: "3387"
+    rank: "1000"
 },{
     name: "petrodollar",
     code: "XPD",
-    icon: "xpd",
+    icon: "noicon",
     longname: "PetroDollar",
     description: "PetroDollar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/petrodollar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/petrodollar/"
     },
-    rank: "3659"
+    rank: "1000"
 },{
     name: "phantasma",
     code: "SOUL",
-    icon: "soul",
+    icon: "noicon",
     longname: "Phantasma",
     description: "Phantasma coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/phantasma",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phantasma/"
     },
-    rank: "571"
+    rank: "1000"
 },{
     name: "phantomx",
     code: "PNX",
-    icon: "pnx",
+    icon: "noicon",
     longname: "Phantomx",
     description: "Phantomx coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/phantomx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phantomx/"
     },
-    rank: "4067"
+    rank: "1000"
 },{
     name: "phi-token",
     code: "PHI",
-    icon: "phi",
+    icon: "noicon",
     longname: "PHI Token",
     description: "PHI Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/phi-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phi-token/"
     },
-    rank: "3700"
+    rank: "1000"
 },{
     name: "phoenixcoin",
     code: "PXC",
-    icon: "pxc",
+    icon: "noicon",
     longname: "Phoenixcoin",
     description: "Phoenixcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/phoenixcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phoenixcoin/"
     },
-    rank: "3796"
+    rank: "1000"
 },{
     name: "phonecoin",
     code: "PHON",
-    icon: "phon",
+    icon: "noicon",
     longname: "Phonecoin",
     description: "Phonecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/phonecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phonecoin/"
     },
-    rank: "3570"
+    rank: "1000"
 },{
     name: "phore",
     code: "PHR",
-    icon: "phr",
+    icon: "noicon",
     longname: "Phore",
     description: "Phore coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/phore",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/phore/"
     },
-    rank: "2873"
+    rank: "1000"
 },{
     name: "photon",
     code: "PHO",
-    icon: "pho",
+    icon: "noicon",
     longname: "Photon",
     description: "Photon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/photon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/photon/"
     },
-    rank: "3755"
+    rank: "1000"
 },{
     name: "pigeoncoin",
     code: "PGN",
-    icon: "pgn",
+    icon: "noicon",
     longname: "Pigeoncoin",
     description: "Pigeoncoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pigeoncoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pigeoncoin/"
     },
-    rank: "366"
+    rank: "1000"
 },{
     name: "piggycoin",
     code: "PIGGY",
-    icon: "piggy",
+    icon: "noicon",
     longname: "Piggycoin",
     description: "Piggycoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/piggycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/piggycoin/"
     },
-    rank: "3826"
+    rank: "1000"
 },{
     name: "pikciochain",
     code: "PKC",
-    icon: "pkc",
+    icon: "noicon",
     longname: "PikcioChain",
     description: "PikcioChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pikciochain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pikciochain/"
     },
-    rank: "3674"
+    rank: "1000"
 },{
     name: "pillar",
     code: "PLR",
@@ -15099,9 +16817,10 @@ var otherCoins = [{
     longname: "Pillar",
     description: "Pillar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pillar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pillar/"
     },
-    rank: "292"
+    rank: "1000"
 },{
     name: "pinkcoin",
     code: "PINK",
@@ -15109,39 +16828,43 @@ var otherCoins = [{
     longname: "PinkCoin",
     description: "PinkCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pinkcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pinkcoin/"
     },
-    rank: "3186"
+    rank: "1000"
 },{
     name: "pioneer-coin",
     code: "PCOIN",
-    icon: "pcoin",
+    icon: "noicon",
     longname: "Pioneer Coin",
     description: "Pioneer Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pioneer-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pioneer-coin/"
     },
-    rank: "4081"
+    rank: "1000"
 },{
     name: "piplcoin",
     code: "PIPL",
-    icon: "pipl",
+    icon: "noicon",
     longname: "PiplCoin",
     description: "PiplCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/piplcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/piplcoin/"
     },
-    rank: "3877"
+    rank: "1000"
 },{
     name: "pirate-chain",
     code: "ARRR",
-    icon: "arrr",
+    icon: "noicon",
     longname: "Pirate Chain",
     description: "Pirate Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pirate-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pirate-chain/"
     },
-    rank: "393"
+    rank: "1000"
 },{
     name: "pirl",
     code: "PIRL",
@@ -15149,29 +16872,32 @@ var otherCoins = [{
     longname: "Pirl",
     description: "Pirl coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pirl",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pirl/"
     },
-    rank: "3157"
+    rank: "1000"
 },{
     name: "pitiscoin",
     code: "PTS",
-    icon: "pts",
+    icon: "noicon",
     longname: "PitisCoin",
     description: "PitisCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pitiscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pitiscoin/"
     },
-    rank: "3377"
+    rank: "1000"
 },{
     name: "pivot-token",
     code: "PVT",
-    icon: "pvt",
+    icon: "noicon",
     longname: "Pivot Token",
     description: "Pivot Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pivot-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pivot-token/"
     },
-    rank: "490"
+    rank: "1000"
 },{
     name: "pivx",
     code: "PIVX",
@@ -15179,179 +16905,197 @@ var otherCoins = [{
     longname: "PIVX",
     description: "PIVX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pivx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pivx/"
     },
-    rank: "259"
+    rank: "149"
 },{
     name: "pixie-coin",
     code: "PXC-1",
-    icon: "pxc-1",
+    icon: "noicon",
     longname: "Pixie Coin",
     description: "Pixie Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pixie-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pixie-coin/"
     },
-    rank: "4254"
+    rank: "1000"
 },{
     name: "pkg-token",
     code: "PKG",
-    icon: "pkg",
+    icon: "noicon",
     longname: "PKG Token",
     description: "PKG Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pkg-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pkg-token/"
     },
-    rank: "3548"
+    rank: "1000"
 },{
     name: "plancoin",
     code: "PLAN",
-    icon: "plan",
+    icon: "noicon",
     longname: "Plancoin",
     description: "Plancoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/plancoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/plancoin/"
     },
-    rank: "3863"
+    rank: "1000"
 },{
     name: "planet",
     code: "PLA",
-    icon: "pla",
+    icon: "noicon",
     longname: "PLANET",
     description: "PLANET coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/planet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/planet/"
     },
-    rank: "554"
+    rank: "1000"
 },{
     name: "platincoin",
     code: "PLC",
-    icon: "plc",
+    icon: "noicon",
     longname: "PLATINCOIN",
     description: "PLATINCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/platincoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/platincoin/"
     },
-    rank: "148"
+    rank: "1000"
 },{
     name: "platincoin",
     code: "PLC-1",
-    icon: "plc-1",
+    icon: "noicon",
     longname: "PLATINCOIN",
     description: "PLATINCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/platincoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/platincoin/"
     },
-    rank: "4147"
+    rank: "1000"
 },{
     name: "platinumbar",
     code: "XPTX",
-    icon: "xptx",
+    icon: "noicon",
     longname: "PlatinumBAR",
     description: "PlatinumBAR coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/platinumbar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/platinumbar/"
     },
-    rank: "3479"
+    rank: "1000"
 },{
     name: "playcoin",
     code: "PLY-1",
-    icon: "ply-1",
+    icon: "noicon",
     longname: "PlayCoin [QRC20]",
     description: "PlayCoin [QRC20] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/playcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playcoin/"
     },
-    rank: "4150"
+    rank: "1000"
 },{
     name: "playcoin-erc20",
     code: "PLY",
-    icon: "ply",
+    icon: "noicon",
     longname: "PlayCoin [ERC20]",
     description: "PlayCoin [ERC20] coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/playcoin-erc20",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playcoin-erc20/"
     },
-    rank: "533"
+    rank: "1000"
 },{
     name: "playercoin",
     code: "PLACO",
-    icon: "placo",
+    icon: "noicon",
     longname: "PlayerCoin",
     description: "PlayerCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/playercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playercoin/"
     },
-    rank: "4107"
+    rank: "1000"
 },{
     name: "playgroundz",
     code: "IOG",
-    icon: "iog",
+    icon: "noicon",
     longname: "Playgroundz",
     description: "Playgroundz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/playgroundz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playgroundz/"
     },
-    rank: "2799"
+    rank: "1000"
 },{
     name: "playkey",
     code: "PKT",
-    icon: "pkt",
+    icon: "noicon",
     longname: "Playkey",
     description: "Playkey coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/playkey",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/playkey/"
     },
-    rank: "3239"
+    rank: "1000"
 },{
     name: "plexcoin",
     code: "PLX",
-    icon: "plx",
+    icon: "noicon",
     longname: "PlexCoin",
     description: "PlexCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/plexcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/plexcoin/"
     },
-    rank: "4384"
+    rank: "1000"
 },{
     name: "plncoin",
     code: "PLNC",
-    icon: "plnc",
+    icon: "noicon",
     longname: "PLNcoin",
     description: "PLNcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/plncoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/plncoin/"
     },
-    rank: "4098"
+    rank: "1000"
 },{
     name: "pluracoin",
     code: "PLURA",
-    icon: "plura",
+    icon: "noicon",
     longname: "PluraCoin",
     description: "PluraCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pluracoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pluracoin/"
     },
-    rank: "3997"
+    rank: "1000"
 },{
     name: "plusonecoin",
     code: "PLUS1",
-    icon: "plus1",
+    icon: "noicon",
     longname: "PlusOneCoin",
     description: "PlusOneCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/plusonecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/plusonecoin/"
     },
-    rank: "4360"
+    rank: "1000"
 },{
     name: "pluton",
     code: "PLU",
-    icon: "plu",
+    icon: "noicon",
     longname: "Pluton",
     description: "Pluton coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pluton",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pluton/"
     },
-    rank: "3402"
+    rank: "1000"
 },{
     name: "poa",
     code: "POA",
@@ -15359,9 +17103,10 @@ var otherCoins = [{
     longname: "POA",
     description: "POA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/poa",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/poa/"
     },
-    rank: "523"
+    rank: "1000"
 },{
     name: "poet",
     code: "POE",
@@ -15369,9 +17114,10 @@ var otherCoins = [{
     longname: "Po.et",
     description: "Po.et coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/poet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/poet/"
     },
-    rank: "351"
+    rank: "1000"
 },{
     name: "polis",
     code: "POLIS",
@@ -15379,79 +17125,87 @@ var otherCoins = [{
     longname: "Polis",
     description: "Polis coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/polis",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/polis/"
     },
-    rank: "318"
+    rank: "1000"
 },{
     name: "poly-ai",
     code: "AI",
-    icon: "ai",
+    icon: "noicon",
     longname: "POLY AI",
     description: "POLY AI coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/poly-ai",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/poly-ai/"
     },
-    rank: "4134"
+    rank: "1000"
 },{
     name: "polybius",
     code: "PLBT",
-    icon: "plbt",
+    icon: "noicon",
     longname: "Polybius",
     description: "Polybius coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/polybius",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/polybius/"
     },
-    rank: "553"
+    rank: "1000"
 },{
     name: "polymath-network",
     code: "POLY",
     icon: "poly",
-    longname: "Polymath",
-    description: "Polymath coin",
+    longname: "Polymath Network",
+    description: "Polymath Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/polymath-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/polymath-network/"
     },
-    rank: "273"
+    rank: "172"
 },{
     name: "polyswarm",
     code: "NCT",
-    icon: "nct",
+    icon: "noicon",
     longname: "PolySwarm",
     description: "PolySwarm coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/polyswarm",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/polyswarm/"
     },
-    rank: "501"
+    rank: "1000"
 },{
     name: "ponzicoin",
     code: "PONZI",
-    icon: "ponzi",
+    icon: "noicon",
     longname: "PonziCoin",
     description: "PonziCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ponzicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ponzicoin/"
     },
-    rank: "4127"
+    rank: "1000"
 },{
     name: "popchain",
     code: "PCH",
-    icon: "pch",
+    icon: "noicon",
     longname: "POPCHAIN",
     description: "POPCHAIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/popchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/popchain/"
     },
-    rank: "2358"
+    rank: "1000"
 },{
     name: "popularcoin",
     code: "POP",
-    icon: "pop",
+    icon: "noicon",
     longname: "PopularCoin",
     description: "PopularCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/popularcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/popularcoin/"
     },
-    rank: "3789"
+    rank: "1000"
 },{
     name: "populous",
     code: "PPT",
@@ -15459,59 +17213,65 @@ var otherCoins = [{
     longname: "Populous",
     description: "Populous coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/populous",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/populous/"
     },
-    rank: "154"
+    rank: "209"
 },{
     name: "poseidon-network",
     code: "QQQ",
-    icon: "qqq",
+    icon: "noicon",
     longname: "Poseidon Network",
     description: "Poseidon Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/poseidon-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/poseidon-network/"
     },
-    rank: "510"
+    rank: "1000"
 },{
     name: "posex",
     code: "PEX",
-    icon: "pex",
+    icon: "noicon",
     longname: "PosEx",
     description: "PosEx coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/posex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/posex/"
     },
-    rank: "4053"
+    rank: "1000"
 },{
     name: "postcoin",
     code: "POST",
-    icon: "post",
+    icon: "noicon",
     longname: "PostCoin",
     description: "PostCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/postcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/postcoin/"
     },
-    rank: "4040"
+    rank: "1000"
 },{
     name: "postoken",
     code: "POS",
-    icon: "pos",
+    icon: "noicon",
     longname: "PoSToken",
     description: "PoSToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/postoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/postoken/"
     },
-    rank: "4029"
+    rank: "1000"
 },{
     name: "posw-coin",
     code: "POSW",
-    icon: "posw",
+    icon: "noicon",
     longname: "PoSW Coin",
     description: "PoSW Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/posw-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/posw-coin/"
     },
-    rank: "3752"
+    rank: "1000"
 },{
     name: "potcoin",
     code: "POT",
@@ -15519,9 +17279,10 @@ var otherCoins = [{
     longname: "PotCoin",
     description: "PotCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/potcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/potcoin/"
     },
-    rank: "2917"
+    rank: "1000"
 },{
     name: "power-ledger",
     code: "POWR",
@@ -15529,39 +17290,43 @@ var otherCoins = [{
     longname: "Power Ledger",
     description: "Power Ledger coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/power-ledger",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/power-ledger/"
     },
-    rank: "215"
+    rank: "119"
 },{
     name: "powercoin",
     code: "PWR",
-    icon: "pwr",
+    icon: "noicon",
     longname: "PWR Coin",
     description: "PWR Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/powercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/powercoin/"
     },
-    rank: "3719"
+    rank: "1000"
 },{
     name: "prasm",
     code: "PSM",
-    icon: "psm",
+    icon: "noicon",
     longname: "PRASM",
     description: "PRASM coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/prasm",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prasm/"
     },
-    rank: "3070"
+    rank: "1000"
 },{
     name: "prcoin",
     code: "PRC",
-    icon: "prc",
+    icon: "noicon",
     longname: "PRCoin",
     description: "PRCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/prcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prcoin/"
     },
-    rank: "3604"
+    rank: "1000"
 },{
     name: "presearch",
     code: "PRE",
@@ -15569,49 +17334,54 @@ var otherCoins = [{
     longname: "Presearch",
     description: "Presearch coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/presearch",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/presearch/"
     },
-    rank: "2782"
+    rank: "1000"
 },{
     name: "pressone",
     code: "PRS",
-    icon: "prs",
+    icon: "noicon",
     longname: "PressOne",
     description: "PressOne coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pressone",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pressone/"
     },
-    rank: "313"
+    rank: "1000"
 },{
     name: "primalbase",
     code: "PBT",
-    icon: "pbt",
+    icon: "noicon",
     longname: "Primalbase Token",
     description: "Primalbase Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/primalbase",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/primalbase/"
     },
-    rank: "2792"
+    rank: "1000"
 },{
     name: "primas",
     code: "PST",
-    icon: "pst",
+    icon: "noicon",
     longname: "Primas",
     description: "Primas coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/primas",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/primas/"
     },
-    rank: "2272"
+    rank: "1000"
 },{
     name: "prime-xi",
     code: "PXI",
-    icon: "pxi",
+    icon: "noicon",
     longname: "Prime-XI",
     description: "Prime-XI coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/prime-xi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prime-xi/"
     },
-    rank: "4096"
+    rank: "1000"
 },{
     name: "primecoin",
     code: "XPM",
@@ -15619,219 +17389,241 @@ var otherCoins = [{
     longname: "Primecoin",
     description: "Primecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/primecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/primecoin/"
     },
-    rank: "598"
+    rank: "1000"
 },{
     name: "primestone",
     code: "PSC",
-    icon: "psc",
+    icon: "noicon",
     longname: "PrimeStone",
     description: "PrimeStone coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/primestone",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/primestone/"
     },
-    rank: "3469"
+    rank: "1000"
 },{
     name: "printex",
     code: "PRTX",
-    icon: "prtx",
+    icon: "noicon",
     longname: "Printex",
     description: "Printex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/printex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/printex/"
     },
-    rank: "3954"
+    rank: "1000"
 },{
     name: "privatix",
     code: "PRIX",
-    icon: "prix",
+    icon: "noicon",
     longname: "Privatix",
     description: "Privatix coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/privatix",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/privatix/"
     },
-    rank: "3260"
+    rank: "1000"
 },{
     name: "privcy",
     code: "PRIV",
-    icon: "priv",
+    icon: "noicon",
     longname: "PRiVCY",
     description: "PRiVCY coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/privcy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/privcy/"
     },
-    rank: "3885"
+    rank: "1000"
 },{
     name: "prizm",
     code: "PZM",
-    icon: "pzm",
+    icon: "noicon",
     longname: "PRIZM",
     description: "PRIZM coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/prizm",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prizm/"
     },
-    rank: "33"
+    rank: "1000"
 },{
     name: "prochain",
     code: "PRA",
-    icon: "pra",
+    icon: "noicon",
     longname: "ProChain",
     description: "ProChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/prochain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/prochain/"
     },
-    rank: "2329"
+    rank: "1000"
 },{
     name: "procurrency",
     code: "PROC",
-    icon: "proc",
+    icon: "noicon",
     longname: "ProCurrency",
     description: "ProCurrency coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/procurrency",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/procurrency/"
     },
-    rank: "3927"
+    rank: "1000"
 },{
     name: "profile-utility-token",
     code: "PUT",
-    icon: "put",
+    icon: "noicon",
     longname: "Profile Utility Token",
     description: "Profile Utility Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/profile-utility-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/profile-utility-token/"
     },
-    rank: "3316"
+    rank: "1000"
 },{
     name: "project-coin",
     code: "PRJ",
-    icon: "prj",
+    icon: "noicon",
     longname: "Project Coin",
     description: "Project Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/project-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/project-coin/"
     },
-    rank: "3471"
+    rank: "1000"
 },{
     name: "project-pai",
     code: "PAI",
-    icon: "pai",
+    icon: "noicon",
     longname: "Project Pai",
     description: "Project Pai coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/project-pai",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/project-pai/"
     },
-    rank: "166"
+    rank: "1000"
 },{
     name: "project-pai",
     code: "PAI-1",
-    icon: "pai-1",
+    icon: "noicon",
     longname: "Project Pai",
     description: "Project Pai coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/project-pai",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/project-pai/"
     },
-    rank: "4141"
+    rank: "1000"
 },{
     name: "project-x",
     code: "NANOX",
-    icon: "nanox",
+    icon: "noicon",
     longname: "Project-X",
     description: "Project-X coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/project-x",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/project-x/"
     },
-    rank: "4125"
+    rank: "1000"
 },{
     name: "promotion-coin",
     code: "PC",
-    icon: "pc",
+    icon: "noicon",
     longname: "Promotion Coin",
     description: "Promotion Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/promotion-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/promotion-coin/"
     },
-    rank: "4218"
+    rank: "1000"
 },{
     name: "propy",
     code: "PRO",
-    icon: "pro",
+    icon: "noicon",
     longname: "Propy",
     description: "Propy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/propy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/propy/"
     },
-    rank: "470"
+    rank: "1000"
 },{
     name: "proton-token",
     code: "PTT",
-    icon: "ptt",
+    icon: "noicon",
     longname: "Proton Token",
     description: "Proton Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/proton-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/proton-token/"
     },
-    rank: "2034"
+    rank: "1000"
 },{
     name: "proud-money",
     code: "PROUD",
-    icon: "proud",
+    icon: "noicon",
     longname: "PROUD Money",
     description: "PROUD Money coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/proud-money",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/proud-money/"
     },
-    rank: "4400"
+    rank: "1000"
 },{
     name: "provoco-token",
     code: "VOCO",
-    icon: "voco",
+    icon: "noicon",
     longname: "Provoco Token",
     description: "Provoco Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/provoco-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/provoco-token/"
     },
-    rank: "3425"
+    rank: "1000"
 },{
     name: "proxeus",
     code: "XES",
-    icon: "xes",
+    icon: "noicon",
     longname: "Proxeus",
     description: "Proxeus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/proxeus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/proxeus/"
     },
-    rank: "3625"
+    rank: "1000"
 },{
     name: "proximax",
     code: "XPX",
-    icon: "xpx",
+    icon: "noicon",
     longname: "ProximaX",
     description: "ProximaX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/proximax",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/proximax/"
     },
-    rank: "359"
+    rank: "1000"
 },{
     name: "publica",
     code: "PBL",
-    icon: "pbl",
+    icon: "noicon",
     longname: "Publica",
     description: "Publica coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/publica",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/publica/"
     },
-    rank: "3722"
+    rank: "1000"
 },{
     name: "pumapay",
     code: "PMA",
-    icon: "pma",
+    icon: "noicon",
     longname: "PumaPay",
     description: "PumaPay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pumapay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pumapay/"
     },
-    rank: "413"
+    rank: "1000"
 },{
     name: "pundi-x",
     code: "NPXS",
@@ -15839,19 +17631,21 @@ var otherCoins = [{
     longname: "Pundi X",
     description: "Pundi X coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pundi-x",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pundi-x/"
     },
-    rank: "119"
+    rank: "108"
 },{
     name: "pundi-x-nem",
     code: "NPXSXEM",
-    icon: "npxsxem",
+    icon: "noicon",
     longname: "Pundi X NEM",
     description: "Pundi X NEM coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pundi-x-nem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pundi-x-nem/"
     },
-    rank: "570"
+    rank: "1000"
 },{
     name: "pura",
     code: "PURA",
@@ -15859,79 +17653,87 @@ var otherCoins = [{
     longname: "Pura",
     description: "Pura coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pura",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pura/"
     },
-    rank: "2978"
+    rank: "1000"
 },{
     name: "puregold-token",
     code: "PGT",
-    icon: "pgt",
+    icon: "noicon",
     longname: "Puregold Token",
     description: "Puregold Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/puregold-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/puregold-token/"
     },
-    rank: "3634"
+    rank: "1000"
 },{
     name: "purevidz",
     code: "VIDZ",
-    icon: "vidz",
+    icon: "noicon",
     longname: "PureVidz",
     description: "PureVidz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/purevidz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/purevidz/"
     },
-    rank: "3949"
+    rank: "1000"
 },{
     name: "purex",
     code: "PUREX",
-    icon: "purex",
+    icon: "noicon",
     longname: "Pure",
     description: "Pure coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/purex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/purex/"
     },
-    rank: "3922"
+    rank: "1000"
 },{
     name: "putincoin",
     code: "PUT-1",
-    icon: "put-1",
+    icon: "noicon",
     longname: "PutinCoin",
     description: "PutinCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/putincoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/putincoin/"
     },
-    rank: "3503"
+    rank: "1000"
 },{
     name: "pylon-network",
     code: "PYLNT",
-    icon: "pylnt",
+    icon: "noicon",
     longname: "Pylon Network",
     description: "Pylon Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pylon-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pylon-network/"
     },
-    rank: "3405"
+    rank: "1000"
 },{
     name: "pyrexcoin",
     code: "PYX",
-    icon: "pyx",
+    icon: "noicon",
     longname: "PyrexCoin",
     description: "PyrexCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/pyrexcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/pyrexcoin/"
     },
-    rank: "3822"
+    rank: "1000"
 },{
     name: "q-dao-governance-token",
     code: "QDAO",
-    icon: "qdao",
+    icon: "noicon",
     longname: "Q DAO Governance token v1.0",
     description: "Q DAO Governance token v1.0 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/q-dao-governance-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/q-dao-governance-token/"
     },
-    rank: "2297"
+    rank: "1000"
 },{
     name: "qash",
     code: "QASH",
@@ -15939,49 +17741,54 @@ var otherCoins = [{
     longname: "QASH",
     description: "QASH coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qash/"
     },
-    rank: "218"
+    rank: "174"
 },{
     name: "qbao",
     code: "QBT",
-    icon: "qbt",
+    icon: "noicon",
     longname: "Qbao",
     description: "Qbao coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qbao",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qbao/"
     },
-    rank: "3141"
+    rank: "1000"
 },{
     name: "qbic",
     code: "QBIC",
-    icon: "qbic",
+    icon: "noicon",
     longname: "Qbic",
     description: "Qbic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qbic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qbic/"
     },
-    rank: "4030"
+    rank: "1000"
 },{
     name: "qchi",
     code: "QCH",
-    icon: "qch",
+    icon: "noicon",
     longname: "QChi",
     description: "QChi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qchi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qchi/"
     },
-    rank: "3208"
+    rank: "1000"
 },{
     name: "qitmeer",
     code: "HLC",
-    icon: "hlc",
+    icon: "noicon",
     longname: "Qitmeer",
     description: "Qitmeer coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qitmeer",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qitmeer/"
     },
-    rank: "2384"
+    rank: "1000"
 },{
     name: "qlink",
     code: "QLC",
@@ -15989,9 +17796,10 @@ var otherCoins = [{
     longname: "QLC Chain",
     description: "QLC Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qlink",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qlink/"
     },
-    rank: "492"
+    rank: "1000"
 },{
     name: "qtum",
     code: "QTUM",
@@ -15999,39 +17807,43 @@ var otherCoins = [{
     longname: "Qtum",
     description: "Qtum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qtum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qtum/"
     },
-    rank: "38"
+    rank: "36"
 },{
-    name: "quant",
+    name: "quant-network",
     code: "QNT",
-    icon: "qnt",
+    icon: "noicon",
     longname: "Quant",
     description: "Quant coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/quant/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quant-network",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/quant-network/"
     },
-    rank: "72"
+    rank: "78"
 },{
     name: "quanta-utility-token",
     code: "QNTU",
-    icon: "qntu",
+    icon: "noicon",
     longname: "Quanta Utility Token",
     description: "Quanta Utility Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quanta-utility-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quanta-utility-token/"
     },
-    rank: "2345"
+    rank: "1000"
 },{
     name: "quantis-network",
     code: "QUAN",
-    icon: "quan",
+    icon: "noicon",
     longname: "Quantis Network",
     description: "Quantis Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quantis-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quantis-network/"
     },
-    rank: "3424"
+    rank: "1000"
 },{
     name: "quantstamp",
     code: "QSP",
@@ -16039,9 +17851,10 @@ var otherCoins = [{
     longname: "Quantstamp",
     description: "Quantstamp coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quantstamp",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quantstamp/"
     },
-    rank: "364"
+    rank: "1000"
 },{
     name: "quantum-resistant-ledger",
     code: "QRL",
@@ -16049,169 +17862,186 @@ var otherCoins = [{
     longname: "Quantum Resistant Ledger",
     description: "Quantum Resistant Ledger coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quantum-resistant-ledger",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quantum-resistant-ledger/"
     },
-    rank: "311"
+    rank: "1000"
 },{
     name: "quark",
     code: "QRK",
-    icon: "qrk",
+    icon: "noicon",
     longname: "Quark",
     description: "Quark coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quark",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quark/"
     },
-    rank: "3699"
+    rank: "1000"
 },{
-    name: "quarkchain",
+    name: "quark-chain",
     code: "QKC",
-    icon: "qkc",
+    icon: "noicon",
     longname: "QuarkChain",
     description: "QuarkChain coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/quarkchain/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quark-chain",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/quark-chain/"
     },
-    rank: "279"
+    rank: "190"
 },{
     name: "quasarcoin",
     code: "QAC",
-    icon: "qac",
+    icon: "noicon",
     longname: "Quasarcoin",
     description: "Quasarcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quasarcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quasarcoin/"
     },
-    rank: "4250"
+    rank: "1000"
 },{
     name: "quatloo",
     code: "QTL",
-    icon: "qtl",
+    icon: "noicon",
     longname: "Quatloo",
     description: "Quatloo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quatloo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quatloo/"
     },
-    rank: "3971"
+    rank: "1000"
 },{
     name: "qube",
     code: "QUBE",
-    icon: "qube",
+    icon: "noicon",
     longname: "Qube",
     description: "Qube coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qube",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qube/"
     },
-    rank: "4371"
+    rank: "1000"
 },{
     name: "qubitcoin",
     code: "Q2C",
-    icon: "q2c",
+    icon: "noicon",
     longname: "QubitCoin",
     description: "QubitCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qubitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qubitcoin/"
     },
-    rank: "3743"
+    rank: "1000"
 },{
     name: "qubitica",
     code: "QBIT",
-    icon: "qbit",
+    icon: "noicon",
     longname: "Qubitica",
     description: "Qubitica coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qubitica",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qubitica/"
     },
-    rank: "170"
+    rank: "1000"
 },{
     name: "quebecoin",
     code: "QBC",
-    icon: "qbc",
+    icon: "noicon",
     longname: "Quebecoin",
     description: "Quebecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quebecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quebecoin/"
     },
-    rank: "4017"
+    rank: "1000"
 },{
     name: "quickx-protocol",
     code: "QCX",
-    icon: "qcx",
+    icon: "noicon",
     longname: "QuickX Protocol",
     description: "QuickX Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quickx-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quickx-protocol/"
     },
-    rank: "467"
+    rank: "1000"
 },{
     name: "qunqun",
     code: "QUN",
-    icon: "qun",
+    icon: "noicon",
     longname: "QunQun",
     description: "QunQun coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qunqun",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qunqun/"
     },
-    rank: "484"
+    rank: "1000"
 },{
     name: "quotient",
     code: "XQN",
-    icon: "xqn",
+    icon: "noicon",
     longname: "Quotient",
     description: "Quotient coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/quotient",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/quotient/"
     },
-    rank: "4394"
+    rank: "1000"
 },{
     name: "qurito",
     code: "QURO",
-    icon: "quro",
+    icon: "noicon",
     longname: "Qurito",
     description: "Qurito coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qurito",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qurito/"
     },
-    rank: "4009"
+    rank: "1000"
 },{
     name: "qvolta",
     code: "QVT",
-    icon: "qvt",
+    icon: "noicon",
     longname: "Qvolta",
     description: "Qvolta coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qvolta",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qvolta/"
     },
-    rank: "4054"
+    rank: "1000"
 },{
     name: "qwark",
     code: "QWARK",
-    icon: "qwark",
+    icon: "noicon",
     longname: "Qwark",
     description: "Qwark coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qwark",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qwark/"
     },
-    rank: "3087"
+    rank: "1000"
 },{
     name: "qyno",
     code: "QNO",
-    icon: "qno",
+    icon: "noicon",
     longname: "QYNO",
     description: "QYNO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/qyno",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/qyno/"
     },
-    rank: "3534"
+    rank: "1000"
 },{
     name: "rabbitcoin",
     code: "RBBT",
-    icon: "rbbt",
+    icon: "noicon",
     longname: "RabbitCoin",
     description: "RabbitCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rabbitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rabbitcoin/"
     },
-    rank: "4362"
+    rank: "1000"
 },{
     name: "radium",
     code: "RADS",
@@ -16219,19 +18049,21 @@ var otherCoins = [{
     longname: "Radium",
     description: "Radium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/radium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/radium/"
     },
-    rank: "2943"
+    rank: "1000"
 },{
     name: "ragnarok",
     code: "RAGNA",
-    icon: "ragna",
+    icon: "noicon",
     longname: "Ragnarok",
     description: "Ragnarok coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ragnarok",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ragnarok/"
     },
-    rank: "4080"
+    rank: "1000"
 },{
     name: "raiden-network-token",
     code: "RDN",
@@ -16239,39 +18071,43 @@ var otherCoins = [{
     longname: "Raiden Network Token",
     description: "Raiden Network Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/raiden-network-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/raiden-network-token/"
     },
-    rank: "338"
+    rank: "1000"
 },{
     name: "rapids",
     code: "RPD",
-    icon: "rpd",
+    icon: "noicon",
     longname: "Rapids",
     description: "Rapids coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rapids",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rapids/"
     },
-    rank: "3427"
+    rank: "1000"
 },{
     name: "rate3",
     code: "RTE",
-    icon: "rte",
+    icon: "noicon",
     longname: "Rate3",
     description: "Rate3 coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rate3",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rate3/"
     },
-    rank: "3205"
+    rank: "1000"
 },{
     name: "ratecoin",
     code: "XRA-1",
-    icon: "xra-1",
+    icon: "noicon",
     longname: "Ratecoin",
     description: "Ratecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ratecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ratecoin/"
     },
-    rank: "3875"
+    rank: "1000"
 },{
     name: "ravencoin",
     code: "RVN",
@@ -16279,9 +18115,10 @@ var otherCoins = [{
     longname: "Ravencoin",
     description: "Ravencoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ravencoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ravencoin/"
     },
-    rank: "50"
+    rank: "43"
 },{
     name: "rchain",
     code: "RHOC",
@@ -16289,249 +18126,274 @@ var otherCoins = [{
     longname: "RChain",
     description: "RChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rchain/"
     },
-    rank: "2012"
+    rank: "1000"
 },{
     name: "read",
     code: "READ",
-    icon: "read",
+    icon: "noicon",
     longname: "Read",
     description: "Read coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/read",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/read/"
     },
-    rank: "4269"
+    rank: "1000"
 },{
     name: "real",
     code: "REAL",
-    icon: "real",
+    icon: "noicon",
     longname: "REAL",
     description: "REAL coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/real",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/real/"
     },
-    rank: "3074"
+    rank: "1000"
 },{
     name: "realchain",
     code: "RCT",
-    icon: "rct",
+    icon: "noicon",
     longname: "RealChain",
     description: "RealChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/realchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/realchain/"
     },
-    rank: "3412"
+    rank: "1000"
 },{
     name: "realtract",
     code: "RET",
-    icon: "ret",
+    icon: "noicon",
     longname: "RealTract",
     description: "RealTract coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/realtract",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/realtract/"
     },
-    rank: "304"
+    rank: "1000"
 },{
     name: "rebl",
     code: "REBL",
-    icon: "rebl",
+    icon: "noicon",
     longname: "REBL",
     description: "REBL coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rebl",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rebl/"
     },
-    rank: "3665"
+    rank: "1000"
 },{
     name: "record",
     code: "RCD",
-    icon: "rcd",
+    icon: "noicon",
     longname: "RECORD",
     description: "RECORD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/record",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/record/"
     },
-    rank: "4374"
+    rank: "1000"
 },{
     name: "red",
     code: "RED",
-    icon: "red",
+    icon: "noicon",
     longname: "RED",
     description: "RED coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/red",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/red/"
     },
-    rank: "3130"
+    rank: "1000"
 },{
     name: "red-pulse",
     code: "PHX",
-    icon: "phx",
+    icon: "noicon",
     longname: "Red Pulse Phoenix",
     description: "Red Pulse Phoenix coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/red-pulse",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/red-pulse/"
     },
-    rank: "442"
+    rank: "1000"
 },{
     name: "redcoin",
     code: "RED-1",
-    icon: "red-1",
+    icon: "noicon",
     longname: "RedCoin",
     description: "RedCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/redcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/redcoin/"
     },
-    rank: "3985"
+    rank: "1000"
 },{
     name: "reddcoin",
     code: "RDD",
     icon: "rdd",
-    longname: "ReddCoin",
-    description: "ReddCoin coin",
+    longname: "Reddcoin",
+    description: "Reddcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/reddcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/reddcoin/"
     },
-    rank: "193"
+    rank: "134"
 },{
     name: "redfox-labs",
     code: "RFOX",
-    icon: "rfox",
+    icon: "noicon",
     longname: "RedFOX Labs",
     description: "RedFOX Labs coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/redfox-labs",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/redfox-labs/"
     },
-    rank: "2349"
+    rank: "1000"
 },{
     name: "refereum",
     code: "RFR",
-    icon: "rfr",
+    icon: "noicon",
     longname: "Refereum",
     description: "Refereum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/refereum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/refereum/"
     },
-    rank: "526"
+    rank: "1000"
 },{
     name: "reftoken",
     code: "REF",
-    icon: "ref",
+    icon: "noicon",
     longname: "RefToken",
     description: "RefToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/reftoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/reftoken/"
     },
-    rank: "3375"
+    rank: "1000"
 },{
     name: "regalcoin",
     code: "REC",
-    icon: "rec",
+    icon: "noicon",
     longname: "Regalcoin",
     description: "Regalcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/regalcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/regalcoin/"
     },
-    rank: "3888"
+    rank: "1000"
 },{
     name: "relex",
     code: "RLX",
-    icon: "rlx",
+    icon: "noicon",
     longname: "Relex",
     description: "Relex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/relex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/relex/"
     },
-    rank: "3188"
+    rank: "1000"
 },{
     name: "remme",
     code: "REM",
-    icon: "rem",
+    icon: "noicon",
     longname: "Remme",
     description: "Remme coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/remme",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/remme/"
     },
-    rank: "2950"
-},{
-    name: "ren",
-    code: "REN",
-    icon: "ren",
-    longname: "Ren",
-    description: "Ren coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/ren/"
-    },
-    rank: "107"
+    rank: "1000"
 },{
     name: "renos",
     code: "RNS",
-    icon: "rns",
+    icon: "noicon",
     longname: "Renos",
     description: "Renos coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/renos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/renos/"
     },
-    rank: "3573"
+    rank: "1000"
 },{
     name: "rentberry",
     code: "BERRY",
-    icon: "berry",
+    icon: "noicon",
     longname: "Rentberry",
     description: "Rentberry coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rentberry",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rentberry/"
     },
-    rank: "3299"
+    rank: "1000"
 },{
     name: "repme",
     code: "RPM",
-    icon: "rpm",
+    icon: "noicon",
     longname: "Repme",
     description: "Repme coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/repme",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/repme/"
     },
-    rank: "3310"
+    rank: "1000"
 },{
     name: "repo",
     code: "REPO",
-    icon: "repo",
+    icon: "noicon",
     longname: "REPO",
     description: "REPO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/repo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/repo/"
     },
-    rank: "354"
+    rank: "1000"
 },{
-    name: "request",
+    name: "republic-protocol",
+    code: "REN",
+    icon: "ren",
+    longname: "REN",
+    description: "REN coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/republic-protocol",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/republic-protocol/"
+    },
+    rank: "84"
+},{
+    name: "request-network",
     code: "REQ",
     icon: "req",
     longname: "Request",
     description: "Request coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/request/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/request-network",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/request-network/"
     },
-    rank: "278"
+    rank: "224"
 },{
-    name: "reserve-rights",
+    name: "reserve-rights-token",
     code: "RSR",
-    icon: "rsr",
-    longname: "Reserve Rights",
-    description: "Reserve Rights coin",
+    icon: "noicon",
+    longname: "Reserve Rights Token",
+    description: "Reserve Rights Token coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/reserve-rights/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/reserve-rights-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/reserve-rights-token/"
     },
-    rank: "322"
+    rank: "140"
 },{
     name: "restart-energy-mwat",
     code: "MWAT",
-    icon: "mwat",
+    icon: "noicon",
     longname: "Restart Energy MWAT",
     description: "Restart Energy MWAT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/restart-energy-mwat",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/restart-energy-mwat/"
     },
-    rank: "414"
+    rank: "1000"
 },{
     name: "revain",
     code: "R",
@@ -16539,79 +18401,87 @@ var otherCoins = [{
     longname: "Revain",
     description: "Revain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/revain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/revain/"
     },
-    rank: "192"
+    rank: "1000"
 },{
     name: "revolutionvr",
     code: "RVR",
-    icon: "rvr",
+    icon: "noicon",
     longname: "RevolutionVR",
     description: "RevolutionVR coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/revolutionvr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/revolutionvr/"
     },
-    rank: "2848"
+    rank: "1000"
 },{
     name: "revolvercoin",
     code: "XRE",
-    icon: "xre",
+    icon: "noicon",
     longname: "RevolverCoin",
     description: "RevolverCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/revolvercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/revolvercoin/"
     },
-    rank: "3974"
+    rank: "1000"
 },{
     name: "rhenium",
     code: "XRH",
-    icon: "xrh",
+    icon: "noicon",
     longname: "Rhenium",
     description: "Rhenium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rhenium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rhenium/"
     },
-    rank: "4005"
+    rank: "1000"
 },{
     name: "rialto",
     code: "XRL",
-    icon: "xrl",
+    icon: "noicon",
     longname: "Rialto",
     description: "Rialto coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rialto",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rialto/"
     },
-    rank: "3614"
+    rank: "1000"
 },{
     name: "rif-token",
     code: "RIF",
-    icon: "rif",
+    icon: "noicon",
     longname: "RIF Token",
     description: "RIF Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rif-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rif-token/"
     },
-    rank: "106"
+    rank: "105"
 },{
     name: "rightmesh",
     code: "RMESH",
-    icon: "rmesh",
+    icon: "noicon",
     longname: "RightMesh",
     description: "RightMesh coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rightmesh",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rightmesh/"
     },
-    rank: "3080"
+    rank: "1000"
 },{
     name: "rimbit",
     code: "RBT",
-    icon: "rbt",
+    icon: "noicon",
     longname: "Rimbit",
     description: "Rimbit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rimbit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rimbit/"
     },
-    rank: "3914"
+    rank: "1000"
 },{
     name: "ripio-credit-network",
     code: "RCN",
@@ -16619,9 +18489,10 @@ var otherCoins = [{
     longname: "Ripio Credit Network",
     description: "Ripio Credit Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ripio-credit-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ripio-credit-network/"
     },
-    rank: "184"
+    rank: "109"
 },{
     name: "ripple",
     code: "XRP",
@@ -16629,9 +18500,10 @@ var otherCoins = [{
     longname: "XRP",
     description: "XRP coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ripple",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ripple/"
     },
-    rank: "3"
+    rank: "2"
 },{
     name: "rise",
     code: "RISE",
@@ -16639,249 +18511,263 @@ var otherCoins = [{
     longname: "Rise",
     description: "Rise coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rise",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rise/"
     },
-    rank: "2918"
+    rank: "1000"
 },{
     name: "rivetz",
     code: "RVT",
-    icon: "rvt",
+    icon: "noicon",
     longname: "Rivetz",
     description: "Rivetz coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rivetz",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rivetz/"
     },
-    rank: "3102"
-},{
-    name: "rlc",
-    code: "RLC",
-    icon: "rlc",
-    longname: "iExec RLC",
-    description: "iExec RLC coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/rlc/"
-    },
-    rank: "96"
+    rank: "1000"
 },{
     name: "robet",
     code: "ROBET",
-    icon: "robet",
+    icon: "noicon",
     longname: "RoBET",
     description: "RoBET coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/robet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/robet/"
     },
-    rank: "3046"
+    rank: "1000"
 },{
     name: "robotina",
     code: "ROX",
-    icon: "rox",
+    icon: "noicon",
     longname: "Robotina",
     description: "Robotina coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/robotina",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/robotina/"
     },
-    rank: "230"
+    rank: "1000"
 },{
     name: "rock",
     code: "RKT",
-    icon: "rkt",
+    icon: "noicon",
     longname: "Rock",
     description: "Rock coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rock",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rock/"
     },
-    rank: "3611"
+    rank: "1000"
 },{
     name: "rocket-pool",
     code: "RPL",
-    icon: "rpl",
+    icon: "noicon",
     longname: "Rocket Pool",
     description: "Rocket Pool coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rocket-pool",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rocket-pool/"
     },
-    rank: "408"
+    rank: "1000"
 },{
     name: "rocketcoin",
     code: "ROCK",
-    icon: "rock",
+    icon: "noicon",
     longname: "Rocketcoin",
     description: "Rocketcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rocketcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rocketcoin/"
     },
-    rank: "4114"
+    rank: "1000"
 },{
     name: "ronpaulcoin",
     code: "RPC",
-    icon: "rpc",
+    icon: "noicon",
     longname: "RonPaulCoin",
     description: "RonPaulCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ronpaulcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ronpaulcoin/"
     },
-    rank: "4007"
+    rank: "1000"
 },{
     name: "rookiecoin",
     code: "RKC",
-    icon: "rkc",
+    icon: "noicon",
     longname: "Rookiecoin",
     description: "Rookiecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rookiecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rookiecoin/"
     },
-    rank: "3390"
+    rank: "1000"
 },{
     name: "rotharium",
     code: "RTH",
-    icon: "rth",
+    icon: "noicon",
     longname: "Rotharium",
     description: "Rotharium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rotharium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rotharium/"
     },
-    rank: "2682"
+    rank: "1000"
 },{
     name: "roulettetoken",
     code: "RLT",
-    icon: "rlt",
+    icon: "noicon",
     longname: "RouletteToken",
     description: "RouletteToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/roulettetoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/roulettetoken/"
     },
-    rank: "3550"
+    rank: "1000"
 },{
     name: "royal-kingdom-coin",
     code: "RKC-1",
-    icon: "rkc-1",
+    icon: "noicon",
     longname: "Royal Kingdom Coin",
     description: "Royal Kingdom Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/royal-kingdom-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/royal-kingdom-coin/"
     },
-    rank: "4108"
+    rank: "1000"
 },{
     name: "rpicoin",
     code: "RPI",
-    icon: "rpi",
+    icon: "noicon",
     longname: "RPICoin",
     description: "RPICoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rpicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rpicoin/"
     },
-    rank: "3871"
+    rank: "1000"
 },{
     name: "rrcoin",
     code: "RRC",
-    icon: "rrc",
+    icon: "noicon",
     longname: "RRCoin",
     description: "RRCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rrcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rrcoin/"
     },
-    rank: "4294"
+    rank: "1000"
 },{
     name: "rubex-money",
     code: "RBMC",
-    icon: "rbmc",
+    icon: "noicon",
     longname: "Rubex Money",
     description: "Rubex Money coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rubex-money",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rubex-money/"
     },
-    rank: "4356"
+    rank: "1000"
 },{
     name: "rubies",
     code: "RBIES",
-    icon: "rbies",
+    icon: "noicon",
     longname: "Rubies",
     description: "Rubies coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rubies",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rubies/"
     },
-    rank: "3919"
+    rank: "1000"
 },{
     name: "rublix",
     code: "RBLX",
-    icon: "rblx",
+    icon: "noicon",
     longname: "Rublix",
     description: "Rublix coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rublix",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rublix/"
     },
-    rank: "2252"
+    rank: "1000"
 },{
     name: "rubycoin",
     code: "RBY",
-    icon: "rby",
+    icon: "noicon",
     longname: "Rubycoin",
     description: "Rubycoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rubycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rubycoin/"
     },
-    rank: "3622"
+    rank: "1000"
 },{
     name: "ruff",
     code: "RUFF",
-    icon: "ruff",
+    icon: "noicon",
     longname: "Ruff",
     description: "Ruff coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ruff",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ruff/"
     },
-    rank: "342"
+    rank: "233"
 },{
     name: "rupaya",
     code: "RUPX",
-    icon: "rupx",
+    icon: "noicon",
     longname: "Rupaya",
     description: "Rupaya coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rupaya",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rupaya/"
     },
-    rank: "3492"
+    rank: "1000"
 },{
     name: "rupee",
     code: "RUP",
-    icon: "rup",
+    icon: "noicon",
     longname: "Rupee",
     description: "Rupee coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rupee",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rupee/"
     },
-    rank: "3404"
+    rank: "1000"
 },{
     name: "rusgas",
     code: "RGS",
-    icon: "rgs",
+    icon: "noicon",
     longname: "RusGas",
     description: "RusGas coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/rusgas",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/rusgas/"
     },
-    rank: "3607"
+    rank: "1000"
 },{
     name: "russiacoin",
     code: "RC",
-    icon: "rc",
+    icon: "noicon",
     longname: "RussiaCoin",
     description: "RussiaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/russiacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/russiacoin/"
     },
-    rank: "3718"
+    rank: "1000"
 },{
     name: "russian-mining-coin",
     code: "RMC",
-    icon: "rmc",
+    icon: "noicon",
     longname: "Russian Miner Coin",
     description: "Russian Miner Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/russian-mining-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/russian-mining-coin/"
     },
-    rank: "3640"
+    rank: "1000"
 },{
     name: "ryo-currency",
     code: "RYO",
@@ -16889,19 +18775,21 @@ var otherCoins = [{
     longname: "Ryo Currency",
     description: "Ryo Currency coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ryo-currency",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ryo-currency/"
     },
-    rank: "3261"
+    rank: "1000"
 },{
     name: "s4fe",
     code: "S4F",
-    icon: "s4f",
+    icon: "noicon",
     longname: "S4FE",
     description: "S4FE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/s4fe",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/s4fe/"
     },
-    rank: "290"
+    rank: "1000"
 },{
     name: "safe",
     code: "SAFE",
@@ -16909,69 +18797,87 @@ var otherCoins = [{
     longname: "Safe",
     description: "Safe coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/safe",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/safe/"
     },
-    rank: "271"
+    rank: "1000"
 },{
     name: "safe-exchange-coin",
     code: "SAFEX",
-    icon: "safex",
+    icon: "noicon",
     longname: "Safe Exchange Coin",
     description: "Safe Exchange Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/safe-exchange-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/safe-exchange-coin/"
     },
-    rank: "2615"
+    rank: "1000"
 },{
     name: "safe-trade-coin",
     code: "XSTC",
-    icon: "xstc",
+    icon: "noicon",
     longname: "Safe Trade Coin",
     description: "Safe Trade Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/safe-trade-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/safe-trade-coin/"
     },
-    rank: "3966"
+    rank: "1000"
 },{
     name: "safeinsure",
     code: "SINS",
-    icon: "sins",
+    icon: "noicon",
     longname: "SafeInsure",
     description: "SafeInsure coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/safeinsure",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/safeinsure/"
     },
-    rank: "2847"
+    rank: "1000"
 },{
     name: "sagacoin",
     code: "SAGA",
-    icon: "saga",
+    icon: "noicon",
     longname: "SagaCoin",
     description: "SagaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sagacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sagacoin/"
     },
-    rank: "3846"
+    rank: "1000"
+},{
+    name: "sai",
+    code: "SAI",
+    icon: "noicon",
+    longname: "Sai",
+    description: "Sai coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sai",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/sai/"
+    },
+    rank: "161"
 },{
     name: "sakecoin",
     code: "SAKE",
-    icon: "sake",
+    icon: "noicon",
     longname: "SAKECOIN",
     description: "SAKECOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sakecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sakecoin/"
     },
-    rank: "3962"
+    rank: "1000"
 },{
     name: "sakura-bloom",
     code: "SKB",
-    icon: "skb",
+    icon: "noicon",
     longname: "Sakura Bloom",
     description: "Sakura Bloom coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sakura-bloom",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sakura-bloom/"
     },
-    rank: "2830"
+    rank: "1000"
 },{
     name: "salt",
     code: "SALT",
@@ -16979,9 +18885,10 @@ var otherCoins = [{
     longname: "SALT",
     description: "SALT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/salt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/salt/"
     },
-    rank: "388"
+    rank: "1000"
 },{
     name: "salus",
     code: "SLS",
@@ -16989,9 +18896,10 @@ var otherCoins = [{
     longname: "SaluS",
     description: "SaluS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/salus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/salus/"
     },
-    rank: "398"
+    rank: "1000"
 },{
     name: "santiment",
     code: "SAN",
@@ -16999,389 +18907,428 @@ var otherCoins = [{
     longname: "Santiment Network Token",
     description: "Santiment Network Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/santiment",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/santiment/"
     },
-    rank: "226"
+    rank: "1000"
 },{
     name: "sapien",
     code: "SPN",
-    icon: "spn",
+    icon: "noicon",
     longname: "Sapien",
     description: "Sapien coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sapien",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sapien/"
     },
-    rank: "3341"
+    rank: "1000"
 },{
     name: "save-and-gain",
     code: "SANDG",
-    icon: "sandg",
+    icon: "noicon",
     longname: "Save and Gain",
     description: "Save and Gain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/save-and-gain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/save-and-gain/"
     },
-    rank: "4123"
+    rank: "1000"
 },{
     name: "savedroid",
     code: "SVD",
-    icon: "svd",
+    icon: "noicon",
     longname: "savedroid",
     description: "savedroid coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/savedroid",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/savedroid/"
     },
-    rank: "3140"
+    rank: "1000"
 },{
     name: "savenode",
     code: "SNO",
-    icon: "sno",
+    icon: "noicon",
     longname: "SaveNode",
     description: "SaveNode coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/savenode",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/savenode/"
     },
-    rank: "4336"
+    rank: "1000"
 },{
     name: "scorum-coins",
     code: "SCR",
-    icon: "scr",
+    icon: "noicon",
     longname: "Scorum Coins",
     description: "Scorum Coins coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/scorum-coins",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/scorum-coins/"
     },
-    rank: "2859"
+    rank: "1000"
 },{
     name: "scriv-network",
     code: "SCRIV",
-    icon: "scriv",
+    icon: "noicon",
     longname: "SCRIV NETWORK",
     description: "SCRIV NETWORK coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/scriv-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/scriv-network/"
     },
-    rank: "3526"
+    rank: "1000"
 },{
     name: "scroll",
     code: "SCRL",
-    icon: "scrl",
+    icon: "noicon",
     longname: "SCRL",
     description: "SCRL coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/scroll",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/scroll/"
     },
-    rank: "2714"
+    rank: "1000"
 },{
     name: "scryinfo",
     code: "DDD",
-    icon: "ddd",
+    icon: "noicon",
     longname: "Scry.info",
     description: "Scry.info coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/scryinfo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/scryinfo/"
     },
-    rank: "538"
+    rank: "1000"
 },{
     name: "sdchain",
     code: "SDA",
-    icon: "sda",
+    icon: "noicon",
     longname: "SDChain",
     description: "SDChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sdchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sdchain/"
     },
-    rank: "2393"
+    rank: "1000"
 },{
     name: "sealchain",
     code: "SEAL",
-    icon: "seal",
+    icon: "noicon",
     longname: "Sealchain",
     description: "Sealchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sealchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sealchain/"
     },
-    rank: "472"
+    rank: "1000"
 },{
     name: "secretcoin",
     code: "SCRT",
-    icon: "scrt",
+    icon: "noicon",
     longname: "SecretCoin",
     description: "SecretCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/secretcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/secretcoin/"
     },
-    rank: "3978"
+    rank: "1000"
 },{
     name: "securecoin",
     code: "SRC",
-    icon: "src",
+    icon: "noicon",
     longname: "SecureCoin",
     description: "SecureCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/securecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/securecoin/"
     },
-    rank: "3992"
+    rank: "1000"
 },{
     name: "seele",
     code: "SEELE",
-    icon: "seele",
+    icon: "noicon",
     longname: "Seele",
     description: "Seele coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/seele",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/seele/"
     },
-    rank: "78"
+    rank: "73"
 },{
     name: "seer",
     code: "SEER",
-    icon: "seer",
+    icon: "noicon",
     longname: "SEER",
     description: "SEER coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/seer",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/seer/"
     },
-    rank: "4261"
+    rank: "1000"
 },{
     name: "segwit2x",
     code: "B2X",
-    icon: "b2x",
+    icon: "noicon",
     longname: "SegWit2x",
     description: "SegWit2x coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/segwit2x",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/segwit2x/"
     },
-    rank: "4180"
+    rank: "1000"
 },{
     name: "selfkey",
     code: "KEY",
-    icon: "key",
+    icon: "noicon",
     longname: "Selfkey",
     description: "Selfkey coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/selfkey",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/selfkey/"
     },
-    rank: "461"
+    rank: "1000"
 },{
     name: "selfsell",
     code: "SSC",
-    icon: "ssc",
+    icon: "noicon",
     longname: "SelfSell",
     description: "SelfSell coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/selfsell",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/selfsell/"
     },
-    rank: "3107"
+    rank: "1000"
 },{
     name: "semux",
     code: "SEM",
-    icon: "sem",
+    icon: "noicon",
     longname: "Semux",
     description: "Semux coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/semux",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/semux/"
     },
-    rank: "2939"
+    rank: "1000"
 },{
     name: "senderon",
     code: "SDRN",
-    icon: "sdrn",
+    icon: "noicon",
     longname: "Senderon",
     description: "Senderon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/senderon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/senderon/"
     },
-    rank: "3935"
+    rank: "1000"
 },{
     name: "sense",
     code: "SENSE",
-    icon: "sense",
+    icon: "noicon",
     longname: "Sense",
     description: "Sense coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sense",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sense/"
     },
-    rank: "3215"
+    rank: "1000"
 },{
     name: "sentinel",
     code: "SENT",
-    icon: "sent",
+    icon: "noicon",
     longname: "Sentinel",
     description: "Sentinel coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sentinel",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sentinel/"
     },
-    rank: "2214"
+    rank: "1000"
 },{
     name: "sentinel-chain",
     code: "SENC",
-    icon: "senc",
+    icon: "noicon",
     longname: "Sentinel Chain",
     description: "Sentinel Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sentinel-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sentinel-chain/"
     },
-    rank: "3313"
+    rank: "1000"
 },{
     name: "sentinel-protocol",
     code: "UPP",
-    icon: "upp",
+    icon: "noicon",
     longname: "Sentinel Protocol",
     description: "Sentinel Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sentinel-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sentinel-protocol/"
     },
-    rank: "521"
+    rank: "1000"
 },{
     name: "sentivate",
     code: "SNTVT",
-    icon: "sntvt",
+    icon: "noicon",
     longname: "Sentivate",
     description: "Sentivate coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sentivate",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sentivate/"
     },
-    rank: "586"
+    rank: "1000"
 },{
     name: "sequence",
     code: "SEQ",
-    icon: "seq",
+    icon: "noicon",
     longname: "Sequence",
     description: "Sequence coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sequence",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sequence/"
     },
-    rank: "3641"
+    rank: "1000"
 },{
     name: "sessia",
     code: "KICKS",
-    icon: "kicks",
+    icon: "noicon",
     longname: "Sessia",
     description: "Sessia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sessia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sessia/"
     },
-    rank: "2370"
+    rank: "1000"
 },{
     name: "sether",
     code: "SETH",
-    icon: "seth",
+    icon: "noicon",
     longname: "Sether",
     description: "Sether coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sether",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sether/"
     },
-    rank: "3723"
+    rank: "1000"
 },{
     name: "sgpay",
     code: "SGP",
-    icon: "sgp",
+    icon: "noicon",
     longname: "SGPay",
     description: "SGPay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sgpay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sgpay/"
     },
-    rank: "3852"
+    rank: "1000"
 },{
     name: "shade-token",
     code: "SHADE",
-    icon: "shade",
+    icon: "noicon",
     longname: "SHADE Token",
     description: "SHADE Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shade-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shade-token/"
     },
-    rank: "4132"
+    rank: "1000"
 },{
     name: "shadow-token",
     code: "SHDW",
-    icon: "shdw",
+    icon: "noicon",
     longname: "Shadow Token",
     description: "Shadow Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shadow-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shadow-token/"
     },
-    rank: "3901"
+    rank: "1000"
 },{
     name: "shard",
     code: "SHARD",
-    icon: "shard",
+    icon: "noicon",
     longname: "Shard",
     description: "Shard coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shard",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shard/"
     },
-    rank: "3370"
+    rank: "1000"
 },{
     name: "sharder",
     code: "SS",
-    icon: "ss",
+    icon: "noicon",
     longname: "Sharder",
     description: "Sharder coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sharder",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharder/"
     },
-    rank: "3016"
+    rank: "1000"
 },{
     name: "sharechain",
     code: "SSS",
-    icon: "sss",
+    icon: "noicon",
     longname: "Sharechain",
     description: "Sharechain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sharechain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharechain/"
     },
-    rank: "3358"
+    rank: "1000"
 },{
     name: "sharex",
     code: "SEXC",
-    icon: "sexc",
+    icon: "noicon",
     longname: "ShareX",
     description: "ShareX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sharex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharex/"
     },
-    rank: "3389"
+    rank: "1000"
 },{
     name: "sharpay",
     code: "S",
-    icon: "s",
+    icon: "noicon",
     longname: "Sharpay",
     description: "Sharpay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sharpay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharpay/"
     },
-    rank: "3354"
+    rank: "1000"
 },{
     name: "sharpe-platform-token",
     code: "SHP",
-    icon: "shp",
+    icon: "noicon",
     longname: "Sharpe Platform Token",
     description: "Sharpe Platform Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sharpe-platform-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sharpe-platform-token/"
     },
-    rank: "3159"
+    rank: "1000"
 },{
     name: "shekel",
     code: "JEW",
-    icon: "jew",
+    icon: "noicon",
     longname: "Shekel",
     description: "Shekel coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shekel",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shekel/"
     },
-    rank: "3909"
+    rank: "1000"
 },{
     name: "shield-xsh",
     code: "XSH",
-    icon: "xsh",
+    icon: "noicon",
     longname: "SHIELD",
     description: "SHIELD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shield-xsh",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shield-xsh/"
     },
-    rank: "3160"
+    rank: "1000"
 },{
     name: "shift",
     code: "SHIFT",
@@ -17389,79 +19336,87 @@ var otherCoins = [{
     longname: "Shift",
     description: "Shift coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shift",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shift/"
     },
-    rank: "2380"
+    rank: "1000"
 },{
     name: "shinechain",
     code: "SHE",
-    icon: "she",
+    icon: "noicon",
     longname: "ShineChain",
     description: "ShineChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shinechain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shinechain/"
     },
-    rank: "4155"
+    rank: "1000"
 },{
     name: "shipchain",
     code: "SHIP",
-    icon: "ship",
+    icon: "noicon",
     longname: "ShipChain",
     description: "ShipChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shipchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shipchain/"
     },
-    rank: "3172"
+    rank: "1000"
 },{
     name: "shivom",
     code: "OMX",
-    icon: "omx",
+    icon: "noicon",
     longname: "Shivom",
     description: "Shivom coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shivom",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shivom/"
     },
-    rank: "3049"
+    rank: "1000"
 },{
     name: "shopzcoin",
     code: "SZC",
-    icon: "szc",
+    icon: "noicon",
     longname: "ShopZcoin",
     description: "ShopZcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shopzcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shopzcoin/"
     },
-    rank: "4264"
+    rank: "1000"
 },{
     name: "show",
     code: "SHOW",
-    icon: "show",
+    icon: "noicon",
     longname: "Show",
     description: "Show coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/show",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/show/"
     },
-    rank: "4226"
+    rank: "1000"
 },{
     name: "showhand",
     code: "HAND",
-    icon: "hand",
+    icon: "noicon",
     longname: "ShowHand",
     description: "ShowHand coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/showhand",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/showhand/"
     },
-    rank: "3502"
+    rank: "1000"
 },{
     name: "shping",
     code: "SHPING",
-    icon: "shping",
+    icon: "noicon",
     longname: "SHPING",
     description: "SHPING coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/shping",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/shping/"
     },
-    rank: "3800"
+    rank: "1000"
 },{
     name: "siacoin",
     code: "SC",
@@ -17469,9 +19424,10 @@ var otherCoins = [{
     longname: "Siacoin",
     description: "Siacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/siacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/siacoin/"
     },
-    rank: "71"
+    rank: "65"
 },{
     name: "sibcoin",
     code: "SIB",
@@ -17479,89 +19435,98 @@ var otherCoins = [{
     longname: "SIBCoin",
     description: "SIBCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sibcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sibcoin/"
     },
-    rank: "3161"
+    rank: "1000"
 },{
     name: "sigmacoin",
     code: "SIGMA",
-    icon: "sigma",
+    icon: "noicon",
     longname: "SIGMAcoin",
     description: "SIGMAcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sigmacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sigmacoin/"
     },
-    rank: "4298"
+    rank: "1000"
 },{
     name: "signal-token",
     code: "SIG",
-    icon: "sig",
+    icon: "noicon",
     longname: "Spectiv",
     description: "Spectiv coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/signal-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/signal-token/"
     },
-    rank: "3362"
+    rank: "1000"
 },{
     name: "signals-network",
     code: "SGN",
-    icon: "sgn",
+    icon: "noicon",
     longname: "Signals Network",
     description: "Signals Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/signals-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/signals-network/"
     },
-    rank: "3754"
+    rank: "1000"
 },{
     name: "signatum",
     code: "SIGT",
-    icon: "sigt",
+    icon: "noicon",
     longname: "Signatum",
     description: "Signatum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/signatum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/signatum/"
     },
-    rank: "3955"
+    rank: "1000"
 },{
     name: "silent-notary",
     code: "SNTR",
-    icon: "sntr",
+    icon: "noicon",
     longname: "Silent Notary",
     description: "Silent Notary coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/silent-notary",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/silent-notary/"
     },
-    rank: "3146"
+    rank: "1000"
 },{
     name: "silverway",
     code: "SLV",
-    icon: "slv",
+    icon: "noicon",
     longname: "Silverway",
     description: "Silverway coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/silverway",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/silverway/"
     },
-    rank: "65"
+    rank: "1000"
 },{
     name: "simdaq",
     code: "SMQ",
-    icon: "smq",
+    icon: "noicon",
     longname: "SIMDAQ",
     description: "SIMDAQ coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/simdaq",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/simdaq/"
     },
-    rank: "3383"
+    rank: "1000"
 },{
     name: "simmitri",
     code: "SIM",
-    icon: "sim",
+    icon: "noicon",
     longname: "Simmitri",
     description: "Simmitri coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/simmitri",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/simmitri/"
     },
-    rank: "4115"
+    rank: "1000"
 },{
     name: "singulardtv",
     code: "SNGLS",
@@ -17569,9 +19534,10 @@ var otherCoins = [{
     longname: "SingularDTV",
     description: "SingularDTV coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/singulardtv",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/singulardtv/"
     },
-    rank: "410"
+    rank: "1000"
 },{
     name: "singularitynet",
     code: "AGI",
@@ -17579,19 +19545,21 @@ var otherCoins = [{
     longname: "SingularityNET",
     description: "SingularityNET coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/singularitynet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/singularitynet/"
     },
-    rank: "282"
+    rank: "184"
 },{
     name: "sinovate",
     code: "SIN",
-    icon: "sin",
+    icon: "noicon",
     longname: "SINOVATE",
     description: "SINOVATE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sinovate",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sinovate/"
     },
-    rank: "2395"
+    rank: "1000"
 },{
     name: "sirin-labs-token",
     code: "SRN",
@@ -17599,59 +19567,65 @@ var otherCoins = [{
     longname: "SIRIN LABS Token",
     description: "SIRIN LABS Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sirin-labs-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sirin-labs-token/"
     },
-    rank: "485"
+    rank: "1000"
 },{
     name: "six",
     code: "SIX",
-    icon: "six",
+    icon: "noicon",
     longname: "SIX",
     description: "SIX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/six",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/six/"
     },
-    rank: "429"
+    rank: "1000"
 },{
     name: "sixeleven",
     code: "611",
-    icon: "611",
+    icon: "noicon",
     longname: "SixEleven",
     description: "SixEleven coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sixeleven",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sixeleven/"
     },
-    rank: "3993"
+    rank: "1000"
 },{
     name: "skeincoin",
     code: "SKC",
-    icon: "skc",
+    icon: "noicon",
     longname: "Skeincoin",
     description: "Skeincoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/skeincoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skeincoin/"
     },
-    rank: "3739"
+    rank: "1000"
 },{
     name: "skincoin",
     code: "SKIN",
-    icon: "skin",
+    icon: "noicon",
     longname: "SkinCoin",
     description: "SkinCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/skincoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skincoin/"
     },
-    rank: "3332"
+    rank: "1000"
 },{
     name: "skrumble-network",
     code: "SKM",
-    icon: "skm",
+    icon: "noicon",
     longname: "Skrumble Network",
     description: "Skrumble Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/skrumble-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skrumble-network/"
     },
-    rank: "1189"
+    rank: "1000"
 },{
     name: "skycoin",
     code: "SKY",
@@ -17659,19 +19633,21 @@ var otherCoins = [{
     longname: "Skycoin",
     description: "Skycoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/skycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skycoin/"
     },
-    rank: "300"
+    rank: "229"
 },{
     name: "skyhub-coin",
     code: "SHB",
-    icon: "shb",
+    icon: "noicon",
     longname: "SkyHub Coin",
     description: "SkyHub Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/skyhub-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/skyhub-coin/"
     },
-    rank: "3487"
+    rank: "1000"
 },{
     name: "smartcash",
     code: "SMART",
@@ -17679,129 +19655,142 @@ var otherCoins = [{
     longname: "SmartCash",
     description: "SmartCash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/smartcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartcash/"
     },
-    rank: "476"
+    rank: "1000"
 },{
     name: "smartcoin",
     code: "SMC",
-    icon: "smc",
+    icon: "noicon",
     longname: "SmartCoin",
     description: "SmartCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/smartcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartcoin/"
     },
-    rank: "3908"
+    rank: "1000"
 },{
     name: "smartfox",
     code: "FOX",
-    icon: "fox",
+    icon: "noicon",
     longname: "SmartFox",
     description: "SmartFox coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/smartfox",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartfox/"
     },
-    rank: "3998"
+    rank: "1000"
 },{
     name: "smartlands",
     code: "SLT",
-    icon: "slt",
+    icon: "noicon",
     longname: "Smartlands",
     description: "Smartlands coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/smartlands",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartlands/"
     },
-    rank: "2291"
+    rank: "1000"
 },{
     name: "smartmesh",
     code: "SMT",
-    icon: "smt",
+    icon: "noicon",
     longname: "SmartMesh",
     description: "SmartMesh coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/smartmesh",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartmesh/"
     },
-    rank: "415"
+    rank: "1000"
 },{
     name: "smartofgiving",
     code: "AOG",
-    icon: "aog",
+    icon: "noicon",
     longname: "smARTOFGIVING",
     description: "smARTOFGIVING coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/smartofgiving",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartofgiving/"
     },
-    rank: "3392"
+    rank: "1000"
 },{
     name: "smartshare",
     code: "SSP",
-    icon: "ssp",
+    icon: "noicon",
     longname: "Smartshare",
     description: "Smartshare coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/smartshare",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smartshare/"
     },
-    rank: "2264"
+    rank: "1000"
 },{
     name: "smileycoin",
     code: "SMLY",
-    icon: "smly",
+    icon: "noicon",
     longname: "SmileyCoin",
     description: "SmileyCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/smileycoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smileycoin/"
     },
-    rank: "3726"
+    rank: "1000"
 },{
     name: "smoke",
     code: "SMOKE",
-    icon: "smoke",
+    icon: "noicon",
     longname: "Smoke",
     description: "Smoke coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/smoke",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/smoke/"
     },
-    rank: "3663"
+    rank: "1000"
 },{
     name: "snetwork",
     code: "SNET",
-    icon: "snet",
+    icon: "noicon",
     longname: "Snetwork",
     description: "Snetwork coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/snetwork",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snetwork/"
     },
-    rank: "412"
+    rank: "1000"
 },{
     name: "snipcoin",
     code: "SNIP",
-    icon: "snip",
+    icon: "noicon",
     longname: "SnipCoin",
     description: "SnipCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/snipcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snipcoin/"
     },
-    rank: "4335"
+    rank: "1000"
 },{
     name: "snodecoin",
     code: "SND",
-    icon: "snd",
+    icon: "noicon",
     longname: "SnodeCoin",
     description: "SnodeCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/snodecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snodecoin/"
     },
-    rank: "3351"
+    rank: "1000"
 },{
     name: "snovio",
     code: "SNOV",
-    icon: "snov",
+    icon: "noicon",
     longname: "Snovian.Space",
     description: "Snovian.Space coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/snovio",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snovio/"
     },
-    rank: "3179"
+    rank: "1000"
 },{
     name: "snowgem",
     code: "XSG",
@@ -17809,79 +19798,87 @@ var otherCoins = [{
     longname: "SnowGem",
     description: "SnowGem coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/snowgem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/snowgem/"
     },
-    rank: "3345"
+    rank: "1000"
 },{
     name: "soarcoin",
     code: "SOAR",
-    icon: "soar",
+    icon: "noicon",
     longname: "Soarcoin",
     description: "Soarcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/soarcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/soarcoin/"
     },
-    rank: "2880"
+    rank: "1000"
 },{
     name: "social-lending-token",
     code: "SLT-1",
-    icon: "slt-1",
+    icon: "noicon",
     longname: "Social Lending Token",
     description: "Social Lending Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/social-lending-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/social-lending-token/"
     },
-    rank: "4308"
+    rank: "1000"
 },{
     name: "social-send",
     code: "SEND",
-    icon: "send",
+    icon: "noicon",
     longname: "Social Send",
     description: "Social Send coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/social-send",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/social-send/"
     },
-    rank: "3272"
+    rank: "1000"
 },{
     name: "socialcoin-socc",
     code: "SOCC",
-    icon: "socc",
+    icon: "noicon",
     longname: "SocialCoin",
     description: "SocialCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/socialcoin-socc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/socialcoin-socc/"
     },
-    rank: "4086"
+    rank: "1000"
 },{
     name: "sociall",
     code: "SCL",
-    icon: "scl",
+    icon: "noicon",
     longname: "Sociall",
     description: "Sociall coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sociall",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sociall/"
     },
-    rank: "3688"
+    rank: "1000"
 },{
     name: "soilcoin",
     code: "SOIL",
-    icon: "soil",
+    icon: "noicon",
     longname: "SOILcoin",
     description: "SOILcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/soilcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/soilcoin/"
     },
-    rank: "4059"
+    rank: "1000"
 },{
     name: "sola-token",
     code: "SOL",
-    icon: "sol",
+    icon: "noicon",
     longname: "Sola Token",
     description: "Sola Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sola-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sola-token/"
     },
-    rank: "3856"
+    rank: "1000"
 },{
     name: "solarcoin",
     code: "SLR",
@@ -17889,69 +19886,76 @@ var otherCoins = [{
     longname: "SolarCoin",
     description: "SolarCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/solarcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/solarcoin/"
     },
-    rank: "3078"
+    rank: "1000"
 },{
     name: "solaris",
     code: "XLR",
-    icon: "xlr",
+    icon: "noicon",
     longname: "Solaris",
     description: "Solaris coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/solaris",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/solaris/"
     },
-    rank: "3059"
+    rank: "1000"
 },{
-    name: "solve",
+    name: "solve-care",
     code: "SOLVE",
-    icon: "solve",
+    icon: "noicon",
     longname: "SOLVE",
     description: "SOLVE coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/solve/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/solve-care",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/solve-care/"
     },
-    rank: "135"
+    rank: "128"
 },{
     name: "soma",
     code: "SCT",
-    icon: "sct",
+    icon: "noicon",
     longname: "Soma",
     description: "Soma coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/soma",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/soma/"
     },
-    rank: "3414"
+    rank: "1000"
 },{
     name: "sonder",
     code: "SNR",
-    icon: "snr",
+    icon: "noicon",
     longname: "SONDER",
     description: "SONDER coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sonder",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sonder/"
     },
-    rank: "3572"
+    rank: "1000"
 },{
     name: "songcoin",
     code: "SONG",
-    icon: "song",
+    icon: "noicon",
     longname: "SongCoin",
     description: "SongCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/songcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/songcoin/"
     },
-    rank: "4118"
+    rank: "1000"
 },{
     name: "soniq",
     code: "SONIQ",
-    icon: "soniq",
+    icon: "noicon",
     longname: "Soniq",
     description: "Soniq coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/soniq",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/soniq/"
     },
-    rank: "3657"
+    rank: "1000"
 },{
     name: "sonm",
     code: "SNM",
@@ -17959,29 +19963,32 @@ var otherCoins = [{
     longname: "SONM",
     description: "SONM coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sonm",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sonm/"
     },
-    rank: "434"
+    rank: "1000"
 },{
     name: "sooncoin",
     code: "SOON",
-    icon: "soon",
+    icon: "noicon",
     longname: "SoonCoin",
     description: "SoonCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sooncoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sooncoin/"
     },
-    rank: "4033"
+    rank: "1000"
 },{
     name: "sopay",
     code: "SOP",
-    icon: "sop",
+    icon: "noicon",
     longname: "SoPay",
     description: "SoPay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sopay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sopay/"
     },
-    rank: "4310"
+    rank: "1000"
 },{
     name: "sophiatx",
     code: "SPHTX",
@@ -17989,39 +19996,43 @@ var otherCoins = [{
     longname: "SophiaTX",
     description: "SophiaTX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sophiatx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sophiatx/"
     },
-    rank: "2767"
+    rank: "1000"
 },{
     name: "sovereign-hero",
     code: "HERO",
-    icon: "hero",
+    icon: "noicon",
     longname: "Sovereign Hero",
     description: "Sovereign Hero coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sovereign-hero",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sovereign-hero/"
     },
-    rank: "3669"
+    rank: "1000"
 },{
     name: "sp8de",
     code: "SPX",
-    icon: "spx",
+    icon: "noicon",
     longname: "Sp8de",
     description: "Sp8de coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sp8de",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sp8de/"
     },
-    rank: "3301"
+    rank: "1000"
 },{
     name: "spacechain",
     code: "SPC",
-    icon: "spc",
+    icon: "noicon",
     longname: "SpaceChain",
     description: "SpaceChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/spacechain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spacechain/"
     },
-    rank: "2864"
+    rank: "1000"
 },{
     name: "spankchain",
     code: "SPANK",
@@ -18029,239 +20040,263 @@ var otherCoins = [{
     longname: "SpankChain",
     description: "SpankChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/spankchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spankchain/"
     },
-    rank: "2696"
+    rank: "1000"
 },{
     name: "sparks",
     code: "SPK",
-    icon: "spk",
+    icon: "noicon",
     longname: "Sparks",
     description: "Sparks coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sparks",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sparks/"
     },
-    rank: "4013"
+    rank: "1000"
 },{
     name: "spectre-dividend",
     code: "SXDT",
-    icon: "sxdt",
+    icon: "noicon",
     longname: "Spectre.ai Dividend Token",
     description: "Spectre.ai Dividend Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/spectre-dividend",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spectre-dividend/"
     },
-    rank: "3610"
+    rank: "1000"
 },{
     name: "spectre-utility",
     code: "SXUT",
-    icon: "sxut",
+    icon: "noicon",
     longname: "Spectre.ai Utility Token",
     description: "Spectre.ai Utility Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/spectre-utility",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spectre-utility/"
     },
-    rank: "3047"
+    rank: "1000"
 },{
     name: "spectrecoin",
     code: "XSPEC",
-    icon: "xspec",
+    icon: "noicon",
     longname: "Spectrecoin",
     description: "Spectrecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/spectrecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spectrecoin/"
     },
-    rank: "2249"
+    rank: "1000"
 },{
     name: "speed-mining-service",
     code: "SMS",
-    icon: "sms",
+    icon: "noicon",
     longname: "Speed Mining Service",
     description: "Speed Mining Service coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/speed-mining-service",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/speed-mining-service/"
     },
-    rank: "3766"
+    rank: "1000"
 },{
     name: "speedcash",
     code: "SCS",
-    icon: "scs",
+    icon: "noicon",
     longname: "SpeedCash",
     description: "SpeedCash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/speedcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/speedcash/"
     },
-    rank: "4070"
+    rank: "1000"
 },{
     name: "spendcoin",
     code: "SPND",
-    icon: "spnd",
+    icon: "noicon",
     longname: "Spendcoin",
     description: "Spendcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/spendcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spendcoin/"
     },
-    rank: "565"
+    rank: "1000"
 },{
     name: "sphere",
     code: "SPHR",
-    icon: "sphr",
+    icon: "noicon",
     longname: "Sphere",
     description: "Sphere coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sphere",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sphere/"
     },
-    rank: "3149"
+    rank: "1000"
 },{
     name: "sphre-air",
     code: "XID",
-    icon: "xid",
+    icon: "noicon",
     longname: "Sphre AIR ",
     description: "Sphre AIR  coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sphre-air",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sphre-air/"
     },
-    rank: "4378"
+    rank: "1000"
 },{
     name: "spindle",
     code: "SPD",
-    icon: "spd",
+    icon: "noicon",
     longname: "SPINDLE",
     description: "SPINDLE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/spindle",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spindle/"
     },
-    rank: "2789"
+    rank: "1000"
 },{
     name: "sport-and-leisure",
     code: "SNL",
-    icon: "snl",
+    icon: "noicon",
     longname: "Sport and Leisure",
     description: "Sport and Leisure coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sport-and-leisure",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sport-and-leisure/"
     },
-    rank: "362"
+    rank: "1000"
 },{
     name: "sportyco",
     code: "SPF",
-    icon: "spf",
+    icon: "noicon",
     longname: "SportyCo",
     description: "SportyCo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sportyco",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sportyco/"
     },
-    rank: "3409"
+    rank: "1000"
 },{
     name: "spreadcoin",
     code: "SPR",
-    icon: "spr",
+    icon: "noicon",
     longname: "SpreadCoin",
     description: "SpreadCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/spreadcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/spreadcoin/"
     },
-    rank: "3845"
+    rank: "1000"
 },{
     name: "sprouts",
     code: "SPRTS",
-    icon: "sprts",
+    icon: "noicon",
     longname: "Sprouts",
     description: "Sprouts coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sprouts",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sprouts/"
     },
-    rank: "3241"
+    rank: "1000"
 },{
     name: "srcoin",
     code: "SRCOIN",
-    icon: "srcoin",
+    icon: "noicon",
     longname: "SRCOIN",
     description: "SRCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/srcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/srcoin/"
     },
-    rank: "3318"
+    rank: "1000"
 },{
     name: "stableusd",
     code: "USDS",
-    icon: "usds",
+    icon: "noicon",
     longname: "StableUSD",
     description: "StableUSD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stableusd",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stableusd/"
     },
-    rank: "519"
+    rank: "1000"
 },{
     name: "stacs",
     code: "STACS",
-    icon: "stacs",
+    icon: "noicon",
     longname: "STACS",
     description: "STACS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stacs",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stacs/"
     },
-    rank: "460"
+    rank: "1000"
 },{
     name: "stakenet",
     code: "XSN",
-    icon: "xsn",
+    icon: "noicon",
     longname: "Stakenet",
     description: "Stakenet coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stakenet",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stakenet/"
     },
-    rank: "416"
+    rank: "1000"
 },{
     name: "staker",
     code: "STR",
-    icon: "str",
+    icon: "noicon",
     longname: "Staker",
     description: "Staker coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/staker",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/staker/"
     },
-    rank: "4085"
+    rank: "1000"
 },{
     name: "starbase",
     code: "STAR",
-    icon: "star",
+    icon: "noicon",
     longname: "Starbase",
     description: "Starbase coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/starbase",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/starbase/"
     },
-    rank: "3158"
+    rank: "1000"
 },{
     name: "starchain",
     code: "STC",
-    icon: "stc",
+    icon: "noicon",
     longname: "StarChain",
     description: "StarChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/starchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/starchain/"
     },
-    rank: "4173"
+    rank: "1000"
 },{
     name: "starcointv",
     code: "KST",
-    icon: "kst",
+    icon: "noicon",
     longname: "StarCoin",
     description: "StarCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/starcointv",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/starcointv/"
     },
-    rank: "4267"
+    rank: "1000"
 },{
     name: "starta",
     code: "STA",
-    icon: "sta",
+    icon: "noicon",
     longname: "Starta",
     description: "Starta coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/starta",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/starta/"
     },
-    rank: "3052"
+    rank: "1000"
 },{
     name: "startcoin",
     code: "START",
@@ -18269,29 +20304,32 @@ var otherCoins = [{
     longname: "Startcoin",
     description: "Startcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/startcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/startcoin/"
     },
-    rank: "3529"
+    rank: "1000"
 },{
     name: "startercoin",
     code: "STAC",
-    icon: "stac",
+    icon: "noicon",
     longname: "StarterCoin",
     description: "StarterCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/startercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/startercoin/"
     },
-    rank: "3756"
+    rank: "1000"
 },{
-    name: "stasis-euro",
+    name: "stasis-eurs",
     code: "EURS",
-    icon: "eurs",
+    icon: "noicon",
     longname: "STASIS EURO",
     description: "STASIS EURO coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/stasis-euro/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stasis-eurs",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/stasis-eurs/"
     },
-    rank: "137"
+    rank: "169"
 },{
     name: "status",
     code: "SNT",
@@ -18299,19 +20337,21 @@ var otherCoins = [{
     longname: "Status",
     description: "Status coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/status",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/status/"
     },
-    rank: "108"
+    rank: "63"
 },{
     name: "stealth",
     code: "XST",
-    icon: "xst",
+    icon: "noicon",
     longname: "Stealth",
     description: "Stealth coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stealth",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stealth/"
     },
-    rank: "584"
+    rank: "1000"
 },{
     name: "steem",
     code: "STEEM",
@@ -18319,9 +20359,10 @@ var otherCoins = [{
     longname: "Steem",
     description: "Steem coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/steem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/steem/"
     },
-    rank: "105"
+    rank: "69"
 },{
     name: "steem-dollars",
     code: "SBD",
@@ -18329,19 +20370,21 @@ var otherCoins = [{
     longname: "Steem Dollars",
     description: "Steem Dollars coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/steem-dollars",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/steem-dollars/"
     },
-    rank: "449"
+    rank: "245"
 },{
     name: "steepcoin",
     code: "STEEP",
-    icon: "steep",
+    icon: "noicon",
     longname: "SteepCoin",
     description: "SteepCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/steepcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/steepcoin/"
     },
-    rank: "3976"
+    rank: "1000"
 },{
     name: "stellar",
     code: "XLM",
@@ -18349,89 +20392,98 @@ var otherCoins = [{
     longname: "Stellar",
     description: "Stellar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stellar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stellar/"
     },
-    rank: "10"
+    rank: "13"
 },{
     name: "stellite",
     code: "XTL",
-    icon: "xtl",
+    icon: "noicon",
     longname: "Stellite",
     description: "Stellite coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stellite",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stellite/"
     },
-    rank: "3075"
+    rank: "1000"
 },{
     name: "stem-cell-coin",
     code: "SCC",
-    icon: "scc",
+    icon: "noicon",
     longname: "STEM CELL COIN",
     description: "STEM CELL COIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stem-cell-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stem-cell-coin/"
     },
-    rank: "2129"
+    rank: "1000"
 },{
     name: "steneum-coin",
     code: "STN",
-    icon: "stn",
+    icon: "noicon",
     longname: "Steneum Coin",
     description: "Steneum Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/steneum-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/steneum-coin/"
     },
-    rank: "3552"
+    rank: "1000"
 },{
     name: "stex",
     code: "STEX",
-    icon: "stex",
+    icon: "noicon",
     longname: "STEX",
     description: "STEX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stex/"
     },
-    rank: "4375"
+    rank: "1000"
 },{
     name: "stipend",
     code: "SPD-1",
-    icon: "spd-1",
+    icon: "noicon",
     longname: "Stipend",
     description: "Stipend coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stipend",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stipend/"
     },
-    rank: "3707"
+    rank: "1000"
 },{
     name: "stk",
     code: "STK",
-    icon: "stk",
+    icon: "noicon",
     longname: "STK",
     description: "STK coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stk",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stk/"
     },
-    rank: "3004"
+    rank: "1000"
 },{
     name: "stockchain",
     code: "SCC-1",
-    icon: "scc-1",
+    icon: "noicon",
     longname: "StockChain",
     description: "StockChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stockchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stockchain/"
     },
-    rank: "4214"
+    rank: "1000"
 },{
     name: "storeum",
     code: "STO",
-    icon: "sto",
+    icon: "noicon",
     longname: "Storeum",
     description: "Storeum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/storeum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/storeum/"
     },
-    rank: "426"
+    rank: "1000"
 },{
     name: "storiqa",
     code: "STQ",
@@ -18439,9 +20491,10 @@ var otherCoins = [{
     longname: "Storiqa",
     description: "Storiqa coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/storiqa",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/storiqa/"
     },
-    rank: "2689"
+    rank: "1000"
 },{
     name: "storj",
     code: "STORJ",
@@ -18449,9 +20502,10 @@ var otherCoins = [{
     longname: "Storj",
     description: "Storj coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/storj",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/storj/"
     },
-    rank: "222"
+    rank: "159"
 },{
     name: "storm",
     code: "STORM",
@@ -18459,29 +20513,21 @@ var otherCoins = [{
     longname: "Storm",
     description: "Storm coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/storm",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/storm/"
     },
-    rank: "309"
+    rank: "204"
 },{
-    name: "stox",
-    code: "STX",
-    icon: "stx",
-    longname: "Stox",
-    description: "Stox coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/stox/"
-    },
-    rank: "3221"
-},{
-    name: "stpt",
+    name: "stp-network",
     code: "STPT",
-    icon: "stpt",
-    longname: "STPT",
-    description: "STPT coin",
+    icon: "noicon",
+    longname: "STP Network",
+    description: "STP Network coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/stpt/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stp-network",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/stp-network/"
     },
-    rank: "375"
+    rank: "196"
 },{
     name: "straks",
     code: "STAK",
@@ -18489,9 +20535,10 @@ var otherCoins = [{
     longname: "STRAKS",
     description: "STRAKS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/straks",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/straks/"
     },
-    rank: "3738"
+    rank: "1000"
 },{
     name: "stratis",
     code: "STRAT",
@@ -18499,19 +20546,21 @@ var otherCoins = [{
     longname: "Stratis",
     description: "Stratis coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stratis",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stratis/"
     },
-    rank: "159"
+    rank: "112"
 },{
     name: "streamit-coin",
     code: "STREAM",
-    icon: "stream",
+    icon: "noicon",
     longname: "Streamit Coin",
     description: "Streamit Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/streamit-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/streamit-coin/"
     },
-    rank: "234"
+    rank: "1000"
 },{
     name: "streamr-datacoin",
     code: "DATA",
@@ -18519,39 +20568,43 @@ var otherCoins = [{
     longname: "Streamr DATAcoin",
     description: "Streamr DATAcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/streamr-datacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/streamr-datacoin/"
     },
-    rank: "337"
+    rank: "104"
 },{
     name: "stronghands",
     code: "SHND",
-    icon: "shnd",
+    icon: "noicon",
     longname: "StrongHands",
     description: "StrongHands coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/stronghands",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/stronghands/"
     },
-    rank: "3219"
+    rank: "1000"
 },{
     name: "student-coin",
     code: "STU",
-    icon: "stu",
+    icon: "noicon",
     longname: "bitJob",
     description: "bitJob coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/student-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/student-coin/"
     },
-    rank: "3295"
+    rank: "1000"
 },{
     name: "sub-invest",
     code: "SUBX",
-    icon: "subx",
+    icon: "noicon",
     longname: "Sub Invest",
     description: "Sub Invest coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sub-invest",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sub-invest/"
     },
-    rank: "3562"
+    rank: "1000"
 },{
     name: "substratum",
     code: "SUB",
@@ -18559,19 +20612,21 @@ var otherCoins = [{
     longname: "Substratum",
     description: "Substratum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/substratum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/substratum/"
     },
-    rank: "2219"
+    rank: "1000"
 },{
     name: "sugar-exchange",
     code: "SGR",
-    icon: "sgr",
+    icon: "noicon",
     longname: "Sugar Exchange",
     description: "Sugar Exchange coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sugar-exchange",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sugar-exchange/"
     },
-    rank: "3823"
+    rank: "1000"
 },{
     name: "sumokoin",
     code: "SUMO",
@@ -18579,199 +20634,230 @@ var otherCoins = [{
     longname: "Sumokoin",
     description: "Sumokoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sumokoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sumokoin/"
     },
-    rank: "3357"
+    rank: "1000"
 },{
     name: "suncontract",
     code: "SNC",
-    icon: "snc",
+    icon: "noicon",
     longname: "SunContract",
     description: "SunContract coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/suncontract",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/suncontract/"
     },
-    rank: "599"
+    rank: "1000"
 },{
     name: "super-bitcoin",
     code: "SBTC",
-    icon: "sbtc",
+    icon: "noicon",
     longname: "Super Bitcoin",
     description: "Super Bitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/super-bitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/super-bitcoin/"
     },
-    rank: "4169"
+    rank: "1000"
+},{
+    name: "super-zero",
+    code: "SERO",
+    icon: "noicon",
+    longname: "SERO",
+    description: "SERO coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/super-zero",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/super-zero/"
+    },
+    rank: "142"
 },{
     name: "supercoin",
     code: "SUPER",
-    icon: "super",
+    icon: "noicon",
     longname: "SuperCoin",
     description: "SuperCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/supercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/supercoin/"
     },
-    rank: "3705"
+    rank: "1000"
 },{
     name: "superior-coin",
     code: "SUP",
-    icon: "sup",
+    icon: "noicon",
     longname: "Superior Coin",
     description: "Superior Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/superior-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/superior-coin/"
     },
-    rank: "4377"
+    rank: "1000"
 },{
     name: "suqa",
     code: "SUQA",
-    icon: "suqa",
+    icon: "noicon",
     longname: "SUQA",
     description: "SUQA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/suqa",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/suqa/"
     },
-    rank: "2983"
+    rank: "1000"
 },{
     name: "sureremit",
     code: "RMT",
-    icon: "rmt",
+    icon: "noicon",
     longname: "SureRemit",
     description: "SureRemit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/sureremit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/sureremit/"
     },
-    rank: "2869"
+    rank: "1000"
 },{
     name: "suretly",
     code: "SUR",
-    icon: "sur",
+    icon: "noicon",
     longname: "Suretly",
     description: "Suretly coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/suretly",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/suretly/"
     },
-    rank: "3520"
+    rank: "1000"
 },{
     name: "surety",
     code: "SURE",
-    icon: "sure",
+    icon: "noicon",
     longname: "SURETY",
     description: "SURETY coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/surety",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/surety/"
     },
-    rank: "4024"
+    rank: "1000"
 },{
     name: "susd",
     code: "SUSD",
-    icon: "susd",
+    icon: "noicon",
     longname: "sUSD",
     description: "sUSD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/susd",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/susd/"
     },
-    rank: "357"
+    rank: "1000"
 },{
     name: "swarm-city",
     code: "SWT",
-    icon: "swt",
+    icon: "noicon",
     longname: "Swarm City",
     description: "Swarm City coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/swarm-city",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swarm-city/"
     },
-    rank: "3151"
+    rank: "1000"
 },{
     name: "swarm-fund",
     code: "SWM",
-    icon: "swm",
+    icon: "noicon",
     longname: "Swarm",
     description: "Swarm coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/swarm-fund",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swarm-fund/"
     },
-    rank: "574"
+    rank: "1000"
 },{
     name: "swftcoin",
     code: "SWFTC",
-    icon: "swftc",
-    longname: "SwftCoin",
-    description: "SwftCoin coin",
+    icon: "noicon",
+    longname: "SWFT Blockchain",
+    description: "SWFT Blockchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/swftcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swftcoin/"
     },
-    rank: "483"
+    rank: "201"
 },{
     name: "swing",
     code: "SWING",
-    icon: "swing",
+    icon: "noicon",
     longname: "Swing",
     description: "Swing coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/swing",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swing/"
     },
-    rank: "3897"
+    rank: "1000"
 },{
     name: "swipe",
     code: "SXP",
-    icon: "sxp",
+    icon: "noicon",
     longname: "Swipe",
     description: "Swipe coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/swipe",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swipe/"
     },
-    rank: "75"
+    rank: "87"
 },{
     name: "swissborg",
     code: "CHSB",
-    icon: "chsb",
+    icon: "noicon",
     longname: "SwissBorg",
     description: "SwissBorg coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/swissborg",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swissborg/"
     },
-    rank: "441"
+    rank: "143"
 },{
     name: "swisscoin",
     code: "SIC",
-    icon: "sic",
+    icon: "noicon",
     longname: "Swisscoin",
     description: "Swisscoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/swisscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/swisscoin/"
     },
-    rank: "3176"
+    rank: "1000"
 },{
     name: "switcheo",
     code: "SWTH",
-    icon: "swth",
+    icon: "noicon",
     longname: "Switcheo",
     description: "Switcheo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/switcheo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/switcheo/"
     },
-    rank: "2861"
+    rank: "1000"
 },{
     name: "syncfab",
     code: "MFG",
-    icon: "mfg",
+    icon: "noicon",
     longname: "SyncFab",
     description: "SyncFab coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/syncfab",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/syncfab/"
     },
-    rank: "3403"
+    rank: "1000"
 },{
     name: "syndicate",
     code: "SYNX",
-    icon: "synx",
+    icon: "noicon",
     longname: "Syndicate",
     description: "Syndicate coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/syndicate",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/syndicate/"
     },
-    rank: "3131"
+    rank: "1000"
 },{
     name: "synereo",
     code: "AMP",
@@ -18779,29 +20865,21 @@ var otherCoins = [{
     longname: "HyperSpace",
     description: "HyperSpace coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/synereo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/synereo/"
     },
-    rank: "3021"
+    rank: "1000"
 },{
     name: "synergy",
     code: "SNRG",
-    icon: "snrg",
+    icon: "noicon",
     longname: "Synergy",
     description: "Synergy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/synergy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/synergy/"
     },
-    rank: "3821"
-},{
-    name: "synthetix-network-token",
-    code: "SNX",
-    icon: "snx",
-    longname: "Synthetix Network Token",
-    description: "Synthetix Network Token coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/synthetix-network-token/"
-    },
-    rank: "56"
+    rank: "1000"
 },{
     name: "syscoin",
     code: "SYS",
@@ -18809,9 +20887,10 @@ var otherCoins = [{
     longname: "Syscoin",
     description: "Syscoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/syscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/syscoin/"
     },
-    rank: "252"
+    rank: "180"
 },{
     name: "taas",
     code: "TAAS",
@@ -18819,9 +20898,10 @@ var otherCoins = [{
     longname: "TaaS",
     description: "TaaS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/taas",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/taas/"
     },
-    rank: "3631"
+    rank: "1000"
 },{
     name: "tael",
     code: "WABI",
@@ -18829,119 +20909,131 @@ var otherCoins = [{
     longname: "Tael",
     description: "Tael coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tael",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tael/"
     },
-    rank: "261"
+    rank: "1000"
 },{
     name: "tagcoin",
     code: "TAG",
-    icon: "tag",
+    icon: "noicon",
     longname: "TagCoin",
     description: "TagCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tagcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tagcoin/"
     },
-    rank: "3775"
+    rank: "1000"
 },{
     name: "tajcoin",
     code: "TAJ",
-    icon: "taj",
+    icon: "noicon",
     longname: "TajCoin",
     description: "TajCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tajcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tajcoin/"
     },
-    rank: "4034"
+    rank: "1000"
 },{
     name: "talao",
     code: "TALAO",
-    icon: "talao",
+    icon: "noicon",
     longname: "Talao",
     description: "Talao coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/talao",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/talao/"
     },
-    rank: "3737"
+    rank: "1000"
 },{
     name: "tao",
     code: "XTO",
-    icon: "xto",
+    icon: "noicon",
     longname: "Tao",
     description: "Tao coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tao",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tao/"
     },
-    rank: "3616"
+    rank: "1000"
 },{
     name: "target-coin",
     code: "TGT",
-    icon: "tgt",
+    icon: "noicon",
     longname: "Target Coin",
     description: "Target Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/target-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/target-coin/"
     },
-    rank: "3748"
+    rank: "1000"
 },{
     name: "tarush",
     code: "TAS",
-    icon: "tas",
+    icon: "noicon",
     longname: "Tarush",
     description: "Tarush coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tarush",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tarush/"
     },
-    rank: "2156"
+    rank: "1000"
 },{
     name: "tatatu",
     code: "TTU",
-    icon: "ttu",
+    icon: "noicon",
     longname: "TaTaTu",
     description: "TaTaTu coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tatatu",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tatatu/"
     },
-    rank: "2838"
+    rank: "1000"
 },{
     name: "tcash",
     code: "TCASH",
-    icon: "tcash",
+    icon: "noicon",
     longname: "TCASH",
     description: "TCASH coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tcash/"
     },
-    rank: "2257"
+    rank: "1000"
 },{
     name: "tcoin",
     code: "TCN",
-    icon: "tcn",
+    icon: "noicon",
     longname: "TCOIN",
     description: "TCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tcoin/"
     },
-    rank: "4266"
+    rank: "1000"
 },{
     name: "te-food",
     code: "TFD",
-    icon: "tfd",
+    icon: "noicon",
     longname: "TE-FOOD",
     description: "TE-FOOD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/te-food",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/te-food/"
     },
-    rank: "2822"
+    rank: "1000"
 },{
     name: "tekcoin",
     code: "TEK",
-    icon: "tek",
+    icon: "noicon",
     longname: "TEKcoin",
     description: "TEKcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tekcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tekcoin/"
     },
-    rank: "3924"
+    rank: "1000"
 },{
     name: "telcoin",
     code: "TEL",
@@ -18949,39 +21041,43 @@ var otherCoins = [{
     longname: "Telcoin",
     description: "Telcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/telcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/telcoin/"
     },
-    rank: "255"
+    rank: "1000"
 },{
     name: "telos",
     code: "TLOS",
-    icon: "tlos",
+    icon: "noicon",
     longname: "Telos",
     description: "Telos coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/telos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/telos/"
     },
-    rank: "203"
+    rank: "206"
 },{
     name: "teloscoin",
     code: "TELOS",
-    icon: "telos",
+    icon: "noicon",
     longname: "Teloscoin",
     description: "Teloscoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/teloscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/teloscoin/"
     },
-    rank: "3540"
+    rank: "1000"
 },{
     name: "temco",
     code: "TEMCO",
-    icon: "temco",
+    icon: "noicon",
     longname: "TEMCO",
     description: "TEMCO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/temco",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/temco/"
     },
-    rank: "2274"
+    rank: "1000"
 },{
     name: "tenx",
     code: "PAY",
@@ -18989,19 +21085,21 @@ var otherCoins = [{
     longname: "TenX",
     description: "TenX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tenx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tenx/"
     },
-    rank: "312"
+    rank: "1000"
 },{
     name: "tera",
     code: "TERA",
-    icon: "tera",
+    icon: "noicon",
     longname: "TERA",
     description: "TERA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tera",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tera/"
     },
-    rank: "409"
+    rank: "1000"
 },{
     name: "ternio",
     code: "TERN",
@@ -19009,39 +21107,54 @@ var otherCoins = [{
     longname: "Ternio",
     description: "Ternio coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ternio",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ternio/"
     },
-    rank: "2299"
+    rank: "1000"
+},{
+    name: "terra-luna",
+    code: "LUNA",
+    icon: "noicon",
+    longname: "Terra",
+    description: "Terra coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/terra-luna",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/terra-luna/"
+    },
+    rank: "102"
 },{
     name: "terracoin",
     code: "TRC",
-    icon: "trc",
+    icon: "noicon",
     longname: "Terracoin",
     description: "Terracoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/terracoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/terracoin/"
     },
-    rank: "3306"
+    rank: "1000"
 },{
     name: "terranova",
     code: "TER",
-    icon: "ter",
+    icon: "noicon",
     longname: "TerraNova",
     description: "TerraNova coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/terranova",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/terranova/"
     },
-    rank: "4347"
+    rank: "1000"
 },{
     name: "teslacoin",
     code: "TES",
-    icon: "tes",
+    icon: "noicon",
     longname: "TeslaCoin",
     description: "TeslaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/teslacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/teslacoin/"
     },
-    rank: "3714"
+    rank: "1000"
 },{
     name: "tether",
     code: "USDT",
@@ -19049,9 +21162,21 @@ var otherCoins = [{
     longname: "Tether",
     description: "Tether coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tether",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tether/"
     },
-    rank: "5"
+    rank: "3"
+},{
+    name: "tether-gold",
+    code: "XAUT",
+    icon: "noicon",
+    longname: "Tether Gold",
+    description: "Tether Gold coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tether-gold",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/tether-gold/"
+    },
+    rank: "77"
 },{
     name: "tezos",
     code: "XTZ",
@@ -19059,199 +21184,219 @@ var otherCoins = [{
     longname: "Tezos",
     description: "Tezos coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tezos",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tezos/"
     },
-    rank: "20"
+    rank: "9"
 },{
     name: "tgame",
     code: "TGAME",
-    icon: "tgame",
+    icon: "noicon",
     longname: "Truegame",
     description: "Truegame coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tgame",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tgame/"
     },
-    rank: "3278"
+    rank: "1000"
 },{
     name: "the-champcoin",
     code: "TCC",
-    icon: "tcc",
+    icon: "noicon",
     longname: "The ChampCoin",
     description: "The ChampCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/the-champcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/the-champcoin/"
     },
-    rank: "3401"
+    rank: "1000"
 },{
     name: "the-midas-touch-gold",
     code: "TMTG",
-    icon: "tmtg",
+    icon: "noicon",
     longname: "The Midas Touch Gold",
     description: "The Midas Touch Gold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/the-midas-touch-gold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/the-midas-touch-gold/"
     },
-    rank: "4145"
+    rank: "1000"
 },{
     name: "thekey",
     code: "TKY",
-    icon: "tky",
+    icon: "noicon",
     longname: "THEKEY",
     description: "THEKEY coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thekey",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thekey/"
     },
-    rank: "340"
+    rank: "1000"
 },{
     name: "themis",
     code: "GET-1",
-    icon: "get-1",
+    icon: "noicon",
     longname: "Themis",
     description: "Themis coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/themis",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/themis/"
     },
-    rank: "4177"
+    rank: "1000"
 },{
     name: "theresa-may-coin",
     code: "MAY",
-    icon: "may",
+    icon: "noicon",
     longname: "Theresa May Coin",
     description: "Theresa May Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/theresa-may-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/theresa-may-coin/"
     },
-    rank: "4043"
-},{
-    name: "theta",
-    code: "THETA",
-    icon: "theta",
-    longname: "THETA",
-    description: "THETA coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/theta/"
-    },
-    rank: "83"
+    rank: "1000"
 },{
     name: "theta-fuel",
     code: "TFUEL",
-    icon: "tfuel",
+    icon: "noicon",
     longname: "Theta Fuel",
     description: "Theta Fuel coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/theta-fuel",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/theta-fuel/"
     },
-    rank: "269"
+    rank: "1000"
+},{
+    name: "theta-token",
+    code: "THETA",
+    icon: "theta",
+    longname: "Theta Network",
+    description: "Theta Network coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/theta-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/theta-token/"
+    },
+    rank: "52"
 },{
     name: "thingschain",
     code: "TIC",
-    icon: "tic",
+    icon: "noicon",
     longname: "Thingschain",
     description: "Thingschain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thingschain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thingschain/"
     },
-    rank: "3280"
+    rank: "1000"
 },{
     name: "thingsoperatingsystem",
     code: "TOS",
-    icon: "tos",
+    icon: "noicon",
     longname: "ThingsOperatingSystem",
     description: "ThingsOperatingSystem coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thingsoperatingsystem",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thingsoperatingsystem/"
     },
-    rank: "4280"
+    rank: "1000"
 },{
     name: "thorchain",
     code: "RUNE",
-    icon: "rune",
-    longname: "THORChain",
-    description: "THORChain coin",
+    icon: "noicon",
+    longname: "Thorchain",
+    description: "Thorchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thorchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thorchain/"
     },
-    rank: "445"
+    rank: "178"
 },{
     name: "thore-cash",
     code: "TCH",
-    icon: "tch",
+    icon: "noicon",
     longname: "Thore Cash",
     description: "Thore Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thore-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thore-cash/"
     },
-    rank: "3589"
+    rank: "1000"
 },{
     name: "thorecoin",
     code: "THR",
-    icon: "thr",
+    icon: "noicon",
     longname: "ThoreCoin",
     description: "ThoreCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thorecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thorecoin/"
     },
-    rank: "48"
+    rank: "1000"
 },{
     name: "thorenext",
     code: "THX",
-    icon: "thx",
+    icon: "noicon",
     longname: "ThoreNext",
     description: "ThoreNext coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thorenext",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thorenext/"
     },
-    rank: "42"
+    rank: "1000"
 },{
     name: "thrive-token",
     code: "THRT",
-    icon: "thrt",
+    icon: "noicon",
     longname: "Thrive Token",
     description: "Thrive Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thrive-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thrive-token/"
     },
-    rank: "3304"
+    rank: "1000"
 },{
     name: "thunder-token",
     code: "TT",
-    icon: "tt",
-    longname: "Thunder Token",
-    description: "Thunder Token coin",
+    icon: "noicon",
+    longname: "ThunderCore",
+    description: "ThunderCore coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thunder-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thunder-token/"
     },
-    rank: "165"
+    rank: "103"
 },{
     name: "thunderstake",
     code: "TSC",
-    icon: "tsc",
+    icon: "noicon",
     longname: "Thunderstake",
     description: "Thunderstake coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/thunderstake",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/thunderstake/"
     },
-    rank: "3968"
+    rank: "1000"
 },{
     name: "ti-value",
     code: "TV",
-    icon: "tv",
+    icon: "noicon",
     longname: "Ti-Value",
     description: "Ti-Value coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ti-value",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ti-value/"
     },
-    rank: "4235"
+    rank: "1000"
 },{
     name: "tidex-token",
     code: "TDX",
-    icon: "tdx",
+    icon: "noicon",
     longname: "Tidex Token",
     description: "Tidex Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tidex-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tidex-token/"
     },
-    rank: "568"
+    rank: "1000"
 },{
     name: "tierion",
     code: "TNT",
@@ -19259,29 +21404,32 @@ var otherCoins = [{
     longname: "Tierion",
     description: "Tierion coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tierion",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tierion/"
     },
-    rank: "142"
+    rank: "139"
 },{
     name: "tiesdb",
     code: "TIE",
-    icon: "tie",
+    icon: "noicon",
     longname: "Ties.DB",
     description: "Ties.DB coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tiesdb",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tiesdb/"
     },
-    rank: "3732"
+    rank: "1000"
 },{
     name: "tigereum",
     code: "TIG",
-    icon: "tig",
+    icon: "noicon",
     longname: "Tigereum",
     description: "Tigereum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tigereum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tigereum/"
     },
-    rank: "3675"
+    rank: "1000"
 },{
     name: "time-new-bank",
     code: "TNB",
@@ -19289,49 +21437,54 @@ var otherCoins = [{
     longname: "Time New Bank",
     description: "Time New Bank coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/time-new-bank",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/time-new-bank/"
     },
-    rank: "350"
+    rank: "1000"
 },{
     name: "timicoin",
     code: "TMC",
-    icon: "tmc",
+    icon: "noicon",
     longname: "Timicoin",
     description: "Timicoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/timicoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/timicoin/"
     },
-    rank: "2723"
+    rank: "1000"
 },{
     name: "titcoin",
     code: "TIT",
-    icon: "tit",
+    icon: "noicon",
     longname: "Titcoin",
     description: "Titcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/titcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/titcoin/"
     },
-    rank: "3937"
+    rank: "1000"
 },{
     name: "tittiecoin",
     code: "TTC-1",
-    icon: "ttc-1",
+    icon: "noicon",
     longname: "TittieCoin",
     description: "TittieCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tittiecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tittiecoin/"
     },
-    rank: "3842"
+    rank: "1000"
 },{
     name: "toacoin",
     code: "TOA",
-    icon: "toa",
+    icon: "noicon",
     longname: "ToaCoin",
     description: "ToaCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/toacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/toacoin/"
     },
-    rank: "2831"
+    rank: "1000"
 },{
     name: "tokenbox",
     code: "TBX",
@@ -19339,29 +21492,43 @@ var otherCoins = [{
     longname: "Tokenbox",
     description: "Tokenbox coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokenbox",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenbox/"
     },
-    rank: "3317"
+    rank: "1000"
 },{
     name: "tokenclub",
     code: "TCT",
-    icon: "tct",
+    icon: "noicon",
     longname: "TokenClub",
     description: "TokenClub coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokenclub",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenclub/"
     },
-    rank: "389"
+    rank: "1000"
 },{
     name: "tokendesk",
     code: "TDS",
-    icon: "tds",
+    icon: "noicon",
     longname: "TokenDesk",
     description: "TokenDesk coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokendesk",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokendesk/"
     },
-    rank: "3576"
+    rank: "1000"
+},{
+    name: "tokenize-xchange",
+    code: "TKX",
+    icon: "noicon",
+    longname: "Tokenize Xchange",
+    description: "Tokenize Xchange coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokenize-xchange",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenize-xchange/"
+    },
+    rank: "72"
 },{
     name: "tokenomy",
     code: "TEN",
@@ -19369,9 +21536,10 @@ var otherCoins = [{
     longname: "Tokenomy",
     description: "Tokenomy coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokenomy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenomy/"
     },
-    rank: "377"
+    rank: "1000"
 },{
     name: "tokenpay",
     code: "TPAY",
@@ -19379,19 +21547,21 @@ var otherCoins = [{
     longname: "TokenPay",
     description: "TokenPay coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokenpay",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenpay/"
     },
-    rank: "2243"
+    rank: "1000"
 },{
     name: "tokenstars",
     code: "TEAM",
-    icon: "team",
+    icon: "noicon",
     longname: "TEAM (TokenStars)",
     description: "TEAM (TokenStars) coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokenstars",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokenstars/"
     },
-    rank: "3560"
+    rank: "1000"
 },{
     name: "tokes",
     code: "TKS",
@@ -19399,49 +21569,54 @@ var otherCoins = [{
     longname: "Tokes",
     description: "Tokes coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokes",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokes/"
     },
-    rank: "3182"
+    rank: "1000"
 },{
     name: "tokia",
     code: "TKA",
-    icon: "tka",
+    icon: "noicon",
     longname: "Tokia",
     description: "Tokia coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokia/"
     },
-    rank: "3816"
+    rank: "1000"
 },{
     name: "tokugawa",
     code: "TOK",
-    icon: "tok",
+    icon: "noicon",
     longname: "Tokugawa",
     description: "Tokugawa coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokugawa",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokugawa/"
     },
-    rank: "3948"
+    rank: "1000"
 },{
     name: "tokyo",
     code: "TOKC",
-    icon: "tokc",
+    icon: "noicon",
     longname: "TOKYO",
     description: "TOKYO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tokyo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tokyo/"
     },
-    rank: "3906"
+    rank: "1000"
 },{
     name: "tolar",
     code: "TOL",
-    icon: "tol",
+    icon: "noicon",
     longname: "Tolar",
     description: "Tolar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tolar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tolar/"
     },
-    rank: "2997"
+    rank: "1000"
 },{
     name: "tomochain",
     code: "TOMO",
@@ -19449,159 +21624,175 @@ var otherCoins = [{
     longname: "TomoChain",
     description: "TomoChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tomochain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tomochain/"
     },
-    rank: "186"
+    rank: "133"
 },{
     name: "top",
     code: "TOP",
-    icon: "top",
+    icon: "noicon",
     longname: "TOP",
     description: "TOP coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/top",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/top/"
     },
-    rank: "323"
+    rank: "1000"
 },{
     name: "topchain",
     code: "TOPC",
-    icon: "topc",
+    icon: "noicon",
     longname: "TopChain",
     description: "TopChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/topchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/topchain/"
     },
-    rank: "4170"
+    rank: "1000"
 },{
     name: "touchcon",
     code: "TOC",
-    icon: "toc",
+    icon: "noicon",
     longname: "TouchCon",
     description: "TouchCon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/touchcon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/touchcon/"
     },
-    rank: "556"
+    rank: "1000"
 },{
     name: "tourist-token",
     code: "TOTO",
-    icon: "toto",
+    icon: "noicon",
     longname: "Tourist Token",
     description: "Tourist Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tourist-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tourist-token/"
     },
-    rank: "3558"
+    rank: "1000"
 },{
     name: "traceability-chain",
     code: "TAC",
-    icon: "tac",
+    icon: "noicon",
     longname: "Traceability Chain",
     description: "Traceability Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/traceability-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/traceability-chain/"
     },
-    rank: "550"
+    rank: "1000"
 },{
     name: "trackr",
     code: "TKR",
-    icon: "tkr",
+    icon: "noicon",
     longname: "CryptoInsight",
     description: "CryptoInsight coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trackr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trackr/"
     },
-    rank: "4048"
+    rank: "1000"
 },{
     name: "tracto",
     code: "TRCT",
-    icon: "trct",
+    icon: "noicon",
     longname: "Tracto",
     description: "Tracto coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tracto",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tracto/"
     },
-    rank: "3782"
+    rank: "1000"
 },{
     name: "trade-token-x",
     code: "TIOX",
-    icon: "tiox",
+    icon: "noicon",
     longname: "Trade Token X",
     description: "Trade Token X coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trade-token-x",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trade-token-x/"
     },
-    rank: "1796"
+    rank: "1000"
 },{
     name: "traid",
     code: "TRAID",
-    icon: "traid",
+    icon: "noicon",
     longname: "Traid",
     description: "Traid coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/traid",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/traid/"
     },
-    rank: "4382"
+    rank: "1000"
 },{
     name: "trakinvest",
     code: "TRAK",
-    icon: "trak",
+    icon: "noicon",
     longname: "TrakInvest",
     description: "TrakInvest coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trakinvest",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trakinvest/"
     },
-    rank: "3276"
+    rank: "1000"
 },{
     name: "transcodium",
     code: "TNS",
-    icon: "tns",
+    icon: "noicon",
     longname: "Transcodium",
     description: "Transcodium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/transcodium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/transcodium/"
     },
-    rank: "3528"
+    rank: "1000"
 },{
     name: "transfercoin",
     code: "TX",
-    icon: "tx",
+    icon: "noicon",
     longname: "TransferCoin",
     description: "TransferCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/transfercoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/transfercoin/"
     },
-    rank: "3274"
+    rank: "1000"
 },{
     name: "travala",
     code: "AVA",
-    icon: "ava",
+    icon: "noicon",
     longname: "Travala.com",
     description: "Travala.com coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/travala",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/travala/"
     },
-    rank: "466"
+    rank: "1000"
 },{
     name: "travelflex",
     code: "TRF",
-    icon: "trf",
+    icon: "noicon",
     longname: "Travelflex",
     description: "Travelflex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/travelflex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/travelflex/"
     },
-    rank: "3347"
+    rank: "1000"
 },{
     name: "traxia",
     code: "TMT",
-    icon: "tmt",
+    icon: "noicon",
     longname: "TRAXIA",
     description: "TRAXIA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/traxia",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/traxia/"
     },
-    rank: "2984"
+    rank: "1000"
 },{
     name: "trezarcoin",
     code: "TZC",
@@ -19609,39 +21800,43 @@ var otherCoins = [{
     longname: "TrezarCoin",
     description: "TrezarCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trezarcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trezarcoin/"
     },
-    rank: "3417"
+    rank: "1000"
 },{
     name: "triangles",
     code: "TRI",
-    icon: "tri",
+    icon: "noicon",
     longname: "Triangles",
     description: "Triangles coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/triangles",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/triangles/"
     },
-    rank: "3818"
+    rank: "1000"
 },{
     name: "trias",
     code: "TRY",
-    icon: "try",
+    icon: "noicon",
     longname: "Trias",
     description: "Trias coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trias",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trias/"
     },
-    rank: "2347"
+    rank: "1000"
 },{
     name: "trident",
     code: "TRDT",
-    icon: "trdt",
+    icon: "noicon",
     longname: "Trident Group",
     description: "Trident Group coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trident",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trident/"
     },
-    rank: "4015"
+    rank: "1000"
 },{
     name: "trinity-network-credit",
     code: "TNC",
@@ -19649,39 +21844,43 @@ var otherCoins = [{
     longname: "Trinity Network Credit",
     description: "Trinity Network Credit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trinity-network-credit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trinity-network-credit/"
     },
-    rank: "3088"
+    rank: "1000"
 },{
     name: "tripio",
     code: "TRIO",
-    icon: "trio",
+    icon: "noicon",
     longname: "Tripio",
     description: "Tripio coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tripio",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tripio/"
     },
-    rank: "343"
+    rank: "1000"
 },{
     name: "trittium",
     code: "TRTT",
-    icon: "trtt",
+    icon: "noicon",
     longname: "Trittium",
     description: "Trittium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trittium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trittium/"
     },
-    rank: "3294"
+    rank: "1000"
 },{
     name: "trollcoin",
     code: "TROLL",
-    icon: "troll",
+    icon: "noicon",
     longname: "Trollcoin",
     description: "Trollcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trollcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trollcoin/"
     },
-    rank: "3717"
+    rank: "1000"
 },{
     name: "tron",
     code: "TRX",
@@ -19689,119 +21888,131 @@ var otherCoins = [{
     longname: "TRON",
     description: "TRON coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tron",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tron/"
     },
-    rank: "11"
+    rank: "17"
 },{
     name: "tronclassic",
     code: "TRXC",
-    icon: "trxc",
+    icon: "noicon",
     longname: "TRONCLASSIC",
     description: "TRONCLASSIC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tronclassic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tronclassic/"
     },
-    rank: "2656"
+    rank: "1000"
 },{
     name: "truckcoin",
     code: "TRK",
-    icon: "trk",
+    icon: "noicon",
     longname: "Truckcoin",
     description: "Truckcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/truckcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/truckcoin/"
     },
-    rank: "3771"
+    rank: "1000"
 },{
-    name: "truechain",
+    name: "true-chain",
     code: "TRUE",
-    icon: "true",
+    icon: "noicon",
     longname: "TrueChain",
     description: "TrueChain coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/truechain/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/true-chain",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/true-chain/"
     },
-    rank: "175"
+    rank: "231"
 },{
-    name: "truedeck",
-    code: "TDP",
-    icon: "tdp",
-    longname: "TrueDeck",
-    description: "TrueDeck coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/truedeck/"
-    },
-    rank: "2703"
-},{
-    name: "trueflip",
-    code: "TFL",
-    icon: "tfl",
-    longname: "TrueFlip",
-    description: "TrueFlip coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/trueflip/"
-    },
-    rank: "3056"
-},{
-    name: "trueusd",
+    name: "true-usd",
     code: "TUSD",
     icon: "tusd",
     longname: "TrueUSD",
     description: "TrueUSD coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/trueusd/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/true-usd",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/true-usd/"
     },
-    rank: "43"
+    rank: "37"
+},{
+    name: "truedeck",
+    code: "TDP",
+    icon: "noicon",
+    longname: "TrueDeck",
+    description: "TrueDeck coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/truedeck",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/truedeck/"
+    },
+    rank: "1000"
+},{
+    name: "trueflip",
+    code: "TFL",
+    icon: "noicon",
+    longname: "TrueFlip",
+    description: "TrueFlip coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trueflip",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/trueflip/"
+    },
+    rank: "1000"
 },{
     name: "trumpcoin",
     code: "TRUMP",
-    icon: "trump",
+    icon: "noicon",
     longname: "TrumpCoin",
     description: "TrumpCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trumpcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trumpcoin/"
     },
-    rank: "3787"
+    rank: "1000"
 },{
     name: "trust",
     code: "TRST",
-    icon: "trst",
+    icon: "noicon",
     longname: "WeTrust",
     description: "WeTrust coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trust",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trust/"
     },
-    rank: "3129"
+    rank: "1000"
 },{
     name: "trustnote",
     code: "TTT",
-    icon: "ttt",
+    icon: "noicon",
     longname: "TrustNote",
     description: "TrustNote coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trustnote",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trustnote/"
     },
-    rank: "3077"
+    rank: "1000"
 },{
     name: "trustverse",
     code: "TRV",
-    icon: "trv",
+    icon: "noicon",
     longname: "TrustVerse",
     description: "TrustVerse coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/trustverse",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/trustverse/"
     },
-    rank: "452"
+    rank: "1000"
 },{
     name: "ttc",
     code: "TTC",
-    icon: "ttc",
+    icon: "noicon",
     longname: "TTC",
     description: "TTC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ttc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ttc/"
     },
-    rank: "265"
+    rank: "1000"
 },{
     name: "turtlecoin",
     code: "TRTL",
@@ -19809,79 +22020,87 @@ var otherCoins = [{
     longname: "Turtlecoin",
     description: "Turtlecoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/turtlecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/turtlecoin/"
     },
-    rank: "3098"
+    rank: "1000"
 },{
     name: "tv-two",
     code: "TTV",
-    icon: "ttv",
+    icon: "noicon",
     longname: "TV-TWO",
     description: "TV-TWO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/tv-two",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/tv-two/"
     },
-    rank: "2835"
+    rank: "1000"
 },{
     name: "twinkle",
     code: "TKT",
-    icon: "tkt",
+    icon: "noicon",
     longname: "Twinkle",
     description: "Twinkle coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/twinkle",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/twinkle/"
     },
-    rank: "4230"
+    rank: "1000"
 },{
     name: "twist",
     code: "TWIST",
-    icon: "twist",
+    icon: "noicon",
     longname: "TWIST",
     description: "TWIST coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/twist",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/twist/"
     },
-    rank: "4363"
+    rank: "1000"
 },{
     name: "typerium",
     code: "TYPE",
-    icon: "type",
+    icon: "noicon",
     longname: "Typerium",
     description: "Typerium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/typerium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/typerium/"
     },
-    rank: "3559"
+    rank: "1000"
 },{
     name: "u-network",
     code: "UUU",
-    icon: "uuu",
+    icon: "noicon",
     longname: "U Network",
     description: "U Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/u-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/u-network/"
     },
-    rank: "432"
+    rank: "1000"
 },{
     name: "ubcoin-market",
     code: "UBC",
-    icon: "ubc",
+    icon: "noicon",
     longname: "Ubcoin Market",
     description: "Ubcoin Market coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ubcoin-market",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ubcoin-market/"
     },
-    rank: "3336"
+    rank: "1000"
 },{
     name: "ubex",
     code: "UBEX",
-    icon: "ubex",
+    icon: "noicon",
     longname: "Ubex",
     description: "Ubex coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ubex",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ubex/"
     },
-    rank: "3009"
+    rank: "1000"
 },{
     name: "ubiq",
     code: "UBQ",
@@ -19889,289 +22108,307 @@ var otherCoins = [{
     longname: "Ubiq",
     description: "Ubiq coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ubiq",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ubiq/"
     },
-    rank: "511"
+    rank: "1000"
 },{
     name: "ubique-chain-of-things",
     code: "UCT",
-    icon: "uct",
+    icon: "noicon",
     longname: "Ubique Chain Of Things",
     description: "Ubique Chain Of Things coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ubique-chain-of-things",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ubique-chain-of-things/"
     },
-    rank: "4204"
+    rank: "1000"
 },{
     name: "ucash",
     code: "UCASH",
-    icon: "ucash",
+    icon: "noicon",
     longname: "UNIVERSAL CASH",
     description: "UNIVERSAL CASH coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ucash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ucash/"
     },
-    rank: "3055"
+    rank: "1000"
 },{
     name: "uchain",
     code: "UCN",
-    icon: "ucn",
+    icon: "noicon",
     longname: "UChain",
     description: "UChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/uchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uchain/"
     },
-    rank: "3248"
+    rank: "1000"
 },{
     name: "ugas",
     code: "UGAS",
-    icon: "ugas",
+    icon: "noicon",
     longname: "UGAS",
     description: "UGAS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ugas",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ugas/"
     },
-    rank: "325"
+    rank: "1000"
 },{
     name: "ugchain",
     code: "UGC",
-    icon: "ugc",
+    icon: "noicon",
     longname: "ugChain",
     description: "ugChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ugchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ugchain/"
     },
-    rank: "3113"
+    rank: "1000"
 },{
     name: "ulord",
     code: "UT",
-    icon: "ut",
+    icon: "noicon",
     longname: "Ulord",
     description: "Ulord coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ulord",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ulord/"
     },
-    rank: "2961"
+    rank: "1000"
 },{
     name: "ultiledger",
     code: "ULT",
-    icon: "ult",
+    icon: "noicon",
     longname: "Ultiledger",
     description: "Ultiledger coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ultiledger",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultiledger/"
     },
-    rank: "217"
+    rank: "223"
 },{
     name: "ultimate-secure-cash",
     code: "USC",
-    icon: "usc",
+    icon: "noicon",
     longname: "Ultimate Secure Cash",
     description: "Ultimate Secure Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ultimate-secure-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultimate-secure-cash/"
     },
-    rank: "3943"
+    rank: "1000"
 },{
     name: "ultra",
     code: "UOS",
-    icon: "uos",
+    icon: "noicon",
     longname: "Ultra",
     description: "Ultra coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ultra",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultra/"
     },
-    rank: "522"
+    rank: "188"
 },{
     name: "ultra-salescoud",
     code: "UST",
-    icon: "ust",
+    icon: "noicon",
     longname: "Ultra Salescloud",
     description: "Ultra Salescloud coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ultra-salescoud",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultra-salescoud/"
     },
-    rank: "4278"
+    rank: "1000"
 },{
     name: "ultracoin",
     code: "UTC",
-    icon: "utc",
+    icon: "noicon",
     longname: "UltraCoin",
     description: "UltraCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ultracoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultracoin/"
     },
-    rank: "3837"
+    rank: "1000"
 },{
     name: "ultranote-coin",
     code: "XUN",
-    icon: "xun",
+    icon: "noicon",
     longname: "UltraNote Coin",
     description: "UltraNote Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ultranote-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ultranote-coin/"
     },
-    rank: "3512"
+    rank: "1000"
 },{
     name: "uni-coin",
     code: "UNI",
-    icon: "uni",
+    icon: "noicon",
     longname: "UNI COIN",
     description: "UNI COIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/uni-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uni-coin/"
     },
-    rank: "112"
+    rank: "1000"
 },{
     name: "unibright",
     code: "UBT",
-    icon: "ubt",
+    icon: "noicon",
     longname: "Unibright",
     description: "Unibright coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/unibright",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unibright/"
     },
-    rank: "3011"
+    rank: "141"
 },{
     name: "uniform-fiscal-object",
     code: "UFO",
-    icon: "ufo",
+    icon: "noicon",
     longname: "Uniform Fiscal Object",
     description: "Uniform Fiscal Object coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/uniform-fiscal-object",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uniform-fiscal-object/"
     },
-    rank: "3677"
+    rank: "1000"
 },{
     name: "unify",
     code: "UNIFY",
-    icon: "unify",
+    icon: "noicon",
     longname: "Unify",
     description: "Unify coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/unify",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unify/"
     },
-    rank: "3536"
+    rank: "1000"
 },{
     name: "unikoin-gold",
     code: "UKG",
-    icon: "ukg",
+    icon: "noicon",
     longname: "Unikoin Gold",
     description: "Unikoin Gold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/unikoin-gold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unikoin-gold/"
     },
-    rank: "2357"
+    rank: "1000"
 },{
     name: "united-bitcoin",
     code: "UBTC",
-    icon: "ubtc",
+    icon: "noicon",
     longname: "United Bitcoin",
     description: "United Bitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/united-bitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/united-bitcoin/"
     },
-    rank: "4205"
+    rank: "1000"
 },{
     name: "unitus",
     code: "UIS",
-    icon: "uis",
+    icon: "noicon",
     longname: "Unitus",
     description: "Unitus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/unitus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unitus/"
     },
-    rank: "3854"
+    rank: "1000"
 },{
     name: "universa",
     code: "UTNP",
-    icon: "utnp",
+    icon: "noicon",
     longname: "Universa",
     description: "Universa coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/universa",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/universa/"
     },
-    rank: "403"
+    rank: "1000"
 },{
     name: "universal-currency",
     code: "UNIT",
-    icon: "unit",
+    icon: "noicon",
     longname: "Universal Currency",
     description: "Universal Currency coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/universal-currency",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/universal-currency/"
     },
-    rank: "3391"
+    rank: "1000"
 },{
     name: "unlimitedip",
     code: "UIP",
-    icon: "uip",
+    icon: "noicon",
     longname: "UnlimitedIP",
     description: "UnlimitedIP coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/unlimitedip",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unlimitedip/"
     },
-    rank: "254"
+    rank: "1000"
 },{
     name: "unobtanium",
     code: "UNO",
-    icon: "uno",
+    icon: "noicon",
     longname: "Unobtanium",
     description: "Unobtanium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/unobtanium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/unobtanium/"
     },
-    rank: "280"
-},{
-    name: "unus-sed-leo",
-    code: "LEO",
-    icon: "leo",
-    longname: "UNUS SED LEO",
-    description: "UNUS SED LEO coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/unus-sed-leo/"
-    },
-    rank: "15"
+    rank: "1000"
 },{
     name: "upfiring",
     code: "UFR",
-    icon: "ufr",
+    icon: "noicon",
     longname: "Upfiring",
     description: "Upfiring coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/upfiring",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/upfiring/"
     },
-    rank: "3213"
+    rank: "1000"
 },{
     name: "uptoken",
     code: "UP",
-    icon: "up",
+    icon: "noicon",
     longname: "UpToken",
     description: "UpToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/uptoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uptoken/"
     },
-    rank: "2965"
+    rank: "1000"
 },{
     name: "uquid-coin",
     code: "UQC",
-    icon: "uqc",
+    icon: "noicon",
     longname: "Uquid Coin",
     description: "Uquid Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/uquid-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uquid-coin/"
     },
-    rank: "3174"
+    rank: "1000"
 },{
     name: "uralscoin",
     code: "URALS",
-    icon: "urals",
+    icon: "noicon",
     longname: "UralsCoin",
     description: "UralsCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/uralscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uralscoin/"
     },
-    rank: "4051"
+    rank: "1000"
 },{
     name: "usd-coin",
     code: "USDC",
@@ -20179,39 +22416,43 @@ var otherCoins = [{
     longname: "USD Coin",
     description: "USD Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/usd-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/usd-coin/"
     },
-    rank: "26"
+    rank: "19"
 },{
     name: "usdk",
     code: "USDK",
-    icon: "usdk",
+    icon: "noicon",
     longname: "USDK",
     description: "USDK coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/usdk",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/usdk/"
     },
-    rank: "167"
+    rank: "123"
 },{
     name: "usdq",
     code: "USDQ",
-    icon: "usdq",
+    icon: "noicon",
     longname: "USDQ",
     description: "USDQ coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/usdq",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/usdq/"
     },
-    rank: "417"
+    rank: "1000"
 },{
     name: "usechain-token",
     code: "USE",
-    icon: "use",
+    icon: "noicon",
     longname: "Usechain Token",
     description: "Usechain Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/usechain-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/usechain-token/"
     },
-    rank: "4163"
+    rank: "1000"
 },{
     name: "utrum",
     code: "OOT",
@@ -20219,9 +22460,10 @@ var otherCoins = [{
     longname: "Utrum",
     description: "Utrum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/utrum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/utrum/"
     },
-    rank: "3365"
+    rank: "1000"
 },{
     name: "utrust",
     code: "UTK",
@@ -20229,79 +22471,87 @@ var otherCoins = [{
     longname: "Utrust",
     description: "Utrust coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/utrust",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/utrust/"
     },
-    rank: "327"
+    rank: "1000"
 },{
     name: "uttoken",
     code: "UTT",
-    icon: "utt",
+    icon: "noicon",
     longname: "United Traders Token",
     description: "United Traders Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/uttoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/uttoken/"
     },
-    rank: "2035"
+    rank: "1000"
 },{
     name: "v-id",
     code: "VIDT",
-    icon: "vidt",
+    icon: "noicon",
     longname: "V-ID",
     description: "V-ID coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/v-id",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/v-id/"
     },
-    rank: "534"
+    rank: "1000"
 },{
     name: "v-systems",
     code: "VSYS",
-    icon: "vsys",
-    longname: "V Systems",
-    description: "V Systems coin",
+    icon: "noicon",
+    longname: "V.SYSTEMS",
+    description: "V.SYSTEMS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/v-systems",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/v-systems/"
     },
-    rank: "46"
+    rank: "71"
 },{
     name: "valor-token",
     code: "VALOR",
-    icon: "valor",
+    icon: "noicon",
     longname: "Valor Token",
     description: "Valor Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/valor-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/valor-token/"
     },
-    rank: "332"
+    rank: "1000"
 },{
     name: "valuecybertoken",
     code: "VCT",
-    icon: "vct",
+    icon: "noicon",
     longname: "ValueCyberToken",
     description: "ValueCyberToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/valuecybertoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/valuecybertoken/"
     },
-    rank: "4251"
+    rank: "1000"
 },{
     name: "valuto",
     code: "VLU",
-    icon: "vlu",
+    icon: "noicon",
     longname: "Valuto",
     description: "Valuto coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/valuto",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/valuto/"
     },
-    rank: "4340"
+    rank: "1000"
 },{
     name: "vaperscoin",
     code: "VPRC",
-    icon: "vprc",
+    icon: "noicon",
     longname: "VapersCoin",
     description: "VapersCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vaperscoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vaperscoin/"
     },
-    rank: "4124"
+    rank: "1000"
 },{
     name: "vechain",
     code: "VET",
@@ -20309,39 +22559,43 @@ var otherCoins = [{
     longname: "VeChain",
     description: "VeChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vechain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vechain/"
     },
     rank: "29"
 },{
     name: "vector",
     code: "VEC2",
-    icon: "vec2",
+    icon: "noicon",
     longname: "VectorAI",
     description: "VectorAI coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vector",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vector/"
     },
-    rank: "4027"
+    rank: "1000"
 },{
     name: "veil",
     code: "VEIL",
-    icon: "veil",
+    icon: "noicon",
     longname: "Veil",
     description: "Veil coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/veil",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veil/"
     },
-    rank: "512"
+    rank: "1000"
 },{
     name: "veltor",
     code: "VLT",
-    icon: "vlt",
+    icon: "noicon",
     longname: "Veltor",
     description: "Veltor coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/veltor",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veltor/"
     },
-    rank: "4116"
+    rank: "1000"
 },{
     name: "verge",
     code: "XVG",
@@ -20349,19 +22603,21 @@ var otherCoins = [{
     longname: "Verge",
     description: "Verge coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/verge",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/verge/"
     },
-    rank: "92"
+    rank: "86"
 },{
     name: "veriblock",
     code: "VBK",
-    icon: "vbk",
+    icon: "noicon",
     longname: "VeriBlock",
     description: "VeriBlock coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/veriblock",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veriblock/"
     },
-    rank: "438"
+    rank: "1000"
 },{
     name: "vericoin",
     code: "VRC",
@@ -20369,19 +22625,21 @@ var otherCoins = [{
     longname: "VeriCoin",
     description: "VeriCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vericoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vericoin/"
     },
-    rank: "2994"
+    rank: "1000"
 },{
     name: "veridocglobal",
     code: "VDG",
-    icon: "vdg",
+    icon: "noicon",
     longname: "VeriDocGlobal",
     description: "VeriDocGlobal coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/veridocglobal",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veridocglobal/"
     },
-    rank: "532"
+    rank: "1000"
 },{
     name: "verify",
     code: "CRED",
@@ -20389,19 +22647,21 @@ var otherCoins = [{
     longname: "Verify",
     description: "Verify coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/verify",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/verify/"
     },
-    rank: "3701"
+    rank: "1000"
 },{
     name: "verime",
     code: "VME",
-    icon: "vme",
+    icon: "noicon",
     longname: "VeriME",
     description: "VeriME coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/verime",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/verime/"
     },
-    rank: "3447"
+    rank: "1000"
 },{
     name: "veritaseum",
     code: "VERI",
@@ -20409,39 +22669,43 @@ var otherCoins = [{
     longname: "Veritaseum",
     description: "Veritaseum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/veritaseum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veritaseum/"
     },
-    rank: "111"
+    rank: "1000"
 },{
     name: "veriumreserve",
     code: "VRM",
-    icon: "vrm",
+    icon: "noicon",
     longname: "VeriumReserve",
     description: "VeriumReserve coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/veriumreserve",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veriumreserve/"
     },
-    rank: "3691"
+    rank: "1000"
 },{
     name: "veros",
     code: "VRS",
-    icon: "vrs",
+    icon: "noicon",
     longname: "Veros",
     description: "Veros coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/veros",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/veros/"
     },
-    rank: "3251"
+    rank: "1000"
 },{
     name: "version",
     code: "V",
-    icon: "v",
+    icon: "noicon",
     longname: "Version",
     description: "Version coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/version",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/version/"
     },
-    rank: "3911"
+    rank: "1000"
 },{
     name: "vertcoin",
     code: "VTC",
@@ -20449,19 +22713,21 @@ var otherCoins = [{
     longname: "Vertcoin",
     description: "Vertcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vertcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vertcoin/"
     },
-    rank: "260"
+    rank: "176"
 },{
     name: "vestchain",
     code: "VEST",
-    icon: "vest",
+    icon: "noicon",
     longname: "VestChain",
     description: "VestChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vestchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vestchain/"
     },
-    rank: "117"
+    rank: "1000"
 },{
     name: "vethor-token",
     code: "VTHO",
@@ -20469,39 +22735,43 @@ var otherCoins = [{
     longname: "VeThor Token",
     description: "VeThor Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vethor-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vethor-token/"
     },
-    rank: "4191"
+    rank: "222"
 },{
     name: "vetri",
     code: "VLD",
-    icon: "vld",
+    icon: "noicon",
     longname: "Vetri",
     description: "Vetri coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vetri",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vetri/"
     },
-    rank: "3032"
+    rank: "1000"
 },{
     name: "vexanium",
     code: "VEX",
-    icon: "vex",
+    icon: "noicon",
     longname: "Vexanium",
     description: "Vexanium coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vexanium",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vexanium/"
     },
-    rank: "2315"
+    rank: "1000"
 },{
     name: "vezt",
     code: "VZT",
-    icon: "vzt",
+    icon: "noicon",
     longname: "Vezt",
     description: "Vezt coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vezt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vezt/"
     },
-    rank: "3655"
+    rank: "1000"
 },{
     name: "viacoin",
     code: "VIA",
@@ -20509,9 +22779,10 @@ var otherCoins = [{
     longname: "Viacoin",
     description: "Viacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/viacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/viacoin/"
     },
-    rank: "458"
+    rank: "1000"
 },{
     name: "vibe",
     code: "VIBE",
@@ -20519,9 +22790,10 @@ var otherCoins = [{
     longname: "VIBE",
     description: "VIBE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vibe",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vibe/"
     },
-    rank: "457"
+    rank: "1000"
 },{
     name: "viberate",
     code: "VIB",
@@ -20529,139 +22801,153 @@ var otherCoins = [{
     longname: "Viberate",
     description: "Viberate coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/viberate",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/viberate/"
     },
-    rank: "444"
+    rank: "1000"
 },{
     name: "vice-industry-token",
     code: "VIT",
-    icon: "vit",
+    icon: "noicon",
     longname: "Vice Industry Token",
     description: "Vice Industry Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vice-industry-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vice-industry-token/"
     },
-    rank: "3658"
+    rank: "1000"
 },{
     name: "videocoin",
     code: "VID",
-    icon: "vid",
+    icon: "noicon",
     longname: "VideoCoin",
     description: "VideoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/videocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/videocoin/"
     },
-    rank: "547"
+    rank: "1000"
 },{
     name: "vidy",
     code: "VIDY",
-    icon: "vidy",
+    icon: "noicon",
     longname: "VIDY",
     description: "VIDY coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vidy",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vidy/"
     },
-    rank: "293"
+    rank: "1000"
 },{
     name: "vikkytoken",
     code: "VIKKY",
-    icon: "vikky",
+    icon: "noicon",
     longname: "VikkyToken",
     description: "VikkyToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vikkytoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vikkytoken/"
     },
-    rank: "3564"
+    rank: "1000"
 },{
     name: "vinchain",
     code: "VIN",
-    icon: "vin",
+    icon: "noicon",
     longname: "VINchain",
     description: "VINchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vinchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vinchain/"
     },
-    rank: "3035"
+    rank: "1000"
 },{
     name: "vipstar-coin",
     code: "VIPS",
-    icon: "vips",
+    icon: "noicon",
     longname: "Vipstar Coin",
     description: "Vipstar Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vipstar-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vipstar-coin/"
     },
-    rank: "2821"
+    rank: "1000"
 },{
     name: "virtacoin",
     code: "VTA",
-    icon: "vta",
+    icon: "noicon",
     longname: "Virtacoin",
     description: "Virtacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/virtacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/virtacoin/"
     },
-    rank: "4093"
+    rank: "1000"
 },{
     name: "visionx",
     code: "VNX",
-    icon: "vnx",
+    icon: "noicon",
     longname: "VisionX",
     description: "VisionX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/visionx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/visionx/"
     },
-    rank: "4162"
+    rank: "1000"
 },{
     name: "vitae",
     code: "VITAE",
-    icon: "vitae",
+    icon: "noicon",
     longname: "Vitae",
     description: "Vitae coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vitae",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vitae/"
     },
-    rank: "232"
+    rank: "122"
 },{
     name: "vite",
     code: "VITE",
-    icon: "vite",
+    icon: "noicon",
     longname: "VITE",
     description: "VITE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vite",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vite/"
     },
-    rank: "451"
+    rank: "1000"
 },{
     name: "vites",
     code: "VITES",
-    icon: "vites",
+    icon: "noicon",
     longname: "Vites",
     description: "Vites coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vites",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vites/"
     },
-    rank: "3134"
+    rank: "1000"
 },{
     name: "viuly",
     code: "VIU",
-    icon: "viu",
+    icon: "noicon",
     longname: "Viuly",
     description: "Viuly coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/viuly",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/viuly/"
     },
-    rank: "3938"
+    rank: "1000"
 },{
     name: "vivid-coin",
     code: "VIVID",
-    icon: "vivid",
+    icon: "noicon",
     longname: "Vivid Coin",
     description: "Vivid Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vivid-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vivid-coin/"
     },
-    rank: "3742"
+    rank: "1000"
 },{
     name: "vivo",
     code: "VIVO",
@@ -20669,109 +22955,120 @@ var otherCoins = [{
     longname: "VIVO",
     description: "VIVO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vivo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vivo/"
     },
-    rank: "3861"
+    rank: "1000"
 },{
     name: "vnt-chain",
     code: "VNT",
-    icon: "vnt",
+    icon: "noicon",
     longname: "VNT Chain",
     description: "VNT Chain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vnt-chain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vnt-chain/"
     },
-    rank: "379"
+    rank: "1000"
 },{
     name: "voisecom",
     code: "VOISE",
-    icon: "voise",
+    icon: "noicon",
     longname: "Voise",
     description: "Voise coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/voisecom",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/voisecom/"
     },
-    rank: "3744"
+    rank: "1000"
 },{
     name: "volt",
     code: "ACDC",
-    icon: "acdc",
+    icon: "noicon",
     longname: "Volt",
     description: "Volt coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/volt",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/volt/"
     },
-    rank: "4186"
+    rank: "1000"
 },{
     name: "votecoin",
     code: "VOT",
-    icon: "vot",
+    icon: "noicon",
     longname: "VoteCoin",
     description: "VoteCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/votecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/votecoin/"
     },
-    rank: "3926"
+    rank: "1000"
 },{
     name: "vslice",
     code: "VSL",
-    icon: "vsl",
+    icon: "noicon",
     longname: "vSlice",
     description: "vSlice coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vslice",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vslice/"
     },
-    rank: "3847"
+    rank: "1000"
 },{
     name: "vsportcoin",
     code: "VSC",
-    icon: "vsc",
+    icon: "noicon",
     longname: "vSportCoin",
     description: "vSportCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vsportcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vsportcoin/"
     },
-    rank: "4245"
+    rank: "1000"
 },{
     name: "vsync-vsx",
     code: "VSX",
-    icon: "vsx",
+    icon: "noicon",
     longname: "Vsync",
     description: "Vsync coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vsync-vsx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vsync-vsx/"
     },
-    rank: "3429"
+    rank: "1000"
 },{
     name: "vulcano",
     code: "VULC",
-    icon: "vulc",
+    icon: "noicon",
     longname: "VULCANO",
     description: "VULCANO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/vulcano",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/vulcano/"
     },
-    rank: "3305"
+    rank: "1000"
 },{
     name: "w3coin",
     code: "W3C",
-    icon: "w3c",
+    icon: "noicon",
     longname: "W3Coin",
     description: "W3Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/w3coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/w3coin/"
     },
-    rank: "3680"
+    rank: "1000"
 },{
     name: "wabnetwork",
     code: "WAB",
-    icon: "wab",
+    icon: "noicon",
     longname: "WABnetwork",
     description: "WABnetwork coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wabnetwork",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wabnetwork/"
     },
-    rank: "3108"
+    rank: "1000"
 },{
     name: "wagerr",
     code: "WGR",
@@ -20779,19 +23076,21 @@ var otherCoins = [{
     longname: "Wagerr",
     description: "Wagerr coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wagerr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wagerr/"
     },
-    rank: "281"
+    rank: "1000"
 },{
     name: "waletoken",
     code: "WTN",
-    icon: "wtn",
+    icon: "noicon",
     longname: "Waletoken",
     description: "Waletoken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/waletoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waletoken/"
     },
-    rank: "3531"
+    rank: "1000"
 },{
     name: "waltonchain",
     code: "WTC",
@@ -20799,9 +23098,10 @@ var otherCoins = [{
     longname: "Waltonchain",
     description: "Waltonchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/waltonchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waltonchain/"
     },
-    rank: "156"
+    rank: "219"
 },{
     name: "wanchain",
     code: "WAN",
@@ -20809,19 +23109,21 @@ var otherCoins = [{
     longname: "Wanchain",
     description: "Wanchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wanchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wanchain/"
     },
-    rank: "187"
+    rank: "158"
 },{
     name: "wandx",
     code: "WAND",
-    icon: "wand",
+    icon: "noicon",
     longname: "WandX",
     description: "WandX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wandx",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wandx/"
     },
-    rank: "3721"
+    rank: "1000"
 },{
     name: "waves",
     code: "WAVES",
@@ -20829,29 +23131,43 @@ var otherCoins = [{
     longname: "Waves",
     description: "Waves coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/waves",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waves/"
     },
-    rank: "79"
+    rank: "44"
 },{
     name: "waves-community-token",
     code: "WCT",
-    icon: "wct",
+    icon: "noicon",
     longname: "Waves Community Token",
     description: "Waves Community Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/waves-community-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waves-community-token/"
     },
-    rank: "2898"
+    rank: "1000"
 },{
     name: "wavesgo",
     code: "WGO",
-    icon: "wgo",
+    icon: "noicon",
     longname: "WavesGo",
     description: "WavesGo coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wavesgo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wavesgo/"
     },
-    rank: "3539"
+    rank: "1000"
+},{
+    name: "wax",
+    code: "WAXP",
+    icon: "noicon",
+    longname: "WAX",
+    description: "WAX coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wax",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wax/"
+    },
+    rank: "110"
 },{
     name: "wax",
     code: "WAX",
@@ -20859,19 +23175,10 @@ var otherCoins = [{
     longname: "WAX",
     description: "WAX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wax",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wax/"
     },
-    rank: "1921"
-},{
-    name: "wax",
-    code: "WAXP",
-    icon: "waxp",
-    longname: "WAX",
-    description: "WAX coin",
-    links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wax/"
-    },
-    rank: "206"
+    rank: "1000"
 },{
     name: "waykichain",
     code: "WICC",
@@ -20879,59 +23186,76 @@ var otherCoins = [{
     longname: "WaykiChain",
     description: "WaykiChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/waykichain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/waykichain/"
     },
-    rank: "174"
+    rank: "1000"
+},{
+    name: "wazirx",
+    code: "WRX",
+    icon: "noicon",
+    longname: "WazirX",
+    description: "WazirX coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wazirx",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wazirx/"
+    },
+    rank: "111"
 },{
     name: "wearesatoshi",
     code: "WSX",
-    icon: "wsx",
+    icon: "noicon",
     longname: "WeAreSatoshi",
     description: "WeAreSatoshi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wearesatoshi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wearesatoshi/"
     },
-    rank: "3029"
+    rank: "1000"
 },{
     name: "webchain",
     code: "WEB-1",
-    icon: "web-1",
+    icon: "noicon",
     longname: "Webchain",
     description: "Webchain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/webchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/webchain/"
     },
-    rank: "3773"
+    rank: "1000"
 },{
     name: "webcoin",
     code: "WEB",
-    icon: "web",
+    icon: "noicon",
     longname: "Webcoin",
     description: "Webcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/webcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/webcoin/"
     },
-    rank: "3451"
+    rank: "1000"
 },{
     name: "well",
     code: "WELL",
-    icon: "well",
+    icon: "noicon",
     longname: "WELL",
     description: "WELL coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/well",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/well/"
     },
-    rank: "3811"
+    rank: "1000"
 },{
     name: "welltrado",
     code: "WTL",
-    icon: "wtl",
+    icon: "noicon",
     longname: "Welltrado",
     description: "Welltrado coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/welltrado",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/welltrado/"
     },
-    rank: "3095"
+    rank: "1000"
 },{
     name: "wepower",
     code: "WPR",
@@ -20939,119 +23263,131 @@ var otherCoins = [{
     longname: "WePower",
     description: "WePower coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wepower",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wepower/"
     },
-    rank: "468"
+    rank: "1000"
 },{
     name: "weshow-token",
     code: "WET",
-    icon: "wet",
+    icon: "noicon",
     longname: "WeShow Token",
     description: "WeShow Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/weshow-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/weshow-token/"
     },
-    rank: "2856"
+    rank: "1000"
 },{
     name: "weth",
     code: "WETH",
-    icon: "weth",
+    icon: "noicon",
     longname: "WETH",
     description: "WETH coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/weth",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/weth/"
     },
-    rank: "4201"
+    rank: "1000"
 },{
     name: "wetoken",
     code: "WT",
-    icon: "wt",
+    icon: "noicon",
     longname: "WeToken",
     description: "WeToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wetoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wetoken/"
     },
-    rank: "4237"
+    rank: "1000"
 },{
     name: "whalecoin",
     code: "WHL",
-    icon: "whl",
+    icon: "noicon",
     longname: "WhaleCoin",
     description: "WhaleCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/whalecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/whalecoin/"
     },
-    rank: "3551"
+    rank: "1000"
 },{
     name: "white-standard",
     code: "WSD",
-    icon: "wsd",
+    icon: "noicon",
     longname: "White Standard",
     description: "White Standard coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/white-standard",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/white-standard/"
     },
-    rank: "3709"
+    rank: "1000"
 },{
     name: "whitecoin",
     code: "XWC",
-    icon: "xwc",
+    icon: "noicon",
     longname: "WhiteCoin",
     description: "WhiteCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/whitecoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/whitecoin/"
     },
-    rank: "2215"
+    rank: "1000"
 },{
     name: "wiki-token",
     code: "WIKI",
-    icon: "wiki",
+    icon: "noicon",
     longname: "Wiki Token",
     description: "Wiki Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wiki-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wiki-token/"
     },
-    rank: "4199"
+    rank: "1000"
 },{
     name: "wild-beast-block",
     code: "WBB",
-    icon: "wbb",
+    icon: "noicon",
     longname: "Wild Beast Block",
     description: "Wild Beast Block coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wild-beast-block",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wild-beast-block/"
     },
-    rank: "4113"
+    rank: "1000"
 },{
     name: "wild-crypto",
     code: "WILD",
-    icon: "wild",
+    icon: "noicon",
     longname: "Wild Crypto",
     description: "Wild Crypto coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wild-crypto",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wild-crypto/"
     },
-    rank: "3916"
+    rank: "1000"
 },{
     name: "win-coin",
     code: "WC",
-    icon: "wc",
+    icon: "noicon",
     longname: "WINCOIN",
     description: "WINCOIN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/win-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/win-coin/"
     },
-    rank: "4259"
+    rank: "1000"
 },{
     name: "winding-tree",
     code: "LIF",
-    icon: "lif",
+    icon: "noicon",
     longname: "Winding Tree",
     description: "Winding Tree coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/winding-tree",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/winding-tree/"
     },
-    rank: "2852"
+    rank: "1000"
 },{
     name: "wings",
     code: "WINGS",
@@ -21059,299 +23395,340 @@ var otherCoins = [{
     longname: "Wings",
     description: "Wings coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wings",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wings/"
     },
-    rank: "1795"
+    rank: "1000"
 },{
-    name: "wink-tronbet",
+    name: "wink",
     code: "WIN",
-    icon: "win",
+    icon: "noicon",
     longname: "WINk",
     description: "WINk coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wink-tronbet/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wink",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wink/"
     },
-    rank: "140"
+    rank: "145"
 },{
-    name: "wirex-token",
+    name: "wirex",
     code: "WXT",
-    icon: "wxt",
-    longname: "Wirex Token",
-    description: "Wirex Token coin",
+    icon: "noicon",
+    longname: "Wirex",
+    description: "Wirex coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wirex-token/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wirex",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wirex/"
     },
-    rank: "242"
+    rank: "130"
 },{
     name: "wispr",
     code: "WSP",
-    icon: "wsp",
+    icon: "noicon",
     longname: "Wispr",
     description: "Wispr coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wispr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wispr/"
     },
-    rank: "3848"
+    rank: "1000"
 },{
     name: "witchain",
     code: "WIT",
-    icon: "wit",
+    icon: "noicon",
     longname: "WITChain",
     description: "WITChain coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/witchain",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/witchain/"
     },
-    rank: "3538"
+    rank: "1000"
 },{
     name: "wixlar",
     code: "WIX",
-    icon: "wix",
+    icon: "noicon",
     longname: "Wixlar",
     description: "Wixlar coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wixlar",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wixlar/"
     },
-    rank: "176"
+    rank: "1000"
 },{
     name: "wizbl",
     code: "WBL",
-    icon: "wbl",
+    icon: "noicon",
     longname: "WIZBL",
     description: "WIZBL coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wizbl",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wizbl/"
     },
-    rank: "4227"
+    rank: "1000"
+},{
+    name: "wom-token",
+    code: "WOM",
+    icon: "noicon",
+    longname: "WOM Protocol",
+    description: "WOM Protocol coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wom-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/wom-token/"
+    },
+    rank: "217"
 },{
     name: "women",
     code: "WOMEN",
-    icon: "women",
+    icon: "noicon",
     longname: "WomenCoin",
     description: "WomenCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/women",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/women/"
     },
-    rank: "3338"
+    rank: "1000"
 },{
     name: "woodcoin",
     code: "LOG",
-    icon: "log",
+    icon: "noicon",
     longname: "Woodcoin",
     description: "Woodcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/woodcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/woodcoin/"
     },
-    rank: "3236"
+    rank: "1000"
 },{
     name: "worldcoin",
     code: "WDC",
-    icon: "wdc",
+    icon: "noicon",
     longname: "WorldCoin",
     description: "WorldCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/worldcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/worldcoin/"
     },
-    rank: "3703"
+    rank: "1000"
 },{
     name: "worldcore",
     code: "WRC",
-    icon: "wrc",
+    icon: "noicon",
     longname: "Worldcore",
     description: "Worldcore coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/worldcore",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/worldcore/"
     },
-    rank: "3265"
+    rank: "1000"
 },{
     name: "wowbit",
     code: "WWB",
-    icon: "wwb",
+    icon: "noicon",
     longname: "Wowbit",
     description: "Wowbit coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wowbit",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wowbit/"
     },
-    rank: "2383"
+    rank: "1000"
 },{
     name: "wrapped-bitcoin",
     code: "WBTC",
-    icon: "wbtc",
+    icon: "noicon",
     longname: "Wrapped Bitcoin",
     description: "Wrapped Bitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wrapped-bitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wrapped-bitcoin/"
     },
-    rank: "440"
+    rank: "1000"
 },{
     name: "wxcoins",
     code: "WXC",
-    icon: "wxc",
+    icon: "noicon",
     longname: "WXCOINS",
     description: "WXCOINS coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/wxcoins",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/wxcoins/"
     },
-    rank: "4222"
+    rank: "1000"
 },{
     name: "x-cash",
     code: "XCASH",
-    icon: "xcash",
+    icon: "noicon",
     longname: "X-Cash",
     description: "X-Cash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/x-cash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/x-cash/"
     },
-    rank: "3456"
+    rank: "1000"
 },{
     name: "x-coin",
     code: "XCO",
-    icon: "xco",
+    icon: "noicon",
     longname: "X-Coin",
     description: "X-Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/x-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/x-coin/"
     },
-    rank: "3987"
+    rank: "1000"
 },{
     name: "x12-coin",
     code: "X12",
-    icon: "x12",
+    icon: "noicon",
     longname: "X12 Coin",
     description: "X12 Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/x12-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/x12-coin/"
     },
-    rank: "4324"
+    rank: "1000"
 },{
     name: "x8x-token",
     code: "X8X",
-    icon: "x8x",
+    icon: "noicon",
     longname: "X8X Token",
     description: "X8X Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/x8x-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/x8x-token/"
     },
-    rank: "3642"
+    rank: "1000"
 },{
     name: "xaurum",
     code: "XAUR",
-    icon: "xaur",
+    icon: "noicon",
     longname: "Xaurum",
     description: "Xaurum coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xaurum",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xaurum/"
     },
-    rank: "539"
+    rank: "1000"
 },{
     name: "xceltoken",
     code: "XCEL",
-    icon: "xcel",
+    icon: "noicon",
     longname: "XcelToken",
     description: "XcelToken coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xceltoken",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xceltoken/"
     },
-    rank: "3361"
+    rank: "1000"
 },{
     name: "xceltoken-plus",
     code: "XLAB",
-    icon: "xlab",
+    icon: "noicon",
     longname: "XcelToken Plus",
     description: "XcelToken Plus coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xceltoken-plus",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xceltoken-plus/"
     },
-    rank: "344"
+    rank: "1000"
 },{
     name: "xchange",
     code: "XCG",
-    icon: "xcg",
+    icon: "noicon",
     longname: "Xchange",
     description: "Xchange coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xchange",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xchange/"
     },
-    rank: "3496"
+    rank: "1000"
 },{
     name: "xdna",
     code: "XDNA",
-    icon: "xdna",
+    icon: "noicon",
     longname: "XDNA",
     description: "XDNA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xdna",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xdna/"
     },
-    rank: "3464"
+    rank: "1000"
 },{
     name: "xel",
     code: "XEL",
-    icon: "xel",
+    icon: "noicon",
     longname: "XEL",
     description: "XEL coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xel",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xel/"
     },
-    rank: "2868"
+    rank: "1000"
 },{
     name: "xenon",
     code: "XNN",
-    icon: "xnn",
+    icon: "noicon",
     longname: "Xenon",
     description: "Xenon coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xenon",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xenon/"
     },
-    rank: "3685"
+    rank: "1000"
 },{
     name: "xgox",
     code: "XGOX",
-    icon: "xgox",
+    icon: "noicon",
     longname: "XGOX",
     description: "XGOX coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xgox",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xgox/"
     },
-    rank: "3500"
+    rank: "1000"
 },{
     name: "xinfin-network",
     code: "XDCE",
-    icon: "xdce",
+    icon: "noicon",
     longname: "XinFin Network",
     description: "XinFin Network coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xinfin-network",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xinfin-network/"
     },
-    rank: "518"
+    rank: "1000"
 },{
     name: "xmax",
     code: "XMX",
-    icon: "xmx",
+    icon: "noicon",
     longname: "XMax",
     description: "XMax coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xmax",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xmax/"
     },
-    rank: "144"
+    rank: "173"
 },{
     name: "xmct",
     code: "XMCT",
-    icon: "xmct",
+    icon: "noicon",
     longname: "XMCT",
     description: "XMCT coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xmct",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xmct/"
     },
-    rank: "3394"
+    rank: "1000"
 },{
     name: "xovbank",
     code: "XOV",
-    icon: "xov",
+    icon: "noicon",
     longname: "XOVBank",
     description: "XOVBank coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xovbank",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xovbank/"
     },
-    rank: "3521"
+    rank: "1000"
 },{
     name: "xpa",
     code: "XPA",
@@ -21359,29 +23736,32 @@ var otherCoins = [{
     longname: "XPA",
     description: "XPA coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xpa",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xpa/"
     },
-    rank: "3090"
+    rank: "1000"
 },{
     name: "xriba",
     code: "XRA",
-    icon: "xra",
+    icon: "noicon",
     longname: "Xriba",
     description: "Xriba coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xriba",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xriba/"
     },
-    rank: "2995"
+    rank: "1000"
 },{
     name: "xrt-token",
     code: "XRT",
-    icon: "xrt",
+    icon: "noicon",
     longname: "XRT Token",
     description: "XRT Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xrt-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xrt-token/"
     },
-    rank: "4342"
+    rank: "1000"
 },{
     name: "xtrabytes",
     code: "XBY",
@@ -21389,99 +23769,109 @@ var otherCoins = [{
     longname: "XTRABYTES",
     description: "XTRABYTES coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xtrabytes",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xtrabytes/"
     },
-    rank: "2306"
+    rank: "1000"
 },{
     name: "xtrd",
     code: "XTRD",
-    icon: "xtrd",
+    icon: "noicon",
     longname: "XTRD",
     description: "XTRD coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xtrd",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xtrd/"
     },
-    rank: "4309"
+    rank: "1000"
 },{
     name: "xyo",
     code: "XYO",
-    icon: "xyo",
+    icon: "noicon",
     longname: "XYO",
     description: "XYO coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/xyo",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/xyo/"
     },
-    rank: "579"
+    rank: "1000"
 },{
     name: "yee",
     code: "YEE",
-    icon: "yee",
+    icon: "noicon",
     longname: "YEE",
     description: "YEE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/yee",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yee/"
     },
-    rank: "2936"
+    rank: "1000"
 },{
     name: "yeed",
     code: "YEED",
-    icon: "yeed",
+    icon: "noicon",
     longname: "YGGDRASH",
     description: "YGGDRASH coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/yeed",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yeed/"
     },
-    rank: "2367"
+    rank: "1000"
 },{
     name: "yenten",
     code: "YTN",
-    icon: "ytn",
+    icon: "noicon",
     longname: "YENTEN",
     description: "YENTEN coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/yenten",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yenten/"
     },
-    rank: "4136"
+    rank: "1000"
 },{
     name: "yocoin",
     code: "YOC",
-    icon: "yoc",
+    icon: "noicon",
     longname: "Yocoin",
     description: "Yocoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/yocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yocoin/"
     },
-    rank: "2960"
+    rank: "1000"
 },{
     name: "yolocash",
     code: "YLC",
-    icon: "ylc",
+    icon: "noicon",
     longname: "YoloCash",
     description: "YoloCash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/yolocash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yolocash/"
     },
-    rank: "3597"
+    rank: "1000"
 },{
-    name: "you-coin",
+    name: "you-chain",
     code: "YOU",
-    icon: "you",
-    longname: "YOU COIN",
-    description: "YOU COIN coin",
+    icon: "noicon",
+    longname: "YOU Chain",
+    description: "YOU Chain coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/you-coin/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/you-chain",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/you-chain/"
     },
-    rank: "180"
+    rank: "129"
 },{
     name: "youlive-coin",
     code: "UC",
-    icon: "uc",
+    icon: "noicon",
     longname: "YouLive Coin",
     description: "YouLive Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/youlive-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/youlive-coin/"
     },
-    rank: "4211"
+    rank: "1000"
 },{
     name: "yoyow",
     code: "YOYOW",
@@ -21489,59 +23879,65 @@ var otherCoins = [{
     longname: "YOYOW",
     description: "YOYOW coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/yoyow",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yoyow/"
     },
-    rank: "499"
+    rank: "1000"
 },{
     name: "yuan-chain-coin",
     code: "YCC",
-    icon: "ycc",
+    icon: "noicon",
     longname: "Yuan Chain Coin",
     description: "Yuan Chain Coin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/yuan-chain-coin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yuan-chain-coin/"
     },
-    rank: "4220"
+    rank: "136"
 },{
     name: "yuki",
     code: "YUKI",
-    icon: "yuki",
+    icon: "noicon",
     longname: "YUKI",
     description: "YUKI coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/yuki",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/yuki/"
     },
-    rank: "4352"
+    rank: "1000"
 },{
     name: "zap",
     code: "ZAP",
-    icon: "zap",
+    icon: "noicon",
     longname: "Zap",
     description: "Zap coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zap",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zap/"
     },
-    rank: "3139"
+    rank: "1000"
 },{
     name: "zayedcoin",
     code: "ZYD",
-    icon: "zyd",
+    icon: "noicon",
     longname: "Zayedcoin",
     description: "Zayedcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zayedcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zayedcoin/"
     },
-    rank: "4050"
+    rank: "1000"
 },{
-    name: "zb",
+    name: "zb-token",
     code: "ZB",
-    icon: "zb",
-    longname: "ZB",
-    description: "ZB coin",
+    icon: "noicon",
+    longname: "ZB Token",
+    description: "ZB Token coin",
     links: {
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/zb/"
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zb-token",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/zb-token/"
     },
-    rank: "51"
+    rank: "118"
 },{
     name: "zcash",
     code: "ZEC",
@@ -21549,9 +23945,10 @@ var otherCoins = [{
     longname: "Zcash",
     description: "Zcash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zcash/"
     },
-    rank: "32"
+    rank: "25"
 },{
     name: "zclassic",
     code: "ZCL",
@@ -21559,9 +23956,10 @@ var otherCoins = [{
     longname: "ZClassic",
     description: "ZClassic coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zclassic",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zclassic/"
     },
-    rank: "2379"
+    rank: "1000"
 },{
     name: "zcoin",
     code: "XZC",
@@ -21569,49 +23967,54 @@ var otherCoins = [{
     longname: "Zcoin",
     description: "Zcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zcoin/"
     },
-    rank: "120"
+    rank: "97"
 },{
     name: "zcore",
     code: "ZCR",
-    icon: "zcr",
+    icon: "noicon",
     longname: "ZCore",
     description: "ZCore coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zcore",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zcore/"
     },
-    rank: "3303"
+    rank: "1000"
 },{
     name: "zebi",
     code: "ZCO",
-    icon: "zco",
+    icon: "noicon",
     longname: "Zebi",
     description: "Zebi coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zebi",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zebi/"
     },
-    rank: "2903"
+    rank: "1000"
 },{
     name: "zeepin",
     code: "ZPT",
-    icon: "zpt",
+    icon: "noicon",
     longname: "Zeepin",
     description: "Zeepin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zeepin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zeepin/"
     },
-    rank: "557"
+    rank: "1000"
 },{
     name: "zeitcoin",
     code: "ZEIT",
-    icon: "zeit",
+    icon: "noicon",
     longname: "Zeitcoin",
     description: "Zeitcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zeitcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zeitcoin/"
     },
-    rank: "3672"
+    rank: "1000"
 },{
     name: "zelcash",
     code: "ZEL",
@@ -21619,19 +24022,21 @@ var otherCoins = [{
     longname: "ZelCash",
     description: "ZelCash coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zelcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zelcash/"
     },
-    rank: "455"
+    rank: "1000"
 },{
     name: "zen-protocol",
     code: "ZP",
-    icon: "zp",
+    icon: "noicon",
     longname: "Zen Protocol",
     description: "Zen Protocol coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zen-protocol",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zen-protocol/"
     },
-    rank: "2833"
+    rank: "1000"
 },{
     name: "zencash",
     code: "ZEN",
@@ -21639,59 +24044,65 @@ var otherCoins = [{
     longname: "Horizen",
     description: "Horizen coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zencash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zencash/"
     },
-    rank: "127"
+    rank: "76"
 },{
     name: "zengold",
     code: "ZENGOLD",
-    icon: "zengold",
+    icon: "noicon",
     longname: "ZenGold",
     description: "ZenGold coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zengold",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zengold/"
     },
-    rank: "4396"
+    rank: "1000"
 },{
     name: "zennies",
     code: "ZENI",
-    icon: "zeni",
+    icon: "noicon",
     longname: "Zennies",
     description: "Zennies coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zennies",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zennies/"
     },
-    rank: "3758"
+    rank: "1000"
 },{
     name: "zenswap-network-token",
     code: "ZNT",
-    icon: "znt",
+    icon: "noicon",
     longname: "Zenswap Network Token",
     description: "Zenswap Network Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zenswap-network-token",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zenswap-network-token/"
     },
-    rank: "3582"
+    rank: "1000"
 },{
     name: "zephyr",
     code: "ZEPH",
-    icon: "zeph",
+    icon: "noicon",
     longname: "Zephyr",
     description: "Zephyr coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zephyr",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zephyr/"
     },
-    rank: "3042"
+    rank: "1000"
 },{
     name: "zero",
     code: "ZER",
-    icon: "zer",
+    icon: "noicon",
     longname: "Zero",
     description: "Zero coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zero",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zero/"
     },
-    rank: "3237"
+    rank: "1000"
 },{
     name: "zest",
     code: "ZEST",
@@ -21699,49 +24110,54 @@ var otherCoins = [{
     longname: "ZEST",
     description: "ZEST coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zest",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zest/"
     },
-    rank: "3449"
+    rank: "1000"
 },{
     name: "zetacoin",
     code: "ZET",
-    icon: "zet",
+    icon: "noicon",
     longname: "Zetacoin",
     description: "Zetacoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zetacoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zetacoin/"
     },
-    rank: "3477"
+    rank: "1000"
 },{
     name: "zeusnetwork",
     code: "ZEUS",
-    icon: "zeus",
+    icon: "noicon",
     longname: "ZeusNetwork",
     description: "ZeusNetwork coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zeusnetwork",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zeusnetwork/"
     },
-    rank: "3554"
+    rank: "1000"
 },{
     name: "zeusshield",
     code: "ZSC",
-    icon: "zsc",
+    icon: "noicon",
     longname: "Zeusshield",
     description: "Zeusshield coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zeusshield",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zeusshield/"
     },
-    rank: "3037"
+    rank: "1000"
 },{
     name: "zilla",
     code: "ZLA",
-    icon: "zla",
+    icon: "noicon",
     longname: "Zilla",
     description: "Zilla coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zilla",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zilla/"
     },
-    rank: "3257"
+    rank: "1000"
 },{
     name: "zilliqa",
     code: "ZIL",
@@ -21749,107 +24165,118 @@ var otherCoins = [{
     longname: "Zilliqa",
     description: "Zilliqa coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zilliqa",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zilliqa/"
     },
-    rank: "102"
+    rank: "83"
 },{
     name: "zinc",
     code: "ZINC",
-    icon: "zinc",
+    icon: "noicon",
     longname: "ZINC",
     description: "ZINC coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zinc",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zinc/"
     },
-    rank: "3388"
+    rank: "1000"
 },{
     name: "zip",
     code: "ZIP",
-    icon: "zip",
+    icon: "noicon",
     longname: "Zipper",
     description: "Zipper coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zip",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zip/"
     },
-    rank: "508"
+    rank: "1000"
 },{
     name: "zippie",
     code: "ZIPT",
-    icon: "zipt",
+    icon: "noicon",
     longname: "Zippie",
     description: "Zippie coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zippie",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zippie/"
     },
-    rank: "3350"
+    rank: "1000"
 },{
     name: "zmine",
     code: "ZMN",
-    icon: "zmn",
+    icon: "noicon",
     longname: "ZMINE",
     description: "ZMINE coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zmine",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zmine/"
     },
-    rank: "3039"
+    rank: "1000"
 },{
     name: "zoomba",
     code: "ZBA",
-    icon: "zba",
+    icon: "noicon",
     longname: "Zoomba",
     description: "Zoomba coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zoomba",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zoomba/"
     },
-    rank: "3963"
+    rank: "1000"
 },{
     name: "zozocoin",
     code: "ZZC",
-    icon: "zzc",
+    icon: "noicon",
     longname: "ZoZoCoin",
     description: "ZoZoCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zozocoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zozocoin/"
     },
-    rank: "4037"
+    rank: "1000"
 },{
     name: "zper",
     code: "ZPR",
-    icon: "zpr",
+    icon: "noicon",
     longname: "ZPER",
     description: "ZPER coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zper",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zper/"
     },
-    rank: "2951"
+    rank: "1000"
 },{
     name: "zrcoin",
     code: "ZRC",
-    icon: "zrc",
+    icon: "noicon",
     longname: "ZrCoin",
     description: "ZrCoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zrcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zrcoin/"
     },
-    rank: "286"
+    rank: "1000"
 },{
     name: "ztcoin",
     code: "ZT",
-    icon: "zt",
-    longname: "ZTCoin",
-    description: "ZTCoin coin",
+    icon: "noicon",
+    longname: "ZBG Token",
+    description: "ZBG Token coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/ztcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/ztcoin/"
     },
-    rank: "324"
+    rank: "117"
 },{
     name: "zurcoin",
     code: "ZUR",
-    icon: "zur",
+    icon: "noicon",
     longname: "Zurcoin",
     description: "Zurcoin coin",
     links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/zurcoin",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/zurcoin/"
     },
-    rank: "3960"
+    rank: "1000"
 }];
