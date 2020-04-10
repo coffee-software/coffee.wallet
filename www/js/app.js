@@ -169,9 +169,8 @@ var app = {
           if ('coin' in logs[i]) {
             html = app.preParseCoinMsg(html, logs[i].coin, true);
           }
-
           if (('coin' in logs[i]) && (logs[i].coin in allCoinApis)) {
-            html = '<img src="coins/' + allCoinApis[logs[i].coin].icon + '.svg"/>' + html;
+            html = '<img width="36" src="coins/' + allCoinApis[logs[i].coin].icon + '.svg"/>' + html;
           } else {
             //html = '<img src="coins/empty.svg"/>' + html;
           }
