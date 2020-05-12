@@ -18395,17 +18395,6 @@ var otherCoins = [{
     },
     rank: "1000"
 },{
-    name: "revain",
-    code: "R",
-    icon: "r",
-    longname: "Revain",
-    description: "Revain coin",
-    links: {
-      "CoinGecko" : "https://www.coingecko.com/en/coins/revain",
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/revain/"
-    },
-    rank: "1000"
-},{
     name: "revolutionvr",
     code: "RVR",
     icon: "noicon",
