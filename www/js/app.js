@@ -193,6 +193,8 @@ var app = {
     },
 
     initAirdrop: function() {
+      //airdrop is finished
+      return;
       setTimeout(function() {
         airdrop.getLeft(function(left, message){
           if (left > app.airdropMaxReward) {
