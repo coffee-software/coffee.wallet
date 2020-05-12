@@ -1016,6 +1016,7 @@ var app = {
 
       if ('amount' in args && args.amount){
         document.getElementById('sendCoinAmount').value = parseFloat(args.amount);
+        document.getElementById('sendCoinAmount').readOnly = true;
         app.coinUpdateValue('sendCoin', app.sendWallet.handler);
         app.sendCoinValidateAmount('sendCoin');
       }
@@ -1057,28 +1058,81 @@ var app = {
         var kp = e.split('=', 2);
         if (kp.length>1) args[kp[0]] = decodeURIComponent(kp[1]);
       });
-      if ('r' in args) {
-        app.alertInfo('BIP72 address found. quering for payment details...');
+      if (args.coin && 'r' in args) {
+        app.alertInfo('bitpay BIP72 address found. quering details...');
+        var supportedBitpayCoins = {
+          'bitcoin': 'BTC',
+          'ethereum': 'ETH'
+        };
+        if (!supportedBitpayCoins.hasOwnProperty(args.coin)) {
+          app.alertError(args.coin + ' BIP72 payments are not yet supported. sorry.');
+          return;
+        }
 
         var oReq = new XMLHttpRequest();
-        oReq.open("GET", args.r);
+        oReq.open("POST", args.r);
         oReq.addEventListener("load", function(){
           var paymentRequest = JSON.parse(this.responseText);
-          //console.log(paymentRequest);
-          var coin = 'unknown';
-          if (paymentRequest.currency == 'BTC' && paymentRequest.network == 'main') coin = 'bitcoin';
-          if (paymentRequest.currency == 'BTC' && paymentRequest.network == 'test') coin = 'bitcoin-test';
-          if (paymentRequest.currency == 'BCH' && paymentRequest.network == 'main') coin = 'bitcoin-cash';
 
-          if (paymentRequest.outputs.length != 1) {
-            app.alertError('payment requests with multiple outputs are not supported. sorry.');
-          } else {
-            callback(paymentRequest.outputs[0].address, {'coin': coin, 'amount': paymentRequest.outputs[0].amount / 100000000});
+          var timeLeftMs = new Date(paymentRequest.expires) - new Date(); //paymentRequest.time
+          var timeLeft = Math.floor(timeLeftMs / 1000);
+          app.alertInfo('memo: ' + paymentRequest.memo);
+          app.alertInfo(timeLeft + ' seconds left.');
+
+          var coinCode = 'unknown';
+          //TODO: ERC20 payments
+          var validCombinations = [
+            //args.coin, chain, currency, network, real-coin
+            ['bitcoin', 'BTC', 'BTC', 'test', 'BTC.TST'],
+            ['bitcoin', 'BTC', 'BTC', 'main', 'BTC'],
+            ['ethereum', 'ETH', 'ETH', 'test', 'ETH.TST2'],
+            ['ethereum', 'ETH', 'ETH', 'main', 'ETH']
+          ];
+          for (var i in validCombinations) {
+            if ((args.coin == validCombinations[i][0]) &&
+                (paymentRequest.chain == validCombinations[i][1]) &&
+                (!paymentRequest.currency || (paymentRequest.currency == validCombinations[i][2])) &&
+                (paymentRequest.network == validCombinations[i][3])) {
+                    coinCode = validCombinations[i][4];
+            }
+          }
+          console.log(paymentRequest, coinCode);
+          if (!(coinCode in app.wallets)) {
+            app.alertError('unknown coin');
+            return;
+          }
+          if (args.coin == 'bitcoin') {
+            if (paymentRequest.instructions.length != 1 || paymentRequest.instructions[0].outputs.length) {
+              app.alertError('payment requests with multiple outputs are not supported. sorry.');
+            } else {
+              var systemValue = paymentRequest.instructions[0].outputs[0].amount;
+              callback(paymentRequest.instructions[0].outputs[0].address, {
+                'coinCode': coinCode,
+                'amount': app.wallets[coinCode].handler.systemValueToFloatValue(systemValue),
+                'systemAmount': systemValue
+              });
+            }
+          } else if (args.coin == 'ethereum') {
+            if (paymentRequest.instructions.length != 1) {
+              app.alertError('payment requests with multiple instructions are not supported. sorry.');
+            } else {
+              var systemValue = paymentRequest.instructions[0].value.toString();
+              callback(paymentRequest.instructions[0].to, {
+                'coinCode': coinCode,
+                'amount': app.wallets[coinCode].handler.systemValueToFloatValue(systemValue),
+                'systemAmount': systemValue
+              });
+            }
           }
         });
-        oReq.setRequestHeader('Accept', 'application/payment-request');
+        oReq.setRequestHeader('x-paypro-version', '2');
+        //oReq.setRequestHeader('Accept', 'application/payment-request');
         //oReq.setRequestHeader('Accept', 'application/bitcoin-paymentrequest');
-        oReq.send();
+        oReq.setRequestHeader('Content-Type', 'application/payment-request');
+        oReq.send(JSON.stringify({
+          'chain': supportedBitpayCoins[args.coin]
+        }));
+
       } else {
         callback(addr, args);
       }

@@ -16,6 +16,12 @@ var Web3JsBaseHandler = {
     }
     return this.provider;
   },
+  getKovanTestnetProvider: function(){
+    if (typeof this.provider == 'undefined') {
+      return new Web3(new Web3.providers.HttpProvider("https://kovan.infura.io/v3/" + config.infuraKey));
+    }
+    return this.provider;
+  },
   newRandomPrivateKey: function() {
     return this._getProvider().eth.accounts.create().privateKey;
   },
@@ -134,7 +140,7 @@ var EthTestHandler = ExtendObject(Web3JsBaseHandler, {
     name: "ethereum-test",
     code: "ETH.TST",
     icon: "eth.test",
-    longname: "Ethereum Testnet",
+    longname: "Ethereum Ropsten Testnet",
     testCoin: true,
     description:
     "Robsten is an ethereum testing network.",
@@ -146,6 +152,27 @@ var EthTestHandler = ExtendObject(Web3JsBaseHandler, {
     },
     explorerLinkTx: function(tx) {
       return 'https://ropsten.etherscan.io/tx/' + tx;
+    }
+});
+
+var EthKovanTestHandler = ExtendObject(Web3JsBaseHandler, {
+
+    _getProvider: Web3JsBaseHandler.getKovanTestnetProvider,
+    name: "ethereum-test2",
+    code: "ETH.TST2",
+    icon: "eth.test",
+    longname: "Ethereum Kovan Testnet",
+    testCoin: true,
+    description:
+    "Kovan is an ethereum testing network.",
+    links: {
+      "Kovan Etherscan" : "https://kovan.etherscan.io/"
+    },
+    explorerLinkAddr: function(addr) {
+      return 'https://kovan.etherscan.io/address/' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://kovan.etherscan.io/tx/' + tx;
     }
 });
 

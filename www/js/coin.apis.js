@@ -3,6 +3,7 @@
 var allCoinApis = {
   'BTC.TST': BtcTestHandler,
   'ETH.TST': EthTestHandler,
+  'ETH.TST2': EthKovanTestHandler,
   'LTC': LtcHandler,
   'DOGE': DogeHandler,
   'BTC': BtcHandler,
