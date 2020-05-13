@@ -19,8 +19,17 @@ function versionCompare(v1, v2) {
   return 0;
 }
 
-window.version = "0.12.1";
+window.version = "0.13.0";
 window.changelog = [
+  {
+   version: '0.13.0',
+   date: '2020-05-13',
+   changes: [
+     'added: support for REV token',
+     'added: support for USDT token',
+     'added: support for LEO token'
+   ]
+  },
   {
    version: '0.12.0',
    date: '2020-04-08',
