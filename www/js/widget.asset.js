@@ -68,9 +68,12 @@ function Asset(wallet, id, data) {
   buttonsRight.classList.add('buttons');
   buttonsRight.classList.add('buttonsRight');
 
-
   this.actionHistory = (data.addr && ('explorerLinkAddr' in wallet.handler)) ? function(){
     osPlugins.openInSystemBrowser(wallet.handler.explorerLinkAddr(data.addr));
+  } : null;
+
+  this.actionImport = (data.addr && ('sendPayment' in wallet.handler)) ? function(){
+    app.showImportPrivateKeyPopup(wallet.handler, data.addr);
   } : null;
 
   this.actionReceive = data.addr ? function(){

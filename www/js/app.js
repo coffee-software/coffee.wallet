@@ -457,27 +457,44 @@ var app = {
       );
     },
 
-    showImportPrivateKeyPopup: function(wallet) {
-      app.openForm('importPrivateKeyPopup', 'import ' + wallet.handler.code + ' private key', 'coins/' + wallet.handler.icon + '.svg');
-      app.importingWallet = wallet;
+    showImportPrivateKeyPopup: function(handler, address) {
+      app.openForm('importPrivateKeyPopup', 'import ' + handler.code + ' private key', 'coins/' + handler.icon + '.svg');
+      app.importingHandler = handler;
+      app.importingAddress = address;
       document.getElementById('importPrivateKeyInput').value = '';
     },
 
     importPrivateKey: function(){
-      var value = document.getElementById('importPrivateKeyInput').value
-      //app.importingWallet
-      //console.log(value);
-      app.authenticateBeforeContinue(
-        'Import ' + app.importingWallet.handler.code + ' Private Key',
-        'Are You sure you want to import new private key? Current private key will be replaced. ' +
-        'You might loose your funds if you havent make any backup.' ,
-        function() {
-          app.importingWallet.data.privateKey = value;
-          app.importingWallet.data.addr = app.importingWallet.handler.addrFromPrivateKey(value);
-          app.data.save();
-          app.closeForm();
-          app.importingWallet.refreshOnline();
-        });
+      var pk = document.getElementById('importPrivateKeyInput').value;
+      console.log(pk);
+      console.log(app.importingHandler.code);
+      var addr = app.importingHandler.addrFromPrivateKey(pk);
+      console.log(addr);
+      var valid = app.importingHandler.validateAddress(addr);
+      console.log(valid);
+
+      if (app.importingAddress && (app.importingAddress != addr)) {
+        app.alertInfo('warning: this seems to be Private Key for a different wallet');
+      }
+      console.log(addr);
+      app.importingHandler.getBalance(addr, function(balance, unconfirmed){
+        if (app.importingHandler.systemValuesCompare(0, unconfirmed) != 0) {
+          warning = '<strong>warning:</strong> This wallet contains unconfirmed balance. Transaction can fail.';
+        }
+        var wallet = {
+          handler: app.importingHandler,
+          data: {
+            coin: app.importingHandler.code,
+            privateKey: pk,
+            addr : addr
+          }
+        };
+        app.popupSendPayment(wallet, balance);
+        document.getElementById('sendCoinAddr').value =
+          app.wallets[app.importingHandler.code].data.addr;
+        app.validateAddr('sendCoinAddr');
+
+      }, app.alertError);
     },
 
     showExportKeysReminderIfRequired: function(callback) {
@@ -831,10 +848,13 @@ var app = {
         advanced.appendChild(app.createAdvancedOption('sendall', 'send all', function(){
           app.popupSendPayment(wallet, wallet.data.systemBalance);
         }));
+
+        advanced.appendChild(app.createAdvancedOption('import', 'import private key', function(){
+          app.showImportPrivateKeyPopup(wallet.handler);
+        }));
       }
 
       //advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
-      //advanced.appendChild(app.createAdvancedOption('receive', 'import private key', app.showImportPrivateKeyPopup.bind(app, advancedWallet)));
 
       var links = '<ul>';
       for (var name in wallet.handler.links) {
@@ -1175,7 +1195,9 @@ var app = {
           var advanced = document.createElement('ul');
           advanced.classList.add('advancedActions');
 
-          advanced.appendChild(app.createAdvancedOption('link', 'history (external)', asset.actionHistory));
+          asset.actionHistory && advanced.appendChild(app.createAdvancedOption('link', 'history (external)', asset.actionHistory));
+          asset.actionImport && advanced.appendChild(app.createAdvancedOption('import', 'transfer to online wallet', asset.actionImport));
+
           advanced.appendChild(app.createAdvancedOption('remove', 'remove', asset.removeAction));
           document.getElementById('offlineAssetActions').append(advanced);
 

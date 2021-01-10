@@ -94,10 +94,10 @@ var BtcTestHandler = ExtendObject(BitcoinJsBaseHandler, {
       "Request TestNet coins" : "https://testnet.manu.backend.hamburg/faucet"
     },
     explorerLinkAddr: function(addr) {
-      return 'https://testnet.blockchain.info/address/' + addr;
+      return 'https://www.blockchain.com/btc-testnet/address/' + addr;
     },
     explorerLinkTx: function(tx) {
-      return 'https://testnet.blockchain.info/tx/' + tx;
+      return 'https://www.blockchain.com/btc-testnet/tx/' + tx;
     }
 })
 
