@@ -466,20 +466,20 @@ var app = {
 
     importPrivateKey: function(){
       var pk = document.getElementById('importPrivateKeyInput').value;
-      console.log(pk);
-      console.log(app.importingHandler.code);
       var addr = app.importingHandler.addrFromPrivateKey(pk);
-      console.log(addr);
       var valid = app.importingHandler.validateAddress(addr);
-      console.log(valid);
 
       if (app.importingAddress && (app.importingAddress != addr)) {
         app.alertInfo('warning: this seems to be Private Key for a different wallet');
       }
-      console.log(addr);
+      document.getElementById('loading').classList.add('show');
       app.importingHandler.getBalance(addr, function(balance, unconfirmed){
+        document.getElementById('loading').classList.remove('show');
+        if (app.importingHandler.systemValuesCompare(0, balance) == 0) {
+          app.alertError('<strong>warning:</strong> This wallet is empty.');
+        }
         if (app.importingHandler.systemValuesCompare(0, unconfirmed) != 0) {
-          warning = '<strong>warning:</strong> This wallet contains unconfirmed balance. Transaction can fail.';
+          app.alertError('<strong>warning:</strong> This wallet contains unconfirmed balance. Transaction can fail.');
         }
         var wallet = {
           handler: app.importingHandler,
@@ -494,7 +494,10 @@ var app = {
           app.wallets[app.importingHandler.code].data.addr;
         app.validateAddr('sendCoinAddr');
 
-      }, app.alertError);
+      }, function(error) {
+        document.getElementById('loading').classList.remove('show');
+        app.alertError(error);
+      });
     },
 
     showExportKeysReminderIfRequired: function(callback) {
@@ -812,7 +815,7 @@ var app = {
       document.getElementById('coinInfoButtons').innerHTML = '';
 
       document.getElementById('coinInfoButtons').appendChild(createButton('receive', 'receive', ('newPrivateKey' in wallet.handler) ? function(){app.popupReceivePayment(wallet);} : null));
-      document.getElementById('coinInfoButtons').appendChild(createButton('send', 'send', ('sendPayment' in wallet.handler) ? function(){app.popupSendPayment(wallet);} : null));
+      document.getElementById('coinInfoButtons').appendChild(createButton('send', 'send', ('sendPayment' in wallet.handler) ? function(){app.popupSendPayment(wallet, wallet.data.systemBalance);} : null));
 
       document.getElementById('coinInfoButtons').appendChild('getBalance' in wallet.handler ? wallet.refreshButton2 : createButton('refresh', 'refresh', null));
       document.getElementById('coinInfoButtons').appendChild(createButton('list', 'portfolio', function(){app.popupOfflineAssets(wallet);}));
@@ -845,10 +848,6 @@ var app = {
       }
 
       if ('sendPayment' in wallet.handler) {
-        advanced.appendChild(app.createAdvancedOption('sendall', 'send all', function(){
-          app.popupSendPayment(wallet, wallet.data.systemBalance);
-        }));
-
         advanced.appendChild(app.createAdvancedOption('import', 'import private key', function(){
           app.showImportPrivateKeyPopup(wallet.handler);
         }));
@@ -1014,7 +1013,7 @@ var app = {
         if (this.wallets[key].handler.name == args.coin) {
           if ('sendPayment' in this.wallets[key].handler) {
             var afterSendCallback = ('callback' in args ? args['callback'] : null);
-            this.popupSendPayment(this.wallets[key], null, afterSendCallback);
+            this.popupSendPayment(this.wallets[key], this.wallets[key].data.systemBalance, afterSendCallback);
             this.pasteToSendForm(addr, args);
           } else {
             this.alertError('coin ' + args.coin + ' is not yet supported');
@@ -1316,12 +1315,12 @@ var app = {
     },
 
     popupSendSocial: function(wallet) {
-        this.popupSendPayment(wallet);
+        this.popupSendPayment(wallet, wallet.data.systemBalance);
         this.toggleAll('normalSend', false);
         this.toggleAll('socialSend', true);
     },
 
-    popupSendPayment: function(wallet, forceTotal, afterSendCallback) {
+    popupSendPayment: function(wallet, sendMaxBalance, afterSendCallback) {
         app.openForm('sendPaymentPopup', 'send ' + wallet.handler.code, 'coins/' + wallet.handler.icon + '.svg');
 
         app.toggleAll('normalSend', true);
@@ -1335,7 +1334,9 @@ var app = {
         document.getElementById('sendCoinAmount').value = '';
         document.getElementById('sendCoinAmount').readOnly = false;
         document.getElementById('sendCoinValue').readOnly = false;
-        app.sendForceTotal = (typeof forceTotal == 'undefined') ? null : forceTotal;
+
+        app.sendMaxBalance = (typeof sendMaxBalance == 'undefined') ? null : sendMaxBalance;
+        app.sendForceTotal = null;
         app.afterSendCallback = (typeof afterSendCallback == 'undefined') ? null : afterSendCallback;
 
         app.validateAddr('sendCoinAddr', true);
@@ -1349,16 +1350,10 @@ var app = {
         document.getElementById('sendCoinFee').rangeSlider.update({min: 0, max: 0, value: 0});
 
         document.getElementById('sendCoinFeeInfo').classList.add('default');
+        document.getElementById('sendCoinBalanceAfter').classList.toggle('default', typeof sendMaxBalance != 'undefined');
 
         app.sendCoinUpdateFee();
-
-        if (app.sendForceTotal) {
-          document.getElementById('sendCoinAmount').readOnly = true;
-          document.getElementById('sendCoinValue').readOnly = true;
-          document.getElementById('sendCoinAmount').value = app.sendWallet.handler.systemValueToDisplayValue(app.sendForceTotal);
-          app.coinUpdateValue('sendCoin', app.sendWallet.handler);
-          app.sendCoinValidateAmount('sendCoin');
-        }
+        app.sendCoinUpdateBalanceAfter();
 
         wallet.handler.getFees(function(fees){
           document.getElementById('sendCoinFee').rangeSlider.update({min: 0, max: fees.length - 1, value: Math.floor((fees.length - 1) / 2)})
@@ -1366,7 +1361,18 @@ var app = {
           app.sendCoinUpdateFee();
         });
     },
-
+    sendCoinSetMax: function() {
+        if (app.sendMaxBalance) {
+          app.sendForceTotal = app.sendMaxBalance;
+          document.getElementById('sendCoinBalanceAfter').classList.remove('default');
+          document.getElementById('sendCoinAmount').readOnly = true;
+          document.getElementById('sendCoinValue').readOnly = true;
+          document.getElementById('sendCoinAmount').value = app.sendWallet.handler.systemValueToDisplayValue(app.sendForceTotal);
+          app.coinUpdateValue('sendCoin', app.sendWallet.handler);
+          app.sendCoinValidateAmount('sendCoin');
+          app.sendCoinUpdateFee();
+        }
+    },
     validateAddr: function(element, focus) {
       var valid = false;
       var elem = document.getElementById(element);
@@ -1425,7 +1431,32 @@ var app = {
       }
     },
 
+    sendCoinUpdateBalanceAfter: function(){
+        var balanceAfter = '?';
+        var hasError = false;
+        if (this.sendWallet && (app.sendMaxBalance !== null)) {
+
+            var systemBalanceAfter = app.sendMaxBalance;
+            if (document.getElementById('sendCoinAmount').value) {
+                var systemAmount = app.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
+                systemBalanceAfter = this.sendWallet.handler.systemValuesDiff(systemBalanceAfter, systemAmount);
+            }
+            if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
+                var fee = this.sendFees[document.getElementById('sendCoinFee').value];
+                if (!('feeCoin' in this.sendWallet.handler)) {
+                    systemBalanceAfter = this.sendWallet.handler.systemValuesDiff(systemBalanceAfter, this.sendWallet.handler.getFeeTotalCost(fee));
+                }
+            }
+            balanceAfter = this.sendWallet.handler.systemValueToDisplayValue(systemBalanceAfter);
+            hasError = this.sendWallet.handler.systemValueToFloatValue(systemBalanceAfter) < 0;
+            balanceAfter = balanceAfter + '&nbsp;(' + app.priceProvider.convert(app.sendWallet.handler.systemValueToFloatValue(systemBalanceAfter), this.sendWallet.data.coin) + ')';
+        }
+        document.getElementById('balanceAfter').classList.toggle('red', hasError);
+        document.getElementById('balanceAfter').innerHTML = balanceAfter;
+    },
+
     sendCoinUpdateFee: function(){
+      app.sendCoinUpdateBalanceAfter();
       if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
         var fee = this.sendFees[document.getElementById('sendCoinFee').value];
         if (app.sendForceTotal) {
@@ -1451,6 +1482,7 @@ var app = {
     },
 
     coinUpdateValue: function(prefix, handler) {
+      app.sendCoinUpdateBalanceAfter();
       var src = document.getElementById(prefix + 'Amount').value;
       document.getElementById(prefix + 'Value').value =
         src == '' ? '' : Number((src * this.priceProvider.getPrice(handler.code)).toFixed(2));
@@ -1465,8 +1497,7 @@ var app = {
         var systemAmount = handler.floatValueToSystemValue(src / this.priceProvider.getPrice(handler.code));
         document.getElementById(prefix + 'Amount').value = handler.systemValueToDisplayValue(systemAmount);
       }
-
-
+      app.sendCoinUpdateBalanceAfter();
     },
     alertError: function(html, coin, debug) {
       this._alertMessage(html, coin, 'error');

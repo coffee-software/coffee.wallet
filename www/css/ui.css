@@ -272,9 +272,23 @@ input.has-unit {
   color: #ffffff; /*#f7f5f2*/
   font-weight: normal;
 }
-.field .fee	{
+.adv-form-option {
   font-size: 12px;
+  margin: 6px 14px;
+  color: white;
+  line-height: 22px;
+  text-align:left;
 }
+.adv-form-option .f1 {
+  text-align: right;
+}
+.adv-form-option button {
+  border: 1px solid #766054;
+  text-align: center;
+  font-size: 11px;
+  padding: 0 5px;
+}
+
 .input-unit {
   position: absolute;
   top: 12px;

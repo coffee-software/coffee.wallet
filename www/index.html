@@ -581,14 +581,27 @@
                 </div>
               </div>
 
-              <div id="sendCoinFeeInfo" class="default" style="margin: 6px 14px; color: white; line-height: 22px;">
-                <div class="row fee">
-                  <div class="f4" style="text-align:left;">
+              <div id="sendCoinBalanceAfter" class="default adv-form-option">
+                <div class="row">
+                  <div class="f4">
+                    balance after:&nbsp;<span id="balanceAfter">0</span>
+                  </div>
+                  <div class="f1 max-button">
+                    <button onclick="app.sendCoinSetMax()">
+                      send max
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div id="sendCoinFeeInfo" class="default adv-form-option">
+                <div class="row">
+                  <div class="f4">
                     fee:&nbsp;<span id="feeAmount">0</span>
                     ETA:&nbsp;<span id="feeTime">0 min</span>
                   </div>
                   <div class="f1 customize-button" >
-                    <button onclick="getElementById('sendCoinFeeInfo').classList.remove('default')" style="border: 1px solid #766054; text-align: center; font-size: 11px; padding: 0 5px;">
+                    <button onclick="getElementById('sendCoinFeeInfo').classList.remove('default')">
                       customize
                     </button>
                   </div>

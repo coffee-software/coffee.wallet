@@ -1001,10 +1001,23 @@ body.electron #uxHint {
     background: #fffcf8;
 }
 
+#sendCoinBalanceAfter .max-button {
+  display: none;
+}
+
+#sendCoinBalanceAfter.default .max-button {
+  display: block;
+}
+
+#sendCoinFeeInfo .range-input {
+    margin-top: 16px;
+    margin-bottom: 26px;
+}
 
 #sendCoinFeeInfo.default .range-input {
   display: none;
 }
+
 #sendCoinFeeInfo .customize-button {
   display: none;
 }

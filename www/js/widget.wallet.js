@@ -95,7 +95,7 @@ function Wallet(data) {
   buttonsLeft.classList.add('buttonsLeft');
 
   ('newPrivateKey' in this.handler) && buttonsLeft.appendChild(createButton('receive', 'receive', function(){app.popupReceivePayment(that);}));
-  ('sendPayment' in this.handler) && buttonsLeft.appendChild(createButton('send', 'send', function(){app.popupSendPayment(that);}));
+  ('sendPayment' in this.handler) && buttonsLeft.appendChild(createButton('send', 'send', function(){app.popupSendPayment(that, that.data.systemBalance);}));
 
 
   if (!('newPrivateKey' in this.handler)) {
