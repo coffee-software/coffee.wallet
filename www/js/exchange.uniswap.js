@@ -23,11 +23,15 @@ var exchangeUniswap = ExtendObject(exchange, {
     return app.wallets[this._primaryCoin].handler;
   },
 
+  _getTokenHandler: function(coin) {
+    return app.wallets[coin].handler;
+  },
+
   _getPrimaryWallet: function() {
     return app.data.wallets[this._primaryCoin];
   },
 
-  _getAccount: function() {
+  _getPrimaryAccount: function() {
     return this._getProvider().eth.accounts.privateKeyToAccount(this._getPrimaryWallet().privateKey);
   },
 
@@ -49,48 +53,7 @@ var exchangeUniswap = ExtendObject(exchange, {
     return path;
   },
 
-  _swapExactETHForTokens: function(priv, ethValue, minOut, tokenAddr, receiverAddr, deadline) {
-    console.log(priv, ethValue, minOut, tokenAddr, receiverAddr, deadline);
-    var that = this;
-    var router = this._getRouter();
-    var gasLimit = this._gasLimit;
-    var code = 'ETH.TST';
-
-
-    router.methods.getAmountsOut(ethValue, [
-           that._wethContractAddr,
-           tokenAddr
-       ]).call((err, result) => {
-        var handler = app.wallets['ETH.TST'].handler;
-        console.log("SUCCESS");
-        for (var i in result) {
-                console.log(handler.systemValueToFloatValue(result[i]));
-        }
-        console.log(err);
-    });
-
-    return;
-    this._getProvider().eth.getGasPrice().then(function(avgGas){
-        console.log('avg gas get', avgGas);
-        var account = that._getProvider().eth.accounts.privateKeyToAccount(priv);
-
-        var transaction = {
-            value: ethValue, //'0x0
-            from: account.address,
-            to: router._address,
-            data: router.methods.swapExactETHForTokens(
-                minOut,
-                [
-                    that._wethContractAddr,
-                    tokenAddr
-                ],
-                receiverAddr,
-                deadline
-              ).encodeABI(),
-            gasPrice: avgGas,
-            gas: gasLimit
-        };
-
+  _testAddLiquidity: function() {
         /*var handler = app.wallets['ETH.TST'].handler;
         var transaction = {
             value: handler.floatValueToSystemValue(0.1), //'0x0
@@ -105,22 +68,48 @@ var exchangeUniswap = ExtendObject(exchange, {
               deadline
             ).encodeABI(),
             gasPrice: avgGas,
-            gas: gasLimit
+            gas: that._gasLimit
         };*/
-        console.log('transaction');
-        console.log(transaction);
-        account.signTransaction(transaction).then(function(signedData){
-           app.alertInfo('sending transaction to network...', that._primaryCoin);
-           that._getProvider().eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
-             if (err !== null) {
-               app.alertError(err, that._primaryCoin);
-             } else {
-               app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that._primaryCoin);
-               //successHandler && successHandler(response);
-             }
-           });
-        });
-    });
+  },
+
+  _getRouterTransaction: function (from, to, amount, minOut, deadline, avgGas) {
+    var router = this._getRouter();
+    console.log(from, to, amount, minOut, deadline, avgGas);
+
+    if (from === this._primaryCoin) {
+        //function swapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline) external payable returns (uint[] memory amounts);
+        return {
+            value: this._getPrimaryHandler().floatValueToSystemValue(amount),
+            from: this._getPrimaryAccount().address,
+            to: router._address,
+            data: router.methods.swapExactETHForTokens(
+                this._getTokenHandler(to).floatValueToSystemValue(minOut),
+                this._getTradePath(from, to),
+                this._getPrimaryAccount().address,
+                deadline
+              ).encodeABI(),
+            gasPrice: avgGas,
+            gas: this._gasLimit
+        };
+    } else if (to === this._primaryCoin) {
+        //function swapExactTokensForETH(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
+        return {
+            value: '0x0',
+            from: this._getPrimaryAccount().address,
+            to: router._address,
+            data: router.methods.swapExactTokensForETH(
+                this._getTokenHandler(from).floatValueToSystemValue(amount),
+                this._getPrimaryHandler().floatValueToSystemValue(minOut),
+                this._getTradePath(from, to),
+                this._getPrimaryAccount().address,
+                deadline
+              ).encodeABI(),
+            gasPrice: avgGas,
+            gas: this._gasLimit
+        };
+    } else {
+        //function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
+    }
   },
 
   getCurrencies: function(callback) {
@@ -158,23 +147,27 @@ var exchangeUniswap = ExtendObject(exchange, {
   },
 
   createTransaction: function(from, to, amount, returnTo, callback) {
-       var handler = app.wallets[from].handler;
-       var tokenHandler = app.wallets[to].handler;
-       var priv = app.data.wallets[from].privateKey;
-
-       this._swapExactETHForTokens(
-            priv,
-            handler.floatValueToSystemValue(amount),
-            handler.floatValueToSystemValue(0.1),
-            tokenHandler.ethContractAddr,
-            returnTo,
-            + new Date() + (60 * 60)
-       );
-       console.log(from);
-       console.log(to);
-       console.log(amount);
-       console.log(returnTo);
-       console.log(callback);
+    var that = this;
+    this._getProvider().eth.getBlock('latest', (error, block) => {
+        var deadline = block.timestamp + 300; // transaction expires in 300 seconds (5 minutes)
+        that.estimateExchangeAmount(from, to, amount, function(estimatedOut) {
+            var minOut = estimatedOut * 0.97; // allow max 3% loss compared to estimate (TODO configurable)
+            that._getProvider().eth.getGasPrice().then(function(avgGas){
+                var transaction = that._getRouterTransaction(from, to, amount, minOut, deadline, avgGas);
+                console.log(transaction);
+                that._getPrimaryAccount().signTransaction(transaction).then(function(signedData){
+                   app.alertInfo('sending transaction to network...', that._primaryCoin);
+                   that._getProvider().eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
+                     if (err !== null) {
+                       app.alertError(err, that._primaryCoin);
+                     } else {
+                       app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that._primaryCoin);
+                     }
+                   });
+                });
+            });
+        });
+    });
   },
 });
 
