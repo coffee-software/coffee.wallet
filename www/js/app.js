@@ -717,7 +717,7 @@ var app = {
         provider.estimateExchangeAmount(
           sellCoin,
           buyCoin,
-          sellAmmount,
+          parseFloat(sellAmmount),
           function(ret){
             document.getElementById("exchangeBuyAmmount").value = ret;
             document.getElementById("exchangeBuyValue").innerHTML = app.priceProvider.convert(ret, buyCoin);
