@@ -17,8 +17,6 @@ var exchangeNow = ExtendObject(exchange, {
 
   url: "changenow.io",
 
-  logo: null,
-
   _callPostApi: function(message, callback) {
    var post = JSON.stringify(message.params)
    var xhr = new XMLHttpRequest()

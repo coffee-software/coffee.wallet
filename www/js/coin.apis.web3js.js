@@ -209,6 +209,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
         value: '0x0',
         from: account.address,
         to: contract._address,
+        //data: contract.methods.approve(receiver, amount).encodeABI(),
         data: contract.methods.transfer(receiver, amount).encodeABI(),
         gasPrice: fee[0],
         gas: gasLimit

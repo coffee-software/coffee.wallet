@@ -8,8 +8,6 @@ var exchangeChangelly = ExtendObject(exchange, {
 
   url: "changelly.com",
 
-  logo: "changelly.png",
-
   _callApi : function(message, callback) {
     var post = JSON.stringify(message);
     var xhr = new XMLHttpRequest();

@@ -604,7 +604,7 @@ var app = {
       return li;
     },
     doExchange: function() {
-      var provider = document.getElementById("exchangeProvider").value == "now" ? exchangeNow : exchangeChangelly;
+      var provider = allExchangeProviders[app.exchangeProviderSelect.getValue()];
 
       var sellCoin = document.getElementById("exchangeSellCoin").value;
       var sellAmmount = app.wallets[sellCoin].handler.floatValueToSystemValue(parseFloat(document.getElementById("exchangeSellAmmount").value));
@@ -619,7 +619,7 @@ var app = {
         app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount),
         app.wallets[buyCoin].data.addr,
         function(ret){
-          app.alertInfo('Changelly exchange id ' + ret.id + ' started.', sellCoin, ret);
+          app.alertInfo( provider.name + ' exchange id ' + ret.id + ' started.', sellCoin, ret);
 
           app.authenticateBeforeContinue(
             '<table class="transactionSummary">' +
@@ -645,7 +645,7 @@ var app = {
       );
     },
     updateExchange: function() {
-      var provider = document.getElementById("exchangeProvider").value == "now" ? exchangeNow : exchangeChangelly;
+      var provider = allExchangeProviders[app.exchangeProviderSelect.getValue()];
       if (provider.key != app.lastExchangeProvider) {
 
         document.getElementById("exchangeLink").innerHTML = '<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a>';
@@ -744,8 +744,20 @@ var app = {
     },
 
     popupExchange: function(sellCoin, buyCoin) {
+
+      var includeTestCoins = (app.settings.get('enableTestCoins', false) == "true");
+      var availableProviders = {};
       this.exchangeDefaultFees = {};
-      this.exchangeMinAmmounts = {'now' : {}, 'changelly' : {}};
+      this.exchangeMinAmmounts = {};
+
+      for (var i in allExchangeProviders) {
+        if (includeTestCoins || (allExchangeProviders[i].testNet === false)) {
+            availableProviders[i] = allExchangeProviders[i];
+        }
+        this.exchangeMinAmmounts[i] = {};
+      }
+      this.exchangeProviderSelect.setOptions(availableProviders);
+
 
       document.getElementById("exchangeSellAmmount").value = 0;
       this.openPopup('exchangePopup', 'Exchange');
@@ -2190,8 +2202,7 @@ var app = {
           document.getElementById('sendCoinFee').focus();
         });
 
-        //
-        var allExchangeProviders = [exchangeNow, exchangeChangelly];
+        this.exchangeProviderSelect = new Select(document.getElementById("exchangeProvider"));
         this.exchangeableCoinsCache = [];
         for (var key in allExchangeProviders) {
           var provider = allExchangeProviders[key];
