@@ -3,6 +3,7 @@
 
 var Web3JsBaseHandler = {
   gasLimit: 21000,
+  decimals: 18,
 
   getMainnetProvider: function(){
     if (typeof this.provider == 'undefined') {
@@ -38,13 +39,35 @@ var Web3JsBaseHandler = {
   },
   systemValueToDisplayValue: function(s){
     //TODO make this smarter
-    return parseFloat(this._getProvider().utils.fromWei(s, 'ether')).toFixed(10);;
+    return this.systemValueToFloatValue(s).toFixed(10);;
+  },
+  _web3unitsDecimals: {
+      "ether": 18,
+      "milliether": 15,
+      "microether": 12,
+      "nanoether": 9,
+      "picoether": 6,
+      "femtoether": 3,
+      "wei": 0
   },
   systemValueToFloatValue: function(s){
-    return parseFloat(this._getProvider().utils.fromWei(s, 'ether'));
+    //return parseFloat(this._getProvider().utils.fromWei(s, 'ether'));
+    for (var name in this._web3unitsDecimals) {
+        if (this.decimals >= this._web3unitsDecimals[name]) {
+            var div = Math.pow(10, this.decimals - this._web3unitsDecimals[name]);
+            return parseFloat(this._getProvider().utils.fromWei(s, name)) / div;
+        }
+    }
   },
   floatValueToSystemValue: function(f){
-    return this._getProvider().utils.toWei(f.toFixed(18), 'ether');
+    //return this._getProvider().utils.toWei(f.toFixed(18), 'ether');
+    for (var name in this._web3unitsDecimals) {
+        if (this.decimals >= this._web3unitsDecimals[name]) {
+            var extraDecimals = this.decimals - this._web3unitsDecimals[name];
+            var mul = Math.pow(10, extraDecimals);
+            return this._getProvider().utils.toWei((f * mul).toFixed(this.decimals - extraDecimals), name);
+        }
+    }
   },
   validateAddress: function(addr) {
     return this._getProvider().utils.isAddress(addr);
