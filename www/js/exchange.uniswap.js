@@ -109,6 +109,20 @@ var exchangeUniswap = ExtendObject(exchange, {
         };
     } else {
         //function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
+        return {
+            value: '0x0',
+            from: this._getPrimaryAccount().address,
+            to: router._address,
+            data: router.methods.swapExactTokensForTokens(
+                this._getTokenHandler(from).floatValueToSystemValue(amount),
+                this._getTokenHandler(to).floatValueToSystemValue(minOut),
+                this._getTradePath(from, to),
+                this._getPrimaryAccount().address,
+                deadline
+              ).encodeABI(),
+            gasPrice: avgGas,
+            gas: this._gasLimit
+        };
     }
   },
 
