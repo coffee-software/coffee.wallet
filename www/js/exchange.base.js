@@ -10,6 +10,8 @@ var exchange = {
 
   testNet: false,
 
+  shortDescription: "<strong>warning:</strong> this is handled by external provider. You will send your coins to a third party trusting you will get exchanged coins back after few minutes. Please refer to provider website for more details:",
+
   getCurrencies : function(callback) {
     callback({});
   },

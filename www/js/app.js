@@ -647,7 +647,7 @@ var app = {
     updateExchange: function() {
       var provider = allExchangeProviders[app.exchangeProviderSelect.getValue()];
       if (provider.key != app.lastExchangeProvider) {
-
+        document.getElementById("exchangeShortDescription").innerHTML = provider.shortDescription;
         document.getElementById("exchangeLink").innerHTML = '<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a>';
         document.getElementById("exchangeIcon").src = 'img/exchanges/' + provider.key + '.png';
 

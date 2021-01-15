@@ -4,6 +4,8 @@ var exchangeUniswap = ExtendObject(exchange, {
   key: null,
   name: null,
   url: "uniswap.org",
+  shortDescription: "Uniswap is a decentralised Ethereum and ERC20 tokens exchange. It uses smart contracts allowing you to trade safely. Please refer to Uniswap website for more details:",
+
   _testNet: true,
   _getProvider: null,
   _wethContractAddr: null,
@@ -136,6 +138,7 @@ var exchangeUniswapTest = ExtendObject(exchangeUniswap, {
   key: "uniswap.test",
   name: "Uniswap Test",
   testNet: true,
+  shortDescription: "This is a Uniswap version that uses Ropsten testnet. You can trade test coins here. Advanced use only.",
   _getProvider: Web3JsBaseHandler.getTestnetProvider,
   _wethContractAddr: '0xc778417e063141139fce010982780140aa0cd5ab',
   routerContractAddr: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
