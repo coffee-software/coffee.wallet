@@ -1532,17 +1532,6 @@ var otherCoins = [{
     },
     rank: "1000"
 },{
-    name: "idex",
-    code: "IDEX",
-    icon: "noicon",
-    longname: "IDEX",
-    description: "IDEX coin",
-    links: {
-      "CoinGecko" : "https://www.coingecko.com/en/coins/idex",
-      "CoinMarketCap" : "https://coinmarketcap.com/currencies/idex/"
-    },
-    rank: "1000"
-},{
     name: "auroracoin",
     code: "AUR",
     icon: "noicon",
@@ -11242,6 +11231,17 @@ var otherCoins = [{
     links: {
       "CoinGecko" : "https://www.coingecko.com/en/coins/idealcash",
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/idealcash/"
+    },
+    rank: "1000"
+},{
+    name: "idex",
+    code: "IDEX",
+    icon: "noicon",
+    longname: "IDEX",
+    description: "IDEX coin",
+    links: {
+      "CoinGecko" : "https://www.coingecko.com/en/coins/idex",
+      "CoinMarketCap" : "https://coinmarketcap.com/currencies/idex/"
     },
     rank: "1000"
 },{
