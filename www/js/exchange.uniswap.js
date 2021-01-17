@@ -178,19 +178,19 @@ var exchangeUniswap = ExtendObject(exchange, {
   },
 
   estimateExchangeAmount: function(from, to, amount, callback) {
+    var that = this;
     var router = this._getRouter();
-    var handler = this._getPrimaryHandler();
+    var fromHandler = this._getTokenHandler(from);
+    var toHandler = this._getTokenHandler(to);
     router.methods.getAmountsOut(
-        handler.floatValueToSystemValue(amount),
+        fromHandler.floatValueToSystemValue(amount),
         this._getTradePath(from, to)
     ).call((err, result) => {
         if (err) {
-            app.alertError(err, handler.code);
+            app.alertError(err, that._primaryCoin);
         } else {
-            for (var i in result) {
-                //console.log(handler.systemValueToFloatValue(result[i]));
-            }
-            callback(handler.systemValueToFloatValue(result.pop()));
+            console.log(result);
+            callback(toHandler.systemValueToFloatValue(result.pop()));
         }
     });
   },
