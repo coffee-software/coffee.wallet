@@ -33,7 +33,7 @@ for (var i=0; i<otherCoins.length;i++) {
 }
 
 for (var i=0; i< forcedCoins.length; i++) {
-  allCoinApisByRank.push([allCoinApis[forcedCoins[i]], 30000]);
+  allCoinApisByRank.push([allCoinApis[forcedCoins[i]], 200]);
 }
 
 allCoinApisByRank.sort(function(a, b) {
