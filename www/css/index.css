@@ -690,6 +690,10 @@ body.electron #tools {
   /* margin-left: 43px; */
 }
 
+#toolsTab {
+  background: #ffffff;
+}
+
 #swiper .toolsTab {
   height: 100%;
   box-sizing: border-box;

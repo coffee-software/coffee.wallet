@@ -45,6 +45,18 @@ button.toolbtn {
   border: 1px solid #eec;
 }
 
+button.toolbtn:first-child {
+    border-left: none;
+}
+button.toolbtn:last-child {
+    border-right: none;
+}
+#tools .row:first-child button.toolbtn {
+    border-top: none;
+}
+#tools .row:last-child button.toolbtn {
+    border-bottom: none;
+}
 button img {
   vertical-align: middle;
   width: 26px;
