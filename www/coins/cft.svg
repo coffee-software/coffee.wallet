@@ -12,7 +12,7 @@
    version="1.1"
    id="svg4"
    sodipodi:docname="cft.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
   <metadata
      id="metadata10">
     <rdf:RDF>
@@ -35,21 +35,19 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1847"
-     inkscape:window-height="962"
+     inkscape:window-width="2187"
+     inkscape:window-height="951"
      id="namedview6"
      showgrid="false"
      inkscape:zoom="20.85965"
-     inkscape:cx="-0.67682653"
+     inkscape:cx="-3.7986695"
      inkscape:cy="15.784721"
-     inkscape:window-x="487"
-     inkscape:window-y="53"
+     inkscape:window-x="327"
+     inkscape:window-y="55"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg4" />
   <path
-     style="fill:#766054;fill-rule:evenodd;stroke-width:1.29245794"
-     d="M 15.428315,-0.06151275 C 23.62867,-0.04484972 28.588674,7.5479733 28.566574,16.43451 28.546604,24.464798 22.316387,32.04981 16.289949,32.103367 9.8178474,32.160884 3.4113949,25.186969 3.3898469,16.233052 3.3713151,8.5324531 8.5756067,-0.07543737 15.428315,-0.06151275 Z m 1.337193,2.93717385 c 0.813544,8.3647739 -0.955697,7.9903819 -2.695539,10.8100989 -1.50222,2.780473 -4.8640407,7.384942 0.695046,15.152252 -0.610248,-7.301088 1.137377,-8.475052 3.157277,-11.482543 1.863097,-2.459781 4.703382,-8.7743779 -1.156784,-14.4798079 z"
-     id="path2"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="sssssccccc" />
+     style="fill:#766054;fill-opacity:1;stroke-width:1.00226545"
+     d="M 16 0 C 7.163444 0 0 7.163444 0 16 C 0 24.836556 7.163444 32 16 32 C 24.836556 32 32 24.836556 32 16 C 32 7.163444 24.836556 0 16 0 z M 26.056641 6.9335938 C 26.16977 15.389343 19.474963 17.928991 16.314453 18.365234 C 12.638866 19.087274 10.501132 18.669049 5.609375 24.453125 C 7.2238344 14.710032 12.946012 13.729572 16.179688 12.867188 C 19.413363 12.004803 21.378481 12.305667 26.056641 6.9335938 z "
+     id="path7" />
 </svg>
