@@ -2,8 +2,7 @@
 /**
 * Simple script to pull missing coins from coin market cap.
 */
-
-$addCount = 100; //disable pagination
+$topCoins = 50;
 $newCoins = [];
 system('{ cat www/js/coin.apis.cmc.js; echo "require(\'fs\').writeFileSync(\'.tmp.json\', JSON.stringify(otherCoins));"; } | nodejs');
 $oldCoins = json_decode(file_get_contents('.tmp.json'), true);
@@ -11,51 +10,47 @@ unlink('.tmp.json');
 
 
 foreach ($oldCoins as $coin) {
-  $newCoins[$coin['code']] = [
+  $newCoins[$coin['name']] = [
     'id' => $coin['name'],
     'symbol' => $coin['code'],
     'name' => $coin['longname'],
-    'rank' => 1000 //$coin['rank'] + $addCount
+    'rank' => $coin['rank'] < $topCoins ? $topCoins : $coin['rank'],
   ];
+  $uniqueSymbols[$coin['code']] = $coin['name'];
 }
 
 $oldCount = count($newCoins);
 echo "old coins: " . $oldCount . "\n";
-$cmc_rank = 0;
-for ($p=0; $p<$addCount; $p+=100) {
-  //$json = json_decode(file_get_contents('https://api.coinmarketcap.com/v1/ticker/?limit=100&start='.$p), true);
-  $json = json_decode(file_get_contents('https://api.coingecko.com/api/v3/coins/list'), true);
-  sleep(5);
-  $ranks = json_decode(file_get_contents('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false'), true);
-  $rankmap = [];
-  foreach ($ranks as $id => $r){
-    $rankmap[$r['id']] = $id;
-  }
-  //var_dump($rankmap); die();
-  $uniqueSymbols = [];
-  if ($json) {
-    foreach ($json as $coin) {
 
-      //dont add tiny coins
-      if (!isset($rankmap[$coin['id']])) {
-        continue;
-      }
-      $cmc_rank++;
-      $suffix = 0;
-      $coin['symbol'] = strtoupper($coin['symbol']);
-      $symbol = $coin['symbol'];
-      while (!empty($uniqueSymbols[$coin['symbol']])) {
-        $coin['symbol'] = $symbol . '-' . (++$suffix);
-        echo "repeated $symbol => ${coin['symbol']}\n";
-      }
-      $uniqueSymbols[$coin['symbol']] = true;
-      $newCoins[$symbol] = $coin;
-      $newCoins[$symbol]['rank'] = isset($rankmap[$coin['id']]) ? $rankmap[$coin['id']] : 800;//$cmc_rank;
-    }
-    //for ($x=0; $x<20; $x++) { sleep(1); echo "."; }
-  }
-  echo "new coins: " . count($newCoins) . "\n";
+//$json = json_decode(file_get_contents('https://api.coinmarketcap.com/v1/ticker/?limit=100&start='.$p), true);
+$json = json_decode(file_get_contents('https://api.coingecko.com/api/v3/coins/list'), true);
+sleep(5);
+$ranks = json_decode(file_get_contents('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=' . $topCoins . '&page=1&sparkline=false'), true);
+$rankmap = [];
+foreach ($ranks as $id => $r) {
+    $rankmap[$r['id']] = $id;
 }
+//var_dump($rankmap); die();
+
+$uniqueSymbols = [];
+foreach ($json as $coin) {
+  if (!isset($rankmap[$coin['id']])) {
+    continue;
+  }
+  $suffix = 0;
+  $coin['symbol'] = strtoupper($coin['symbol']);
+  $symbol = $coin['symbol'];
+  while ((!empty($uniqueSymbols[$coin['symbol']])) && ($uniqueSymbols[$coin['symbol']] != $coin['id'])) {
+    $coin['symbol'] = $symbol . '-' . (++$suffix);
+    echo "repeated $symbol => ${coin['symbol']}\n";
+  }
+  $uniqueSymbols[$coin['symbol']] = $coin['id'];
+  $uniqueSymbols[$coin['symbol']] = true;
+  $newCoins[$coin['id']] = $coin;
+  $newCoins[$coin['id']]['rank'] = $rankmap[$coin['id']];
+}
+
+echo "new coins: " . count($newCoins) . "\n";
 
 //$rank = 0;
 
@@ -87,9 +82,9 @@ foreach($newCoins as $coin) {
   if (!file_exists("dev/custom_coins/$icon.svg") &&
     !file_exists("../cryptocurrency-icons/svg/white/$icon.svg")) {
       $icon = 'noicon';
+  } else {
+    shell_exec('dev/generateicon.sh ' . escapeshellarg($icon));
   }
-
-  shell_exec('dev/generateicon.sh ' . escapeshellarg($icon));
 
   $lines[]= <<<EOT
 {
@@ -115,4 +110,4 @@ echo "saving coins file.\n";
 //echo implode(',', $lines);
 file_put_contents('www/js/coin.apis.cmc.js', $head . implode(',', $lines) . $foot);
 
-echo "DONE. remember to update icons.\n";
+echo "DONE.\n";
