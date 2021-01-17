@@ -39,7 +39,7 @@ var Web3JsBaseHandler = {
   },
   systemValueToDisplayValue: function(s){
     //TODO make this smarter
-    return this.systemValueToFloatValue(s).toFixed(10);;
+    return this.systemValueToFloatValue(s).toFixed(10);
   },
   _web3unitsDecimals: {
       "ether": 18,
@@ -134,19 +134,38 @@ var Web3JsBaseHandler = {
     });
   },
   sendPayment: function(priv, receiver, amount, fee, successHandler) {
+    this.sendCustomTransaction(priv, this._getTransaction(account, receiver, amount, fee), successHandler);
+  },
+  _nonceCache: {},
+  _getNonce: function(address, callback) {
     var that = this;
-    app.alertInfo('signing transaction...', that.code);
+    if (address in that._nonceCache) {
+        callback(that._nonceCache[address]);
+    } else {
+        that._getProvider().eth.getTransactionCount(address).then(function(nonce) {
+            that._nonceCache[address] = nonce;
+            callback(nonce);
+        });
+    }
+  },
+  sendCustomTransaction: function(priv, transaction, successHandler) {
+    var that = this;
     var account = this._getProvider().eth.accounts.privateKeyToAccount(priv);
-    account.signTransaction(this._getTransaction(account, receiver, amount, fee)).then(function(signedData){
-      app.alertInfo('sending transaction to network...', that.code);
-      that._getProvider().eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
-        if (err !== null) {
-          app.alertError(err, that.code);
-        } else {
-          app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
-          successHandler && successHandler(response);
-        }
-      });
+    this._getNonce(account.address, function(nonce){
+        transaction['nonce'] = that._getProvider().utils.toHex(nonce);
+        app.alertInfo('signing TX and sending to network...', that.code);
+        //console.log(transaction);
+        account.signTransaction(transaction).then(function(signedData){
+         that._getProvider().eth.sendSignedTransaction(signedData.rawTransaction, function(err, response){
+           if (err !== null) {
+             app.alertError(err, that.code);
+           } else {
+             app.alertSuccess('Successfully sent TXN: <u>' + response + '</u>', that.code);
+             that._nonceCache[account.address] ++;
+             successHandler && successHandler(response);
+           }
+         });
+        });
     });
   }
 };
@@ -202,9 +221,12 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
   feeCoin: EthTestHandler,
   gasLimit: 200000,
 
-  getBalance: function(addr, callback, errorCallback){
+  getContract: function() {
     var c = this._getProvider().eth.Contract;
-    var contract = new c(this.ethAbi, this.ethContractAddr);
+    return new c(this.ethAbi, this.ethContractAddr);
+  },
+  getBalance: function(addr, callback, errorCallback){
+    var contract = this.getContract();
     var that = this;
     contract.methods.balanceOf(addr).call().then(function(val){
       callback(val, '0');
@@ -236,9 +258,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
     }
   },
   _getTransaction: function(account, receiver, amount, fee) {
-    var c = this._getProvider().eth.Contract;
-    var contract = new c(this.ethAbi, this.ethContractAddr);
-
+    var contract = this.getContract();
     var gasLimit = this.gasLimit;
     if (this.feeCoin.code in app.wallets && 'systemBalance' in app.wallets[this.feeCoin.code].data) {
       var balance = new (this._getProvider().utils.BN)(app.wallets[this.feeCoin.code].data.systemBalance);
@@ -254,6 +274,7 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
         value: '0x0',
         from: account.address,
         to: contract._address,
+        //data: contract.methods.approve(receiver, amount).encodeABI(),
         data: contract.methods.transfer(receiver, amount).encodeABI(),
         gasPrice: fee[0],
         gas: gasLimit
