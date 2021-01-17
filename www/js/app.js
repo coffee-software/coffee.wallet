@@ -2223,6 +2223,7 @@ var app = {
           }
         });
 
+        //for (var t in ERC20Tokens) { ERC20Tokens[t]._getContractDecimals(); }
         Logger.log("info", null, "application started");
     },
 

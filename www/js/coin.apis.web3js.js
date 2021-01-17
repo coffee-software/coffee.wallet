@@ -213,6 +213,28 @@ var ERC20TestHandler = ExtendObject(Web3JsBaseHandler, {
       app.setNoNetError();
     });
   },
+  _getContractDecimals: function() {
+    var contract = this.getContract();
+    var that = this;
+    if ('decimals' in contract.methods) {
+        contract.methods.decimals().call((err, result) => {
+            if (err) {
+                console.log(that.code);
+                console.log(err);
+            } else {
+                if (result == that.decimals) {
+                    //console.log('OK');
+                } else {
+                    console.log(that.code);
+                    console.log(result);
+                }
+            }
+        });
+    } else {
+        console.log(that.code);
+        console.log('unknown');
+    }
+  },
   _getTransaction: function(account, receiver, amount, fee) {
     var c = this._getProvider().eth.Contract;
     var contract = new c(this.ethAbi, this.ethContractAddr);

@@ -111,6 +111,7 @@ var ERC20Tokens = {
       icon: "usdc",
       longname: "USD Coin",
       ethContractAddr: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+      decimals: 6,
       description: "USDC is a fully collateralized US Dollar stablecoin developed by CENTRE, the open source project and membership consortium, with Circle being the first of several forthcoming issuers.",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -124,6 +125,7 @@ var ERC20Tokens = {
       icon: "zil",
       longname: "Zilliqa",
       ethContractAddr: '0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27',
+      decimals: 12,
       description: "Zilliqa is a high-throughput public blockchain platform - designed to scale to thousands ​of transactions per second.",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27",
@@ -202,6 +204,7 @@ var ERC20Tokens = {
       icon: "btm",
       longname: "Bytom",
       ethContractAddr: '0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750',
+      decimals: 8,
       description: "Transfer assets from atomic world to byteworld",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750",
@@ -241,6 +244,7 @@ var ERC20Tokens = {
       icon: "ppt",
       longname: "Populous",
       ethContractAddr: '0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a',
+      decimals: 8,
       description: "Aims to rebuild invoice financing block by block, for invoice buyers and sellers.	",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",
@@ -254,6 +258,7 @@ var ERC20Tokens = {
       icon: "qash",
       longname: "QASH",
       ethContractAddr: '0x618e75ac90b12c6049ba3b27f5d5f8651b0037f6',
+      decimals: 6,
       description: "We envision QASH to be the preferred payment token for financial services, like the Bitcoin for financial services. As more financial institutions, fintech startups and partners adopt QASH as a method of payment, the utility of QASH will scale, fueling the Fintech revolution.	",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0x618e75ac90b12c6049ba3b27f5d5f8651b0037f6",
@@ -267,6 +272,7 @@ var ERC20Tokens = {
       icon: "mco",
       longname: "Crypto.com",
       ethContractAddr: '0xb63b606ac810a52cca15e44bb630fd42d8d1d83d',
+      decimals: 8,
       description: "Crypto.com, the pioneering payments and cryptocurrency platform, seeks to accelerate the world’s transition to cryptocurrency.	",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0xb63b606ac810a52cca15e44bb630fd42d8d1d83d",
@@ -295,6 +301,7 @@ var ERC20Tokens = {
       icon: "gusd",
       longname: "Gemini dollar",
       ethContractAddr: '0x056fd409e1d7a124bd7017459dfea2f387b6d5cd',
+      decimals: 2,
       description: "Gemini dollar combines the creditworthiness and price stability of the U.S. dollar with blockchain technology and the oversight of U.S. regulators.	",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0x056fd409e1d7a124bd7017459dfea2f387b6d5cd",
@@ -323,6 +330,7 @@ var ERC20Tokens = {
       icon: "wax",
       longname: "WAX Token",
       ethContractAddr: '0x39bb259f66e1c59d5abef88375979b4d20d98022',
+      decimals: 8,
       description: "Global Decentralized Marketplace for Virtual Assets.",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0x39bb259f66e1c59d5abef88375979b4d20d98022",
@@ -393,6 +401,7 @@ var ERC20Tokens = {
       icon: "rev",
       longname: "Revain",
       ethContractAddr: '0x2ef52Ed7De8c5ce03a4eF0efbe9B7450F2D7Edc9',
+      decimals: 6,
       description: "Revain is blockchain-based review platform for crypto community. Since 2018 we accumulated the biggest number of user feedback on crypto on the Internet.",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0x2ef52Ed7De8c5ce03a4eF0efbe9B7450F2D7Edc9",
@@ -436,6 +445,7 @@ var ERC20Tokens = {
       icon: "mgo",
       longname: "MobileGo",
       ethContractAddr: '0x40395044Ac3c0C57051906dA938B54BD6557F212',
+      decimals: 8,
       description: "A dedicated token to bring eSports to everyone.	",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0x40395044Ac3c0C57051906dA938B54BD6557F212",
@@ -534,6 +544,7 @@ var ERC20Tokens = {
       icon: "aion",
       longname: "AION",
       ethContractAddr: '0x4CEdA7906a5Ed2179785Cd3A40A69ee8bc99C466',
+      decimals: 8,
       description: "A multi-tier blockchain system designed to address unsolved questions of scalability, privacy, and interoperability in blockchain networks	",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0x4CEdA7906a5Ed2179785Cd3A40A69ee8bc99C466",
@@ -644,6 +655,7 @@ var ERC20Tokens = {
       icon: "klown",
       longname: "Ether Clown",
       ethContractAddr: '0xc97a5cdf41bafd51c8dbe82270097e704d748b92',
+      decimals: 7,
       description: "Ether Clown is a social experiment type of a token with an RNG (Random Number Generated) burning mechanism on every transaction from 1.5% to 3.5% when people transfer token(s) between two addresses.",
       links: {
         "etherclown.com": "https://etherclown.com/",
@@ -727,6 +739,7 @@ var ERC20Tokens = {
             "etherscan.io": "https://etherscan.io/token/0xe9a95d175a5f4c9369f3b74222402eb1b837693b"
         },
         ethContractAddr: '0xe9a95d175a5f4c9369f3b74222402eb1b837693b',
+        decimals: 8,
         ethAbi: [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"INITIAL_SUPPLY","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_subtractedValue","type":"uint256"}],"name":"decreaseApproval","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_addedValue","type":"uint256"}],"name":"increaseApproval","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]
     }),
     'USDT' : ExtendObject(ERC20MainHandler, {
@@ -735,6 +748,7 @@ var ERC20Tokens = {
       icon: "usdt",
       longname: "Tether USD",
       ethContractAddr: '0xdac17f958d2ee523a2206206994597c13d831ec7',
+      decimals: 6,
       description: "",
       links: {
         "etherscan.io" : "https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7",
