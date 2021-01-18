@@ -644,9 +644,9 @@ var app = {
         }
       );
     },
-    updateExchange: function() {
+    updateExchange: function(force) {
       var provider = allExchangeProviders[app.exchangeProviderSelect.getValue()];
-      if (provider.key != app.lastExchangeProvider) {
+      if ((provider.key != app.lastExchangeProvider) || ((typeof force != 'undefined') && force)) {
         document.getElementById("exchangeShortDescription").innerHTML = provider.shortDescription;
         document.getElementById("exchangeLink").innerHTML = '<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a>';
         document.getElementById("exchangeIcon").src = 'img/exchanges/' + provider.key + '.png';
@@ -763,7 +763,7 @@ var app = {
       this.openPopup('exchangePopup', 'Exchange');
       app.settings.set('airdropTaskExchange', true);
 
-      app.updateExchange();
+      app.updateExchange(true);
     },
     cancelSentViaMessage: function(coin, pk) {
       navigator.notification.confirm('Are you sure you want to CANCEL this? Recipients of message will no longer be able to redeem those coins.',
