@@ -22,6 +22,19 @@ function versionCompare(v1, v2) {
 window.version = "0.13.0";
 window.changelog = [
   {
+   version: '0.14.0',
+   date: '2020-05-13',
+   changes: [
+     'added: Uniswap, decentralized tokens exchange support',
+     'added: send from private key feature',
+     'added: support for THETA, WBTC, CRO, CEL, UNI, SNX tokens',
+     'added: "max" button on send forms and removed "send all" feature',
+     'added: tools for testing ERC20 and Uniswap on test networks',
+     'fixed: ERC20 tokens with custom decimals',
+     'fixed: minor fixes'
+   ]
+  },
+  {
    version: '0.13.0',
    date: '2020-05-13',
    changes: [
