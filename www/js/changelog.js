@@ -31,6 +31,7 @@ window.changelog = [
      'added: "max" button on send forms and removed "send all" feature',
      'added: tools for testing ERC20 and Uniswap on test networks',
      'fixed: ERC20 tokens with custom decimals',
+     'fixed: DOGE low transaction fee hotfix',
      'fixed: minor fixes'
    ]
   },
