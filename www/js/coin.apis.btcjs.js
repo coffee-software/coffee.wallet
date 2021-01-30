@@ -180,5 +180,15 @@ var DogeHandler = ExtendObject(BitcoinJsBaseHandler, {
     },
     explorerLinkTx: function(tx) {
       return 'https://dogechain.info/tx/' + tx;
+    },
+
+    getFees: function(callback) {
+      //force DOGE fees to be > 1 DOGE
+      BitcoinJsBaseHandler.getFees.call(this, function(fees){
+        for (var x in fees) {
+            fees[x][0] = fees[x][0] < 100000000 ? 100000000 : fees[x][0];
+        }
+        callback(fees);
+      });
     }
 });
