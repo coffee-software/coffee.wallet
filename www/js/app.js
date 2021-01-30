@@ -609,38 +609,46 @@ var app = {
       var sellCoin = document.getElementById("exchangeSellCoin").value;
       var sellAmmount = app.wallets[sellCoin].handler.floatValueToSystemValue(parseFloat(document.getElementById("exchangeSellAmmount").value));
       var buyCoin = document.getElementById("exchangeBuyCoin").value;
-      var fee = app.exchangeDefaultFees[sellCoin];
+      var fee = app.exchangeDefaultFees[provider.key + sellCoin];
       var buyAmmount = document.getElementById("exchangeBuyAmmount").value;
 
       var displaySellAmount = app.wallets[sellCoin].handler.systemValueToDisplayValue(sellAmmount);
+      var onTransactionSuccess = function () {
+        app.closePopup();
+        setTimeout(function() { app.wallets[sellCoin].refreshOnline(); }, 3000);
+        setTimeout(function() { app.alertInfo('Please refresh your ' + buyCoin + ' balance in few minutes.', buyCoin); }, 4000);
+      };
       provider.createTransaction(
         sellCoin,
         buyCoin,
         app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount),
         app.wallets[buyCoin].data.addr,
         function(ret){
-          app.alertInfo( provider.name + ' exchange id ' + ret.id + ' started.', sellCoin, ret);
+          if ('payinAddress' in ret) {
+              app.alertInfo( provider.name + ' exchange id ' + ret.id + ' started.', sellCoin, ret);
 
-          app.authenticateBeforeContinue(
-            '<table class="transactionSummary">' +
-            '<tr class="first"><td><img class="coinIcon" src="coins/' + app.wallets[sellCoin].handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td><img class="coinIcon" src="coins/' + app.wallets[buyCoin].handler.icon + '.svg"/></td></tr>' +
-            '<tr class="second"><td>' + shortAmount(displaySellAmount, sellCoin, 13) + '</td><td></td><td>' + shortAmount(buyAmmount, buyCoin, 13) + '</td></tr>' +
-            '</table>',
-            '<table class="niceTable">' +
-            '<tr><th colspan="2" style="width:26%;">payinAddress:</th></tr><tr><td colspan="2">' + ret.payinAddress + '</td></tr>' +
-            '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displaySellAmount + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount), sellCoin) + '</td></tr>' +
-            '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.wallets[sellCoin].handler.getFeeValueDisplay(fee) + '</td></tr>' +
-            '<tr><th colspan="2">estimated return:</th></tr><tr><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
-            '<tr><th colspan="2">' + provider.name + ' ID:</th></tr><tr><td colspan="2">' + ret.id + '</td></tr>' +
-            '</table>'
-            ,
-            function(){
-              app.wallets[sellCoin].handler.sendPayment(app.wallets[sellCoin].data.privateKey, ret.payinAddress, sellAmmount, fee);
-              app.closePopup();
-              setTimeout(function() { app.wallets[sellCoin].refreshOnline(); }, 2000);
-              setTimeout(function() { app.alertInfo('Please refresh your ' + buyCoin + ' balance in few minutes.', buyCoin); }, 3000);
-            }
-          );
+              app.authenticateBeforeContinue(
+                '<table class="transactionSummary">' +
+                '<tr class="first"><td><img class="coinIcon" src="coins/' + app.wallets[sellCoin].handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td><img class="coinIcon" src="coins/' + app.wallets[buyCoin].handler.icon + '.svg"/></td></tr>' +
+                '<tr class="second"><td>' + shortAmount(displaySellAmount, sellCoin, 13) + '</td><td></td><td>' + shortAmount(buyAmmount, buyCoin, 13) + '</td></tr>' +
+                '</table>',
+                '<table class="niceTable">' +
+                '<tr><th colspan="2" style="width:26%;">payinAddress:</th></tr><tr><td colspan="2">' + ret.payinAddress + '</td></tr>' +
+                '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displaySellAmount + ' ' + sellCoin + '</td><td>' + app.priceProvider.convert(app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount), sellCoin) + '</td></tr>' +
+                '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.wallets[sellCoin].handler.getFeeValueDisplay(fee) + '</td></tr>' +
+                '<tr><th colspan="2">estimated return:</th></tr><tr><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
+                '<tr><th colspan="2">' + provider.name + ' ID:</th></tr><tr><td colspan="2">' + ret.id + '</td></tr>' +
+                '</table>'
+                ,
+                function(){
+                  app.wallets[sellCoin].handler.sendPayment(app.wallets[sellCoin].data.privateKey, ret.payinAddress, sellAmmount, fee);
+                  onTransactionSuccess();
+                }
+              );
+          } else {
+            //provider handled transaction in a custom way
+            onTransactionSuccess();
+          }
         }
       );
     },
@@ -674,13 +682,14 @@ var app = {
       var fee = null;
 
       if (sellCoin) {
-        if (sellCoin in app.exchangeDefaultFees) {
-          fee = app.exchangeDefaultFees[sellCoin];
-          document.getElementById("exchangeSellFee").innerHTML = app.wallets[sellCoin].handler.getFeeDisplay(fee);
+        var feeCacheKey = provider.key + sellCoin;
+        if (feeCacheKey in app.exchangeDefaultFees) {
+          fee = app.exchangeDefaultFees[feeCacheKey];
+          document.getElementById("exchangeSellFee").innerHTML = provider.getFeeDisplay(sellCoin, fee);
         } else {
           document.getElementById("exchangeSellFee").innerHTML = 'pending...';
-          var fees = app.wallets[sellCoin].handler.getFees(function(fees){
-            app.exchangeDefaultFees[sellCoin] = fees[Math.floor((fees.length - 1) / 2)];
+          provider.getFeeEstimate(sellCoin, function(fee){
+            app.exchangeDefaultFees[feeCacheKey] = fee;
             app.updateExchange();
           });
         }

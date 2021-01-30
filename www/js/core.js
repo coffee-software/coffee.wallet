@@ -23,7 +23,7 @@ if (!String.prototype.endsWith)
 
 function shortAmount(floatValue, unit, maxchars) {
   maxchars = maxchars - unit.length - 1;
-  return floatValue.toString().substring(0, maxchars - 3) + '...&nbsp;' + unit;
+  return floatValue.toString().substring(0, maxchars - 2) + '..&nbsp;' + unit;
 }
 
 function shortAddr(addr, maxchars) {

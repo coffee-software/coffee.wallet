@@ -26,6 +26,15 @@ var exchange = {
 
   createTransaction : function(from, to, amount, returnTo, callback) {
     callback({});
-  }
+  },
 
+  getFeeDisplay : function(from, fee) {
+    return app.wallets[from].handler.getFeeDisplay(fee);
+  },
+
+  getFeeEstimate : function(from, callback) {
+    app.wallets[from].handler.getFees(function(fees){
+        callback(fees[Math.floor((fees.length - 1) / 2)]);
+    });
+  }
 }

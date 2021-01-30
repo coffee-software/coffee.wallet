@@ -104,30 +104,29 @@ var Web3JsBaseHandler = {
     };
   },
 
-  estimateFeeFloat: function(fee) {
-    return this._getProvider().utils.fromWei(this.getFeeTotalCost(fee), 'ether');
+  estimateFeeFloat: function(fee, gasLimit) {
+    return this._getProvider().utils.fromWei(this.getFeeTotalCost(fee, gasLimit), 'ether');
   },
-  getFeeTotalCost: function(fee, tx) {
+  getFeeTotalCost: function(fee, gasLimit) {
     var f = new (this._getProvider().utils.BN)(fee[0]);
-    var gas = new (this._getProvider().utils.BN)(this.gasLimit);
+    var gas = new (this._getProvider().utils.BN)((typeof gasLimit === 'undefined') ? this.gasLimit : gasLimit);
     return f.mul(gas).toString(10);
   },
-  getFeeDisplay: function(fee) {
-    return ('feeCoin' in this ? '~' : '') + this.estimateFeeFloat(fee) + '&nbsp;' + ('feeCoin' in this ? this.feeCoin.code : this.code);
+  getFeeDisplay: function(fee, gasLimit) {
+    return (('feeCoin' in this || gasLimit) ? '~' : '') + this.estimateFeeFloat(fee, gasLimit) + '&nbsp;' + ('feeCoin' in this ? this.feeCoin.code : this.code);
   },
-  getFeeValueDisplay: function(fee) {
-    return app.priceProvider.convert(this.estimateFeeFloat(fee), ('feeCoin' in this ? this.feeCoin.code : this.code));
+  getFeeValueDisplay: function(fee, gasLimit) {
+    return app.priceProvider.convert(this.estimateFeeFloat(fee, gasLimit), ('feeCoin' in this ? this.feeCoin.code : this.code));
   },
 
   getFees: function(callback) {
     var provider = this._getProvider();
     provider.eth.getGasPrice().then(function(avgGas){
       var f = provider.utils.fromWei(avgGas, 'gwei');
-
       callback([
         [provider.utils.toWei("" +(f * 0.5).toFixed(9), 'gwei'), 8.77],
         [provider.utils.toWei("" +(f * 0.75).toFixed(9), 'gwei'), 2.86],
-        [provider.utils.toWei("" +(f * 1.0).toFixed(9), 'gwei'), 2.43],
+        [avgGas, 2.43],
         [provider.utils.toWei("" +(f * 1.5).toFixed(9), 'gwei'), 0.62],
         [provider.utils.toWei("" + (f * 2.0).toFixed(9), 'gwei'), 0.6]
       ]);
