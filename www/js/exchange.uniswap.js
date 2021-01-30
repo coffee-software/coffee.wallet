@@ -107,7 +107,7 @@ var exchangeUniswap = ExtendObject(exchange, {
                             '<table class="niceTable">' +
                             '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + app.wallets[from].handler.systemValueToDisplayValue(systemAmount) + ' ' + from + '</td><td>' + app.priceProvider.convert(app.wallets[from].handler.systemValueToFloatValue(systemAmount), from) + '</td></tr>' +
                             '<tr><th colspan="2">fee:</th></tr><tr><td>' + handler.getFeeDisplay([avgGas, 2.43], gasEstimate) + '</td><td>' + handler.getFeeValueDisplay([avgGas, 2.43], gasEstimate) + '</td></tr>' +
-                            '<tr><th colspan="2">asdasd asd</th></tr>' +
+                            '<tr><th colspan="2">Before exchanging ERC20 tokens, you need to approve Uniswap to spend your tokens.</th></tr>' +
                             '</table>'
                             ,
                             function () {
