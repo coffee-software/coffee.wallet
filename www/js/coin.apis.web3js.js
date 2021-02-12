@@ -133,6 +133,7 @@ var Web3JsBaseHandler = {
     });
   },
   sendPayment: function(priv, receiver, amount, fee, successHandler) {
+    var account = this._getProvider().eth.accounts.privateKeyToAccount(priv);
     this.sendCustomTransaction(priv, this._getTransaction(account, receiver, amount, fee), successHandler);
   },
   _nonceCache: {},
