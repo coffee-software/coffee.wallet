@@ -6,9 +6,15 @@ var osPlugins = {
 
   generatePDF: function(html, file, success, error){
     if (device.platform == 'browser') {
-      console.log(html);
+      //console.log(html);
       //osPlugins.openInSystemBrowser('data:text/html;charset=UTF-8,' + encodeURIComponent(html));
-      app.alertInfo('wallet info printed to console');
+      var element = document.createElement('a');
+      element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(html));
+      element.setAttribute('download', file + '.html');
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
       success();
     } else {
       document.getElementById('loading').classList.add('show');
@@ -38,14 +44,15 @@ var osPlugins = {
     } else if (device.platform == 'iOS') {
       this.openInSystemBrowser('itms-apps://itunes.apple.com/us/app/domainsicle-domain-name-search/id1433984988?ls=1&mt=8');
     } else {
-      app.alertError('Don\'t know how to do this on this platform');
+      app.alertError('Rating is not available on this platform');
     }
   },
   shareDialog: function(subject, message, successHandler, errorHandler) {
 
     if (device.platform == 'browser') {
-      app.alertInfo('share code printed to console');
-      console.log(message);
+      this.copyToClipboard(message);
+      app.alertSuccess('Share message copied to clipboard');
+      successHandler();
       return;
     }
     document.getElementById('loading').classList.add('show');
@@ -67,10 +74,28 @@ var osPlugins = {
   },
   copyToClipboard: function(text) {
     if (device.platform == 'browser') {
-      //TODO copy to clip on browser
-      console.log(text);
+      var tmpInputElement = document.createElement('textarea');
+      tmpInputElement.value = text;
+      document.body.appendChild(tmpInputElement);
+      tmpInputElement.select();
+      document.execCommand('Copy');
+      document.body.removeChild(tmpInputElement);
     } else {
       cordova.plugins.clipboard.copy(text);
     }
   }
 }
+
+document.addEventListener("deviceready", function(){
+    if (device.platform == 'browser') {
+        console.log('registering SW');
+        if ('serviceWorker' in navigator) {
+           navigator.serviceWorker.register('./sw.js').then(function(registration) {
+             console.log('ServiceWorker registration successful with scope: ', registration.scope);
+           }, function(err) {
+             console.log('ServiceWorker registration failed: ', err);
+           });
+           //navigator.registerProtocolHandler('web+coffee', 'http://localhost:8879/TEST?%s', 'Coffee Wallet');
+        };
+    }
+});

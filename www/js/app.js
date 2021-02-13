@@ -1668,7 +1668,7 @@ var app = {
         'https://wallet.coffee/receive#' + receiveLink;
 
       osPlugins.shareDialog(subject, message, function() {
-        app.alertInfo('Done. Recipient will now be able to withdraw this transfer.');
+        app.alertInfo('If you sent the message, recipient will be able to withdraw this transfer.');
       }, function(msg) {
         app.alertError('Sharing failed with message: ' + msg);
       });
@@ -1929,7 +1929,7 @@ var app = {
       message += '\nlink: \n' + 'https://wallet.coffee/request.html#' + this.updateReceivePaymentCode();
 
       osPlugins.shareDialog('', message, function() {
-        app.alertInfo('Done. Recipient will be able to use code to make a payment.');
+        app.alertInfo('Any recipients will be able to use code to make a payment.');
       }, function(msg) {
         app.alertError('Sharing failed with message: ' + msg);
       });

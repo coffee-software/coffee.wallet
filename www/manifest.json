@@ -1,0 +1,17 @@
+{
+  "name": "Coffee Wallet",
+  "short_name": "CoffeeWallet",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fffcf8",
+  "description": "Open Blockchain Wallet and Portfolio.",
+  "theme_color": "#766054",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./pwa/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
