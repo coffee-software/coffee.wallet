@@ -2,6 +2,6 @@
 set -e
 
 #deploy website
-rsync -avzphL tokens_page/ coffee:tokens.coffee/
+rsync -avzphL tokens_page/ qnap:/home/capps/tokens.coffee/
 
 echo "DONE."

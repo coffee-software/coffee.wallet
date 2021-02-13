@@ -19,7 +19,7 @@ function versionCompare(v1, v2) {
   return 0;
 }
 
-window.version = "0.14.1";
+window.version = "0.14.3";
 window.changelog = [
   {
    version: '0.14.0',

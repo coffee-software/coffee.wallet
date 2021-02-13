@@ -90,21 +90,25 @@
 		<div id="details">
 			<h3>Coffee Token</h3>
 			<p>
-			Coffee Token (<strong>CFT</strong>) is a utility token for <a href="https://wallet.coffee/">Coffee Wallet</a> Project.
-			It enables you to:
+			Coffee Token (<strong>CFT</strong>) is a small utility and governance token for <a href="https://wallet.coffee/">Coffee Wallet</a> Project.
+			At the moment you can buy and hold CFT to support further development of this open source project. 
+			In the future, with CFT you will be able to:
 			</p>
 			<ul>
 				<li>Participate in project by voting on features.</li>
 				<li>Pay for an ad inside of the app.</li>
-				<li>Buy premium features.</li>
+				<li>CFT holders will get discounts for wallet fees and premium features.</li>
 			</ul>
-
-			<h3>Current Stage: First Airdrop</h3>
 			<p>
-				<a href="https://wallet.coffee/#download">Install Coffee Wallet</a> now to participate in the airdrop and get free 100 CFT.
+			CFT will also be used to provide a tiny reward for new users for completing a gamified tutorial giving them some real value and ensuring they understand basic concepts when entering world of cryptocurrencies.
 			</p>
 
-			<div id="piechart1" style="width: 100%; height: 250px;"></div>
+			<h3>Current Stage: IEO</h3>
+			<p>
+				Token is now available on <a href="https://info.uniswap.org/token/0x5BF2390A68ab7Db7d27Ae81894C4E22E669aF236">Uniswap</a>.
+			</p>
+
+			<!--div id="piechart1" style="width: 100%; height: 250px;"></div-->
 
 			<h3>Technical Details</h3>
 			<p>
@@ -140,10 +144,10 @@
 
 				var data = google.visualization.arrayToDataTable([
 					['purpose', 'value'],
-					['Airdrops', 1000000],
-					['Private ICO', 1000000],
-					['Public ICO',  4000000],
-					['Reserved', 1000000]
+					['Initial Airdrop', 500000],
+					['Initial IEO liquidity', 500000],
+					['Future Airdrop Rewards and IEO',  1000000],
+					['Reserved', 5000000]
 				]);
 
 				var options = {
@@ -175,9 +179,9 @@
 					['Left', left]
 					//
 				]);
-				var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+				//var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
 
-				chart.draw(data2, options);
+				//chart.draw(data2, options);
 
 				var xmlHttp = new XMLHttpRequest();
 				xmlHttp.responseType = 'json';
