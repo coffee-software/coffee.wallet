@@ -6,6 +6,8 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="viewport-fit=cover, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta name="theme-color" content="#766054">
+        <link rel="apple-touch-icon" href="/pwa/icon512.png">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="css/ui.css">
@@ -97,6 +99,18 @@
             </div>
             <div id="walletsTab" class="swipe_tab">
               <div id="wallets" class="tab_inner">
+                <div id="persistInfo">
+                  <strong>Warning!</strong> Your browser does not support persistent storages.
+                  <br/>
+                  Your private keys are stored in cache and might vanish at any moment.
+                </div>
+                <div id="pwaInfo">
+                  You are running Coffee Wallet in your browser.
+                  <br/>
+                  You are free to explore but it is recommended to:
+                  <a href="/">OPEN IN APP</a>
+                  <button id="installPwa">INSTALL APP</button>
+                </div>
                 <div id="walletsList">
                 </div>
           	    <div onclick="app.popupAddCoin()" class="walletsAddButton">

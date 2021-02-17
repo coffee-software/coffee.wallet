@@ -3,7 +3,6 @@ const CACHE_KEY = 'cache-v1';
 //TODO automate: find . -print | awk '{ print "\""$0"\","}'
 const CACHE_URLS = [
     './',
-    "./index.html",
     "./vendor/pulltorefresh.min.js",
     "./vendor/range-slider.min.js",
     "./vendor/qrcode.js",
@@ -564,7 +563,9 @@ const CACHE_URLS = [
     "./plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js",
     "./plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
     "./plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js",
-    "./pwa/icon.png",
+    "./pwa/icon512.png",
+    "./pwa/icon192.png",
+    "./pwa/maskable.png",
     "./config.xml",
     "./cordova-js-src/platform.js",
     "./cordova-js-src/exec.js",

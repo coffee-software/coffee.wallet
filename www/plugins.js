@@ -95,7 +95,37 @@ document.addEventListener("deviceready", function(){
            }, function(err) {
              console.log('ServiceWorker registration failed: ', err);
            });
+           //TODO protocol handler:
            //navigator.registerProtocolHandler('web+coffee', 'http://localhost:8879/TEST?%s', 'Coffee Wallet');
         };
+        let deferredPrompt;
+        const isPwa = navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+        if (navigator.storage && navigator.storage.persist) {
+          navigator.storage.persist().then(function (isPersisted){
+            if (!isPersisted) {
+                document.getElementById('persistInfo').classList.add('show');
+            }
+          });
+        } else {
+            document.getElementById('persistInfo').classList.add('show');
+        }
+        if (!isPwa) {
+            document.getElementById('pwaInfo').classList.add('show');
+            window.addEventListener('beforeinstallprompt', (e) => {
+              e.preventDefault();
+              deferredPrompt = e;
+              document.getElementById('installPwa').classList.add('show');
+              console.log('beforeinstallprompt');
+            });
+            document.getElementById('installPwa').addEventListener('click', async () => {
+              document.getElementById('installPwa').classList.remove('show');
+              deferredPrompt.prompt();
+              const { outcome } = await deferredPrompt.userChoice;
+              deferredPrompt = null;
+            });
+            window.addEventListener('appinstalled', (evt) => {
+                document.getElementById('pwaInfo').classList.remove('show');
+            });
+        }
     }
 });

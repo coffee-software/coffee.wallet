@@ -1029,3 +1029,30 @@ body.electron #uxHint {
 #sendCoinFeeInfo.default .customize-button {
   display: block;
 }
+
+#persistInfo {
+    display: none;
+    border: 1px solid orange;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+}
+#persistInfo.show {
+    display: block;
+}
+#pwaInfo {
+    display: none;
+    border: 1px solid orange;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+}
+#pwaInfo.show {
+    display: block;
+}
+#installPwa {
+    display: none;
+}
+#installPwa.show {
+    display: block;
+}
