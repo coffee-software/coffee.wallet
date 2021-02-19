@@ -2188,9 +2188,10 @@ var app = {
         });
 
         this.data.load(function(){
+          osPlugins.checkForUpdates(function(){
             navigator.splashscreen.hide();
 
-            if (!('bip39' in this.data.wallets)) {
+            if (!('bip39' in app.data.wallets)) {
               app.saveVersion();
               app.createNewWallet();
             } else {
@@ -2211,6 +2212,7 @@ var app = {
                 });
               });
             }
+          });
         }.bind(this));
 
         this.updateMarketCap();

@@ -83,11 +83,46 @@ var osPlugins = {
     } else {
       cordova.plugins.clipboard.copy(text);
     }
-  }
-}
-
-document.addEventListener("deviceready", function(){
+  },
+  browserCheckPersisted: function() {
+    if (navigator.storage && navigator.storage.persist) {
+      navigator.storage.persist().then(function (isPersisted){
+        if (!isPersisted) {
+            document.getElementById('persistInfo').classList.add('show');
+        }
+      });
+    } else {
+        document.getElementById('persistInfo').classList.add('show');
+    }
+  },
+  browserInitPWA: function() {
+    let deferredPrompt;
+    const isPwa = navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+    if (!isPwa) {
+        document.getElementById('pwaInfo').classList.add('show');
+        window.addEventListener('beforeinstallprompt', (e) => {
+          e.preventDefault();
+          deferredPrompt = e;
+          document.getElementById('installPwa').classList.add('show');
+          console.log('beforeinstallprompt');
+        });
+        document.getElementById('installPwa').addEventListener('click', async () => {
+          document.getElementById('installPwa').classList.remove('show');
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          deferredPrompt = null;
+        });
+        window.addEventListener('appinstalled', (evt) => {
+            document.getElementById('pwaInfo').classList.remove('show');
+        });
+    }
+  },
+  checkForUpdates: function(callback) {
     if (device.platform == 'browser') {
+        this.browserCheckPersisted();
+        this.browserInitPWA();
+        //TODO protocol handler:
+        //navigator.registerProtocolHandler('web+coffee', 'http://localhost:8879/TEST?%s', 'Coffee Wallet');
         console.log('registering SW');
         if ('serviceWorker' in navigator) {
            navigator.serviceWorker.register('./sw.js').then(function(registration) {
@@ -95,37 +130,50 @@ document.addEventListener("deviceready", function(){
            }, function(err) {
              console.log('ServiceWorker registration failed: ', err);
            });
-           //TODO protocol handler:
-           //navigator.registerProtocolHandler('web+coffee', 'http://localhost:8879/TEST?%s', 'Coffee Wallet');
-        };
-        let deferredPrompt;
-        const isPwa = navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
-        if (navigator.storage && navigator.storage.persist) {
-          navigator.storage.persist().then(function (isPersisted){
-            if (!isPersisted) {
-                document.getElementById('persistInfo').classList.add('show');
+            console.log('Checking for updates...');
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    console.log();
+                    var newVersionData = JSON.parse(xmlHttp.responseText);
+
+                    if (newVersionData.version != window.version) {
+                        navigator.splashscreen.hide();
+                        app.confirmBeforeContinue(
+                            'Update Available',
+                            'New version of Coffee Wallet is available.<br/>' +
+                            'You are running: <strong>' + window.version + '</strong><br/>' +
+                            'New version available: <strong>' + newVersionData.version + '</strong><br/>' +
+                            'It is recommended to update to latest version.',
+                            function(){
+                                document.getElementById('loading').classList.add('show');
+                                navigator.serviceWorker.ready.then(registration => {
+                                    registration.update().then(() => {
+                                         console.log('updated');
+                                         window.location.reload(true);
+                                    });
+                                });
+                            },
+                            'Update Now',
+                            'Later',
+                            function(){
+                                callback();
+                            }
+                        );
+                    } else {
+                        callback();
+                    }
+                } else {
+                    callback();
+                }
             }
-          });
+            xmlHttp.open( "GET", '/version.json', true );
+            xmlHttp.send( null );
         } else {
-            document.getElementById('persistInfo').classList.add('show');
+           callback();
         }
-        if (!isPwa) {
-            document.getElementById('pwaInfo').classList.add('show');
-            window.addEventListener('beforeinstallprompt', (e) => {
-              e.preventDefault();
-              deferredPrompt = e;
-              document.getElementById('installPwa').classList.add('show');
-              console.log('beforeinstallprompt');
-            });
-            document.getElementById('installPwa').addEventListener('click', async () => {
-              document.getElementById('installPwa').classList.remove('show');
-              deferredPrompt.prompt();
-              const { outcome } = await deferredPrompt.userChoice;
-              deferredPrompt = null;
-            });
-            window.addEventListener('appinstalled', (evt) => {
-                document.getElementById('pwaInfo').classList.remove('show');
-            });
-        }
+    } else {
+        callback();
     }
-});
+  }
+}

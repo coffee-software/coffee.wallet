@@ -26,7 +26,8 @@ sed -i -e 's/class=\"VERSION\">.*<\/span>/class=\"VERSION\">'$nextVersion'<\/spa
 sed -i -e 's/class=\"VERSION\">.*<\/span>/class=\"VERSION\">'$nextVersion'<\/span>/g' landing_page/index.html
 sed -i -e 's/ version=".*" xmlns="http/ version="'$nextVersion'" xmlns="http/g' config.xml
 sed -i -e 's/window\.version = ".*"/window\.version = "'$nextVersion'"/g' www/js/changelog.js
-git add www/index.html landing_page/index.html config.xml www/js/changelog.js
+sed -i -e 's/"version": ".*"/"version": "'$nextVersion'"/g' www/version.json
+git add www/index.html landing_page/index.html config.xml www/js/changelog.js www/version.json
 git commit -m 'update version'
 
 git tag $nextVersion
