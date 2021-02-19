@@ -43,12 +43,20 @@ var app = {
         document.getElementById('popupContent').addEventListener("scroll", function(){
           app.togglePopupHeaderFix();
         });
+        window.onresize = this.onResize.bind(this);
+        this.onResize();
     },
-
+    resizingTimer: null,
+    onResize: function() {
+        document.body.classList.toggle('desktop', window.innerWidth > 660);
+        document.body.classList.add('resizing');
+        clearTimeout(this.resizingTimer);
+        this.resizingTimer = setTimeout(function () {
+            document.body.classList.remove('resizing');
+        }, 400);
+    },
     targetScroll: 0,
-
     scrollToTargetTimer: null,
-
     netError: false,
     togglePopupHeaderFix: function() {
       var headerSize = 0;

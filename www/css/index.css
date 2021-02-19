@@ -222,15 +222,11 @@ h1, h2, h3 {
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
-body.electron ::-webkit-scrollbar {
+body.desktop ::-webkit-scrollbar {
     width: 12px;
 }
 
-body.electron ::-webkit-scrollbar-track {
-
-}
-
-body.electron ::-webkit-scrollbar-thumb {
+body.desktop ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: #766054;
 }
@@ -453,27 +449,17 @@ table {
   width: 32px;
   margin: 0 auto;
 }
-
-body.electron .slidingRow {
+body.resizing * {
+  transition: none !important;
+}
+body.desktop .listingRow .buttons.hidden {
+  display: flex !important;
+}
+body.desktop .slidingRow {
   left: 130px;
-  right: 190px;
+  right: 130px;
   box-shadow: none;
-}
-
-body.electron .listingRow .buttons {
-
-}
-
-body.electron #toggleMenu {
-  display: none;
-}
-
-body.electron #foot {
-  display: none;
-}
-
-body.electron #tools {
-  display: none;
+  transform: none !important;
 }
 
 #offlineAssets {
@@ -869,9 +855,6 @@ ol.mnemonic li span {
     pointer-events: none;
     opacity: 0;
     transition: opacity 1s linear;
-}
-body.electron #uxHint {
-  display: none;
 }
 
 #uxHint img {

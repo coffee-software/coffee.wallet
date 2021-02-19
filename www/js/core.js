@@ -46,7 +46,7 @@ function getCoinAddrIcon(handler, addr) {
   } else {
     var emptyImg = document.createElement('img');
     emptyImg.setAttribute("class", "coinIcon");
-    emptyImg.setAttribute("src", "coins/empty.svg");
+    emptyImg.setAttribute("src", "coins/noicon.svg");
     return emptyImg;
   }
 }
