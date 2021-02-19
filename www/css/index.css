@@ -223,11 +223,11 @@ h1, h2, h3 {
 }
 
 body.desktop ::-webkit-scrollbar {
-    width: 12px;
+    width: 6px;
 }
 
 body.desktop ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 6px;
     background: #766054;
 }
 
@@ -1018,6 +1018,7 @@ ol.mnemonic li span {
     border: 1px solid orange;
     margin: 10px 0;
     padding: 10px;
+    background: #ffe471;
     text-align: center;
 }
 #persistInfo.show {
@@ -1028,13 +1029,24 @@ ol.mnemonic li span {
     border: 1px solid orange;
     margin: 10px 0;
     padding: 10px;
+    background: #ffe471;
     text-align: center;
 }
 #pwaInfo.show {
     display: block;
 }
+.pwaActions {
+    margin-top: 15px;
+    display: flex;
+}
+.pwaActions a, .pwaActions button{
+    flex: 1;
+    line-height: 32px;
+}
 #installPwa {
     display: none;
+    background: #766054;
+    color: white;
 }
 #installPwa.show {
     display: block;
