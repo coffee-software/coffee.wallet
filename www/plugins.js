@@ -33,6 +33,18 @@ var osPlugins = {
       });
     }
   },
+  scanQRCode: function(success, error, config) {
+
+    if (device.platform == 'browser') {
+        error('Scanning not yet supported in PWA');
+    } else {
+        cordova.plugins.barcodeScanner.scan(
+            success,
+            error,
+            config
+        );
+    }
+  },
   openInSystemBrowser: function(url) {
     //ugly fix for weird iOS bug
     app.lastOpenedUrl = url;
@@ -133,38 +145,38 @@ var osPlugins = {
             console.log('Checking for updates...');
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange = function() {
-                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                    console.log();
-                    var newVersionData = JSON.parse(xmlHttp.responseText);
-
-                    if (newVersionData.version != window.version) {
-                        navigator.splashscreen.hide();
-                        app.confirmBeforeContinue(
-                            'Update Available',
-                            'New version of Coffee Wallet is available.<br/>' +
-                            'You are running: <strong>' + window.version + '</strong><br/>' +
-                            'New version available: <strong>' + newVersionData.version + '</strong><br/>' +
-                            'It is recommended to update to latest version.',
-                            function(){
-                                document.getElementById('loading').classList.add('show');
-                                navigator.serviceWorker.ready.then(registration => {
-                                    registration.update().then(() => {
-                                         console.log('updated');
-                                         window.location.reload(true);
+                if (xmlHttp.readyState == 4) {
+                    if (xmlHttp.status == 200) {
+                        var newVersionData = JSON.parse(xmlHttp.responseText);
+                        if (newVersionData.version != window.version) {
+                            navigator.splashscreen.hide();
+                            app.confirmBeforeContinue(
+                                'Update Available',
+                                'New version of Coffee Wallet is available.<br/>' +
+                                'You are running: <strong>' + window.version + '</strong><br/>' +
+                                'New version available: <strong>' + newVersionData.version + '</strong><br/>' +
+                                'It is recommended to update to latest version.',
+                                function(){
+                                    document.getElementById('loading').classList.add('show');
+                                    navigator.serviceWorker.ready.then(registration => {
+                                        registration.update().then(() => {
+                                             console.log('updated');
+                                             window.location.reload(true);
+                                        });
                                     });
-                                });
-                            },
-                            'Update Now',
-                            'Later',
-                            function(){
-                                callback();
-                            }
-                        );
+                                },
+                                'Update Now',
+                                'Later',
+                                function(){
+                                    callback();
+                                }
+                            );
+                        } else {
+                            callback();
+                        }
                     } else {
                         callback();
                     }
-                } else {
-                    callback();
                 }
             }
             xmlHttp.open( "GET", '/version.json', true );

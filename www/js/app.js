@@ -1144,7 +1144,7 @@ var app = {
       });
     },
     scanQrCode: function(callback) {
-      cordova.plugins.barcodeScanner.scan(
+      osPlugins.scanQRCode(
            function (result) {
              if (!result.canceled) {
                app._parseTransactionText(result.text, callback);
