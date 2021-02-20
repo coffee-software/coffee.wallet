@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -7,50 +9,67 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Warstwa_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 38 38"
+   xml:space="preserve"
+   sodipodi:docname="cft.svg"
    width="38"
    height="38"
-   viewBox="0 0 38 38"
-   fill="none"
-   version="1.1"
-   id="svg8"
-   sodipodi:docname="cft.svg"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
-  <metadata
-     id="metadata14">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs12" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1236"
-     inkscape:window-height="792"
-     id="namedview10"
-     showgrid="false"
-     inkscape:zoom="6.2105265"
-     inkscape:cx="33.844993"
-     inkscape:cy="20.789224"
-     inkscape:window-x="1019"
-     inkscape:window-y="89"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg8" />
-  <path
-     style="fill:#766054"
-     d="M 19 0 C 8.474 0 0 8.474 0 19 C 0 29.526 8.474 38 19 38 C 29.526 38 38 29.526 38 19 C 38 8.474 29.526 0 19 0 z M 21.720703 8.0410156 C 22.978332 8.0773202 24.17241 8.4135782 25.207031 9.1191406 C 30.159389 12.496411 30.041221 19.125137 26.378906 24.490234 C 23.069466 29.338384 16.18799 31.367942 12.521484 28.925781 C 8.5838381 26.303016 7.5727407 19.455018 11.236328 14.03125 C 13.599412 10.532814 17.947816 7.9321019 21.720703 8.0410156 z M 24.810547 11.445312 C 21.867833 16.838 20.95023 15.88417 18.740234 16.875 C 16.690054 17.939669 12.76695 19.344257 12.939453 26.324219 C 15.568343 21.658277 17.107987 21.667124 19.564453 20.677734 C 21.701194 19.955187 26.011769 17.301972 24.810547 11.445312 z "
-     id="rect2" />
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   inkscape:export-filename="/home/fsw/workspace/coffee.wallet/_media/cft.png"
+   inkscape:export-xdpi="1293"
+   inkscape:export-ydpi="1293"><metadata
+   id="metadata17"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs15" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1034"
+   inkscape:window-height="771"
+   id="namedview13"
+   showgrid="false"
+   inkscape:zoom="8"
+   inkscape:cx="5.6033468"
+   inkscape:cy="28.802159"
+   inkscape:window-x="525"
+   inkscape:window-y="141"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="Warstwa_1" />
+<style
+   type="text/css"
+   id="style2">
+	.st0{fill:#51362E;}
+</style>
+<g
+   id="g10"
+   transform="scale(0.19814371)">
+	<path
+   class="st0"
+   d="M 95.89,0 C 42.77,0 0,42.77 0,95.89 c 0,53.12 42.77,95.89 95.89,95.89 53.12,0 95.89,-42.77 95.89,-95.89 C 191.78,42.77 149.01,0 95.89,0 Z m 54.42,150.31 c -14.49,14.49 -33.82,22.48 -54.43,22.48 -20.61,0 -39.93,-7.98 -54.43,-22.48 C 26.96,135.82 18.97,116.49 18.97,95.88 18.97,75.27 26.95,55.95 41.45,41.45 55.94,26.96 75.27,18.97 95.88,18.97 c 20.61,0 39.93,7.98 54.43,22.48 14.49,14.49 22.48,33.82 22.48,54.43 0,20.61 -7.98,39.94 -22.48,54.43 z"
+   id="path4"
+   inkscape:connector-curvature="0"
+   style="fill:#766054;fill-opacity:1" />
+	<path
+   class="st0"
+   d="m 94.63,89.33 c -8.62,3.15 -21.51,7.83 -20.88,33.5 9.6,-17.16 15.91,-16.78 24.2,-20.77 8.29,-3.99 23.55,-12.42 19.16,-33.96 -10.64,17.32 -13.87,18.07 -22.48,21.23 z"
+   id="path6"
+   inkscape:connector-curvature="0"
+   style="fill:#766054;fill-opacity:1" />
+	<path
+   class="st0"
+   d="m 95.89,23.27 c -40.04,0 -72.62,32.58 -72.62,72.62 0,40.04 32.58,72.62 72.62,72.62 40.04,0 72.62,-32.58 72.62,-72.62 0,-40.04 -32.58,-72.62 -72.62,-72.62 z m 26.85,92.74 c -12.04,17.77 -37.08,25.2 -50.43,16.25 -14.33,-9.61 -18.01,-34.7 -4.68,-54.58 8.6,-12.82 24.42,-22.35 38.15,-21.95 4.58,0.13 8.92,1.37 12.69,3.95 18.03,12.38 17.6,36.67 4.27,56.33 z"
+   id="path8"
+   inkscape:connector-curvature="0"
+   style="fill:#766054;fill-opacity:1" />
+</g>
 </svg>
