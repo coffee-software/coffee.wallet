@@ -19,11 +19,19 @@ function versionCompare(v1, v2) {
   return 0;
 }
 
-window.version = "0.14.3";
+window.version = "0.15.0";
 window.changelog = [
   {
+   version: '0.15.0',
+   date: '2021-02-21',
+   changes: [
+     'added: option to run Coffee Wallet online and as PWA',
+     'fixed: minor fixes'
+   ]
+  },
+  {
    version: '0.14.0',
-   date: '2020-05-13',
+   date: '2021-02-01',
    changes: [
      'added: Uniswap, decentralized tokens exchange support',
      'added: send from private key feature',
