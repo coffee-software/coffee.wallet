@@ -1013,25 +1013,23 @@ ol.mnemonic li span {
   display: block;
 }
 
-#persistInfo {
-    display: none;
-    border: 1px solid orange;
-    margin: 10px 0;
-    padding: 10px;
-    background: #ffe471;
-    text-align: center;
-}
-#persistInfo.show {
-    display: block;
-}
 #pwaInfo {
     display: none;
-    border: 1px solid orange;
+    border: 1px dashed orange;
     margin: 10px 0;
     padding: 10px;
-    background: #ffe471;
+    background: #fff4b1;
     text-align: center;
 }
+
+#pwaInfo .issue {
+   margin-bottom: 10px;
+   display: none;
+}
+#pwaInfo .issue.show {
+    display: block;
+}
+
 #pwaInfo.show {
     display: block;
 }

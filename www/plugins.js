@@ -100,18 +100,25 @@ var osPlugins = {
     if (navigator.storage && navigator.storage.persist) {
       navigator.storage.persist().then(function (isPersisted){
         if (!isPersisted) {
-            document.getElementById('persistInfo').classList.add('show');
+            document.getElementById('pwaInfo').classList.add('show');
+            document.getElementById('pwaPersist').classList.add('show');
         }
       });
     } else {
-        document.getElementById('persistInfo').classList.add('show');
+        document.getElementById('pwaInfo').classList.add('show');
+        document.getElementById('pwaPersist').classList.add('show');
     }
   },
   browserInitPWA: function() {
     let deferredPrompt;
+    if (window.location.hostname != 'app.wallet.coffee') {
+        document.getElementById('pwaInfo').classList.add('show');
+        document.getElementById('pwaBeta').classList.add('show');
+    }
     const isPwa = navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
     if (!isPwa) {
         document.getElementById('pwaInfo').classList.add('show');
+        document.getElementById('pwaInstall').classList.add('show');
         window.addEventListener('beforeinstallprompt', (e) => {
           e.preventDefault();
           deferredPrompt = e;
@@ -125,7 +132,7 @@ var osPlugins = {
           deferredPrompt = null;
         });
         window.addEventListener('appinstalled', (evt) => {
-            document.getElementById('pwaInfo').classList.remove('show');
+            window.location.reload(true);
         });
     }
   },

@@ -99,15 +99,20 @@
             </div>
             <div id="walletsTab" class="swipe_tab">
               <div id="wallets" class="tab_inner">
-                <div id="persistInfo">
-                  <strong>Warning!</strong> Your browser does not support persistent storages.
-                  <br/>
-                  Your private keys are stored in cache and might vanish at any moment.
-                </div>
                 <div id="pwaInfo">
-                  You are running Coffee Wallet in your browser.
-                  <br/>
-                  You are free to explore but it is recommended to run app in standalone mode.
+                  <div class="issue" id="pwaBeta">
+                    <strong>Warning:</strong> This is <strong>BETA</strong> version of Coffee Wallet.
+                  </div>
+                  <div class="issue" id="pwaPersist">
+                    <strong>Warning:</strong> Browser does not support persistent storage.
+                    <br/>
+                    Data might vanish at any moment, adding app to home screen usually fixes this issue.
+                  </div>
+                  <div class="issue" id="pwaInstall">
+                    You are running Coffee Wallet in your browser.
+                    <br/>
+                    It is recommended to run app in standalone mode.
+                  </div>
                   <div class="pwaActions">
                     <a href="#" onclick="osPlugins.openInSystemBrowser('https://github.com/fsw/coffee.wallet/wiki/Coffee-Wallet-PWA');">read more</a>
                     <button id="installPwa">ADD TO HOME</button>
