@@ -12,7 +12,7 @@ function generate_service_worker {
   sed -n '/^\/\*\ END/,$p' www/sw.js
 }
 
-version=$(git describe --tags)
+version=$(cat www/version.json | jq -r '.version')
 
 echo "BUILDING PWA VERSION $version"
 

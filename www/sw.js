@@ -8,9 +8,21 @@ const CACHE_URLS = [
 self.addEventListener('install', event => {
   console.log('sw: install');
   event.waitUntil(
-    caches.open(CACHE_KEY)
-      .then(cache => cache.addAll(CACHE_URLS))
-      .then(self.skipWaiting())
+    caches.open(CACHE_KEY).then(function(cache){
+        var toFetch = CACHE_URLS.length;
+        CACHE_URLS.forEach(function(url){
+            fetch(url + '?v=' + CACHE_KEY).then(function(response) {
+                if (!response.ok) {
+                    throw new TypeError('bad response status');
+                }
+                toFetch --;
+                cache.put(url, response);
+                if (toFetch == 0) {
+                    self.skipWaiting();
+                }
+            });
+        });
+    })
   );
 });
 

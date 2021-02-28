@@ -996,6 +996,7 @@ var app = {
 
     popupHelp: function() {
         this.openPopup('helpPopup', 'Help');
+        document.getElementById('helpPopupVersion').textContent = window.version;
     },
     popupFeedback: function() {
         //this.openPopup('feedbackPopup', 'Feedback');

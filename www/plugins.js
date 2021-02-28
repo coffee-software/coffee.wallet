@@ -136,7 +136,32 @@ var osPlugins = {
         });
     }
   },
+  confirmBeforeUpdate: function(registration, currentVersion, newVersion, callback) {
+    navigator.splashscreen.hide();
+    app.confirmBeforeContinue(
+        'Update Available',
+        'New version of Coffee Wallet is available.<br/>' +
+        'You are running: <strong>' + currentVersion + '</strong><br/>' +
+        'New version available: <strong>' + newVersion + '</strong><br/>' +
+        'It is recommended to update to latest version.',
+        function(){
+            document.getElementById('loading').classList.add('show');
+            navigator.serviceWorker.ready.then(registration => {
+                registration.update().then(() => {
+                     console.log('sw updated');
+                     window.location.reload(true);
+                });
+            });
+        },
+        'Update Now',
+        'Later',
+        function(){
+            callback();
+        }
+    );
+  },
   checkForUpdates: function(callback) {
+    var that = this;
     if (device.platform == 'browser') {
         this.browserCheckPersisted();
         this.browserInitPWA();
@@ -144,50 +169,29 @@ var osPlugins = {
         //navigator.registerProtocolHandler('web+coffee', 'http://localhost:8879/TEST?%s', 'Coffee Wallet');
         console.log('registering SW');
         if ('serviceWorker' in navigator) {
-           navigator.serviceWorker.register('./sw.js').then(function(registration) {
-             console.log('ServiceWorker registration successful with scope: ', registration.scope);
-           }, function(err) {
-             console.log('ServiceWorker registration failed: ', err);
-           });
-            console.log('Checking for updates...');
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange = function() {
-                if (xmlHttp.readyState == 4) {
-                    if (xmlHttp.status == 200) {
-                        var newVersionData = JSON.parse(xmlHttp.responseText);
-                        if (newVersionData.version != window.version) {
-                            navigator.splashscreen.hide();
-                            app.confirmBeforeContinue(
-                                'Update Available',
-                                'New version of Coffee Wallet is available.<br/>' +
-                                'You are running: <strong>' + window.version + '</strong><br/>' +
-                                'New version available: <strong>' + newVersionData.version + '</strong><br/>' +
-                                'It is recommended to update to latest version.',
-                                function(){
-                                    document.getElementById('loading').classList.add('show');
-                                    navigator.serviceWorker.ready.then(registration => {
-                                        registration.update().then(() => {
-                                             console.log('updated');
-                                             window.location.reload(true);
-                                        });
-                                    });
-                                },
-                                'Update Now',
-                                'Later',
-                                function(){
-                                    callback();
-                                }
-                            );
+            navigator.serviceWorker.register('./sw.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                console.log('Checking for updates...');
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() {
+                    if (xmlHttp.readyState == 4) {
+                        if (xmlHttp.status == 200) {
+                            var newVersionData = JSON.parse(xmlHttp.responseText);
+                            if (newVersionData.version != window.version) {
+                                that.confirmBeforeUpdate(registration, window.version, newVersionData.version, callback);
+                            } else {
+                                callback();
+                            }
                         } else {
                             callback();
                         }
-                    } else {
-                        callback();
                     }
-                }
-            }
-            xmlHttp.open( "GET", '/version.json', true );
-            xmlHttp.send( null );
+                };
+                xmlHttp.open( "GET", '/version.json', true );
+                xmlHttp.send( null );
+            }, function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
         } else {
            callback();
         }
