@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function versionCompare(v1, v2) {
   var v1parts = v1.split('.'),
@@ -26,7 +26,9 @@ window.changelog = [
    date: '2021-02-21',
    changes: [
      'added: option to run Coffee Wallet online and as PWA',
-     'fixed: minor fixes'
+     'added: android adaptive icon',
+     'fixed: missing balance icon',
+     'fixed: minor bugfixes'
    ]
   },
   {
