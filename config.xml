@@ -6,6 +6,14 @@
     </description>
     <author email="frank@wawrzak.com" href="http://software.coffee/">Coffee Software</author>
     <icon density="mdpi" height="128" src="res/icon.png" width="128" />
+    <platform name="android">
+        <icon background="res/icons/ldpi-bg.png" density="ldpi" foreground="res/icons/ldpi-fg.png" src="res/icons/ldpi-fb.png"/>
+        <icon background="res/icons/mdpi-bg.png" density="mdpi" foreground="res/icons/mdpi-fg.png" src="res/icons/mdpi-fb.png"/>
+        <icon background="res/icons/hdpi-bg.png" density="hdpi" foreground="res/icons/hdpi-fg.png" src="res/icons/hdpi-fb.png"/>
+        <icon background="res/icons/xhdpi-bg.png" density="xhdpi" foreground="res/icons/xhdpi-fg.png" src="res/icons/xhdpi-fb.png"/>
+        <icon background="res/icons/xxhdpi-bg.png" density="xxhdpi" foreground="res/icons/xxhdpi-fg.png" src="res/icons/xxhdpi-fb.png"/>
+        <icon background="res/icons/xxxhdpi-bg.png" density="xxxhdpi" foreground="res/icons/xxxhdpi-fg.png" src="res/icons/xxxhdpi-fb.png"/>
+    </platform>
     <icon height="20" platform="ios" src="res/icon20.png" width="20" />
     <icon height="40" platform="ios" src="res/icon40.png" width="40" />
     <icon height="180" platform="ios" src="res/icon180.png" width="180" />
