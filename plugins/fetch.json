@@ -71,14 +71,6 @@
     "is_top_level": false,
     "variables": {}
   },
-  "eeschiavo-cordova-plugin-clipboard": {
-    "source": {
-      "type": "registry",
-      "id": "eeschiavo-cordova-plugin-clipboard"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-clipboard": {
     "source": {
       "type": "registry",
