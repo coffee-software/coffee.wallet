@@ -17,37 +17,43 @@
  * specific language governing permissions and limitations
  * under the License.
  *
- */
+*/
 
 var modulemapper = require('cordova/modulemapper');
 
-var browserWrap, popup, navigationButtonsDiv, navigationButtonsDivInner, backButton, forwardButton, closeButton;
+var browserWrap,
+    popup,
+    navigationButtonsDiv,
+    navigationButtonsDivInner,
+    backButton,
+    forwardButton,
+    closeButton;
 
 function attachNavigationEvents (element, callback) {
     var onError = function () {
         try {
-            callback({ type: 'loaderror', url: this.contentWindow.location.href }, { keepCallback: true }); // eslint-disable-line standard/no-callback-literal
+            callback({ type: 'loaderror', url: this.contentWindow.location.href }, {keepCallback: true}); // eslint-disable-line standard/no-callback-literal
         } catch (err) {
             // blocked by CORS :\
-            callback({ type: 'loaderror', url: null }, { keepCallback: true }); // eslint-disable-line standard/no-callback-literal
+            callback({ type: 'loaderror', url: null }, {keepCallback: true}); // eslint-disable-line standard/no-callback-literal
         }
     };
 
     element.addEventListener('pageshow', function () {
         try {
-            callback({ type: 'loadstart', url: this.contentWindow.location.href }, { keepCallback: true }); // eslint-disable-line standard/no-callback-literal
+            callback({ type: 'loadstart', url: this.contentWindow.location.href }, {keepCallback: true}); // eslint-disable-line standard/no-callback-literal
         } catch (err) {
             // blocked by CORS :\
-            callback({ type: 'loadstart', url: null }, { keepCallback: true }); // eslint-disable-line standard/no-callback-literal
+            callback({ type: 'loadstart', url: null }, {keepCallback: true}); // eslint-disable-line standard/no-callback-literal
         }
     });
 
     element.addEventListener('load', function () {
         try {
-            callback({ type: 'loadstop', url: this.contentWindow.location.href }, { keepCallback: true }); // eslint-disable-line standard/no-callback-literal
+            callback({ type: 'loadstop', url: this.contentWindow.location.href }, {keepCallback: true}); // eslint-disable-line standard/no-callback-literal
         } catch (err) {
             // blocked by CORS :\
-            callback({ type: 'loadstop', url: null }, { keepCallback: true }); // eslint-disable-line standard/no-callback-literal
+            callback({ type: 'loadstop', url: null }, {keepCallback: true}); // eslint-disable-line standard/no-callback-literal
         }
     });
 
@@ -147,9 +153,7 @@ var IAB = {
 
                 backButton.innerHTML = '←';
                 backButton.addEventListener('click', function (e) {
-                    if (popup.canGoBack) {
-                        popup.goBack();
-                    }
+                    if (popup.canGoBack) { popup.goBack(); }
                 });
 
                 forwardButton = document.createElement('button');
@@ -160,9 +164,7 @@ var IAB = {
 
                 forwardButton.innerHTML = '→';
                 forwardButton.addEventListener('click', function (e) {
-                    if (popup.canGoForward) {
-                        popup.goForward();
-                    }
+                    if (popup.canGoForward) { popup.goForward(); }
                 });
 
                 closeButton = document.createElement('button');

@@ -65,7 +65,7 @@
     </edit-config>
     <plugin name="phonegap-plugin-barcodescanner" spec="^7.1.1" />
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
-    <plugin name="cordova-plugin-inappbrowser" spec="5.0.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
     <plugin name="cordova-plugin-nativestorage" spec="2.2.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
