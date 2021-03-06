@@ -10,9 +10,6 @@
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     },
-    "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
-    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet"
     },
@@ -48,6 +45,9 @@
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
     },
     "cordova-plugin-android-fingerprint-auth": {
+      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+    },
+    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
     }
   },

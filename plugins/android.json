@@ -29,9 +29,6 @@
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
-    "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "coffee.software.coffeewallet"
-    },
     "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
@@ -52,6 +49,9 @@
     },
     "phonegap-plugin-barcodescanner": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
+    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
     }
   },

@@ -34,7 +34,7 @@
   "cordova-plugin-inappbrowser": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-inappbrowser@2.0.2"
+      "id": "cordova-plugin-inappbrowser@^2.0.2"
     },
     "is_top_level": true,
     "variables": {}
