@@ -1,6 +1,5 @@
-'use strict'
-
-
+'use strict';
+/* global pdf */
 
 var osPlugins = {
 
@@ -110,28 +109,28 @@ var osPlugins = {
     }
   },
   browserInitPWA: function() {
-    let deferredPrompt;
+    var deferredPrompt;
     if (window.location.hostname != 'app.wallet.coffee') {
         document.getElementById('pwaInfo').classList.add('show');
         document.getElementById('pwaBeta').classList.add('show');
     }
-    const isPwa = navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+    var isPwa = navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
     if (!isPwa) {
         document.getElementById('pwaInfo').classList.add('show');
         document.getElementById('pwaInstall').classList.add('show');
-        window.addEventListener('beforeinstallprompt', (e) => {
+        window.addEventListener('beforeinstallprompt', function(e){
           e.preventDefault();
           deferredPrompt = e;
           document.getElementById('installPwa').classList.add('show');
           console.log('beforeinstallprompt');
         });
-        document.getElementById('installPwa').addEventListener('click', async () => {
+        document.getElementById('installPwa').addEventListener('click', function () {
           document.getElementById('installPwa').classList.remove('show');
           deferredPrompt.prompt();
-          const { outcome } = await deferredPrompt.userChoice;
           deferredPrompt = null;
+          //const { outcome } = await deferredPrompt.userChoice;
         });
-        window.addEventListener('appinstalled', (evt) => {
+        window.addEventListener('appinstalled', function(evt) {
             window.location.reload(true);
         });
     }
@@ -146,8 +145,8 @@ var osPlugins = {
         'It is recommended to update to latest version.',
         function(){
             document.getElementById('loading').classList.add('show');
-            navigator.serviceWorker.ready.then(registration => {
-                registration.update().then(() => {
+            navigator.serviceWorker.ready.then(function(registration) {
+                registration.update().then(function(){
                      console.log('sw updated');
                      window.location.reload(true);
                 });
@@ -199,4 +198,4 @@ var osPlugins = {
         callback();
     }
   }
-}
+};

@@ -1,0 +1,10 @@
+{
+  "browser": true,
+  "strict": "global",
+  "globals": { 
+	"device": true,
+	"cordova": true,
+	"browserify": true,
+	"app": true
+  }
+}
