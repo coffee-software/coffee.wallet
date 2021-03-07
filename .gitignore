@@ -1,6 +1,6 @@
 platforms
-build.dev.zip
-build.prod.zip
+coffee.dev.apk
+coffee.prod.apk
 npm-debug.log
 www/js/config.js
 
