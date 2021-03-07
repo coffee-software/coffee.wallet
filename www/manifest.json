@@ -1,6 +1,6 @@
 {
   "name": "Coffee Wallet",
-  "short_name": "CoffeeWallet",
+  "short_name": "Coffee",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fffcf8",
