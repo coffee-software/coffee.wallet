@@ -37,7 +37,7 @@ function shortAddr(addr, maxchars) {
 
 function getCoinAddrIcon(handler, addr) {
   if (addr && 'addrToIdenticonSeed' in handler) {
-    var addrSvg = browserify.jazzicon(100, handler.addrToIdenticonSeed(addr)).children[0];
+    var addrSvg = engine.jazzicon(100, handler.addrToIdenticonSeed(addr)).children[0];
     addrSvg.setAttribute("viewBox", "0 0 100 100");
     addrSvg.removeAttribute("width");
     addrSvg.removeAttribute("height");

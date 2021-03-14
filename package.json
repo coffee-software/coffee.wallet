@@ -1,15 +1,22 @@
 {
-  "name": "helloworld",
-  "displayName": "HelloCordova",
+  "name": "coffee",
+  "displayName": "CoffeeWallet",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "Coffee Wallet packages",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
+  "files": [
+    "src"
+  ],
   "dependencies": {
+    "@metamask/jazzicon": "^2.0.0",
+    "bip39": "^3.0.3",
+    "bitcoinjs-lib": "^5.2.0",
+    "coininfo": "^5.1.0",
     "cordova-browser": "^5.0.3",
     "cordova-clipboard": "git+https://github.com/ihadeed/cordova-clipboard.git",
     "cordova-pdf-generator": "^2.0.4",
@@ -25,7 +32,6 @@
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-plugin-x-socialsharing": "git+https://github.com/fsw/SocialSharing-PhoneGap-Plugin.git",
     "es6-promise-plugin": "^4.2.2",
-    "jazzicon": "^1.5.0",
     "phonegap-plugin-barcodescanner": "git+https://github.com/phonegap/phonegap-plugin-barcodescanner.git"
   },
   "cordova": {
@@ -53,6 +59,7 @@
     ]
   },
   "devDependencies": {
-    "cordova-android": "^9.0.0"
+    "cordova-android": "^9.0.0",
+    "mocha": "^8.3.2"
   }
 }

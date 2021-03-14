@@ -14,7 +14,7 @@ var exchangeChangelly = ExtendObject(exchange, {
     xhr.open('POST', 'https://api.changelly.com', true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("api-key", config.changelly.apiKey);
-    xhr.setRequestHeader("sign", btcjs.hmacSha512Sign(post, config.changelly.apiSecret));
+    xhr.setRequestHeader("sign", engine.hmacSha512Sign(post, config.changelly.apiSecret));
     xhr.responseType = 'json';
     xhr.onload = function() {
       if (xhr.status === 200 && !('error' in xhr.response)) {

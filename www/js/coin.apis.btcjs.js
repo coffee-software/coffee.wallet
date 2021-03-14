@@ -4,13 +4,13 @@ var BitcoinJsBaseHandler = {
     network: null,
     keyPath: null,
     newRandomPrivateKey: function() {
-      return btcjs.newPrivKey(this.network);
+      return engine.bitcoin.newPrivKey(this.network);
     },
     newPrivateKey: function() {
-      return btcjs.derivePathFromSeedHash(this.network, app.data.wallets.bip39.seedHex, this.keyPath).toWIF();
+      return engine.bitcoin.derivePathFromSeedHash(this.network, app.data.wallets.bip39.seedHex, this.keyPath).toWIF();
     },
     addrFromPrivateKey: function(priv) {
-      return btcjs.addrFromPriv(this.network, priv);
+      return engine.bitcoin.addrFromPriv(this.network, priv);
     },
 
     systemValuesDiff: function(v1, v2) {
@@ -30,7 +30,7 @@ var BitcoinJsBaseHandler = {
     },
     getBalance: function(addr, callback, errorCallback) {
       var that = this;
-      return btcjs.getBalance(this.network, addr, function (balance, pending) {
+      return engine.bitcoin.getBalance(this.network, addr, function (balance, pending) {
         callback(balance + pending, pending);
       }, function (error){
         errorCallback(error, that.code);
@@ -39,7 +39,7 @@ var BitcoinJsBaseHandler = {
     },
     sendPayment: function(priv, receiver, amount, fee, successHandler) {
       var that = this;
-      return btcjs.sendPayment(this.network, priv, receiver, amount, fee[0],
+      return engine.bitcoin.sendPayment(this.network, priv, receiver, amount, fee[0],
         function(response) {
           app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
           successHandler && successHandler(response);
@@ -48,12 +48,17 @@ var BitcoinJsBaseHandler = {
         });
     },
     validateAddress: function(addr) {
-      return btcjs.validateAddress(this.network, addr);
+      return engine.bitcoin.validateAddress(this.network, addr);
     },
     addrToIdenticonSeed: function(addr) {
       //TODO research for a 'standrd' way to be more useful
       //52 bits is safe max for js int, 52/6(base58 bits per char) = 8
-      return parseInt(btcjs.base58.decode(addr.slice(0, 8)).toString('hex'), 16);
+      if (addr.startsWith('tb1')) {
+        //TODO
+        return engine.bitcoin.bech32.decode(addr).words.slice(2,10).reduce(function(a,b){ return a * 32 + b; });
+      } else {
+        return parseInt(engine.bitcoin.base58.decode(addr.slice(0, 8)).toString('hex'), 16);
+      }
     },
 
     estimateFeeFloat: function(fee) {
@@ -72,13 +77,13 @@ var BitcoinJsBaseHandler = {
     getFees: function(callback) {
       var that = this;
       app.settings.getCached('coin-' + this.code + '-fees2', 15 * 60, function(callback){
-        btcjs.getFees(that.network, callback);
+        engine.bitcoin.getFees(that.network, callback);
       }, callback);
     }
 };
 
 var BtcTestHandler = ExtendObject(BitcoinJsBaseHandler, {
-    network: btcjs.networks.test,
+    network: engine.bitcoin.networks.test,
     keyPath: "m/44'/1'/0'/0/0",
     name: "bitcoin-test",
     code: "BTC.TST",
@@ -102,7 +107,7 @@ var BtcTestHandler = ExtendObject(BitcoinJsBaseHandler, {
 })
 
 var BtcHandler = ExtendObject(BitcoinJsBaseHandler, {
-    network: btcjs.networks.btc,
+    network: engine.bitcoin.networks.btc,
     keyPath: "m/44'/0'/0'/0/0",
     name: "bitcoin",
     code: "BTC",
@@ -124,7 +129,33 @@ var BtcHandler = ExtendObject(BitcoinJsBaseHandler, {
     }
 });
 
-var BchHandler = {
+var BchTestHandler = ExtendObject(BitcoinJsBaseHandler, {
+    network: engine.bitcoin.networks.bchtest,
+    keyPath: "m/44'/1'/0'/0/0",
+    name: "bitcoin-cash-test",
+    code: "BCH.TST",
+    testCoin: true,
+    icon: "bch.test",
+    longname: "Bitcoin Cash TestNet",
+    description:
+      "via Bitcoin Wiki: The testnet is an alternative Bitcoin block chain, to be used for testing. " +
+      "Testnet coins are separate and distinct from actual bitcoins, and are never supposed to have any value. " +
+      "This allows application developers or bitcoin testers to experiment, without having to use real bitcoins or worrying about breaking the main bitcoin chain.",
+    links: {
+      "Bitcoin Wiki" : "https://en.bitcoin.it/wiki/Testnet",
+      "Request TestNet coins" : "https://coinfaucet.eu/en/bch-testnet/"
+    },
+    explorerLinkAddr: function(addr) {
+      return 'https://www.blockchain.com/bch-testnet/address/' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://www.blockchain.com/bch-testnet/tx/' + tx;
+    }
+});
+
+var BchHandler = ExtendObject(BitcoinJsBaseHandler, {
+    network: engine.bitcoin.networks.bch,
+    keyPath: "m/44'/145'/0'/0/0",
     name: "bitcoin-cash",
     code: "BCH",
     icon: "bch",
@@ -135,11 +166,17 @@ var BchHandler = {
     links: {
       "CoinMarketCap" : "https://coinmarketcap.com/currencies/bitcoin-cash/",
       'bitcoin.com' : 'https://bitcoin.com/'
+    },
+    explorerLinkAddr: function(addr) {
+      return 'https://www.blockchain.com/bch/address/' + addr;
+    },
+    explorerLinkTx: function(tx) {
+      return 'https://www.blockchain.com/bch/tx/' + tx;
     }
-}
+});
 
 var LtcHandler = ExtendObject(BitcoinJsBaseHandler, {
-    network: btcjs.networks.ltc,
+    network: engine.bitcoin.networks.ltc,
     keyPath: "m/44'/2'/0'/0/0",
     name: "litecoin",
     code: "LTC",
@@ -162,7 +199,7 @@ var LtcHandler = ExtendObject(BitcoinJsBaseHandler, {
 });
 
 var DogeHandler = ExtendObject(BitcoinJsBaseHandler, {
-    network: btcjs.networks.doge,
+    network: engine.bitcoin.networks.doge,
     keyPath: "m/44'/3'/0'/0/0",
     name: "dogecoin",
     code: "DOGE",

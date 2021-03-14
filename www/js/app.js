@@ -2063,12 +2063,12 @@ var app = {
         '<p>Enter your recovery phrase.</p><p>Recovery phrase should be 12 english lowercase words separated by single spaces.</p>',
         function() {
           var mnemonic = input.value.split(' ').map(function(e){ return e.trim().toLowerCase();}).filter(function (e) {return e != '';}).join(' ');
-          if (btcjs.validateMnemonic(mnemonic)) {
+          if (engine.bitcoin.validateMnemonic(mnemonic)) {
             //validate
             app.data.wallets.bip39 = {
               enabled : false,
               mnemonic: mnemonic,
-              seedHex: btcjs.mnemonicToSeedHex(mnemonic)
+              seedHex: engine.bitcoin.mnemonicToSeedHex(mnemonic)
             };
             app.data.save();
             app.initRecoveredWallet();
@@ -2139,11 +2139,11 @@ var app = {
         'If you already have your secret phrase you can <a href="javascript:app.recoverWallet()">recover your wallet</a>.' +
         '</p>',
         function() {
-          var mnemonic = btcjs.generateNewMnemonic();
+          var mnemonic = engine.bitcoin.generateNewMnemonic();
           app.data.wallets.bip39 = {
             enabled : false,
             mnemonic: mnemonic,
-            seedHex: btcjs.mnemonicToSeedHex(mnemonic)
+            seedHex: engine.bitcoin.mnemonicToSeedHex(mnemonic)
           };
           app.data.save();
           app.initNewWallet();

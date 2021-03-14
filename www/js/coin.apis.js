@@ -6,9 +6,9 @@ var allCoinApis = {
   'LTC': LtcHandler,
   'DOGE': DogeHandler,
   'BTC': BtcHandler,
-  //'BCH': BchHandler,
+  'BCH': BchHandler,
+  'BCH.TST': BchTestHandler,
   'ETH': EthHandler
-
 };
 
 for (var k in ERC20Tokens){

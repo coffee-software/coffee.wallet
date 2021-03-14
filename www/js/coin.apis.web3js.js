@@ -21,8 +21,9 @@ var Web3JsBaseHandler = {
     return this._getProvider().eth.accounts.create().privateKey;
   },
   newPrivateKey: function() {
-    var keyPair = btcjs.derivePathFromSeedHash(btcjs.networks.eth, app.data.wallets.bip39.seedHex, "m/44'/60'/0'/0/0");
-    var ret = keyPair.d.toString(16);
+    var keyPair = engine.bitcoin.derivePathFromSeedHash(engine.bitcoin.networks.eth, app.data.wallets.bip39.seedHex, "m/44'/60'/0'/0/0");
+    //var ret = keyPair.d.toString(16);
+    var ret = keyPair.privateKey.toString('hex');
     while (ret.length < 64) ret = "0" + ret;
     return "0x" + ret;
   },
