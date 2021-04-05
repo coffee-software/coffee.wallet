@@ -6,9 +6,7 @@ import {JsonRpcProvider} from "@ethersproject/providers/src.ts/json-rpc-provider
 import {TransactionRequest} from "@ethersproject/abstract-provider/src.ts";
 import {Wallet} from "@ethersproject/wallet/src.ts";
 import {ECPair} from "bitcoinjs-lib";
-var coininfo = require('coininfo');
 var config = require('../../config');
-
 
 class EthTransaction implements NewTransaction {
     data : TransactionRequest
@@ -135,8 +133,8 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return new EthTransaction(this, tx, signed);
     }
 
-    validateAddr(addr: string): boolean {
-        return false;
+    validateAddress(addr: string): boolean {
+        return ethers.utils.isAddress(addr);
     }
 
 }

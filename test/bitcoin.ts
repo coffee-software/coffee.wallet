@@ -18,5 +18,24 @@ describe('Bitcoin Test', function() {
                 "16AMAxJSEg6Yku6VbYbvnKMFZBJjg8o9P6"
             );
         });
+        it('should validate addresses', function () {
+            strictEqual(
+                handler.validateAddress("1F6ShUUd63cainj6DgZfBk7kChiNB4YEwR"),
+                true
+            );
+            strictEqual(
+                handler.validateAddress("35bSzXvRKLpHsHMrzb82f617cV4Srnt7hS"),
+                true
+            );
+            strictEqual(
+                handler.validateAddress("abcd"),
+                false
+            );
+            strictEqual(
+                handler.validateAddress("0x56a591691fC2be24d397b397E42827abaf4F3dC7"),
+                false
+            );
+        });
+
     });
 });

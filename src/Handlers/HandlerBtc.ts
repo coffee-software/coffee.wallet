@@ -1,12 +1,11 @@
-import {OnlineCoinHandler, NewTransaction} from "./BaseCoinHandler";
+import {NewTransaction} from "./BaseCoinHandler";
 import {Keychain} from "../Keychain";
-import {ECPair} from "bitcoinjs-lib";
-import * as bitcoin from "bitcoinjs-lib";
 import {BigNum} from "../BigNum";
+import {BaseBitcoinjsHanlder} from "./BaseBitcoinjsHanlder";
 
 var coininfo = require('coininfo');
 
-export class HandlerBtc implements OnlineCoinHandler {
+export class HandlerBtc extends BaseBitcoinjsHanlder {
 
     getTicker(): string {
         return "BTC";
@@ -38,30 +37,12 @@ export class HandlerBtc implements OnlineCoinHandler {
         return 8;
     }
 
-    getReceiveAddr(keychain: Keychain): string {
-        var network = coininfo.bitcoin.main.toBitcoinJS()
-        var wif = keychain.derivePath("m/44'/0'/0'/0/0", network);
-        var key = ECPair.fromWIF(wif, network);
-        /* console.log(bitcoin.payments.p2wpkh({
-                        pubkey: key.publicKey,
-                        network: network.network
-                }).address); */
-        return bitcoin.payments.p2pkh({
-            pubkey: key.publicKey,
-            network: network
-        }).address;
-    }
-
     prepareTransaction(keychain: Keychain, receiverAddr: string, amount: BigNum, fee: number): Promise<NewTransaction> {
         return undefined;
     }
 
     async getFeeOptions(): Promise<[number]> {
         return [0];
-    }
-
-    validateAddr(addr: string): boolean {
-        return false;
     }
 
     async getBalance(addr: string): Promise<BigNum> {

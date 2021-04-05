@@ -1,17 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -50,58 +37,101 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var BigNum_1 = require("../BigNum");
-var BaseBitcoinjsHanlder_1 = require("./BaseBitcoinjsHanlder");
+var bitcoinjs_lib_1 = require("bitcoinjs-lib");
+var bitcoin = require("bitcoinjs-lib");
 var coininfo = require('coininfo');
-var HandlerBtc = (function (_super) {
-    __extends(HandlerBtc, _super);
-    function HandlerBtc() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var config = require('../../config');
+var BtcTransaction = (function () {
+    function BtcTransaction(handler) {
+        this.handler = handler;
     }
-    HandlerBtc.prototype.getTicker = function () {
-        return "BTC";
+    BtcTransaction.prototype.getBalanceAfter = function () {
+        return "";
     };
-    HandlerBtc.prototype.getName = function () {
-        return "Bitcoin";
+    BtcTransaction.prototype.getFeeDisplay = function () {
+        return "TODO";
     };
-    HandlerBtc.prototype.getIcon = function () {
-        return "btc";
+    BtcTransaction.prototype.getFeeETA = function () {
+        return "TODO";
     };
-    HandlerBtc.prototype.getDescription = function () {
-        return "via Wikpedia: Bitcoin is a cryptocurrency and worldwide payment system. " +
-            "It is the first decentralized digital currency, as the system works without a central bank or single administrator. " +
-            "The network is peer-to-peer and transactions take place between users directly, without an intermediary. " +
-            "These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain. " +
-            "Bitcoin was invented by an unknown person or group of people under the name Satoshi Nakamoto and released as open-source software in 2009. ";
+    BtcTransaction.prototype.getSummaryTable = function () {
+        return "TODO";
     };
-    HandlerBtc.prototype.getLinks = function () {
-        return {
-            'bitcoin.org': 'https://bitcoin.org/'
-        };
-    };
-    HandlerBtc.prototype.getDecimals = function (keychain) {
-        return 8;
-    };
-    HandlerBtc.prototype.prepareTransaction = function (keychain, receiverAddr, amount, fee) {
-        return undefined;
-    };
-    HandlerBtc.prototype.getFeeOptions = function () {
+    BtcTransaction.prototype.send = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2, [0]];
+                return [2, "TODO"];
             });
         });
     };
-    HandlerBtc.prototype.getBalance = function (addr) {
+    return BtcTransaction;
+}());
+var BaseBitcoinjsHanlder = (function () {
+    function BaseBitcoinjsHanlder() {
+    }
+    BaseBitcoinjsHanlder.prototype.getBalance = function (addr) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2, new BigNum_1.BigNum("0")];
             });
         });
     };
-    HandlerBtc.prototype.getIdenticonSeed = function (addr) {
+    BaseBitcoinjsHanlder.prototype.getDecimals = function (keychain) {
         return 0;
     };
-    return HandlerBtc;
-}(BaseBitcoinjsHanlder_1.BaseBitcoinjsHanlder));
-exports.HandlerBtc = HandlerBtc;
-//# sourceMappingURL=HandlerBtc.js.map
+    BaseBitcoinjsHanlder.prototype.getDescription = function () {
+        return "";
+    };
+    BaseBitcoinjsHanlder.prototype.getFeeOptions = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2, [
+                        22
+                    ]];
+            });
+        });
+    };
+    BaseBitcoinjsHanlder.prototype.getIcon = function () {
+        return "";
+    };
+    BaseBitcoinjsHanlder.prototype.getIdenticonSeed = function (addr) {
+        return 0;
+    };
+    BaseBitcoinjsHanlder.prototype.getLinks = function () {
+        return {};
+    };
+    BaseBitcoinjsHanlder.prototype.getName = function () {
+        return "";
+    };
+    BaseBitcoinjsHanlder.prototype.getReceiveAddr = function (keychain) {
+        var network = coininfo.bitcoin.main.toBitcoinJS();
+        var wif = keychain.derivePath("m/44'/0'/0'/0/0", network);
+        var key = bitcoinjs_lib_1.ECPair.fromWIF(wif, network);
+        return bitcoin.payments.p2pkh({
+            pubkey: key.publicKey,
+            network: network
+        }).address;
+    };
+    BaseBitcoinjsHanlder.prototype.getTicker = function () {
+        return "";
+    };
+    BaseBitcoinjsHanlder.prototype.prepareTransaction = function (keychain, receiverAddr, amount, fee) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2, null];
+            });
+        });
+    };
+    BaseBitcoinjsHanlder.prototype.validateAddress = function (addr) {
+        try {
+            bitcoin.address.toOutputScript(addr, coininfo.bitcoin.main.toBitcoinJS());
+            return true;
+        }
+        catch (e) {
+            return false;
+        }
+    };
+    return BaseBitcoinjsHanlder;
+}());
+exports.BaseBitcoinjsHanlder = BaseBitcoinjsHanlder;
+//# sourceMappingURL=BaseBitcoinjsHanlder.js.map

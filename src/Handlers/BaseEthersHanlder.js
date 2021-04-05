@@ -39,7 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ethers_1 = require("ethers");
 var BigNum_1 = require("../BigNum");
 var bitcoinjs_lib_1 = require("bitcoinjs-lib");
-var coininfo = require('coininfo');
 var config = require('../../config');
 var EthTransaction = (function () {
     function EthTransaction(handler, data, signed) {
@@ -169,8 +168,8 @@ var BaseEthersHanlder = (function () {
             });
         });
     };
-    BaseEthersHanlder.prototype.validateAddr = function (addr) {
-        return false;
+    BaseEthersHanlder.prototype.validateAddress = function (addr) {
+        return ethers_1.ethers.utils.isAddress(addr);
     };
     return BaseEthersHanlder;
 }());

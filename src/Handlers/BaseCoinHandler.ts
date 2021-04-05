@@ -27,7 +27,7 @@ export interface OnlineCoinHandler extends BaseCoinHandler {
       fee: number,
   ) : Promise<NewTransaction>
   getFeeOptions () : Promise<[number]>
-  validateAddr(addr : string) : boolean
+  validateAddress(addr : string) : boolean
   getBalance(addr : string) : Promise<BigNum>
   getIdenticonSeed(addr : string) : number
 }
