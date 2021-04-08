@@ -8,6 +8,8 @@ import {RequestOptions} from "https";
 
 var coininfo = require('coininfo');
 var config = require('../../config');
+var base58 = require('bs58');
+var bech32 = require('bech32');
 
 class BtcTransaction implements NewTransaction {
     handler: BaseBitcoinjsHanlder
@@ -164,6 +166,15 @@ interface BitcoinUtxo {
 
 export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
+    abstract testCoin: boolean;
+    abstract description: string;
+    abstract icon: string;
+    abstract links: { [p: string]: string };
+    abstract name: string;
+    abstract ticker: string;
+    abstract explorerLinkAddr(address: string): string;
+    abstract explorerLinkTx(txid: string): string;
+
     webapiHost : string
     webapiPath : string
     network : Network
@@ -280,15 +291,12 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
     }
 
     getIdenticonSeed(addr: string): number {
-        return 0;
-    }
-
-    getLinks(): { [p: string]: string } {
-        return {};
-    }
-
-    getName(): string {
-        throw new Error('implement this');
+        if (addr.startsWith('tb1')) {
+            //TODO
+            return bech32.decode(addr).words.slice(2,10).reduce(function(a :number,b : number){ return a * 32 + b; });
+        } else {
+            return parseInt(base58.decode(addr.slice(0, 8)).toString('hex'), 16);
+        }
     }
 
     getReceiveAddr(keychain: Keychain): string {
@@ -302,10 +310,6 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             pubkey: key.publicKey,
             network: this.network
         }).address;
-    }
-
-    getTicker(): string {
-        throw new Error('implement this');
     }
 
     isP2WSH(script: string): boolean {

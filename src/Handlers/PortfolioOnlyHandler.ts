@@ -6,6 +6,7 @@ export class PortfolioOnlyHandler implements BaseCoinHandler {
     name: string
     icon: string
     description: string
+    links: { [key: string]: string; };
 
     constructor(
         ticker: string,
@@ -18,29 +19,11 @@ export class PortfolioOnlyHandler implements BaseCoinHandler {
         this.name = name;
         this.icon = icon;
         this.description = description;
-    }
-
-    getDescription(): string {
-        return this.description;
-    }
-
-    getIcon(): string {
-        return this.icon;
-    }
-
-    getLinks(): { [p: string]: string } {
-        //var slug = //TODO
-        return {
+        //TODO slug
+        this.links = {
             "CoinGecko" : "https://www.coingecko.com/en/coins/" + this.name,
-            "CoinMarketCap" : "https://coinmarketcap.com/currencies/" + this.name + "/"
+            "CoinMarketCap" : "https://coinmarketcap.com/currencies/" + this.name + "/",
+            "CoinPaprika" : "https://coinpaprika.com/coin/" + this.ticker + "-" + this.name + "/"
         }
-    }
-
-    getName(): string {
-        return this.name;
-    }
-
-    getTicker(): string {
-        return this.ticker;
     }
 }

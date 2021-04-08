@@ -2,11 +2,12 @@ import {Keychain} from "../Keychain";
 import {BigNum} from "../BigNum";
 
 export interface BaseCoinHandler {
-  getTicker() : string;
-  getName() : string;
-  getIcon() : string;
-  getDescription() : string;
-  getLinks() : { [key: string]: string };
+  testCoin: boolean
+  ticker: string
+  name : string
+  icon : string
+  description : string
+  links : { [key: string]: string }
 }
 
 export interface NewTransaction {
@@ -43,6 +44,8 @@ export interface OnlineCoinHandler extends BaseCoinHandler {
   getOwnBalance(keychain: Keychain) : Promise<Balance>
   getBalance(addr : string) : Promise<Balance>
   getIdenticonSeed(addr : string) : number
+  explorerLinkAddr(address : string) : string
+  explorerLinkTx(txid : string) : string
 }
 
 

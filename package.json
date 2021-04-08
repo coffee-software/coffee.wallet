@@ -15,6 +15,7 @@
     "src"
   ],
   "dependencies": {
+    "bech32": "^2.0.0",
     "bip39": "^3.0.3",
     "bitcoinjs-lib": "^5.2.0",
     "coininfo": "^5.1.0",

@@ -43,10 +43,18 @@ class EthTransaction implements NewTransaction {
 
 export abstract class BaseEthersHanlder implements OnlineCoinHandler {
 
+    abstract testCoin: boolean;
+    abstract ticker: string;
+    abstract name: string;
+    abstract icon: string;
+    abstract description: string;
+    abstract links: { [p: string]: string };
+    abstract explorerLinkAddr(address: string): string;
+    abstract explorerLinkTx(txid: string): string;
+
     networkName = 'ropsten' //'homestead'
 
     getProvider(): JsonRpcProvider {
-        //ropsten
         return new ethers.providers.InfuraProvider(this.networkName, config.infuraKey);
     }
 

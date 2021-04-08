@@ -1,40 +1,31 @@
-import {NewTransaction} from "./BaseCoinHandler";
-import {Keychain} from "../Keychain";
-import {BigNum} from "../BigNum";
 import {BaseBitcoinjsHanlder} from "./BaseBitcoinjsHanlder";
 
 var coininfo = require('coininfo');
 
 export class HandlerBtcTest extends BaseBitcoinjsHanlder {
 
+    testCoin = true
+    ticker = "BTC.TST";
+    name = "Test Bitcoin";
+    icon = "btc.test";
+    description = "via Bitcoin Wiki: The testnet is an alternative Bitcoin block chain, to be used for testing. " +
+        "Testnet coins are separate and distinct from actual bitcoins, and are never supposed to have any value. " +
+        "This allows application developers or bitcoin testers to experiment, without having to use real bitcoins or worrying about breaking the main bitcoin chain.";
+    links = {
+        "Bitcoin Wiki" : "https://en.bitcoin.it/wiki/Testnet",
+        "Request TestNet coins" : "https://testnet.manu.backend.hamburg/faucet"
+    };
+
     webapiHost = 'api.blockcypher.com'
     webapiPath = '/v1/btc/test3'
     network = coininfo.bitcoin.test.toBitcoinJS()
     keyPath = "m/44'/1'/0'/0/0"
 
-    getTicker(): string {
-        return "BTC";
+    explorerLinkAddr(address: string): string {
+        return 'https://www.blockchain.com/btc-testnet/address/' + address;
+    }
+    explorerLinkTx(txid: string): string {
+        return 'https://www.blockchain.com/btc-testnet/tx/' + txid;
     }
 
-    getName(): string {
-        return "Bitcoin";
-    }
-
-    getIcon(): string {
-        return "btc";
-    }
-
-    getDescription(): string {
-        return "via Wikpedia: Bitcoin is a cryptocurrency and worldwide payment system. " +
-            "It is the first decentralized digital currency, as the system works without a central bank or single administrator. " +
-            "The network is peer-to-peer and transactions take place between users directly, without an intermediary. " +
-            "These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain. " +
-            "Bitcoin was invented by an unknown person or group of people under the name Satoshi Nakamoto and released as open-source software in 2009. ";
-    }
-
-    getLinks(): { [p: string]: string } {
-        return {
-            'bitcoin.org' : 'https://bitcoin.org/'
-        };
-    }
 }

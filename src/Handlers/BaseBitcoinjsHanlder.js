@@ -43,6 +43,8 @@ var bitcoin = require("bitcoinjs-lib");
 var https = require("https");
 var coininfo = require('coininfo');
 var config = require('../../config');
+var base58 = require('bs58');
+var bech32 = require('bech32');
 var BtcTransaction = (function () {
     function BtcTransaction(handler, tx) {
         this.handler = handler;
@@ -329,13 +331,12 @@ var BaseBitcoinjsHanlder = (function () {
         throw new Error('implement this');
     };
     BaseBitcoinjsHanlder.prototype.getIdenticonSeed = function (addr) {
-        return 0;
-    };
-    BaseBitcoinjsHanlder.prototype.getLinks = function () {
-        return {};
-    };
-    BaseBitcoinjsHanlder.prototype.getName = function () {
-        throw new Error('implement this');
+        if (addr.startsWith('tb1')) {
+            return bech32.decode(addr).words.slice(2, 10).reduce(function (a, b) { return a * 32 + b; });
+        }
+        else {
+            return parseInt(base58.decode(addr.slice(0, 8)).toString('hex'), 16);
+        }
     };
     BaseBitcoinjsHanlder.prototype.getReceiveAddr = function (keychain) {
         var wif = keychain.derivePath(this.keyPath, this.network);
@@ -344,9 +345,6 @@ var BaseBitcoinjsHanlder = (function () {
             pubkey: key.publicKey,
             network: this.network
         }).address;
-    };
-    BaseBitcoinjsHanlder.prototype.getTicker = function () {
-        throw new Error('implement this');
     };
     BaseBitcoinjsHanlder.prototype.isP2WSH = function (script) {
         return (script.startsWith("00"));
