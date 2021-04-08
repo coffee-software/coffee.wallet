@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var ethers_1 = require("ethers");
+var BaseCoinHandler_1 = require("./BaseCoinHandler");
 var BigNum_1 = require("../BigNum");
 var bitcoinjs_lib_1 = require("bitcoinjs-lib");
 var config = require('../../config');
@@ -88,7 +89,17 @@ var BaseEthersHanlder = (function () {
                     case 0: return [4, this.getProvider().getBalance(addr)];
                     case 1:
                         ret = _a.sent();
-                        return [2, new BigNum_1.BigNum(ret.toString())];
+                        return [2, new BaseCoinHandler_1.Balance(new BigNum_1.BigNum(ret.toString()), new BigNum_1.BigNum("0"))];
+                }
+            });
+        });
+    };
+    BaseEthersHanlder.prototype.getOwnBalance = function (keychain) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, this.getBalance(this.getReceiveAddr(keychain))];
+                    case 1: return [2, _a.sent()];
                 }
             });
         });

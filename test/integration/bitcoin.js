@@ -38,10 +38,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var assert_1 = require("assert");
 var Keychain_1 = require("../../src/Keychain");
-var HandlerEth_1 = require("../../src/Handlers/HandlerEth");
 var BigNum_1 = require("../../src/BigNum");
+var HandlerBtcTest_1 = require("../../src/Handlers/HandlerBtcTest");
 var config = require('../../config');
-describe('Ethereum Integration Test', function () {
+describe('Bitcoin Integration Test', function () {
     describe('integration', function () {
         it('sending transaction', function () {
             return __awaiter(this, void 0, void 0, function () {
@@ -49,7 +49,7 @@ describe('Ethereum Integration Test', function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            handler = new HandlerEth_1.HandlerEth();
+                            handler = new HandlerBtcTest_1.HandlerBtcTest();
                             integration1Keychain = new Keychain_1.Keychain(config.integrationMnemonic1);
                             integration2Keychain = new Keychain_1.Keychain(config.integrationMnemonic2);
                             return [4, handler.getOwnBalance(integration1Keychain)];
@@ -61,21 +61,21 @@ describe('Ethereum Integration Test', function () {
                             return [4, handler.getFeeOptions()];
                         case 3:
                             fees = _a.sent();
-                            assert_1.notStrictEqual(balance1.amount.toString(), "0");
-                            assert_1.notStrictEqual(balance2.amount.toString(), "0");
-                            if (!(balance1.amount.cmp(balance2.amount) === 1)) return [3, 5];
-                            return [4, handler.prepareTransaction(integration1Keychain, handler.getReceiveAddr(integration2Keychain), balance1.amount.div(new BigNum_1.BigNum("2")), fees[0])];
+                            assert_1.notStrictEqual(balance1.total().toString(), "0");
+                            assert_1.notStrictEqual(balance2.total().toString(), "0");
+                            if (!(balance1.total().cmp(balance2.total()) === 1)) return [3, 5];
+                            return [4, handler.prepareTransaction(integration1Keychain, handler.getReceiveAddr(integration2Keychain), balance1.total().div(new BigNum_1.BigNum("2")), fees[Math.min(2, fees.length - 1)])];
                         case 4:
                             tx = _a.sent();
                             return [3, 7];
-                        case 5: return [4, handler.prepareTransaction(integration2Keychain, handler.getReceiveAddr(integration1Keychain), balance2.amount.div(new BigNum_1.BigNum("2")), fees[0])];
+                        case 5: return [4, handler.prepareTransaction(integration2Keychain, handler.getReceiveAddr(integration1Keychain), balance2.total().div(new BigNum_1.BigNum("2")), fees[Math.min(2, fees.length - 1)])];
                         case 6:
                             tx = _a.sent();
                             _a.label = 7;
                         case 7: return [4, tx.send()];
                         case 8:
                             txid = _a.sent();
-                            assert_1.strictEqual(txid.startsWith("0x"), true);
+                            assert_1.strictEqual(txid.length, 64);
                             return [2];
                     }
                 });
@@ -83,4 +83,4 @@ describe('Ethereum Integration Test', function () {
         });
     });
 });
-//# sourceMappingURL=ethereum.js.map
+//# sourceMappingURL=bitcoin.js.map

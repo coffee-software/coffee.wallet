@@ -1,48 +1,46 @@
 import { strictEqual, notStrictEqual } from "assert";
 import {Keychain} from "../../src/Keychain";
-import {HandlerEth} from "../../src/Handlers/HandlerEth";
 import {BigNum} from "../../src/BigNum";
+import {HandlerBtcTest} from "../../src/Handlers/HandlerBtcTest";
 var config = require('../../config');
 
-describe('Ethereum Integration Test', function() {
+describe('Bitcoin Integration Test', function() {
     describe('integration', function () {
         it('sending transaction', async function () {
-            let handler = new HandlerEth();
+            let handler = new HandlerBtcTest();
             let integration1Keychain = new Keychain(config.integrationMnemonic1);
             let integration2Keychain = new Keychain(config.integrationMnemonic2);
-
-            var balance1 = await handler.getOwnBalance(integration1Keychain);
-            var balance2 = await handler.getOwnBalance(integration2Keychain);
-            var fees = await handler.getFeeOptions();
+            let balance1 = await handler.getOwnBalance(integration1Keychain);
+            let balance2 = await handler.getOwnBalance(integration2Keychain);
+            let fees = await handler.getFeeOptions();
             notStrictEqual(
-                balance1.amount.toString(),
+                balance1.total().toString(),
                 "0"
             );
             notStrictEqual(
-                balance2.amount.toString(),
+                balance2.total().toString(),
                 "0"
             );
-            var tx;
-            if (balance1.amount.cmp(balance2.amount) === 1) {
+            let tx;
+            if (balance1.total().cmp(balance2.total()) === 1) {
                 tx = await handler.prepareTransaction(
                     integration1Keychain,
                     handler.getReceiveAddr(integration2Keychain),
-                    balance1.amount.div(new BigNum("2")),
-                    fees[0]
+                    balance1.total().div(new BigNum("2")),
+                    fees[Math.min(2, fees.length - 1)]
                 );
             } else {
                 tx = await handler.prepareTransaction(
                     integration2Keychain,
                     handler.getReceiveAddr(integration1Keychain),
-                    balance2.amount.div(new BigNum("2")),
-                    fees[0]
+                    balance2.total().div(new BigNum("2")),
+                    fees[Math.min(2, fees.length - 1)]
                 );
             }
-
-            var txid : string = await tx.send();
+            let txid : string = await tx.send();
             strictEqual(
-                txid.startsWith("0x"),
-                true
+                txid.length,
+                64
             )
         });
 

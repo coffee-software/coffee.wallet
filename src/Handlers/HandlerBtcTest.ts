@@ -5,12 +5,12 @@ import {BaseBitcoinjsHanlder} from "./BaseBitcoinjsHanlder";
 
 var coininfo = require('coininfo');
 
-export class HandlerBtc extends BaseBitcoinjsHanlder {
+export class HandlerBtcTest extends BaseBitcoinjsHanlder {
 
     webapiHost = 'api.blockcypher.com'
-    webapiPath = '/v1/btc/main'
-    network = coininfo.bitcoin.main.toBitcoinJS()
-    keyPath = "m/44'/0'/0'/0/0"
+    webapiPath = '/v1/btc/test3'
+    network = coininfo.bitcoin.test.toBitcoinJS()
+    keyPath = "m/44'/1'/0'/0/0"
 
     getTicker(): string {
         return "BTC";

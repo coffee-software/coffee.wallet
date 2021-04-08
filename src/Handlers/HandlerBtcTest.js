@@ -15,38 +15,38 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var BaseBitcoinjsHanlder_1 = require("./BaseBitcoinjsHanlder");
 var coininfo = require('coininfo');
-var HandlerBtc = (function (_super) {
-    __extends(HandlerBtc, _super);
-    function HandlerBtc() {
+var HandlerBtcTest = (function (_super) {
+    __extends(HandlerBtcTest, _super);
+    function HandlerBtcTest() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.webapiHost = 'api.blockcypher.com';
-        _this.webapiPath = '/v1/btc/main';
-        _this.network = coininfo.bitcoin.main.toBitcoinJS();
-        _this.keyPath = "m/44'/0'/0'/0/0";
+        _this.webapiPath = '/v1/btc/test3';
+        _this.network = coininfo.bitcoin.test.toBitcoinJS();
+        _this.keyPath = "m/44'/1'/0'/0/0";
         return _this;
     }
-    HandlerBtc.prototype.getTicker = function () {
+    HandlerBtcTest.prototype.getTicker = function () {
         return "BTC";
     };
-    HandlerBtc.prototype.getName = function () {
+    HandlerBtcTest.prototype.getName = function () {
         return "Bitcoin";
     };
-    HandlerBtc.prototype.getIcon = function () {
+    HandlerBtcTest.prototype.getIcon = function () {
         return "btc";
     };
-    HandlerBtc.prototype.getDescription = function () {
+    HandlerBtcTest.prototype.getDescription = function () {
         return "via Wikpedia: Bitcoin is a cryptocurrency and worldwide payment system. " +
             "It is the first decentralized digital currency, as the system works without a central bank or single administrator. " +
             "The network is peer-to-peer and transactions take place between users directly, without an intermediary. " +
             "These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain. " +
             "Bitcoin was invented by an unknown person or group of people under the name Satoshi Nakamoto and released as open-source software in 2009. ";
     };
-    HandlerBtc.prototype.getLinks = function () {
+    HandlerBtcTest.prototype.getLinks = function () {
         return {
             'bitcoin.org': 'https://bitcoin.org/'
         };
     };
-    return HandlerBtc;
+    return HandlerBtcTest;
 }(BaseBitcoinjsHanlder_1.BaseBitcoinjsHanlder));
-exports.HandlerBtc = HandlerBtc;
-//# sourceMappingURL=HandlerBtc.js.map
+exports.HandlerBtcTest = HandlerBtcTest;
+//# sourceMappingURL=HandlerBtcTest.js.map

@@ -1,5 +1,5 @@
 import { ethers } from "ethers"
-import {NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
+import {Balance, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
 import {BigNum} from "../BigNum";
 import {Keychain} from "../Keychain";
 import {JsonRpcProvider} from "@ethersproject/providers/src.ts/json-rpc-provider";
@@ -50,9 +50,13 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return new ethers.providers.InfuraProvider(this.networkName, config.infuraKey);
     }
 
-    async getBalance(addr: string): Promise<BigNum> {
+    async getBalance(addr: string): Promise<Balance> {
         var ret = await this.getProvider().getBalance(addr);
-        return new BigNum(ret.toString());
+        return new Balance(new BigNum(ret.toString()), new BigNum("0"));
+    }
+
+    async getOwnBalance(keychain: Keychain): Promise<Balance> {
+        return await this.getBalance(this.getReceiveAddr(keychain));
     }
 
     getDecimals(keychain: Keychain): number {
@@ -63,8 +67,8 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return "";
     }
 
-    async getFeeOptions(): Promise<[number]> {
-        var gasPrice = await this.getProvider().getGasPrice();
+    async getFeeOptions(): Promise<number[]> {
+        let gasPrice = await this.getProvider().getGasPrice();
         return [
             gasPrice.toNumber()
         ];

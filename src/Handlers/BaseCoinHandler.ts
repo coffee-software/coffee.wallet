@@ -17,6 +17,18 @@ export interface NewTransaction {
   send() : Promise<string>
 }
 
+export class Balance {
+  amount: BigNum
+  unconfirmed: BigNum
+  constructor(amount: BigNum, unconfirmed: BigNum) {
+    this.amount = amount
+    this.unconfirmed = unconfirmed
+  }
+  total() : BigNum {
+    return this.amount.add(this.unconfirmed)
+  }
+}
+
 export interface OnlineCoinHandler extends BaseCoinHandler {
   getDecimals(keychain: Keychain) : number
   getReceiveAddr(keychain: Keychain) : string
@@ -26,9 +38,10 @@ export interface OnlineCoinHandler extends BaseCoinHandler {
       amount : BigNum,
       fee: number,
   ) : Promise<NewTransaction>
-  getFeeOptions () : Promise<[number]>
+  getFeeOptions () : Promise<number[]>
   validateAddress(addr : string) : boolean
-  getBalance(addr : string) : Promise<BigNum>
+  getOwnBalance(keychain: Keychain) : Promise<Balance>
+  getBalance(addr : string) : Promise<Balance>
   getIdenticonSeed(addr : string) : number
 }
 

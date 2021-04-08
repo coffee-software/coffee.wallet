@@ -36,14 +36,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var BaseCoinHandler_1 = require("./BaseCoinHandler");
 var BigNum_1 = require("../BigNum");
 var bitcoinjs_lib_1 = require("bitcoinjs-lib");
 var bitcoin = require("bitcoinjs-lib");
+var https = require("https");
 var coininfo = require('coininfo');
 var config = require('../../config');
 var BtcTransaction = (function () {
-    function BtcTransaction(handler) {
+    function BtcTransaction(handler, tx) {
         this.handler = handler;
+        this.tx = tx;
     }
     BtcTransaction.prototype.getBalanceAfter = function () {
         return "";
@@ -59,40 +62,271 @@ var BtcTransaction = (function () {
     };
     BtcTransaction.prototype.send = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var response;
             return __generator(this, function (_a) {
-                return [2, "TODO"];
+                switch (_a.label) {
+                    case 0:
+                        return [4, BaseBitcoinjsHanlder.web.post(this.handler.webapiHost, this.handler.webapiPath + '/txs/push', {
+                                tx: this.tx.extractTransaction().toHex()
+                            })];
+                    case 1:
+                        response = _a.sent();
+                        return [2, response.tx.hash];
+                }
             });
         });
     };
     return BtcTransaction;
+}());
+var WebRequestsQueuedProcessor = (function () {
+    function WebRequestsQueuedProcessor() {
+        this.pause = new Promise(function (resolve) { return setTimeout(resolve, 0); });
+    }
+    WebRequestsQueuedProcessor.prototype.sleep = function (ms) {
+        this.pause = new Promise(function (resolve) { return setTimeout(resolve, ms); });
+    };
+    WebRequestsQueuedProcessor.prototype.wait = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, this.pause];
+                    case 1:
+                        _a.sent();
+                        return [2];
+                }
+            });
+        });
+    };
+    WebRequestsQueuedProcessor.prototype.makeRequest = function (host, path, body) {
+        return new Promise(function (resolve, reject) {
+            var data = JSON.stringify(body);
+            var options = {
+                method: body === undefined ? 'GET' : 'POST',
+                host: host,
+                path: path
+            };
+            if (body !== undefined) {
+                options.headers = {
+                    'Content-Type': 'application/json',
+                    'Content-Length': data.length
+                };
+            }
+            var req = https.request(options);
+            req.on('response', function (response) {
+                if (response.statusCode >= 200 && response.statusCode < 300) {
+                    var str = '';
+                    response.on('data', function (chunk) {
+                        str += chunk;
+                    });
+                    response.on('end', function () {
+                        resolve(JSON.parse(str));
+                    });
+                }
+                else {
+                    reject();
+                }
+            });
+            req.on('error', function (error) {
+                reject(error);
+            });
+            if (body !== undefined) {
+                req.write(data);
+            }
+            req.end();
+        });
+    };
+    WebRequestsQueuedProcessor.prototype.get = function (host, path) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, this.wait()];
+                    case 1:
+                        _a.sent();
+                        return [4, this.makeRequest(host, path)];
+                    case 2:
+                        response = _a.sent();
+                        this.sleep(500);
+                        return [2, response];
+                }
+            });
+        });
+    };
+    WebRequestsQueuedProcessor.prototype.post = function (host, path, body) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, this.wait()];
+                    case 1:
+                        _a.sent();
+                        return [4, this.makeRequest(host, path, body)];
+                    case 2:
+                        response = _a.sent();
+                        this.sleep(500);
+                        return [2, response];
+                }
+            });
+        });
+    };
+    return WebRequestsQueuedProcessor;
 }());
 var BaseBitcoinjsHanlder = (function () {
     function BaseBitcoinjsHanlder() {
     }
     BaseBitcoinjsHanlder.prototype.getBalance = function (addr) {
         return __awaiter(this, void 0, void 0, function () {
+            var response;
             return __generator(this, function (_a) {
-                return [2, new BigNum_1.BigNum("0")];
+                switch (_a.label) {
+                    case 0:
+                        return [4, BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath + '/addrs/' + addr + '/balance')];
+                    case 1:
+                        response = _a.sent();
+                        return [2, new BaseCoinHandler_1.Balance(new BigNum_1.BigNum(response.balance), new BigNum_1.BigNum(response.unconfirmed_balance))];
+                }
+            });
+        });
+    };
+    BaseBitcoinjsHanlder.prototype.getOwnBalance = function (keychain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var wif, key, segwitAddress, legacyAddress, segwitBalance, legacyBalance;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        wif = keychain.derivePath(this.keyPath, this.network);
+                        key = bitcoinjs_lib_1.ECPair.fromWIF(wif, this.network);
+                        segwitAddress = bitcoin.payments.p2wpkh({
+                            pubkey: key.publicKey,
+                            network: this.network
+                        }).address;
+                        legacyAddress = bitcoin.payments.p2pkh({
+                            pubkey: key.publicKey,
+                            network: this.network
+                        }).address;
+                        return [4, this.getBalance(segwitAddress)];
+                    case 1:
+                        segwitBalance = _a.sent();
+                        return [4, this.getBalance(legacyAddress)];
+                    case 2:
+                        legacyBalance = _a.sent();
+                        return [2, new BaseCoinHandler_1.Balance(segwitBalance.amount.add(legacyBalance.amount), segwitBalance.unconfirmed.add(legacyBalance.unconfirmed))];
+                }
             });
         });
     };
     BaseBitcoinjsHanlder.prototype.getDecimals = function (keychain) {
-        return 0;
+        return 8;
     };
     BaseBitcoinjsHanlder.prototype.getDescription = function () {
         return "";
     };
     BaseBitcoinjsHanlder.prototype.getFeeOptions = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var response;
             return __generator(this, function (_a) {
-                return [2, [
-                        22
-                    ]];
+                switch (_a.label) {
+                    case 0:
+                        return [4, BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath)];
+                    case 1:
+                        response = _a.sent();
+                        return [2, [
+                                response.low_fee_per_kb,
+                                Math.floor((response.low_fee_per_kb + response.medium_fee_per_kb) / 2),
+                                response.medium_fee_per_kb,
+                                Math.ceil((response.medium_fee_per_kb + response.high_fee_per_kb) / 2),
+                                response.high_fee_per_kb
+                            ]];
+                }
+            });
+        });
+    };
+    BaseBitcoinjsHanlder.prototype.getTxHex = function (tx_hash) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        return [4, BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath + '/txs/' + tx_hash + '?includeHex=true')];
+                    case 1:
+                        response = _a.sent();
+                        return [2, response.hex];
+                }
+            });
+        });
+    };
+    BaseBitcoinjsHanlder.prototype.getUtxosForAddr = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, ret, i, _a, _b, _c, _d, i, _e, _f, _g, _h;
+            return __generator(this, function (_j) {
+                switch (_j.label) {
+                    case 0:
+                        return [4, BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath + '/addrs/' + address + '?unspentOnly=true&includeScript=true')];
+                    case 1:
+                        response = _j.sent();
+                        ret = [];
+                        if (!('txrefs' in response)) return [3, 7];
+                        i = response.txrefs.length - 1;
+                        _j.label = 2;
+                    case 2:
+                        if (!(i >= 0)) return [3, 7];
+                        _b = (_a = ret).push;
+                        _c = {
+                            value: response.txrefs[i].value,
+                            hash: response.txrefs[i].tx_hash,
+                            script: response.txrefs[i].script,
+                            vout: response.txrefs[i].tx_output_n,
+                            confirmed: true
+                        };
+                        if (!this.isP2WSH(response.txrefs[i].script)) return [3, 3];
+                        _d = "";
+                        return [3, 5];
+                    case 3: return [4, this.getTxHex(response.txrefs[i].tx_hash)];
+                    case 4:
+                        _d = _j.sent();
+                        _j.label = 5;
+                    case 5:
+                        _b.apply(_a, [(_c.hex = _d,
+                                _c)]);
+                        _j.label = 6;
+                    case 6:
+                        i--;
+                        return [3, 2];
+                    case 7:
+                        if (!('unconfirmed_txrefs' in response)) return [3, 13];
+                        i = response.unconfirmed_txrefs.length - 1;
+                        _j.label = 8;
+                    case 8:
+                        if (!(i >= 0)) return [3, 13];
+                        _f = (_e = ret).push;
+                        _g = {
+                            value: response.unconfirmed_txrefs[i].value,
+                            hash: response.unconfirmed_txrefs[i].tx_hash,
+                            script: response.unconfirmed_txrefs[i].script,
+                            vout: response.unconfirmed_txrefs[i].tx_output_n,
+                            confirmed: false
+                        };
+                        if (!this.isP2WSH(response.unconfirmed_txrefs[i].script)) return [3, 9];
+                        _h = "";
+                        return [3, 11];
+                    case 9: return [4, this.getTxHex(response.unconfirmed_txrefs[i].tx_hash)];
+                    case 10:
+                        _h = _j.sent();
+                        _j.label = 11;
+                    case 11:
+                        _f.apply(_e, [(_g.hex = _h,
+                                _g)]);
+                        _j.label = 12;
+                    case 12:
+                        i--;
+                        return [3, 8];
+                    case 13: return [2, ret];
+                }
             });
         });
     };
     BaseBitcoinjsHanlder.prototype.getIcon = function () {
-        return "";
+        throw new Error('implement this');
     };
     BaseBitcoinjsHanlder.prototype.getIdenticonSeed = function (addr) {
         return 0;
@@ -101,24 +335,95 @@ var BaseBitcoinjsHanlder = (function () {
         return {};
     };
     BaseBitcoinjsHanlder.prototype.getName = function () {
-        return "";
+        throw new Error('implement this');
     };
     BaseBitcoinjsHanlder.prototype.getReceiveAddr = function (keychain) {
-        var network = coininfo.bitcoin.main.toBitcoinJS();
-        var wif = keychain.derivePath("m/44'/0'/0'/0/0", network);
-        var key = bitcoinjs_lib_1.ECPair.fromWIF(wif, network);
+        var wif = keychain.derivePath(this.keyPath, this.network);
+        var key = bitcoinjs_lib_1.ECPair.fromWIF(wif, this.network);
         return bitcoin.payments.p2pkh({
             pubkey: key.publicKey,
-            network: network
+            network: this.network
         }).address;
     };
     BaseBitcoinjsHanlder.prototype.getTicker = function () {
-        return "";
+        throw new Error('implement this');
+    };
+    BaseBitcoinjsHanlder.prototype.isP2WSH = function (script) {
+        return (script.startsWith("00"));
     };
     BaseBitcoinjsHanlder.prototype.prepareTransaction = function (keychain, receiverAddr, amount, fee) {
         return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2, null];
+            var amountOut, wif, key, legacyFrom, segwitFrom, tmpTx, totalIn, atLeastOneUnconfirmed, utxos, _a, _b, i, tmpChange, finalTx, vsize, finalFee, changeValue;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        amountOut = parseInt(amount.toString());
+                        wif = keychain.derivePath(this.keyPath, this.network);
+                        key = bitcoinjs_lib_1.ECPair.fromWIF(wif, this.network);
+                        legacyFrom = bitcoin.payments.p2pkh({
+                            pubkey: key.publicKey,
+                            network: this.network
+                        }).address;
+                        segwitFrom = bitcoin.payments.p2wpkh({
+                            pubkey: key.publicKey,
+                            network: this.network
+                        }).address;
+                        tmpTx = new bitcoin.Psbt({ network: this.network });
+                        totalIn = 0;
+                        atLeastOneUnconfirmed = false;
+                        return [4, this.getUtxosForAddr(segwitFrom)];
+                    case 1:
+                        utxos = _c.sent();
+                        _b = (_a = utxos).concat;
+                        return [4, this.getUtxosForAddr(legacyFrom)];
+                    case 2:
+                        utxos = _b.apply(_a, [_c.sent()]);
+                        for (i = 0; i < utxos.length; i++) {
+                            totalIn = totalIn + utxos[i].value;
+                            if (this.isP2WSH(utxos[i].script)) {
+                                tmpTx.addInput({
+                                    hash: utxos[i].hash,
+                                    index: utxos[i].vout,
+                                    witnessUtxo: {
+                                        script: Buffer.from(utxos[i].script, 'hex'),
+                                        value: utxos[i].value,
+                                    }
+                                });
+                            }
+                            else {
+                                tmpTx.addInput({
+                                    hash: utxos[i].hash,
+                                    index: utxos[i].vout,
+                                    nonWitnessUtxo: Buffer.from(utxos[i].hex, 'hex')
+                                });
+                            }
+                            if (!atLeastOneUnconfirmed && !utxos[i].confirmed) {
+                                atLeastOneUnconfirmed = true;
+                            }
+                        }
+                        tmpTx.addOutput({
+                            address: receiverAddr,
+                            value: amountOut
+                        });
+                        tmpChange = totalIn - amountOut;
+                        finalTx = tmpTx.clone();
+                        tmpTx.addOutput({
+                            address: segwitFrom,
+                            value: tmpChange
+                        });
+                        tmpTx.signAllInputs(key).finalizeAllInputs();
+                        vsize = tmpTx.extractTransaction().virtualSize();
+                        finalFee = Math.ceil(fee * vsize / 1000);
+                        changeValue = totalIn - amountOut - finalFee;
+                        if (changeValue < finalFee) {
+                        }
+                        finalTx.addOutput({
+                            address: segwitFrom,
+                            value: changeValue
+                        });
+                        finalTx.signAllInputs(key).finalizeAllInputs();
+                        return [2, new BtcTransaction(this, finalTx)];
+                }
             });
         });
     };
@@ -131,6 +436,7 @@ var BaseBitcoinjsHanlder = (function () {
             return false;
         }
     };
+    BaseBitcoinjsHanlder.web = new WebRequestsQueuedProcessor();
     return BaseBitcoinjsHanlder;
 }());
 exports.BaseBitcoinjsHanlder = BaseBitcoinjsHanlder;
