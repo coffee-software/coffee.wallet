@@ -1,5 +1,6 @@
 import {Keychain} from "../Keychain";
 import {BigNum} from "../BigNum";
+import * as bip32 from "bip32";
 
 export interface BaseCoinHandler {
   testCoin: boolean
@@ -31,7 +32,8 @@ export class Balance {
 }
 
 export interface OnlineCoinHandler extends BaseCoinHandler {
-  getDecimals(keychain: Keychain) : number
+  decimals : number
+  getPrivateKey(keychain: Keychain) : bip32.BIP32Interface
   getReceiveAddr(keychain: Keychain) : string
   prepareTransaction(
       keychain: Keychain,

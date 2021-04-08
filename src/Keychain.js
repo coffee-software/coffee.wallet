@@ -19,7 +19,7 @@ var Keychain = (function () {
         return bip39_1.validateMnemonic(mnemonic);
     };
     Keychain.prototype.derivePath = function (path, network) {
-        return bip32.fromSeed(Buffer.from(this.getSeedHex(), 'hex'), network).derivePath(path).toWIF();
+        return bip32.fromSeed(Buffer.from(this.getSeedHex(), 'hex'), network).derivePath(path);
     };
     return Keychain;
 }());

@@ -6,6 +6,7 @@ import {JsonRpcProvider} from "@ethersproject/providers/src.ts/json-rpc-provider
 import {TransactionRequest} from "@ethersproject/abstract-provider/src.ts";
 import {Wallet} from "@ethersproject/wallet/src.ts";
 import {ECPair} from "bitcoinjs-lib";
+import * as bip32 from "bip32";
 var config = require('../../config');
 
 class EthTransaction implements NewTransaction {
@@ -52,7 +53,7 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     abstract explorerLinkAddr(address: string): string;
     abstract explorerLinkTx(txid: string): string;
 
-    networkName = 'ropsten' //'homestead'
+    abstract networkName: string;
 
     getProvider(): JsonRpcProvider {
         return new ethers.providers.InfuraProvider(this.networkName, config.infuraKey);
@@ -67,9 +68,7 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return await this.getBalance(this.getReceiveAddr(keychain));
     }
 
-    getDecimals(keychain: Keychain): number {
-        return 0;
-    }
+    decimals = 18
 
     getDescription(): string {
         return "";
@@ -111,14 +110,18 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     } */
 
     getWallet(keychain: Keychain): Wallet {
-        var wif = keychain.derivePath("m/44'/60'/0'/0/0");
-        var keyPair = ECPair.fromWIF(wif);
-        //var keyPair = engine.bitcoin.derivePathFromSeedHash(this.network, app.data.wallets.bip39.seedHex, );
-        //var ret = keyPair.d.toString(16);
-        var ret = keyPair.privateKey.toString('hex');
+        return new ethers.Wallet(this.getPrivateKeyAsHex(keychain));
+    }
+
+    getPrivateKeyAsHex(keychain: Keychain) : string {
+        var bip32 = this.getPrivateKey(keychain);
+        var ret = bip32.privateKey.toString('hex');
         while (ret.length < 64) ret = "0" + ret;
-        var priv = "0x" + ret;
-        return new ethers.Wallet(priv);
+        return "0x" + ret;
+    }
+
+    getPrivateKey(keychain: Keychain): bip32.BIP32Interface {
+        return keychain.derivePath("m/44'/60'/0'/0/0");
     }
 
     getReceiveAddr(keychain: Keychain): string {

@@ -26,7 +26,7 @@ var HandlerEthTest = (function (_super) {
         _this.links = {
             "Request Test Eth": "http://faucet.ropsten.be:3001/"
         };
-        _this.networkName = 'homestead';
+        _this.networkName = 'ropsten';
         return _this;
     }
     HandlerEthTest.prototype.explorerLinkAddr = function (address) {

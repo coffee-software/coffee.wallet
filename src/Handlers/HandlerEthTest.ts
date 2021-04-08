@@ -10,7 +10,7 @@ export class HandlerEthTest extends BaseEthersHanlder {
     links = {
         "Request Test Eth" : "http://faucet.ropsten.be:3001/"
     }
-    networkName = 'homestead'
+    networkName = 'ropsten'
 
     explorerLinkAddr(address: string): string {
         return 'https://ropsten.etherscan.io/address/' + address;

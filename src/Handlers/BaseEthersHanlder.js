@@ -39,7 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ethers_1 = require("ethers");
 var BaseCoinHandler_1 = require("./BaseCoinHandler");
 var BigNum_1 = require("../BigNum");
-var bitcoinjs_lib_1 = require("bitcoinjs-lib");
 var config = require('../../config');
 var EthTransaction = (function () {
     function EthTransaction(handler, data, signed) {
@@ -76,7 +75,7 @@ var EthTransaction = (function () {
 }());
 var BaseEthersHanlder = (function () {
     function BaseEthersHanlder() {
-        this.networkName = 'ropsten';
+        this.decimals = 18;
     }
     BaseEthersHanlder.prototype.getProvider = function () {
         return new ethers_1.ethers.providers.InfuraProvider(this.networkName, config.infuraKey);
@@ -103,9 +102,6 @@ var BaseEthersHanlder = (function () {
                 }
             });
         });
-    };
-    BaseEthersHanlder.prototype.getDecimals = function (keychain) {
-        return 0;
     };
     BaseEthersHanlder.prototype.getDescription = function () {
         return "";
@@ -138,13 +134,17 @@ var BaseEthersHanlder = (function () {
         return "";
     };
     BaseEthersHanlder.prototype.getWallet = function (keychain) {
-        var wif = keychain.derivePath("m/44'/60'/0'/0/0");
-        var keyPair = bitcoinjs_lib_1.ECPair.fromWIF(wif);
-        var ret = keyPair.privateKey.toString('hex');
+        return new ethers_1.ethers.Wallet(this.getPrivateKeyAsHex(keychain));
+    };
+    BaseEthersHanlder.prototype.getPrivateKeyAsHex = function (keychain) {
+        var bip32 = this.getPrivateKey(keychain);
+        var ret = bip32.privateKey.toString('hex');
         while (ret.length < 64)
             ret = "0" + ret;
-        var priv = "0x" + ret;
-        return new ethers_1.ethers.Wallet(priv);
+        return "0x" + ret;
+    };
+    BaseEthersHanlder.prototype.getPrivateKey = function (keychain) {
+        return keychain.derivePath("m/44'/60'/0'/0/0");
     };
     BaseEthersHanlder.prototype.getReceiveAddr = function (keychain) {
         return this.getWallet(keychain).address;

@@ -24,8 +24,9 @@ export class Keychain {
         return validateMnemonic(mnemonic)
     }
 
-    derivePath(path:string, network?:Network) : string {
-        return bip32.fromSeed(Buffer.from(this.getSeedHex(), 'hex'), network).derivePath(path).toWIF();
+    derivePath(path:string, network?:Network) : bip32.BIP32Interface {
+        return bip32.fromSeed(Buffer.from(this.getSeedHex(), 'hex'), network).derivePath(path);
+        //toWIF() var key = ECPair.fromWIF(wif, this.network);
     }
 
 }

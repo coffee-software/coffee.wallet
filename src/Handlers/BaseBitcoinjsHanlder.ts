@@ -5,6 +5,7 @@ import {ECPair, Network, Psbt} from "bitcoinjs-lib";
 import * as bitcoin from "bitcoinjs-lib";
 import * as https from 'https';
 import {RequestOptions} from "https";
+import * as bip32 from "bip32";
 
 var coininfo = require('coininfo');
 var config = require('../../config');
@@ -193,14 +194,13 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
     }
 
     async getOwnBalance(keychain: Keychain): Promise<Balance> {
-        var wif = keychain.derivePath(this.keyPath, this.network);
-        var key = ECPair.fromWIF(wif, this.network);
+        var bip32 = this.getPrivateKey(keychain);
         var segwitAddress = bitcoin.payments.p2wpkh({
-            pubkey: key.publicKey,
+            pubkey: bip32.publicKey,
             network: this.network
         }).address;
         var legacyAddress =  bitcoin.payments.p2pkh({
-            pubkey: key.publicKey,
+            pubkey: bip32.publicKey,
             network: this.network
         }).address;
         var segwitBalance = await this.getBalance(segwitAddress);
@@ -211,9 +211,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         );
     }
 
-    getDecimals(keychain: Keychain): number {
-        return 8;
-    }
+    decimals = 8
 
     getDescription(): string {
         return "";
@@ -299,15 +297,18 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         }
     }
 
+    getPrivateKey(keychain: Keychain): bip32.BIP32Interface {
+        return keychain.derivePath(this.keyPath, this.network);
+    }
+
     getReceiveAddr(keychain: Keychain): string {
-        var wif = keychain.derivePath(this.keyPath, this.network);
-        var key = ECPair.fromWIF(wif, this.network);
+        var bip32 = this.getPrivateKey(keychain);
         /* console.log(bitcoin.payments.p2wpkh({
-                        pubkey: key.publicKey,
+                        pubkey: bip32.publicKey,
                         network: network.network
                 }).address); */
         return bitcoin.payments.p2pkh({
-            pubkey: key.publicKey,
+            pubkey: bip32.publicKey,
             network: this.network
         }).address;
     }
@@ -319,16 +320,14 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
     async prepareTransaction(keychain: Keychain, receiverAddr: string, amount: BigNum, fee: number): Promise<NewTransaction> {
         let amountOut: number = parseInt(amount.toString());
 
-        var wif = keychain.derivePath(this.keyPath, this.network);
-        var key = ECPair.fromWIF(wif, this.network);
-
+        var bip32 = this.getPrivateKey(keychain);
         var legacyFrom = bitcoin.payments.p2pkh({
-            pubkey: key.publicKey,
+            pubkey: bip32.publicKey,
             network: this.network
         }).address;
 
         var segwitFrom = bitcoin.payments.p2wpkh({
-            pubkey: key.publicKey,
+            pubkey: bip32.publicKey,
             network: this.network
         }).address;
 
@@ -378,7 +377,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             address: segwitFrom,
             value: tmpChange
         });
-
+        let key = ECPair.fromPrivateKey(bip32.privateKey);
         tmpTx.signAllInputs(key).finalizeAllInputs();
         const vsize = tmpTx.extractTransaction().virtualSize();
         const finalFee = Math.ceil(fee * vsize / 1000); //fee is in satoshi per kilobyte

@@ -38,8 +38,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var assert_1 = require("assert");
 var Keychain_1 = require("../../src/Keychain");
-var HandlerEth_1 = require("../../src/Handlers/HandlerEth");
 var BigNum_1 = require("../../src/BigNum");
+var HandlerEthTest_1 = require("../../src/Handlers/HandlerEthTest");
 var config = require('../../config');
 describe('Ethereum Integration Test', function () {
     describe('integration', function () {
@@ -49,7 +49,7 @@ describe('Ethereum Integration Test', function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            handler = new HandlerEth_1.HandlerEth();
+                            handler = new HandlerEthTest_1.HandlerEthTest();
                             integration1Keychain = new Keychain_1.Keychain(config.integrationMnemonic1);
                             integration2Keychain = new Keychain_1.Keychain(config.integrationMnemonic2);
                             return [4, handler.getOwnBalance(integration1Keychain)];

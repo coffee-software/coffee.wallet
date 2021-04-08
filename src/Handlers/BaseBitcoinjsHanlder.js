@@ -175,6 +175,7 @@ var WebRequestsQueuedProcessor = (function () {
 }());
 var BaseBitcoinjsHanlder = (function () {
     function BaseBitcoinjsHanlder() {
+        this.decimals = 8;
     }
     BaseBitcoinjsHanlder.prototype.getBalance = function (addr) {
         return __awaiter(this, void 0, void 0, function () {
@@ -192,18 +193,17 @@ var BaseBitcoinjsHanlder = (function () {
     };
     BaseBitcoinjsHanlder.prototype.getOwnBalance = function (keychain) {
         return __awaiter(this, void 0, void 0, function () {
-            var wif, key, segwitAddress, legacyAddress, segwitBalance, legacyBalance;
+            var bip32, segwitAddress, legacyAddress, segwitBalance, legacyBalance;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        wif = keychain.derivePath(this.keyPath, this.network);
-                        key = bitcoinjs_lib_1.ECPair.fromWIF(wif, this.network);
+                        bip32 = this.getPrivateKey(keychain);
                         segwitAddress = bitcoin.payments.p2wpkh({
-                            pubkey: key.publicKey,
+                            pubkey: bip32.publicKey,
                             network: this.network
                         }).address;
                         legacyAddress = bitcoin.payments.p2pkh({
-                            pubkey: key.publicKey,
+                            pubkey: bip32.publicKey,
                             network: this.network
                         }).address;
                         return [4, this.getBalance(segwitAddress)];
@@ -216,9 +216,6 @@ var BaseBitcoinjsHanlder = (function () {
                 }
             });
         });
-    };
-    BaseBitcoinjsHanlder.prototype.getDecimals = function (keychain) {
-        return 8;
     };
     BaseBitcoinjsHanlder.prototype.getDescription = function () {
         return "";
@@ -338,11 +335,13 @@ var BaseBitcoinjsHanlder = (function () {
             return parseInt(base58.decode(addr.slice(0, 8)).toString('hex'), 16);
         }
     };
+    BaseBitcoinjsHanlder.prototype.getPrivateKey = function (keychain) {
+        return keychain.derivePath(this.keyPath, this.network);
+    };
     BaseBitcoinjsHanlder.prototype.getReceiveAddr = function (keychain) {
-        var wif = keychain.derivePath(this.keyPath, this.network);
-        var key = bitcoinjs_lib_1.ECPair.fromWIF(wif, this.network);
+        var bip32 = this.getPrivateKey(keychain);
         return bitcoin.payments.p2pkh({
-            pubkey: key.publicKey,
+            pubkey: bip32.publicKey,
             network: this.network
         }).address;
     };
@@ -351,19 +350,18 @@ var BaseBitcoinjsHanlder = (function () {
     };
     BaseBitcoinjsHanlder.prototype.prepareTransaction = function (keychain, receiverAddr, amount, fee) {
         return __awaiter(this, void 0, void 0, function () {
-            var amountOut, wif, key, legacyFrom, segwitFrom, tmpTx, totalIn, atLeastOneUnconfirmed, utxos, _a, _b, i, tmpChange, finalTx, vsize, finalFee, changeValue;
+            var amountOut, bip32, legacyFrom, segwitFrom, tmpTx, totalIn, atLeastOneUnconfirmed, utxos, _a, _b, i, tmpChange, finalTx, key, vsize, finalFee, changeValue;
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
                         amountOut = parseInt(amount.toString());
-                        wif = keychain.derivePath(this.keyPath, this.network);
-                        key = bitcoinjs_lib_1.ECPair.fromWIF(wif, this.network);
+                        bip32 = this.getPrivateKey(keychain);
                         legacyFrom = bitcoin.payments.p2pkh({
-                            pubkey: key.publicKey,
+                            pubkey: bip32.publicKey,
                             network: this.network
                         }).address;
                         segwitFrom = bitcoin.payments.p2wpkh({
-                            pubkey: key.publicKey,
+                            pubkey: bip32.publicKey,
                             network: this.network
                         }).address;
                         tmpTx = new bitcoin.Psbt({ network: this.network });
@@ -409,6 +407,7 @@ var BaseBitcoinjsHanlder = (function () {
                             address: segwitFrom,
                             value: tmpChange
                         });
+                        key = bitcoinjs_lib_1.ECPair.fromPrivateKey(bip32.privateKey);
                         tmpTx.signAllInputs(key).finalizeAllInputs();
                         vsize = tmpTx.extractTransaction().virtualSize();
                         finalFee = Math.ceil(fee * vsize / 1000);

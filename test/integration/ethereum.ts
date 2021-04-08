@@ -1,13 +1,13 @@
 import { strictEqual, notStrictEqual } from "assert";
 import {Keychain} from "../../src/Keychain";
-import {HandlerEth} from "../../src/Handlers/HandlerEth";
 import {BigNum} from "../../src/BigNum";
+import {HandlerEthTest} from "../../src/Handlers/HandlerEthTest";
 var config = require('../../config');
 
 describe('Ethereum Integration Test', function() {
     describe('integration', function () {
         it('sending transaction', async function () {
-            let handler = new HandlerEth();
+            let handler = new HandlerEthTest();
             let integration1Keychain = new Keychain(config.integrationMnemonic1);
             let integration2Keychain = new Keychain(config.integrationMnemonic2);
 
