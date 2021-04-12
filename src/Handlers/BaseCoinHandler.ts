@@ -4,6 +4,7 @@ import * as bip32 from "bip32";
 
 export interface BaseCoinHandler {
   testCoin: boolean
+  onlineCoin: boolean
   ticker: string
   name : string
   icon : string

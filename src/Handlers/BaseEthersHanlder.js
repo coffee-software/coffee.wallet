@@ -74,8 +74,11 @@ var EthTransaction = (function () {
     return EthTransaction;
 }());
 var BaseEthersHanlder = (function () {
-    function BaseEthersHanlder() {
+    function BaseEthersHanlder(log, cache) {
+        this.onlineCoin = true;
         this.decimals = 18;
+        this.log = log;
+        this.cache = cache;
     }
     BaseEthersHanlder.prototype.getProvider = function () {
         return new ethers_1.ethers.providers.InfuraProvider(this.networkName, config.infuraKey);

@@ -6,7 +6,6 @@ var BigNum = (function () {
         if (base === void 0) { base = 10; }
         if (decimals === void 0) { decimals = 0; }
         this.positive = true;
-        this.decimals = 0;
         this._bn = new BN(value, base);
     }
     BigNum.prototype.add = function (other) {
@@ -26,6 +25,28 @@ var BigNum = (function () {
     };
     BigNum.prototype.cmp = function (other) {
         return this._bn.cmp(other._bn);
+    };
+    BigNum.fromFloat = function (value, decimals) {
+        var s = value.toString();
+        var i = s.indexOf('.');
+        if (i > -1) {
+            decimals = decimals - (s.length - i - 1);
+            s = s.slice(0, i) + s.slice(i + 1);
+        }
+        if (decimals >= 0) {
+            s = s + "0".repeat(decimals);
+        }
+        else {
+            s = s.substr(0, s.length + decimals);
+        }
+        return new BigNum(s);
+    };
+    BigNum.prototype.toFloat = function (decimals) {
+        var s = this._bn.toString();
+        while (s.length <= decimals) {
+            s = "0" + s;
+        }
+        return parseFloat(s.slice(0, s.length - decimals) + "." + s.slice(s.length - decimals));
     };
     BigNum.prototype.toString = function (base) {
         if (base === void 0) { base = 10; }

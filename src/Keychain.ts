@@ -4,13 +4,18 @@ import {Network} from "bitcoinjs-lib";
 
 export class Keychain {
     mnemonic: string;
+    seed: Buffer;
 
     constructor(mnemonic: string) {
         this.mnemonic = mnemonic;
     }
 
-    getSeedHex() :string {
-        return mnemonicToSeedSync(this.mnemonic).toString('hex');
+    getSeed() : Buffer {
+        if (this.seed) {
+            return this.seed;
+        } else {
+            return this.seed = mnemonicToSeedSync(this.mnemonic);
+        }
     }
 
     static newMnemonic() :string {
@@ -25,7 +30,7 @@ export class Keychain {
     }
 
     derivePath(path:string, network?:Network) : bip32.BIP32Interface {
-        return bip32.fromSeed(Buffer.from(this.getSeedHex(), 'hex'), network).derivePath(path);
+        return bip32.fromSeed(this.getSeed(), network).derivePath(path);
         //toWIF() var key = ECPair.fromWIF(wif, this.network);
     }
 

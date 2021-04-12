@@ -20,7 +20,7 @@ var HandlerEth = (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.testCoin = false;
         _this.ticker = "ETH";
-        _this.name = "Ether";
+        _this.name = "Ethereum";
         _this.icon = "eth";
         _this.description = "via Wikipedia: Ethereum is an open-source, public, blockchain-based distributed computing platform and operating system featuring smart contract (scripting) functionality. " +
             "Along with Bitcoin, Ethereum is considered to be one of the pioneer platforms in distributed ledger and blockchain technology.";

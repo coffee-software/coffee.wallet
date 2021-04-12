@@ -6,8 +6,13 @@ var Keychain = (function () {
     function Keychain(mnemonic) {
         this.mnemonic = mnemonic;
     }
-    Keychain.prototype.getSeedHex = function () {
-        return bip39_1.mnemonicToSeedSync(this.mnemonic).toString('hex');
+    Keychain.prototype.getSeed = function () {
+        if (this.seed) {
+            return this.seed;
+        }
+        else {
+            return this.seed = bip39_1.mnemonicToSeedSync(this.mnemonic);
+        }
     };
     Keychain.newMnemonic = function () {
         return bip39_1.generateMnemonic();
@@ -19,7 +24,7 @@ var Keychain = (function () {
         return bip39_1.validateMnemonic(mnemonic);
     };
     Keychain.prototype.derivePath = function (path, network) {
-        return bip32.fromSeed(Buffer.from(this.getSeedHex(), 'hex'), network).derivePath(path);
+        return bip32.fromSeed(this.getSeed(), network).derivePath(path);
     };
     return Keychain;
 }());

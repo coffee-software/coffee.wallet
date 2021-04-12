@@ -20,7 +20,7 @@ var HandlerEthTest = (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.testCoin = true;
         _this.ticker = "ETH.TST";
-        _this.name = "Test Ether";
+        _this.name = "Test Ethereum";
         _this.icon = "eth.test";
         _this.description = "Robsten is an ethereum testing network.";
         _this.links = {

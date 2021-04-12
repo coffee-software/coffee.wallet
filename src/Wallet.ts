@@ -1,10 +1,12 @@
 import {Keychain} from "./Keychain";
 import * as BN from "bn.js";
 import {OnlineCoinHandler, BaseCoinHandler} from "./Handlers/BaseCoinHandler";
+import {PortfolioItem} from "./PortfolioItem";
 
-class Wallet {
+export class Wallet {
     keychain: Keychain;
     handler: BaseCoinHandler;
+    portfolio: PortfolioItem[] = [];
 
     constructor(
         handler: BaseCoinHandler,

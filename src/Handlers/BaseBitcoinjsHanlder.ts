@@ -3,9 +3,9 @@ import {BigNum} from "../BigNum";
 import {Keychain} from "../Keychain";
 import {ECPair, Network, Psbt} from "bitcoinjs-lib";
 import * as bitcoin from "bitcoinjs-lib";
-import * as https from 'https';
-import {RequestOptions} from "https";
 import * as bip32 from "bip32";
+import {CacheWrapper, LogInterface} from "../Engine";
+import {Https} from "../Https";
 
 var coininfo = require('coininfo');
 var config = require('../../config');
@@ -74,83 +74,16 @@ class WebRequestsQueuedProcessor {
           await this.pause;
     }
 
-    makeRequest(host: string, path: string, body?: object): Promise<any> {
-        return new Promise(function (resolve, reject) {
-            //console.log(new Date().getTime() + ": REQUEST " + 'https://' + host + path);
-            const data = JSON.stringify(body);
-            let options : RequestOptions = {
-                method: body === undefined ? 'GET' : 'POST',
-                host: host,
-                path: path
-            }
-            if (body !== undefined) {
-                options.headers = {
-                    'Content-Type': 'application/json',
-                    'Content-Length': data.length
-                }
-            }
-            let req = https.request(options);
-            req.on('response', response => {
-                if (response.statusCode >= 200 && response.statusCode < 300) {
-                    var str = ''
-                    response.on('data', function (chunk) {
-                        str += chunk;
-                    });
-                    response.on('end', function () {
-                        resolve(JSON.parse(str));
-                    });
-                } else {
-                    reject();
-                }
-            });
-
-            req.on('error', error => {
-                reject(error);
-            });
-            if (body !== undefined) {
-                req.write(data)
-            }
-            req.end()
-            /* TODO test in browser and remove
-            let xhr = new XMLHttpRequest();
-            xhr.responseType = 'json';
-            if (body !== undefined) {
-                xhr.setRequestHeader("Content-Type", "application/json");
-            }
-            xhr.onload = function () {
-                if (this.status >= 200 && this.status < 300) {
-                    resolve(xhr.response);
-                } else {
-                    reject({
-                        status: this.status,
-                        statusText: xhr.statusText
-                    });
-                }
-            };
-            xhr.onerror = function () {
-                reject({
-                    status: this.status,
-                    statusText: xhr.statusText
-                });
-            };
-            if (body === undefined) {
-                xhr.send();
-            } else {
-                xhr.send(JSON.stringify(body));
-            }*/
-        });
-    }
-
     async get(host: string, path: string): Promise<object> {
         await this.wait();
-        let response = await this.makeRequest(host, path);
+        let response = await Https.makeJsonRequest(host, path);
         this.sleep(500);
         return response;
     }
 
     async post(host: string, path: string, body: object): Promise<object> {
         await this.wait();
-        let response = await this.makeRequest(host, path, body);
+        let response = await Https.makeJsonRequest(host, path, body);
         this.sleep(500);
         return response;
     }
@@ -167,6 +100,7 @@ interface BitcoinUtxo {
 
 export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
+    onlineCoin = true;
     abstract testCoin: boolean;
     abstract description: string;
     abstract icon: string;
@@ -180,6 +114,14 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
     webapiPath : string
     network : Network
     keyPath : string
+
+    log: LogInterface
+    cache: CacheWrapper
+
+    constructor(log: LogInterface, cache: CacheWrapper) {
+        this.log = log
+        this.cache = cache
+    }
 
     static web : WebRequestsQueuedProcessor = new WebRequestsQueuedProcessor();
 

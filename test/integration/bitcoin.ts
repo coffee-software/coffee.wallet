@@ -2,12 +2,13 @@ import { strictEqual, notStrictEqual } from "assert";
 import {Keychain} from "../../src/Keychain";
 import {BigNum} from "../../src/BigNum";
 import {HandlerBtcTest} from "../../src/Handlers/HandlerBtcTest";
+import {CacheMock, CacheWrapperMock, LogMock} from "../_mocks";
 var config = require('../../config');
 
 describe('Bitcoin Integration Test', function() {
     describe('integration', function () {
         it('sending transaction', async function () {
-            let handler = new HandlerBtcTest();
+            let handler = new HandlerBtcTest(new LogMock(), new CacheWrapperMock());
             let integration1Keychain = new Keychain(config.integrationMnemonic1);
             let integration2Keychain = new Keychain(config.integrationMnemonic2);
             let balance1 = await handler.getOwnBalance(integration1Keychain);

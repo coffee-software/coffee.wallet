@@ -5,8 +5,8 @@ import {Keychain} from "../Keychain";
 import {JsonRpcProvider} from "@ethersproject/providers/src.ts/json-rpc-provider";
 import {TransactionRequest} from "@ethersproject/abstract-provider/src.ts";
 import {Wallet} from "@ethersproject/wallet/src.ts";
-import {ECPair} from "bitcoinjs-lib";
 import * as bip32 from "bip32";
+import {CacheWrapper, LogInterface} from "../Engine";
 var config = require('../../config');
 
 class EthTransaction implements NewTransaction {
@@ -44,6 +44,7 @@ class EthTransaction implements NewTransaction {
 
 export abstract class BaseEthersHanlder implements OnlineCoinHandler {
 
+    onlineCoin = true;
     abstract testCoin: boolean;
     abstract ticker: string;
     abstract name: string;
@@ -52,6 +53,14 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     abstract links: { [p: string]: string };
     abstract explorerLinkAddr(address: string): string;
     abstract explorerLinkTx(txid: string): string;
+
+    log: LogInterface
+    cache: CacheWrapper
+
+    constructor(log: LogInterface, cache: CacheWrapper) {
+        this.log = log
+        this.cache = cache
+    }
 
     abstract networkName: string;
 

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var BN = require("bn.js");
 var Wallet = (function () {
     function Wallet(handler, keychain) {
+        this.portfolio = [];
         this.handler = handler;
         this.keychain = keychain;
     }
@@ -11,4 +12,5 @@ var Wallet = (function () {
     };
     return Wallet;
 }());
+exports.Wallet = Wallet;
 //# sourceMappingURL=Wallet.js.map

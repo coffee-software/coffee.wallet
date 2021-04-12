@@ -4,7 +4,7 @@ export class HandlerEthTest extends BaseEthersHanlder {
 
     testCoin = true
     ticker = "ETH.TST";
-    name = "Test Ether";
+    name = "Test Ethereum";
     icon = "eth.test";
     description = "Robsten is an ethereum testing network.";
     links = {

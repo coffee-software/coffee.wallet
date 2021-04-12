@@ -8,29 +8,29 @@ describe('Keychain Test', function() {
     let keychain2 = new Keychain(mnemonic2);
     it('should generate specific hex seed', function () {
       strictEqual(
-          keychain1.getSeedHex(),
+          keychain1.getSeed().toString('hex'),
           "2fc8627a54d5c57de1b05a6763b9773aa2a333900282a64c3736ba195e7f1944c685817023f87fb72fa0b4b65859884de26557c571e453466ed5e4fdf3a2da47"
       );
       strictEqual(
-          keychain2.getSeedHex(),
+          keychain2.getSeed().toString('hex'),
           "cf98815c8aed7fdc08bd31913772c08d9bfc787f3d133edea8ffdd20d29881a80d5ed12e44822d1888a1280ffd04648540e1470805cbfadb39663986d127ee96"
       );
     });
 
     it('should generate unique, valid mnemonics', function () {
-      let previous = keychain1.getSeedHex();
+      let previous = keychain1.getSeed().toString('hex');
       //this is just a simple test that does not validate cryptografic safety
       for (let i = 0; i < 5; i++) {
         let randomKeychain = new Keychain(Keychain.newMnemonic());
         notStrictEqual(
             previous,
-            randomKeychain.getSeedHex()
+            randomKeychain.getSeed().toString('hex')
         );
         strictEqual(
             Keychain.validateMnemonic(randomKeychain.mnemonic),
             true
         );
-        previous = randomKeychain.getSeedHex();
+        previous = randomKeychain.getSeed().toString('hex');
       }
     });
     it('should properly validate mnemonics', function () {

@@ -40,7 +40,7 @@ var BaseCoinHandler_1 = require("./BaseCoinHandler");
 var BigNum_1 = require("../BigNum");
 var bitcoinjs_lib_1 = require("bitcoinjs-lib");
 var bitcoin = require("bitcoinjs-lib");
-var https = require("https");
+var Https_1 = require("../Https");
 var coininfo = require('coininfo');
 var config = require('../../config');
 var base58 = require('bs58');
@@ -99,44 +99,6 @@ var WebRequestsQueuedProcessor = (function () {
             });
         });
     };
-    WebRequestsQueuedProcessor.prototype.makeRequest = function (host, path, body) {
-        return new Promise(function (resolve, reject) {
-            var data = JSON.stringify(body);
-            var options = {
-                method: body === undefined ? 'GET' : 'POST',
-                host: host,
-                path: path
-            };
-            if (body !== undefined) {
-                options.headers = {
-                    'Content-Type': 'application/json',
-                    'Content-Length': data.length
-                };
-            }
-            var req = https.request(options);
-            req.on('response', function (response) {
-                if (response.statusCode >= 200 && response.statusCode < 300) {
-                    var str = '';
-                    response.on('data', function (chunk) {
-                        str += chunk;
-                    });
-                    response.on('end', function () {
-                        resolve(JSON.parse(str));
-                    });
-                }
-                else {
-                    reject();
-                }
-            });
-            req.on('error', function (error) {
-                reject(error);
-            });
-            if (body !== undefined) {
-                req.write(data);
-            }
-            req.end();
-        });
-    };
     WebRequestsQueuedProcessor.prototype.get = function (host, path) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
@@ -145,7 +107,7 @@ var WebRequestsQueuedProcessor = (function () {
                     case 0: return [4, this.wait()];
                     case 1:
                         _a.sent();
-                        return [4, this.makeRequest(host, path)];
+                        return [4, Https_1.Https.makeJsonRequest(host, path)];
                     case 2:
                         response = _a.sent();
                         this.sleep(500);
@@ -162,7 +124,7 @@ var WebRequestsQueuedProcessor = (function () {
                     case 0: return [4, this.wait()];
                     case 1:
                         _a.sent();
-                        return [4, this.makeRequest(host, path, body)];
+                        return [4, Https_1.Https.makeJsonRequest(host, path, body)];
                     case 2:
                         response = _a.sent();
                         this.sleep(500);
@@ -174,8 +136,11 @@ var WebRequestsQueuedProcessor = (function () {
     return WebRequestsQueuedProcessor;
 }());
 var BaseBitcoinjsHanlder = (function () {
-    function BaseBitcoinjsHanlder() {
+    function BaseBitcoinjsHanlder(log, cache) {
+        this.onlineCoin = true;
         this.decimals = 8;
+        this.log = log;
+        this.cache = cache;
     }
     BaseBitcoinjsHanlder.prototype.getBalance = function (addr) {
         return __awaiter(this, void 0, void 0, function () {

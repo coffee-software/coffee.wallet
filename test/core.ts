@@ -29,5 +29,31 @@ describe('Core Test', function() {
                 "6936393766129457053217295938941714344"
             );
         });
+        it('float conversion', function () {
+            let big = new BigNum("1234580236913469131234");
+            let float = big.toFloat(18);
+            strictEqual(
+                float > 1234.58023691346,
+                true
+            );
+            strictEqual(
+                float < 1234.58023691347,
+                true
+            );
+            let big2 = BigNum.fromFloat(float, 18);
+            strictEqual(
+                big2.toString().substr(0, 15),
+                "123458023691346"
+            );
+            strictEqual(
+                BigNum.fromFloat(1, 10).toString(),
+                "10000000000"
+            );
+            strictEqual(
+                BigNum.fromFloat(1/3, 10).toString(),
+                "3333333333"
+            );
+        });
+
     });
 });

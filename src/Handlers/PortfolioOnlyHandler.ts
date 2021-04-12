@@ -2,6 +2,8 @@ import {BaseCoinHandler} from "./BaseCoinHandler";
 
 export class PortfolioOnlyHandler implements BaseCoinHandler {
 
+    onlineCoin = false;
+    testCoin = false;
     ticker: string
     name: string
     icon: string
@@ -11,7 +13,6 @@ export class PortfolioOnlyHandler implements BaseCoinHandler {
     constructor(
         ticker: string,
         name: string,
-        longName: string,
         icon: string,
         description: string
     ) {

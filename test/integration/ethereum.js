@@ -40,6 +40,7 @@ var assert_1 = require("assert");
 var Keychain_1 = require("../../src/Keychain");
 var BigNum_1 = require("../../src/BigNum");
 var HandlerEthTest_1 = require("../../src/Handlers/HandlerEthTest");
+var _mocks_1 = require("../_mocks");
 var config = require('../../config');
 describe('Ethereum Integration Test', function () {
     describe('integration', function () {
@@ -49,7 +50,7 @@ describe('Ethereum Integration Test', function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            handler = new HandlerEthTest_1.HandlerEthTest();
+                            handler = new HandlerEthTest_1.HandlerEthTest(new _mocks_1.LogMock(), new _mocks_1.CacheWrapperMock());
                             integration1Keychain = new Keychain_1.Keychain(config.integrationMnemonic1);
                             integration2Keychain = new Keychain_1.Keychain(config.integrationMnemonic2);
                             return [4, handler.getOwnBalance(integration1Keychain)];
