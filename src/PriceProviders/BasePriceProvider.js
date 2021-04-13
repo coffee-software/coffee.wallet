@@ -38,18 +38,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var BasePriceProvider = (function () {
     function BasePriceProvider(cache, unit) {
-        this.prices = {};
+        this.prices = null;
         this.cache = cache;
         this.unit = unit;
     }
-    BasePriceProvider.prototype.getCache = function (unit) {
-        this.prices = this.cache.get(this.name + '_prices_' + this.unit, {});
+    BasePriceProvider.prototype.initPrices = function () {
+        if (this.prices == null) {
+            console.log('INIT' + this.name);
+            this.prices = this.cache.get(this.name + '_prices_' + this.unit, {});
+        }
     };
     BasePriceProvider.prototype.updatePrices = function (handlers) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4, this.fetchPrices(handlers)];
+                    case 0:
+                        this.initPrices();
+                        return [4, this.fetchPrices(handlers)];
                     case 1:
                         _a.sent();
                         this.cache.set(this.name + '_prices_' + this.unit, this.prices);
@@ -59,6 +64,10 @@ var BasePriceProvider = (function () {
         });
     };
     BasePriceProvider.prototype.getPrice = function (code) {
+        if (this.availableUnits.indexOf(this.unit) < 0) {
+            throw new Error('Unknown unit ' + this.unit);
+        }
+        this.initPrices();
         if (code in this.prices) {
             return this.prices[code];
         }
@@ -73,6 +82,7 @@ var BasePriceProvider = (function () {
         }) + '&nbsp;' + unit;
     };
     BasePriceProvider.prototype.convert = function (amount, code) {
+        this.initPrices();
         if (code in this.prices) {
             return this.formatMoney(amount * this.getPrice(code), this.unit);
         }

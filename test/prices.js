@@ -41,40 +41,37 @@ var _mocks_1 = require("./_mocks");
 var CoinGeckoProvider_1 = require("../src/PriceProviders/CoinGeckoProvider");
 var AllCoinHandlers_1 = require("../src/AllCoinHandlers");
 var CoinPaprikaProvider_1 = require("../src/PriceProviders/CoinPaprikaProvider");
+function testProvider(provider) {
+    it('fetches core prices', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, provider.updatePrices(AllCoinHandlers_1.createAllCoinHandlers(new _mocks_1.LogMock(), new _mocks_1.CacheWrapperMock()))];
+                    case 1:
+                        _a.sent();
+                        assert_1.strictEqual(provider.getPrice('DOGE') > 0, true);
+                        assert_1.strictEqual(provider.getPrice('BTC') > 0, true);
+                        assert_1.strictEqual(provider.getPrice('ETH') > 0, true);
+                        return [2];
+                }
+            });
+        });
+    });
+    it('fetches cached prices', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                assert_1.strictEqual(provider.getPrice('DOGE') > 0, true);
+                return [2];
+            });
+        });
+    });
+}
 describe('Price Providers', function () {
-    describe('Fetching Prices', function () {
-        it('CoinGecko', function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var provider;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            provider = new CoinGeckoProvider_1.CoinGeckoProvider(new _mocks_1.CacheWrapperMock(), 'PLN');
-                            return [4, provider.updatePrices(AllCoinHandlers_1.createAllCoinHandlers(new _mocks_1.LogMock(), new _mocks_1.CacheWrapperMock()))];
-                        case 1:
-                            _a.sent();
-                            assert_1.strictEqual(provider.getPrice('DOGE') > 0, true);
-                            return [2];
-                    }
-                });
-            });
-        });
-        it('CoinPaprika', function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var provider;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            provider = new CoinPaprikaProvider_1.CoinPaprikaProvider(new _mocks_1.CacheWrapperMock(), 'PLN');
-                            return [4, provider.updatePrices(AllCoinHandlers_1.createAllCoinHandlers(new _mocks_1.LogMock(), new _mocks_1.CacheWrapperMock()))];
-                        case 1:
-                            _a.sent();
-                            assert_1.strictEqual(provider.getPrice('DOGE') > 0, true);
-                            return [2];
-                    }
-                });
-            });
-        });
+    describe('CoinGecko', function () {
+        testProvider(new CoinGeckoProvider_1.CoinGeckoProvider(new _mocks_1.CacheWrapperMock(), 'PLN'));
+    });
+    describe('CoinPaprika', function () {
+        testProvider(new CoinPaprikaProvider_1.CoinPaprikaProvider(new _mocks_1.CacheWrapperMock(), 'PLN'));
     });
 });
 //# sourceMappingURL=prices.js.map

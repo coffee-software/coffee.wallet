@@ -1,6 +1,6 @@
-import {BasePriceProvider} from "./BasePriceProvider";
-import {Https} from "../Https";
-import {BaseCoinHandler} from "../Handlers/BaseCoinHandler";
+import { BasePriceProvider } from "./BasePriceProvider";
+import { Https } from "../Https";
+import { BaseCoinHandler } from "../Handlers/BaseCoinHandler";
 
 export class CoinPaprikaProvider extends BasePriceProvider {
 
@@ -14,7 +14,7 @@ export class CoinPaprikaProvider extends BasePriceProvider {
 
     defaultUnit = "USD"
 
-    async fetchPrices(handlers: { [p: string]: BaseCoinHandler }): Promise<void> {
+    async fetchPrices(handlers: { [code: string]: BaseCoinHandler }): Promise<void> {
         let path = encodeURI('/v1/tickers?quotes=' + this.unit);
         let list : {
             id: string,
