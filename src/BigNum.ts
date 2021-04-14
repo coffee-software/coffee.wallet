@@ -18,7 +18,13 @@ export class BigNum {
         ret._bn = this._bn.add(other._bn);
         return ret;
     }
-    
+
+    sub(other : BigNum) : BigNum {
+        var ret = new BigNum("0");
+        ret._bn = this._bn.sub(other._bn);
+        return ret;
+    }
+
     mul(other : BigNum) : BigNum {
         var ret = new BigNum("0");
         ret._bn = this._bn.mul(other._bn);
@@ -56,6 +62,10 @@ export class BigNum {
             s = "0" + s;
         }
         return parseFloat(s.slice(0, s.length - decimals) + "." + s.slice(s.length - decimals));
+    }
+
+    isZero() : boolean {
+        return this.toString(10) === "0"
     }
 
     toString(base : number = 10) : string {

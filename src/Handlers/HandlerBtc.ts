@@ -20,6 +20,7 @@ export class HandlerBtc extends BaseBitcoinjsHanlder {
     webapiPath = '/v1/btc/main'
     network = coininfo.bitcoin.main.toBitcoinJS()
     keyPath = "m/44'/0'/0'/0/0"
+    segwitSupport = true
 
     explorerLinkAddr(address : string) {
         return 'https://www.blockchain.com/btc/address/' + address;

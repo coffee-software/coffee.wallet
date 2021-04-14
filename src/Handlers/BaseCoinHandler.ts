@@ -3,6 +3,7 @@ import {BigNum} from "../BigNum";
 import * as bip32 from "bip32";
 
 export interface BaseCoinHandler {
+  decimals : number
   testCoin: boolean
   onlineCoin: boolean
   ticker: string
@@ -21,19 +22,26 @@ export interface NewTransaction {
 }
 
 export class Balance {
+  handler: BaseCoinHandler
   amount: BigNum
   unconfirmed: BigNum
-  constructor(amount: BigNum, unconfirmed: BigNum) {
+  constructor(handler: BaseCoinHandler, amount: BigNum, unconfirmed: BigNum) {
+    this.handler = handler
     this.amount = amount
     this.unconfirmed = unconfirmed
   }
   total() : BigNum {
     return this.amount.add(this.unconfirmed)
   }
+  totalFloat() : number {
+    return this.amount.add(this.unconfirmed).toFloat(this.handler.decimals)
+  }
+  equals(other: Balance) : boolean {
+    return other.total().toString() === this.total().toString();
+  }
 }
 
 export interface OnlineCoinHandler extends BaseCoinHandler {
-  decimals : number
   getPrivateKey(keychain: Keychain) : bip32.BIP32Interface
   getReceiveAddr(keychain: Keychain) : string
   prepareTransaction(

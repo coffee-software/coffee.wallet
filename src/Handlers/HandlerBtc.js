@@ -35,6 +35,7 @@ var HandlerBtc = (function (_super) {
         _this.webapiPath = '/v1/btc/main';
         _this.network = coininfo.bitcoin.main.toBitcoinJS();
         _this.keyPath = "m/44'/0'/0'/0/0";
+        _this.segwitSupport = true;
         return _this;
     }
     HandlerBtc.prototype.explorerLinkAddr = function (address) {

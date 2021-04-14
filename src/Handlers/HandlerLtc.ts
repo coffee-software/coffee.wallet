@@ -20,6 +20,7 @@ export class HandlerLtc extends BaseBitcoinjsHanlder {
     webapiPath = '/v1/ltc/main'
     network = coininfo.litecoin.main.toBitcoinJS()
     keyPath = "m/44'/2'/0'/0/0"
+    segwitSupport = false
 
     explorerLinkAddr(address : string) {
         return 'https://bchain.info/LTC/addr/' + address;

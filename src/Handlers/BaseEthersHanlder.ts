@@ -70,7 +70,7 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
 
     async getBalance(addr: string): Promise<Balance> {
         var ret = await this.getProvider().getBalance(addr);
-        return new Balance(new BigNum(ret.toString()), new BigNum("0"));
+        return new Balance(this, new BigNum(ret.toString()), new BigNum("0"));
     }
 
     async getOwnBalance(keychain: Keychain): Promise<Balance> {

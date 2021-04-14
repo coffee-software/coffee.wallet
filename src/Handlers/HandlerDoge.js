@@ -33,6 +33,7 @@ var HandlerDoge = (function (_super) {
         _this.webapiPath = '/v1/doge/main';
         _this.network = coininfo.dogecoin.main.toBitcoinJS();
         _this.keyPath = "m/44'/3'/0'/0/0";
+        _this.segwitSupport = false;
         return _this;
     }
     HandlerDoge.prototype.explorerLinkAddr = function (address) {

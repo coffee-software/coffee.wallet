@@ -91,7 +91,7 @@ var BaseEthersHanlder = (function () {
                     case 0: return [4, this.getProvider().getBalance(addr)];
                     case 1:
                         ret = _a.sent();
-                        return [2, new BaseCoinHandler_1.Balance(new BigNum_1.BigNum(ret.toString()), new BigNum_1.BigNum("0"))];
+                        return [2, new BaseCoinHandler_1.Balance(this, new BigNum_1.BigNum(ret.toString()), new BigNum_1.BigNum("0"))];
                 }
             });
         });

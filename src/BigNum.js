@@ -13,6 +13,11 @@ var BigNum = (function () {
         ret._bn = this._bn.add(other._bn);
         return ret;
     };
+    BigNum.prototype.sub = function (other) {
+        var ret = new BigNum("0");
+        ret._bn = this._bn.sub(other._bn);
+        return ret;
+    };
     BigNum.prototype.mul = function (other) {
         var ret = new BigNum("0");
         ret._bn = this._bn.mul(other._bn);
@@ -47,6 +52,9 @@ var BigNum = (function () {
             s = "0" + s;
         }
         return parseFloat(s.slice(0, s.length - decimals) + "." + s.slice(s.length - decimals));
+    };
+    BigNum.prototype.isZero = function () {
+        return this.toString(10) === "0";
     };
     BigNum.prototype.toString = function (base) {
         if (base === void 0) { base = 10; }

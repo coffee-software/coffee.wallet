@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var PortfolioOnlyHandler = (function () {
     function PortfolioOnlyHandler(ticker, name, icon, description) {
+        this.decimals = 10;
         this.onlineCoin = false;
         this.testCoin = false;
         this.ticker = ticker;

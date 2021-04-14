@@ -110,6 +110,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
     abstract explorerLinkAddr(address: string): string;
     abstract explorerLinkTx(txid: string): string;
 
+    segwitSupport : boolean
     webapiHost : string
     webapiPath : string
     network : Network
@@ -132,24 +133,29 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             final_balance: number
         }
         let response = <BalanceResponse>await BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath + '/addrs/' + addr + '/balance');
-        return new Balance(new BigNum(response.balance), new BigNum(response.unconfirmed_balance));
+        return new Balance(this, new BigNum(response.balance), new BigNum(response.unconfirmed_balance));
     }
 
     async getOwnBalance(keychain: Keychain): Promise<Balance> {
         var bip32 = this.getPrivateKey(keychain);
-        var segwitAddress = bitcoin.payments.p2wpkh({
-            pubkey: bip32.publicKey,
-            network: this.network
-        }).address;
         var legacyAddress =  bitcoin.payments.p2pkh({
             pubkey: bip32.publicKey,
             network: this.network
         }).address;
-        var segwitBalance = await this.getBalance(segwitAddress);
         var legacyBalance = await this.getBalance(legacyAddress);
+        if (this.segwitSupport) {
+            var segwitAddress = bitcoin.payments.p2wpkh({
+                pubkey: bip32.publicKey,
+                network: this.network
+            }).address;
+            var segwitBalance = await this.getBalance(segwitAddress);
+            legacyBalance.amount = legacyBalance.amount.add(segwitBalance.amount);
+            legacyBalance.unconfirmed = legacyBalance.unconfirmed.add(segwitBalance.unconfirmed);
+        }
         return new Balance(
-            segwitBalance.amount.add(legacyBalance.amount),
-            segwitBalance.unconfirmed.add(legacyBalance.unconfirmed)
+            this,
+            legacyBalance.amount,
+            legacyBalance.unconfirmed
         );
     }
 

@@ -2,6 +2,7 @@ import {BaseCoinHandler} from "./BaseCoinHandler";
 
 export class PortfolioOnlyHandler implements BaseCoinHandler {
 
+    decimals = 10;
     onlineCoin = false;
     testCoin = false;
     ticker: string

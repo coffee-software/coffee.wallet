@@ -38,13 +38,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var BasePriceProvider = (function () {
     function BasePriceProvider(cache, unit) {
+        if (unit === void 0) { unit = null; }
         this.prices = null;
         this.cache = cache;
         this.unit = unit;
     }
-    BasePriceProvider.prototype.initPrices = function () {
+    BasePriceProvider.prototype.init = function () {
+        if (this.unit == null) {
+            this.unit = this.defaultUnit;
+        }
         if (this.prices == null) {
-            console.log('INIT' + this.name);
             this.prices = this.cache.get(this.name + '_prices_' + this.unit, {});
         }
     };
@@ -53,7 +56,7 @@ var BasePriceProvider = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        this.initPrices();
+                        this.init();
                         return [4, this.fetchPrices(handlers)];
                     case 1:
                         _a.sent();
@@ -63,28 +66,32 @@ var BasePriceProvider = (function () {
             });
         });
     };
-    BasePriceProvider.prototype.getPrice = function (code) {
+    BasePriceProvider.prototype.getPrice = function (handler) {
+        this.init();
         if (this.availableUnits.indexOf(this.unit) < 0) {
             throw new Error('Unknown unit ' + this.unit);
         }
-        this.initPrices();
-        if (code in this.prices) {
-            return this.prices[code];
+        if (handler.ticker in this.prices) {
+            return this.prices[handler.ticker];
         }
         else {
             return 0;
         }
     };
     BasePriceProvider.prototype.formatMoney = function (value, unit, decimals) {
+        if (unit === void 0) { unit = null; }
         if (decimals === void 0) { decimals = 2; }
+        if (unit == null) {
+            unit = this.unit;
+        }
         return value.toFixed(decimals).replace(/./g, function (c, i, a) {
             return i && c !== "." && ((a.length - i) % 3 === 0) && (a.length - i > decimals) ? '&nbsp;' + c : c;
         }) + '&nbsp;' + unit;
     };
-    BasePriceProvider.prototype.convert = function (amount, code) {
-        this.initPrices();
-        if (code in this.prices) {
-            return this.formatMoney(amount * this.getPrice(code), this.unit);
+    BasePriceProvider.prototype.convert = function (amount, handler) {
+        this.init();
+        if (handler.ticker in this.prices) {
+            return this.formatMoney(amount * this.getPrice(handler), this.unit);
         }
         else {
             return '? ' + this.unit;

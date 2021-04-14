@@ -21,7 +21,7 @@ export class CoinGeckoProvider extends BasePriceProvider {
         let response : { [code: string] : { [unit: string] : number } } = await Https.makeJsonRequest('api.coingecko.com', path);
         for (let key in handlers) {
             if (handlers[key].name.toLowerCase() in response) {
-                this.prices[key] = response[handlers[key].name.toLowerCase()][this.unit.toLowerCase()];
+                this.prices[handlers[key].ticker] = response[handlers[key].name.toLowerCase()][this.unit.toLowerCase()];
             }
         }
     }

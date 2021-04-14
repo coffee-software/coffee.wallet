@@ -40,8 +40,10 @@ var Keychain_1 = require("./Keychain");
 var AllCoinHandlers_1 = require("./AllCoinHandlers");
 var Wallet_1 = require("./Wallet");
 var PortfolioItem_1 = require("./PortfolioItem");
+var CoinGeckoProvider_1 = require("./PriceProviders/CoinGeckoProvider");
+var CoinPaprikaProvider_1 = require("./PriceProviders/CoinPaprikaProvider");
+var CoinMarketCapProvider_1 = require("./PriceProviders/CoinMarketCapProvider");
 var jazzicons = require('@metamask/jazzicon');
-exports.jazzicons = jazzicons;
 var CacheWrapper = (function () {
     function CacheWrapper(cache) {
         this.cache = cache;
@@ -89,14 +91,49 @@ var Engine = (function () {
     Engine.prototype.init = function (callback) {
         console.log("INITIALISING");
         this.allCoinHandlers = AllCoinHandlers_1.createAllCoinHandlers(this.log, this.cache);
+        this.allPriceProviders = [
+            new CoinPaprikaProvider_1.CoinPaprikaProvider(this.cache),
+            new CoinGeckoProvider_1.CoinGeckoProvider(this.cache),
+            new CoinMarketCapProvider_1.CoinMarketCapProvider(this.cache)
+        ];
+        this.allExchangeProviders = [];
+        this.priceProvider = this.allPriceProviders[this.cache.get('priceProvider', 0)];
+        this.priceProvider.unit = this.cache.get(this.priceProvider.name + '_priceUnit', this.priceProvider.defaultUnit);
         this.initAsync().then(callback);
+    };
+    Engine.prototype.getFiatValue = function (balance) {
+        return balance.totalFloat() * this.priceProvider.getPrice(balance.handler);
+    };
+    Engine.prototype.getFiatValueString = function (balance) {
+        return this.priceProvider.convert(balance.total().toFloat(balance.handler.decimals), balance.handler);
+    };
+    Engine.prototype.getValueString = function (balance) {
+        return balance.total().toFloat(balance.handler.decimals) + ' ' + balance.handler.ticker;
+    };
+    Engine.prototype.getSetting = function (key, dafaultValue) {
+        return this.cache.get(key, dafaultValue);
+    };
+    Engine.prototype.setSetting = function (key, value) {
+        return this.cache.set(key, value);
+    };
+    Engine.prototype.getCache = function (key, dafaultValue) {
+        return this.cache.get(key, dafaultValue);
+    };
+    Engine.prototype.setCache = function (key, value) {
+        return this.cache.set(key, value);
+    };
+    Engine.prototype.setPriceProvider = function (index, unit) {
+        this.priceProvider = this.allPriceProviders[index];
+        this.cache.set('priceProvider', index);
+        this.priceProvider.unit = unit;
+        this.cache.set(this.priceProvider.name + '_priceUnit', unit);
     };
     Engine.prototype.addWallet = function (code, portfolio) {
         if (!(code in this.allCoinHandlers)) {
             this.log.error('coin ' + code + ' is no longer supported. It will be disabled.');
         }
         else {
-            var wallet = new Wallet_1.Wallet(this.allCoinHandlers[code], this.keychain);
+            var wallet = new Wallet_1.Wallet(this, code, this.allCoinHandlers[code], this.keychain);
             wallet.portfolio = this.loadPortfolio(wallet.handler, portfolio);
             this.wallets[code] = wallet;
         }
@@ -180,7 +217,7 @@ var Engine = (function () {
             var item = void 0;
             if (PortfolioItem_1.isPortfolioLegacyItemData(row)) {
                 if (row.addr) {
-                    item = new PortfolioItem_1.PortfolioAddress(row.comment, row.addr);
+                    item = new PortfolioItem_1.PortfolioAddress(row.comment, row.addr, row.balance);
                 }
                 else {
                     item = new PortfolioItem_1.PortfolioBalance(row.comment, row.balance);
@@ -188,7 +225,7 @@ var Engine = (function () {
             }
             else if (PortfolioItem_1.isPortfolioItemData(row)) {
                 if (row.address) {
-                    item = new PortfolioItem_1.PortfolioAddress(row.label, row.address);
+                    item = new PortfolioItem_1.PortfolioAddress(row.label, row.address, row.balance);
                 }
                 else {
                     item = new PortfolioItem_1.PortfolioBalance(row.label, row.balance);
@@ -197,6 +234,12 @@ var Engine = (function () {
             portfolio.push(item);
         }
         return portfolio;
+    };
+    Engine.prototype.validateMnemonic = function (mnemonic) {
+        return Keychain_1.Keychain.validateMnemonic(mnemonic);
+    };
+    Engine.prototype.recoverKeychain = function (mnemonic) {
+        this.keychain = new Keychain_1.Keychain(mnemonic);
     };
     Engine.prototype.createNewKeychain = function () {
         this.keychain = new Keychain_1.Keychain(Keychain_1.Keychain.newMnemonic());
@@ -215,6 +258,38 @@ var Engine = (function () {
         return new Promise(function (resolve, reject) {
             engine.storage.setItem(key, value, resolve, reject);
         });
+    };
+    Engine.prototype.updatePrices = function (callback) {
+        this.priceProvider.updatePrices(this.allCoinHandlers).then(callback);
+    };
+    Engine.prototype.shortAmount = function (floatValue, unit, maxchars) {
+        maxchars = maxchars - unit.length - 1;
+        return floatValue.toString().substring(0, maxchars - 2) + '..&nbsp;' + unit;
+    };
+    Engine.prototype.shortAddr = function (address, maxchars) {
+        if (address.length > maxchars) {
+            var half = (maxchars - 3) / 2;
+            return address.substring(0, half) + '...' + address.substring(address.length - half, address.length);
+        }
+        else {
+            return address;
+        }
+    };
+    Engine.prototype.getCoinAddrIcon = function (handler, address) {
+        if (address && AllCoinHandlers_1.isOnlineCoinHanlder(handler)) {
+            var addrSvg = jazzicons.generateIdenticon(100, handler.getIdenticonSeed(address)).children[0];
+            addrSvg.setAttribute("viewBox", "0 0 100 100");
+            addrSvg.removeAttribute("width");
+            addrSvg.removeAttribute("height");
+            addrSvg.style.borderRadius = '50%';
+            return addrSvg;
+        }
+        else {
+            var emptyImg = document.createElement('img');
+            emptyImg.setAttribute("class", "coinIcon");
+            emptyImg.setAttribute("src", "coins/noicon.svg");
+            return emptyImg;
+        }
     };
     return Engine;
 }());

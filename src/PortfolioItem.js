@@ -22,18 +22,23 @@ function isPortfolioItemData(toBeDetermined) {
 }
 exports.isPortfolioItemData = isPortfolioItemData;
 var PortfolioItem = (function () {
-    function PortfolioItem(label) {
+    function PortfolioItem(label, balance) {
         this.label = label;
+        this.balance = balance;
     }
+    PortfolioItem.isBalance = function (toBeDetermined) {
+        return !('address' in toBeDetermined);
+    };
+    PortfolioItem.isAddress = function (toBeDetermined) {
+        return ('address' in toBeDetermined);
+    };
     return PortfolioItem;
 }());
 exports.PortfolioItem = PortfolioItem;
 var PortfolioBalance = (function (_super) {
     __extends(PortfolioBalance, _super);
     function PortfolioBalance(label, balance) {
-        var _this = _super.call(this, label) || this;
-        _this.balance = balance;
-        return _this;
+        return _super.call(this, label, balance) || this;
     }
     PortfolioBalance.prototype.getData = function () {
         return { label: this.label, balance: this.balance };
@@ -43,13 +48,13 @@ var PortfolioBalance = (function (_super) {
 exports.PortfolioBalance = PortfolioBalance;
 var PortfolioAddress = (function (_super) {
     __extends(PortfolioAddress, _super);
-    function PortfolioAddress(label, address) {
-        var _this = _super.call(this, label) || this;
+    function PortfolioAddress(label, address, balance) {
+        var _this = _super.call(this, label, balance) || this;
         _this.address = address;
         return _this;
     }
     PortfolioAddress.prototype.getData = function () {
-        return { label: this.label, address: this.address };
+        return { label: this.label, address: this.address, balance: this.balance };
     };
     return PortfolioAddress;
 }(PortfolioItem));

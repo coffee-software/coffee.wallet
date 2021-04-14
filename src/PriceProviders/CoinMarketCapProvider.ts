@@ -1,7 +1,7 @@
 import { BaseCoinHandler } from "../Handlers/BaseCoinHandler";
 import {BasePriceProvider} from "./BasePriceProvider";
 
-class CoinMarketCapProvider extends BasePriceProvider {
+export class CoinMarketCapProvider extends BasePriceProvider {
     name = "coinmarketcap.com"
 
     availableUnits = [

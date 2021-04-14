@@ -2,7 +2,7 @@
 
 #browserify browserify.js --standalone browserify > www/vendor/browserify.js
 
-browserify src/index.js --standalone engine \
+browserify src/Engine.js --standalone engine \
  --exclude=node_modules/bip39/src/wordlists/korean.json \
  --exclude=node_modules/bip39/src/wordlists/japanese.json \
  --exclude=node_modules/bip39/src/wordlists/chinese_simplified.json \

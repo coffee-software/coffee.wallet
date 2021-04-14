@@ -18,6 +18,7 @@ export class HandlerDoge extends BaseBitcoinjsHanlder {
     webapiPath = '/v1/doge/main'
     network = coininfo.dogecoin.main.toBitcoinJS()
     keyPath = "m/44'/3'/0'/0/0"
+    segwitSupport = false
 
     explorerLinkAddr(address : string) {
         return 'https://dogechain.info/address/' + address;

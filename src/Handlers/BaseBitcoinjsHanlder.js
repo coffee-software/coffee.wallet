@@ -151,33 +151,37 @@ var BaseBitcoinjsHanlder = (function () {
                         return [4, BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath + '/addrs/' + addr + '/balance')];
                     case 1:
                         response = _a.sent();
-                        return [2, new BaseCoinHandler_1.Balance(new BigNum_1.BigNum(response.balance), new BigNum_1.BigNum(response.unconfirmed_balance))];
+                        return [2, new BaseCoinHandler_1.Balance(this, new BigNum_1.BigNum(response.balance), new BigNum_1.BigNum(response.unconfirmed_balance))];
                 }
             });
         });
     };
     BaseBitcoinjsHanlder.prototype.getOwnBalance = function (keychain) {
         return __awaiter(this, void 0, void 0, function () {
-            var bip32, segwitAddress, legacyAddress, segwitBalance, legacyBalance;
+            var bip32, legacyAddress, legacyBalance, segwitAddress, segwitBalance;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         bip32 = this.getPrivateKey(keychain);
-                        segwitAddress = bitcoin.payments.p2wpkh({
-                            pubkey: bip32.publicKey,
-                            network: this.network
-                        }).address;
                         legacyAddress = bitcoin.payments.p2pkh({
                             pubkey: bip32.publicKey,
                             network: this.network
                         }).address;
-                        return [4, this.getBalance(segwitAddress)];
-                    case 1:
-                        segwitBalance = _a.sent();
                         return [4, this.getBalance(legacyAddress)];
-                    case 2:
+                    case 1:
                         legacyBalance = _a.sent();
-                        return [2, new BaseCoinHandler_1.Balance(segwitBalance.amount.add(legacyBalance.amount), segwitBalance.unconfirmed.add(legacyBalance.unconfirmed))];
+                        if (!this.segwitSupport) return [3, 3];
+                        segwitAddress = bitcoin.payments.p2wpkh({
+                            pubkey: bip32.publicKey,
+                            network: this.network
+                        }).address;
+                        return [4, this.getBalance(segwitAddress)];
+                    case 2:
+                        segwitBalance = _a.sent();
+                        legacyBalance.amount = legacyBalance.amount.add(segwitBalance.amount);
+                        legacyBalance.unconfirmed = legacyBalance.unconfirmed.add(segwitBalance.unconfirmed);
+                        _a.label = 3;
+                    case 3: return [2, new BaseCoinHandler_1.Balance(this, legacyBalance.amount, legacyBalance.unconfirmed)];
                 }
             });
         });

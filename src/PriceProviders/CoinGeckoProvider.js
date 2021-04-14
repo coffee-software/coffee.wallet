@@ -78,7 +78,7 @@ var CoinGeckoProvider = (function (_super) {
                         response = _a.sent();
                         for (key in handlers) {
                             if (handlers[key].name.toLowerCase() in response) {
-                                this.prices[key] = response[handlers[key].name.toLowerCase()][this.unit.toLowerCase()];
+                                this.prices[handlers[key].ticker] = response[handlers[key].name.toLowerCase()][this.unit.toLowerCase()];
                             }
                         }
                         return [2];

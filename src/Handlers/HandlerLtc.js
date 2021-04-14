@@ -35,6 +35,7 @@ var HandlerLtc = (function (_super) {
         _this.webapiPath = '/v1/ltc/main';
         _this.network = coininfo.litecoin.main.toBitcoinJS();
         _this.keyPath = "m/44'/2'/0'/0/0";
+        _this.segwitSupport = false;
         return _this;
     }
     HandlerLtc.prototype.explorerLinkAddr = function (address) {

@@ -41,17 +41,21 @@ var _mocks_1 = require("./_mocks");
 var CoinGeckoProvider_1 = require("../src/PriceProviders/CoinGeckoProvider");
 var AllCoinHandlers_1 = require("../src/AllCoinHandlers");
 var CoinPaprikaProvider_1 = require("../src/PriceProviders/CoinPaprikaProvider");
+var HandlerDoge_1 = require("../src/Handlers/HandlerDoge");
 function testProvider(provider) {
     it('fetches core prices', function () {
         return __awaiter(this, void 0, void 0, function () {
+            var handlers;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4, provider.updatePrices(AllCoinHandlers_1.createAllCoinHandlers(new _mocks_1.LogMock(), new _mocks_1.CacheWrapperMock()))];
+                    case 0:
+                        handlers = AllCoinHandlers_1.createAllCoinHandlers(new _mocks_1.LogMock(), new _mocks_1.CacheWrapperMock());
+                        return [4, provider.updatePrices(handlers)];
                     case 1:
                         _a.sent();
-                        assert_1.strictEqual(provider.getPrice('DOGE') > 0, true);
-                        assert_1.strictEqual(provider.getPrice('BTC') > 0, true);
-                        assert_1.strictEqual(provider.getPrice('ETH') > 0, true);
+                        assert_1.strictEqual(provider.getPrice(handlers['DOGE']) > 0, true);
+                        assert_1.strictEqual(provider.getPrice(handlers['BTC']) > 0, true);
+                        assert_1.strictEqual(provider.getPrice(handlers['ETH']) > 0, true);
                         return [2];
                 }
             });
@@ -60,7 +64,7 @@ function testProvider(provider) {
     it('fetches cached prices', function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                assert_1.strictEqual(provider.getPrice('DOGE') > 0, true);
+                assert_1.strictEqual(provider.getPrice(new HandlerDoge_1.HandlerDoge(new _mocks_1.LogMock(), new _mocks_1.CacheWrapperMock())) > 0, true);
                 return [2];
             });
         });

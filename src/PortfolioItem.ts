@@ -1,5 +1,5 @@
-export type PortfolioLegacyItemData = { comment: string, addr?: string, balance?: number}
-export type PortfolioItemData = { label: string, address?: string, balance?: number}
+export type PortfolioLegacyItemData = { comment: string, addr?: string, balance: number}
+export type PortfolioItemData = { label: string, address?: string, balance: number}
 
 export function isPortfolioLegacyItemData(toBeDetermined: object): toBeDetermined is PortfolioLegacyItemData {
     return ('comment' in toBeDetermined);
@@ -11,17 +11,25 @@ export function isPortfolioItemData(toBeDetermined: object): toBeDetermined is P
 
 export abstract class PortfolioItem {
     label: string
-    protected constructor(label: string) {
+    balance: number
+    protected constructor(label: string, balance: number) {
         this.label = label
+        this.balance = balance
     }
     abstract getData() : PortfolioItemData
+
+    static isBalance(toBeDetermined: PortfolioItem): toBeDetermined is PortfolioBalance {
+        return !('address' in toBeDetermined);
+    }
+    static isAddress(toBeDetermined: PortfolioItem): toBeDetermined is PortfolioAddress {
+        return ('address' in toBeDetermined);
+    }
 }
 
 export class PortfolioBalance extends PortfolioItem {
-    balance: number
+
     constructor(label: string, balance: number) {
-        super(label)
-        this.balance = balance
+        super(label, balance)
     }
 
     getData(): PortfolioItemData {
@@ -32,12 +40,13 @@ export class PortfolioBalance extends PortfolioItem {
 
 export class PortfolioAddress extends PortfolioItem {
     address: string
-    constructor(label: string, address: string) {
-        super(label)
+
+    constructor(label: string, address: string, balance: number) {
+        super(label, balance)
         this.address = address
     }
 
     getData(): PortfolioItemData {
-        return { label: this.label, address: this.address };
+        return { label: this.label, address: this.address, balance: this.balance };
     }
 }
