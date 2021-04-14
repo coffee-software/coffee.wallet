@@ -38,4 +38,25 @@ var HandlerEthTest = (function (_super) {
     return HandlerEthTest;
 }(BaseEthersHanlder_1.BaseEthersHanlder));
 exports.HandlerEthTest = HandlerEthTest;
+var ERC20TestHandler = (function (_super) {
+    __extends(ERC20TestHandler, _super);
+    function ERC20TestHandler(log, cache, ticker, name, icon, ethContractAddr, decimals) {
+        var _this = _super.call(this, log, cache) || this;
+        _this.testCoin = true;
+        _this.onlineCoin = false;
+        _this.networkName = 'ropsten';
+        _this.ticker = ticker;
+        _this.name = name;
+        _this.icon = icon;
+        _this.description = _this.name + " is a ERC20 test token with no real value";
+        _this.ethContractAddr = ethContractAddr;
+        _this.decimals = decimals;
+        _this.links = {
+            "etherscan.io": "https://etherscan.io/token/" + _this.ethContractAddr
+        };
+        return _this;
+    }
+    return ERC20TestHandler;
+}(BaseEthersHanlder_1.BaseERC20Handler));
+exports.ERC20TestHandler = ERC20TestHandler;
 //# sourceMappingURL=HandlerEthTest.js.map

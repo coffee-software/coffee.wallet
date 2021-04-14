@@ -82,6 +82,32 @@ export class CacheWrapper {
     }
 }
 
+export class Settings {
+
+    storage : CacheInterface
+
+    constructor(storage: CacheInterface) {
+        this.storage = storage;
+    }
+
+    get(key: string, dafaultValue: any) : any {
+        let ret = this.storage.getItem('s_' + key);
+        return ret == null ? dafaultValue : JSON.parse(ret);
+    }
+
+    set(key: string, value: any) : any {
+        this.storage.setItem('s_' + key, JSON.stringify(value))
+    }
+
+    testCoinsEnabled() : boolean {
+        return this.get('enableTestCoins', false)
+    }
+
+    setTestCoinsEnabled(value : boolean) : void {
+        this.set('enableTestCoins', value);
+    }
+}
+
 export class Engine {
 
     wallets: { [code: string] : Wallet } = {}
@@ -89,6 +115,7 @@ export class Engine {
     storage: StorageInterface
     log: LogInterface
     cache: CacheWrapper
+    settings: Settings
     allCoinHandlers: { [code: string] : BaseCoinHandler }
     allPriceProviders: BasePriceProvider[]
     allExchangeProviders: BaseExchangeProvider[]
@@ -98,6 +125,7 @@ export class Engine {
         this.storage = storage
         this.log = log
         this.cache = new CacheWrapper(cache);
+        this.settings = new Settings(cache);
     }
 
     init(callback: ()=>void) {
@@ -133,14 +161,6 @@ export class Engine {
 
     getValueString(balance : Balance) : string {
         return balance.total().toFloat(balance.handler.decimals) + ' ' + balance.handler.ticker;
-    }
-
-    getSetting(key: string, dafaultValue: any) : any {
-        return this.cache.get(key, dafaultValue)
-    }
-
-    setSetting(key: string, value: any) : any {
-        return this.cache.set(key, value);
     }
 
     getCache(key: string, dafaultValue: any) : any {

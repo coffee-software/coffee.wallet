@@ -69,7 +69,7 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     }
 
     async getBalance(addr: string): Promise<Balance> {
-        var ret = await this.getProvider().getBalance(addr);
+        let ret = await this.getProvider().getBalance(addr);
         return new Balance(this, new BigNum(ret.toString()), new BigNum("0"));
     }
 
@@ -106,20 +106,8 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return "";
     }
 
-    /* network = {
-        bech32: 'eth',
-        messagePrefix: '\x19Ethereum Signed Message:\n',
-        bip32: {
-            public: 0xffffffff,
-            private: 0xffffffff
-        },
-        pubKeyHash: 0xff,
-        scriptHash: 0xff,
-        wif: 0xff
-    } */
-
     getWallet(keychain: Keychain): Wallet {
-        return new ethers.Wallet(this.getPrivateKeyAsHex(keychain));
+        return new ethers.Wallet(this.getPrivateKeyAsHex(keychain), this.getProvider());
     }
 
     getPrivateKeyAsHex(keychain: Keychain) : string {
@@ -141,19 +129,21 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return "";
     }
 
-    async prepareTransaction(keychain: Keychain, receiverAddr: string, amount: BigNum, fee: number): Promise<NewTransaction> {
-        var from = this.getReceiveAddr(keychain);
-        var tx : TransactionRequest = {
+    protected async getTransactionRequest(keychain: Keychain, receiverAddr: string, amount: BigNum): Promise<TransactionRequest> {
+        return {
             to: receiverAddr,
             value: "0x" + amount.toString(16),
-            gasPrice: fee,
-            gasLimit: 21000,
-            nonce: "0"
+            gasLimit: 21000
         };
+    }
+
+    async prepareTransaction(keychain: Keychain, receiverAddr: string, amount: BigNum, fee: number): Promise<NewTransaction> {
+        let from = this.getReceiveAddr(keychain);
+        let tx : TransactionRequest = await this.getTransactionRequest(keychain, receiverAddr, amount)
+        tx.gasPrice = fee
         tx.nonce = "0x" + (await this.getProvider().getTransactionCount(from)).toString(16);
 
-        var signed = await this.getWallet(keychain).signTransaction(tx);
-
+        let signed = await this.getWallet(keychain).signTransaction(tx);
         return new EthTransaction(this, tx, signed);
     }
 
@@ -161,4 +151,91 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return ethers.utils.isAddress(addr);
     }
 
+}
+
+export abstract class BaseERC20Handler extends BaseEthersHanlder {
+
+    abstract ethContractAddr: string
+    ethAbi: ethers.ContractInterface = [
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "_owner",
+                    "type": "address"
+                }
+            ],
+            "name": "balanceOf",
+            "outputs": [
+                {
+                    "name": "balance",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name":"to",
+                    "type":"address"
+                },
+                {
+                    "name":"tokens",
+                    "type":"uint256"
+                }
+            ],
+            "name":"transfer",
+            "outputs": [
+                {
+                    "name":"success",
+                    "type":"bool"
+                }
+            ],
+            "payable":false,
+            "stateMutability":"nonpayable",
+            "type":"function"
+        }
+    ]
+    //feeCoin: EthTestHandler,
+    //gasLimit: 200000,
+
+    private getContract(keychain: Keychain = null) : ethers.Contract {
+        return new ethers.Contract(this.ethContractAddr, this.ethAbi, keychain ? this.getWallet(keychain) : this.getProvider());
+    }
+
+    async getBalance(addr: string): Promise<Balance> {
+        let contract = this.getContract();
+        let ret = await contract.balanceOf(addr);
+        return new Balance(this, new BigNum(ret.toString()), new BigNum("0"));
+    }
+
+    private async _getContractDecimals() {
+        var contract = this.getContract();
+        await contract.decimals();
+    }
+
+    protected async getTransactionRequest(keychain: Keychain, receiverAddr: string, amount: BigNum): Promise<TransactionRequest> {
+        var contract = this.getContract(keychain);
+        let unsignedTx = await contract.populateTransaction.transfer(receiverAddr, "0x" + amount.toString(16));
+        unsignedTx.gasLimit = await contract.estimateGas.transfer(receiverAddr, "0x" + amount.toString(16));
+        return unsignedTx;
+    }
+
+    explorerLinkAddr(address : string) {
+        if (this.networkName == 'ropsten') {
+            return 'https://ropsten.etherscan.io/token/' + this.ethContractAddr + '?a=' + address;
+        } else if (this.networkName == 'homestead') {
+            return 'https://etherscan.io/token/' + this.ethContractAddr + '?a=' + address;
+        }
+    }
+    explorerLinkTx(tx: string) {
+        if (this.networkName == 'ropsten') {
+            return 'https://ropsten.etherscan.io/tx/' + tx;
+        } else if (this.networkName == 'homestead') {
+            return 'https://etherscan.io/tx/' + tx;
+        }
+    }
 }

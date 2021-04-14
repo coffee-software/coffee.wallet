@@ -1,4 +1,17 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -137,7 +150,7 @@ var BaseEthersHanlder = (function () {
         return "";
     };
     BaseEthersHanlder.prototype.getWallet = function (keychain) {
-        return new ethers_1.ethers.Wallet(this.getPrivateKeyAsHex(keychain));
+        return new ethers_1.ethers.Wallet(this.getPrivateKeyAsHex(keychain), this.getProvider());
     };
     BaseEthersHanlder.prototype.getPrivateKeyAsHex = function (keychain) {
         var bip32 = this.getPrivateKey(keychain);
@@ -155,6 +168,17 @@ var BaseEthersHanlder = (function () {
     BaseEthersHanlder.prototype.getTicker = function () {
         return "";
     };
+    BaseEthersHanlder.prototype.getTransactionRequest = function (keychain, receiverAddr, amount) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2, {
+                        to: receiverAddr,
+                        value: "0x" + amount.toString(16),
+                        gasLimit: 21000
+                    }];
+            });
+        });
+    };
     BaseEthersHanlder.prototype.prepareTransaction = function (keychain, receiverAddr, amount, fee) {
         return __awaiter(this, void 0, void 0, function () {
             var from, tx, _a, _b, signed;
@@ -162,20 +186,17 @@ var BaseEthersHanlder = (function () {
                 switch (_c.label) {
                     case 0:
                         from = this.getReceiveAddr(keychain);
-                        tx = {
-                            to: receiverAddr,
-                            value: "0x" + amount.toString(16),
-                            gasPrice: fee,
-                            gasLimit: 21000,
-                            nonce: "0"
-                        };
+                        return [4, this.getTransactionRequest(keychain, receiverAddr, amount)];
+                    case 1:
+                        tx = _c.sent();
+                        tx.gasPrice = fee;
                         _a = tx;
                         _b = "0x";
                         return [4, this.getProvider().getTransactionCount(from)];
-                    case 1:
+                    case 2:
                         _a.nonce = _b + (_c.sent()).toString(16);
                         return [4, this.getWallet(keychain).signTransaction(tx)];
-                    case 2:
+                    case 3:
                         signed = _c.sent();
                         return [2, new EthTransaction(this, tx, signed)];
                 }
@@ -188,4 +209,125 @@ var BaseEthersHanlder = (function () {
     return BaseEthersHanlder;
 }());
 exports.BaseEthersHanlder = BaseEthersHanlder;
+var BaseERC20Handler = (function (_super) {
+    __extends(BaseERC20Handler, _super);
+    function BaseERC20Handler() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.ethAbi = [
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_owner",
+                        "type": "address"
+                    }
+                ],
+                "name": "balanceOf",
+                "outputs": [
+                    {
+                        "name": "balance",
+                        "type": "uint256"
+                    }
+                ],
+                "payable": false,
+                "type": "function"
+            },
+            {
+                "constant": false,
+                "inputs": [
+                    {
+                        "name": "to",
+                        "type": "address"
+                    },
+                    {
+                        "name": "tokens",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "transfer",
+                "outputs": [
+                    {
+                        "name": "success",
+                        "type": "bool"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            }
+        ];
+        return _this;
+    }
+    BaseERC20Handler.prototype.getContract = function (keychain) {
+        if (keychain === void 0) { keychain = null; }
+        return new ethers_1.ethers.Contract(this.ethContractAddr, this.ethAbi, keychain ? this.getWallet(keychain) : this.getProvider());
+    };
+    BaseERC20Handler.prototype.getBalance = function (addr) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contract, ret;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        contract = this.getContract();
+                        return [4, contract.balanceOf(addr)];
+                    case 1:
+                        ret = _a.sent();
+                        return [2, new BaseCoinHandler_1.Balance(this, new BigNum_1.BigNum(ret.toString()), new BigNum_1.BigNum("0"))];
+                }
+            });
+        });
+    };
+    BaseERC20Handler.prototype._getContractDecimals = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var contract;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        contract = this.getContract();
+                        return [4, contract.decimals()];
+                    case 1:
+                        _a.sent();
+                        return [2];
+                }
+            });
+        });
+    };
+    BaseERC20Handler.prototype.getTransactionRequest = function (keychain, receiverAddr, amount) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contract, unsignedTx, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        contract = this.getContract(keychain);
+                        return [4, contract.populateTransaction.transfer(receiverAddr, "0x" + amount.toString(16))];
+                    case 1:
+                        unsignedTx = _b.sent();
+                        _a = unsignedTx;
+                        return [4, contract.estimateGas.transfer(receiverAddr, "0x" + amount.toString(16))];
+                    case 2:
+                        _a.gasLimit = _b.sent();
+                        return [2, unsignedTx];
+                }
+            });
+        });
+    };
+    BaseERC20Handler.prototype.explorerLinkAddr = function (address) {
+        if (this.networkName == 'ropsten') {
+            return 'https://ropsten.etherscan.io/token/' + this.ethContractAddr + '?a=' + address;
+        }
+        else if (this.networkName == 'homestead') {
+            return 'https://etherscan.io/token/' + this.ethContractAddr + '?a=' + address;
+        }
+    };
+    BaseERC20Handler.prototype.explorerLinkTx = function (tx) {
+        if (this.networkName == 'ropsten') {
+            return 'https://ropsten.etherscan.io/tx/' + tx;
+        }
+        else if (this.networkName == 'homestead') {
+            return 'https://etherscan.io/tx/' + tx;
+        }
+    };
+    return BaseERC20Handler;
+}(BaseEthersHanlder));
+exports.BaseERC20Handler = BaseERC20Handler;
 //# sourceMappingURL=BaseEthersHanlder.js.map

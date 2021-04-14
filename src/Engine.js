@@ -81,12 +81,33 @@ var CacheWrapper = (function () {
     return CacheWrapper;
 }());
 exports.CacheWrapper = CacheWrapper;
+var Settings = (function () {
+    function Settings(storage) {
+        this.storage = storage;
+    }
+    Settings.prototype.get = function (key, dafaultValue) {
+        var ret = this.storage.getItem('s_' + key);
+        return ret == null ? dafaultValue : JSON.parse(ret);
+    };
+    Settings.prototype.set = function (key, value) {
+        this.storage.setItem('s_' + key, JSON.stringify(value));
+    };
+    Settings.prototype.testCoinsEnabled = function () {
+        return this.get('enableTestCoins', false);
+    };
+    Settings.prototype.setTestCoinsEnabled = function (value) {
+        this.set('enableTestCoins', value);
+    };
+    return Settings;
+}());
+exports.Settings = Settings;
 var Engine = (function () {
     function Engine(storage, log, cache) {
         this.wallets = {};
         this.storage = storage;
         this.log = log;
         this.cache = new CacheWrapper(cache);
+        this.settings = new Settings(cache);
     }
     Engine.prototype.init = function (callback) {
         console.log("INITIALISING");
@@ -109,12 +130,6 @@ var Engine = (function () {
     };
     Engine.prototype.getValueString = function (balance) {
         return balance.total().toFloat(balance.handler.decimals) + ' ' + balance.handler.ticker;
-    };
-    Engine.prototype.getSetting = function (key, dafaultValue) {
-        return this.cache.get(key, dafaultValue);
-    };
-    Engine.prototype.setSetting = function (key, value) {
-        return this.cache.set(key, value);
     };
     Engine.prototype.getCache = function (key, dafaultValue) {
         return this.cache.get(key, dafaultValue);
