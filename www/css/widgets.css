@@ -1,0 +1,87 @@
+
+/* AmountInputWidgets */
+
+.amount-input {
+    display: flex;
+    position: relative;
+}
+
+.amount-input .field {
+    flex: 1;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 14px;
+    background: #fff;
+    margin-bottom: 1px;
+}
+
+.amount-input input {
+    padding: 9px 0;
+    padding-right: 24px;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border:none;
+    /*border-bottom:1px dashed #766054;*/
+    margin: 0;
+    background: transparent;
+    font-family: 'Poppins', serif;
+    color: #463f3a;
+}
+
+.amount-input input:focus {
+    outline: none;
+}
+
+.amount-input label {
+    position: absolute;
+    pointer-events: none;
+    left: 14px;
+    top: 11px;
+    font-size: 15px;
+    color: #766054;
+    transition: 0.2s linear all;
+    -moz-transition: 0.2s linear all;
+    -webkit-transition: 0.2s linear all;
+}
+
+.amount-input input:focus ~ label, .amount-input input:valid ~ label {
+    top: -1px;
+    font-size: 10px;
+}
+
+.amount-input.filled label {
+    top: -1px;
+    font-size: 10px;
+}
+
+.amount-input.invalid {
+    color: #f36040;
+}
+
+.amount-input .equalizer {
+    font-size: 20px;
+    padding: 7px 0 0 0;
+    background: #fff;
+    margin-bottom: 1px;
+}
+
+
+.amount-input .unit {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    color: #766054;
+}
+
+.amount-input.filled .unit {
+    color: #463f3a;
+}
+.amount-input .legend {
+    text-align: right;
+    position: absolute;
+    right: 14px;
+    font-size: 10px;
+    bottom: 0;
+}

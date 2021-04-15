@@ -38,7 +38,7 @@ function Asset(wallet, id, data) {
   padding.classList.add('padding');
   unitCell.appendChild(padding);
 
-  this.assetIcon = getCoinAddrIcon(wallet.handler, data.addr);
+  this.assetIcon = app.engine.getCoinAddrIcon(wallet.handler, data.addr);
   padding.appendChild(this.assetIcon);
 
   var commentCell = document.createElement("div");
@@ -182,12 +182,12 @@ function Asset(wallet, id, data) {
   }
 
   this.updateBalance = function() {
-    this.amount.innerHTML = formatMoney(this.data.balance, this.wallet.handler.code, 5);
+    this.amount.innerHTML = app.priceProvider.formatMoney(this.data.balance, this.wallet.handler.code, 5);
   }
 
   this.updateValue = function() {
     var value = this.data.balance * app.priceProvider.getPrice(this.wallet.handler.code);
-    this.value.innerHTML = formatMoney(value, app.priceProvider.getUnit());
+    this.value.innerHTML = app.priceProvider.formatMoney(value, app.priceProvider.getUnit());
     return value;
   }
 

@@ -19,8 +19,19 @@ function versionCompare(v1, v2) {
   return 0;
 }
 
-window.version = "0.15.5";
+window.version = "0.16.0";
 window.changelog = [
+  {
+    version: '0.16.0',
+    date: '2021-04-12',
+    changes: [
+      'engine refactor',
+      'improve fee handling for BTC, LTC, DOGE',
+      'add proper input widget to exchange view',
+      'improve Uniswap exchange flow',
+      'switch web3 to ethersjs for smaller app size'
+    ]
+  },
   {
    version: '0.15.0',
    date: '2021-02-21',

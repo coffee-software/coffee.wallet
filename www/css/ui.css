@@ -207,16 +207,6 @@ input::placeholder {
   /*color: #ddc486;
   border-color: #ddc486;*/
 }
-.equalizer {
-  font-size: 20px;
-  padding: 7px 0 0 0;
-  background: #fff;
-  margin-bottom: 1px;
-}
-
-input.has-unit {
-  padding-right: 24px;
-}
 
 .field {
   position: relative;
@@ -300,17 +290,6 @@ input.has-unit {
   text-align: center;
   font-size: 11px;
   padding: 0 5px;
-}
-
-.input-unit {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  color: #766054;
-}
-
-.field.filled .input-unit {
-  color: #463f3a;
 }
 
 .range-input {

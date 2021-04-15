@@ -8,6 +8,7 @@
         <meta name="viewport" content="viewport-fit=cover, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <meta name="theme-color" content="#766054">
         <link rel="apple-touch-icon" href="/pwa/icon512.png">
+        <link rel="stylesheet" type="text/css" href="css/widgets.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="css/ui.css">
@@ -17,61 +18,6 @@
     <body>
         <div id="nav">
           <div class="stitch"></div>
-          <div id="toggleMenu" onclick="app.toggleMenu()" class="navButton hidden">
-            <img src="icons/menu.png" alt="menu"/>
-          </div>
-          <div id="menu">
-            <ul>
-              <li>
-                <a href="javascript:app.popupAddCoin()">
-                  <img src="icons/plus.png"/>
-                  add&nbsp;currencies
-                </a>
-              </li>
-              <li>
-                <a href="javascript:app.popupPriceSettings()">
-                  <img src="icons/settings.png"/>
-                  settings
-                </a>
-              </li>
-              <!--li>
-                <a href="javascript:app.popupSettings()">
-                  <img src="icons/settings.png"/>
-                  coin settings
-                </a>
-              </li-->
-              <li>
-                <a href="javascript:app.popupHelp()">
-                  <img src="icons/help.png"/>
-                  help
-                </a>
-              </li>
-              <!--li>
-                <a id="feedback" href="javascript:app.popupFeedback()">
-                  <img src="icons/heart.png"/>
-                  feedback
-                </a>
-              </li-->
-              <li>
-                <a href="javascript:app.exportAllKeys()">
-                  <img src="icons/export.png"/>
-                  backup wallets
-                </a>
-              </li>
-              <!--li>
-                <a href="javascript:app.importAllKeys()">
-                  <img src="icons/import.png"/>
-                  restore wallets
-                </a>
-              </li-->
-              <li class="airdrop-button hidden">
-                <a href="javascript:app.popupAirdrop()">
-                  <img src="icons/heart.png"/>
-                  tokens&nbsp;airdrop
-                </a>
-              </li>
-            </ul>
-          </div>
 
           <a id="refresh" href="javascript:app.updateMarketCap()" class="navButton spinner">
             <img class="nonet" src="icons/nonet.png" alt="refresh"/>
@@ -131,7 +77,7 @@
                 <div id="tools">
 
                   <div class="row">
-                    <button class="toolbtn" onclick="app.popupPriceSettings()" style="margin-right:5px;">
+                    <button class="toolbtn" onclick="app.popupSettings()" style="margin-right:5px;">
                       <img src="icons/settings.png"/>
                       settings
                     </button>
@@ -407,7 +353,7 @@
               </div>
             </div>
 
-            <div id="priceSettingsPopup" style="display:none;">
+            <div id="settingsPopup" style="display:none;">
               <div class="bg-creme popup-head">
                 <h2>Settings</h2>
               </div>
@@ -441,13 +387,8 @@
                   <input id="addCoinFilter" value="" required/>
                   <label for="addCoinFilter">search</label>
                 </div>
-                <!-- label class="checkbox" style="padding-bottom: 10px;">
-                  <input type="checkbox" id="addCoinOnlySupportedRead" />
-                  <div class="fakecheck"></div>
-                  only coins that can be queried by address
-                </label -->
                 <label class="checkbox">
-                  <input type="checkbox" id="addCoinOnlySupportedWrite" />
+                  <input type="checkbox" id="addCoinOnlySupported" />
                   <div class="fakecheck"></div>
                   only coins with local wallet support
                 </label>
@@ -557,8 +498,8 @@
                 <label for="sendCoinAddr">recipient address</label>
                 <div class="legend"></div>
               </div>
-
-              <div class="row">
+              <div id="sendCoinAmountInput"></div>
+              <!--div class="row">
                 <div class="field f1">
                   <input
                     id="sendCoinAmount"
@@ -594,7 +535,7 @@
                   <label for="sendCoinValue">equivalent</label>
                   <div class="legend"></div>
                 </div>
-              </div>
+              </div-->
 
               <div id="sendCoinBalanceAfter" class="default adv-form-option">
                 <div class="row">
@@ -659,7 +600,8 @@
 
             <div id="receiveCoinBottom">
               <form class="custom-amount" onsubmit="getElementById('receiveCoinBottom').classList.remove('custom-amount'); return false;">
-                <div class="row">
+                <div id="receiveCoinAmountInput"></div>
+                <!--div class="row">
                   <div class="field f1">
                     <input
                       id="receiveCoinAmount"
@@ -695,10 +637,10 @@
                     <label for="receiveCoinValue">equivalent</label>
                     <div class="legend"></div>
                   </div>
-                </div>
+                </div-->
 
                 <div class="row formButtons">
-                  <button class="f1" type="submit" onclick="app.popupReceiveClearAmount()" style="color:#766054;"><img src="icons/ico.cancel.png"/> clear</button>
+                  <button class="f1" type="submit" onclick="app.receiveAmountInputWidget.setValue(null)" style="color:#766054;"><img src="icons/ico.cancel.png"/> clear</button>
                   <button class="f1" type="submit"><img src="icons/ico.set.png"/> OK</button>
                 </div>
               </form>
@@ -774,11 +716,11 @@
               <div class="stitch"></div>
               <div class="spacing row">
                 <button id="lockPopupCancel" class="f1" onclick="app.lockDialogCancel();">
-                  <img src="icons/no.png" alt="menu"/>
+                  <img src="icons/no.png" alt="cancel"/>
                   <span id="lockPopupCancelText">cancel</span>
                 </button>
                 <button id="lockPopupConfirm" class="f1" onclick="app.lockDialogConfirm();">
-                  <img src="icons/yes.png" alt="menu"/>
+                  <img src="icons/yes.png" alt="confirm"/>
                   <span id="lockPopupConfirmText">confirm</span>
                 </button>
               </div>
@@ -798,39 +740,21 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="plugins.js"></script>
 
-        <script type="text/javascript" src="js/core.js"></script>
         <script type="text/javascript" src="js/engine.js"></script>
 
         <script type="text/javascript" src="vendor/qrcode.js"></script>
-        <script type="text/javascript" src="vendor/web3.min.js"></script>
         <script type="text/javascript" src="vendor/range-slider.min.js"></script>
         <script type="text/javascript" src="vendor/pulltorefresh.min.js"></script>
 
         <script type="text/javascript" src="js/fasttap.js"></script>
-        <script type="text/javascript" src="js/database.js"></script>
         <script type="text/javascript" src="js/logger.js"></script>
-        <script type="text/javascript" src="js/settings.js"></script>
-
-        <script type="text/javascript" src="js/coin.apis.btcjs.js"></script>
-        <script type="text/javascript" src="js/coin.apis.web3js.js"></script>
-        <script type="text/javascript" src="js/coin.apis.erc20.js"></script>
-        <script type="text/javascript" src="js/coin.apis.cmc.js"></script>
-        <script type="text/javascript" src="js/coin.apis.js"></script>
-
-        <script type="text/javascript" src="js/price.providers.js"></script>
 
         <script type="text/javascript" src="js/widget.wallet.js"></script>
         <script type="text/javascript" src="js/widget.asset.js"></script>
         <script type="text/javascript" src="js/widget.select.js"></script>
         <script type="text/javascript" src="js/widget.coinbutton.js"></script>
         <script type="text/javascript" src="js/changelog.js"></script>
-        <script type="text/javascript" src="js/config.js"></script>
-        <script type="text/javascript" src="js/exchange.base.js"></script>
-        <script type="text/javascript" src="js/exchange.uniswap.js"></script>
-        <script type="text/javascript" src="js/exchange.now.js"></script>
-        <script type="text/javascript" src="js/exchange.changelly.js"></script>
-        <script type="text/javascript" src="js/exchange.js"></script>
-        <script type="text/javascript" src="js/airdrop.js"></script>
+        <!--script type="text/javascript" src="js/airdrop.js"></script-->
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>
