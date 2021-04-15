@@ -43,6 +43,8 @@ var PortfolioItem_1 = require("./PortfolioItem");
 var CoinGeckoProvider_1 = require("./PriceProviders/CoinGeckoProvider");
 var CoinPaprikaProvider_1 = require("./PriceProviders/CoinPaprikaProvider");
 var CoinMarketCapProvider_1 = require("./PriceProviders/CoinMarketCapProvider");
+var AmountInputWidget_1 = require("./Widgets/AmountInputWidget");
+exports.AmountInputWidget = AmountInputWidget_1.AmountInputWidget;
 var jazzicons = require('@metamask/jazzicon');
 var CacheWrapper = (function () {
     function CacheWrapper(cache) {
@@ -292,7 +294,7 @@ var Engine = (function () {
     };
     Engine.prototype.getCoinAddrIcon = function (handler, address) {
         if (address && AllCoinHandlers_1.isOnlineCoinHanlder(handler)) {
-            var addrSvg = jazzicons.generateIdenticon(100, handler.getIdenticonSeed(address)).children[0];
+            var addrSvg = jazzicons(100, handler.getIdenticonSeed(address)).children[0];
             addrSvg.setAttribute("viewBox", "0 0 100 100");
             addrSvg.removeAttribute("width");
             addrSvg.removeAttribute("height");

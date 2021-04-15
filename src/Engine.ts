@@ -15,6 +15,8 @@ import {BasePriceProvider} from "./PriceProviders/BasePriceProvider";
 import {CoinPaprikaProvider} from "./PriceProviders/CoinPaprikaProvider";
 import {CoinMarketCapProvider} from "./PriceProviders/CoinMarketCapProvider";
 import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
+//TODO separate widgets?
+export {AmountInputWidget} from "./Widgets/AmountInputWidget";
 
 let jazzicons = require('@metamask/jazzicon');
 
@@ -309,7 +311,7 @@ export class Engine {
 
     getCoinAddrIcon(handler : BaseCoinHandler, address : string) {
         if (address && isOnlineCoinHanlder(handler)) {
-            var addrSvg = jazzicons.generateIdenticon(100, handler.getIdenticonSeed(address)).children[0];
+            var addrSvg = jazzicons(100, handler.getIdenticonSeed(address)).children[0];
             addrSvg.setAttribute("viewBox", "0 0 100 100");
             addrSvg.removeAttribute("width");
             addrSvg.removeAttribute("height");
@@ -322,5 +324,4 @@ export class Engine {
             return emptyImg;
         }
     }
-
 }

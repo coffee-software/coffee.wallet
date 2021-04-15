@@ -1,6 +1,7 @@
 #!/bin/sh
 
 #browserify browserify.js --standalone browserify > www/vendor/browserify.js
+browserify test/widgets/widgets.js --standalone widgets > test/widgets/browser.js
 
 browserify src/Engine.js --standalone engine \
  --exclude=node_modules/bip39/src/wordlists/korean.json \

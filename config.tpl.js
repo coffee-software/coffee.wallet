@@ -1,6 +1,8 @@
 'use strict'
 
 var config = {
+  integrationMnemonic1: '',
+  integrationMnemonic2: '',
   changelly: {
     apiKey: '',
     apiSecret: ''

@@ -2,8 +2,8 @@ platforms
 coffee.dev.apk
 coffee.prod.apk
 npm-debug.log
-www/js/config.js
 config.js
-
+www/js/engine.js
+test/widgets/browser.js
 dev
 .idea
