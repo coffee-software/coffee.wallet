@@ -15,6 +15,9 @@ import {BasePriceProvider} from "./PriceProviders/BasePriceProvider";
 import {CoinPaprikaProvider} from "./PriceProviders/CoinPaprikaProvider";
 import {CoinMarketCapProvider} from "./PriceProviders/CoinMarketCapProvider";
 import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
+import {UniswapProdProvider, UniswapTestProvider} from "./ExchangeProviders/UniswapProvider";
+import {ChangellyProvider} from "./ExchangeProviders/ChangellyProvider";
+import {ChangeNowProvider} from "./ExchangeProviders/ExchangeNowProvider";
 //TODO separate widgets?
 export {AmountInputWidget} from "./Widgets/AmountInputWidget";
 
@@ -140,7 +143,10 @@ export class Engine {
             new CoinMarketCapProvider(this.cache)
         ]
         this.allExchangeProviders = [
-
+            new UniswapProdProvider(),
+            new UniswapTestProvider(),
+            new ChangellyProvider(),
+            new ChangeNowProvider()
         ]
         this.priceProvider = this.allPriceProviders[this.cache.get('priceProvider', 0)];
         this.priceProvider.unit = this.cache.get(this.priceProvider.name + '_priceUnit', this.priceProvider.defaultUnit)
