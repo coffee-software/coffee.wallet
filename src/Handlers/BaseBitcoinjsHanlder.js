@@ -309,10 +309,18 @@ var BaseBitcoinjsHanlder = (function () {
     };
     BaseBitcoinjsHanlder.prototype.getReceiveAddr = function (keychain) {
         var bip32 = this.getPrivateKey(keychain);
-        return bitcoin.payments.p2pkh({
-            pubkey: bip32.publicKey,
-            network: this.network
-        }).address;
+        if (this.segwitSupport) {
+            return bitcoin.payments.p2wpkh({
+                pubkey: bip32.publicKey,
+                network: this.network
+            }).address;
+        }
+        else {
+            return bitcoin.payments.p2pkh({
+                pubkey: bip32.publicKey,
+                network: this.network
+            }).address;
+        }
     };
     BaseBitcoinjsHanlder.prototype.isP2WSH = function (script) {
         return (script.startsWith("00"));
@@ -401,6 +409,9 @@ var BaseBitcoinjsHanlder = (function () {
         catch (e) {
             return false;
         }
+    };
+    BaseBitcoinjsHanlder.prototype.canSendViaMessage = function () {
+        return true;
     };
     BaseBitcoinjsHanlder.web = new WebRequestsQueuedProcessor();
     return BaseBitcoinjsHanlder;

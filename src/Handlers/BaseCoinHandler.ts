@@ -57,6 +57,7 @@ export interface OnlineCoinHandler extends BaseCoinHandler {
   getIdenticonSeed(addr : string) : number
   explorerLinkAddr(address : string) : string
   explorerLinkTx(txid : string) : string
+  canSendViaMessage() : boolean
 }
 
 

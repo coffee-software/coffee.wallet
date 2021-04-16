@@ -34,6 +34,7 @@ var HandlerBtcTest = (function (_super) {
         _this.webapiPath = '/v1/btc/test3';
         _this.network = coininfo.bitcoin.test.toBitcoinJS();
         _this.keyPath = "m/44'/1'/0'/0/0";
+        _this.segwitSupport = true;
         return _this;
     }
     HandlerBtcTest.prototype.explorerLinkAddr = function (address) {

@@ -151,6 +151,9 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return ethers.utils.isAddress(addr);
     }
 
+    canSendViaMessage(): boolean {
+        return true;
+    }
 }
 
 export abstract class BaseERC20Handler extends BaseEthersHanlder {
@@ -237,5 +240,9 @@ export abstract class BaseERC20Handler extends BaseEthersHanlder {
         } else if (this.networkName == 'homestead') {
             return 'https://etherscan.io/tx/' + tx;
         }
+    }
+
+    canSendViaMessage(): boolean {
+        return false;
     }
 }

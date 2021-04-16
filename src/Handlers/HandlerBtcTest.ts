@@ -20,6 +20,7 @@ export class HandlerBtcTest extends BaseBitcoinjsHanlder {
     webapiPath = '/v1/btc/test3'
     network = coininfo.bitcoin.test.toBitcoinJS()
     keyPath = "m/44'/1'/0'/0/0"
+    segwitSupport = true
 
     explorerLinkAddr(address: string): string {
         return 'https://www.blockchain.com/btc-testnet/address/' + address;

@@ -206,6 +206,9 @@ var BaseEthersHanlder = (function () {
     BaseEthersHanlder.prototype.validateAddress = function (addr) {
         return ethers_1.ethers.utils.isAddress(addr);
     };
+    BaseEthersHanlder.prototype.canSendViaMessage = function () {
+        return true;
+    };
     return BaseEthersHanlder;
 }());
 exports.BaseEthersHanlder = BaseEthersHanlder;
@@ -326,6 +329,9 @@ var BaseERC20Handler = (function (_super) {
         else if (this.networkName == 'homestead') {
             return 'https://etherscan.io/tx/' + tx;
         }
+    };
+    BaseERC20Handler.prototype.canSendViaMessage = function () {
+        return false;
     };
     return BaseERC20Handler;
 }(BaseEthersHanlder));

@@ -309,6 +309,10 @@ export class Engine {
         }
     }
 
+    isOnline(handler : BaseCoinHandler) : boolean {
+        return isOnlineCoinHanlder(handler);
+    }
+
     getCoinAddrIcon(handler : BaseCoinHandler, address : string) {
         if (address && isOnlineCoinHanlder(handler)) {
             var addrSvg = jazzicons(100, handler.getIdenticonSeed(address)).children[0];

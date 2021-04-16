@@ -292,6 +292,9 @@ var Engine = (function () {
             return address;
         }
     };
+    Engine.prototype.isOnline = function (handler) {
+        return AllCoinHandlers_1.isOnlineCoinHanlder(handler);
+    };
     Engine.prototype.getCoinAddrIcon = function (handler, address) {
         if (address && AllCoinHandlers_1.isOnlineCoinHanlder(handler)) {
             var addrSvg = jazzicons(100, handler.getIdenticonSeed(address)).children[0];

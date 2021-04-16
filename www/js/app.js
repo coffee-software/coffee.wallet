@@ -788,13 +788,10 @@ var app = {
         document.getElementById('sendViaMessageButtons').innerHTML = 'You have no coins that can be sent via message.';
       }
     },
-    canSendViaMessage: function(handler) {
-      return ('newRandomPrivateKey' in handler) && (!('feeCoin' in handler));
-    },
     popupCoinInfo: function(walletWidget, wallet) {
-      this.openPopup('coinInfoPopup', wallet.handler.name, 'coins/' + wallet.handler.icon + '.svg');
+      this.openPopup('coinInfoPopup', wallet.handler.ticker, 'coins/' + wallet.handler.icon + '.svg');
 
-      document.getElementById('coinInfoName').innerHTML = wallet.handler.code;
+      document.getElementById('coinInfoName').innerHTML = wallet.handler.ticker;
       document.getElementById('coinInfoSubName').innerHTML = wallet.handler.name;
       document.getElementById('coinInfoCurrentPrice').innerHTML =
       'current price: ' + app.engine.priceProvider.convert(1, wallet.handler);
@@ -802,8 +799,8 @@ var app = {
       document.getElementById('coinInfoButtons').innerHTML = '';
 
       if (wallet.isOnline()) {
-        document.getElementById('coinInfoButtons').appendChild(createButton('receive', 'receive', ('newPrivateKey' in wallet.handler) ? function(){app.popupReceivePayment(wallet);} : null));
-        document.getElementById('coinInfoButtons').appendChild(createButton('send', 'send', ('sendPayment' in wallet.handler) ? function(){app.popupSendPayment(wallet, wallet.data.systemBalance);} : null));
+        document.getElementById('coinInfoButtons').appendChild(createButton('receive', 'receive', function(){app.popupReceivePayment(wallet);}));
+        document.getElementById('coinInfoButtons').appendChild(createButton('send', 'send', function(){app.popupSendPayment(wallet, wallet.data.systemBalance);}));
       }
       document.getElementById('coinInfoButtons').appendChild(wallet.isOnline() ? walletWidget.refreshButton2 : createButton('refresh', 'refresh', null));
       document.getElementById('coinInfoButtons').appendChild(createButton('list', 'portfolio', function(){app.popupOfflineAssets(wallet);}));
@@ -812,7 +809,7 @@ var app = {
       advanced.classList.add('advancedActions');
       var advancedWallet = wallet;
 
-      if (app.canSendViaMessage(wallet.handler)) {
+      if (wallet.isOnline() && wallet.handler.canSendViaMessage()) {
         advanced.appendChild(app.createAdvancedOption('message', 'send via message', function(){
           app.popupSendSocial(wallet);
         }));
@@ -1777,24 +1774,25 @@ var app = {
       }
     },
 
-    handleReceiveMessage: function(coin, privateKey, callback) {
-      if ((coin in allCoinApis) && app.canSendViaMessage(allCoinApis[coin])) {
-        var handler = allCoinApis[coin];
-        handler.getBalance(handler.addrFromPrivateKey(privateKey), function(balance, unconfirmed){
-          setTimeout(function() {
-            var fees = handler.getFees(function(fees){
-              var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
-              app.proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee, callback);
+    handleReceiveMessage: function(code, privateKey, callback) {
+        //TODO use keychain
+        if ((code in app.engine.allCoinHandlers) && app.engine.isOnline(app.engine.allCoinHandlers[code]) && app.engine.allCoinHandlers[code].canSendViaMessage()) {
+            var handler = app.engine.allCoinHandlers[code];
+            handler.getBalance(handler.addrFromPrivateKey(privateKey), function(balance, unconfirmed){
+                setTimeout(function() {
+                    var fees = handler.getFees(function(fees){
+                        var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
+                        app.proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee, callback);
+                    });
+                    }, 1000);
+                }, function (error, code) {
+                app.alertError(error, code);
+                callback && callback();
             });
-          }, 1000);
-        }, function (error, code) {
-          app.alertError(error, code);
-          callback && callback();
-        });
-      } else {
-        app.alertError('Don\'t know how to receive ' + coin);
-        callback && callback();
-      }
+        } else {
+            app.alertError('Don\'t know how to receive ' + coin);
+            callback && callback();
+        }
     },
 
     handleUrlOpened: function(url, callback) {

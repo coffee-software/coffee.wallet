@@ -251,14 +251,17 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
     getReceiveAddr(keychain: Keychain): string {
         var bip32 = this.getPrivateKey(keychain);
-        /* console.log(bitcoin.payments.p2wpkh({
-                        pubkey: bip32.publicKey,
-                        network: network.network
-                }).address); */
-        return bitcoin.payments.p2pkh({
-            pubkey: bip32.publicKey,
-            network: this.network
-        }).address;
+        if (this.segwitSupport) {
+            return bitcoin.payments.p2wpkh({
+                    pubkey: bip32.publicKey,
+                    network: this.network
+            }).address;
+        } else {
+            return bitcoin.payments.p2pkh({
+                pubkey: bip32.publicKey,
+                network: this.network
+            }).address;
+        }
     }
 
     isP2WSH(script: string): boolean {
@@ -348,6 +351,10 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         } catch (e) {
             return false;
         }
+    }
+
+    canSendViaMessage(): boolean {
+        return true;
     }
 
 }

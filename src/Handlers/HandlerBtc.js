@@ -29,7 +29,10 @@ var HandlerBtc = (function (_super) {
             "These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain. " +
             "Bitcoin was invented by an unknown person or group of people under the name Satoshi Nakamoto and released as open-source software in 2009. ";
         _this.links = {
-            'bitcoin.org': 'https://bitcoin.org/'
+            'bitcoin.org': 'https://bitcoin.org/',
+            'CoinGecko': 'https://www.coingecko.com/en/coins/bitcoin',
+            'CoinMarketCap': 'https://coinmarketcap.com/currencies/bitcoin/',
+            'CoinPaprika': 'https://coinpaprika.com/coin/btc-bitcoin/'
         };
         _this.webapiHost = 'api.blockcypher.com';
         _this.webapiPath = '/v1/btc/main';
