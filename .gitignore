@@ -4,6 +4,10 @@ coffee.prod.apk
 npm-debug.log
 config.js
 www/js/engine.js
-test/widgets/browser.js
+
+src/**/*.js
+src/**/*.js.map
+test/**/*.js
+test/**/*.js.map
 dev
 .idea
