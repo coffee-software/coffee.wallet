@@ -1,6 +1,6 @@
 import { BaseCoinHandler } from "../Handlers/BaseCoinHandler";
 import { BasePriceProvider } from "./BasePriceProvider";
-import { Https } from "../Https";
+import { Https } from "../Core/Https";
 
 export class CoinGeckoProvider extends BasePriceProvider {
 

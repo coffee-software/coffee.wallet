@@ -1,6 +1,6 @@
 import {BaseCoinHandler} from "../Handlers/BaseCoinHandler";
 import {BasePriceProvider} from "../PriceProviders/BasePriceProvider";
-import {BigNum} from "../BigNum";
+import {BigNum} from "../Core/BigNum";
 
 export class AmountInputWidget {
 

@@ -40,7 +40,7 @@ var AmountInputWidget_1 = require("../../src/Widgets/AmountInputWidget");
 var CoinGeckoProvider_1 = require("../../src/PriceProviders/CoinGeckoProvider");
 var _mocks_1 = require("../_mocks");
 var HandlerBtc_1 = require("../../src/Handlers/HandlerBtc");
-describe('Core Test', function () {
+describe('UX Test', function () {
     describe('BigNum', function () {
         it('additions', function () {
             return __awaiter(this, void 0, void 0, function () {

@@ -1,5 +1,5 @@
 import { strictEqual, notStrictEqual } from "assert";
-import {BigNum} from "../src/BigNum";
+import {BigNum} from "../src/Core/BigNum";
 
 describe('Core Test', function() {
     describe('BigNum', function () {

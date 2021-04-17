@@ -1,5 +1,5 @@
 import { BasePriceProvider } from "./BasePriceProvider";
-import { Https } from "../Https";
+import { Https } from "../Core/Https";
 import { BaseCoinHandler } from "../Handlers/BaseCoinHandler";
 
 export class CoinPaprikaProvider extends BasePriceProvider {

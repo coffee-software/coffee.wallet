@@ -1,5 +1,5 @@
 import {Keychain} from "../Keychain";
-import {BigNum} from "../BigNum";
+import {BigNum} from "../Core/BigNum";
 import * as bip32 from "bip32";
 
 export interface BaseCoinHandler {

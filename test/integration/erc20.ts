@@ -1,6 +1,6 @@
 import { strictEqual, notStrictEqual } from "assert";
 import {Keychain} from "../../src/Keychain";
-import {BigNum} from "../../src/BigNum";
+import {BigNum} from "../../src/Core/BigNum";
 import {ERC20TestHandler, HandlerEthTest} from "../../src/Handlers/HandlerEthTest";
 import {CacheMock, CacheWrapperMock, LogMock} from "../_mocks";
 import {createAllCoinHandlers} from "../../src/AllCoinHandlers";

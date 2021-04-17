@@ -68,7 +68,8 @@ describe('Handlers Tests', function() {
             );
             strictEqual(
                 new HandlerBtc(new LogMock(), new CacheWrapperMock()).getReceiveAddr(keychain1),
-                "1F6ShUUd63cainj6DgZfBk7kChiNB4YEwR"
+                "bc1qn2v545yzwk03dmwzpw85qprmsh2q8tw7l5ml66"
+                //TODO no segwit: "1F6ShUUd63cainj6DgZfBk7kChiNB4YEwR"
             );
             strictEqual(
                 new HandlerBtc(new LogMock(), new CacheWrapperMock()).getPrivateKey(keychain1).toWIF(),
@@ -76,7 +77,8 @@ describe('Handlers Tests', function() {
             );
             strictEqual(
                 new HandlerBtc(new LogMock(), new CacheWrapperMock()).getReceiveAddr(keychain2),
-                "16AMAxJSEg6Yku6VbYbvnKMFZBJjg8o9P6"
+                "bc1q8zwnvq6jxvjx7u6a7yagd58pv4rgmrtvxfjr5n"
+                //TODO no segwit: "16AMAxJSEg6Yku6VbYbvnKMFZBJjg8o9P6"
             );
             strictEqual(
                 new HandlerBtc(new LogMock(), new CacheWrapperMock()).getPrivateKey(keychain2).toWIF(),

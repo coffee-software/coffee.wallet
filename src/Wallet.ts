@@ -2,7 +2,7 @@ import {Keychain} from "./Keychain";
 import {OnlineCoinHandler, BaseCoinHandler, Balance} from "./Handlers/BaseCoinHandler";
 import {PortfolioItem} from "./PortfolioItem";
 import {isOnlineCoinHanlder} from "./AllCoinHandlers";
-import {BigNum} from "./BigNum";
+import {BigNum} from "./Core/BigNum";
 import {Engine} from "./Engine";
 
 export class Wallet {

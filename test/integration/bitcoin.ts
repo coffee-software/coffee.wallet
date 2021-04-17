@@ -1,6 +1,6 @@
 import { strictEqual, notStrictEqual } from "assert";
 import {Keychain} from "../../src/Keychain";
-import {BigNum} from "../../src/BigNum";
+import {BigNum} from "../../src/Core/BigNum";
 import {HandlerBtcTest} from "../../src/Handlers/HandlerBtcTest";
 import {CacheMock, CacheWrapperMock, LogMock} from "../_mocks";
 var config = require('../../config');

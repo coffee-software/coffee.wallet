@@ -1,6 +1,6 @@
 import { ethers } from "ethers"
 import {Balance, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
-import {BigNum} from "../BigNum";
+import {BigNum} from "../Core/BigNum";
 import {Keychain} from "../Keychain";
 import {JsonRpcProvider} from "@ethersproject/providers/src.ts/json-rpc-provider";
 import {TransactionRequest} from "@ethersproject/abstract-provider/src.ts";

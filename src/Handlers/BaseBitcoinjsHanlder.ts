@@ -1,11 +1,11 @@
 import {Balance, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
-import {BigNum} from "../BigNum";
+import {BigNum} from "../Core/BigNum";
 import {Keychain} from "../Keychain";
 import {ECPair, Network, Psbt} from "bitcoinjs-lib";
 import * as bitcoin from "bitcoinjs-lib";
 import * as bip32 from "bip32";
 import {CacheWrapper, LogInterface} from "../Engine";
-import {Https} from "../Https";
+import {Https} from "../Core/Https";
 
 var coininfo = require('coininfo');
 var config = require('../../config');

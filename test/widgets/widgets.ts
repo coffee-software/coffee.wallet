@@ -1,11 +1,11 @@
 import { strictEqual, notStrictEqual } from "assert";
-import {BigNum} from "../../src/BigNum";
+import {BigNum} from "../../src/Core/BigNum";
 import {AmountInputWidget} from "../../src/Widgets/AmountInputWidget";
 import {CoinGeckoProvider} from "../../src/PriceProviders/CoinGeckoProvider";
 import {CacheWrapperMock, LogMock} from "../_mocks";
 import {HandlerBtc} from "../../src/Handlers/HandlerBtc";
 
-describe('Core Test', function() {
+describe('UX Test', function() {
     describe('BigNum', function () {
         it('additions', async function () {
             let provider = new CoinGeckoProvider(new CacheWrapperMock(), 'PLN')

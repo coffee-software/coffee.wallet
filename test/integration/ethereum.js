@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var assert_1 = require("assert");
 var Keychain_1 = require("../../src/Keychain");
-var BigNum_1 = require("../../src/BigNum");
+var BigNum_1 = require("../../src/Core/BigNum");
 var HandlerEthTest_1 = require("../../src/Handlers/HandlerEthTest");
 var _mocks_1 = require("../_mocks");
 var config = require('../../config');
