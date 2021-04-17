@@ -1,7 +1,11 @@
 'use strict';
 /* global pdf */
+/* global device */
+/* global NativeStorage */
 
-var osPlugins = {
+const __OS_PLUGINS__ = {
+
+  getStorage: function() { return NativeStorage; },
 
   generatePDF: function(html, file, success, error){
     if (device.platform == 'browser') {
@@ -95,6 +99,12 @@ var osPlugins = {
       cordova.plugins.clipboard.copy(text);
     }
   },
+
+    pasteFromClipboard: function(callback) {
+      //TODO fix PWA
+        cordova.plugins.clipboard.paste(callback);
+    },
+
   browserCheckPersisted: function() {
     if (navigator.storage && navigator.storage.persist) {
       navigator.storage.persist().then(function (isPersisted){
@@ -159,9 +169,12 @@ var osPlugins = {
         }
     );
   },
+    hideNativeSplash: function() {
+        navigator.splashscreen.hide();
+    },
   checkForUpdates: function(callback) {
     var that = this;
-    if (device.platform == 'browser') {
+    if (device.platform == 'browser' && (window.location.port != "8000")) {
         this.browserCheckPersisted();
         this.browserInitPWA();
         //TODO protocol handler:

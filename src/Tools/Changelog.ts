@@ -29,7 +29,8 @@ window.changelog = [
             'improve fee handling for BTC, LTC, DOGE',
             'add proper input widget to exchange view',
             'improve Uniswap exchange flow',
-            'switch web3 to ethersjs for smaller app size'
+            'switch web3 to ethersjs for smaller app size',
+            'fix paste clipboard on PWA'
         ]
     },
     {

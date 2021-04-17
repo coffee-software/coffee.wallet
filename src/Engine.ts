@@ -294,10 +294,6 @@ export class Engine {
         });
     }
 
-    updatePrices(callback : () => void) {
-        this.priceProvider.updatePrices(this.allCoinHandlers).then(callback);
-    }
-
     shortAmount(floatValue : number, unit : string, maxchars : number) : string {
         maxchars = maxchars - unit.length - 1;
         return floatValue.toString().substring(0, maxchars - 2) + '..&nbsp;' + unit;

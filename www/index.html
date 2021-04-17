@@ -603,8 +603,7 @@
           <div id="mobileQRCamera">camera</div>
         </div>
 
-        <div id="uxHint"></div>
-        <div id="loading"><img src="img/loading.svg" alt="loading..."/></div>
+        <div id="loading" class="show"><img src="img/loading.svg" alt="loading..."/></div>
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="plugins.js"></script>
@@ -612,15 +611,15 @@
         <script type="text/javascript" src="app.js"></script>
         <script type="text/javascript">
           //TODO test
+          window.app = new coffee.App();
           function handleOpenURL(url) {
-            setTimeout(App.openUrl.bind(app, url), 0);
+            setTimeout(app.openUrl.bind(app, url), 0);
           }
-          app.initialize();
+          window.onerror = app.onJsError.bind(app);
         </script>
 
         <script type="text/javascript" src="vendor/qrcode.js"></script>
         <script type="text/javascript" src="vendor/range-slider.min.js"></script>
         <script type="text/javascript" src="vendor/pulltorefresh.min.js"></script>
-
     </body>
 </html>

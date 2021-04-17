@@ -1,55 +1,267 @@
+import {Engine} from "./Engine";
+import {fastTap} from "./Tools/Fasttap";
+import {OsPlugins} from "./OsPlugins";
+import {Logger} from "./Tools/Logger";
 
 export class App {
 
-    /*
-    // Application Constructor
-    // data: Data, TODO
-    wallets: {},
-    lastOpenedUrl: null,
-    initialize: function() {
-        var that = this;
+    walletsWidgets: []
+    engine: Engine
+    logger: Logger
+    lastOpenedUrl : string = null
+
+    openUrl(url:string) : void {
+        //make sure data is loaded
+        if (this.lastOpenedUrl != url) {
+            //TODO
+            /*app.onDataLoaded(function (callback) {
+                app.alertInfo('opening url: ' + url);
+                app.handleUrlOpened(url, callback);
+            });*/
+        }
+    }
+
+    constructor() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    }
+
+    onDeviceReady() {
 
         var footButtons = document.getElementById('foot').children;
-        for (var i = 0; i < footButtons.length; i++) {
-            fastTap(footButtons[i]);
+        for (let i = 0; i < footButtons.length; i++) {
+            fastTap(footButtons[i] as HTMLElement);
         }
         var buttons = document.getElementsByTagName('button');
-        for (var i = 0; i < buttons.length; i++) {
+        for (let i = 0; i < buttons.length; i++) {
             fastTap(buttons[i]);
         }
 
         this.tabWallets();
         document.addEventListener('backbutton', this.onBackButton.bind(this), false);
-
-        document.getElementById('popupContent').addEventListener("scroll", function(){
-            app.togglePopupHeaderFix();
-        });
+        document.getElementById('popupContent').addEventListener("scroll", this.togglePopupHeaderFix.bind(this), false);
         window.onresize = this.onResize.bind(this);
         this.onResize();
-    },
-    resizingTimer: null,
-    onResize: function() {
+
+        this.engine = new Engine(
+            OsPlugins.getStorage(),
+            {
+                error: this.alertError.bind(this),
+                info: this.alertInfo.bind(this),
+                success: this.alertSuccess.bind(this),
+            },
+            window.localStorage
+        );
+        this.logger = new Logger(OsPlugins.getStorage());
+
+        this.engine.init(function() {
+            //TODO
+            /*
+            app.priceProviderSelect = new Select(document.getElementById("priceProvider"));
+            app.priceUnitSelect = new Select(document.getElementById("priceUnit"));
+            app.priceProviderSelect.onChange(function(value){
+                app.priceUnitSelect.setOptions(app.engine.allPriceProviders[value].availableUnits, app.engine.priceProvider.unit);
+            });
+            app.priceProviderSelect.setOptions(app.engine.allPriceProviders, app.engine.allPriceProviders.indexOf(app.engine.priceProvider));
+            */
+            OsPlugins.checkForUpdates(function(){
+                OsPlugins.hideNativeSplash();
+                document.getElementById('loading').classList.remove('show');
+                /*
+                if (!(app.engine.keychainCreated())) {
+                    app.saveVersion();
+                    app.createNewWallet();
+                } else {
+                    app.showChangelogIfVersionUpdated(function(){
+                        app.showExportKeysReminderIfRequired(function(){
+                            for (var key in app.engine.wallets) {
+                                app.wallets[key] = app.addWalletWidget(app.engine.wallets[key]);
+                            }
+                            app.updateAllValues();
+                            app.onDataLoaded();
+                        });
+                    });
+                }*/
+            });
+        });
+
+        this.updatePricesFromProvider();
+    }
+
+    resizingTimer: any = null
+    onResize() {
         document.body.classList.toggle('desktop', window.innerWidth > 660);
         document.body.classList.add('resizing');
         clearTimeout(this.resizingTimer);
         this.resizingTimer = setTimeout(function () {
             document.body.classList.remove('resizing');
         }, 400);
-    },
-    targetScroll: 0,
-    scrollToTargetTimer: null,
-    netError: false,
-    togglePopupHeaderFix: function() {
+    }
+
+    togglePopupHeaderFix() {
+        //TODO
         var headerSize = 0;
         var children = document.getElementById('popupContent').childNodes;
         for (var c=0; c < children.length; c++) {
-            if ((children[c].nodeType != 3) && (children[c].style.display == 'block')){
-                headerSize = children[c].firstElementChild.offsetHeight;
+            if ((children[c].nodeType != 3) && ((children[c] as HTMLElement).style.display == 'block')){
+                headerSize = ((children[c] as HTMLElement).firstElementChild as HTMLElement).offsetHeight;
             }
         }
         document.getElementById('popupHead').classList.toggle('expand', document.getElementById('popupContent').scrollTop >= headerSize - 62); //85
-    },
+    }
+
+    tabWallets() {
+        this.setTabActive(1)
+    }
+    tabHistory() {
+        this.setTabActive(0)
+        this.reloadHistory()
+    }
+
+    tabTools() {
+        this.setTabActive(2)
+    }
+
+    onBackButton() {
+        //TODO
+        /* if (this.lockDialogOpened) {
+            this.lockDialogCanCancel && this.lockDialogCancel();
+        } else if (document.getElementById('formPopup').classList.contains('show')) {
+            this.closeForm();
+        } else if (document.getElementById('popup').classList.contains('show')) {
+            this.closePopup();
+        }*/
+    }
+
+    setTabActive(n : number) {
+        document.getElementById('swiper').classList.remove('tab0');
+        document.getElementById('swiper').classList.remove('tab1');
+        document.getElementById('swiper').classList.remove('tab2');
+        document.getElementById('swiper').classList.add('tab' + n);
+
+        for (var i = 0; i < document.getElementById('foot').children.length; i++) {
+            if (i == n) {
+                document.getElementById('foot').children[i].classList.add('active');
+            } else {
+                document.getElementById('foot').children[i].classList.remove('active');
+            }
+        }
+    }
+    reloadHistory() {
+        //TODO
+        /*Logger.getLogs(function(logs){
+            document.getElementById('history').innerHTML = '';
+            for (var i=0; i< logs.length; i++) {
+                var li = document.createElement('li');
+                var html = logs[i].message;
+                if ('coin' in logs[i]) {
+                    html = app.preParseCoinMsg(html, logs[i].coin, true);
+                }
+                if (('coin' in logs[i]) && (logs[i].coin in allCoinApis)) {
+                    html = '<img width="36" src="coins/' + allCoinApis[logs[i].coin].icon + '.svg"/>' + html;
+                } else {
+                    //html = '<img src="coins/empty.svg"/>' + html;
+                }
+
+                li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toLocaleString()  + '</div><div>' + html + '</div></div><div class="stitch2"></div>';
+                //logs[i].coin
+                document.getElementById('history').appendChild(li);
+            }
+            //console.log(logs);
+        });*/
+    }
+
+    async updatePricesFromProvider() : Promise<void> {
+        //TODO
+        /*
+        var that = this;
+        var spinner = function(){
+            document.getElementById('refresh').classList.toggle('spinning', that.spinning);
+            if (that.spinning) {
+                setTimeout(spinner, 1000);
+            } else {
+                //dependant
+                document.getElementById('refresh').classList.toggle('error', that.netError);
+                callback && callback();
+            }
+        };
+        that.spinning = true;
+        that.netError = false;
+        spinner();
+        app.updateAllValues();
+
+        //TODO only wallets
+        await this.engine.priceProvider.updatePrices(this.engine.allCoinHandlers);
+        app.engine.updatePrices(function(){
+            app.updateAllValues();
+            app.spinning = false;
+        });*/
+    }
+
+
+    alertError(html: string, coinCode: string, debug: any) {
+        this.alertMessage(html, coinCode, 'error');
+    }
+    alertInfo(html: string, coinCode: string, debug: any) {
+        this.alertMessage(html, coinCode, 'info');
+    }
+    alertSuccess(html: string, coinCode: string, debug: any) {
+        this.alertMessage(html, coinCode, 'success');
+    }
+
+
+    private preParseCoinMsg(msg : string, coinCode: string, allowLinks: boolean = false) {
+        //TODO
+        /*if ((typeof(msg) == 'string') && (coin in app.engine.allCoinHandlers) && ('explorerLinkTx' in app.engine.allCoinHandlers[coin])) {
+            msg = msg.replace(/\<u\>\w+\<\/u\>/, function(match){
+                var tx = match.substring(3, match.length-4);
+                var txShort = tx.substring(0, 6) + '..' + tx.substring(tx.length-4, tx.length);
+                return allowLinks ? ('<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + app.engine.allCoinHandlers[coin].explorerLinkTx(tx) + '\');">' + txShort + '</a>') : ('<u>' + txShort + '</u>');
+            });
+        }*/
+        return msg;
+    }
+
+    private alertMessage(html: string, coinCode: string, type: string, debug: any = null) {
+        this.logger.log(type, coinCode, html, debug);
+        var alertTxt = this.preParseCoinMsg(html, coinCode);
+        this.alertMessagePopup(type, alertTxt.length > 100 ? alertTxt.substr(0,98) + '...' : alertTxt);
+    }
+
+    private alertMessagePopup(type: string, html: string) {
+        var msgDiv = document.createElement('div');
+        msgDiv.classList.add('msg');
+        msgDiv.classList.add(type);
+        msgDiv.innerHTML = html;
+
+        var closer = document.createElement("a");
+        closer.classList.add('closer');
+        var img = document.createElement("img");
+        img.setAttribute('src', 'icons/close.png');
+        closer.appendChild(img);
+        closer.onclick = function(){ document.getElementById('messages').removeChild(msgDiv); msgDiv = null; };
+        fastTap(closer);
+
+        msgDiv.appendChild(closer);
+        document.getElementById('messages').appendChild(msgDiv);
+        setTimeout(function(){ msgDiv && msgDiv.classList.add('fadingout'); }, 5000);
+        setTimeout(function(){ msgDiv && document.getElementById('messages').removeChild(msgDiv); }, 7000);
+    }
+
+    public onJsError(msg : any, url : any, line : any, col : any, error : any) {
+        var log = msg;
+        log += !url ? '' : '\nurl: ' + url;
+        log += !line ? '' : '\nline: ' + line;
+        log += !col ? '' : '\ncolumn: ' + col;
+        log += !error ? '' : '\nerror: ' + error;
+        this.alertMessagePopup('error', log);
+        //console.log(msg, url, line, col, error);
+    }
+
+    /*
+
+    targetScroll: 0,
+    scrollToTargetTimer: null,
+    netError: false,
 
     setNoNetError : function() {
         this.netError = true;
@@ -79,63 +291,6 @@ export class App {
         }
     },
 
-    setTabActive: function(n) {
-        document.getElementById('swiper').classList.remove('tab0');
-        document.getElementById('swiper').classList.remove('tab1');
-        document.getElementById('swiper').classList.remove('tab2');
-        document.getElementById('swiper').classList.add('tab' + n);
-
-        for (var i = 0; i < document.getElementById('foot').children.length; i++) {
-            if (i == n) {
-                document.getElementById('foot').children[i].classList.add('active');
-            } else {
-                document.getElementById('foot').children[i].classList.remove('active');
-            }
-        }
-
-    },
-    tabWallets: function() {
-        this.setTabActive(1);
-    },
-    tabHistory: function() {
-        this.setTabActive(0);
-        this.reloadHistory();
-    },
-    tabTools: function() {
-        this.setTabActive(2);
-    },
-    preParseCoinMsg: function(msg, coin, allowLinks = false) {
-        if ((typeof(msg) == 'string') && (coin in app.engine.allCoinHandlers) && ('explorerLinkTx' in app.engine.allCoinHandlers[coin])) {
-            msg = msg.replace(/\<u\>\w+\<\/u\>/, function(match){
-                var tx = match.substring(3, match.length-4);
-                var txShort = tx.substring(0, 6) + '..' + tx.substring(tx.length-4, tx.length);
-                return allowLinks ? ('<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + app.engine.allCoinHandlers[coin].explorerLinkTx(tx) + '\');">' + txShort + '</a>') : ('<u>' + txShort + '</u>');
-            });
-        }
-        return msg;
-    },
-    reloadHistory: function() {
-        Logger.getLogs(function(logs){
-            document.getElementById('history').innerHTML = '';
-            for (var i=0; i< logs.length; i++) {
-                var li = document.createElement('li');
-                var html = logs[i].message;
-                if ('coin' in logs[i]) {
-                    html = app.preParseCoinMsg(html, logs[i].coin, true);
-                }
-                if (('coin' in logs[i]) && (logs[i].coin in allCoinApis)) {
-                    html = '<img width="36" src="coins/' + allCoinApis[logs[i].coin].icon + '.svg"/>' + html;
-                } else {
-                    //html = '<img src="coins/empty.svg"/>' + html;
-                }
-
-                li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toLocaleString()  + '</div><div>' + html + '</div></div><div class="stitch2"></div>';
-                //logs[i].coin
-                document.getElementById('history').appendChild(li);
-            }
-            //console.log(logs);
-        });
-    },
     popupHistory: function() {
         //app.openPopup('historyPopup', 'History');
         //app.reloadHistory();
@@ -275,27 +430,6 @@ export class App {
 
     },
 
-    updateMarketCap: function(callback) {
-        var that = this;
-        var spinner = function(){
-            document.getElementById('refresh').classList.toggle('spinning', that.spinning);
-            if (that.spinning) {
-                setTimeout(spinner, 1000);
-            } else {
-                //dependant
-                document.getElementById('refresh').classList.toggle('error', that.netError);
-                callback && callback();
-            }
-        };
-        that.spinning = true;
-        that.netError = false;
-        spinner();
-        app.updateAllValues();
-        app.engine.updatePrices(function(){
-            app.updateAllValues();
-            app.spinning = false;
-        });
-    },
 
     showOneChildOf: function(parentId, childId) {
         var children = document.getElementById(parentId).childNodes;
@@ -1047,7 +1181,7 @@ export class App {
     },
     pasteClipboard: function(callback) {
         var that = this;
-        cordova.plugins.clipboard.paste(function(text){
+        osPlugins.pasteFromClipboard(function(text){
             that._parseTransactionText(text, callback);
         });
     },
@@ -1387,45 +1521,6 @@ export class App {
         }
     },
 
-    alertError: function(html, coin, debug) {
-        this._alertMessage(html, coin, 'error');
-    },
-    alertInfo: function(html, coin, debug) {
-        this._alertMessage(html, coin, 'info');
-    },
-    alertSuccess: function(html, coin, debug) {
-        this._alertMessage(html, coin, 'success');
-    },
-
-    _alertMessage: function(html, coin, type, debug) {
-        Logger.log(type, coin, html, debug);
-        var alertTxt = this.preParseCoinMsg(html, coin);
-        this._alertMessagePopup(type, alertTxt.length > 100 ? alertTxt.substr(0,98) + '...' : alertTxt);
-    },
-
-    _alertMessagePopup: function(type, html) {
-        var msgDiv = document.createElement('div');
-        msgDiv.classList.add('msg');
-        msgDiv.classList.add(type);
-        msgDiv.innerHTML = html;
-
-        var closer = document.createElement("a");
-        closer.classList.add('closer');
-        var img = document.createElement("img");
-        img.setAttribute('src', 'icons/close.png');
-        closer.appendChild(img);
-        closer.onclick = function(){ document.getElementById('messages').removeChild(msgDiv); msgDiv = null; };
-        fastTap(closer);
-
-        msgDiv.appendChild(closer);
-        document.getElementById('messages').appendChild(msgDiv);
-        setTimeout(function(){ msgDiv && msgDiv.classList.add('fadingout'); }, 5000);
-        setTimeout(function(){ msgDiv && document.getElementById('messages').removeChild(msgDiv); }, 7000);
-    },
-
-    _alertJsError: function(html) {
-        this._alertMessagePopup('error', html);
-    },
 
     lockDialogOpened: null,
     lockDialogAuthenticate: false,
@@ -2004,33 +2099,9 @@ export class App {
 
     },
 
-    onBackButton: function() {
-        if (this.lockDialogOpened) {
-            this.lockDialogCanCancel && this.lockDialogCancel();
-        } else if (document.getElementById('formPopup').classList.contains('show')) {
-            this.closeForm();
-        } else if (document.getElementById('popup').classList.contains('show')) {
-            this.closePopup();
-        }
-    },
 
     onDeviceReady: function() {
 
-        this.engine = new engine.Engine(
-            NativeStorage,
-            {
-                error(html, coinCode, debug) {
-                    app.alertError(html, coinCode, debug)
-                },
-                info(html, coinCode, debug) {
-                    app.alertInfo(html, coinCode, debug)
-                },
-                success(html, coinCode, debug) {
-                    app.alertSuccess(html, coinCode, debug)
-                },
-            },
-            window.localStorage
-        );
 
         rangeSlider.create(document.getElementById('sendCoinFee'), {
             polyfill: true,
@@ -2042,36 +2113,7 @@ export class App {
             borderRadius: 10,
         });
 
-        this.engine.init(function() {
 
-            app.priceProviderSelect = new Select(document.getElementById("priceProvider"));
-            app.priceUnitSelect = new Select(document.getElementById("priceUnit"));
-            app.priceProviderSelect.onChange(function(value){
-                app.priceUnitSelect.setOptions(app.engine.allPriceProviders[value].availableUnits, app.engine.priceProvider.unit);
-            });
-            app.priceProviderSelect.setOptions(app.engine.allPriceProviders, app.engine.allPriceProviders.indexOf(app.engine.priceProvider));
-
-            osPlugins.checkForUpdates(function(){
-                navigator.splashscreen.hide();
-
-                if (!(app.engine.keychainCreated())) {
-                    app.saveVersion();
-                    app.createNewWallet();
-                } else {
-                    app.showChangelogIfVersionUpdated(function(){
-                        app.showExportKeysReminderIfRequired(function(){
-                            for (var key in app.engine.wallets) {
-                                app.wallets[key] = app.addWalletWidget(app.engine.wallets[key]);
-                            }
-                            app.updateAllValues();
-                            app.onDataLoaded();
-                        });
-                    });
-                }
-            });
-        });
-
-        this.updateMarketCap();
 
         document.getElementById('sendCoinFee').parentElement.addEventListener ("touchstart", function() {
             document.getElementById('sendCoinFee').focus();
@@ -2111,15 +2153,6 @@ export class App {
 
         Logger.log("info", null, "application started");
     }
-
-    openUrl(url:string){
-        //make sure data is loaded
-        if (app.lastOpenedUrl != url) {
-            app.onDataLoaded(function (callback) {
-                app.alertInfo('opening url: ' + url);
-                app.handleUrlOpened(url, callback);
-            });
-        }
-    }
     */
+
 }

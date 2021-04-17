@@ -2,8 +2,7 @@
 
 browserify test/browser/browser.js --standalone browser > test/browser/index.js
 #browserify test/browser/browser.js > test/browser/index.js
-
-browserify src/App.js --standalone engine \
+browserify src/App.js --standalone coffee \
  --exclude=node_modules/bip39/src/wordlists/korean.json \
  --exclude=node_modules/bip39/src/wordlists/japanese.json \
  --exclude=node_modules/bip39/src/wordlists/chinese_simplified.json \
