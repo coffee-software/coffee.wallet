@@ -7,7 +7,7 @@ import {TransactionRequest} from "@ethersproject/abstract-provider/src.ts";
 import {Wallet} from "@ethersproject/wallet/src.ts";
 import * as bip32 from "bip32";
 import {CacheWrapper, LogInterface} from "../Engine";
-var config = require('../../config');
+import {Config} from "../../src/Config";
 
 class EthTransaction implements NewTransaction {
     data : TransactionRequest
@@ -65,7 +65,7 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     abstract networkName: string;
 
     getProvider(): JsonRpcProvider {
-        return new ethers.providers.InfuraProvider(this.networkName, config.infuraKey);
+        return new ethers.providers.InfuraProvider(this.networkName, Config.infuraKey);
     }
 
     async getBalance(addr: string): Promise<Balance> {

@@ -3,14 +3,17 @@ import {Keychain} from "../../src/Keychain";
 import {BigNum} from "../../src/Core/BigNum";
 import {HandlerBtcTest} from "../../src/Handlers/HandlerBtcTest";
 import {CacheMock, CacheWrapperMock, LogMock} from "../_mocks";
-var config = require('../../config');
+import {Config} from "../../src/Config";
 
 describe('Bitcoin Integration Test', function() {
     describe('integration', function () {
         it('sending transaction', async function () {
             let handler = new HandlerBtcTest(new LogMock(), new CacheWrapperMock());
-            let integration1Keychain = new Keychain(config.integrationMnemonic1);
-            let integration2Keychain = new Keychain(config.integrationMnemonic2);
+
+            let integration1Keychain = new Keychain(Config.integrationMnemonic1);
+            let integration2Keychain = new Keychain(Config.integrationMnemonic2);
+            console.log(await handler.getReceiveAddr(integration1Keychain));
+            console.log(await handler.getReceiveAddr(integration2Keychain));
             let balance1 = await handler.getOwnBalance(integration1Keychain);
             let balance2 = await handler.getOwnBalance(integration2Keychain);
             let fees = await handler.getFeeOptions();
@@ -22,6 +25,8 @@ describe('Bitcoin Integration Test', function() {
                 balance2.total().toString(),
                 "0"
             );
+            console.log(balance1.total().toString());
+            console.log(balance2.total().toString());
             let tx;
             if (balance1.total().cmp(balance2.total()) === 1) {
                 tx = await handler.prepareTransaction(
@@ -39,6 +44,7 @@ describe('Bitcoin Integration Test', function() {
                 );
             }
             let txid : string = await tx.send();
+            console.log(txid);
             strictEqual(
                 txid.length,
                 64

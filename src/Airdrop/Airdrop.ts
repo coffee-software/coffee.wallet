@@ -1,3 +1,5 @@
+/*
+
 'use strict'
 
 var airdrop = {
@@ -159,3 +161,5 @@ var airdrop = {
   },
 
 }
+
+ */

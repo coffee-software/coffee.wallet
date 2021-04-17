@@ -62,7 +62,7 @@ export class Wallet {
 
         for (let i in this.portfolio) {
             let item = this.portfolio[i];
-            if (PortfolioItem.isBalance(item) && isOnlineCoinHanlder(this.handler)) {
+            if (PortfolioItem.isBalance(item)) {
                 total.amount.add(BigNum.fromFloat(item.balance, this.handler.decimals))
             } else if (PortfolioItem.isAddress(item) && isOnlineCoinHanlder(this.handler)) {
                 let itemBalance = await this.handler.getBalance(item.address)

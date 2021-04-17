@@ -7,7 +7,7 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="viewport-fit=cover, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <meta name="theme-color" content="#766054">
-        <link rel="apple-touch-icon" href="/pwa/icon512.png">
+        <link rel="apple-touch-icon" href="pwa/icon512.png">
         <link rel="stylesheet" type="text/css" href="css/widgets.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
@@ -435,8 +435,6 @@
           <div id="addOfflineAssetPopup" class="formContent" style="display:none;">
             <div class="formTop">
               <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <!--img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.png"/-->
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
@@ -479,8 +477,6 @@
           <div id="sendPaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
               <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <!--img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.send.png"/-->
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
@@ -499,44 +495,6 @@
                 <div class="legend"></div>
               </div>
               <div id="sendCoinAmountInput"></div>
-              <!--div class="row">
-                <div class="field f1">
-                  <input
-                    id="sendCoinAmount"
-                    type="number"
-                    step="0.000000000001"
-                    class="has-unit"
-                    onfocus="app.sendCoinValidateAmount('sendCoin', true)"
-                    onblur="app.sendCoinValidateAmount('sendCoin')"
-                    onchange="app.coinUpdateValue('sendCoin', app.sendWallet.handler)"
-                    onkeyup="app.coinUpdateValue('sendCoin', app.sendWallet.handler)"
-                    required
-                  />
-                  <span class="input-unit" id="sendCoinName"></span>
-                  <label for="sendCoinAmount">amount</label>
-                  <div class="legend"></div>
-                </div>
-                <div class="equalizer">
-                  =
-                </div>
-                <div class="field f1">
-                  <input
-                    id="sendCoinValue"
-                    type="number"
-                    step="0.000000000001"
-                    class="has-unit"
-                    onfocus="app.sendCoinValidateAmount('sendCoin', true)"
-                    onblur="app.sendCoinValidateAmount('sendCoin')"
-                    onchange="app.coinUpdateAmount('sendCoin', app.sendWallet.handler)"
-                    onkeyup="app.coinUpdateAmount('sendCoin', app.sendWallet.handler)"
-                    required
-                  />
-                  <span class="input-unit" id="sendFiatName"></span>
-                  <label for="sendCoinValue">equivalent</label>
-                  <div class="legend"></div>
-                </div>
-              </div-->
-
               <div id="sendCoinBalanceAfter" class="default adv-form-option">
                 <div class="row">
                   <div class="f4">
@@ -583,8 +541,6 @@
             <div class="formTop">
               <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
               <div id="receiveCoinIdenticon" class="circleIcon coinBig"></div>
-              <!--img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.copy.png"/-->
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> close</button>
@@ -592,8 +548,8 @@
             </div>
 
             <div class="receiveCode">
-              <textarea class="txt-mode-only" readonly="readonly" id="receiveCoinAddr"></textarea>
-              <div id="receiveCoinQrcode" class="qr-code-display qr-mode-only"></div>
+              <textarea readonly="readonly" id="receiveCoinAddr"></textarea>
+              <div id="receiveCoinQrcode" class="qr-code-display"></div>
             </div>
 
             <div id="receiveCoinNote"></div>
@@ -601,44 +557,6 @@
             <div id="receiveCoinBottom">
               <form class="custom-amount" onsubmit="getElementById('receiveCoinBottom').classList.remove('custom-amount'); return false;">
                 <div id="receiveCoinAmountInput"></div>
-                <!--div class="row">
-                  <div class="field f1">
-                    <input
-                      id="receiveCoinAmount"
-                      type="number"
-                      step="0.000000000001"
-                      class="has-unit"
-                      onfocus="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onblur="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onchange="app.coinUpdateValue('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      onkeyup="app.coinUpdateValue('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      required
-                    />
-                    <span class="input-unit" id="receiveCoinName"></span>
-                    <label for="receiveCoinAmount">amount</label>
-                    <div class="legend"></div>
-                  </div>
-                  <div class="equalizer">
-                    =
-                  </div>
-                  <div class="field f1">
-                    <input
-                      id="receiveCoinValue"
-                      type="number"
-                      step="0.000000000001"
-                      class="has-unit"
-                      onfocus="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onblur="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onchange="app.coinUpdateAmount('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      onkeyup="app.coinUpdateAmount('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      required
-                    />
-                    <span class="input-unit" id="receiveFiatName"></span>
-                    <label for="receiveCoinValue">equivalent</label>
-                    <div class="legend"></div>
-                  </div>
-                </div-->
-
                 <div class="row formButtons">
                   <button class="f1" type="submit" onclick="app.receiveAmountInputWidget.setValue(null)" style="color:#766054;"><img src="icons/ico.cancel.png"/> clear</button>
                   <button class="f1" type="submit"><img src="icons/ico.set.png"/> OK</button>
@@ -648,59 +566,10 @@
               <div class="no-custom-amount formButtons row">
                 <button class="f1" onclick="app.shareReceivePaymentCode()"><img src="icons/share.png"/> share</button>
                 <button class="f1" onclick="getElementById('receiveCoinBottom').classList.add('custom-amount')"><img src="icons/customize.png"/> <span id="setAmountLabel">set ammount</span></button>
-                <!--button class="f1 qr-mode-only" onclick="getElementById('receivePaymentPopup').classList.add('txt');"><img src="icons/txt.png"/> code</button>
-                <button class="f1 txt-mode-only" onclick="getElementById('receivePaymentPopup').classList.remove('txt');"><img src="icons/scan.png"/> QR</button-->
               </div>
             </div>
 
           </div>
-
-
-          <div id="exportPrivateKeyPopup" class="formContent" style="display:none;">
-            <div class="formTop">
-              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <img class="actionLeft" src="icons/cancel.png"/>
-            </div>
-
-            <div class="formActions row">
-              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
-            </div>
-
-            <div class="unpad stitch"></div>
-            <div id="privateKeyValue"></div>
-          </div>
-
-          <div id="importPrivateKeyPopup" class="formContent" style="display:none;">
-            <div class="formTop">
-              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-            </div>
-            <div class="formActions row">
-              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
-              <button class="f1 submit" onclick="app.importPrivateKey()">import <img src="icons/ico.send.png"/></button>
-            </div>
-
-            <div class="field">
-              <input
-                id="importPrivateKeyInput"
-                value=""
-                required
-              />
-              <label for="importPrivateKeyInput">private key</label>
-              <div class="legend"></div>
-            </div>
-
-            <div class="formButtons row">
-              <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'importPrivateKeyInput'))">
-                <img src="icons/paste.png"/>
-                paste
-              </button>
-              <button class="f1" onclick="app.scanQrCode(app.pasteToField.bind(app, 'importPrivateKeyInput'))">
-                <img src="icons/scan.png"/>
-                scan
-              </button>
-            </div>
-          </div>
-
         </div>
 
         <div id="messages">
@@ -739,22 +608,19 @@
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="plugins.js"></script>
-
-        <script type="text/javascript" src="js/engine.js"></script>
+        <script type="text/javascript" src="config.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript">
+          //TODO test
+          function handleOpenURL(url) {
+            setTimeout(App.openUrl.bind(app, url), 0);
+          }
+          app.initialize();
+        </script>
 
         <script type="text/javascript" src="vendor/qrcode.js"></script>
         <script type="text/javascript" src="vendor/range-slider.min.js"></script>
         <script type="text/javascript" src="vendor/pulltorefresh.min.js"></script>
 
-        <script type="text/javascript" src="js/fasttap.js"></script>
-        <script type="text/javascript" src="js/logger.js"></script>
-
-        <script type="text/javascript" src="js/widget.wallet.js"></script>
-        <script type="text/javascript" src="js/widget.asset.js"></script>
-        <script type="text/javascript" src="js/widget.select.js"></script>
-        <script type="text/javascript" src="js/widget.coinbutton.js"></script>
-        <script type="text/javascript" src="js/changelog.js"></script>
-        <!--script type="text/javascript" src="js/airdrop.js"></script-->
-        <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

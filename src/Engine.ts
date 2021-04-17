@@ -18,10 +18,6 @@ import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
 import {UniswapProdProvider, UniswapTestProvider} from "./ExchangeProviders/UniswapProvider";
 import {ChangellyProvider} from "./ExchangeProviders/ChangellyProvider";
 import {ChangeNowProvider} from "./ExchangeProviders/ExchangeNowProvider";
-//TODO separate widgets?
-export {AmountInputWidget} from "./Widgets/AmountInputWidget";
-
-let jazzicons = require('@metamask/jazzicon');
 
 export interface StorageInterface {
     setItem(
@@ -59,7 +55,7 @@ export class CacheWrapper {
         this.cache.setItem('c_' + key, JSON.stringify(value))
     }
 
-    get(key : string, defaultValue: any) {
+    get(key : string, defaultValue: any) : any {
         var ret = this.cache.getItem('c_' + key);
         return ret == null ? defaultValue : JSON.parse(ret);
     }
@@ -131,25 +127,26 @@ export class Engine {
         this.log = log
         this.cache = new CacheWrapper(cache);
         this.settings = new Settings(cache);
-    }
-
-    init(callback: ()=>void) {
-        console.log("INITIALISING");
-        this.allCoinHandlers = createAllCoinHandlers(this.log, this.cache);
 
         this.allPriceProviders = [
             new CoinPaprikaProvider(this.cache),
             new CoinGeckoProvider(this.cache),
             new CoinMarketCapProvider(this.cache)
         ]
+        this.priceProvider = this.allPriceProviders[this.cache.get('priceProvider', 0)];
+        this.priceProvider.unit = this.cache.get(this.priceProvider.name + '_priceUnit', this.priceProvider.defaultUnit)
+    }
+
+    init(callback: ()=>void) {
+        console.log("INITIALISING");
+        this.allCoinHandlers = createAllCoinHandlers(this.log, this.cache);
+
         this.allExchangeProviders = [
             new UniswapProdProvider(),
             new UniswapTestProvider(),
             new ChangellyProvider(),
             new ChangeNowProvider()
         ]
-        this.priceProvider = this.allPriceProviders[this.cache.get('priceProvider', 0)];
-        this.priceProvider.unit = this.cache.get(this.priceProvider.name + '_priceUnit', this.priceProvider.defaultUnit)
 
         this.initAsync().then(callback)
     }
@@ -251,13 +248,13 @@ export class Engine {
             let item: PortfolioItem;
             if (isPortfolioLegacyItemData(row)) {
                 if (row.addr) {
-                    item = new PortfolioAddress(row.comment, row.addr, row.balance);
+                    item = new PortfolioAddress(row.comment, row.addr);
                 } else {
                     item = new PortfolioBalance(row.comment, row.balance);
                 }
             } else if (isPortfolioItemData(row)) {
                 if (row.address) {
-                    item = new PortfolioAddress(row.label, row.address, row.balance);
+                    item = new PortfolioAddress(row.label, row.address);
                 } else {
                     item = new PortfolioBalance(row.label, row.balance);
                 }
@@ -317,21 +314,5 @@ export class Engine {
 
     isOnline(handler : BaseCoinHandler) : boolean {
         return isOnlineCoinHanlder(handler);
-    }
-
-    getCoinAddrIcon(handler : BaseCoinHandler, address : string) {
-        if (address && isOnlineCoinHanlder(handler)) {
-            var addrSvg = jazzicons(100, handler.getIdenticonSeed(address)).children[0];
-            addrSvg.setAttribute("viewBox", "0 0 100 100");
-            addrSvg.removeAttribute("width");
-            addrSvg.removeAttribute("height");
-            addrSvg.style.borderRadius='50%';
-            return addrSvg;
-        } else {
-            var emptyImg = document.createElement('img');
-            emptyImg.setAttribute("class", "coinIcon");
-            emptyImg.setAttribute("src", "coins/noicon.svg");
-            return emptyImg;
-        }
     }
 }

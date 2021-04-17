@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "mocha",
-    "test-integration": "mocha --timeout 30000 ./test/integration/*.js"
+    "test": "mocha --config ./test/config.js",
+    "test-integration": "mocha  --config ./test/config.js --timeout 30000 ./test/integration/*.js"
   },
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",

@@ -4,7 +4,7 @@ import {BigNum} from "../../src/Core/BigNum";
 import {ERC20TestHandler, HandlerEthTest} from "../../src/Handlers/HandlerEthTest";
 import {CacheMock, CacheWrapperMock, LogMock} from "../_mocks";
 import {createAllCoinHandlers} from "../../src/AllCoinHandlers";
-var config = require('../../config');
+import {Config} from "../../src/Config";
 
 describe('ERC20 Integration Test', function() {
     describe('integration', function () {
@@ -12,8 +12,8 @@ describe('ERC20 Integration Test', function() {
             let allCoinHandlers = createAllCoinHandlers(new LogMock(), new CacheWrapperMock());
 
             let handler = <ERC20TestHandler>allCoinHandlers['ERC20.TST'];
-            let integration1Keychain = new Keychain(config.integrationMnemonic1);
-            let integration2Keychain = new Keychain(config.integrationMnemonic2);
+            let integration1Keychain = new Keychain(Config.integrationMnemonic1);
+            let integration2Keychain = new Keychain(Config.integrationMnemonic2);
 
             var balance1 = await handler.getOwnBalance(integration1Keychain);
             var balance2 = await handler.getOwnBalance(integration2Keychain);

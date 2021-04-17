@@ -8,7 +8,6 @@ import {CacheWrapper, LogInterface} from "../Engine";
 import {Https} from "../Core/Https";
 
 var coininfo = require('coininfo');
-var config = require('../../config');
 var base58 = require('bs58');
 var bech32 = require('bech32');
 
