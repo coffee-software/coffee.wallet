@@ -301,7 +301,7 @@
             </div>
             <div id="coinInfoPopup" class="details-popup" style="display:none;">
               <div class="bg-creme popup-head">
-                <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
+                <div class="rowIcon active"><img id="coinInfoIcon" class="coinIcon coinBig" src=""/></div>
                 <h2 id="coinInfoName">&nbsp;</h2>
                 <h3 id="coinInfoSubName">&nbsp;</h3>
                 <h3 id="coinInfoCurrentPrice">&nbsp;</h3>
@@ -315,7 +315,7 @@
             <div id="offlineAssetDetails" class="details-popup" style="display:none;">
               <div class="bg-creme popup-head">
                 <div class="rowIcon active">
-                  <img class="coinIcon coinBig" src=""/>
+                  <img id="offlineAssetCoinIcon" class="coinIcon coinBig" src=""/>
                   <div id="offlineAssetIcon" class="coinBig" style="display: inline-block; margin-left: 14px;"></div>
                 </div>
                 <h2 id="offlineAssetName"></h2>
@@ -329,7 +329,7 @@
             </div>
             <div id="offlineAssetsPopup" style="display:none;">
               <div class="bg-creme popup-head">
-                <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
+                <div class="rowIcon active"><img id="offlineAssetsIcon" class="coinIcon coinBig" src=""/></div>
                 <h2 id="offlineAssetsTitle" style="text-align:center;">portfolio</h2>
                 <h3 id="offlineAssetsSubtitle" style="text-align:center;">portfolio</h3>
               </div>
@@ -341,10 +341,10 @@
 
               <div class="spacing">&nbsp;</div>
               <div class="row spacing buttons">
-                <button class="box f1" onclick="app.popupAddOfflineAsset('balance', '')">
+                <button class="box f1" onclick="app.popupAddOfflineAsset('balance')">
                   add balance
                 </button>
-                <button id="addAddressButton" class="box f1" onclick="app.popupAddOfflineAsset('addr', '')">
+                <button id="addAddressButton" class="box f1" onclick="app.popupAddOfflineAsset('address')">
                   add address
                 </button>
                 <button id="newAddressButton" class="box f1" onclick="app.popupAddNewAddress()">
@@ -434,25 +434,14 @@
         <div id="formPopup">
           <div id="addOfflineAssetPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+              <div class="circleIcon active"><img id="addOfflineAssetPopupIcon" class="coinIcon coinBig" src=""/></div>
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
               <button class="f1 submit" onclick="app.saveOfflineAsset()"><span id="addOfflineAssetPopupSave">save</span> <img src="icons/ico.send.png"/></button>
             </div>
 
-            <div id="addOfflineAssetAddrDiv">
-              <div class="field">
-                <input
-                  id="addOfflineAssetAddr"
-                  onfocus="app.validateAddr('addOfflineAssetAddr', true)"
-                  onblur="app.validateAddr('addOfflineAssetAddr')"
-                  value=""
-                  required />
-                <label for="addOfflineAssetAddr">address</label>
-                <div class="legend"></div>
-              </div>
-            </div>
+            <div id="addOfflineAssetAddrDiv"></div>
 
             <div id="addOfflineAssetBalanceDiv" class="field">
               <input type="number" min="0" step="0.000000000001" id="addOfflineAssetBalance" value="" required />

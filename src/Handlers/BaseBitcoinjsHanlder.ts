@@ -6,10 +6,10 @@ import * as bitcoin from "bitcoinjs-lib";
 import * as bip32 from "bip32";
 import {CacheWrapper, LogInterface} from "../Engine";
 import {Https} from "../Core/Https";
+import {bech32} from "bech32";
 
 var coininfo = require('coininfo');
 var base58 = require('bs58');
-var bech32 = require('bech32');
 
 class BtcTransaction implements NewTransaction {
     handler: BaseBitcoinjsHanlder
@@ -236,7 +236,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
     }
 
     getIdenticonSeed(addr: string): number {
-        if (addr.startsWith('tb1')) {
+        if (addr.startsWith(this.network.bech32 + '1')) {
             //TODO
             return bech32.decode(addr).words.slice(2,10).reduce(function(a :number,b : number){ return a * 32 + b; });
         } else {
@@ -356,4 +356,22 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         return true;
     }
 
+    newRandomPrivateKey() : string {
+        return bitcoin.ECPair.makeRandom({network: this.network}).toWIF();
+    }
+
+    addressFromPrivateKey(pk: string) : string {
+        var key = bitcoin.ECPair.fromWIF(pk, this.network);
+        if (this.segwitSupport) {
+            return bitcoin.payments.p2wpkh({
+                pubkey: key.publicKey,
+                network: this.network
+            }).address;
+        } else {
+            return bitcoin.payments.p2pkh({
+                pubkey: key.publicKey,
+                network: this.network
+            }).address;
+        }
+    }
 }

@@ -112,7 +112,7 @@ export abstract class ListItemWidget {
         if (ListItemWidget.activeWidget && ListItemWidget.activeWidget == this) ListItemWidget.activeWidget = null;
     }
 
-    createButton(icon: string, text: string, callback: ()=>void) : HTMLElement {
+    static createButton(icon: string, text: string, callback: ()=>void) : HTMLElement {
         let button = document.createElement("a");
         let img = document.createElement("img");
         img.setAttribute('src', 'icons/' + icon + '.png');

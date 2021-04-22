@@ -58,6 +58,8 @@ export interface OnlineCoinHandler extends BaseCoinHandler {
   explorerLinkAddr(address : string) : string
   explorerLinkTx(txid : string) : string
   canSendViaMessage() : boolean
+  newRandomPrivateKey() : string
+  addressFromPrivateKey(pk: string) : string
 }
 
 

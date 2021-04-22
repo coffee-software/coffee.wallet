@@ -42,8 +42,8 @@ export class WalletWidget extends ListItemWidget {
         this.leftCell.appendChild(this.onlineAmount).classList.add('amount');
 
         if (this.wallet.isOnline()) {
-            this.leftButtons.appendChild(this.createButton('receive', 'receive',  function(){this.onreceive(this)}.bind(this)));
-            this.leftButtons.appendChild(this.createButton('send', 'send',  function(){this.onsend(this)}.bind(this)));
+            this.leftButtons.appendChild(ListItemWidget.createButton('receive', 'receive',  function(){this.onreceive(this, wallet)}.bind(this)));
+            this.leftButtons.appendChild(ListItemWidget.createButton('send', 'send',  function(){this.onsend(this, wallet)}.bind(this)));
         } else {
             this.leftCell.classList.add('disabled');
         }
@@ -58,11 +58,11 @@ export class WalletWidget extends ListItemWidget {
         this.rightCell.appendChild(this.offlineValue).classList.add('value');
         this.rightCell.appendChild(this.offlineAmount).classList.add('amount');
 
-        this.refreshButton = this.createButton('refresh', 'refresh', this.refreshButtonClick.bind(this));
+        this.refreshButton = ListItemWidget.createButton('refresh', 'refresh', this.refreshButtonClick.bind(this));
         this.refreshButton.classList.add('spinner');
 
         this.rightButtons.appendChild(this.refreshButton);
-        this.rightButtons.appendChild(this.createButton('list', 'portfolio', function(){this.onportfolio(this)}.bind(this)));
+        this.rightButtons.appendChild(ListItemWidget.createButton('list', 'portfolio', function(){this.onportfolio(this, wallet)}.bind(this)));
 
         /*
         this.refreshOffline();
@@ -70,13 +70,13 @@ export class WalletWidget extends ListItemWidget {
          */
         this.refreshButtonClick();
 
-        this.slidingRow.addEventListener('click', function(){this.onclick(this)}.bind(this));
+        this.slidingRow.addEventListener('click', function(){this.onclick(this, wallet)}.bind(this));
     }
 
-    public onclick: (value:WalletWidget) => void; //TODO popupCoinInfo
-    public onportfolio: (value:WalletWidget) => void; //TODO popupOfflineAssets
-    public onreceive: (value:WalletWidget) => void; //TODO popupReceivePayment
-    public onsend: (value:WalletWidget) => void; //TODO popupSendPayment
+    public onclick: (value:WalletWidget, wallet:Wallet) => void;
+    public onportfolio: (value:WalletWidget, wallet:Wallet) => void;
+    public onreceive: (value:WalletWidget, wallet:Wallet) => void;
+    public onsend: (value:WalletWidget, wallet:Wallet) => void;
 
     async refreshButtonClick(){
         if (this.refreshLock) {

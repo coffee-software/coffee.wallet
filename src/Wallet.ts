@@ -27,6 +27,9 @@ export class Wallet {
     isOnline() : boolean {
         return isOnlineCoinHanlder(this.handler);
     }
+    canSendViaMessage() : boolean {
+        return isOnlineCoinHanlder(this.handler) && this.handler.canSendViaMessage()
+    }
 
     getReceiveAddress() : string {
         if (isOnlineCoinHanlder(this.handler)) {

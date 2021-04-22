@@ -2,12 +2,14 @@ import {Wallet} from "../Wallet";
 import {PortfolioItem} from "../PortfolioItem";
 import {ListItemWidget} from "./ListItemWidget";
 import {CoinAddressIcon} from "./CoinAddressIcon";
-
+import {OsPlugins} from "../OsPlugins";
+import {OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
 
 export class PortfolioItemWidget extends ListItemWidget {
 
     wallet : Wallet
     id: number
+    item: PortfolioItem
 
     amountSpan: HTMLElement
     valueSpan: HTMLElement
@@ -18,15 +20,15 @@ export class PortfolioItemWidget extends ListItemWidget {
         super()
         this.wallet = wallet;
         this.id = id;
-        let item = wallet.portfolio[id];
+        this.item = wallet.portfolio[id];
 
         let padding = document.createElement("div");
         padding.classList.add('padding');
         this.centerCell.appendChild(padding);
-        let icon = (new CoinAddressIcon(wallet.handler, PortfolioItem.isAddress(item) ? item.address : null)).element;
+        let icon = (new CoinAddressIcon(wallet.handler, PortfolioItem.isAddress(this.item) ? this.item.address : null)).element;
         padding.appendChild(icon);
 
-        this.leftCell.innerHTML = '<div class="value">' + item.toString() + '</div><div class="amount">' + item.label + '</div>';
+        this.leftCell.innerHTML = '<div class="value">' + this.item.toString() + '</div><div class="amount">' + this.item.label + '</div>';
 
         var amountContainer = document.createElement("div");
         var valueContainer = document.createElement("div");
@@ -38,49 +40,31 @@ export class PortfolioItemWidget extends ListItemWidget {
         amountContainer.appendChild(this.amountSpan);
         valueContainer.appendChild(this.valueSpan);
 
-        if (wallet.isOnline() && PortfolioItem.isAddress(item)) {
-            this.leftButtons.appendChild(this.createButton('receive', 'receive', function(){
-                //app.popupReceivePayment(that.wallet, that.data.addr);
-            }));
-            this.leftButtons.appendChild(this.createButton('link', 'history', function(){
-                //osPlugins.openInSystemBrowser(wallet.handler.explorerLinkAddr(data.addr));
+        if (wallet.isOnline() && PortfolioItem.isAddress(this.item)) {
+            this.leftButtons.appendChild(ListItemWidget.createButton('receive', 'receive', function(){ this.onreceive(this); }.bind(this)));
+            let historyUrl = (wallet.handler as OnlineCoinHandler).explorerLinkAddr(this.item.address);
+
+            this.leftButtons.appendChild(ListItemWidget.createButton('link', 'history', function(){
+                OsPlugins.openInSystemBrowser(historyUrl);
             }));
 
-
-            //buttonsRight.appendChild(createButton('refresh', 'refresh', function(){that.refreshAmount();}));
-            this.refreshButton = this.createButton('refresh', 'refresh', this.refreshBalance.bind(this));
+            this.refreshButton = ListItemWidget.createButton('refresh', 'refresh', this.refreshBalance.bind(this));
             this.refreshButton.classList.add('spinner');
             this.rightButtons.appendChild(this.refreshButton);
         }
 
-        this.rightButtons.appendChild(this.createButton('edit', 'edit', function(){
-            //app.popupEditOfflineAsset(that);
-        }));
-        this.rightButtons.appendChild(this.createButton('removef', 'remove', this.removeAsset.bind(this)));
+        this.rightButtons.appendChild(ListItemWidget.createButton('edit', 'edit', function(){ this.onedit(this)}.bind(this)));
+        this.rightButtons.appendChild(ListItemWidget.createButton('removef', 'remove', function(){ this.onremove(this)}.bind(this)));
 
-        this.slidingRow.addEventListener('click', function ( event ) {
-            //app.flushUxHint('swipe');
-            //app.popupOfflineAssetDetails(that);
-        });
+        this.slidingRow.addEventListener('click', function(){ this.onclick(this)}.bind(this));
 
         this.updateBalanceAndValue();
     }
 
-    removeAsset() {
-        (navigator as any).notification.confirm(
-            'Are you sure you want to remove this asset?',
-            function (buttonIndex : number) {
-                if (buttonIndex == 1) {
-                    /*app.data.deleteOfflineAsset(that.wallet.handler.code, that.id);
-                    //refresh ids and refresh balance:
-                    that.wallet.refreshOffline(false);
-                    app.popupOfflineAssets(app.offlineAssetWallet);*/
-                }
-            },
-            'Remove Asset',
-            ['Remove','Cancel']
-        );
-    };
+    public onclick: (item: PortfolioItemWidget) => void;
+    public onreceive: (item: PortfolioItemWidget) => void;
+    public onremove: (item: PortfolioItemWidget) => void;
+    public onedit: (item: PortfolioItemWidget) => void;
 
     refreshBalance() {
         /*

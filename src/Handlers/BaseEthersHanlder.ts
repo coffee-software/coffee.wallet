@@ -154,6 +154,15 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     canSendViaMessage(): boolean {
         return true;
     }
+
+    newRandomPrivateKey() : string {
+        let wallet = ethers.Wallet.createRandom();
+        return wallet.privateKey;
+    }
+
+    addressFromPrivateKey(pk: string) : string {
+        return (new ethers.Wallet(pk)).address;
+    }
 }
 
 export abstract class BaseERC20Handler extends BaseEthersHanlder {

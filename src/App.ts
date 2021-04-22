@@ -4,6 +4,14 @@ import {OsPlugins} from "./OsPlugins";
 import {Logger} from "./Tools/Logger";
 import {WalletWidget} from "./Widgets/WalletWidget";
 import {Wallet} from "./Wallet";
+import {isOnlineCoinHanlder} from "./AllCoinHandlers";
+import {PortfolioItemWidget} from "./Widgets/PortfolioItemWidget";
+import {ListItemWidget} from "./Widgets/ListItemWidget";
+import {CoinAddressIcon} from "./Widgets/CoinAddressIcon";
+import {PortfolioAddress, PortfolioBalance, PortfolioItem} from "./PortfolioItem";
+import {AddressInputWidget} from "./Widgets/AddressInputWidget";
+import {OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
+import {Version} from "./Tools/Changelog";
 
 export class App {
 
@@ -148,14 +156,13 @@ export class App {
     }
 
     onBackButton() {
-        //TODO
-        /* if (this.lockDialogOpened) {
+        if (this.lockDialogOpened) {
             this.lockDialogCanCancel && this.lockDialogCancel();
         } else if (document.getElementById('formPopup').classList.contains('show')) {
             this.closeForm();
         } else if (document.getElementById('popup').classList.contains('show')) {
             this.closePopup();
-        }*/
+        }
     }
 
     setTabActive(n : number) {
@@ -224,13 +231,13 @@ export class App {
     }
 
 
-    alertError(html: string, coinCode: string, debug: any) {
+    alertError(html: string, coinCode: string = null, debug: any = null) {
         this.alertMessage(html, coinCode, 'error');
     }
-    alertInfo(html: string, coinCode: string, debug: any) {
+    alertInfo(html: string, coinCode: string = null, debug: any = null) {
         this.alertMessage(html, coinCode, 'info');
     }
-    alertSuccess(html: string, coinCode: string, debug: any) {
+    alertSuccess(html: string, coinCode: string = null, debug: any = null) {
         this.alertMessage(html, coinCode, 'success');
     }
 
@@ -284,9 +291,493 @@ export class App {
     }
 
     addWalletWidget(data: Wallet) : WalletWidget {
-        var w = new WalletWidget(this.engine, data)
-        document.getElementById('walletsList').appendChild(w.element);
-        return w;
+        let widget = new WalletWidget(this.engine, data)
+        widget.onclick = this.popupCoinInfo.bind(this)
+        widget.onportfolio = this.popupOfflineAssets.bind(this, data)
+        //widget.onreceive = this.popupReceivePayment.bind(this)
+        //widget.onsend = this.popupSendPayment.bind(this)
+
+        widget.onclick = this.popupCoinInfo.bind(this, widget, data)
+        widget.onclick = this.popupCoinInfo.bind(this, widget, data)
+        document.getElementById('walletsList').appendChild(widget.element);
+        return widget;
+    }
+
+    openPopup(id: string, title: string, previousPopupCall: () => void = null) {
+
+        this.previousPopupCall = previousPopupCall;
+        document.getElementById('popup').classList.add('show');
+
+        //this.setCurrentCoinIcon(bgimg);
+        this.showOneChildOf('popupContent', id);
+
+        document.getElementById('popupContent').scrollTop = 0;
+        this.togglePopupHeaderFix();
+        document.getElementById('popupTitle').innerHTML = title;
+    }
+
+    showOneChildOf(parentId : string, childId: string) {
+        var children = document.getElementById(parentId).children;
+        for (var c=0; c < children.length; c++) {
+            (children[c] as HTMLElement).style.display = 'none';
+        }
+        document.getElementById(childId).style.display = 'block';
+    }
+
+    popupCoinInfo(walletWidget: WalletWidget, wallet: Wallet) {
+        this.openPopup('coinInfoPopup', wallet.handler.ticker);
+        (document.getElementById('coinInfoIcon') as HTMLImageElement).src = 'coins/' + wallet.handler.icon + '.svg';
+        document.getElementById('coinInfoName').innerHTML = wallet.handler.ticker;
+        document.getElementById('coinInfoSubName').innerHTML = wallet.handler.name;
+        document.getElementById('coinInfoCurrentPrice').innerHTML =
+            'current price: ' + this.engine.priceProvider.convert(1, wallet.handler);
+
+        document.getElementById('coinInfoButtons').innerHTML = '';
+
+        if (wallet.isOnline()) {
+            //document.getElementById('coinInfoButtons').appendChild(createButton('receive', 'receive', function(){app.popupReceivePayment(wallet);}));
+            //document.getElementById('coinInfoButtons').appendChild(createButton('send', 'send', function(){app.popupSendPayment(wallet, wallet.data.systemBalance);}));
+        }
+        //document.getElementById('coinInfoButtons').appendChild(wallet.isOnline() ? walletWidget.refreshButton2 : createButton('refresh', 'refresh', null));
+        document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('list', 'portfolio', this.popupOfflineAssets.bind(this, wallet)));
+
+        var advanced = document.createElement('ul');
+        advanced.classList.add('advancedActions');
+
+        /*
+        if (wallet.canSendViaMessage()) {
+            advanced.appendChild(this.createAdvancedOption('message', 'send via message', this.popupSendSocial.bind(this, wallet)));
+        }
+
+        if ('exchangeableCoinsCache' in app && (app.exchangeableCoinsCache.indexOf(wallet.handler.code) != -1)) {
+            advanced.appendChild(app.createAdvancedOption('sell', 'sell coin', function(){
+                app.popupExchange(wallet.handler.code, null);
+            }));
+            advanced.appendChild(app.createAdvancedOption('buy', 'buy coin', function(){
+                app.popupExchange(null, wallet.handler.code);
+            }));
+        }
+
+        if ('explorerLinkAddr' in wallet.handler) {
+            advanced.appendChild(app.createAdvancedOption('link', 'history (external)', function(){
+                osPlugins.openInSystemBrowser(wallet.handler.explorerLinkAddr(wallet.data.addr));
+            }));
+        }
+
+        if ('sendPayment' in wallet.handler) {
+            advanced.appendChild(app.createAdvancedOption('import', 'import private key', function(){
+                app.showImportPrivateKeyPopup(wallet.handler);
+            }));
+        }
+
+        //advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
+
+
+        */
+        var links = '<ul>';
+        for (var name in wallet.handler.links) {
+            links += '<li><a href="#" onclick="osPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
+        }
+        links += '</ul>';
+
+        advanced.appendChild(this.createAdvancedOption(
+            'about',
+            'about',
+            this.confirmBeforeContinue.bind(
+                this,
+                wallet.handler.name + ' (' + wallet.handler.ticker + ')',
+                '<div style="text-align:center;"><img width="64" src="coins/' + wallet.handler.icon + '.svg"/></div>' +
+                wallet.handler.description + links,
+                function(){},
+                'close',
+                null,
+                null
+            )
+        ));
+
+
+        if (walletWidget.onlineBalance.total().isZero() && walletWidget.portfolioBalance.total().isZero()) {
+            advanced.appendChild(this.createAdvancedOption('remove', 'remove wallet', this.removeCoin.bind(this, wallet)));
+        }
+
+        document.getElementById('coinInfoWallet').innerHTML = '<div style="overflow:auto; padding: 0 12px;">' +
+            '<div style="float:left; text-align:left;">' +
+            'wallet:<br/>' +
+            (wallet.isOnline() ? (
+                '<strong id="coinInfoValueContainer"></strong><br/>' +
+                '<span id="coinInfoBalanceContainer"></span>') : 'Not supported yet.<br/>Portfolio use only.') +
+            '</div>' +
+            '<div style="float:right; text-align:right;">' +
+            'portfolio:<br/>' +
+            '<strong id="coinInfoPortfolioValueContainer"></strong><br/>' +
+            '<span id="coinInfoPortfolioBalanceContainer"></span>' +
+            '</div>';
+
+        if (wallet.isOnline()) {
+            document.getElementById('coinInfoBalanceContainer').appendChild(walletWidget.onlineAmountFull);
+            document.getElementById('coinInfoValueContainer').appendChild(walletWidget.onlineValueFull);
+        }
+
+        document.getElementById('coinInfoPortfolioBalanceContainer').appendChild(walletWidget.offlineAmountFull);
+        document.getElementById('coinInfoPortfolioValueContainer').appendChild(walletWidget.offlineValueFull);
+
+        document.getElementById('coinInfoActions').innerHTML = '';
+        document.getElementById('coinInfoActions').append(advanced);
+    }
+
+    createAdvancedOption(icon: string, text: string, callback: ()=>void) {
+        let li = document.createElement('li');
+        let button = document.createElement('button');
+        let img = document.createElement("img");
+        img.setAttribute('src', 'icons/' + icon + '.png');
+        button.appendChild(img);
+        button.appendChild(document.createTextNode(text));
+        button.onclick = callback;
+        fastTap(button);
+        li.appendChild(button);
+        return li;
+    }
+
+    lockDialogOpened: boolean = false
+    lockDialogAuthenticate: boolean = false
+    lockDialogConfirmCallback: () => void = null
+    lockDialogCancelCallback: () => void = null
+    lockDialogCanCancel: boolean = false
+    previousPopupCall: () => void = null
+
+    confirmBeforeContinue(title: string, message: string, confirmCallback: () => void, confirmText: string = null, cancelText: string = null, cancelCallback: () => void = null) {
+        this.lockDialogOpened = true;
+        this.lockDialogAuthenticate = false;
+
+        this.lockDialogConfirmCallback = confirmCallback;
+        this.lockDialogCancelCallback = cancelCallback;
+
+        document.getElementById('lockPopup').classList.remove('hidden');
+        document.getElementById('lockPopupConfirm').classList.remove('hidden');
+        document.getElementById('lockPopupConfirmText').innerHTML = confirmText ? confirmText : 'confirm';
+        this.lockDialogCanCancel = !!cancelText;
+        document.getElementById('lockPopupCancel').classList.toggle('hidden', !this.lockDialogCanCancel);
+        document.getElementById('lockPopupCancelText').innerHTML = cancelText ? cancelText : 'cancel';
+        document.getElementById('lockTitle').innerHTML = title;
+        document.getElementById('lockMessage').innerHTML = message;
+    }
+
+    lockDialogCancel() {
+        this.lockDialogOpened = false;
+        document.getElementById('lockPopup').classList.add('hidden');
+        this.lockDialogConfirmCallback = null;
+        var callback = this.lockDialogCancelCallback;
+        this.lockDialogCancelCallback = null;
+        callback && callback();
+    }
+
+    lockDialogConfirm() {
+        this.lockDialogOpened = false;
+        document.getElementById('lockPopup').classList.add('hidden');
+
+        this.lockDialogCancelCallback = null;
+        var callback = this.lockDialogConfirmCallback;
+        this.lockDialogConfirmCallback = null;
+
+        if (this.lockDialogAuthenticate) {
+            OsPlugins.authenticateUser(callback);
+        } else {
+            callback();
+        }
+    }
+
+    openForm(id: string) {
+        document.getElementById("container").classList.add('blur');
+        document.getElementById("nav").classList.add('blur');
+        document.getElementById("popupHead").classList.add('blur');
+        document.getElementById("popupContent").classList.add('blur');
+        document.getElementById('formPopup').classList.add('show');
+        this.showOneChildOf('formPopup', id);
+    }
+
+    closeForm() {
+        document.getElementById("container").classList.remove('blur');
+        document.getElementById("nav").classList.remove('blur');
+        document.getElementById("popupHead").classList.remove('blur');
+        document.getElementById("popupContent").classList.remove('blur');
+        document.getElementById("formPopup").classList.remove('show');
+    }
+
+    closePopup() {
+        document.getElementById("popup").classList.remove('show');
+        if (this.previousPopupCall) {
+            this.previousPopupCall();
+        }
+        this.previousPopupCall = null;
+    }
+
+    removeCoinConfirm(wallet: Wallet) {
+        //TODO
+        /*this.data.hideWallet(key, function(){
+            app.wallets[key].row.outerHTML = '';
+            delete app.wallets[key].row;
+            delete app.wallets[key];
+        });*/
+        this.closePopup();
+    }
+
+    removeCoin(wallet: Wallet) {
+        this.confirmBeforeContinue(
+            'Are you sure you want to remove ' + wallet.handler.ticker + ' coin? ',
+            'Private keys and offline wallets data will still be available in database and will be restored when you re-enable this coin.',
+            this.removeCoinConfirm.bind(this, wallet),
+            'remove',
+            'cancel',
+            null
+        );
+    }
+
+    offlineAssetWallet : Wallet = null
+
+    popupOfflineAssets(wallet: Wallet, idToUpdate: number = null) {
+
+        document.getElementById('offlineAssets').innerHTML = '';
+        for (var i = 0; i < wallet.portfolio.length; i ++) {
+            var item = new PortfolioItemWidget(wallet, i);
+            document.getElementById('offlineAssets').appendChild(item.element);
+            item.onremove = this.removeOfflieAsset.bind(this)
+            //TODO item.onreceive = this.receiveOfflieAsset.bind(this)  //app.popupReceivePayment(that.wallet, that.data.addr);
+            item.onreceive = function () {}
+            item.onclick = this.popupOfflineAssetDetails.bind(this)
+            item.onedit = this.popupEditOfflineAsset.bind(this)
+            if (typeof idToUpdate != 'undefined' && idToUpdate == i) {
+                item.refreshBalance();
+            }
+        }
+        this.openPopup('offlineAssetsPopup', wallet.handler.ticker + ' portfolio');
+        (document.getElementById('offlineAssetsIcon') as HTMLImageElement).src = 'coins/' + wallet.handler.icon + '.svg';
+        document.getElementById('offlineAssetsTitle').innerHTML = wallet.handler.ticker + ' portfolio';
+        document.getElementById('offlineAssetsSubtitle').innerHTML = 'Your ' + wallet.handler.name + ' assets';
+        document.getElementById('addAddressButton').classList.toggle('hidden', !('getBalance' in wallet.handler));
+        document.getElementById('newAddressButton').classList.toggle('hidden', !('newRandomPrivateKey' in wallet.handler));
+        this.offlineAssetWallet = wallet;
+    }
+
+    removeOfflieAsset(item: PortfolioItemWidget) {
+        alert(item.id);
+        (navigator as any).notification.confirm(
+            'Are you sure you want to remove this asset?',
+            function (buttonIndex : number) {
+                if (buttonIndex == 1) {
+                    /*app.data.deleteOfflineAsset(that.wallet.handler.code, that.id);
+                    //refresh ids and refresh balance:
+                    that.wallet.refreshOffline(false);
+                    app.popupOfflineAssets(app.offlineAssetWallet);*/
+                }
+            },
+            'Remove Asset',
+            ['Remove','Cancel']
+        );
+    }
+
+    activeAsset : PortfolioItemWidget = null
+
+    popupOfflineAssetDetails(item: PortfolioItemWidget) {
+
+        this.activeAsset = item;
+        this.openPopup('offlineAssetDetails', this.offlineAssetWallet.handler.ticker + ' portfolio asset', this.popupOfflineAssets.bind(this, this.offlineAssetWallet));
+        (document.getElementById('offlineAssetCoinIcon') as HTMLImageElement).src = 'coins/' + this.offlineAssetWallet.handler.icon + '.svg'
+
+            document.getElementById('offlineAssetIcon').innerHTML = '';
+        let icon = (new CoinAddressIcon(item.wallet.handler, PortfolioItem.isAddress(item.item) ? item.item.address : null)).element;
+        document.getElementById('offlineAssetIcon').appendChild(icon);
+
+        document.getElementById('offlineAssetName').innerHTML = item.item.label;
+        document.getElementById('offlineAssetSubName').innerHTML = this.offlineAssetWallet.handler.ticker + ' portfolio asset';
+
+        document.getElementById('offlineAssetButtons').innerHTML = '';
+
+        if (PortfolioItem.isAddress(item.item)) {
+            document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('receive', 'receive', item.onreceive.bind(item)));
+            document.getElementById('offlineAssetButtons').appendChild(item.refreshButton ? item.refreshButton : ListItemWidget.createButton('refresh', 'refresh', null));
+        } else {
+            document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('removef', 'remove', item.onremove.bind(item)));
+            var spacer = document.createElement('div');
+            spacer.className = 'button';
+            document.getElementById('offlineAssetButtons').appendChild(spacer);
+        }
+
+        document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('edit', 'edit', item.onedit.bind(item)));
+
+        document.getElementById('offlineAssetActions').innerHTML = '';
+
+        if (PortfolioItem.isAddress(item.item)) {
+            var advanced = document.createElement('ul');
+            advanced.classList.add('advancedActions');
+            advanced.appendChild(this.createAdvancedOption('link', 'history (external)', function() {
+                OsPlugins.openInSystemBrowser(
+                    this.activeAsset.wallet.handler.explorerLinkAddr(
+                        (this.activeAsset.item as PortfolioAddress).address
+                    )
+                );
+            }));
+            //TODO
+            //advanced.appendChild(this.createAdvancedOption('import', 'transfer to online wallet', this.showImportPrivateKeyPopup.bind(this, wallet.handler, data.addr)));
+
+            advanced.appendChild(this.createAdvancedOption('remove', 'remove', item.onremove.bind(this)));
+
+            document.getElementById('offlineAssetActions').append(advanced);
+
+            document.getElementById('offlineAssetInfo').innerHTML = '<p>This is an address in your portfolio that you are tracking.</p>' +
+                '<p><strong>warning: </strong>Coffee Wallet does not know the private key for this address. Use only if you have it secured.</p>' +
+                '<p>addr:&nbsp;<strong>' + (this.activeAsset.item as PortfolioAddress).address + '</strong></p>' +
+                '<p>balance:&nbsp;<strong id="offlineAssetInfoBalanceContainer"></strong></p>' +
+                '<p>value:&nbsp;<strong id="offlineAssetInfoValueContainer"></strong></p>';
+
+            document.getElementById('offlineAssetInfoBalanceContainer').appendChild(item.amountSpan);
+            document.getElementById('offlineAssetInfoValueContainer').appendChild(item.valueSpan);
+
+        } else {
+            document.getElementById('offlineAssetInfo').innerHTML = '<p>This is a static balance in your portfolio.</p>' +
+                '<p>balance: <strong id="offlineAssetInfoBalanceContainer"></strong></p>' +
+                '<p>value: <strong id="offlineAssetInfoValueContainer"></strong></p>';
+            document.getElementById('offlineAssetInfoBalanceContainer').appendChild(item.amountSpan);
+            //' + asset.data.balance + ' ' + app.offlineAssetWallet.handler.code + '
+            document.getElementById('offlineAssetInfoValueContainer').appendChild(item.valueSpan);
+        }
+
+    }
+
+    editAsset: boolean
+    portfolioEditAddressInput: AddressInputWidget
+
+    popupEditOfflineAsset(item: PortfolioItemWidget) {
+
+        if (PortfolioItem.isAddress(item.item)) {
+            document.getElementById('addOfflineAssetAddrDiv').classList.remove('hidden');
+            document.getElementById('addOfflineAssetAddrTools').classList.remove('hidden');
+            document.getElementById('addOfflineAssetBalanceDiv').classList.add('hidden');
+            let input = new AddressInputWidget(item.wallet.handler as OnlineCoinHandler);
+            document.getElementById('addOfflineAssetAddrDiv').append(input.element)
+            this.portfolioEditAddressInput = input;
+        } else if(PortfolioItem.isBalance(item.item)) {
+            document.getElementById('addOfflineAssetAddrDiv').classList.add('hidden');
+            document.getElementById('addOfflineAssetAddrTools').classList.add('hidden');
+            document.getElementById('addOfflineAssetBalanceDiv').classList.remove('hidden');
+            (document.getElementById('addOfflineAssetBalance') as HTMLInputElement).value = item.item.balance.toString();
+            this.portfolioEditAddressInput = null;
+        }
+
+        (document.getElementById('addOfflineAssetComment') as HTMLInputElement).value = item.item.label;
+
+        document.getElementById('addOfflineAssetPopupSave').innerHTML = 'save';
+        this.editAsset = true;
+        this.openForm('addOfflineAssetPopup');
+        (document.getElementById('addOfflineAssetPopupIcon') as HTMLImageElement).src = 'coins/' + item.wallet.handler.icon + '.svg';
+    }
+
+    popupAddOfflineAsset(type: string) {
+
+        let input = new AddressInputWidget(this.offlineAssetWallet.handler as OnlineCoinHandler)
+        document.getElementById('addOfflineAssetAddrDiv').append(input.element);
+        this.portfolioEditAddressInput = input;
+        (document.getElementById('addOfflineAssetBalance') as HTMLInputElement).value = '';
+        (document.getElementById('addOfflineAssetComment') as HTMLInputElement).value = '';
+        document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', type == 'balance');
+        document.getElementById('addOfflineAssetAddrTools').classList.toggle('hidden', type == 'balance');
+        document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'address');
+
+        document.getElementById('addOfflineAssetPopupSave').innerHTML = 'add';
+        this.editAsset = false;
+        this.openForm('addOfflineAssetPopup');
+        (document.getElementById('addOfflineAssetPopupIcon') as HTMLImageElement).src = 'coins/' + this.offlineAssetWallet.handler.icon + '.svg';
+    }
+
+    popupAddNewAddress() {
+
+        let handler = this.offlineAssetWallet.handler as OnlineCoinHandler
+        var coinCode = this.offlineAssetWallet.handler.ticker;
+        var coinName = this.offlineAssetWallet.handler.name;
+        var randomPriv = handler.newRandomPrivateKey();
+        var randomAddr = handler.addressFromPrivateKey(randomPriv);
+        var randomPrivImg = this.generatePngWithQRCode(randomPriv, 350);
+        var randomAddrImg = this.generatePngWithQRCode(coinName + ':' + randomAddr, 280);
+
+        var html = '<html><h1>' + coinCode + ' wallet</h1>' +
+            '<div style="text-align:right;"><h2>public key (address)</h2><img src="' + randomAddrImg + '"><h3>' + coinName + ':' + randomAddr + '</h3></div>'+
+            '<hr/>' +
+            '<h2>private key (secret)</h2><img src="' + randomPrivImg + '"><h3>' + randomPriv + '</h3>'+
+            '<div style="position:absolute; bottom:0; right:0; text-align:right;">Share the public key to accept coins. <br/>Keep private key secret and safe. It allows your coins to be spent. '+
+            '<br/>Generated by Coffee Wallet ' + Version.version + '</div>'+
+            '</html>';
+
+        var app = this;
+
+        function proceed(){
+
+            app.offlineAssetWallet.portfolio.push(
+                new PortfolioAddress('paper wallet', randomAddr)
+            );
+            app.engine.saveData();
+            //refresh list
+            app.popupOfflineAssets(app.offlineAssetWallet);
+            app.confirmBeforeContinue(
+                'wallet created',
+                '<strong>warning:</strong> Coffee Wallet <strong>does not</strong> store private keys for your portfolio! ' +
+                'Use this address <strong>only</strong> after making the pdf you just saved secure. ' +
+                'You will be able to spend funds from this wallet as long as you will have access to its private key!',
+                function(){}
+            );
+        }
+
+        OsPlugins.generatePDF(html, coinCode + '-wallet',function(){
+            proceed();
+        },function(err) {
+            app.alertError('error generating pdf wallet ' + err);
+        });
+
+    }
+
+    saveOfflineAsset(){
+
+        if (this.portfolioEditAddressInput){
+            if (!this.portfolioEditAddressInput.validate()) {
+                return false;
+            }
+        }
+
+        let item = null;
+        if (this.portfolioEditAddressInput) {
+            item = new PortfolioAddress(
+                (document.getElementById('addOfflineAssetComment') as HTMLInputElement).value,
+                this.portfolioEditAddressInput.getValue()
+            )
+        } else {
+            item = new PortfolioBalance(
+                (document.getElementById('addOfflineAssetComment') as HTMLInputElement).value,
+                parseFloat((document.getElementById('addOfflineAssetBalance') as HTMLInputElement).value) || 0.0
+            )
+        }
+
+        var idToUpdate = 0;
+        if (this.editAsset) {
+            idToUpdate = this.activeAsset.id;
+            this.offlineAssetWallet.portfolio[idToUpdate - 1] = item;
+        } else {
+            idToUpdate = this.offlineAssetWallet.portfolio.length + 1
+            this.offlineAssetWallet.portfolio.push(item);
+        }
+        this.engine.saveData();
+
+        this.closeForm();
+        this.popupOfflineAssets(this.offlineAssetWallet, idToUpdate);
+    }
+
+    generatePngWithQRCode(text: string, size: number) {
+        var tmpElement = document.createElement('div');
+        var qrcode = new (window as any).QRCode(tmpElement, {
+            text: text,
+            width: size,
+            height: size,
+            colorDark : "#000000",
+            colorLight : "#ffffff"
+        });
+        return qrcode._oDrawing._elCanvas.toDataURL("image/png");
     }
 
     /*
@@ -463,15 +954,6 @@ export class App {
     },
 
 
-    showOneChildOf: function(parentId, childId) {
-        var children = document.getElementById(parentId).childNodes;
-        for (var c=0; c < children.length; c++) {
-            if (children[c].nodeType != 3) {
-                children[c].style.display = 'none';
-            }
-        }
-        document.getElementById(childId).style.display = 'block';
-    },
 
     setCurrentCoinIcon: function(img) {
         if (img) {
@@ -487,49 +969,6 @@ export class App {
         for (var i = 0; i < elements.length; i++) {
             elements[i].classList.toggle('hidden', !show);
         }
-    },
-
-    openForm: function(id, title, bgimg) {
-
-        document.getElementById("container").classList.add('blur');
-        document.getElementById("nav").classList.add('blur');
-        document.getElementById("popupHead").classList.add('blur');
-        document.getElementById("popupContent").classList.add('blur');
-
-        document.getElementById('formPopup').classList.add('show');
-        this.setCurrentCoinIcon(bgimg);
-        this.showOneChildOf('formPopup', id);
-
-    },
-
-    openPopup: function(id, title, bgimg, previousPopupCall) {
-
-        this.previousPopupCall = previousPopupCall;
-        document.getElementById('popup').classList.add('show');
-
-        this.setCurrentCoinIcon(bgimg);
-        this.showOneChildOf('popupContent', id);
-
-        document.getElementById('popupContent').scrollTop = 0;
-        app.togglePopupHeaderFix();
-        document.getElementById('popupTitle').innerHTML = title;
-        //document.getElementById('popupIcon').setAttribute('src', 'icons/' + icon + '.png');
-    },
-
-    closeForm: function() {
-        document.getElementById("container").classList.remove('blur');
-        document.getElementById("nav").classList.remove('blur');
-        document.getElementById("popupHead").classList.remove('blur');
-        document.getElementById("popupContent").classList.remove('blur');
-        document.getElementById("formPopup").classList.remove('show');
-    },
-
-    closePopup: function() {
-        document.getElementById("popup").classList.remove('show');
-        if (this.previousPopupCall) {
-            this.previousPopupCall();
-        }
-        this.previousPopupCall = null;
     },
 
     showExportPrivateKeyPopup: function(wallet) {
@@ -655,38 +1094,7 @@ export class App {
         };
     },
 
-    removeCoin: function(wallet) {
-        var key = wallet.handler.code;
-        navigator.notification.confirm(
-            'Are you sure you want to remove ' + key + ' coin? ' +
-            '\nPrivate keys and offline wallets data will still be available in database and will be restored when you re-enable this coin.',
-            function(buttonIndex) {
-                if (buttonIndex == 1) {
-                    app.data.hideWallet(key, function(){
-                        app.wallets[key].row.outerHTML = '';
-                        delete app.wallets[key].row;
-                        delete app.wallets[key];
-                    });
-                    app.closePopup();
-                }
-            },
-            'Remove Coin',
-            ['Remove','Cancel']
-        );
-    },
 
-    createAdvancedOption: function(icon, text, callback) {
-        var li = document.createElement('li');
-        var button = document.createElement('button');
-        var img = document.createElement("img");
-        img.setAttribute('src', 'icons/' + icon + '.png');
-        button.appendChild(img);
-        button.appendChild(document.createTextNode(text));
-        button.onclick = callback;
-        fastTap(button);
-        li.appendChild(button);
-        return li;
-    },
     doExchange: function() {
         //TODO!!!!!
         var provider = allExchangeProviders[app.exchangeProviderSelect.getValue()];
@@ -902,104 +1310,6 @@ export class App {
         }
         if (empty) {
             document.getElementById('sendViaMessageButtons').innerHTML = 'You have no coins that can be sent via message.';
-        }
-    },
-    popupCoinInfo: function(walletWidget, wallet) {
-        this.openPopup('coinInfoPopup', wallet.handler.ticker, 'coins/' + wallet.handler.icon + '.svg');
-
-        document.getElementById('coinInfoName').innerHTML = wallet.handler.ticker;
-        document.getElementById('coinInfoSubName').innerHTML = wallet.handler.name;
-        document.getElementById('coinInfoCurrentPrice').innerHTML =
-            'current price: ' + app.engine.priceProvider.convert(1, wallet.handler);
-
-        document.getElementById('coinInfoButtons').innerHTML = '';
-
-        if (wallet.isOnline()) {
-            document.getElementById('coinInfoButtons').appendChild(createButton('receive', 'receive', function(){app.popupReceivePayment(wallet);}));
-            document.getElementById('coinInfoButtons').appendChild(createButton('send', 'send', function(){app.popupSendPayment(wallet, wallet.data.systemBalance);}));
-        }
-        document.getElementById('coinInfoButtons').appendChild(wallet.isOnline() ? walletWidget.refreshButton2 : createButton('refresh', 'refresh', null));
-        document.getElementById('coinInfoButtons').appendChild(createButton('list', 'portfolio', function(){app.popupOfflineAssets(wallet);}));
-
-        var advanced = document.createElement('ul');
-        advanced.classList.add('advancedActions');
-        var advancedWallet = wallet;
-
-        if (wallet.isOnline() && wallet.handler.canSendViaMessage()) {
-            advanced.appendChild(app.createAdvancedOption('message', 'send via message', function(){
-                app.popupSendSocial(wallet);
-            }));
-        }
-
-        if ('exchangeableCoinsCache' in app && (app.exchangeableCoinsCache.indexOf(wallet.handler.code) != -1)) {
-            advanced.appendChild(app.createAdvancedOption('sell', 'sell coin', function(){
-                app.popupExchange(wallet.handler.code, null);
-            }));
-            advanced.appendChild(app.createAdvancedOption('buy', 'buy coin', function(){
-                app.popupExchange(null, wallet.handler.code);
-            }));
-        }
-
-        if ('explorerLinkAddr' in wallet.handler) {
-            advanced.appendChild(app.createAdvancedOption('link', 'history (external)', function(){
-                osPlugins.openInSystemBrowser(wallet.handler.explorerLinkAddr(wallet.data.addr));
-            }));
-        }
-
-        if ('sendPayment' in wallet.handler) {
-            advanced.appendChild(app.createAdvancedOption('import', 'import private key', function(){
-                app.showImportPrivateKeyPopup(wallet.handler);
-            }));
-        }
-
-        //advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
-
-        var links = '<ul>';
-        for (var name in wallet.handler.links) {
-            links += '<li><a href="#" onclick="osPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
-        }
-        links += '</ul>';
-
-        advanced.appendChild(app.createAdvancedOption('about', 'about', function(){
-            app.confirmBeforeContinue(wallet.handler.longname + ' (' + wallet.handler.code + ')',
-                '<div style="text-align:center;"><img width="64" src="coins/' + wallet.handler.icon + '.svg"/></div>' +
-                wallet.handler.description + links,
-                function(){},
-                'close'
-            );
-        }));
-
-        if (walletWidget.totalOffline + walletWidget.totalOnline <= 0) {
-            advanced.appendChild(app.createAdvancedOption('remove', 'remove wallet', app.removeCoin.bind(app, advancedWallet)));
-        }
-
-        //document.getElementById('coinInfoWallet').appendChild(app.engine.getCoinAddrIcon(wallet.handler, wallet.data.addr));
-
-        document.getElementById('coinInfoWallet').innerHTML = '<div style="overflow:auto; padding: 0 12px;">' +
-            '<div style="float:left; text-align:left;">' +
-            'wallet:<br/>' +
-            (wallet.isOnline() ? (
-                '<strong id="coinInfoValueContainer"></strong><br/>' +
-                '<span id="coinInfoBalanceContainer"></span>') : 'Not supported yet.<br/>Portfolio use only.') +
-            '</div>' +
-            '<div style="float:right; text-align:right;">' +
-            'portfolio:<br/>' +
-            '<strong id="coinInfoPortfolioValueContainer"></strong><br/>' +
-            '<span id="coinInfoPortfolioBalanceContainer"></span>' +
-            '</div>';
-
-        if (wallet.isOnline()) {
-            document.getElementById('coinInfoBalanceContainer').appendChild(walletWidget.onlineAmountDetail);
-            document.getElementById('coinInfoValueContainer').appendChild(walletWidget.onlineValueDetail);
-        }
-
-        document.getElementById('coinInfoPortfolioBalanceContainer').appendChild(walletWidget.offlineAmountDetail);
-        document.getElementById('coinInfoPortfolioValueContainer').appendChild(walletWidget.offlineValueDetail);
-
-
-        if (advanced.children.length > 0) {
-            document.getElementById('coinInfoActions').innerHTML = '';
-            document.getElementById('coinInfoActions').append(advanced);
         }
     },
 
@@ -1237,184 +1547,8 @@ export class App {
         );
     },
 
-    popupOfflineAssets: function(wallet, idToUpdate) {
-
-        document.getElementById('offlineAssets').innerHTML = '';
-        for (var i=0; i<wallet.offlineWallets.length; i++) {
-            var a = new Asset(wallet, i + 1, wallet.offlineWallets[i]);
-            document.getElementById('offlineAssets').appendChild(a.row);
-            if (typeof idToUpdate != 'undefined' && idToUpdate == i + 1) {
-                a.refreshBalance();
-            }
-        }
-
-        this.openPopup('offlineAssetsPopup', wallet.handler.code + ' portfolio', 'coins/' + wallet.handler.icon + '.svg');
-
-        document.getElementById('offlineAssetsTitle').innerHTML = wallet.handler.code + ' portfolio';
-        document.getElementById('offlineAssetsSubtitle').innerHTML = 'Your ' + wallet.handler.longname + ' assets';
-        document.getElementById('addAddressButton').classList.toggle('hidden', !('getBalance' in wallet.handler));
-        document.getElementById('newAddressButton').classList.toggle('hidden', !('newRandomPrivateKey' in wallet.handler));
-        this.offlineAssetWallet = wallet;
-    },
-
     pasteToField: function(field, addr, args) {
         document.getElementById(field).value = addr;
-    },
-
-    popupOfflineAssetDetails: function(asset) {
-
-        activeAsset = asset;
-
-        this.openPopup('offlineAssetDetails', app.offlineAssetWallet.handler.code + ' portfolio asset', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg', function(){
-            app.popupOfflineAssets(app.offlineAssetWallet);
-        });
-
-        document.getElementById('offlineAssetIcon').innerHTML = '';
-        document.getElementById('offlineAssetIcon').appendChild(asset.assetIcon);
-
-        document.getElementById('offlineAssetName').innerHTML = asset.data.comment;
-        document.getElementById('offlineAssetSubName').innerHTML = app.offlineAssetWallet.handler.code + ' portfolio asset';
-
-        document.getElementById('offlineAssetButtons').innerHTML = '';
-
-        if (asset.data.addr) {
-            document.getElementById('offlineAssetButtons').appendChild(createButton('receive', 'receive', asset.actionReceive));
-            document.getElementById('offlineAssetButtons').appendChild(asset.refreshButton ? asset.refreshButton : createButton('refresh', 'refresh', null));
-        } else {
-            document.getElementById('offlineAssetButtons').appendChild(createButton('removef', 'remove', asset.removeAction));
-            var spacer = document.createElement('div');
-            spacer.className = 'button';
-            document.getElementById('offlineAssetButtons').appendChild(spacer);
-        }
-
-        document.getElementById('offlineAssetButtons').appendChild(createButton('edit', 'edit', function(){
-            app.popupEditOfflineAsset(asset);
-        }));
-
-        document.getElementById('offlineAssetActions').innerHTML = '';
-
-        if (asset.data.addr) {
-            var advanced = document.createElement('ul');
-            advanced.classList.add('advancedActions');
-
-            asset.actionHistory && advanced.appendChild(app.createAdvancedOption('link', 'history (external)', asset.actionHistory));
-            asset.actionImport && advanced.appendChild(app.createAdvancedOption('import', 'transfer to online wallet', asset.actionImport));
-
-            advanced.appendChild(app.createAdvancedOption('remove', 'remove', asset.removeAction));
-            document.getElementById('offlineAssetActions').append(advanced);
-
-            document.getElementById('offlineAssetInfo').innerHTML = '<p>This is an address in your portfolio that you are tracking.</p>' +
-                '<p><strong>warning: </strong>Coffee Wallet does not know the private key for this address. Use only if you have it secured.</p>' +
-                '<p>addr:&nbsp;<strong>' + asset.data.addr + '</strong></p>' +
-                '<p>balance:&nbsp;<strong id="offlineAssetInfoBalanceContainer"></strong></p>' +
-                '<p>value:&nbsp;<strong id="offlineAssetInfoValueContainer"></strong></p>';
-
-            document.getElementById('offlineAssetInfoBalanceContainer').appendChild(asset.amount);
-            document.getElementById('offlineAssetInfoValueContainer').appendChild(asset.value);
-
-
-        } else {
-            document.getElementById('offlineAssetInfo').innerHTML = '<p>This is a static balance in your portfolio.</p>' +
-                '<p>balance: <strong>' + asset.data.balance + ' ' + app.offlineAssetWallet.handler.code + '</strong></p>' +
-                '<p>value: <strong id="offlineAssetInfoValueContainer"></strong></p>';
-            document.getElementById('offlineAssetInfoValueContainer').appendChild(asset.value);
-        }
-
-    },
-
-    popupEditOfflineAsset: function(asset) {
-        document.getElementById('addOfflineAssetAddr').value = asset.data.addr;
-        app.validateAddr('addOfflineAssetAddr', true);
-
-        document.getElementById('addOfflineAssetBalance').value = asset.data.balance;
-        document.getElementById('addOfflineAssetComment').value = asset.data.comment;
-        document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', asset.data.addr ? false : true);
-        document.getElementById('addOfflineAssetAddrTools').classList.toggle('hidden', asset.data.addr ? false : true);
-        document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', asset.data.addr);
-
-
-        document.getElementById('addOfflineAssetPopupSave').innerHTML = 'save';
-        this.editAsset = true;
-        this.openForm('addOfflineAssetPopup', 'edit ' + asset.wallet.handler.code + ' asset', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg');
-    },
-
-    popupAddOfflineAsset: function(type, value) {
-        document.getElementById('addOfflineAssetAddr').value = (type == 'addr' ? value : '');
-        app.validateAddr('addOfflineAssetAddr', true);
-
-        document.getElementById('addOfflineAssetBalance').value = (type == 'balance' ? value : '');
-        document.getElementById('addOfflineAssetComment').value = '';
-        document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', type == 'balance');
-        document.getElementById('addOfflineAssetAddrTools').classList.toggle('hidden', type == 'balance');
-        document.getElementById('addOfflineAssetBalanceDiv').classList.toggle('hidden', type == 'addr');
-
-        document.getElementById('addOfflineAssetPopupSave').innerHTML = 'add';
-        this.editAsset = false;
-        this.openForm('addOfflineAssetPopup', 'add ' + this.offlineAssetWallet.handler.code + ' asset', 'coins/' + app.offlineAssetWallet.handler.icon + '.svg');
-    },
-
-    popupAddNewAddress: function() {
-
-        var coinCode = app.offlineAssetWallet.handler.code;
-        var coinName = app.offlineAssetWallet.handler.name;
-        var randomPriv = app.offlineAssetWallet.handler.newRandomPrivateKey();
-        var randomAddr = app.offlineAssetWallet.handler.addrFromPrivateKey(randomPriv);
-        var randomPrivImg = this.generatePngWithQRCode(randomPriv, 350);
-        var randomAddrImg = this.generatePngWithQRCode(coinName + ':' + randomAddr, 280);
-
-        var html = '<html><h1>' + coinCode + ' wallet</h1>' +
-            '<div style="text-align:right;"><h2>public key (address)</h2><img src="' + randomAddrImg + '"><h3>' + coinName + ':' + randomAddr + '</h3></div>'+
-            '<hr/>' +
-            '<h2>private key (secret)</h2><img src="' + randomPrivImg + '"><h3>' + randomPriv + '</h3>'+
-            '<div style="position:absolute; bottom:0; right:0; text-align:right;">Share the public key to accept coins. <br/>Keep private key secret and safe. It allows your coins to be spent. <br/>Generated by Coffee Wallet ' + window.version + '</div>'+
-            '</html>';
-
-        function proceed(){
-            app.data.addOfflineAsset(app.offlineAssetWallet.handler.code, {
-                addr: randomAddr,
-                balance: 0.0,
-                systemBalance: 0,
-                comment: 'paper wallet'
-            });
-            //refresh list
-            app.popupOfflineAssets(app.offlineAssetWallet);
-            app.confirmBeforeContinue('wallet created',
-                '<strong>warning:</strong> Coffee Wallet <strong>does not</strong> store private keys for your portfolio! ' +
-                'Use this address <strong>only</strong> after making the pdf you just saved secure. ' +
-                'You will be able to spend funds from this wallet as long as you will have access to its private key!',
-                function(){}
-            );
-        }
-
-        osPlugins.generatePDF(html, coinCode + '-wallet',function(stats){
-            proceed();
-        },function(err) {
-            app.alertError('error generating pdf wallet ' + err);
-        });
-
-    },
-
-    saveOfflineAsset: function(){
-        var data = {
-            addr: document.getElementById('addOfflineAssetAddr').value,
-            balance: parseFloat(document.getElementById('addOfflineAssetBalance').value) || 0.0,
-            comment: document.getElementById('addOfflineAssetComment').value
-        }
-
-        if (!document.getElementById('addOfflineAssetAddrDiv').classList.contains('hidden')){
-            if (!app.validateAddr('addOfflineAssetAddr')) {
-                return false;
-            }
-        }
-        var idToUpdate = 0;
-        if (this.editAsset) {
-            idToUpdate = activeAsset.id;
-            this.data.updateOfflineAsset(activeAsset.wallet.handler.code, activeAsset.id, data);
-        } else {
-            idToUpdate = this.data.addOfflineAsset(this.offlineAssetWallet.handler.code, data);
-        }
-        this.closeForm();
-        this.popupOfflineAssets(this.offlineAssetWallet, idToUpdate);
     },
 
     popupSendSocial: function(wallet) {
@@ -1553,106 +1687,12 @@ export class App {
         }
     },
 
-
-    lockDialogOpened: null,
-    lockDialogAuthenticate: false,
-    lockDialogConfirmCallback: null,
-    lockDialogCancelCallback: null,
-    lockDialogCanCancel: null,
-
-    lockDialogCancel: function() {
-        app.lockDialogOpened = false;
-        document.getElementById('lockPopup').classList.add('hidden');
-
-        this.lockDialogConfirmCallback = null;
-        var callback = this.lockDialogCancelCallback;
-        this.lockDialogCancelCallback = null;
-        callback && callback();
-    },
-
-    lockDialogConfirm: function() {
-        app.lockDialogOpened = false;
-        document.getElementById('lockPopup').classList.add('hidden');
-
-        this.lockDialogCancelCallback = null;
-        var callback = this.lockDialogConfirmCallback;
-        this.lockDialogConfirmCallback = null;
-
-        if (this.lockDialogAuthenticate && (device.platform == "Android")) {
-            FingerprintAuth.isAvailable(function(result){
-                if(result.isAvailable) {
-                    FingerprintAuth.encrypt(
-                        {
-                            clientId: "coffee",
-                            username: "user",
-                            password: "__dummy"
-                        },
-                        function(){
-                            app.alertSuccess("auth successfull");
-                            callback();
-                        }, function(err){
-                            app.alertError("auth error: " + err);
-                        }
-                    );
-                } else {
-                    callback();
-                }
-            }, function(){
-                callback();
-            });
-        } else if(this.lockDialogAuthenticate && (device.platform == "iOS")) {
-            window.plugins.touchid.isAvailable(function(){
-                window.plugins.touchid.verifyFingerprintWithCustomPasswordFallback(
-                    "Scan your fingerprint to confirm",
-                    function(){
-                        app.alertSuccess("auth successfull");
-                        callback();
-                    }, function(err){
-                        app.alertError("auth error: " + JSON.stringify(err));
-                    }
-                );
-            }, function(){
-                callback();
-            });
-        } else {
-            callback();
-        }
-    },
-
     authenticateBeforeContinue: function(title, message, authCallback) {
         //message = message; // + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
         this.confirmBeforeContinue(title, message, authCallback, 'confirm', 'cancel');
         this.lockDialogAuthenticate = true;
     },
 
-    confirmBeforeContinue: function(title, message, confirmCallback, confirmText, cancelText, cancelCallback) {
-        this.lockDialogOpened = true;
-        this.lockDialogAuthenticate = false;
-
-        this.lockDialogConfirmCallback = confirmCallback;
-        this.lockDialogCancelCallback = cancelCallback;
-
-        document.getElementById('lockPopup').classList.remove('hidden');
-        document.getElementById('lockPopupConfirm').classList.remove('hidden');
-        document.getElementById('lockPopupConfirmText').innerHTML = (typeof confirmText != 'undefined') ? confirmText : 'confirm';
-        this.lockDialogCanCancel = !(typeof cancelText == 'undefined');
-        document.getElementById('lockPopupCancel').classList.toggle('hidden', !this.lockDialogCanCancel);
-        document.getElementById('lockPopupCancelText').innerHTML = (typeof cancelText != 'undefined') ? cancelText : 'cancel';
-        document.getElementById('lockTitle').innerHTML = title;
-        document.getElementById('lockMessage').innerHTML = message;
-    },
-
-    generatePngWithQRCode: function(text, size) {
-        var tmpElement = document.createElement('div');
-        var qrcode = new QRCode(tmpElement, {
-            text: text,
-            width: size,
-            height: size,
-            colorDark : "#000000",
-            colorLight : "#ffffff"
-        });
-        return qrcode._oDrawing._elCanvas.toDataURL("image/png");
-    },
 
     sendSocialPaymentShare: function(coin, displayAmount, tmpPrivateKey) {
         var receiveLink = coin + '/' + tmpPrivateKey; //'coffee://' +
