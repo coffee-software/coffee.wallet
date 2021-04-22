@@ -2,10 +2,12 @@ import {Engine} from "./Engine";
 import {fastTap} from "./Tools/Fasttap";
 import {OsPlugins} from "./OsPlugins";
 import {Logger} from "./Tools/Logger";
+import {WalletWidget} from "./Widgets/WalletWidget";
+import {Wallet} from "./Wallet";
 
 export class App {
 
-    walletsWidgets: []
+    walletsWidgets: WalletWidget[] = []
     engine: Engine
     logger: Logger
     lastOpenedUrl : string = null
@@ -52,8 +54,8 @@ export class App {
             window.localStorage
         );
         this.logger = new Logger(OsPlugins.getStorage());
-
-        this.engine.init(function() {
+        let app = this;
+        this.engine.init().then(function() {
             //TODO
             /*
             app.priceProviderSelect = new Select(document.getElementById("priceProvider"));
@@ -63,28 +65,52 @@ export class App {
             });
             app.priceProviderSelect.setOptions(app.engine.allPriceProviders, app.engine.allPriceProviders.indexOf(app.engine.priceProvider));
             */
+            app.updatePricesFromProvider();
             OsPlugins.checkForUpdates(function(){
-                OsPlugins.hideNativeSplash();
-                document.getElementById('loading').classList.remove('show');
-                /*
-                if (!(app.engine.keychainCreated())) {
-                    app.saveVersion();
-                    app.createNewWallet();
-                } else {
-                    app.showChangelogIfVersionUpdated(function(){
-                        app.showExportKeysReminderIfRequired(function(){
-                            for (var key in app.engine.wallets) {
-                                app.wallets[key] = app.addWalletWidget(app.engine.wallets[key]);
-                            }
-                            app.updateAllValues();
-                            app.onDataLoaded();
-                        });
-                    });
-                }*/
+                app.onEngineLoaded();
             });
         });
 
-        this.updatePricesFromProvider();
+        (window as any).PullToRefresh.init({
+            triggerElement: '#walletsTab',
+            mainElement: '#wallets',
+            distMax: 84,
+            distReload: 60,
+            iconArrow: '<div class="spinner"><img src="icons/refresh.png" alt="refresh"></div>',
+            iconRefreshing: '<div class="spinner spinning"><img src="icons/refresh.png" alt="refresh"></div>',
+            getStyles: function() { return ''; },
+            onRefresh: this.updatePricesFromProvider.bind(this),
+            shouldPullToRefresh: function() {
+                return !document.querySelector('#walletsTab').scrollTop;
+            }
+        });
+
+        this.logger.log("info", null, "application started");
+
+    }
+
+    onEngineLoaded () {
+        OsPlugins.hideNativeSplash();
+        document.getElementById('loading').classList.remove('show');
+
+        if (!(this.engine.keychainCreated())) {
+            //TODO
+            /*app.saveVersion();
+            app.createNewWallet();*/
+        } else {
+            //TODO
+            //this.showChangelogIfVersionUpdated(function(){
+            //    this.showExportKeysReminderIfRequired(function(){
+                    for (var key in this.engine.wallets) {
+                        this.walletsWidgets.push(
+                            this.addWalletWidget(this.engine.wallets[key])
+                        );
+                    }
+                    //app.updateAllValues();
+                    //app.onDataLoaded();
+                //});
+            //});
+        }
     }
 
     resizingTimer: any = null
@@ -255,6 +281,12 @@ export class App {
         log += !error ? '' : '\nerror: ' + error;
         this.alertMessagePopup('error', log);
         //console.log(msg, url, line, col, error);
+    }
+
+    addWalletWidget(data: Wallet) : WalletWidget {
+        var w = new WalletWidget(this.engine, data)
+        document.getElementById('walletsList').appendChild(w.element);
+        return w;
     }
 
     /*
@@ -1963,11 +1995,6 @@ export class App {
         }
     },
 
-    addWalletWidget: function(data) {
-        var w = new WalletWidget(data)
-        document.getElementById('walletsList').appendChild(w.row);
-        return w;
-    },
     saveVersion: function() {
         app.engine.settings.set('appVersion', window.version);
     },
@@ -2135,23 +2162,6 @@ export class App {
             );
         }
 
-        PullToRefresh.init({
-            triggerElement: '#walletsTab',
-            mainElement: '#wallets',
-            distMax: 84,
-            distReload: 60,
-            iconArrow: '<div class="spinner"><img src="icons/refresh.png" alt="refresh"></div>',
-            iconRefreshing: '<div class="spinner spinning"><img src="icons/refresh.png" alt="refresh"></div>',
-            getStyles: function() { return ''; },
-            onRefresh: function(cb) {
-                app.updateMarketCap(cb);
-            },
-            shouldPullToRefresh: function() {
-                return !document.querySelector('#walletsTab').scrollTop;
-            }
-        });
-
-        Logger.log("info", null, "application started");
     }
     */
 

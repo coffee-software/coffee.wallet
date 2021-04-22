@@ -17,7 +17,7 @@ export class Logger {
     }
 
     //"error", "info", "success"
-    log(severity: string, coinCode: string, message: string, debug: any) {
+    log(severity: string, coinCode: string, message: string, debug: any = null) {
         this.getLogs(function(logs) {
             logs.unshift({ts:Date.now(), severity:severity, coin:coinCode, message:message, debug:debug});
             if (logs.length > 200) {

@@ -137,7 +137,7 @@ export class Engine {
         this.priceProvider.unit = this.cache.get(this.priceProvider.name + '_priceUnit', this.priceProvider.defaultUnit)
     }
 
-    init(callback: ()=>void) {
+    async init(): Promise<any> {
         console.log("INITIALISING");
         this.allCoinHandlers = createAllCoinHandlers(this.log, this.cache);
 
@@ -148,7 +148,32 @@ export class Engine {
             new ChangeNowProvider()
         ]
 
-        this.initAsync().then(callback)
+        let wallets = await this.storageGet('wallets');
+        if ('bip39' in wallets) {
+            console.log('migrating legacy data...');
+            this.keychain = new Keychain(wallets.bip39.mnemonic);
+            for (let code in wallets) {
+                if (wallets.hasOwnProperty(code) && code != 'bip39') {
+                    if (wallets[code].enabled) {
+                        this.addWallet(code, wallets[code].offlineWallets)
+                    }
+                }
+            }
+            console.log('saving...');
+            await this.saveData();
+        } else {
+            let mnemonic : string = await this.storageGet('mnemonic');
+            if (mnemonic) {
+                this.keychain = new Keychain(mnemonic);
+                for (let code in wallets) {
+                    if (wallets.hasOwnProperty(code)) {
+                        this.addWallet(code, wallets[code].portfolio)
+                    }
+                }
+            }
+        }
+        console.log(this.keychain)
+        console.log(this.wallets)
     }
 
     getFiatValue(balance : Balance) : number {
@@ -192,35 +217,6 @@ export class Engine {
             wallet.portfolio = this.loadPortfolio(wallet.handler, portfolio);
             this.wallets[code] = wallet;
         }
-    }
-
-    async initAsync(): Promise<any> {
-        let wallets = await this.storageGet('wallets');
-        if ('bip39' in wallets) {
-            console.log('migrating legacy data...');
-            this.keychain = new Keychain(wallets.bip39.mnemonic);
-            for (let code in wallets) {
-                if (wallets.hasOwnProperty(code) && code != 'bip39') {
-                    if (wallets[code].enabled) {
-                        this.addWallet(code, wallets[code].offlineWallets)
-                    }
-                }
-            }
-            console.log('saving...');
-            await this.saveData();
-        } else {
-            let mnemonic : string = await this.storageGet('mnemonic');
-            if (mnemonic) {
-                this.keychain = new Keychain(mnemonic);
-                for (let code in wallets) {
-                    if (wallets.hasOwnProperty(code)) {
-                        this.addWallet(code, wallets[code].portfolio)
-                    }
-                }
-            }
-        }
-        console.log(this.keychain)
-        console.log(this.wallets)
     }
 
     async saveData(): Promise<any> {
