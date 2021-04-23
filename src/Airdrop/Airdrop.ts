@@ -274,4 +274,65 @@ var airdrop = {
 
 
 
+
+            <div id="airdropPopup" style="display:none;">
+              <div class="bg-creme popup-head">
+                <div class="rowIcon"><img class="coinIcon coinBig" src="coins/cft.svg"/></div>
+                <h2>CFT airdrop</h2>
+                <h3>Coffee Wallet Tokens</h3>
+              </div>
+              <div class="section">
+                You don't have to complete all tasks listed below but they should take only 3 minutes of your time and you will know all important features of this application.
+              </div>
+              <div class="stitch"></div>
+              <table class="section" id="airdropTasks">
+              </table>
+              <div class="stitch"></div>
+              <p id="airdropStatus" class="section"></p>
+              <div class="actions row buttons">
+                <button id="collectAirdropButton" class="box f1 hidden" onclick="app.collectAirdrop()">
+                  Collect&nbsp;<span id="airdropTotal"></span>
+                </button>
+              </div>
+            </div>
+            <div id="airdropPopup2" style="display:none;">
+              <div class="bg-creme popup-head">
+                <div class="rowIcon"><img class="coinIcon coinBig" src="coins/cft.svg"/></div>
+                <h2>CFT airdrop</h2>
+                <h3>Coffee Wallet Tokens</h3>
+              </div>
+              <div class="section">
+                Thanks for participating in the airdrop! Tokens will appear in your wallet as soon as transaction gets confirmed.
+                If you would like to get some more and share Coffee Wallet with your friends, you can use fallowing share link.
+                You will receive extra <strong><span id="airdropReferalReward">50</span> CFT</strong> for each installation.
+              </div>
+              <div class="airdrop-link">
+                <div id="airdropRefLink">https://wallet.coffee/install</div>
+                <div style="text-align:center">
+                  <div id="airdropRefLinkQR" class="qr-code-display">
+                  </div>
+                </div>
+                <div class="actions row">
+                  <button class="f1" onclick="osPlugins.copyToClipboard(document.getElementById('airdropRefLink').innerHTML); app.alertInfo('copied to clipboard');">
+                    <img src="icons/ico.copy.png"/>
+                    Copy
+                  </button>
+                  <button class="f1" onclick="osPlugins.shareDialog('', document.getElementById('airdropRefLink').innerHTML)">
+                    <img src="icons/share.png"/>
+                    Share
+                  </button>
+                </div>
+              </div>
+              <p id="airdropStatus2" class="section"></p>
+              <div class="stitch"></div>
+              <div class="actions row buttons">
+                <button class="box f1 light" onclick="osPlugins.openRateAppDialog()">
+                  Rate App
+                </button>
+                <button class="box f1" onclick="app.closePopup()">
+                  Close
+                </button>
+              </div>
+            </div>
+
  */

@@ -6,7 +6,7 @@
 const __OS_PLUGINS__ = {
 
   getStorage: function() { return NativeStorage; },
-
+  getPlatformName: function(){ return device.platform; },
   generatePDF: function(html, file, success, error){
     if (device.platform == 'browser') {
       //console.log(html);
@@ -36,7 +36,7 @@ const __OS_PLUGINS__ = {
       });
     }
   },
-  scanQRCode: function(success, error, config) {
+  scanQRCode: function(success, error) {
 
     if (device.platform == 'browser') {
         error('Scanning not yet supported in PWA');
@@ -44,7 +44,13 @@ const __OS_PLUGINS__ = {
         cordova.plugins.barcodeScanner.scan(
             success,
             error,
-            config
+            {
+                preferFrontCamera : false, // iOS and Android
+                showFlipCameraButton : true, // iOS and Android
+                showTorchButton : true, // iOS and Android
+                torchOn: true, // Android, launch with the torch switched on (if available)
+                prompt : "Place addres or transaction barcode inside the scan area", // Android
+            }
         );
     }
   },

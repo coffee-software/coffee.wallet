@@ -1,5 +1,5 @@
 import {Keychain} from "./Keychain";
-import {Balance, BaseCoinHandler} from "./Handlers/BaseCoinHandler";
+import {Balance, BaseCoinHandler, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
 import {createAllCoinHandlers, isOnlineCoinHanlder} from "./AllCoinHandlers";
 import {Wallet} from "./Wallet";
 import {
@@ -304,7 +304,7 @@ export class Engine {
         }
     }
 
-    isOnline(handler : BaseCoinHandler) : boolean {
+    isOnline(handler : BaseCoinHandler) : handler is OnlineCoinHandler {
         return isOnlineCoinHanlder(handler);
     }
 }

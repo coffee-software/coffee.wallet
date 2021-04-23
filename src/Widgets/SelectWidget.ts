@@ -27,7 +27,7 @@ export class SelectWidget {
         return this.element.value;
     }
 
-    setValue(value: string) {
+    setValue(value: any) {
         this.element.value = value;
         this.onChange && this.onChange(value);
     }

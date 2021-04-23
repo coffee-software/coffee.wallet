@@ -5,7 +5,7 @@ import {Balance} from "../Handlers/BaseCoinHandler";
 
 export class WalletWidget extends ListItemWidget {
 
-    private wallet : Wallet
+    wallet : Wallet
     private engine: Engine
 
     onlineAmount : HTMLElement

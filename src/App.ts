@@ -12,6 +12,9 @@ import {PortfolioAddress, PortfolioBalance, PortfolioItem} from "./PortfolioItem
 import {AddressInputWidget} from "./Widgets/AddressInputWidget";
 import {BaseCoinHandler, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
 import {Version} from "./Tools/Changelog";
+import {CoinButtonWidget} from "./Widgets/CoinButtonWidget";
+import {SelectWidget} from "./Widgets/SelectWidget";
+import {AmountInputWidget} from "./Widgets/AmountInputWidget";
 
 export class App {
 
@@ -64,15 +67,6 @@ export class App {
         this.logger = new Logger(OsPlugins.getStorage());
         let app = this;
         this.engine.init().then(function() {
-            //TODO
-            /*
-            app.priceProviderSelect = new Select(document.getElementById("priceProvider"));
-            app.priceUnitSelect = new Select(document.getElementById("priceUnit"));
-            app.priceProviderSelect.onChange(function(value){
-                app.priceUnitSelect.setOptions(app.engine.allPriceProviders[value].availableUnits, app.engine.priceProvider.unit);
-            });
-            app.priceProviderSelect.setOptions(app.engine.allPriceProviders, app.engine.allPriceProviders.indexOf(app.engine.priceProvider));
-            */
             app.updatePricesFromProvider();
             OsPlugins.checkForUpdates(function(){
                 app.onEngineLoaded();
@@ -309,10 +303,9 @@ export class App {
         let widget = new WalletWidget(this.engine, data)
         widget.onclick = this.popupCoinInfo.bind(this)
         widget.onportfolio = this.popupOfflineAssets.bind(this, data)
-        //widget.onreceive = this.popupReceivePayment.bind(this)
+        widget.onreceive = this.popupReceivePayment.bind(this, data)
         //widget.onsend = this.popupSendPayment.bind(this)
 
-        widget.onclick = this.popupCoinInfo.bind(this, widget, data)
         widget.onclick = this.popupCoinInfo.bind(this, widget, data)
         document.getElementById('walletsList').appendChild(widget.element);
         return widget;
@@ -349,7 +342,7 @@ export class App {
         document.getElementById('coinInfoButtons').innerHTML = '';
 
         if (wallet.isOnline()) {
-            //document.getElementById('coinInfoButtons').appendChild(createButton('receive', 'receive', function(){app.popupReceivePayment(wallet);}));
+            document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('receive', 'receive', this.popupReceivePayment.bind(this, wallet)));
             //document.getElementById('coinInfoButtons').appendChild(createButton('send', 'send', function(){app.popupSendPayment(wallet, wallet.data.systemBalance);}));
         }
         //document.getElementById('coinInfoButtons').appendChild(wallet.isOnline() ? walletWidget.refreshButton2 : createButton('refresh', 'refresh', null));
@@ -358,11 +351,11 @@ export class App {
         var advanced = document.createElement('ul');
         advanced.classList.add('advancedActions');
 
-        /*
         if (wallet.canSendViaMessage()) {
             advanced.appendChild(this.createAdvancedOption('message', 'send via message', this.popupSendSocial.bind(this, wallet)));
         }
 
+        /*
         if ('exchangeableCoinsCache' in app && (app.exchangeableCoinsCache.indexOf(wallet.handler.code) != -1)) {
             advanced.appendChild(app.createAdvancedOption('sell', 'sell coin', function(){
                 app.popupExchange(wallet.handler.code, null);
@@ -566,8 +559,7 @@ export class App {
             var item = new PortfolioItemWidget(wallet, i);
             document.getElementById('offlineAssets').appendChild(item.element);
             item.onremove = this.removeOfflieAsset.bind(this)
-            //TODO item.onreceive = this.receiveOfflieAsset.bind(this)  //app.popupReceivePayment(that.wallet, that.data.addr);
-            item.onreceive = function () {}
+            item.onreceive = this.receiveOfflineAsset.bind(this)
             item.onclick = this.popupOfflineAssetDetails.bind(this)
             item.onedit = this.popupEditOfflineAsset.bind(this)
             if (typeof idToUpdate != 'undefined' && idToUpdate == i) {
@@ -601,6 +593,10 @@ export class App {
     }
 
     activeAsset : PortfolioItemWidget = null
+
+    receiveOfflineAsset(item: PortfolioItemWidget) {
+        this.popupReceivePayment(item.wallet, (item.item as PortfolioAddress).address);
+    }
 
     popupOfflineAssetDetails(item: PortfolioItemWidget) {
 
@@ -1192,17 +1188,22 @@ export class App {
 
         app.updateExchange(true);
     },
-    cancelSentViaMessage: function(coin, pk) {
-        navigator.notification.confirm('Are you sure you want to CANCEL this? Recipients of message will no longer be able to redeem those coins.',
-            function(){
-                app.handleReceiveMessage(coin, pk);
-            });
-    },
-    popupSendViaMessage: function() {
-        this.openPopup('sendViaMessagePopup', 'send via message', 'icons/messageglyph.png');
-        app.settings.set('airdropTaskSendViaMessage', true);
+    */
 
-        Logger.getLogs(function(logs){
+    cancelSentViaMessage(coin: string, pk: string) {
+        this.confirmBeforeContinue(
+            'Revert sent coins',
+            'Are you sure you want to REVERT this? Recipients of message will no longer be able to redeem those coins. They will be transfered back to your wallet',
+            this.handleReceiveMessage.bind(this, coin, pk),
+            'revert',
+            'cancel'
+        );
+    }
+
+    popupSendViaMessage() {
+        this.openPopup('sendViaMessagePopup', 'send via message');
+        //app.settings.set('airdropTaskSendViaMessage', true);
+        this.logger.getLogs(function(logs){
             if (logs.length > 0){
                 document.getElementById('sendViaMessageHistory').innerHTML = '';
                 for (var i=0; i< logs.length; i++) {
@@ -1220,62 +1221,61 @@ export class App {
         //coin shortcuts
         document.getElementById('sendViaMessageButtons').innerHTML = '';
         var empty = true;
-        for (var coin in app.wallets){
-            if (app.canSendViaMessage(app.wallets[coin].handler)) {
+        let app = this;
+        for (var coin in this.walletsWidgets){
+            if (this.walletsWidgets[coin].wallet.canSendViaMessage()) {
                 empty = false;
-                document.getElementById('sendViaMessageButtons').appendChild(new CoinButton(
-                    app.wallets[coin].handler,
-                    false,
-                    function(coin){
-                        if (app.wallets[coin.code].data.balance != 0 ) {
-                            app.popupSendSocial(app.wallets[coin.code]);
+                document.getElementById('sendViaMessageButtons').appendChild(
+                    (new CoinButtonWidget(
+                        coin,
+                        this.walletsWidgets[coin].wallet.handler,
+                        false,
+                        function(coin, handler) {
+                        if (app.walletsWidgets[coin].onlineBalance.total().isZero()) {
+                            app.alertInfo('Can\'t sent via message. Wallet is empty.', coin);
                         } else {
-                            app.alertInfo('Can\'t sent via message. Wallet is empty.', coin.code);
+                            app.popupSendSocial(app.walletsWidgets[coin].wallet);
                         }
                     }
-                ));
+                    )).element
+                );
             }
         }
         if (empty) {
             document.getElementById('sendViaMessageButtons').innerHTML = 'You have no coins that can be sent via message.';
         }
-    },
+    }
 
-    filterAddCoinPopup: function() {
-        var query = document.getElementById('addCoinFilter').value.toUpperCase();
-        var includeTestCoins = app.engine.settings.testCoinsEnabled();
-        var onlySupportedWrite = document.getElementById('addCoinOnlySupported').checked;
+    filterAddCoinPopup() {
+        var query = (document.getElementById('addCoinFilter') as HTMLInputElement).value.toUpperCase();
+        var includeTestCoins = this.engine.settings.testCoinsEnabled();
+        var onlySupported = (document.getElementById('addCoinOnlySupported') as HTMLInputElement).checked;
         var limit = 24;
         var allCoins = document.getElementById('allCoins');
         while (allCoins.firstChild) { allCoins.removeChild(allCoins.firstChild); }
-
-        for (var i=0; i< app.allCoinApisByRank.length; i++){
-            var coin = app.allCoinApisByRank[i];
+        let app = this;
+        for (var i=0;i<this.searchCoinsIndex.length; i++){
+            var coin = this.searchCoinsIndex[i];
             var show = coin.search.indexOf(query) != -1;
-            //if (onlySupportedRead) show = show && ('getBalance' in coin);
-            if (onlySupportedWrite) show = show && ('explorerLinkAddr' in app.engine.allCoinHandlers[coin.code]);
-            if (!includeTestCoins) show = show && (!(app.engine.allCoinHandlers[coin.code].testCoin));
+            if (onlySupported) show = show && this.engine.isOnline(this.engine.allCoinHandlers[coin.code]);
+            if (!includeTestCoins) show = show && (!(this.engine.allCoinHandlers[coin.code].testCoin));
             if (show) {
                 limit --;
                 if (limit >= 0) {
-                    if (!('_button' in app.engine.allCoinHandlers[coin.code])) {
-                        app.engine.allCoinHandlers[coin.code]._button = new CoinButton(
+                    if (!(this.searchCoinsIndex[i].button)) {
+                        this.searchCoinsIndex[i].button = new CoinButtonWidget(
                             coin.code,
-                            app.engine.allCoinHandlers[coin.code],
-                            coin.code in app.wallets,
+                            this.engine.allCoinHandlers[coin.code],
+                            coin.code in this.walletsWidgets,
                             function(code, handler){
                                 app.closePopup();
                                 setTimeout(function(){
-                                    app.addOrActivateCoin(code, function(){
-                                        console.log(coin);
-                                        console.log(handler);
-                                        app.engine.allCoinHandlers[code]._button.classList.add('active');
-                                    });
+                                    app.addOrActivateCoin(code, function(){});
                                 }, 100);
                             }
                         );
                     }
-                    allCoins.appendChild(app.engine.allCoinHandlers[coin.code]._button);
+                    allCoins.appendChild(this.searchCoinsIndex[i].button.element);
                 }
             }
         }
@@ -1285,60 +1285,78 @@ export class App {
             document.getElementById('moreCoins').innerHTML = '';
         } else {
             document.getElementById('moreCoins').innerHTML = '' + -limit + ' more coins matches.<br/> Please enter more specific query.';
-        };
-    },
+        }
+    }
+    popupGenerated = false
+    searchCoinsIndex: { code: string, search:string, button?: CoinButtonWidget}[] = [];
 
-    popupAddCoin: function() {
-        this.openPopup('addCoinPopup', 'add cryptos');
-        setTimeout(function(){
-            if (typeof app.popupGenerated == 'undefined') {
-                app.popupGenerated = true;
-                document.getElementById('addCoinFilter').onkeyup = app.filterAddCoinPopup;
-                document.getElementById('addCoinFilter').onchange = app.filterAddCoinPopup;
-                document.getElementById('addCoinOnlySupported').onchange = app.filterAddCoinPopup;
+    generateAddCoinPopup() {
+        if (!this.popupGenerated) {
+            this.popupGenerated = true;
+            document.getElementById('addCoinFilter').onkeyup = this.filterAddCoinPopup.bind(this);
+            document.getElementById('addCoinFilter').onchange = this.filterAddCoinPopup.bind(this);
+            document.getElementById('addCoinOnlySupported').onchange = this.filterAddCoinPopup.bind(this);
 
-                app.allCoinApisByRank = new Array();
-                for (var code in app.engine.allCoinHandlers) {
-                    app.allCoinApisByRank.push({
-                        'code': code,
-                        'search': (app.engine.allCoinHandlers[code].ticker + ' ' + app.engine.allCoinHandlers[code].name).toUpperCase()
-                    });
-                }
+            for (var code in this.engine.allCoinHandlers) {
+                this.searchCoinsIndex.push({
+                    'code': code,
+                    'search': (this.engine.allCoinHandlers[code].ticker + ' ' + this.engine.allCoinHandlers[code].name).toUpperCase()
+                });
             }
-            app.filterAddCoinPopup();
-        }, 100);
-    },
+        }
+        this.filterAddCoinPopup();
+    }
 
-    popupHelp: function() {
+    popupAddCoin() {
+        this.openPopup('addCoinPopup', 'add cryptos');
+        setTimeout(this.generateAddCoinPopup.bind(this), 100);
+    }
+
+    popupHelp() {
         this.openPopup('helpPopup', 'Help');
         document.getElementById('helpPopupVersion').innerHTML =
-            'version <strong>' + window.version + '</strong> for <strong>' + device.platform + '</strong>';
-    },
+            'version <strong>' + Version.version + '</strong> for <strong>' + OsPlugins.getPlatformName() + '</strong>';
+    }
 
-    popupSettings: function() {
+    priceProviderSelect : SelectWidget
+    priceUnitSelect : SelectWidget
+
+    popupSettingsUpdateUnits(value:number) {
+        this.priceUnitSelect.setOptions(this.engine.allPriceProviders[value].availableUnits, this.engine.priceProvider.unit);
+
+    }
+
+    popupSettings() {
         this.openPopup('settingsPopup', 'Settings');
+        if (this.priceProviderSelect == null) {
 
-        this.priceProviderSelect.setValue(app.engine.allPriceProviders.indexOf(app.engine.priceProvider));
-        this.priceUnitSelect.setValue(app.engine.priceProvider.unit);
+            this.priceProviderSelect = new SelectWidget(this.popupSettingsUpdateUnits.bind(this));
+            document.getElementById('priceProviderSlot').append(this.priceProviderSelect.element);
+            this.priceProviderSelect.setOptions(this.engine.allPriceProviders, this.engine.allPriceProviders.indexOf(this.engine.priceProvider));
+            this.priceUnitSelect = new SelectWidget(function(){});
+            document.getElementById('priceUnitSlot').append(this.priceUnitSelect.element);
+        }
 
-        document.getElementById('settingsEnableTestCoins').checked = this.engine.settings.testCoinsEnabled();
+        this.priceProviderSelect.setValue(this.engine.allPriceProviders.indexOf(this.engine.priceProvider));
+        this.priceUnitSelect.setValue(this.engine.priceProvider.unit);
+        (document.getElementById('settingsEnableTestCoins') as HTMLInputElement).checked = this.engine.settings.testCoinsEnabled();
+    }
 
-    },
-    savePriceSettings: function() {
+    saveSettings() {
         this.closePopup();
-        this.engine.settings.setTestCoinsEnabled(document.getElementById('settingsEnableTestCoins').checked);
+        this.engine.settings.setTestCoinsEnabled((document.getElementById('settingsEnableTestCoins')as HTMLInputElement).checked);
 
-        app.engine.setPriceProvider(
+        this.engine.setPriceProvider(
             parseInt(this.priceProviderSelect.getValue()),
             this.priceUnitSelect.getValue()
         );
-
-        this.updateMarketCap();
-    },
-    handleAnyQRCode: function(addr, args) {
+        this.updatePricesFromProvider();
+    }
+    /*
+    handleAnyQRCode(address: string, args: {coinCode:string, escrowPrivateKey?:string}) {
 
         if ('escrowPrivateKey' in args) {
-            return app.handleReceiveMessage(args.coinCode, args.escrowPrivateKey);
+            return this.handleReceiveMessage(args.coinCode, args.escrowPrivateKey);
         }
 
         if (!args.coin && args.coinCode && (args.coinCode in allCoinApis)) {
@@ -1363,9 +1381,9 @@ export class App {
             }
         }
         this.alertInfo('coin ' + args.coin + ' is not in your active wallets or is unknown');
-    },
+    }
 
-    pasteToSendForm: function(addr, args) {
+    pasteToSendForm(addr, args) {
         if (args.coin) {
             if (this.sendWallet.handler.name != args.coin) {
                 this.alertInfo('Warning: This seems like a ' + args.coin + ' address but you are sending ' + this.sendWallet.handler.name + '!');
@@ -1379,8 +1397,9 @@ export class App {
             app.coinUpdateValue('sendCoin', app.sendWallet.handler);
             app.sendCoinValidateAmount('sendCoin');
         }
-    },
-    _parseTransactionText: function(text, callback) {
+    }
+
+    _parseTransactionText(text, callback) {
         if (text.startsWith('coffee:')) {
             var parts = text.split('/');
 
@@ -1442,50 +1461,49 @@ export class App {
         } else {
             callback(addr, args);
         }
-    },
-    pasteAnyClipboard: function() {
-        app.pasteClipboard(app.handleAnyQRCode.bind(app));
-    },
-    scanAnyQrCode: function() {
-        app.scanQrCode(app.handleAnyQRCode.bind(app));
-    },
-    pasteClipboard: function(callback) {
+    }
+    pasteAnyClipboard() {
+        this.pasteClipboard(this.handleAnyQRCode.bind(this));
+    }
+    scanAnyQrCode() {
+        this.scanQrCode(this.handleAnyQRCode.bind(this));
+    }
+
+    pasteClipboard(callback) {
         var that = this;
-        osPlugins.pasteFromClipboard(function(text){
+        OsPlugins.pasteFromClipboard(function(text){
             that._parseTransactionText(text, callback);
         });
-    },
-    scanQrCode: function(callback) {
-        osPlugins.scanQRCode(
+    }
+
+    scanQrCode(callback) {
+        OsPlugins.scanQRCode(
             function (result) {
                 if (!result.canceled) {
                     app._parseTransactionText(result.text, callback);
                 }
             },
-            function (error) {
+            function (error:string) {
                 app.alertError("QR scan failed: " + error);
-            },
-            {
-                preferFrontCamera : false, // iOS and Android
-                showFlipCameraButton : true, // iOS and Android
-                showTorchButton : true, // iOS and Android
-                torchOn: true, // Android, launch with the torch switched on (if available)
-                prompt : "Place addres or transaction barcode inside the scan area", // Android
             }
         );
-    },
+    }
 
-    pasteToField: function(field, addr, args) {
-        document.getElementById(field).value = addr;
-    },
+    pasteToField(field: string, addr: string, args: any) {
+        (document.getElementById(field) as HTMLInputElement).value = addr;
+    }
+    */
 
-    popupSendSocial: function(wallet) {
+    popupSendSocial(wallet: Wallet) {
+        //TODO
+        /*
         this.popupSendPayment(wallet, wallet.data.systemBalance);
         this.toggleAll('normalSend', false);
         this.toggleAll('socialSend', true);
-    },
-
-    popupSendPayment: function(wallet, sendMaxBalance, afterSendCallback) {
+        */
+    }
+    /*
+    popupSendPayment(wallet, sendMaxBalance, afterSendCallback) {
         app.openForm('sendPaymentPopup', 'send ' + wallet.handler.ticker, 'coins/' + wallet.handler.icon + '.svg');
 
         app.toggleAll('normalSend', true);
@@ -1522,8 +1540,9 @@ export class App {
             app.sendFees = fees;
             app.sendCoinUpdateFee();
         });
-    },
-    sendCoinSetMax: function() {
+    }
+
+    sendCoinSetMax() {
         if (app.sendMaxBalance) {
             app.sendForceTotal = app.sendMaxBalance;
             document.getElementById('sendCoinBalanceAfter').classList.remove('default');
@@ -1534,18 +1553,18 @@ export class App {
             app.sendCoinValidateAmount('sendCoin');
             app.sendCoinUpdateFee();
         }
-    },
+    }
 
-    sendCoinValidateFee: function() {
+    sendCoinValidateFee() {
         if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
             return true;
         } else {
             app.alertError('please wait for fees update');
             return false;
         }
-    },
+    }
 
-    sendCoinUpdateBalanceAfter: function(){
+    sendCoinUpdateBalanceAfter(){
         var balanceAfter = '?';
         var hasError = false;
         if (this.sendWallet && (app.sendMaxBalance !== null)) {
@@ -1567,9 +1586,9 @@ export class App {
         }
         document.getElementById('balanceAfter').classList.toggle('red', hasError);
         document.getElementById('balanceAfter').innerHTML = balanceAfter;
-    },
+    }
 
-    sendCoinUpdateFee: function(){
+    sendCoinUpdateFee(){
         app.sendCoinUpdateBalanceAfter();
         if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
             var fee = this.sendFees[document.getElementById('sendCoinFee').value];
@@ -1593,9 +1612,9 @@ export class App {
             document.getElementById('feeAmount').innerHTML = 'unknown';
             document.getElementById('feeTime').innerHTML = 'unknown';
         }
-    },
+    }
 
-    sendSocialPaymentShare: function(coin, displayAmount, tmpPrivateKey) {
+    sendSocialPaymentShare(coin, displayAmount, tmpPrivateKey) {
         var receiveLink = coin + '/' + tmpPrivateKey; //'coffee://' +
         var subject = displayAmount + ' ' + coin + ' for you!';
         var message = subject + '\n' +
@@ -1607,9 +1626,9 @@ export class App {
         }, function(msg) {
             app.alertError('Sharing failed with message: ' + msg);
         });
-    },
+    }
 
-    sendSocialPaymentCommit: function(coin, amount, fee) {
+    sendSocialPaymentCommit(coin, amount, fee) {
 
         var tmpPrivateKey = app.sendWallet.handler.newRandomPrivateKey();
         var tmpAddr = app.sendWallet.handler.addrFromPrivateKey(tmpPrivateKey);
@@ -1624,8 +1643,9 @@ export class App {
         app.closeForm();
 
         app.sendSocialPaymentShare(coin, displayAmount, tmpPrivateKey);
-    },
-    sendSocialPayment: function() {
+    }
+
+    sendSocialPayment() {
 
         if (!(this.sendCoinValidateAmount('sendCoin') && this.sendCoinValidateFee())) {
             return;
@@ -1666,9 +1686,9 @@ export class App {
                 );
             }
         );
-    },
+    }
 
-    proceedToReceiveMessage: function(handler, privateKey, balance, unconfirmed, defaultFee, callback) {
+    proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee, callback) {
 
         var amount = handler.systemValuesDiff(balance, handler.getFeeTotalCost(defaultFee));
         var displayTotal = handler.systemValueToDisplayValue(balance);
@@ -1722,10 +1742,12 @@ export class App {
         if (hideConfirm) {
             document.getElementById('lockPopupConfirm').classList.add('hidden');
         }
-    },
+    }
+    */
 
-    handleReceiveMessage: function(code, privateKey, callback) {
+    handleReceiveMessage(code: string, privateKey: string, callback: () => void) {
         //TODO use keychain
+        /*
         if ((code in app.engine.allCoinHandlers) && app.engine.isOnline(app.engine.allCoinHandlers[code]) && app.engine.allCoinHandlers[code].canSendViaMessage()) {
             var handler = app.engine.allCoinHandlers[code];
             handler.getBalance(handler.addrFromPrivateKey(privateKey), function(balance, unconfirmed){
@@ -1742,11 +1764,10 @@ export class App {
         } else {
             app.alertError('Don\'t know how to receive ' + coin);
             callback && callback();
-        }
-    },
-
-
-    sendPayment: function() {
+        }*/
+    }
+    /*
+    sendPayment() {
 
         if (!(this.validateAddr('sendCoinAddr') && app.sendAmountInputWidget.validate() && this.sendCoinValidateFee())) {
             return;
@@ -1805,37 +1826,77 @@ export class App {
                 app.closeForm();
             }
         );
-    },
-    copyReceiveCoinAddrToClp: function() {
-        osPlugins.copyToClipboard(document.getElementById('receiveCoinAddr').value);
-        app.alertInfo('copied code to clipboard', app.receivingWallet.handler.code);
-    },
-    shareReceivePaymentCode: function() {
-        var message = 'currency: ' + app.receivingWallet.handler.ticker + '\naddress: ' + app.receivingAddr;
+    }*/
 
-        var value = app.receiveAmountInputWidget.getValue();
+    receivingWallet: Wallet
+    receivingAddress: string
+    receiveAmountInputWidget: AmountInputWidget
+
+    popupReceivePayment(wallet: Wallet, addr: string) {
+        this.openForm('receivePaymentPopup');
+        (document.getElementById('receivePaymentIcon') as HTMLImageElement).src = 'coins/' + wallet.handler.icon + '.svg';
+        //document.getElementById('receiveCoinLabel').innerHTML = '';
+        (document.getElementById('receiveCoinAddr') as HTMLTextAreaElement).value = '';
+        document.getElementById('receiveCoinQrcode').innerHTML = '';
+
+
+        document.getElementById('receiveCoinAmountInput').innerHTML = '';
+        this.receiveAmountInputWidget = new AmountInputWidget(wallet.handler, this.engine.priceProvider)
+        this.receiveAmountInputWidget.onchange = this.updateReceivePaymentCode.bind(this)
+        document.getElementById('receiveCoinAmountInput').append(
+            this.receiveAmountInputWidget.element
+        );
+
+        document.getElementById('receiveCoinBottom').classList.remove('custom-amount');
+
+        if (addr == null) {
+            document.getElementById('receiveCoinNote').innerHTML = '';
+        } else {
+            document.getElementById('receiveCoinNote').innerHTML = 'This is an imported address,<br/> use it only if you control its private key!';
+        }
+        var addrString = addr == null ? (wallet.handler as OnlineCoinHandler).getReceiveAddr(this.engine.keychain) : addr;
+        document.getElementById('receiveCoinIdenticon').innerHTML = '';
+        document.getElementById('receiveCoinIdenticon').appendChild((new CoinAddressIcon(wallet.handler, addrString)).element);
+
+        this.receivingWallet = wallet;
+        this.receivingAddress = addrString;
+        this.updateReceivePaymentCode(null);
+        //TODO button:
+        //setTimeout(app.updateReceivingWallet, 3000);
+    }
+
+    copyReceiveCoinAddrToClp() {
+        OsPlugins.copyToClipboard((document.getElementById('receiveCoinAddr') as HTMLInputElement).value);
+        this.alertInfo('copied code to clipboard', this.receivingWallet.handler.code);
+    }
+
+    shareReceivePaymentCode() {
+        var message = 'currency: ' + this.receivingWallet.handler.ticker + '\naddress: ' + this.receivingAddress;
+
+        var value = this.receiveAmountInputWidget.getValue();
         if (value) {
             message += '\namount: ' + value;
         }
-        message += '\nlink: \n' + 'https://wallet.coffee/request.html#' + this.updateReceivePaymentCode();
-
-        osPlugins.shareDialog('', message, function() {
+        message += '\nlink: \n' + 'https://wallet.coffee/request.html#' + this.updateReceivePaymentCode(value);
+        let app = this;
+        OsPlugins.shareDialog('', message, function() {
             app.alertInfo('Any recipients will be able to use code to make a payment.');
         }, function(msg) {
             app.alertError('Sharing failed with message: ' + msg);
         });
-    },
-    updateReceivePaymentCode: function(value) {
+    }
 
-        var code = app.receivingWallet.handler.name + ':' + app.receivingAddr;
+    updateReceivePaymentCode(value: number) {
+
+        var code = this.receivingWallet.handler.name + ':' + this.receivingAddress;
         document.getElementById('setAmountLabel').innerHTML = 'set amount';
         if (value) {
-            code = code + '?amount=' + value.toFixed(app.receivingWallet.handler.decimals);
+            code = code + '?amount=' + value.toFixed(this.receivingWallet.handler.decimals);
             document.getElementById('setAmountLabel').innerHTML = 'change amount';
         }
-        document.getElementById('receiveCoinAddr').value = code;
+        (document.getElementById('receiveCoinAddr') as HTMLInputElement).value = code;
         document.getElementById('receiveCoinQrcode').innerHTML = '';
-        new QRCode(document.getElementById('receiveCoinQrcode'), {
+        new (window as any).QRCode(document.getElementById('receiveCoinQrcode'), {
             text: code,
             width: 256,
             height: 256,
@@ -1843,44 +1904,9 @@ export class App {
             colorDark: '#463f3a'
         });
         return code;
-    },
-
-    popupReceivePayment: function(wallet, addr) {
-        this.openForm('receivePaymentPopup', 'receive ' + wallet.handler.ticker, 'coins/' + wallet.handler.icon + '.svg');
-        //document.getElementById('receiveCoinLabel').innerHTML = '';
-        document.getElementById('receiveCoinAddr').value = '';
-        document.getElementById('receiveCoinQrcode').innerHTML = '';
-
-
-        document.getElementById('receiveCoinAmountInput').innerHTML = '';
-        app.receiveAmountInputWidget = new engine.AmountInputWidget(wallet.handler, app.engine.priceProvider)
-        app.receiveAmountInputWidget.onchange = app.updateReceivePaymentCode.bind(this)
-        document.getElementById('receiveCoinAmountInput').append(
-            app.receiveAmountInputWidget.element
-        );
-
-        document.getElementById('receiveCoinBottom').classList.remove('custom-amount');
-
-        if (addr == null) {
-            //document.getElementById('receiveCoinLabel').innerHTML = 'Your ' + wallet.handler.code + ' address is:';
-            document.getElementById('receiveCoinNote').innerHTML = '';
-        } else {
-            //document.getElementById('receiveCoinLabel').innerHTML = '' + wallet.handler.code + ' offline address:';
-            document.getElementById('receiveCoinNote').innerHTML = 'This is an imported address,<br/> use it only if you control its private key!';
-        }
-        var addrString = addr == null ? wallet.handler.getReceiveAddr(app.engine.keychain) : addr;
-        document.getElementById('receiveCoinIdenticon').innerHTML = '';
-        document.getElementById('receiveCoinIdenticon').appendChild(app.engine.getCoinAddrIcon(wallet.handler, addrString));
-
-        this.receivingWallet = wallet;
-        this.receivingAddr = addrString;
-        this.updateReceivePaymentCode();
-
-        //TODO button:
-        //setTimeout(app.updateReceivingWallet, 3000);
-    },
-
-    updateReceivingWallet: function() {
+    }
+    /*
+    updateReceivingWallet() {
         if (document.getElementById("formPopup").classList.contains('show')) {
             if (document.getElementById('receivePaymentPopup').style.display == 'block') {
                 //console.log('refresh');
@@ -1889,8 +1915,7 @@ export class App {
                 });
             }
         }
-    },
-    */
+    }*/
 
     saveVersion() {
         this.engine.settings.set('appVersion', Version.version);
