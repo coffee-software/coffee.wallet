@@ -5,6 +5,7 @@ export class HandlerDoge extends BaseBitcoinjsHanlder {
 
     testCoin = false
     ticker = "DOGE";
+    code = "DOGE";
     name = "Dogecoin";
     icon = "doge";
     description = "Dogecoin is a decentralized, peer-to-peer digital currency that enables you to easily send money online. " +

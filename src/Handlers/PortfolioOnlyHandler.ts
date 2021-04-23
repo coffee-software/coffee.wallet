@@ -7,6 +7,7 @@ export class PortfolioOnlyHandler implements BaseCoinHandler {
     testCoin = false;
     ticker: string
     name: string
+    code: string
     icon: string
     description: string
     links: { [key: string]: string; };
@@ -18,6 +19,7 @@ export class PortfolioOnlyHandler implements BaseCoinHandler {
         description: string
     ) {
         this.ticker = ticker;
+        this.code = ticker;
         this.name = name;
         this.icon = icon;
         this.description = description;

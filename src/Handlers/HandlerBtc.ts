@@ -5,6 +5,7 @@ export class HandlerBtc extends BaseBitcoinjsHanlder {
 
     testCoin = false
     ticker = "BTC";
+    code = "BTC";
     name = "Bitcoin";
     icon = "btc";
     description = "via Wikpedia: Bitcoin is a cryptocurrency and worldwide payment system. " +

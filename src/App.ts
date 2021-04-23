@@ -10,12 +10,12 @@ import {ListItemWidget} from "./Widgets/ListItemWidget";
 import {CoinAddressIcon} from "./Widgets/CoinAddressIcon";
 import {PortfolioAddress, PortfolioBalance, PortfolioItem} from "./PortfolioItem";
 import {AddressInputWidget} from "./Widgets/AddressInputWidget";
-import {OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
+import {BaseCoinHandler, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
 import {Version} from "./Tools/Changelog";
 
 export class App {
 
-    walletsWidgets: WalletWidget[] = []
+    walletsWidgets: { [code: string] : WalletWidget } = {}
     engine: Engine
     logger: Logger
     lastOpenedUrl : string = null
@@ -23,11 +23,11 @@ export class App {
     openUrl(url:string) : void {
         //make sure data is loaded
         if (this.lastOpenedUrl != url) {
-            //TODO
-            /*app.onDataLoaded(function (callback) {
+            let app = this;
+            this.onDataLoaded(function (callback) {
                 app.alertInfo('opening url: ' + url);
                 app.handleUrlOpened(url, callback);
-            });*/
+            });
         }
     }
 
@@ -93,31 +93,58 @@ export class App {
             }
         });
 
-        this.logger.log("info", null, "application started");
 
+        (window as any).rangeSlider.create(document.getElementById('sendCoinFee'), {
+            polyfill: true,
+            vertical: false,
+            min: 0,
+            max: 100,
+            step: 1,
+            value: 50,
+            borderRadius: 10,
+        });
+
+       /* TODO
+        document.getElementById('sendCoinFee').parentElement.addEventListener ("touchstart", function() {
+            document.getElementById('sendCoinFee').focus();
+        });
+
+        this.exchangeProviderSelect = new Select(document.getElementById("exchangeProvider"));
+        this.exchangeableCoinsCache = [];
+        for (var key in app.engine.allExchangeProviders) {
+            var provider = allExchangeProviders[key];
+            app.getExchangeableCoins(
+                provider,
+                function(list) {
+                    for (var i in list){
+                        if (app.exchangeableCoinsCache.indexOf(list[i]) == -1) {
+                            app.exchangeableCoinsCache.push(list[i]);
+                        }
+                    }
+                }
+            );
+        }*/
+
+        this.logger.log("info", null, "application started");
     }
 
     onEngineLoaded () {
         OsPlugins.hideNativeSplash();
         document.getElementById('loading').classList.remove('show');
-
+        let app = this;
         if (!(this.engine.keychainCreated())) {
-            //TODO
-            /*app.saveVersion();
-            app.createNewWallet();*/
+            this.saveVersion();
+            this.createNewWallet();
         } else {
-            //TODO
-            //this.showChangelogIfVersionUpdated(function(){
-            //    this.showExportKeysReminderIfRequired(function(){
-                    for (var key in this.engine.wallets) {
-                        this.walletsWidgets.push(
-                            this.addWalletWidget(this.engine.wallets[key])
-                        );
+            this.showChangelogIfVersionUpdated(function(){
+                app.showExportKeysReminderIfRequired(function(){
+                    for (var key in app.engine.wallets) {
+                        app.walletsWidgets[key] = app.addWalletWidget(app.engine.wallets[key]);
                     }
-                    //app.updateAllValues();
-                    //app.onDataLoaded();
-                //});
-            //});
+                    app.updateAllValues();
+                    app.onDataLoaded();
+                });
+            });
         }
     }
 
@@ -204,30 +231,18 @@ export class App {
     }
 
     async updatePricesFromProvider() : Promise<void> {
-        //TODO
-        /*
-        var that = this;
-        var spinner = function(){
-            document.getElementById('refresh').classList.toggle('spinning', that.spinning);
-            if (that.spinning) {
-                setTimeout(spinner, 1000);
-            } else {
-                //dependant
-                document.getElementById('refresh').classList.toggle('error', that.netError);
-                callback && callback();
-            }
-        };
-        that.spinning = true;
-        that.netError = false;
-        spinner();
-        app.updateAllValues();
-
-        //TODO only wallets
-        await this.engine.priceProvider.updatePrices(this.engine.allCoinHandlers);
-        app.engine.updatePrices(function(){
-            app.updateAllValues();
-            app.spinning = false;
-        });*/
+        this.netError = false;
+        this.updateAllValues();
+        document.getElementById('refresh').classList.add('spinning');
+        document.getElementById('refresh').classList.remove('error');
+        let handlers : { [code: string] : BaseCoinHandler } = {};
+        for (let k in this.engine.wallets){
+            handlers[k] = this.engine.wallets[k].handler;
+        }
+        await this.engine.priceProvider.updatePrices(handlers);
+        this.updateAllValues();
+        document.getElementById('refresh').classList.remove('spinning');
+        document.getElementById('refresh').classList.toggle('error', this.netError);
     }
 
 
@@ -308,7 +323,6 @@ export class App {
         this.previousPopupCall = previousPopupCall;
         document.getElementById('popup').classList.add('show');
 
-        //this.setCurrentCoinIcon(bgimg);
         this.showOneChildOf('popupContent', id);
 
         document.getElementById('popupContent').scrollTop = 0;
@@ -370,9 +384,6 @@ export class App {
             }));
         }
 
-        //advanced.appendChild(app.createAdvancedOption('send', 'export private key', app.showExportPrivateKeyPopup.bind(app, advancedWallet)));
-
-
         */
         var links = '<ul>';
         for (var name in wallet.handler.links) {
@@ -395,9 +406,13 @@ export class App {
             )
         ));
 
-
+        var superAdvanced = document.createElement('ul');
+        superAdvanced.classList.add('advancedActions');
+        if (wallet.isOnline()) {
+            superAdvanced.appendChild(this.createAdvancedOption('key', 'show private key', this.showExportPrivateKeyPopup.bind(this, wallet)));
+        }
         if (walletWidget.onlineBalance.total().isZero() && walletWidget.portfolioBalance.total().isZero()) {
-            advanced.appendChild(this.createAdvancedOption('remove', 'remove wallet', this.removeCoin.bind(this, wallet)));
+            superAdvanced.appendChild(this.createAdvancedOption('remove', 'remove wallet', this.removeCoin.bind(this, wallet)));
         }
 
         document.getElementById('coinInfoWallet').innerHTML = '<div style="overflow:auto; padding: 0 12px;">' +
@@ -423,6 +438,10 @@ export class App {
 
         document.getElementById('coinInfoActions').innerHTML = '';
         document.getElementById('coinInfoActions').append(advanced);
+        if (superAdvanced.children.length>0) {
+            document.getElementById('coinInfoActions').append('danger zone');
+            document.getElementById('coinInfoActions').append(superAdvanced);
+        }
     }
 
     createAdvancedOption(icon: string, text: string, callback: ()=>void) {
@@ -460,6 +479,11 @@ export class App {
         document.getElementById('lockPopupCancelText').innerHTML = cancelText ? cancelText : 'cancel';
         document.getElementById('lockTitle').innerHTML = title;
         document.getElementById('lockMessage').innerHTML = message;
+    }
+
+    authenticateBeforeContinue(title: string, message: string, authCallback: () => void) {
+        this.confirmBeforeContinue(title, message, authCallback, 'confirm', 'cancel');
+        this.lockDialogAuthenticate = true;
     }
 
     lockDialogCancel() {
@@ -513,6 +537,7 @@ export class App {
 
     removeCoinConfirm(wallet: Wallet) {
         //TODO
+        this.engine.wallets
         /*this.data.hideWallet(key, function(){
             app.wallets[key].row.outerHTML = '';
             delete app.wallets[key].row;
@@ -558,20 +583,20 @@ export class App {
         this.offlineAssetWallet = wallet;
     }
 
+    removeOfflieAssetConfirm(item: PortfolioItemWidget) {
+        this.offlineAssetWallet.portfolio.splice(item.id, 1);
+        this.engine.saveData();
+        this.popupOfflineAssets(this.offlineAssetWallet);
+    }
+
     removeOfflieAsset(item: PortfolioItemWidget) {
-        alert(item.id);
-        (navigator as any).notification.confirm(
-            'Are you sure you want to remove this asset?',
-            function (buttonIndex : number) {
-                if (buttonIndex == 1) {
-                    /*app.data.deleteOfflineAsset(that.wallet.handler.code, that.id);
-                    //refresh ids and refresh balance:
-                    that.wallet.refreshOffline(false);
-                    app.popupOfflineAssets(app.offlineAssetWallet);*/
-                }
-            },
-            'Remove Asset',
-            ['Remove','Cancel']
+        this.confirmBeforeContinue(
+            'Are you sure you want to remove this portfolio item? ',
+            'Private keys and offline wallets data will still be available in database and will be restored when you re-enable this coin.',
+            this.removeOfflieAssetConfirm.bind(this, item),
+            'remove',
+            'cancel',
+            null
         );
     }
 
@@ -617,7 +642,7 @@ export class App {
                 );
             }));
             //TODO
-            //advanced.appendChild(this.createAdvancedOption('import', 'transfer to online wallet', this.showImportPrivateKeyPopup.bind(this, wallet.handler, data.addr)));
+            advanced.appendChild(this.createAdvancedOption('import', 'transfer to online wallet', this.showImportPrivateKeyPopup.bind(this, item.wallet.handler, item.item.address)));
 
             advanced.appendChild(this.createAdvancedOption('remove', 'remove', item.onremove.bind(this)));
 
@@ -652,6 +677,7 @@ export class App {
             document.getElementById('addOfflineAssetAddrDiv').classList.remove('hidden');
             document.getElementById('addOfflineAssetAddrTools').classList.remove('hidden');
             document.getElementById('addOfflineAssetBalanceDiv').classList.add('hidden');
+            document.getElementById('addOfflineAssetAddrDiv').innerHTML = ''
             let input = new AddressInputWidget(item.wallet.handler as OnlineCoinHandler);
             document.getElementById('addOfflineAssetAddrDiv').append(input.element)
             this.portfolioEditAddressInput = input;
@@ -673,9 +699,14 @@ export class App {
 
     popupAddOfflineAsset(type: string) {
 
-        let input = new AddressInputWidget(this.offlineAssetWallet.handler as OnlineCoinHandler)
-        document.getElementById('addOfflineAssetAddrDiv').append(input.element);
-        this.portfolioEditAddressInput = input;
+        document.getElementById('addOfflineAssetAddrDiv').innerHTML = '';
+        if (type == 'address') {
+            let input = new AddressInputWidget(this.offlineAssetWallet.handler as OnlineCoinHandler)
+            document.getElementById('addOfflineAssetAddrDiv').append(input.element);
+            this.portfolioEditAddressInput = input;
+        } else {
+            this.portfolioEditAddressInput = null;
+        }
         (document.getElementById('addOfflineAssetBalance') as HTMLInputElement).value = '';
         (document.getElementById('addOfflineAssetComment') as HTMLInputElement).value = '';
         document.getElementById('addOfflineAssetAddrDiv').classList.toggle('hidden', type == 'balance');
@@ -735,14 +766,12 @@ export class App {
 
     saveOfflineAsset(){
 
-        if (this.portfolioEditAddressInput){
+        let item = null;
+        if (this.portfolioEditAddressInput) {
+            console.log(this.portfolioEditAddressInput);
             if (!this.portfolioEditAddressInput.validate()) {
                 return false;
             }
-        }
-
-        let item = null;
-        if (this.portfolioEditAddressInput) {
             item = new PortfolioAddress(
                 (document.getElementById('addOfflineAssetComment') as HTMLInputElement).value,
                 this.portfolioEditAddressInput.getValue()
@@ -757,9 +786,9 @@ export class App {
         var idToUpdate = 0;
         if (this.editAsset) {
             idToUpdate = this.activeAsset.id;
-            this.offlineAssetWallet.portfolio[idToUpdate - 1] = item;
+            this.offlineAssetWallet.portfolio[idToUpdate] = item;
         } else {
-            idToUpdate = this.offlineAssetWallet.portfolio.length + 1
+            idToUpdate = this.offlineAssetWallet.portfolio.length
             this.offlineAssetWallet.portfolio.push(item);
         }
         this.engine.saveData();
@@ -780,225 +809,121 @@ export class App {
         return qrcode._oDrawing._elCanvas.toDataURL("image/png");
     }
 
-    /*
+    dataLoaded : boolean = false
+    onDataLoadedCallback : (next: () => void) => void = null
 
-    targetScroll: 0,
-    scrollToTargetTimer: null,
-    netError: false,
+    onDataLoaded(callback: (next: () => void) => void = null) {
+        if (typeof callback == 'undefined') {
+            this.dataLoaded = true;
+            if (this.onDataLoadedCallback) {
+                this.onDataLoadedCallback(function(){
+                    //app.initAirdrop();
+                });
+            } else {
+                //app.initAirdrop();
+            }
+        } else {
+            //TODO chain:
+            if (this.dataLoaded) {
+                callback(function() {
 
-    setNoNetError : function() {
+                });
+            } else {
+                this.onDataLoadedCallback = callback;
+            }
+        }
+    }
+
+    handleUrlOpened(url: string, callback: () => void) {
+        var parts = url.split('/');
+        //TODO
+        /*
+        if (parts.length == 4 && parts[0] == 'coffee:' && !parts[3].startsWith('?')) {
+            this.handleReceiveMessage(parts[2], parts[3], callback);
+        } else {
+            //ignore callback not to show airdrop info on url open different than receive via msg.
+            this._parseTransactionText(url, this.handleAnyQRCode.bind(this));
+        }*/
+    }
+
+    netError: boolean = false
+
+    setNoNetError() {
         this.netError = true;
         document.getElementById('refresh').classList.add('error');
-    },
+    }
 
-    scrollToTarget : function(){
-
-        var width = document.scrollingElement.offsetWidth;
-        document.body.onscroll = null;
-        var targetScroll = Math.floor(this.targetScroll * width);
-
-        if (targetScroll > document.scrollingElement.scrollLeft) {
-            document.scrollingElement.scrollLeft = Math.ceil(
-                document.scrollingElement.scrollLeft + ((targetScroll - document.scrollingElement.scrollLeft) / 3));
-        } else {
-            document.scrollingElement.scrollLeft = Math.floor(
-                document.scrollingElement.scrollLeft - ((document.scrollingElement.scrollLeft - targetScroll) / 3));
-        }
-        //console.log(document.scrollingElement.scrollLeft, targetScroll);
-        if (document.scrollingElement.scrollLeft != targetScroll) {
-            this.scrollToTargetTimer = setTimeout(this.scrollToTarget.bind(this), 10);
-        } else {
-            //temporary disable this feature:
-            window.onresize = app.scrollToTarget.bind(app);
-            document.body.onscroll = app.scrollToTarget.bind(app);
-        }
-    },
-
-    popupHistory: function() {
-        //app.openPopup('historyPopup', 'History');
-        //app.reloadHistory();
-        //document.getElementById('historyPopup').appendChild(document.getElementById('history'));
-    },
-
-    initAirdrop: function() {
-        //airdrop is finished
-        return;
-        setTimeout(function() {
-            airdrop.getLeft(function(left, message){
-                if (left > app.airdropMaxReward) {
-                    app.toggleAll('airdrop-button', true);
-                    if (!((config.airdrop.coin in app.data.wallets) && app.data.wallets[config.airdrop.coin].picked)) {
-                        if (!app.lockDialogOpened) {
-                            app.confirmBeforeContinue(
-                                'Coffee Tokens Airdrop',
-                                '<p>Coffee Token (CFT) is a utility token for Coffee Wallet Project. You can find out more <a href="#" onclick="osPlugins.openInSystemBrowser(\'https://tokens.coffee/\')">here</a>.</p>' +
-                                '<div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div>' +
-                                '<p>To promote the application we offer <strong>' + app.airdropMaxReward + '&nbsp;CFT</strong> for each user. You can get your tokens now or later at any time using "tools" tab.</p>' +
-                                '<p>' + message + '</p>',
-                                function(){
-                                    app.popupAirdrop();
-                                },
-                                'get&nbsp;now',
-                                'later'
-                            );
-                        }
-                    };
-                }
-            });
-        }, 1000);
-    },
-
-    collectAirdrop: function() {
-        airdrop.collectAirdrop(function(txn){
-            app.alertSuccess('Tokens were sent successfully. Your wallet should be updated in a minute. TXN: <u>' + txn + '</u>. ', config.airdrop.coin);
-            for (var i=1; i<7; i++) {
-                setTimeout(function() { app.wallets[config.airdrop.coin].refreshOnline(); }, 5000 * i * i);
-            }
-            app.popupAirdrop2();
-        },function(message){
-            app.alertError(message);
-        });
-    },
-
-    popupAirdrop: function() {
-        if ((config.airdrop.coin in app.data.wallets) && app.data.wallets[config.airdrop.coin].picked) {
-            return app.popupAirdrop2();
-        }
-
-        app.openPopup('airdropPopup', 'Coffee&nbsp;Tokens&nbsp;Airdrop', 'coins/cft.svg');
-
-        document.getElementById('airdropTasks').innerHTML = '';
-        var total = 0;
-        for (var i=0; i< airdrop.tasks.length; i++) {
-            var completed = airdrop.tasks[i][3]();
-            var tr1 = document.createElement('tr');
-            if (completed) {
-                total += airdrop.tasks[i][2];
-                tr1.classList.add('completed');
-            }
-            if (airdrop.tasks[i][2] == 0) {
-                tr1.innerHTML += '<th colspan="2">(optional) ' + airdrop.tasks[i][0] + '</th>';
-            } else {
-                tr1.innerHTML += '<th>' + airdrop.tasks[i][0] + '</th>';
-                tr1.innerHTML += '<td class="reward">' + airdrop.tasks[i][2]  + ' ' + config.airdrop.coin + '</td>';
-            }
-
-            if (completed) {
-                tr1.innerHTML += '<td class="status"><img src="icons/tick.png" width="22" /></td>';
-            } else {
-                var takeAction = document.createElement('button');
-                takeAction.innerHTML = 'go';
-                takeAction.onclick = airdrop.tasks[i][4];
-                var td = document.createElement('td');
-                td.appendChild(takeAction);
-                tr1.appendChild(td);
-            }
-            document.getElementById('airdropTasks').appendChild(tr1);
-
-            var tr2 = document.createElement('tr');
-            tr2.innerHTML = '<td class="description" colspan="3">' + airdrop.tasks[i][1]  + '</td>';
-            document.getElementById('airdropTasks').appendChild(tr2);
-        }
-
-        document.getElementById('airdropTotal').innerHTML = '' + total + ' ' + config.airdrop.coin;
-
-        airdrop.getLeft(function(left, message){
-            document.getElementById('collectAirdropButton').classList.toggle('hidden', left == 0);
-            document.getElementById('airdropStatus').innerHTML = message;
-        });
-    },
-
-    popupAirdrop2: function() {
-        app.openPopup('airdropPopup2', 'Coffee&nbsp;Tokens&nbsp;Airdrop', 'coins/cft.svg');
-        var addr = app.data.wallets[config.airdrop.coin].addr;
-        var linkTxt = 'https://wallet.coffee/install?r=' + addr.substring(2, 18);
-        document.getElementById('airdropRefLink').innerHTML = linkTxt;
-
-        document.getElementById('airdropRefLinkQR').innerHTML = '';
-        new QRCode(document.getElementById('airdropRefLinkQR'), {
-            text: linkTxt,
-            width: 160,
-            height: 160,
-            colorLight: '#ffffff',
-            colorDark: '#463f3a'
-        });
-
-        airdrop.getLeft(function(left, message){
-            document.getElementById('airdropStatus2').innerHTML = message;
-        });
-    },
-
-
-    updateAllValues: function() {
+    updateAllValues() {
         var totalOnline = 0;
         var totalOffline = 0;
-        var orders = [];
-        for (var key in app.wallets) {
-            var walletOnline = app.wallets[key].updateOnlineValue();
-            var walletOffline = app.wallets[key].updateOfflineValue();
+        var orders : {key: string, sortby:number}[] = [];
+        for (let key in this.walletsWidgets) {
+            var walletOnline = this.walletsWidgets[key].updateOnlineValue();
+            var walletOffline = this.walletsWidgets[key].updateOfflineValue();
             totalOnline += walletOnline;
             totalOffline += walletOffline;
-            orders.push([key, walletOnline + walletOffline]);
+            orders.push({
+                key:key,
+                sortby:walletOnline + walletOffline
+            });
         }
         orders.sort(function(a, b) {
-            return a[1] - b[1];
+            return a.sortby - b.sortby;
         });
         for (var i = orders.length - 1; i >= 0; i--) {
-            var row = app.wallets[orders[i][0]].row;
+            var row = this.walletsWidgets[orders[i].key].element;
             row.parentNode.appendChild(row);
         }
+        document.getElementById('grandTotal').innerHTML = this.engine.priceProvider.formatMoney(totalOnline + totalOffline);
+        document.getElementById('totalOnline').innerHTML = this.engine.priceProvider.formatMoney(totalOnline);
+    }
 
-        document.getElementById('grandTotal').innerHTML = app.engine.priceProvider.formatMoney(totalOnline + totalOffline);
-        document.getElementById('totalOnline').innerHTML = app.engine.priceProvider.formatMoney(totalOnline);
-
-    },
-
-
-
-    setCurrentCoinIcon: function(img) {
-        if (img) {
-            var icons = document.getElementsByClassName("coinBig");
-            for (var i = 0; i < icons.length; i++) {
-                icons[i].src = img;
+    showExportPrivateKeyPopup(wallet: Wallet) {
+        let app = this;
+        this.authenticateBeforeContinue(
+            'See your ' + wallet.handler.ticker + ' Private Key',
+            'Are you sure you want to see your private key? It gives full access to your ' + wallet.handler.ticker + ' online wallet. '
+            + 'Keep it safe.',
+            function() {
+                let pk = (wallet.handler as OnlineCoinHandler).getPrivateKey(app.engine.keychain).privateKey.toString('hex');
+                app.confirmBeforeContinue(
+                    'your ' + wallet.handler.ticker + ' private key',
+                    pk,
+                    function() {},
+                    'done'
+                );
             }
-        }
-    },
+        );
+    }
 
-    toggleAll: function(className, show) {
+    toggleAll(className: string, show: boolean) {
         var elements = document.getElementsByClassName(className);
         for (var i = 0; i < elements.length; i++) {
             elements[i].classList.toggle('hidden', !show);
         }
-    },
+    }
 
-    showExportPrivateKeyPopup: function(wallet) {
-        app.authenticateBeforeContinue(
-            'Export ' + wallet.handler.code + ' Private Key',
-            'Are you sure you want to see your private key? It gives full access to your ' + wallet.handler.code + ' online wallet. '
-            + 'Don\'t show it to any one. Don\'t take a screenshot.',
-            function() {
-                app.openForm('exportPrivateKeyPopup', wallet.handler.code + ' private key', 'coins/' + wallet.handler.icon + '.svg');
-                document.getElementById('privateKeyValue').innerHTML = wallet.data.privateKey;
-            }
-        );
-    },
+    importingHandler: OnlineCoinHandler
+    importingAddress: string
 
-    showImportPrivateKeyPopup: function(handler, address) {
-        app.openForm('importPrivateKeyPopup', 'import ' + handler.code + ' private key', 'coins/' + handler.icon + '.svg');
-        app.importingHandler = handler;
-        app.importingAddress = address;
-        document.getElementById('importPrivateKeyInput').value = '';
-    },
+    showImportPrivateKeyPopup(handler: OnlineCoinHandler, address: string) {
+        this.openForm('importPrivateKeyPopup');
+        (document.getElementById("importPrivateKeyIcon") as HTMLImageElement).src = 'coins/' + handler.icon + '.svg';
+        this.importingHandler = handler;
+        this.importingAddress = address;
+        (document.getElementById('importPrivateKeyInput') as HTMLInputElement).value = '';
+    }
 
-    importPrivateKey: function(){
-        var pk = document.getElementById('importPrivateKeyInput').value;
-        var addr = app.importingHandler.addrFromPrivateKey(pk);
-        var valid = app.importingHandler.validateAddress(addr);
+    importPrivateKey() {
+        var pk = (document.getElementById('importPrivateKeyInput') as HTMLInputElement).value;
+        var addr = this.importingHandler.addressFromPrivateKey(pk);
+        var valid = this.importingHandler.validateAddress(addr);
 
-        if (app.importingAddress && (app.importingAddress != addr)) {
-            app.alertInfo('warning: this seems to be Private Key for a different wallet');
+        if (this.importingAddress && (this.importingAddress != addr)) {
+            this.alertInfo('warning: this seems to be Private Key for a different wallet');
         }
         document.getElementById('loading').classList.add('show');
+        /* TODO
         app.importingHandler.getBalance(addr, function(balance, unconfirmed){
             document.getElementById('loading').classList.remove('show');
             if (app.importingHandler.systemValuesCompare(0, balance) == 0) {
@@ -1023,41 +948,39 @@ export class App {
         }, function(error) {
             document.getElementById('loading').classList.remove('show');
             app.alertError(error);
-        });
-    },
+        });*/
+    }
 
-    showExportKeysReminderIfRequired: function(callback) {
-        if (app.engine.settings.get('keyBackedUp', false)) {
-            callback(false);
+    showExportKeysReminderIfRequired(callback: () => void) {
+        if (this.engine.settings.get('keyBackedUp', false)) {
+            callback();
         }
-        var counter = app.engine.settings.get('keyBackedUpReminderCounter', 0);
+        var counter = this.engine.settings.get('keyBackedUpReminderCounter', 0);
         counter ++;
         if (counter > 2) counter = 0;
-        app.engine.settings.set('keyBackedUpReminderCounter', counter);
+        this.engine.settings.set('keyBackedUpReminderCounter', counter);
         if (counter == 0) {
             this.confirmBeforeContinue(
                 'backup your keys',
                 '<p>All your private keys are generated from a <b>12-word BIP39 phrase</b>. It is extremely important that you <b>backup</b> this phrase safely.</p>' +
                 '<p>This reminder will keep showing up until you use <b>"backup wallets"</b> menu option.</p>',
-                function(){
-                    callback(true);
-                }
+                callback
             );
         } else {
-            callback(false);
+            callback();
         }
-    },
+    }
 
-    exportAllKeys: function() {
+    exportAllKeys() {
 
-        var mnemonicParts = app.engine.keychain.mnemonic.split(' ');
+        var mnemonicParts = this.engine.keychain.mnemonic.split(' ');
         var mnemonicMessage = '<ol class="mnemonic">';
         for (var i =0; i<mnemonicParts.length; i++) {
             mnemonicMessage += '<li><span>' + mnemonicParts[i] + '</span></li>';
         }
         mnemonicMessage += '</ol>';
-
-        app.authenticateBeforeContinue(
+        let app = this;
+        this.authenticateBeforeContinue(
             'Backup Wallets',
             'On the next screen, you will see your 12-word BIP39 recovery passphrase. It might be used to recover your keys if you loose access to this device. <br/><ul>' +
             '<li>Don\'t show your mnemonic to anyone.</li>' +
@@ -1077,22 +1000,27 @@ export class App {
                 );
             }
         );
-    },
+    }
 
-    importAllKeys: function() {
-        var element = document.createElement('input');
-        element.type = "file";
-        document.body.appendChild(element);
-        element.click();
-        element.onchange = function(event){
-            var fr = new FileReader();
-            fr.onload = function(event) {
-                alert(event.target.result);
-            };
-            fr.readAsText(event.target.files[0]);
-            document.body.removeChild(element);
-        };
-    },
+    addOrActivateCoin(code: string, callback: ()=>void) {
+        let app = this;
+        if (code in this.walletsWidgets) {
+            this.walletsWidgets[code].setActive(true);
+            callback();
+        } else if (code in this.engine.allCoinHandlers) {
+            this.engine.addWallet(code, []);
+            this.engine.saveData().then(function(){
+                let widget = app.addWalletWidget(app.engine.wallets[code]);
+                app.walletsWidgets[code] = widget;
+                widget.setActive(true);
+                callback();
+            });
+        } else {
+            app.alertError('unknown coin ' + code);
+        }
+    }
+
+    /*
 
 
     doExchange: function() {
@@ -1607,26 +1535,6 @@ export class App {
             app.sendCoinUpdateFee();
         }
     },
-    validateAddr: function(element, focus) {
-        var valid = false;
-        var elem = document.getElementById(element);
-        elem.parentElement.classList.remove('invalid');
-        elem.parentElement.classList.remove('valid');
-        elem.parentElement.lastElementChild.innerHTML = '';
-
-        elem.parentElement.classList.toggle('filled', elem.value != '' || elem == document.activeElement);
-
-        if (typeof focus == 'undefined') {
-
-            valid = (element == 'addOfflineAssetAddr' ? app.offlineAssetWallet : this.sendWallet).handler.validateAddress(elem.value);
-
-            elem.parentElement.classList.add(valid ? 'valid' : 'invalid');
-            if (!valid) {
-                elem.parentElement.lastElementChild.innerHTML = 'invalid address';
-            }
-        }
-        return valid;
-    },
 
     sendCoinValidateFee: function() {
         if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
@@ -1686,13 +1594,6 @@ export class App {
             document.getElementById('feeTime').innerHTML = 'unknown';
         }
     },
-
-    authenticateBeforeContinue: function(title, message, authCallback) {
-        //message = message; // + '<br/>If your device supports fingerprint/face scanner you will be asked to authenticate.';
-        this.confirmBeforeContinue(title, message, authCallback, 'confirm', 'cancel');
-        this.lockDialogAuthenticate = true;
-    },
-
 
     sendSocialPaymentShare: function(coin, displayAmount, tmpPrivateKey) {
         var receiveLink = coin + '/' + tmpPrivateKey; //'coffee://' +
@@ -1765,22 +1666,6 @@ export class App {
                 );
             }
         );
-    },
-
-    addOrActivateCoin: function(code, callback) {
-        if (code in app.wallets) {
-            app.wallets[code].setActive(true);
-            callback();
-        } else if (code in app.engine.allCoinHandlers) {
-            app.engine.addWallet(code, []);
-            app.engine.saveData().then(function(){
-                app.wallets[code] = app.addWalletWidget(app.engine.wallets[code]);
-                app.wallets[code].setActive(true);
-                callback();
-            });
-        } else {
-            app.alertError('unknown coin ' + coin);
-        }
     },
 
     proceedToReceiveMessage: function(handler, privateKey, balance, unconfirmed, defaultFee, callback) {
@@ -1860,35 +1745,6 @@ export class App {
         }
     },
 
-    handleUrlOpened: function(url, callback) {
-        var parts = url.split('/');
-        if (parts.length == 4 && parts[0] == 'coffee:' && !parts[3].startsWith('?')) {
-            app.handleReceiveMessage(parts[2], parts[3], callback);
-        } else {
-            //ignore callback not to show airdrop info on url open different than receive via msg.
-            app._parseTransactionText(url, app.handleAnyQRCode.bind(app));
-        }
-    },
-
-    onDataLoaded: function(callback) {
-        if (typeof callback == 'undefined') {
-            app.dataLoaded = true;
-            if ('onDataLoadedCallback' in app) {
-                app.onDataLoadedCallback(function(){
-                    app.initAirdrop();
-                });
-            } else {
-                app.initAirdrop();
-            }
-        } else {
-            //TODO chain:
-            if ('dataLoaded' in app && app.dataLoaded == true) {
-                callback();
-            } else {
-                app.onDataLoadedCallback = callback;
-            }
-        }
-    },
 
     sendPayment: function() {
 
@@ -2034,47 +1890,44 @@ export class App {
             }
         }
     },
+    */
 
-    saveVersion: function() {
-        app.engine.settings.set('appVersion', window.version);
-    },
-    showChangelogIfVersionUpdated: function(callback) {
-        var oldVersion = app.engine.settings.get('appVersion', '0.1.7');
-        if (oldVersion != window.version) {
-            app.saveVersion();
+    saveVersion() {
+        this.engine.settings.set('appVersion', Version.version);
+    }
+
+    showChangelogIfVersionUpdated(callback: ()=>void) {
+        var oldVersion = this.engine.settings.get('appVersion', '0.1.7');
+        if (oldVersion != Version.version) {
+            this.saveVersion();
             var changelist = '';
-            for (var i in window.changelog) {
-                if (versionCompare(window.changelog[i].version, oldVersion) != 1) break;
-                changelist += '<b>version ' + window.changelog[i].version + '</b> ' + window.changelog[i].date + '<ul>';
-                for (var j in window.changelog[i].changes) {
-                    changelist += '<li>' + window.changelog[i].changes[j] + '</li>';
+            for (var i in Version.changelog) {
+                if (Version.versionCompare(Version.changelog[i].version, oldVersion) != 1) break;
+                changelist += '<b>version ' + Version.changelog[i].version + '</b> ' + Version.changelog[i].date + '<ul>';
+                for (var j in Version.changelog[i].changes) {
+                    changelist += '<li>' + Version.changelog[i].changes[j] + '</li>';
                 }
                 changelist += '</ul>';
             }
             this.confirmBeforeContinue(
-                'updated to ' + window.version,
+                'updated to ' + Version.version,
                 '<p>Your were running ' + oldVersion + ' previously. ' + (changelist != '' ? 'Below is a complete list of changes.' : 'Thanks for updating.') + '</p>' +
                 changelist,
                 function(){
-                    callback(true);
+                    callback();
                 }
             );
         } else {
-            callback(false);
+            callback();
         }
-    },
+    }
 
-    flushUxHint: function(file) {
-        document.getElementById("uxHint").innerHTML = '<img src="img/' + file + '.png"/>';
-        document.getElementById('uxHint').classList.add('blink');
-        setTimeout(function(){document.getElementById('uxHint').classList.remove('blink');}, 1000);
-    },
-
-    recoverWallet: function(invalidMnemonic) {
+    recoverWallet(invalidMnemonic: string = null) {
         var input = document.createElement("textarea");
         input.id = input.name = "mnemonic";
-        input.rows = "3";
-        app.confirmBeforeContinue(
+        (input as HTMLTextAreaElement).rows = 3;
+        let app = this;
+        this.confirmBeforeContinue(
             'Recover Wallet',
             '<p>Enter your recovery phrase.</p><p>Recovery phrase should be 12 english lowercase words separated by single spaces.</p>',
             function() {
@@ -2100,9 +1953,10 @@ export class App {
             div.innerHTML = "this phrase is invalid!";
             document.getElementById('lockMessage').appendChild(div);
         }
-    },
+    }
 
-    initNewWallet: function() {
+    initNewWallet() {
+        let app = this;
         app.addOrActivateCoin('BTC', function(){
             app.addOrActivateCoin('ETH', function(){
                 app.confirmBeforeContinue(
@@ -2121,22 +1975,23 @@ export class App {
                 );
             });
         });
-    },
+    }
 
-    initRecoveredWallet: function() {
-        app.confirmBeforeContinue(
+    initRecoveredWallet() {
+        let app = this;
+        this.confirmBeforeContinue(
             'Wallet Recovered',
             '<p>All your new wallets will be generated using your recovery phrase.<p>' +
             '<p>Please <strong>add wallets</strong> you were holding and refresh balances.<p>',
             function() {
                 app.onDataLoaded();
-            }),
-            'ok';
+            },
+            'ok'
+        );
+    }
 
-    },
-
-    createNewWallet: function() {
-
+    createNewWallet() {
+        let app = this;
         app.confirmBeforeContinue(
             'Welcome!',
             '<p>' +
@@ -2151,58 +2006,11 @@ export class App {
             'If you already have your secret phrase you can <a href="javascript:app.recoverWallet()">recover your wallet</a>.' +
             '</p>',
             function() {
-                var mnemonic = engine.bitcoin.generateNewMnemonic();
-                app.data.wallets.bip39 = {
-                    enabled : false,
-                    mnemonic: mnemonic,
-                    seedHex: engine.bitcoin.mnemonicToSeedHex(mnemonic)
-                };
-                app.data.save();
+                app.engine.createNewKeychain();
+                app.engine.saveData();
                 app.initNewWallet();
             },
             'create wallet'
-            //document.getElementById('lockMessage').appendChild();
         );
-
-    },
-
-
-    onDeviceReady: function() {
-
-
-        rangeSlider.create(document.getElementById('sendCoinFee'), {
-            polyfill: true,
-            vertical: false,
-            min: 0,
-            max: 100,
-            step: 1,
-            value: 50,
-            borderRadius: 10,
-        });
-
-
-
-        document.getElementById('sendCoinFee').parentElement.addEventListener ("touchstart", function() {
-            document.getElementById('sendCoinFee').focus();
-        });
-
-        this.exchangeProviderSelect = new Select(document.getElementById("exchangeProvider"));
-        this.exchangeableCoinsCache = [];
-        for (var key in app.engine.allExchangeProviders) {
-            var provider = allExchangeProviders[key];
-            app.getExchangeableCoins(
-                provider,
-                function(list) {
-                    for (var i in list){
-                        if (app.exchangeableCoinsCache.indexOf(list[i]) == -1) {
-                            app.exchangeableCoinsCache.push(list[i]);
-                        }
-                    }
-                }
-            );
-        }
-
     }
-    */
-
 }

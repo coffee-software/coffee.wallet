@@ -6,6 +6,7 @@ export class HandlerBtcTest extends BaseBitcoinjsHanlder {
 
     testCoin = true
     ticker = "BTC.TST";
+    code = "BTC.TST";
     name = "Test Bitcoin";
     icon = "btc.test";
     description = "via Bitcoin Wiki: The testnet is an alternative Bitcoin block chain, to be used for testing. " +

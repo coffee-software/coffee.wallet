@@ -559,6 +559,35 @@
             </div>
 
           </div>
+          <div id="importPrivateKeyPopup" class="formContent" style="display:none;">
+            <div class="formTop">
+              <div class="circleIcon active"><img id="importPrivateKeyIcon" class="coinIcon coinBig" src=""/></div>
+            </div>
+            <div class="formActions row">
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
+              <button class="f1 submit" onclick="app.importPrivateKey()">import <img src="icons/ico.send.png"/></button>
+            </div>
+            <div class="field">
+              <input
+                      id="importPrivateKeyInput"
+                      value=""
+                      required
+              />
+              <label for="importPrivateKeyInput">private key</label>
+              <div class="legend"></div>
+            </div>
+            <div class="formButtons row">
+              <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'importPrivateKeyInput'))">
+                <img src="icons/paste.png"/>
+                paste
+              </button>
+              <button class="f1" onclick="app.scanQrCode(app.pasteToField.bind(app, 'importPrivateKeyInput'))">
+                <img src="icons/scan.png"/>
+                scan
+              </button>
+            </div>
+          </div>
+
         </div>
 
         <div id="messages">

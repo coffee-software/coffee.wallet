@@ -64,11 +64,10 @@ export class WalletWidget extends ListItemWidget {
         this.rightButtons.appendChild(this.refreshButton);
         this.rightButtons.appendChild(ListItemWidget.createButton('list', 'portfolio', function(){this.onportfolio(this, wallet)}.bind(this)));
 
-        /*
         this.refreshOffline();
         this.refreshOnline();
-         */
-        this.refreshButtonClick();
+
+        //this.refreshButtonClick();
 
         this.slidingRow.addEventListener('click', function(){this.onclick(this, wallet)}.bind(this));
     }

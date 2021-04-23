@@ -454,6 +454,7 @@ body.resizing * {
   padding: 0px 4%;
   width: 92%;
   padding-top: 6px;
+  overflow-x: hidden;
 }
 
 .popup-head {

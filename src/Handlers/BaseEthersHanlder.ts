@@ -48,6 +48,7 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     abstract testCoin: boolean;
     abstract ticker: string;
     abstract name: string;
+    abstract code: string;
     abstract icon: string;
     abstract description: string;
     abstract links: { [p: string]: string };

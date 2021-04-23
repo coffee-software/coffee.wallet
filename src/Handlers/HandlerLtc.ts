@@ -5,6 +5,7 @@ export class HandlerLtc extends BaseBitcoinjsHanlder {
 
     testCoin = false
     ticker = "LTC";
+    code = "LTC";
     name = "Litecoin";
     icon = "ltc";
     description = "via litecoin.org: Litecoin is a peer-to-peer Internet currency that enables instant, near-zero cost payments to anyone in the world. " +

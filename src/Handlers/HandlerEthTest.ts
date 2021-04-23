@@ -5,6 +5,7 @@ export class HandlerEthTest extends BaseEthersHanlder {
 
     testCoin = true
     ticker = "ETH.TST";
+    code = "ETH.TST"
     name = "Test Ethereum";
     icon = "eth.test";
     description = "Robsten is an ethereum testing network.";
@@ -27,6 +28,7 @@ export class ERC20TestHandler extends BaseERC20Handler {
     testCoin = true
     onlineCoin = false;
     ticker: string
+    code: string
     name: string
     icon: string
     description: string
@@ -46,6 +48,7 @@ export class ERC20TestHandler extends BaseERC20Handler {
     ) {
         super(log, cache)
         this.ticker = ticker;
+        this.code = ticker;
         this.name = name;
         this.icon = icon;
         this.description = this.name + " is a ERC20 test token with no real value"

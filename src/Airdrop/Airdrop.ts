@@ -162,4 +162,116 @@ var airdrop = {
 
 }
 
+//APP
+
+    initAirdrop: function() {
+        //airdrop is finished
+        return;
+        setTimeout(function() {
+            airdrop.getLeft(function(left, message){
+                if (left > app.airdropMaxReward) {
+                    app.toggleAll('airdrop-button', true);
+                    if (!((config.airdrop.coin in app.data.wallets) && app.data.wallets[config.airdrop.coin].picked)) {
+                        if (!app.lockDialogOpened) {
+                            app.confirmBeforeContinue(
+                                'Coffee Tokens Airdrop',
+                                '<p>Coffee Token (CFT) is a utility token for Coffee Wallet Project. You can find out more <a href="#" onclick="osPlugins.openInSystemBrowser(\'https://tokens.coffee/\')">here</a>.</p>' +
+                                '<div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div>' +
+                                '<p>To promote the application we offer <strong>' + app.airdropMaxReward + '&nbsp;CFT</strong> for each user. You can get your tokens now or later at any time using "tools" tab.</p>' +
+                                '<p>' + message + '</p>',
+                                function(){
+                                    app.popupAirdrop();
+                                },
+                                'get&nbsp;now',
+                                'later'
+                            );
+                        }
+                    };
+                }
+            });
+        }, 1000);
+    },
+
+    collectAirdrop: function() {
+        airdrop.collectAirdrop(function(txn){
+            app.alertSuccess('Tokens were sent successfully. Your wallet should be updated in a minute. TXN: <u>' + txn + '</u>. ', config.airdrop.coin);
+            for (var i=1; i<7; i++) {
+                setTimeout(function() { app.wallets[config.airdrop.coin].refreshOnline(); }, 5000 * i * i);
+            }
+            app.popupAirdrop2();
+        },function(message){
+            app.alertError(message);
+        });
+    },
+
+    popupAirdrop: function() {
+        if ((config.airdrop.coin in app.data.wallets) && app.data.wallets[config.airdrop.coin].picked) {
+            return app.popupAirdrop2();
+        }
+
+        app.openPopup('airdropPopup', 'Coffee&nbsp;Tokens&nbsp;Airdrop', 'coins/cft.svg');
+
+        document.getElementById('airdropTasks').innerHTML = '';
+        var total = 0;
+        for (var i=0; i< airdrop.tasks.length; i++) {
+            var completed = airdrop.tasks[i][3]();
+            var tr1 = document.createElement('tr');
+            if (completed) {
+                total += airdrop.tasks[i][2];
+                tr1.classList.add('completed');
+            }
+            if (airdrop.tasks[i][2] == 0) {
+                tr1.innerHTML += '<th colspan="2">(optional) ' + airdrop.tasks[i][0] + '</th>';
+            } else {
+                tr1.innerHTML += '<th>' + airdrop.tasks[i][0] + '</th>';
+                tr1.innerHTML += '<td class="reward">' + airdrop.tasks[i][2]  + ' ' + config.airdrop.coin + '</td>';
+            }
+
+            if (completed) {
+                tr1.innerHTML += '<td class="status"><img src="icons/tick.png" width="22" /></td>';
+            } else {
+                var takeAction = document.createElement('button');
+                takeAction.innerHTML = 'go';
+                takeAction.onclick = airdrop.tasks[i][4];
+                var td = document.createElement('td');
+                td.appendChild(takeAction);
+                tr1.appendChild(td);
+            }
+            document.getElementById('airdropTasks').appendChild(tr1);
+
+            var tr2 = document.createElement('tr');
+            tr2.innerHTML = '<td class="description" colspan="3">' + airdrop.tasks[i][1]  + '</td>';
+            document.getElementById('airdropTasks').appendChild(tr2);
+        }
+
+        document.getElementById('airdropTotal').innerHTML = '' + total + ' ' + config.airdrop.coin;
+
+        airdrop.getLeft(function(left, message){
+            document.getElementById('collectAirdropButton').classList.toggle('hidden', left == 0);
+            document.getElementById('airdropStatus').innerHTML = message;
+        });
+    },
+
+    popupAirdrop2: function() {
+        app.openPopup('airdropPopup2', 'Coffee&nbsp;Tokens&nbsp;Airdrop', 'coins/cft.svg');
+        var addr = app.data.wallets[config.airdrop.coin].addr;
+        var linkTxt = 'https://wallet.coffee/install?r=' + addr.substring(2, 18);
+        document.getElementById('airdropRefLink').innerHTML = linkTxt;
+
+        document.getElementById('airdropRefLinkQR').innerHTML = '';
+        new QRCode(document.getElementById('airdropRefLinkQR'), {
+            text: linkTxt,
+            width: 160,
+            height: 160,
+            colorLight: '#ffffff',
+            colorDark: '#463f3a'
+        });
+
+        airdrop.getLeft(function(left, message){
+            document.getElementById('airdropStatus2').innerHTML = message;
+        });
+    },
+
+
+
  */

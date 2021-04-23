@@ -6,6 +6,7 @@ export interface BaseCoinHandler {
   decimals : number
   testCoin: boolean
   onlineCoin: boolean
+  code: string
   ticker: string
   name : string
   icon : string

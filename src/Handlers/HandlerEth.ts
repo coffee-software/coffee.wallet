@@ -4,6 +4,7 @@ export class HandlerEth extends BaseEthersHanlder {
 
     testCoin = false
     ticker = "ETH"
+    code = "ETH"
     name = "Ethereum"
     icon = "eth"
     description = "via Wikipedia: Ethereum is an open-source, public, blockchain-based distributed computing platform and operating system featuring smart contract (scripting) functionality. " +
