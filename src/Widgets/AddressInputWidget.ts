@@ -1,6 +1,7 @@
 import {OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
+import {Widget} from "./Widget";
 
-export class AddressInputWidget {
+export class AddressInputWidget implements Widget {
 
     handler : OnlineCoinHandler
     element: HTMLElement
@@ -8,7 +9,7 @@ export class AddressInputWidget {
     legend: HTMLElement
     onChange: (value:any) => void
 
-    constructor(handler : OnlineCoinHandler) {
+    constructor(handler : OnlineCoinHandler, label: string = 'address') {
         this.handler = handler;
         this.element = document.createElement('div');
         this.element.classList.add('field');
@@ -17,9 +18,9 @@ export class AddressInputWidget {
         this.input.onblur = this.validate.bind(this);
         this.input.required = true;
         this.element.append(this.input)
-        let label = document.createElement('label');
-        label.innerHTML = 'address';
-        this.element.append(label)
+        let labelEl = document.createElement('label');
+        labelEl.innerHTML = label;
+        this.element.append(labelEl)
         this.legend = document.createElement('div');
         this.legend.classList.add('legend')
         this.element.append(this.legend)

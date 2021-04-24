@@ -1,8 +1,9 @@
 import {BaseCoinHandler} from "../Handlers/BaseCoinHandler";
 import {BasePriceProvider} from "../PriceProviders/BasePriceProvider";
 import {BigNum} from "../Core/BigNum";
+import {Widget} from "./Widget";
 
-export class AmountInputWidget {
+export class AmountInputWidget implements Widget  {
 
     public element: HTMLDivElement;
     public amountInput: HTMLInputElement;
@@ -16,6 +17,11 @@ export class AmountInputWidget {
     public setValue(value:number|null) {
         this.amountInput.value = value === null ? '' : value.toFixed(this.handler.decimals)
         this.updateValue()
+    }
+
+    public getBigNumValue(decimals: number) : BigNum|null {
+        let ret = this.getValue()
+        return ret ? BigNum.fromFloat(ret, decimals) : null
     }
 
     public getValue() : number|null {

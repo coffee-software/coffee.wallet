@@ -1,7 +1,8 @@
 import {fastTap} from "../Tools/Fasttap";
+import {Widget} from "./Widget";
 
 
-export abstract class ListItemWidget {
+export abstract class ListItemWidget implements Widget {
 
     static activeWidget : ListItemWidget = null;
     element: HTMLElement;

@@ -1,6 +1,7 @@
+import {Widget} from "./Widget";
 
 
-export class SelectWidget {
+export class SelectWidget implements Widget {
 
     element: HTMLSelectElement
     onChange: (value:any) => void

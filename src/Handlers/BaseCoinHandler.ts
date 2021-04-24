@@ -1,6 +1,8 @@
 import {Keychain} from "../Keychain";
 import {BigNum} from "../Core/BigNum";
 import * as bip32 from "bip32";
+import {Wallet} from "../Wallet";
+import {BaseEthersHanlder} from "./BaseEthersHanlder";
 
 export interface BaseCoinHandler {
   decimals : number
@@ -15,10 +17,13 @@ export interface BaseCoinHandler {
 }
 
 export interface NewTransaction {
+  handler: OnlineCoinHandler
   getBalanceAfter() : string
   getFeeDisplay() : string
   getFeeETA() : string
-  getSummaryTable() : string
+  getAmountDisplay() : string
+  getRecipientDisplay() : string
+  getSummary() : { [code: string] : string }
   send() : Promise<string>
 }
 

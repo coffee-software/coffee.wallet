@@ -404,7 +404,7 @@
           </div>
           <div id="sendPaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+              <div class="circleIcon active"><img id="sendPaymentIcon" class="coinIcon coinBig" src=""/></div>
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
@@ -412,16 +412,9 @@
               <button class="socialSend f1 submit" onclick="app.sendSocialPayment()">send <img src="icons/ico.send.png"/></button>
             </div>
 
-              <div class="normalSend field">
-                <input
-                  id="sendCoinAddr"
-                  onfocus="app.validateAddr('sendCoinAddr', true)"
-                  onblur="app.validateAddr('sendCoinAddr')"
-                  required
-                />
-                <label for="sendCoinAddr">recipient address</label>
-                <div class="legend"></div>
-              </div>
+            <div id="sendCoinAddrDiv" class="normalSend">
+
+            </div>
               <div id="sendCoinAmountInput"></div>
               <div id="sendCoinBalanceAfter" class="default adv-form-option">
                 <div class="row">
@@ -448,8 +441,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="range-input">
-                  <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
+                <div id="sendCoinFeeDiv">
+
                 </div>
               </div>
 

@@ -1,23 +1,32 @@
 import {Balance, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
 import {BigNum} from "../Core/BigNum";
 import {Keychain} from "../Keychain";
-import {ECPair, Network, Psbt} from "bitcoinjs-lib";
+import {ECPair, Network, Psbt, Transaction} from "bitcoinjs-lib";
 import * as bitcoin from "bitcoinjs-lib";
 import * as bip32 from "bip32";
 import {CacheWrapper, LogInterface} from "../Engine";
 import {Https} from "../Core/Https";
 import {bech32} from "bech32";
+import {Wallet} from "../Wallet";
 
 var coininfo = require('coininfo');
 var base58 = require('bs58');
 
 class BtcTransaction implements NewTransaction {
     handler: BaseBitcoinjsHanlder
-    tx: Psbt
+    tx: Transaction
 
-    constructor(handler: BaseBitcoinjsHanlder, tx: Psbt) {
+    constructor(handler: BaseBitcoinjsHanlder, tx: Transaction) {
         this.handler = handler
         this.tx = tx
+    }
+
+    getAmountDisplay() : string {
+        return "xxxx";
+    }
+
+    getRecipientDisplay() : string {
+        return "XXXX";
     }
 
     getBalanceAfter(): string {
@@ -25,15 +34,18 @@ class BtcTransaction implements NewTransaction {
     }
 
     getFeeDisplay(): string {
-        return "TODO";
+        return this.tx.virtualSize().toString();
     }
 
     getFeeETA(): string {
         return "TODO";
     }
 
-    getSummaryTable(): string {
-        return "TODO";
+    getSummary(): { [code: string] : string } {
+        return {
+            "fee" : this.getFeeDisplay(),
+            "ETA" : this.getFeeETA()
+        };
     }
 
     async send(): Promise<string> {
@@ -48,7 +60,7 @@ class BtcTransaction implements NewTransaction {
             this.handler.webapiPath + '/txs/push',
             {
                 tx:
-                    this.tx.extractTransaction().toHex()
+                    this.tx.toHex()
             }
         );
 
@@ -316,8 +328,9 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             }
         }
 
+        //TODO mark transaction as invalid when addr == ''
         tmpTx.addOutput({
-            address: receiverAddr,
+            address: receiverAddr == '' ? segwitFrom : receiverAddr,
             value: amountOut
         });
 
@@ -341,7 +354,9 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             value: changeValue
         });
         finalTx.signAllInputs(key).finalizeAllInputs();
-        return new BtcTransaction(this, finalTx);
+        console.log(finalTx.getFeeRate())
+        console.log(finalTx.getFee())
+        return new BtcTransaction(this, finalTx.extractTransaction());
     }
 
     validateAddress(addr: string): boolean {

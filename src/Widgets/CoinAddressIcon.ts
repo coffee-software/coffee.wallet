@@ -1,19 +1,23 @@
 import {BaseCoinHandler} from "../Handlers/BaseCoinHandler";
 import {isOnlineCoinHanlder} from "../AllCoinHandlers";
+import {Widget} from "./Widget";
 
 let jazzicons = require('@metamask/jazzicon');
 
-export class CoinAddressIcon  {
+export class CoinAddressIcon implements Widget {
 
     element: HTMLElement
 
     constructor(handler : BaseCoinHandler, address : string = null) {
         if (address && isOnlineCoinHanlder(handler)) {
-            this.element = jazzicons(100, handler.getIdenticonSeed(address)).children[0];
-            this.element.setAttribute("viewBox", "0 0 100 100");
-            this.element.removeAttribute("width");
-            this.element.removeAttribute("height");
-            this.element.style.borderRadius = '50%';
+            console.log(jazzicons(100, handler.getIdenticonSeed(address)).outerHTML);
+            this.element = jazzicons(100, handler.getIdenticonSeed(address));
+            this.element.children[0].setAttribute("viewBox", "0 0 100 100");
+            this.element.children[0].removeAttribute("width");
+            this.element.children[0].removeAttribute("height");
+            this.element.style.borderRadius = '50%'
+            this.element.style.width = '100%'
+            this.element.style.height = '100%'
         } else {
             this.element = document.createElement('img');
             this.element.setAttribute("class", "coinIcon");

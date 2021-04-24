@@ -1,5 +1,5 @@
 import {Keychain} from "./Keychain";
-import {OnlineCoinHandler, BaseCoinHandler, Balance} from "./Handlers/BaseCoinHandler";
+import {OnlineCoinHandler, BaseCoinHandler, Balance, NewTransaction} from "./Handlers/BaseCoinHandler";
 import {PortfolioItem} from "./PortfolioItem";
 import {isOnlineCoinHanlder} from "./AllCoinHandlers";
 import {BigNum} from "./Core/BigNum";
@@ -102,6 +102,16 @@ export class Wallet {
             return balance;
         } else {
             return this.getZeroBalance()
+        }
+    }
+
+    async prepareTransaction(receiverAddr : string,
+                             amount : BigNum,
+                             fee: number) : Promise<NewTransaction> {
+        if (!isOnlineCoinHanlder(this.handler)) {
+            return null;
+        } else {
+            return await this.handler.prepareTransaction(this.keychain,receiverAddr,amount,fee);
         }
     }
 }

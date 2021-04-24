@@ -10,14 +10,26 @@ import {CacheWrapper, LogInterface} from "../Engine";
 import {Config} from "../../src/Config";
 
 class EthTransaction implements NewTransaction {
-    data : TransactionRequest
     handler: BaseEthersHanlder
+    data : TransactionRequest
     signed: string
+    receiverAddr: string
+    amount: BigNum
 
-    constructor(handler: BaseEthersHanlder, data : TransactionRequest, signed: string) {
+    constructor(handler: BaseEthersHanlder, data : TransactionRequest, signed: string, receiverAddr: string, amount: BigNum) {
         this.data = data
         this.handler = handler
         this.signed = signed
+        this.receiverAddr = receiverAddr
+        this.amount = amount
+    }
+
+    getAmountDisplay() : string {
+        return this.amount.toString(); //app.engine.shortAmount(displayAmount, coin, 13)
+    }
+
+    getRecipientDisplay() : string {
+        return this.receiverAddr;
     }
 
     getBalanceAfter(): string {
@@ -25,15 +37,26 @@ class EthTransaction implements NewTransaction {
     }
 
     getFeeDisplay(): string {
-        return "TODO";
+        console.log(this.data.gasLimit.toString());
+        console.log(this.data.gasPrice.toString());
+
+        let ret = new BigNum(this.data.gasLimit.toString())
+        ret = ret.mul(new BigNum(this.data.gasPrice.toString()))
+        return ret.toFloat(18).toFixed(7) + (this.handler.testCoin ? ' ETH.TST' : ' ETH');
     }
 
     getFeeETA(): string {
-        return "TODO";
+        return "~ 1min";
     }
 
-    getSummaryTable(): string {
-        return "TODO";
+    getSummary(): { [code: string] : string } {
+        return {
+            "recipient": this.receiverAddr,
+            "amount": this.amount.toString(10),
+            "value": this.amount.toFloat(this.handler.decimals).toString(),
+            "fee" : this.getFeeDisplay(),
+            "ETA" : this.getFeeETA()
+        };
     }
 
     async send(): Promise<string> {
@@ -86,8 +109,13 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
 
     async getFeeOptions(): Promise<number[]> {
         let gasPrice = await this.getProvider().getGasPrice();
+        let price = gasPrice.toNumber();
         return [
-            gasPrice.toNumber()
+            Math.round(price * 0.7),
+            Math.round(price * 0.85),
+            price,
+            Math.round(price * 1.15),
+            Math.round(price * 1.3)
         ];
     }
 
@@ -96,7 +124,7 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     }
 
     getIdenticonSeed(addr: string): number {
-        return 0;
+        return parseInt(addr.slice(2, 10), 16);
     }
 
     getLinks(): { [p: string]: string } {
@@ -145,7 +173,7 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         tx.nonce = "0x" + (await this.getProvider().getTransactionCount(from)).toString(16);
 
         let signed = await this.getWallet(keychain).signTransaction(tx);
-        return new EthTransaction(this, tx, signed);
+        return new EthTransaction(this, tx, signed, receiverAddr, amount);
     }
 
     validateAddress(addr: string): boolean {

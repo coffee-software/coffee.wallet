@@ -1,7 +1,8 @@
 import {BaseCoinHandler} from "../Handlers/BaseCoinHandler";
 import {fastTap} from "../Tools/Fasttap";
+import {Widget} from "./Widget";
 
-export class CoinButtonWidget {
+export class CoinButtonWidget implements Widget {
 
     element: HTMLAnchorElement
     code: string

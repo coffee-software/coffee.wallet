@@ -10,11 +10,15 @@ import {ListItemWidget} from "./Widgets/ListItemWidget";
 import {CoinAddressIcon} from "./Widgets/CoinAddressIcon";
 import {PortfolioAddress, PortfolioBalance, PortfolioItem} from "./PortfolioItem";
 import {AddressInputWidget} from "./Widgets/AddressInputWidget";
-import {BaseCoinHandler, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
+import {BaseCoinHandler, NewTransaction, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
 import {Version} from "./Tools/Changelog";
 import {CoinButtonWidget} from "./Widgets/CoinButtonWidget";
 import {SelectWidget} from "./Widgets/SelectWidget";
 import {AmountInputWidget} from "./Widgets/AmountInputWidget";
+import {Widget} from "./Widgets/Widget";
+import {BigNum} from "./Core/BigNum";
+import {SliderInputWidget} from "./Widgets/SliderInputWidget";
+import {Strings} from "./Tools/Strings";
 
 export class App {
 
@@ -88,20 +92,7 @@ export class App {
         });
 
 
-        (window as any).rangeSlider.create(document.getElementById('sendCoinFee'), {
-            polyfill: true,
-            vertical: false,
-            min: 0,
-            max: 100,
-            step: 1,
-            value: 50,
-            borderRadius: 10,
-        });
-
        /* TODO
-        document.getElementById('sendCoinFee').parentElement.addEventListener ("touchstart", function() {
-            document.getElementById('sendCoinFee').focus();
-        });
 
         this.exchangeProviderSelect = new Select(document.getElementById("exchangeProvider"));
         this.exchangeableCoinsCache = [];
@@ -303,8 +294,8 @@ export class App {
         let widget = new WalletWidget(this.engine, data)
         widget.onclick = this.popupCoinInfo.bind(this)
         widget.onportfolio = this.popupOfflineAssets.bind(this, data)
-        widget.onreceive = this.popupReceivePayment.bind(this, data)
-        //widget.onsend = this.popupSendPayment.bind(this)
+        widget.onreceive = this.popupReceivePayment.bind(this, data, null)
+        widget.onsend = this.popupSendPayment.bind(this, data, null)
 
         widget.onclick = this.popupCoinInfo.bind(this, widget, data)
         document.getElementById('walletsList').appendChild(widget.element);
@@ -1502,47 +1493,58 @@ export class App {
         this.toggleAll('socialSend', true);
         */
     }
-    /*
-    popupSendPayment(wallet, sendMaxBalance, afterSendCallback) {
-        app.openForm('sendPaymentPopup', 'send ' + wallet.handler.ticker, 'coins/' + wallet.handler.icon + '.svg');
 
-        app.toggleAll('normalSend', true);
-        app.toggleAll('socialSend', false);
+    setWidget (slotId:string, widget: Widget) {
+        document.getElementById(slotId).innerHTML = '';
+        document.getElementById(slotId).append(widget.element);
+    }
 
-        document.getElementById('sendCoinAmountInput').innerHTML = '';
-        app.sendAmountInputWidget = new engine.AmountInputWidget(wallet.handler, app.engine.priceProvider)
-        app.sendAmountInputWidget.onchange = function() {
-            //TODO: sendCoinUpdateBalanceAfter();
-        }
-        document.getElementById('sendCoinAmountInput').append(
-            app.sendAmountInputWidget.element
-        );
-        //disable value edit for coins with no value
+    sendWallet: Wallet
+    sendAmountInputWidget: AmountInputWidget
+    sendAddressInputWidget: AddressInputWidget
+    sendFeeInputWidget: SliderInputWidget
+    afterSendCallback: () => void
+    sendOutgoingTransaction: NewTransaction = null
 
+    popupSendPayment(wallet: Wallet, afterSendCallback: () => void) {
+        this.openForm('sendPaymentPopup');
 
-        app.sendMaxBalance = (typeof sendMaxBalance == 'undefined') ? null : sendMaxBalance;
-        app.sendForceTotal = null;
-        app.afterSendCallback = (typeof afterSendCallback == 'undefined') ? null : afterSendCallback;
+        this.sendOutgoingTransaction = null;
+        (document.getElementById('sendPaymentIcon') as HTMLImageElement).src = 'coins/' + wallet.handler.icon + '.svg';
+        this.toggleAll('normalSend', true);
+        this.toggleAll('socialSend', false);
 
-        app.validateAddr('sendCoinAddr', true);
-        app.sendWallet = wallet;
+        this.sendAmountInputWidget = new AmountInputWidget(wallet.handler, this.engine.priceProvider)
+        this.setWidget('sendCoinAmountInput', this.sendAmountInputWidget);
+        this.sendAmountInputWidget.onchange = this.sendCoinUpdateTransaction.bind(this);
 
-        app.sendFees = [];
-        document.getElementById('sendCoinFee').rangeSlider.update({min: 0, max: 0, value: 0});
+        this.sendFeeInputWidget = new SliderInputWidget(this.sendCoinUpdateTransaction.bind(this))
+        this.setWidget('sendCoinFeeDiv', this.sendFeeInputWidget);
+
+        //TODO wallet.getCachedBalance().total().toFloat(wallet.handler.decimals)
+        //this.sendMaxBalance = (typeof sendMaxBalance == 'undefined') ? null : sendMaxBalance;
+        //app.sendForceTotal = null;
+        this.afterSendCallback = (typeof afterSendCallback == 'undefined') ? null : afterSendCallback;
+        this.sendAddressInputWidget = new AddressInputWidget(wallet.handler as OnlineCoinHandler, 'recipient address')
+        this.setWidget('sendCoinAddrDiv', this.sendAddressInputWidget);
+        this.sendWallet = wallet;
 
         document.getElementById('sendCoinFeeInfo').classList.add('default');
-        document.getElementById('sendCoinBalanceAfter').classList.toggle('default', typeof sendMaxBalance != 'undefined');
+        //document.getElementById('sendCoinBalanceAfter').classList.toggle('default', typeof sendMaxBalance != 'undefined');
 
-        app.sendCoinUpdateFee();
+        this.sendCoinUpdateTransaction();
 
-        wallet.handler.getFeeOptions().then(function(fees){
-            document.getElementById('sendCoinFee').rangeSlider.update({min: 0, max: fees.length - 1, value: Math.floor((fees.length - 1) / 2)})
-            app.sendFees = fees;
-            app.sendCoinUpdateFee();
+        let app = this;
+        (wallet.handler as OnlineCoinHandler).getFeeOptions().then(function(fees){
+            //TODO race condition here
+            app.sendFeeInputWidget.setOptions(fees);
+            app.sendCoinUpdateTransaction();
         });
     }
 
     sendCoinSetMax() {
+        console.log(this.sendWallet.getCachedBalance().total().toFloat(this.sendWallet.handler.decimals))
+        /*
         if (app.sendMaxBalance) {
             app.sendForceTotal = app.sendMaxBalance;
             document.getElementById('sendCoinBalanceAfter').classList.remove('default');
@@ -1551,21 +1553,12 @@ export class App {
             document.getElementById('sendCoinAmount').value = app.sendWallet.handler.systemValueToDisplayValue(app.sendForceTotal);
             app.coinUpdateValue('sendCoin', app.sendWallet.handler);
             app.sendCoinValidateAmount('sendCoin');
-            app.sendCoinUpdateFee();
-        }
-    }
-
-    sendCoinValidateFee() {
-        if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
-            return true;
-        } else {
-            app.alertError('please wait for fees update');
-            return false;
-        }
+            app.sendCoinUpdateTransaction();
+        }*/
     }
 
     sendCoinUpdateBalanceAfter(){
-        var balanceAfter = '?';
+        /*var balanceAfter = '?';
         var hasError = false;
         if (this.sendWallet && (app.sendMaxBalance !== null)) {
 
@@ -1585,11 +1578,30 @@ export class App {
             balanceAfter = balanceAfter + '&nbsp;(' + app.engine.priceProvider.convert(app.sendWallet.handler.systemValueToFloatValue(systemBalanceAfter), this.sendWallet.handler) + ')';
         }
         document.getElementById('balanceAfter').classList.toggle('red', hasError);
-        document.getElementById('balanceAfter').innerHTML = balanceAfter;
+        document.getElementById('balanceAfter').innerHTML = balanceAfter;*/
+    }
+
+    sendCoinUpdateTransaction(){
+        console.log("PREPARING");
+        this.sendOutgoingTransaction = null
+        //
+        let fee = this.sendFeeInputWidget.getValue();
+        let address = this.sendAddressInputWidget.getValue();
+        let amount = this.sendAmountInputWidget.getBigNumValue(this.sendWallet.handler.decimals);
+        amount = amount ? amount : new BigNum("0");
+        console.log(address, amount, fee);
+        let app = this;
+        this.sendWallet.prepareTransaction(address, amount, fee).then(function (transaction) {
+            console.log("PREPARED");
+            console.log(transaction);
+            document.getElementById('feeAmount').innerHTML = transaction.getFeeDisplay();
+            document.getElementById('feeTime').innerHTML = transaction.getFeeETA();
+            app.sendOutgoingTransaction = transaction
+        })
     }
 
     sendCoinUpdateFee(){
-        app.sendCoinUpdateBalanceAfter();
+        /*app.sendCoinUpdateBalanceAfter();
         if (this.sendFees && (document.getElementById('sendCoinFee').value in this.sendFees)) {
             var fee = this.sendFees[document.getElementById('sendCoinFee').value];
             if (app.sendForceTotal) {
@@ -1611,9 +1623,78 @@ export class App {
         } else {
             document.getElementById('feeAmount').innerHTML = 'unknown';
             document.getElementById('feeTime').innerHTML = 'unknown';
-        }
+        }*/
     }
 
+    sendPaymendProceed(transaction: NewTransaction) {
+        /*
+                       app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee, app.afterSendCallback ? function(txid) {
+                           app.alertInfo('sending payment notification to: ' + app.afterSendCallback);
+                           var http = new XMLHttpRequest();
+                           http.open('POST', app.afterSendCallback);
+                           var body = [];
+                           var data = {
+                               'transaction_id': txid,
+                               'from_address': app.sendWallet.data.addr,
+                               'to_address': addr,
+                               'amount': floatAmount,
+                               'coin': app.sendWallet.handler.name
+                           };
+                           for (var d in data) body.push(d + '=' + encodeURIComponent(data[d]));
+                           http.onreadystatechange = function() {
+                               if ( http.readyState == 4 ) {
+                                   app.alertInfo('status: ' + this.status);
+                               }
+                           }
+                           http.send(body.join('&'));
+
+                       } : null);*/
+        this.closeForm();
+    }
+
+    sendPayment() {
+
+        if (!(this.sendAddressInputWidget.validate() && this.sendAmountInputWidget.validate() && this.sendFeeInputWidget.getValue())) {
+            this.alertError('please wait for fees update');
+            return;
+        }
+
+        let summary = this.sendOutgoingTransaction.getSummary()
+        let tableContent = '';
+        for (var label in summary) {
+            tableContent += '<tr><th colspan="2">' + label + ':</th></tr><tr><td colspan="2">' + summary[label] + '</td></tr>';
+        }
+        /*
+        var coin = this.sendWallet.handler.ticker;
+        var fee = this.sendFeeInputWidget.getValue();
+        var addr = document.getElementById('sendCoinAddr').value;
+
+        var systemAmount = 0;
+        if (app.sendForceTotal) {
+            if ('feeCoin' in app.sendWallet.handler) {
+                systemAmount = app.sendForceTotal;
+            } else {
+                systemAmount = app.sendWallet.handler.systemValuesDiff(app.sendForceTotal, app.sendWallet.handler.getFeeTotalCost(fee));
+            }
+        } else {
+            systemAmount = app.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
+        }
+        var floatAmount = app.sendWallet.handler.systemValueToFloatValue(systemAmount);
+        var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(systemAmount);
+        */
+        //app.engine.priceProvider.convert(floatAmount, this.sendWallet.handler) +
+        let addr = this.sendOutgoingTransaction.getRecipientDisplay();
+        this.authenticateBeforeContinue(
+            '<table class="transactionSummary">' +
+            '<tr class="first"><td><img class="coinIcon" src="coins/' + this.sendOutgoingTransaction.handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td>' + (new CoinAddressIcon(this.sendWallet.handler, addr)).element.outerHTML + '</td></tr>' +
+            '<tr class="second"><td>' + this.sendOutgoingTransaction.getAmountDisplay() + '</td><td></td><td>' + Strings.shortAddr(addr, 13) + '</td></tr>' +
+            '</table>',
+            '<table class="niceTable">' + tableContent + '</table>',
+            this.sendPaymendProceed.bind(this, this.sendOutgoingTransaction)
+        );
+    }
+
+    /*
     sendSocialPaymentShare(coin, displayAmount, tmpPrivateKey) {
         var receiveLink = coin + '/' + tmpPrivateKey; //'coffee://' +
         var subject = displayAmount + ' ' + coin + ' for you!';
@@ -1766,67 +1847,6 @@ export class App {
             callback && callback();
         }*/
     }
-    /*
-    sendPayment() {
-
-        if (!(this.validateAddr('sendCoinAddr') && app.sendAmountInputWidget.validate() && this.sendCoinValidateFee())) {
-            return;
-        }
-
-        var coin = this.sendWallet.handler.ticker;
-        var fee = this.sendFees[document.getElementById('sendCoinFee').value];
-        var addr = document.getElementById('sendCoinAddr').value;
-
-        var systemAmount = 0;
-        if (app.sendForceTotal) {
-            if ('feeCoin' in app.sendWallet.handler) {
-                systemAmount = app.sendForceTotal;
-            } else {
-                systemAmount = app.sendWallet.handler.systemValuesDiff(app.sendForceTotal, app.sendWallet.handler.getFeeTotalCost(fee));
-            }
-        } else {
-            systemAmount = app.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
-        }
-        var floatAmount = app.sendWallet.handler.systemValueToFloatValue(systemAmount);
-        var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(systemAmount);
-
-        app.authenticateBeforeContinue(
-            '<table class="transactionSummary">' +
-            '<tr class="first"><td><img class="coinIcon" src="coins/' + app.sendWallet.handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td>' + app.engine.getCoinAddrIcon(app.sendWallet.handler, addr).outerHTML + '</td></tr>' +
-            '<tr class="second"><td>' + app.engine.shortAmount(displayAmount, coin, 13) + '</td><td></td><td>' + app.engine.shortAddr(addr, 13) + '</td></tr>' +
-            '</table>',
-            '<table class="niceTable">' +
-            '<tr><th colspan="2" style="width:26%;">recipient:</th></tr><tr><td colspan="2">' + addr + '</td></tr>' +
-            '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + coin + '</td><td>' + app.engine.priceProvider.convert(floatAmount, this.sendWallet.handler) + '</td></tr>' +
-            '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.sendWallet.handler.getFeeValueDisplay(fee) + '</td></tr>' +
-            '</table>'
-            ,
-            function(){
-                app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee, app.afterSendCallback ? function(txid) {
-                    app.alertInfo('sending payment notification to: ' + app.afterSendCallback);
-                    var http = new XMLHttpRequest();
-                    http.open('POST', app.afterSendCallback);
-                    var body = [];
-                    var data = {
-                        'transaction_id': txid,
-                        'from_address': app.sendWallet.data.addr,
-                        'to_address': addr,
-                        'amount': floatAmount,
-                        'coin': app.sendWallet.handler.name
-                    };
-                    for (var d in data) body.push(d + '=' + encodeURIComponent(data[d]));
-                    http.onreadystatechange = function() {
-                        if ( http.readyState == 4 ) {
-                            app.alertInfo('status: ' + this.status);
-                        }
-                    }
-                    http.send(body.join('&'));
-
-                } : null);
-                app.closeForm();
-            }
-        );
-    }*/
 
     receivingWallet: Wallet
     receivingAddress: string
