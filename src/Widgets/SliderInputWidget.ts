@@ -1,5 +1,5 @@
 import {Widget} from "./Widget";
-
+let RangeSlider = require('rangeslider-pure');
 
 export class SliderInputWidget implements Widget {
 
@@ -19,7 +19,7 @@ export class SliderInputWidget implements Widget {
         this.onChange = onChange;
         this.element.append(this.input);
         document.body.append(this.element);
-        (window as any).rangeSlider.create(this.input, {
+        RangeSlider.create(this.input, {
             polyfill: true,
             vertical: false,
             min: 0,
