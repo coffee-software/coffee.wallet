@@ -8,6 +8,7 @@ export class Version {
             date: '2021-04-12',
             changes: [
                 'engine refactor',
+                'improve transaction details display with exact fees',
                 'improve fee handling for BTC, LTC, DOGE',
                 'add proper input widget to exchange view',
                 'improve Uniswap exchange flow',

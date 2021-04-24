@@ -191,28 +191,26 @@ export class App {
             }
         }
     }
-    reloadHistory() {
-        //TODO
-        /*Logger.getLogs(function(logs){
-            document.getElementById('history').innerHTML = '';
-            for (var i=0; i< logs.length; i++) {
-                var li = document.createElement('li');
-                var html = logs[i].message;
-                if ('coin' in logs[i]) {
-                    html = app.preParseCoinMsg(html, logs[i].coin, true);
-                }
-                if (('coin' in logs[i]) && (logs[i].coin in allCoinApis)) {
-                    html = '<img width="36" src="coins/' + allCoinApis[logs[i].coin].icon + '.svg"/>' + html;
-                } else {
-                    //html = '<img src="coins/empty.svg"/>' + html;
-                }
 
-                li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toLocaleString()  + '</div><div>' + html + '</div></div><div class="stitch2"></div>';
-                //logs[i].coin
-                document.getElementById('history').appendChild(li);
+    populateHistoryLogs(logs: any[]) {
+        document.getElementById('history').innerHTML = '';
+        for (var i=0; i< logs.length; i++) {
+            var li = document.createElement('li');
+            var html = logs[i].message;
+            if ('coin' in logs[i]) {
+                html = this.preParseCoinMsg(html, logs[i].coin, true);
             }
-            //console.log(logs);
-        });*/
+            if (('coin' in logs[i]) && (logs[i].coin in this.engine.allCoinHandlers)) {
+                html = '<img width="36" src="coins/' + this.engine.allCoinHandlers[logs[i].coin].icon + '.svg"/>' + html;
+            }
+            li.innerHTML = '<div class="msg ' + logs[i].severity + '"><div class="ts">' + (new Date(logs[i].ts)).toLocaleString()  + '</div><div>' + html + '</div></div><div class="stitch2"></div>';
+            document.getElementById('history').appendChild(li);
+        }
+
+    }
+
+    reloadHistory() {
+        this.logger.getLogs(this.populateHistoryLogs.bind(this));
     }
 
     async updatePricesFromProvider() : Promise<void> {
@@ -354,21 +352,13 @@ export class App {
             advanced.appendChild(app.createAdvancedOption('buy', 'buy coin', function(){
                 app.popupExchange(null, wallet.handler.code);
             }));
+        }*/
+
+        if (isOnlineCoinHanlder(wallet.handler)) {
+            advanced.appendChild(this.createAdvancedOption('link', 'history (external)', OsPlugins.openInSystemBrowser.bind(OsPlugins, wallet.handler.explorerLinkAddr(wallet.getReceiveAddress()))));
+            advanced.appendChild(this.createAdvancedOption('import', 'import private key', this.showImportPrivateKeyPopup.bind(this, wallet.handler)));
         }
 
-        if ('explorerLinkAddr' in wallet.handler) {
-            advanced.appendChild(app.createAdvancedOption('link', 'history (external)', function(){
-                osPlugins.openInSystemBrowser(wallet.handler.explorerLinkAddr(wallet.data.addr));
-            }));
-        }
-
-        if ('sendPayment' in wallet.handler) {
-            advanced.appendChild(app.createAdvancedOption('import', 'import private key', function(){
-                app.showImportPrivateKeyPopup(wallet.handler);
-            }));
-        }
-
-        */
         var links = '<ul>';
         for (var name in wallet.handler.links) {
             links += '<li><a href="#" onclick="osPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
@@ -1517,7 +1507,7 @@ export class App {
         this.sendAmountInputWidget = new AmountInputWidget(wallet.handler, this.engine.priceProvider)
         this.setWidget('sendCoinAmountInput', this.sendAmountInputWidget);
         this.sendAmountInputWidget.onchange = this.sendCoinUpdateTransaction.bind(this);
-
+        delete this.sendFeeInputWidget;
         this.sendFeeInputWidget = new SliderInputWidget(this.sendCoinUpdateTransaction.bind(this))
         this.setWidget('sendCoinFeeDiv', this.sendFeeInputWidget);
 

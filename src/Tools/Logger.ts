@@ -29,21 +29,18 @@ export class Logger {
 
     getLogs(callback: (logs: any[])=>void, type : string = null) {
         this.storage.getItem(
-            "logs" + (type ? '_' + type : type),
+            "logs" + (type ? '_' + type : ''),
             callback,
             function(error){
-                console.log(error); //TODO::
-                /*
                 if (typeof error.code == "object" && 'code' in error.code){
-                    //this fixes weird bug in secure storege plugin TODO
+                    //this fixes weird bug in secure storege plugin
                     error = error.code;
                 }
                 if (error.code == 2) {
-                    callback(new Array());
+                    callback([]);
                 } else {
-                    console.log(error);
-                    app._alertJsError('error ' + error.code + ' ' + error.exception);
-                }*/
+                    throw 'error ' + error.code + ' ' + error.exception;
+                }
             }
         );
     }
