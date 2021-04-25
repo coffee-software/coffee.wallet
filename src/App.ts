@@ -291,7 +291,7 @@ export class App {
     addWalletWidget(data: Wallet) : WalletWidget {
         let widget = new WalletWidget(this.engine, data)
         widget.onclick = this.popupCoinInfo.bind(this)
-        widget.onportfolio = this.popupOfflineAssets.bind(this, data)
+        widget.onportfolio = this.popupOfflineAssets.bind(this, data, null)
         widget.onreceive = this.popupReceivePayment.bind(this, data, null)
         widget.onsend = this.popupSendPayment.bind(this, data, null)
 
@@ -335,7 +335,7 @@ export class App {
             document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('send', 'send', this.popupSendPayment.bind(this, wallet)));
         }
         document.getElementById('coinInfoButtons').appendChild(wallet.isOnline() ? walletWidget.refreshButton2 : ListItemWidget.createButton('refresh', 'refresh', null));
-        document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('list', 'portfolio', this.popupOfflineAssets.bind(this, wallet)));
+        document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('list', 'portfolio', this.popupOfflineAssets.bind(this, wallet, null)));
 
         var advanced = document.createElement('ul');
         advanced.classList.add('advancedActions');
@@ -510,13 +510,15 @@ export class App {
     }
 
     removeCoinConfirm(wallet: Wallet) {
-        //TODO
-        this.engine.wallets
-        /*this.data.hideWallet(key, function(){
-            app.wallets[key].row.outerHTML = '';
-            delete app.wallets[key].row;
-            delete app.wallets[key];
-        });*/
+        for (let key in this.engine.wallets) {
+            if (this.engine.wallets[key] == wallet) {
+                delete this.engine.wallets[key];
+                this.walletsWidgets[key].element.outerHTML = ''
+                delete this.walletsWidgets[key];
+                this.engine.saveData();
+                break;
+            }
+        }
         this.closePopup();
     }
 
@@ -534,7 +536,6 @@ export class App {
     offlineAssetWallet : Wallet = null
 
     popupOfflineAssets(wallet: Wallet, idToUpdate: number = null) {
-
         document.getElementById('offlineAssets').innerHTML = '';
         for (var i = 0; i < wallet.portfolio.length; i ++) {
             var item = new PortfolioItemWidget(wallet, i);
@@ -604,7 +605,7 @@ export class App {
             document.getElementById('offlineAssetButtons').appendChild(spacer);
         }
 
-        document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('edit', 'edit', item.onedit.bind(item)));
+        document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('edit', 'edit', item.onedit.bind(item, item)));
 
         document.getElementById('offlineAssetActions').innerHTML = '';
 
@@ -650,6 +651,7 @@ export class App {
 
     popupEditOfflineAsset(item: PortfolioItemWidget) {
 
+        this.activeAsset = item;
         if (PortfolioItem.isAddress(item.item)) {
             document.getElementById('addOfflineAssetAddrDiv').classList.remove('hidden');
             document.getElementById('addOfflineAssetAddrTools').classList.remove('hidden');
