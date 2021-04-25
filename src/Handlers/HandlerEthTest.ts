@@ -26,7 +26,6 @@ export class HandlerEthTest extends BaseEthersHanlder {
 export class ERC20TestHandler extends BaseERC20Handler {
 
     testCoin = true
-    onlineCoin = false;
     ticker: string
     code: string
     name: string
@@ -51,7 +50,7 @@ export class ERC20TestHandler extends BaseERC20Handler {
         this.code = ticker;
         this.name = name;
         this.icon = icon;
-        this.description = this.name + " is a ERC20 test token with no real value"
+        this.description = this.name + " is an ERC20 test token with no real value"
         this.ethContractAddr = ethContractAddr
         this.decimals = decimals
         this.links = {

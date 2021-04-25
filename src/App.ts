@@ -26,6 +26,8 @@ export class App {
     engine: Engine
     logger: Logger
     lastOpenedUrl : string = null
+    //coinCode => bestProviderCode
+    exchangeableCoinsCache : { [code: string] : string } = {}
 
     openUrl(url:string) : void {
         //make sure data is loaded
@@ -89,26 +91,33 @@ export class App {
                 return !document.querySelector('#walletsTab').scrollTop;
             }
         });
+        this.exchangeableCoinsCache = this.getExchangeableCoins()
+        this.logger.log("info", null, "application started");
+    }
 
+    getExchangeableCoins() : { [code: string] : string } {
+        let app = this;
+        let list : { [code: string] : string } = this.engine.cache.get('exchangeableCoinsCache', {});
+        for (var key in this.engine.allExchangeProviders) {
+            var provider = this.engine.allExchangeProviders[key];
+            provider.getCurrencies(function(currencies){
+                console.log(currencies);
+                /*var ret = new Array();
+                for (var i in currencies) {
 
-       /* TODO
-        this.exchangeProviderSelect = new Select(document.getElementById("exchangeProvider"));
-        this.exchangeableCoinsCache = [];
-        for (var key in app.engine.allExchangeProviders) {
-            var provider = allExchangeProviders[key];
-            app.getExchangeableCoins(
-                provider,
-                function(list) {
                     for (var i in list){
                         if (app.exchangeableCoinsCache.indexOf(list[i]) == -1) {
                             app.exchangeableCoinsCache.push(list[i]);
                         }
                     }
+                    if (key in allCoinApis && 'sendPayment' in allCoinApis[key]) {
+                        ret.push(key);
+                    }
                 }
-            );
-        }*/
-
-        this.logger.log("info", null, "application started");
+                callback(ret);*/
+            });
+        }
+        return list;
     }
 
     onEngineLoaded () {
@@ -1163,20 +1172,8 @@ export class App {
         document.getElementById("exchangeButton").disabled = !(goodPair && (sellAmmount > 0) && (fee !== null));
     },
 
-    getExchangeableCoins: function(provider, callback) {
-        provider.getCurrencies(function(currencies){
-            var ret = new Array();
-            for (var i in currencies) {
-                var key = currencies[i].toUpperCase();
-                if (key in allCoinApis && 'sendPayment' in allCoinApis[key]) {
-                    ret.push(key);
-                }
-            }
-            callback(ret);
-        });
-    },
-
     popupExchange: function(sellCoin, buyCoin) {
+        //this.exchangeProviderSelect = new Select(document.getElementById("exchangeProvider"));
 
         var includeTestCoins = app.engine.settings.testCoinsEnabled();
         var availableProviders = {};
@@ -1342,12 +1339,12 @@ export class App {
 
             this.priceProviderSelect = new SelectWidget(this.popupSettingsUpdateUnits.bind(this));
             document.getElementById('priceProviderSlot').append(this.priceProviderSelect.element);
-            this.priceProviderSelect.setOptions(this.engine.allPriceProviders, this.engine.allPriceProviders.indexOf(this.engine.priceProvider));
+            this.priceProviderSelect.setOptions(this.engine.allPriceProviders, this.engine.priceProvider.name);
             this.priceUnitSelect = new SelectWidget(function(){});
             document.getElementById('priceUnitSlot').append(this.priceUnitSelect.element);
         }
 
-        this.priceProviderSelect.setValue(this.engine.allPriceProviders.indexOf(this.engine.priceProvider));
+        this.priceProviderSelect.setValue(this.engine.priceProvider.name);
         this.priceUnitSelect.setValue(this.engine.priceProvider.unit);
         (document.getElementById('settingsEnableTestCoins') as HTMLInputElement).checked = this.engine.settings.testCoinsEnabled();
     }

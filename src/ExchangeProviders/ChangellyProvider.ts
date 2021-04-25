@@ -1,15 +1,16 @@
 import {BaseExchangeProvider} from "./BaseExchangeProvider";
+import {Https} from "../Core/Https";
+var createHmac = require('create-hmac');
+import {Config} from "../../src/Config";
+import {isOnlineCoinHanlder} from "../AllCoinHandlers";
 
 export class ChangellyProvider extends BaseExchangeProvider {
 
-  /*
-  key: "changelly",
+    key = "changelly"
+    name = "Changelly"
+    url = "changelly.com"
 
-  name: "Changelly",
-
-  url: "changelly.com",
-
-  _callApi : function(message, callback) {
+  /*_callApi : function(message, callback) {
     var post = JSON.stringify(message);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'https://api.changelly.com', true);
@@ -25,16 +26,48 @@ export class ChangellyProvider extends BaseExchangeProvider {
       }
     };
     xhr.send(post);
-  },
+  },*/
 
-  getCurrencies : function(callback) {
-    this._callApi({
-      "jsonrpc": "2.0",
-      "method": "getCurrencies",
-      "params": {},
-      "id": 1
-    }, callback);
-  },
+    private callApi(method: string, params: any, callback: (data: any)=>void) {
+        let fields = {
+            "jsonrpc": "2.0",
+            "method": method,
+            "params": params,
+            "id": 1
+        }
+        var post = JSON.stringify(fields);
+        var sign = createHmac('sha512', Config.changelly.apiSecret).update(post).digest('hex');
+        let extraHeaders= {
+            "api-key": Config.changelly.apiKey,
+            "sign": sign
+        }
+        Https.makeJsonRequest('api.changelly.com', '', post, extraHeaders).then(function(response){
+            callback(response.result);
+        });
+    }
+
+    getCurrencies(callback : (currencies:string[])=>void) {
+        this.callApi(
+            "getCurrencies",
+            {},
+            this.prepareCurrencies.bind(this, callback)
+        );
+    }
+
+    private prepareCurrencies(callback : (currencies:string[])=>void, list: string[]) {
+        let ret : string[] = [];
+        for (let i=0; i<list.length; i++) {
+            let code = list[i].toUpperCase();
+            if (code in this.engine.allCoinHandlers) {
+                if (isOnlineCoinHanlder(this.engine.allCoinHandlers[code])) {
+                    ret.push(code)
+                }
+            }
+        }
+        callback(ret);
+    }
+
+  /*
 
   getMinAmount : function(from, to, callback) {
     this._callApi({

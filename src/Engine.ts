@@ -118,8 +118,8 @@ export class Engine {
     cache: CacheWrapper
     settings: Settings
     allCoinHandlers: { [code: string] : BaseCoinHandler }
-    allPriceProviders: BasePriceProvider[]
-    allExchangeProviders: BaseExchangeProvider[]
+    allPriceProviders: { [code: string] : BasePriceProvider } = {}
+    allExchangeProviders: { [code: string] : BaseExchangeProvider } = {}
     priceProvider: BasePriceProvider
 
     constructor(storage: StorageInterface, log: LogInterface, cache: CacheInterface) {
@@ -128,12 +128,17 @@ export class Engine {
         this.cache = new CacheWrapper(cache);
         this.settings = new Settings(cache);
 
-        this.allPriceProviders = [
+        let all = [
             new CoinPaprikaProvider(this.cache),
             new CoinGeckoProvider(this.cache),
             new CoinMarketCapProvider(this.cache)
         ]
-        this.priceProvider = this.allPriceProviders[this.cache.get('priceProvider', 0)];
+        for (let i =0; i<all.length; i++) {
+            this.allPriceProviders[all[i].name] = all[i];
+        }
+        let pp : string = this.cache.get('priceProvider', 'coinpaprika.com');
+        if (!(pp in this.allPriceProviders)) { pp = 'coinpaprika.com'}
+        this.priceProvider = this.allPriceProviders[pp];
         this.priceProvider.unit = this.cache.get(this.priceProvider.name + '_priceUnit', this.priceProvider.defaultUnit)
     }
 
@@ -141,12 +146,15 @@ export class Engine {
         console.log("INITIALISING");
         this.allCoinHandlers = createAllCoinHandlers(this.log, this.cache);
 
-        this.allExchangeProviders = [
-            new UniswapProdProvider(),
-            new UniswapTestProvider(),
-            new ChangellyProvider(),
-            new ChangeNowProvider()
+        let all = [
+            new UniswapProdProvider(this),
+            new UniswapTestProvider(this),
+            new ChangellyProvider(this),
+            new ChangeNowProvider(this)
         ]
+        for (let i =0; i<all.length; i++) {
+            this.allExchangeProviders[all[i].key] = all[i];
+        }
 
         let wallets = await this.storageGet('wallets');
         if ('bip39' in wallets) {

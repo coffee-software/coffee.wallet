@@ -2,6 +2,9 @@ import {BaseExchangeProvider} from "./BaseExchangeProvider";
 
 export class ChangeNowProvider extends BaseExchangeProvider {
 
+    key = "now"
+    name = "ChangeNow"
+
     /*
 function _formatParams(params) {
  return (
@@ -14,9 +17,6 @@ function _formatParams(params) {
  )
 }
 
-  key: "now",
-
-  name: "ChangeNow",
 
   url: "changenow.io",
 
@@ -70,6 +70,7 @@ function _formatParams(params) {
   },
 
   getCurrencies: function(callback) {
+    //TODO var key = currencies[i].toUpperCase();
   this._callGetApi(
     {
       method: "currencies",

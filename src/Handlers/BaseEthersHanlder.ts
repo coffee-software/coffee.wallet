@@ -195,7 +195,8 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
 }
 
 export abstract class BaseERC20Handler extends BaseEthersHanlder {
-
+    isERC20Handler: boolean = true
+    onlineCoin = true
     abstract ethContractAddr: string
     ethAbi: ethers.ContractInterface = [
         {

@@ -1,4 +1,5 @@
-import {BaseEthersHanlder} from "./BaseEthersHanlder";
+import {BaseERC20Handler, BaseEthersHanlder} from "./BaseEthersHanlder";
+import {CacheWrapper, LogInterface} from "../Engine";
 
 export class HandlerEth extends BaseEthersHanlder {
 
@@ -21,6 +22,43 @@ export class HandlerEth extends BaseEthersHanlder {
     }
     explorerLinkTx(txid: string): string {
         return 'https://etherscan.io/tx/' + txid;
+    }
+
+}
+
+export class ERC20Handler extends BaseERC20Handler {
+
+    testCoin = false
+    ticker: string
+    code: string
+    name: string
+    icon: string
+    description: string
+    links: { [key: string]: string; };
+
+    ethContractAddr: string;
+    networkName = 'ropsten';
+
+    constructor(
+        log: LogInterface,
+        cache: CacheWrapper,
+        ticker: string,
+        name: string,
+        icon: string,
+        ethContractAddr: string,
+        decimals: number
+    ) {
+        super(log, cache)
+        this.ticker = ticker;
+        this.code = ticker;
+        this.name = name;
+        this.icon = icon;
+        this.description = this.name + " is an ERC20 token"
+        this.ethContractAddr = ethContractAddr
+        this.decimals = decimals
+        this.links = {
+            "etherscan.io": "https://etherscan.io/token/" + this.ethContractAddr
+        }
     }
 
 }

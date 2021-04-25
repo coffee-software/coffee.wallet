@@ -12,13 +12,15 @@ export class SelectWidget implements Widget {
         this.element.onchange = this.onElementChange.bind(this)
     }
 
-    setOptions(options: any[], selected: number|string) {
+    setOptions(options: any[]|{ [code: string]: { name: string } }, selected: number|string) {
         this.element.innerHTML = '';
-        for (let i = 0; i < options.length; i++) {
-            if (typeof options[i] == "string") {
+        if (Array.isArray(options)) {
+            for (let i = 0; i < options.length; i++) {
                 this.element.add(new Option(options[i], options[i], false, options[i] == selected));
-            } else if ('name' in options[i]) {
-                this.element.add(new Option(options[i].name, i.toString(), false, i == selected));
+            }
+        } else {
+            for (let key in options) {
+                this.element.add(new Option(options[key].name, key, false, key == selected));
             }
         }
         this.onChange && this.onChange(selected);

@@ -7,7 +7,6 @@ import * as bip32 from "bip32";
 import {CacheWrapper, LogInterface} from "../Engine";
 import {Https} from "../Core/Https";
 import {bech32} from "bech32";
-import {Wallet} from "../Wallet";
 
 var coininfo = require('coininfo');
 var base58 = require('bs58');

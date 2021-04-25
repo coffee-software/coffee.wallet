@@ -1,6 +1,8 @@
+import {Engine} from "../Engine";
 
 export abstract class BaseExchangeProvider {
 
+  engine: Engine
   key: string
   name: string
   url: string
@@ -8,6 +10,9 @@ export abstract class BaseExchangeProvider {
 
   shortDescription: string = "<strong>warning:</strong> this is handled by external provider. You will send your coins to a third party trusting you will get exchanged coins back after few minutes. Please refer to provider website for more details:"
 
+  constructor(engine: Engine) {
+    this.engine = engine;
+  }
   getCurrencies(callback : (currencies:string[])=>void) {
     callback([]);
   }
