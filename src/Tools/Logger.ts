@@ -10,26 +10,29 @@ export class Logger {
 
     //this wont be shifted
     logTransaction(type: string, description: string, data: any) {
-        this.getLogs(function(logs) {
-            logs.unshift({ts:Date.now(), description:description, data:data});
-            this.storage.setItem("logs" + '_' + type, logs, function(){}, function(){});
-        }, type);
+        this.push('logs_' + type, {ts:Date.now(), description:description, data:data});
     }
 
     //"error", "info", "success"
     log(severity: string, coinCode: string, message: string, debug: any = null) {
-        this.getLogs(function(logs) {
-            logs.unshift({ts:Date.now(), severity:severity, coin:coinCode, message:message, debug:debug});
-            if (logs.length > 200) {
-                logs.pop();
-            }
-            this.storage.setItem("logs", logs, function(){}, function(){});
-        });
+        this.push('logs', {ts:Date.now(), severity:severity, coin:coinCode, message:message, debug:debug}, 200);
     }
 
-    getLogs(callback: (logs: any[])=>void, type : string = null) {
+    private push(key:string, data:object, limit:number = null) {
+        this.getLogs(this.unshiftLog.bind(this, key, data, limit), key);
+    }
+
+    private unshiftLog(key: string, data: object, limit:number|null, logs: any[]) {
+        logs.unshift(data);
+        if ((limit != null) && (logs.length > limit)) {
+            logs.pop();
+        }
+        this.storage.setItem(key, logs, function(){}, function(){});
+    }
+
+    getLogs(callback: (logs: any[])=>void, key : string = 'logs') {
         this.storage.getItem(
-            "logs" + (type ? '_' + type : ''),
+            key,
             callback,
             function(error){
                 if (typeof error.code == "object" && 'code' in error.code){

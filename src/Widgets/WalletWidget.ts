@@ -100,6 +100,7 @@ export class WalletWidget extends ListItemWidget {
     }
 
     async refreshOffline() {
+        this.portfolioBalance = this.wallet.getCachedPortfolioTotal();
         this.portfolioBalance = await this.wallet.getPortfolioTotal();
         this.offlineAmount.innerHTML = this.engine.getValueString(this.portfolioBalance);
         this.offlineAmountFull.innerHTML = this.engine.getValueString(this.portfolioBalance);
