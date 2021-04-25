@@ -1,8 +1,9 @@
 import {BaseExchangeProvider} from "./BaseExchangeProvider";
 import {Https} from "../Core/Https";
 var createHmac = require('create-hmac');
-import {Config} from "../../src/Config";
+import {Config} from "../Config";
 import {isOnlineCoinHanlder} from "../AllCoinHandlers";
+import {NewTransaction} from "../Handlers/BaseCoinHandler";
 
 export class ChangellyProvider extends BaseExchangeProvider {
 
@@ -28,7 +29,7 @@ export class ChangellyProvider extends BaseExchangeProvider {
     xhr.send(post);
   },*/
 
-    private callApi(method: string, params: any, callback: (data: any)=>void) {
+    private async callApi(method: string, params: any): Promise<any> {
         let fields = {
             "jsonrpc": "2.0",
             "method": method,
@@ -41,20 +42,13 @@ export class ChangellyProvider extends BaseExchangeProvider {
             "api-key": Config.changelly.apiKey,
             "sign": sign
         }
-        Https.makeJsonRequest('api.changelly.com', '', post, extraHeaders).then(function(response){
-            callback(response.result);
-        });
+        return (await Https.makeJsonRequest('api.changelly.com', '', post, extraHeaders)).result;
     }
 
-    getCurrencies(callback : (currencies:string[])=>void) {
-        this.callApi(
-            "getCurrencies",
-            {},
-            this.prepareCurrencies.bind(this, callback)
-        );
-    }
-
-    private prepareCurrencies(callback : (currencies:string[])=>void, list: string[]) {
+    async getCurrencies() : Promise<string[]> {
+        let list = await this.callApi("getCurrencies",{});
+        console.log("GETTING");
+        console.log(list);
         let ret : string[] = [];
         for (let i=0; i<list.length; i++) {
             let code = list[i].toUpperCase();
@@ -64,51 +58,41 @@ export class ChangellyProvider extends BaseExchangeProvider {
                 }
             }
         }
-        callback(ret);
+        return ret;
     }
 
-  /*
+    async getMinAmount(from: string, to: string) : Promise<number> {
+        return await this.callApi(
+            "getMinAmount",
+            {
+                "from": from.toLowerCase(),
+                "to": to.toLowerCase()
+            }
+            );
+    }
 
-  getMinAmount : function(from, to, callback) {
-    this._callApi({
-      "jsonrpc": "2.0",
-      "method": "getMinAmount",
-      "params": {
-        "from": from.toLowerCase(),
-        "to": to.toLowerCase()
-      },
-      "id": 1
-    }, callback);
-  },
+    async estimateExchangeAmount(from: string, to: string, amount: number) : Promise<number> {
+        return await this.callApi(
+            "getExchangeAmount",
+            {
+                "from": from.toLowerCase(),
+                "to": to.toLowerCase(),
+                "amount": amount
+            });
+    }
 
-  estimateExchangeAmount : function(from, to, amount, callback) {
-    this._callApi({
-      "jsonrpc": "2.0",
-      "method": "getExchangeAmount",
-      "params": {
-        "from": from.toLowerCase(),
-        "to": to.toLowerCase(),
-        "amount": amount
-      },
-      "id": 1
-    }, callback);
-  },
-
-  createTransaction : function(from, to, amount, returnTo, callback) {
-    this._callApi({
-      "jsonrpc": "2.0",
-      "method": "createTransaction",
-      "params": {
-        "from": from.toLowerCase(),
-        "to": to.toLowerCase(),
-        "address": returnTo,
-        "extraId": null,
-        "amount": amount
-      },
-      "id": 1
-    }, callback);
-  }
-*/
+    async createTransaction(from: string, to: string, amount: number, returnTo: string) : Promise<NewTransaction> {
+        return await this.callApi(
+            "createTransaction",
+            {
+                "from": from.toLowerCase(),
+                "to": to.toLowerCase(),
+                "address": returnTo,
+                "extraId": null,
+                "amount": amount
+            }
+        );
+    }
 
   /*,
   getTransactions : function(to, returnTo, callback) {

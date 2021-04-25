@@ -19,6 +19,7 @@ import {Widget} from "./Widgets/Widget";
 import {BigNum} from "./Core/BigNum";
 import {SliderInputWidget} from "./Widgets/SliderInputWidget";
 import {Strings} from "./Tools/Strings";
+import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
 
 export class App {
 
@@ -26,8 +27,7 @@ export class App {
     engine: Engine
     logger: Logger
     lastOpenedUrl : string = null
-    //coinCode => bestProviderCode
-    exchangeableCoinsCache : { [code: string] : string } = {}
+    exchangeableCoinsCache : { [code: string] : string[] } = {}
 
     openUrl(url:string) : void {
         //make sure data is loaded
@@ -91,33 +91,20 @@ export class App {
                 return !document.querySelector('#walletsTab').scrollTop;
             }
         });
-        this.exchangeableCoinsCache = this.getExchangeableCoins()
+        this.setExchangeableCoins()
         this.logger.log("info", null, "application started");
     }
 
-    getExchangeableCoins() : { [code: string] : string } {
+    setExchangeableCoins() {
         let app = this;
-        let list : { [code: string] : string } = this.engine.cache.get('exchangeableCoinsCache', {});
+        this.exchangeableCoinsCache = this.engine.cache.get('exchangeableCoins', {});
         for (var key in this.engine.allExchangeProviders) {
             var provider = this.engine.allExchangeProviders[key];
-            provider.getCurrencies(function(currencies){
-                console.log(currencies);
-                /*var ret = new Array();
-                for (var i in currencies) {
-
-                    for (var i in list){
-                        if (app.exchangeableCoinsCache.indexOf(list[i]) == -1) {
-                            app.exchangeableCoinsCache.push(list[i]);
-                        }
-                    }
-                    if (key in allCoinApis && 'sendPayment' in allCoinApis[key]) {
-                        ret.push(key);
-                    }
-                }
-                callback(ret);*/
-            });
+            provider.getCurrencies().then((function(key: string, currencies: string[]){
+                app.exchangeableCoinsCache[key] = currencies;
+                app.engine.cache.set('exchangeableCoins', app.exchangeableCoinsCache);
+            }).bind(this, key));
         }
-        return list;
     }
 
     onEngineLoaded () {
@@ -353,15 +340,20 @@ export class App {
             advanced.appendChild(this.createAdvancedOption('message', 'send via message', this.popupSendSocial.bind(this, wallet)));
         }
 
-        /*
-        if ('exchangeableCoinsCache' in app && (app.exchangeableCoinsCache.indexOf(wallet.handler.code) != -1)) {
-            advanced.appendChild(app.createAdvancedOption('sell', 'sell coin', function(){
-                app.popupExchange(wallet.handler.code, null);
-            }));
-            advanced.appendChild(app.createAdvancedOption('buy', 'buy coin', function(){
-                app.popupExchange(null, wallet.handler.code);
-            }));
-        }*/
+        for( let provider in this.exchangeableCoinsCache) {
+            if (this.exchangeableCoinsCache[provider].indexOf(wallet.handler.code) > -1) {
+                advanced.appendChild(this.createAdvancedOption(
+                    'sell',
+                    'sell coin (' + provider + ')',
+                    this.popupExchange.bind(this, provider, wallet.handler.code, null)
+                ));
+                advanced.appendChild(this.createAdvancedOption(
+                    'buy',
+                    'buy coin (' + provider + ')',
+                    this.popupExchange.bind(this, provider, null, wallet.handler.code)
+                ));
+            }
+        }
 
         if (isOnlineCoinHanlder(wallet.handler)) {
             advanced.appendChild(this.createAdvancedOption('link', 'history (external)', OsPlugins.openInSystemBrowser.bind(OsPlugins, wallet.handler.explorerLinkAddr(wallet.getReceiveAddress()))));
@@ -1035,21 +1027,25 @@ export class App {
         }
     }
 
-    /*
+    exchangeProviderSelect: SelectWidget
+    exchangeSellCoinSelect: SelectWidget
+    exchangeBuyCoinSelect: SelectWidget
+    exchangeSellAmount: AmountInputWidget
+    exchangeBuyAmount: AmountInputWidget
 
-
-    doExchange: function() {
+    doExchange() {
         //TODO!!!!!
-        var provider = allExchangeProviders[app.exchangeProviderSelect.getValue()];
+        var provider = this.engine.allExchangeProviders[this.exchangeProviderSelect.getValue()];
+        var sellCoin = this.exchangeSellCoinSelect.getValue();
+        var sellAmount = this.exchangeSellAmount.getValue();
+        var buyCoin = this.exchangeBuyCoinSelect.getValue();
+        var buyAmount = this.exchangeBuyAmount.getValue();
+        //var fee = app.exchangeDefaultFees[provider.key + sellCoin];
+        console.log(sellCoin, sellAmount, buyCoin, buyAmount);
 
-        var sellCoin = document.getElementById("exchangeSellCoin").value;
-        var sellAmmount = app.wallets[sellCoin].handler.floatValueToSystemValue(parseFloat(document.getElementById("exchangeSellAmmount").value));
-        var buyCoin = document.getElementById("exchangeBuyCoin").value;
-        var fee = app.exchangeDefaultFees[provider.key + sellCoin];
-        var buyAmmount = document.getElementById("exchangeBuyAmmount").value;
+        provider.createTransaction(sellCoin, buyCoin, sellAmount, this.engine.wallets[buyCoin].getReceiveAddress());
 
-        var displaySellAmount = app.wallets[sellCoin].handler.systemValueToDisplayValue(sellAmmount);
-        var onTransactionSuccess = function () {
+        /*var onTransactionSuccess = function () {
             app.closePopup();
             setTimeout(function() { app.wallets[sellCoin].refreshOnline(); }, 3000);
             setTimeout(function() { app.alertInfo('Please refresh your ' + buyCoin + ' balance in few minutes.', buyCoin); }, 4000);
@@ -1086,8 +1082,10 @@ export class App {
                     onTransactionSuccess();
                 }
             }
-        );
-    },
+        );*/
+    }
+
+    /*
     updateExchange: function(force) {
         var provider = allExchangeProviders[app.exchangeProviderSelect.getValue()];
         if ((provider.key != app.lastExchangeProvider) || ((typeof force != 'undefined') && force)) {
@@ -1171,31 +1169,78 @@ export class App {
         }
         document.getElementById("exchangeButton").disabled = !(goodPair && (sellAmmount > 0) && (fee !== null));
     },
-
-    popupExchange: function(sellCoin, buyCoin) {
-        //this.exchangeProviderSelect = new Select(document.getElementById("exchangeProvider"));
-
-        var includeTestCoins = app.engine.settings.testCoinsEnabled();
-        var availableProviders = {};
-        this.exchangeDefaultFees = {};
-        this.exchangeMinAmmounts = {};
-
-        for (var i in allExchangeProviders) {
-            if (includeTestCoins || (allExchangeProviders[i].testNet === false)) {
-                availableProviders[i] = allExchangeProviders[i];
-            }
-            this.exchangeMinAmmounts[i] = {};
-        }
-        this.exchangeProviderSelect.setOptions(availableProviders);
-
-
-        document.getElementById("exchangeSellAmmount").value = 0;
-        this.openPopup('exchangePopup', 'Exchange');
-        app.settings.set('airdropTaskExchange', true);
-
-        app.updateExchange(true);
-    },
     */
+
+    popupExchange(providerKey: string, sellCoinCode: string, buyCoinCode: string) {
+
+        this.exchangeProviderSelect = new SelectWidget(this.exchangeSetProvider.bind(this));
+        this.setWidget('exchangeProvider', this.exchangeProviderSelect);
+
+
+        var includeTestCoins = this.engine.settings.testCoinsEnabled();
+        var availableProviders : { [key:string]: BaseExchangeProvider } = {};
+        //this.exchangeDefaultFees = {};
+        //this.exchangeMinAmmounts = {};
+
+        for (var key in this.engine.allExchangeProviders) {
+            if (includeTestCoins || (this.engine.allExchangeProviders[key].testNet === false)) {
+                availableProviders[key] = this.engine.allExchangeProviders[key];
+            }
+            //this.exchangeMinAmmounts[i] = {};
+        }
+        this.exchangeProviderSelect.setOptions(availableProviders, providerKey ? providerKey : null);
+
+        /*this.exchangeSellAmount = new AmountInputWidget(function(value){
+
+        });
+        this.setWidget('exchangeProvider', this.exchangeProviderSelect);*/
+
+        /*document.getElementById("exchangeSellAmmount").value = 0;*/
+        this.openPopup('exchangePopup', 'Exchange');
+        this.exchangeSetProvider(providerKey);
+        //app.settings.set('airdropTaskExchange', true);
+    }
+
+    exchangeSetProvider(providerKey: string) {
+        console.log("SWITCHING PROVIDER:", providerKey);
+        console.log(this.exchangeableCoinsCache);
+        console.log(this.exchangeableCoinsCache[providerKey]);
+        this.exchangeSetSellCoin(null);
+        this.exchangeSetBuyCoin(null);
+    }
+
+    exchangeSetSellCoin(sellCoin: string) {
+        console.log("SWITCHING SELL COIN:", sellCoin);
+        let providerKey = this.exchangeProviderSelect.getValue()
+        let currentBuyCoin = this.exchangeBuyCoinSelect ? this.exchangeBuyCoinSelect.getValue() : null;
+        this.exchangeBuyCoinSelect = new SelectWidget(this.exchangeSetBuyCoin.bind(this), true);
+        this.setWidget('exchangeBuyCoin', this.exchangeBuyCoinSelect);
+        let options = this.exchangeableCoinsCache[providerKey].slice();
+        options.splice( options.indexOf(sellCoin),1)
+        this.exchangeBuyCoinSelect.setOptions(options, currentBuyCoin);
+
+        //
+        if (sellCoin in this.engine.allCoinHandlers) {
+            this.exchangeSellAmount = new AmountInputWidget(this.engine.allCoinHandlers[sellCoin], this.engine.priceProvider);
+            this.setWidget('exchangeSellAmount', this.exchangeSellAmount);
+        }
+    }
+
+    exchangeSetBuyCoin(buyCoin: string|null) {
+        console.log("SWITCHING BUY COIN:", buyCoin);
+        let providerKey = this.exchangeProviderSelect.getValue()
+        let currentSellCoin = this.exchangeSellCoinSelect ? this.exchangeSellCoinSelect.getValue() : null;
+        this.exchangeSellCoinSelect = new SelectWidget(this.exchangeSetSellCoin.bind(this), true);
+        this.setWidget('exchangeSellCoin', this.exchangeSellCoinSelect);
+        let options = this.exchangeableCoinsCache[providerKey].slice();
+        options.splice( options.indexOf(buyCoin),1)
+        this.exchangeSellCoinSelect.setOptions(options, currentSellCoin);
+
+        if (buyCoin in this.engine.allCoinHandlers) {
+            this.exchangeBuyAmount = new AmountInputWidget(this.engine.allCoinHandlers[buyCoin], this.engine.priceProvider);
+            this.setWidget('exchangeBuyAmount', this.exchangeBuyAmount);
+        }
+    }
 
     cancelSentViaMessage(coin: string, pk: string) {
         this.confirmBeforeContinue(
@@ -1328,9 +1373,8 @@ export class App {
     priceProviderSelect : SelectWidget
     priceUnitSelect : SelectWidget
 
-    popupSettingsUpdateUnits(value:number) {
+    popupSettingsUpdateUnits(value:string) {
         this.priceUnitSelect.setOptions(this.engine.allPriceProviders[value].availableUnits, this.engine.priceProvider.unit);
-
     }
 
     popupSettings() {
@@ -1342,6 +1386,7 @@ export class App {
             this.priceProviderSelect.setOptions(this.engine.allPriceProviders, this.engine.priceProvider.name);
             this.priceUnitSelect = new SelectWidget(function(){});
             document.getElementById('priceUnitSlot').append(this.priceUnitSelect.element);
+            this.popupSettingsUpdateUnits(this.engine.priceProvider.name);
         }
 
         this.priceProviderSelect.setValue(this.engine.priceProvider.name);
@@ -1352,9 +1397,8 @@ export class App {
     saveSettings() {
         this.closePopup();
         this.engine.settings.setTestCoinsEnabled((document.getElementById('settingsEnableTestCoins')as HTMLInputElement).checked);
-
         this.engine.setPriceProvider(
-            parseInt(this.priceProviderSelect.getValue()),
+            this.priceProviderSelect.getValue(),
             this.priceUnitSelect.getValue()
         );
         this.updatePricesFromProvider();

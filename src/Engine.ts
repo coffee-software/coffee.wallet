@@ -209,7 +209,7 @@ export class Engine {
         return this.cache.set(key, value);
     }
 
-    setPriceProvider(index: number, unit: string) {
+    setPriceProvider(index: string, unit: string) {
         this.priceProvider = this.allPriceProviders[index]
         this.cache.set('priceProvider', index)
         this.priceProvider.unit = unit

@@ -7,6 +7,7 @@ import {HandlerLtc} from "./Handlers/HandlerLtc";
 import {HandlerDoge} from "./Handlers/HandlerDoge";
 import {CacheWrapper, LogInterface} from "./Engine";
 import {PortfolioOnlyHandler} from "./Handlers/PortfolioOnlyHandler";
+import {HandlerDash} from "./Handlers/HandlerDash";
 
 export function createAllCoinHandlers(log: LogInterface, cache: CacheWrapper) : { [code: string] : BaseCoinHandler } {
     return {
@@ -27,11 +28,7 @@ export function createAllCoinHandlers(log: LogInterface, cache: CacheWrapper) : 
             'via Bitcoin Wiki: The testnet is an alternative Bitcoin block chain, to be used for testing. ' +
             'Testnet coins are separate and distinct from actual bitcoins, and are never supposed to have any value.'
         ),
-        'DASH': new PortfolioOnlyHandler(
-            'DASH', 'Dash', 'dash',
-            'Dash is an open source cryptocurrency. It is an altcoin that was forked from the Bitcoin protocol. ' +
-            'It is also a decentralized autonomous organization (DAO) run by a subset of its users, which are called "masternodes".'
-        ),
+        'DASH': new HandlerDash(log, cache),
         'ERC20.TST': new ERC20TestHandler(
             log,
             cache,

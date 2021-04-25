@@ -1,4 +1,5 @@
 import {BaseExchangeProvider} from "./BaseExchangeProvider";
+import {NewTransaction} from "../Handlers/BaseCoinHandler";
 
 abstract class UniswapProvider extends BaseExchangeProvider {
     primaryCoin : string
@@ -179,7 +180,7 @@ abstract class UniswapProvider extends BaseExchangeProvider {
   },
     */
 
-  getCurrencies(callback : (currencies:string[])=>void) {
+  async getCurrencies() : Promise<string[]> {
     var tokens = [];
     tokens.push(this.primaryCoin);
     for (var k in this.engine.allCoinHandlers){
@@ -187,8 +188,20 @@ abstract class UniswapProvider extends BaseExchangeProvider {
             tokens.push(k);
         }
     }
-    callback(tokens);
+    return tokens;
   }
+
+    createTransaction(from: string, to: string, amount: number, returnTo: string): Promise<NewTransaction> {
+        return Promise.resolve(undefined);
+    }
+
+    estimateExchangeAmount(from: string, to: string, amount: number): Promise<number> {
+        return Promise.resolve(0);
+    }
+
+    getMinAmount(from: string, to: string): Promise<number> {
+        return Promise.resolve(0);
+    }
 
  /*
   getMinAmount: function(from, to, callback) {

@@ -1,9 +1,26 @@
 import {BaseExchangeProvider} from "./BaseExchangeProvider";
+import {NewTransaction} from "../Handlers/BaseCoinHandler";
 
 export class ChangeNowProvider extends BaseExchangeProvider {
 
     key = "now"
     name = "ChangeNow"
+
+    createTransaction(from: string, to: string, amount: number, returnTo: string): Promise<NewTransaction> {
+        return Promise.resolve(undefined);
+    }
+
+    estimateExchangeAmount(from: string, to: string, amount: number): Promise<number> {
+        return Promise.resolve(0);
+    }
+
+    getCurrencies(): Promise<string[]> {
+        return Promise.resolve([]);
+    }
+
+    getMinAmount(from: string, to: string): Promise<number> {
+        return Promise.resolve(0);
+    }
 
     /*
 function _formatParams(params) {
