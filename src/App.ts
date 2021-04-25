@@ -43,7 +43,6 @@ export class App {
     }
 
     onDeviceReady() {
-
         var footButtons = document.getElementById('foot').children;
         for (let i = 0; i < footButtons.length; i++) {
             fastTap(footButtons[i] as HTMLElement);
@@ -93,7 +92,6 @@ export class App {
 
 
        /* TODO
-
         this.exchangeProviderSelect = new Select(document.getElementById("exchangeProvider"));
         this.exchangeableCoinsCache = [];
         for (var key in app.engine.allExchangeProviders) {
@@ -144,11 +142,11 @@ export class App {
     }
 
     togglePopupHeaderFix() {
-        //TODO
+        //sticky popup header
         var headerSize = 0;
-        var children = document.getElementById('popupContent').childNodes;
+        var children = document.getElementById('popupContent').children;
         for (var c=0; c < children.length; c++) {
-            if ((children[c].nodeType != 3) && ((children[c] as HTMLElement).style.display == 'block')){
+            if ((children[c] as HTMLElement).style.display == 'block') {
                 headerSize = ((children[c] as HTMLElement).firstElementChild as HTMLElement).offsetHeight;
             }
         }
@@ -239,16 +237,19 @@ export class App {
         this.alertMessage(html, coinCode, 'success');
     }
 
-
     private preParseCoinMsg(msg : string, coinCode: string, allowLinks: boolean = false) {
-        //TODO
-        /*if ((typeof(msg) == 'string') && (coin in app.engine.allCoinHandlers) && ('explorerLinkTx' in app.engine.allCoinHandlers[coin])) {
-            msg = msg.replace(/\<u\>\w+\<\/u\>/, function(match){
-                var tx = match.substring(3, match.length-4);
-                var txShort = tx.substring(0, 6) + '..' + tx.substring(tx.length-4, tx.length);
-                return allowLinks ? ('<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + app.engine.allCoinHandlers[coin].explorerLinkTx(tx) + '\');">' + txShort + '</a>') : ('<u>' + txShort + '</u>');
-            });
-        }*/
+        if ((typeof(msg) == 'string') && (coinCode in this.engine.allCoinHandlers)){
+            let handler = this.engine.allCoinHandlers[coinCode];
+            if (isOnlineCoinHanlder(handler)) {
+                let link = handler.explorerLinkTx.bind(handler);
+                msg = msg.replace(/\<u\>\w+\<\/u\>/, function (match: any) {
+                    console.log(handler, match);
+                    var tx = match.substring(3, match.length - 4);
+                    var txShort = tx.substring(0, 6) + '..' + tx.substring(tx.length - 4, tx.length);
+                    return allowLinks ? ('<a href="#" onclick="OsPlugins.openInSystemBrowser(\'' + link(tx) + '\');">' + txShort + '</a>') : ('<u>' + txShort + '</u>');
+                });
+            }
+        }
         return msg;
     }
 
@@ -285,7 +286,6 @@ export class App {
         log += !col ? '' : '\ncolumn: ' + col;
         log += !error ? '' : '\nerror: ' + error;
         this.alertMessagePopup('error', log);
-        //console.log(msg, url, line, col, error);
     }
 
     addWalletWidget(data: Wallet) : WalletWidget {
@@ -332,9 +332,9 @@ export class App {
 
         if (wallet.isOnline()) {
             document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('receive', 'receive', this.popupReceivePayment.bind(this, wallet)));
-            //document.getElementById('coinInfoButtons').appendChild(createButton('send', 'send', function(){app.popupSendPayment(wallet, wallet.data.systemBalance);}));
+            document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('send', 'send', this.popupSendPayment.bind(this, wallet)));
         }
-        //document.getElementById('coinInfoButtons').appendChild(wallet.isOnline() ? walletWidget.refreshButton2 : createButton('refresh', 'refresh', null));
+        document.getElementById('coinInfoButtons').appendChild(wallet.isOnline() ? walletWidget.refreshButton2 : ListItemWidget.createButton('refresh', 'refresh', null));
         document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('list', 'portfolio', this.popupOfflineAssets.bind(this, wallet)));
 
         var advanced = document.createElement('ul');

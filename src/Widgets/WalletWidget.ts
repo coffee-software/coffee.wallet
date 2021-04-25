@@ -18,11 +18,12 @@ export class WalletWidget extends ListItemWidget {
     offlineValueFull : HTMLElement
 
     refreshButton : HTMLElement
+    refreshButton2 : HTMLElement
 
     onlineBalance: Balance
     portfolioBalance: Balance
 
-    refreshLock: boolean = false
+    refreshLock: number = 0
 
     constructor(engine: Engine, wallet : Wallet) {
         super();
@@ -58,8 +59,11 @@ export class WalletWidget extends ListItemWidget {
         this.rightCell.appendChild(this.offlineValue).classList.add('value');
         this.rightCell.appendChild(this.offlineAmount).classList.add('amount');
 
-        this.refreshButton = ListItemWidget.createButton('refresh', 'refresh', this.refreshButtonClick.bind(this));
+        this.refreshButton = ListItemWidget.createButton('refresh', 'refresh', this.wallet.isOnline() ? this.refreshButtonClick.bind(this) : null);
         this.refreshButton.classList.add('spinner');
+
+        this.refreshButton2 = ListItemWidget.createButton('refresh', 'refresh', this.wallet.isOnline() ? this.refreshButtonClick.bind(this) : null);
+        this.refreshButton2.classList.add('spinner');
 
         this.rightButtons.appendChild(this.refreshButton);
         this.rightButtons.appendChild(ListItemWidget.createButton('list', 'portfolio', function(){this.onportfolio(this, wallet)}.bind(this)));
@@ -77,16 +81,25 @@ export class WalletWidget extends ListItemWidget {
     public onreceive: (value:WalletWidget, wallet:Wallet) => void;
     public onsend: (value:WalletWidget, wallet:Wallet) => void;
 
-    async refreshButtonClick(){
-        if (this.refreshLock) {
+    private refreshButtonClick(){
+        if (this.refreshLock > 0) {
             return false;
         }
-        this.refreshLock = true;
+        this.refreshLock = 2;
         this.refreshButton.classList.add('spinning');
-        await this.refreshOffline()
-        await this.refreshOnline()
-        this.refreshButton.classList.remove('spinning');
-        this.refreshLock = false;
+        this.refreshButton2.classList.add('spinning');
+        this.refreshOffline().then(function(){this.refreshLock--}.bind(this))
+        this.refreshOnline().then(function(){this.refreshLock--}.bind(this))
+        setTimeout(this.refreshButtonStop.bind(this), 1000);
+    }
+
+    private refreshButtonStop() {
+        if (this.refreshLock == 0) {
+            this.refreshButton.classList.remove('spinning');
+            this.refreshButton2.classList.remove('spinning');
+        } else {
+            setTimeout(this.refreshButtonStop.bind(this), 1000);
+        }
     }
 
     updateOfflineValue() : number {

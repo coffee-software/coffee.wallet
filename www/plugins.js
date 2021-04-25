@@ -259,3 +259,5 @@ const __OS_PLUGINS__ = {
     }
   }
 };
+
+const OsPlugins = __OS_PLUGINS__
