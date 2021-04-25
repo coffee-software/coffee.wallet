@@ -13,6 +13,7 @@ export class Version {
                 'add proper input widget to exchange view',
                 'improve Uniswap exchange flow',
                 'switch web3 to ethersjs for smaller app size',
+                'confirm window after backing up mnemonic',
                 'fix paste clipboard on PWA'
             ]
         },

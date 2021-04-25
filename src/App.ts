@@ -967,18 +967,45 @@ export class App {
             '<li>Do not send it over unencrypted network.</li>' +
             '<li>Write it down and store in a secure location.</li></ul>',
             function() {
-                app.engine.settings.get('keyBackedUp', false);
                 app.confirmBeforeContinue(
                     'your backup phrase',
                     mnemonicMessage,
-                    function() {
-                        app.engine.settings.set('keyBackedUp', true);
-                    },
-                    'done'
-                    //'remind&nbsp;later'
+                    app.validateMnemonicBackup.bind(app, null),
+                    'done',
+                    'remind&nbsp;later'
                 );
             }
         );
+    }
+
+    validateMnemonicBackup(invalidMnemonic: string = null) {
+        var input = document.createElement("textarea");
+        input.id = input.name = "mnemonic";
+        (input as HTMLTextAreaElement).rows = 3;
+        let app = this;
+        this.confirmBeforeContinue(
+            'Backup Wallets',
+            '<p>To make sure you have properly backed up your mnemonic. Please enter the recovery phrase you just backed up below.</p>',
+            function() {
+                var mnemonic = input.value.split(' ').map(function(e){ return e.trim().toLowerCase();}).filter(function (e) {return e != '';}).join(' ');
+                if (app.engine.validateMnemonic(mnemonic) && (app.engine.keychain.mnemonic == mnemonic)) {
+                    app.engine.settings.set('keyBackedUp', true);
+                    app.alertInfo('mnemonic successfully backed up');
+                } else {
+                    app.validateMnemonicBackup(mnemonic);
+                }
+            },
+            'confirm',
+            'remind&nbsp;later'
+        );
+        document.getElementById('lockMessage').appendChild(input);
+        if (invalidMnemonic) {
+            input.value = invalidMnemonic;
+            var div = document.createElement("div");
+            div.className = "red";
+            div.innerHTML = "this phrase is invalid or it is not your mnemonic!";
+            document.getElementById('lockMessage').appendChild(div);
+        }
     }
 
     addOrActivateCoin(code: string, callback: ()=>void) {
