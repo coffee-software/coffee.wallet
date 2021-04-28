@@ -8,6 +8,8 @@ import {Wallet} from "@ethersproject/wallet/src.ts";
 import * as bip32 from "bip32";
 import {CacheWrapper, LogInterface} from "../Engine";
 import {Config} from "../../src/Config";
+import {CoinAddressIcon} from "../Widgets/CoinAddressIcon";
+import {Strings} from "../Tools/Strings";
 
 class EthTransaction implements NewTransaction {
     handler: BaseEthersHanlder
@@ -62,6 +64,22 @@ class EthTransaction implements NewTransaction {
     async send(): Promise<string> {
         var response = await this.handler.getProvider().sendTransaction(this.signed);
         return response.hash;
+    }
+
+    getLeftIcon(): string {
+        return '<img class="coinIcon" src="coins/' + this.handler.icon + '.svg"/>';
+    }
+
+    getLeftLabel(): string {
+        return this.getAmountDisplay();
+    }
+
+    getRightIcon(): string {
+        return (new CoinAddressIcon(this.handler, this.getRecipientDisplay())).element.outerHTML;
+    }
+
+    getRightLabel(): string {
+        return Strings.shortAddr(this.getRecipientDisplay(), 13);
     }
 }
 

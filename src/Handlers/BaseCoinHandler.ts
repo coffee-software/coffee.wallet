@@ -18,6 +18,12 @@ export interface BaseCoinHandler {
 
 export interface NewTransaction {
   handler: OnlineCoinHandler
+
+  getLeftIcon() : string
+  getLeftLabel() : string
+  getRightIcon() : string
+  getRightLabel() : string
+
   getBalanceAfter() : string
   getFeeDisplay() : string
   getFeeETA() : string

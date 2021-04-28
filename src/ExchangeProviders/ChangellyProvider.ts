@@ -3,7 +3,8 @@ import {Https} from "../Core/Https";
 var createHmac = require('create-hmac');
 import {Config} from "../Config";
 import {isOnlineCoinHanlder} from "../AllCoinHandlers";
-import {NewTransaction} from "../Handlers/BaseCoinHandler";
+import {NewTransaction, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
+import {BigNum} from "../Core/BigNum";
 
 export class ChangellyProvider extends BaseExchangeProvider {
 
@@ -42,13 +43,15 @@ export class ChangellyProvider extends BaseExchangeProvider {
             "api-key": Config.changelly.apiKey,
             "sign": sign
         }
-        return (await Https.makeJsonRequest('api.changelly.com', '', post, extraHeaders)).result;
+        let response = await Https.makeJsonRequest('api.changelly.com', '', post, extraHeaders)
+        if ('error' in response) {
+            throw response.error;
+        }
+        return response.result;
     }
 
     async getCurrencies() : Promise<string[]> {
         let list = await this.callApi("getCurrencies",{});
-        console.log("GETTING");
-        console.log(list);
         let ret : string[] = [];
         for (let i=0; i<list.length; i++) {
             let code = list[i].toUpperCase();
@@ -68,7 +71,7 @@ export class ChangellyProvider extends BaseExchangeProvider {
                 "from": from.toLowerCase(),
                 "to": to.toLowerCase()
             }
-            );
+        );
     }
 
     async estimateExchangeAmount(from: string, to: string, amount: number) : Promise<number> {
@@ -78,11 +81,12 @@ export class ChangellyProvider extends BaseExchangeProvider {
                 "from": from.toLowerCase(),
                 "to": to.toLowerCase(),
                 "amount": amount
-            });
+            }
+        );
     }
 
     async createTransaction(from: string, to: string, amount: number, returnTo: string) : Promise<NewTransaction> {
-        return await this.callApi(
+        let response = await this.callApi(
             "createTransaction",
             {
                 "from": from.toLowerCase(),
@@ -92,6 +96,15 @@ export class ChangellyProvider extends BaseExchangeProvider {
                 "amount": amount
             }
         );
+        this.engine.log.info('changelly exchange id=' + response.id);
+        let transaction = await (this.engine.allCoinHandlers[from] as OnlineCoinHandler).prepareTransaction(
+            this.engine.keychain,
+            response.payinAddress,
+            BigNum.fromFloat(response.amountExpectedFrom, this.engine.allCoinHandlers[from].decimals),
+            0 //TODO
+        );
+        console.log(response);
+        return transaction;
     }
 
   /*,

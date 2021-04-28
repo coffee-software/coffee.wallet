@@ -7,6 +7,8 @@ import * as bip32 from "bip32";
 import {CacheWrapper, LogInterface} from "../Engine";
 import {Https} from "../Core/Https";
 import {bech32} from "bech32";
+import {CoinAddressIcon} from "../Widgets/CoinAddressIcon";
+import {Strings} from "../Tools/Strings";
 
 var coininfo = require('coininfo');
 var base58 = require('bs58');
@@ -14,9 +16,11 @@ var base58 = require('bs58');
 class BtcTransaction implements NewTransaction {
     handler: BaseBitcoinjsHanlder
     tx: Transaction
+    receiverAddr: string
 
-    constructor(handler: BaseBitcoinjsHanlder, tx: Transaction) {
+    constructor(handler: BaseBitcoinjsHanlder, receiverAddr: string, tx: Transaction) {
         this.handler = handler
+        this.receiverAddr = receiverAddr
         this.tx = tx
     }
 
@@ -25,7 +29,7 @@ class BtcTransaction implements NewTransaction {
     }
 
     getRecipientDisplay() : string {
-        return "XXXX";
+        return this.receiverAddr;
     }
 
     getBalanceAfter(): string {
@@ -64,6 +68,22 @@ class BtcTransaction implements NewTransaction {
         );
 
         return response.tx.hash;
+    }
+
+    getLeftIcon(): string {
+        return '<img class="coinIcon" src="coins/' + this.handler.icon + '.svg"/>';
+    }
+
+    getLeftLabel(): string {
+        return this.getAmountDisplay();
+    }
+
+    getRightIcon(): string {
+        return (new CoinAddressIcon(this.handler, this.getRecipientDisplay())).element.outerHTML;
+    }
+
+    getRightLabel(): string {
+        return Strings.shortAddr(this.getRecipientDisplay(), 13);
     }
 }
 
@@ -355,7 +375,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         finalTx.signAllInputs(key).finalizeAllInputs();
         console.log(finalTx.getFeeRate())
         console.log(finalTx.getFee())
-        return new BtcTransaction(this, finalTx.extractTransaction());
+        return new BtcTransaction(this, receiverAddr, finalTx.extractTransaction());
     }
 
     validateAddress(addr: string): boolean {

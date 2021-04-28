@@ -1043,7 +1043,10 @@ export class App {
         //var fee = app.exchangeDefaultFees[provider.key + sellCoin];
         console.log(sellCoin, sellAmount, buyCoin, buyAmount);
 
-        provider.createTransaction(sellCoin, buyCoin, sellAmount, this.engine.wallets[buyCoin].getReceiveAddress());
+        provider.createTransaction(sellCoin, buyCoin, sellAmount, this.engine.wallets[buyCoin].getReceiveAddress()).then(
+            this.confirmAndSendTransaction.bind(this)
+        );
+
 
         /*var onTransactionSuccess = function () {
             app.closePopup();
@@ -1713,13 +1716,15 @@ export class App {
     }
 
     sendPayment() {
-
         if (!(this.sendAddressInputWidget.validate() && this.sendAmountInputWidget.validate() && this.sendFeeInputWidget.getValue())) {
             this.alertError('please wait for fees update');
             return;
         }
+        this.confirmAndSendTransaction(this.sendOutgoingTransaction);
+    }
 
-        let summary = this.sendOutgoingTransaction.getSummary()
+    confirmAndSendTransaction(transaction: NewTransaction) {
+        let summary = transaction.getSummary()
         let tableContent = '';
         for (var label in summary) {
             tableContent += '<tr><th colspan="2">' + label + ':</th></tr><tr><td colspan="2">' + summary[label] + '</td></tr>';
@@ -1743,14 +1748,13 @@ export class App {
         var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(systemAmount);
         */
         //app.engine.priceProvider.convert(floatAmount, this.sendWallet.handler) +
-        let addr = this.sendOutgoingTransaction.getRecipientDisplay();
         this.authenticateBeforeContinue(
             '<table class="transactionSummary">' +
-            '<tr class="first"><td><img class="coinIcon" src="coins/' + this.sendOutgoingTransaction.handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td>' + (new CoinAddressIcon(this.sendWallet.handler, addr)).element.outerHTML + '</td></tr>' +
-            '<tr class="second"><td>' + this.sendOutgoingTransaction.getAmountDisplay() + '</td><td></td><td>' + Strings.shortAddr(addr, 13) + '</td></tr>' +
+            '<tr class="first"><td>' + transaction.getLeftIcon() + '</td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td>' +  transaction.getRightIcon() + '</td></tr>' +
+            '<tr class="second"><td>' + transaction.getLeftLabel() + '</td><td></td><td>' + transaction.getRightLabel() + '</td></tr>' +
             '</table>',
             '<table class="niceTable">' + tableContent + '</table>',
-            this.sendPaymendProceed.bind(this, this.sendOutgoingTransaction)
+            this.sendPaymendProceed.bind(this, transaction)
         );
     }
 
