@@ -43,17 +43,20 @@ export class ERC20TestHandler extends BaseERC20Handler {
         name: string,
         icon: string,
         ethContractAddr: string,
-        decimals: number
+        decimals: number,
+        description: string = "",
+        links: {[key:string] : string} = {}
     ) {
         super(log, cache)
         this.ticker = ticker;
         this.code = ticker;
         this.name = name;
         this.icon = icon;
-        this.description = this.name + " is an ERC20 test token with no real value"
+        this.description = this.name + " is an ERC20 test token with no real value. " + description
         this.ethContractAddr = ethContractAddr
         this.decimals = decimals
         this.links = {
+            ...links,
             "etherscan.io": "https://etherscan.io/token/" + this.ethContractAddr
         }
     }
