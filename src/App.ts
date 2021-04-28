@@ -362,7 +362,7 @@ export class App {
 
         var links = '<ul>';
         for (var name in wallet.handler.links) {
-            links += '<li><a href="#" onclick="osPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
+            links += '<li><a href="#" onclick="OsPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
         }
         links += '</ul>';
 
@@ -1093,7 +1093,7 @@ export class App {
         var provider = allExchangeProviders[app.exchangeProviderSelect.getValue()];
         if ((provider.key != app.lastExchangeProvider) || ((typeof force != 'undefined') && force)) {
             document.getElementById("exchangeShortDescription").innerHTML = provider.shortDescription;
-            document.getElementById("exchangeLink").innerHTML = '<a href="#" onclick="osPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a>';
+            document.getElementById("exchangeLink").innerHTML = '<a href="#" onclick="OsPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a>';
             document.getElementById("exchangeIcon").src = 'img/exchanges/' + provider.key + '.png';
 
             (new Select(document.getElementById("exchangeSellCoin"))).setOptions({}, null);
@@ -1766,7 +1766,7 @@ export class App {
             'To receive ' + displayAmount + ' ' + coin + ' go to:\n' +
             'https://wallet.coffee/receive#' + receiveLink;
 
-        osPlugins.shareDialog(subject, message, function() {
+        OsPlugins.shareDialog(subject, message, function() {
             app.alertInfo('If you sent the message, recipient will be able to withdraw this transfer.');
         }, function(msg) {
             app.alertError('Sharing failed with message: ' + msg);

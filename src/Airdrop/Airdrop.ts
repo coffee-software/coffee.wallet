@@ -175,7 +175,7 @@ var airdrop = {
                         if (!app.lockDialogOpened) {
                             app.confirmBeforeContinue(
                                 'Coffee Tokens Airdrop',
-                                '<p>Coffee Token (CFT) is a utility token for Coffee Wallet Project. You can find out more <a href="#" onclick="osPlugins.openInSystemBrowser(\'https://tokens.coffee/\')">here</a>.</p>' +
+                                '<p>Coffee Token (CFT) is a utility token for Coffee Wallet Project. You can find out more <a href="#" onclick="OsPlugins.openInSystemBrowser(\'https://tokens.coffee/\')">here</a>.</p>' +
                                 '<div style="text-align:center"><img src="coins/cft.svg" width="32" alt="CFT"></div>' +
                                 '<p>To promote the application we offer <strong>' + app.airdropMaxReward + '&nbsp;CFT</strong> for each user. You can get your tokens now or later at any time using "tools" tab.</p>' +
                                 '<p>' + message + '</p>',
@@ -313,11 +313,11 @@ var airdrop = {
                   </div>
                 </div>
                 <div class="actions row">
-                  <button class="f1" onclick="osPlugins.copyToClipboard(document.getElementById('airdropRefLink').innerHTML); app.alertInfo('copied to clipboard');">
+                  <button class="f1" onclick="OsPlugins.copyToClipboard(document.getElementById('airdropRefLink').innerHTML); app.alertInfo('copied to clipboard');">
                     <img src="icons/ico.copy.png"/>
                     Copy
                   </button>
-                  <button class="f1" onclick="osPlugins.shareDialog('', document.getElementById('airdropRefLink').innerHTML)">
+                  <button class="f1" onclick="OsPlugins.shareDialog('', document.getElementById('airdropRefLink').innerHTML)">
                     <img src="icons/share.png"/>
                     Share
                   </button>
@@ -326,7 +326,7 @@ var airdrop = {
               <p id="airdropStatus2" class="section"></p>
               <div class="stitch"></div>
               <div class="actions row buttons">
-                <button class="box f1 light" onclick="osPlugins.openRateAppDialog()">
+                <button class="box f1 light" onclick="OsPlugins.openRateAppDialog()">
                   Rate App
                 </button>
                 <button class="box f1" onclick="app.closePopup()">
