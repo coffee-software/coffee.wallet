@@ -22,14 +22,6 @@ export abstract class PortfolioItem {
     static isAddress(toBeDetermined: PortfolioItem): toBeDetermined is PortfolioAddress {
         return ('address' in toBeDetermined);
     }
-
-    public toString() : string {
-        if (PortfolioItem.isAddress(this)) {
-            return '[' + this.address.substring(0, 11) + '...]'
-        } else if (PortfolioItem.isBalance(this)) {
-            return this.balance + ' XXX'// + that.wallet.handler.code)
-        }
-    }
 }
 
 export class PortfolioBalance extends PortfolioItem {

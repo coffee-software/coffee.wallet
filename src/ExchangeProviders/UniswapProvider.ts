@@ -183,7 +183,7 @@ abstract class UniswapProvider extends BaseExchangeProvider {
   async getCurrencies() : Promise<string[]> {
     var tokens = [];
     tokens.push(this.primaryCoin);
-    for (var k in this.engine.allCoinHandlers){
+    for (var k in this.engine.wallets){
         if ((this.engine.allCoinHandlers[k].testCoin == this.testNet) && ('isERC20Handler' in this.engine.allCoinHandlers[k])) {
             tokens.push(k);
         }

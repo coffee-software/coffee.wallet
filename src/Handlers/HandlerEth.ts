@@ -37,7 +37,7 @@ export class ERC20Handler extends BaseERC20Handler {
     links: { [key: string]: string; };
 
     ethContractAddr: string;
-    networkName = 'ropsten';
+    networkName = 'homestead';
 
     constructor(
         log: LogInterface,

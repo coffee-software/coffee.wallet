@@ -75,9 +75,9 @@ describe('UX Test', function() {
             wallet.portfolio.push(
                 new PortfolioAddress('test2', 'mno1RNYbzYg59XdjQv61S2NRREDLnAr7DB')
             )
-            let widget1 = new PortfolioItemWidget(wallet, 0);
+            let widget1 = new PortfolioItemWidget(engine, wallet, 0);
             document.body.append(widget1.element);
-            let widget2 = new PortfolioItemWidget(wallet, 1);
+            let widget2 = new PortfolioItemWidget(engine, wallet, 1);
             document.body.append(widget2.element);
 
         });

@@ -3,32 +3,48 @@ import {Https} from "../Core/Https";
 var createHmac = require('create-hmac');
 import {Config} from "../Config";
 import {isOnlineCoinHanlder} from "../AllCoinHandlers";
-import {NewTransaction, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
+import {NewTransaction, NewTransactionWrapper, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
 import {BigNum} from "../Core/BigNum";
 
+class ChangellyTransactionWrapper extends NewTransactionWrapper {
+    changellyTx : ChangellyTransactionResponse
+    constructor(tx: NewTransaction, changellyTx : ChangellyTransactionResponse) {
+        super(tx);
+        this.changellyTx = changellyTx
+    }
+
+    getRightIcon(): string {
+        return '<img class="coinIcon" src="img/exchanges/changelly.png"/>';
+    }
+
+    getSummary(): { [p: string]: string } {
+        let ret = super.getSummary();
+
+        ret['changelly id'] = this.changellyTx.id
+        ret['kyc required'] = this.changellyTx.kycRequired ? "YES": "NO"
+        //https://changelly.com/aml-kyc
+        return ret;
+    }
+}
+type ChangellyTransactionResponse = {
+    id: string
+    amountExpectedFrom: number
+    amountExpectedTo: number
+    amountTo: number
+    status: string
+    currencyFrom: string
+    currencyTo: string
+    payinAddress: string
+    payoutAddress: string
+    createdAt: string
+    kycRequired: boolean
+}
 export class ChangellyProvider extends BaseExchangeProvider {
 
     key = "changelly"
     name = "Changelly"
     url = "changelly.com"
-
-  /*_callApi : function(message, callback) {
-    var post = JSON.stringify(message);
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://api.changelly.com', true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("api-key", config.changelly.apiKey);
-    xhr.setRequestHeader("sign", engine.hmacSha512Sign(post, config.changelly.apiSecret));
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      if (xhr.status === 200 && !('error' in xhr.response)) {
-        callback(xhr.response.result);
-      } else {
-        app.alertError('error' in xhr.response ? xhr.response.error.message : 'unknown error', null, xhr.response);
-      }
-    };
-    xhr.send(post);
-  },*/
+    shortDescription = "Exchange service provided by Changelly. Your transaction may trigger AML/KYC verification according to Changelly AML/KYC."
 
     private async callApi(method: string, params: any): Promise<any> {
         let fields = {
@@ -45,7 +61,7 @@ export class ChangellyProvider extends BaseExchangeProvider {
         }
         let response = await Https.makeJsonRequest('api.changelly.com', '', post, extraHeaders)
         if ('error' in response) {
-            throw response.error;
+            throw "error " + response.error.code + ": " +response.error.message;
         }
         return response.result;
     }
@@ -55,7 +71,7 @@ export class ChangellyProvider extends BaseExchangeProvider {
         let ret : string[] = [];
         for (let i=0; i<list.length; i++) {
             let code = list[i].toUpperCase();
-            if (code in this.engine.allCoinHandlers) {
+            if (code in this.engine.wallets) {
                 if (isOnlineCoinHanlder(this.engine.allCoinHandlers[code])) {
                     ret.push(code)
                 }
@@ -86,52 +102,45 @@ export class ChangellyProvider extends BaseExchangeProvider {
     }
 
     async createTransaction(from: string, to: string, amount: number, returnTo: string) : Promise<NewTransaction> {
-        let response = await this.callApi(
+
+        let response = <ChangellyTransactionResponse>await this.callApi(
             "createTransaction",
             {
                 "from": from.toLowerCase(),
                 "to": to.toLowerCase(),
                 "address": returnTo,
+                "refundAddress": (this.engine.wallets[from].handler as OnlineCoinHandler).getReceiveAddr(this.engine.keychain),
                 "extraId": null,
                 "amount": amount
             }
         );
-        this.engine.log.info('changelly exchange id=' + response.id);
+
         let transaction = await (this.engine.allCoinHandlers[from] as OnlineCoinHandler).prepareTransaction(
             this.engine.keychain,
             response.payinAddress,
-            BigNum.fromFloat(response.amountExpectedFrom, this.engine.allCoinHandlers[from].decimals),
-            0 //TODO
+            BigNum.fromFloat(response.amountExpectedFrom, this.engine.allCoinHandlers[from].decimals)
         );
-        console.log(response);
-        return transaction;
+
+        return new ChangellyTransactionWrapper(transaction, response);
     }
 
-  /*,
-  getTransactions : function(to, returnTo, callback) {
-    this._callApi({
-      "jsonrpc": "2.0",
-      "method": "getTransactions",
-      "params": {
-        "currency": 'btc',
-        "address": '36xdvVWKjpyqYr32ERbbS9fZiapasm29F4',
-        //"extraId": null,
-        "limit": 100,
-        "offset" : 0
-      },
-      "id": 1
-    }, callback);
-  },
+    async getTransactions(from: string, returnTo: string) : Promise<any> {
+        return await this.callApi(
+            "getTransactions",
+            {
+                        "currency": from.toLowerCase(),
+                        "address": returnTo,
+                        //"extraId": null,
+                        //"limit": 100,
+                        //"offset" : 0
+                      });
+    }
 
-  getStatus : function(transactionId, callback) {
-    this._callApi({
-      "jsonrpc": "2.0",
-      "method": "getStatus",
-      "params": {
-        "id": transactionId
-      },
-      "id": 1
-    }, callback);
-  } */
+    async getStatus(transactionId : string) : Promise<any> {
+        return await this.callApi("getStatus",
+            {
+            "id": transactionId
+        });
+    }
 
 }

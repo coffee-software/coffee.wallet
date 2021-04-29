@@ -15,13 +15,15 @@ var base58 = require('bs58');
 
 class BtcTransaction implements NewTransaction {
     handler: BaseBitcoinjsHanlder
-    tx: Transaction
+    tx: Psbt
+    extracted: Transaction
     receiverAddr: string
 
-    constructor(handler: BaseBitcoinjsHanlder, receiverAddr: string, tx: Transaction) {
+    constructor(handler: BaseBitcoinjsHanlder, receiverAddr: string, tx: Psbt) {
         this.handler = handler
         this.receiverAddr = receiverAddr
         this.tx = tx
+        this.extracted = tx.extractTransaction()
     }
 
     getAmountDisplay() : string {
@@ -37,7 +39,8 @@ class BtcTransaction implements NewTransaction {
     }
 
     getFeeDisplay(): string {
-        return this.tx.virtualSize().toString();
+        //this.extracted.virtualSize().toString();
+        return (new BigNum(this.tx.getFee())).toFloat(this.handler.decimals) + ' ' + this.handler.ticker
     }
 
     getFeeETA(): string {
@@ -63,7 +66,7 @@ class BtcTransaction implements NewTransaction {
             this.handler.webapiPath + '/txs/push',
             {
                 tx:
-                    this.tx.toHex()
+                    this.extracted.toHex()
             }
         );
 
@@ -90,32 +93,49 @@ class BtcTransaction implements NewTransaction {
 
 class WebRequestsQueuedProcessor {
 
-    pause: Promise<void>;
+    //pause: Promise<void>;
 
     constructor() {
-        this.pause = new Promise(resolve => setTimeout(resolve, 0));
+        console.log("CONSTRUCTING");
+        //this.pause = new Promise(resolve => setTimeout(resolve, 0));
     }
 
-    sleep(ms: number) {
-        this.pause = new Promise(resolve => setTimeout(resolve, ms));
-    }
+    queue: Promise<any>[] = [];
 
     async wait(): Promise<void> {
-          await this.pause;
+        /*this.rt = Date.now();
+
+
+        let clone = this.pause;
+        this.pause = new Promise(resolve => setTimeout(function() {
+            console.log("TIMOUT ENDED");
+            resolve();
+        }, 1000));
+
+        await new Promise(resolve => function() {
+            this.queue.push(resolve);
+        }.bind(this));
+
+        await clone;
+        console.log('will sleep for ', 1000);*/
     }
 
     async get(host: string, path: string): Promise<object> {
-        await this.wait();
-        let response = await Https.makeJsonRequest(host, path);
-        this.sleep(500);
-        return response;
+        Promise.all(this.queue);
+        this.queue = [];
+        //await this.wait();
+        var currentDate2 = '[' + new Date().toLocaleTimeString() + '] ';
+        console.log("QUEUE DONE", currentDate2, host);
+        let pro = Https.makeJsonRequest(host, path);
+        this.queue.push(pro);
+        let ret = await pro;
+        this.queue.push(new Promise(resolve => setTimeout(resolve, 1000)));
+        return ret;
     }
 
     async post(host: string, path: string, body: object): Promise<object> {
         await this.wait();
-        let response = await Https.makeJsonRequest(host, path, body);
-        this.sleep(500);
-        return response;
+        return await Https.makeJsonRequest(host, path, body);
     }
 }
 
@@ -196,6 +216,17 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         return "";
     }
 
+    async getDefaultFee(): Promise<number> {
+        interface RootResponse {
+            unconfirmed_count: number
+            high_fee_per_kb: number
+            medium_fee_per_kb: number
+            low_fee_per_kb: number
+        }
+        let response = <RootResponse>await BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath);
+        return response.medium_fee_per_kb;
+    }
+
     async getFeeOptions(): Promise<number[]> {
         interface RootResponse {
             unconfirmed_count: number
@@ -232,6 +263,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             txrefs?: TxrefResponse[]
             unconfirmed_txrefs?: TxrefResponse[]
         }
+        //TODO set RBF : &confirmations=1
         let response = <UtxosResponse>await BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath + '/addrs/' + address + '?unspentOnly=true&includeScript=true');
 
         let ret : BitcoinUtxo[] = [];
@@ -300,6 +332,9 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
     }
 
     async prepareTransaction(keychain: Keychain, receiverAddr: string, amount: BigNum, fee: number): Promise<NewTransaction> {
+        if (!fee) {
+            fee = await this.getDefaultFee();
+        }
         let amountOut: number = parseInt(amount.toString());
 
         var bip32 = this.getPrivateKey(keychain);
@@ -307,18 +342,23 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             pubkey: bip32.publicKey,
             network: this.network
         }).address;
-
-        var segwitFrom = bitcoin.payments.p2wpkh({
-            pubkey: bip32.publicKey,
-            network: this.network
-        }).address;
+        var changeAddress = legacyFrom
 
 
         var tmpTx = new bitcoin.Psbt({network:this.network});
         var totalIn = 0;
         var atLeastOneUnconfirmed = false;
 
-        var utxos = await this.getUtxosForAddr(segwitFrom);
+        var utxos: BitcoinUtxo[] = []
+
+        if (this.segwitSupport) {
+            var segwitFrom = bitcoin.payments.p2wpkh({
+                pubkey: bip32.publicKey,
+                network: this.network
+            }).address;
+            utxos = utxos.concat(await this.getUtxosForAddr(segwitFrom));
+            changeAddress = segwitFrom
+        }
         utxos = utxos.concat(await this.getUtxosForAddr(legacyFrom));
         for (let i = 0; i < utxos.length; i ++) {
             totalIn = totalIn + utxos[i].value;
@@ -349,7 +389,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
         //TODO mark transaction as invalid when addr == ''
         tmpTx.addOutput({
-            address: receiverAddr == '' ? segwitFrom : receiverAddr,
+            address: receiverAddr == '' ? changeAddress : receiverAddr,
             value: amountOut
         });
 
@@ -357,30 +397,34 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         const tmpChange = totalIn - amountOut;
         let finalTx = tmpTx.clone();
         tmpTx.addOutput({
-            address: segwitFrom,
+            address: changeAddress,
             value: tmpChange
         });
         let key = ECPair.fromPrivateKey(bip32.privateKey);
         tmpTx.signAllInputs(key).finalizeAllInputs();
-        const vsize = tmpTx.extractTransaction().virtualSize();
-        const finalFee = Math.ceil(fee * vsize / 1000); //fee is in satoshi per kilobyte
+
+        const finalFee = this.calculateFee(tmpTx, fee);
         const changeValue = totalIn - amountOut - finalFee;
         if (changeValue < finalFee) {
             //app.alertInfo('warning. dust leftover detected. transaction might fail. consider using "send all" feature next time.');
         }
         finalTx.addOutput({
-            address: segwitFrom,
+            address: changeAddress,
             value: changeValue
         });
         finalTx.signAllInputs(key).finalizeAllInputs();
-        console.log(finalTx.getFeeRate())
-        console.log(finalTx.getFee())
-        return new BtcTransaction(this, receiverAddr, finalTx.extractTransaction());
+        finalTx.setMaximumFeeRate(4000000) //TODO DOGE
+        return new BtcTransaction(this, receiverAddr, finalTx);
+    }
+
+    calculateFee(tmpTx: Psbt, fee: number): number {
+        const vsize = tmpTx.extractTransaction().virtualSize();
+        return Math.ceil(fee * vsize / 1000); //fee is in satoshi per kilobyte
     }
 
     validateAddress(addr: string): boolean {
         try {
-            bitcoin.address.toOutputScript(addr, coininfo.bitcoin.main.toBitcoinJS());
+            bitcoin.address.toOutputScript(addr, this.network);
             return true;
         } catch (e) {
             return false;

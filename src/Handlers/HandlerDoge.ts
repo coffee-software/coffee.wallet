@@ -1,4 +1,5 @@
 import {BaseBitcoinjsHanlder} from "./BaseBitcoinjsHanlder";
+import {Psbt} from "bitcoinjs-lib";
 var coininfo = require('coininfo');
 
 export class HandlerDoge extends BaseBitcoinjsHanlder {
@@ -28,4 +29,12 @@ export class HandlerDoge extends BaseBitcoinjsHanlder {
     explorerLinkTx(txid : string) {
         return 'https://dogechain.info/tx/' + txid;
     }
+
+    calculateFee(tmpTx: Psbt, fee: number): number {
+        let ret = super.calculateFee(tmpTx, fee);
+        //set minimum fee to 1 DOGE
+        if (ret < 100000000) ret = 100000000;
+        return ret;
+    }
+
 }

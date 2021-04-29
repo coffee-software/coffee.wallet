@@ -3,11 +3,14 @@ import {PortfolioItem} from "../PortfolioItem";
 import {ListItemWidget} from "./ListItemWidget";
 import {CoinAddressIcon} from "./CoinAddressIcon";
 import {OsPlugins} from "../OsPlugins";
-import {OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
+import {Balance, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
+import {Strings} from "../Tools/Strings";
+import {Engine} from "../Engine";
 
 export class PortfolioItemWidget extends ListItemWidget {
 
     wallet : Wallet
+    engine: Engine
     id: number
     item: PortfolioItem
 
@@ -16,8 +19,9 @@ export class PortfolioItemWidget extends ListItemWidget {
 
     refreshButton: HTMLElement
 
-    constructor(wallet : Wallet, id: number) {
+    constructor(engine: Engine, wallet : Wallet, id: number) {
         super()
+        this.engine = engine;
         this.wallet = wallet;
         this.id = id;
         this.item = wallet.portfolio[id];
@@ -27,8 +31,13 @@ export class PortfolioItemWidget extends ListItemWidget {
         this.centerCell.appendChild(padding);
         let icon = (new CoinAddressIcon(wallet.handler, PortfolioItem.isAddress(this.item) ? this.item.address : null)).element;
         padding.appendChild(icon);
-
-        this.leftCell.innerHTML = '<div class="value">' + this.item.toString() + '</div><div class="amount">' + this.item.label + '</div>';
+        let label = '';
+        if (PortfolioItem.isAddress(this.item)) {
+            label = '[' + Strings.shortAddr(this.item.address, 13) + ']'
+        } else if (PortfolioItem.isBalance(this.item)) {
+            label = this.item.balance + ' ' + wallet.handler.code
+        }
+        this.leftCell.innerHTML = '<div class="value">' + label + '</div><div class="amount">' + this.item.label + '</div>';
 
         var amountContainer = document.createElement("div");
         var valueContainer = document.createElement("div");
@@ -66,31 +75,35 @@ export class PortfolioItemWidget extends ListItemWidget {
     public onremove: (item: PortfolioItemWidget) => void;
     public onedit: (item: PortfolioItemWidget) => void;
 
+    private refreshLock : boolean = false;
     refreshBalance() {
-        /*
-        var spinner = function() {
-            that.refreshButton.classList.toggle('spinning', that.running);
-            if (that.running) {
-                setTimeout(spinner, 1000);
-            }
-        };
-        if (!that.running) {
-            that.running = true;
-            if (that.refreshButton) spinner();
-            that.wallet.checkForOfflineAssetChange(that.id - 1, function(){
-                this.updateBalanceAndValue();
-                that.running = false;
-            });
-        }*/
+        if (this.refreshLock) {
+            return false;
+        }
+        this.refreshLock = true;
+        this.refreshButton.classList.add('spinning');
+
+        this.wallet.getPortfolioItemBalance(this.item).then(function(balance : Balance){
+            this.updateBalanceAndValue();
+            this.refreshLock = false;
+        }.bind(this));
+
+        setTimeout(this.refreshButtonStop.bind(this), 1000);
+    }
+
+    private refreshButtonStop() {
+        if (!this.refreshLock) {
+            this.refreshButton.classList.remove('spinning');
+        } else {
+            setTimeout(this.refreshButtonStop.bind(this), 1000);
+        }
     }
 
     updateBalanceAndValue() {
-        /*
+        this.amountSpan.innerHTML =
+            this.engine.getValueString(this.wallet.getCachedPortfolioItemBalance(this.item));
 
-        this.amount.innerHTML = app.priceProvider.formatMoney(this.data.balance, this.wallet.handler.code, 5);
-        var value = this.data.balance * app.priceProvider.getPrice(this.wallet.handler.code);
-        this.value.innerHTML = app.priceProvider.formatMoney(value, app.priceProvider.getUnit());
-        return value;
-         */
+        this.valueSpan.innerHTML =
+            this.engine.getFiatValueString(this.wallet.getCachedPortfolioItemBalance(this.item));
     }
 }

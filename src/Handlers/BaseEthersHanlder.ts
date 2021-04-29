@@ -3,6 +3,7 @@ import {Balance, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
 import {BigNum} from "../Core/BigNum";
 import {Keychain} from "../Keychain";
 import {JsonRpcProvider} from "@ethersproject/providers/src.ts/json-rpc-provider";
+import {BaseProvider} from "@ethersproject/providers/src.ts/base-provider";
 import {TransactionRequest} from "@ethersproject/abstract-provider/src.ts";
 import {Wallet} from "@ethersproject/wallet/src.ts";
 import * as bip32 from "bip32";
@@ -106,7 +107,8 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
 
     abstract networkName: string;
 
-    getProvider(): JsonRpcProvider {
+    getProvider(): BaseProvider {
+        //return new ethers.providers.EtherscanProvider(this.networkName)
         return new ethers.providers.InfuraProvider(this.networkName, Config.infuraKey);
     }
 
@@ -125,9 +127,13 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return "";
     }
 
-    async getFeeOptions(): Promise<number[]> {
+    async getDefaultFee(): Promise<number> {
         let gasPrice = await this.getProvider().getGasPrice();
-        let price = gasPrice.toNumber();
+        return gasPrice.toNumber();
+    }
+
+    async getFeeOptions(): Promise<number[]> {
+        let price = await this.getDefaultFee();
         return [
             Math.round(price * 0.7),
             Math.round(price * 0.85),
@@ -185,6 +191,9 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     }
 
     async prepareTransaction(keychain: Keychain, receiverAddr: string, amount: BigNum, fee: number): Promise<NewTransaction> {
+        if (!fee) {
+            fee = await this.getDefaultFee();
+        }
         let from = this.getReceiveAddr(keychain);
         let tx : TransactionRequest = await this.getTransactionRequest(keychain, receiverAddr, amount)
         tx.gasPrice = fee
@@ -267,9 +276,21 @@ export abstract class BaseERC20Handler extends BaseEthersHanlder {
     }
 
     async getBalance(addr: string): Promise<Balance> {
-        let contract = this.getContract();
-        let ret = await contract.balanceOf(addr);
-        return new Balance(this, new BigNum(ret.toString()), new BigNum("0"));
+        try {
+            let contract = this.getContract();
+            //let xxx = await contract.populateTransaction.balanceOf(addr)
+            //xxx.from = "0x0000000000000000000000000000000000000000";
+            //let yyy = await contract.provider.call(xxx);
+            let ret = await contract.balanceOf(addr);
+            return new Balance(this, new BigNum(ret.toString()), new BigNum("0"));
+        } catch (e) {
+            this.log.error(e.toString())
+            return new Balance(
+                this,
+                new BigNum("0"),
+                new BigNum("0")
+            );
+        }
     }
 
     private async _getContractDecimals() {

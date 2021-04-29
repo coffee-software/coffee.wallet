@@ -56,6 +56,25 @@ export class Wallet {
         return this.getRawCachedBalance('CachedPortfolioTotal');
     }
 
+    getCachedPortfolioItemBalance(item: PortfolioItem) : Balance {
+        if (PortfolioItem.isBalance(item)) {
+            return new Balance(this.handler, BigNum.fromFloat(item.balance, this.handler.decimals), new BigNum("0"));
+        } else if (PortfolioItem.isAddress(item) && isOnlineCoinHanlder(this.handler)) {
+            return this.getRawCachedBalance('CachedPortfolioItemBalance' + item.address);
+        }
+    }
+
+    async getPortfolioItemBalance(item: PortfolioItem) : Promise<Balance> {
+        if (PortfolioItem.isBalance(item)) {
+            return new Balance(this.handler, BigNum.fromFloat(item.balance, this.handler.decimals), new BigNum("0"));
+        } else if (PortfolioItem.isAddress(item) && isOnlineCoinHanlder(this.handler)) {
+            let balance = await this.handler.getBalance(item.address)
+            this.setRawCachedBalance('CachedPortfolioItemBalance' + item.address, balance);
+            return balance;
+        }
+        return this.getZeroBalance();
+    }
+
     async getPortfolioTotal() : Promise<Balance> {
         let total = new Balance(
             this.handler,
@@ -65,14 +84,11 @@ export class Wallet {
 
         for (let i in this.portfolio) {
             let item = this.portfolio[i];
-            if (PortfolioItem.isBalance(item)) {
-                total.amount.add(BigNum.fromFloat(item.balance, this.handler.decimals))
-            } else if (PortfolioItem.isAddress(item) && isOnlineCoinHanlder(this.handler)) {
-                let itemBalance = await this.handler.getBalance(item.address)
-                total.amount = total.amount.add(itemBalance.amount)
-                total.unconfirmed = total.unconfirmed.add(itemBalance.unconfirmed)
-            }
+            let itemBalance = await this.getPortfolioItemBalance(item)
+            total.amount = total.amount.add(itemBalance.amount)
+            total.unconfirmed = total.unconfirmed.add(itemBalance.unconfirmed)
         }
+        this.setRawCachedBalance('CachedPortfolioTotal', total);
         return total;
     }
 

@@ -18,7 +18,6 @@ import {AmountInputWidget} from "./Widgets/AmountInputWidget";
 import {Widget} from "./Widgets/Widget";
 import {BigNum} from "./Core/BigNum";
 import {SliderInputWidget} from "./Widgets/SliderInputWidget";
-import {Strings} from "./Tools/Strings";
 import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
 
 export class App {
@@ -539,7 +538,7 @@ export class App {
     popupOfflineAssets(wallet: Wallet, idToUpdate: number = null) {
         document.getElementById('offlineAssets').innerHTML = '';
         for (var i = 0; i < wallet.portfolio.length; i ++) {
-            var item = new PortfolioItemWidget(wallet, i);
+            var item = new PortfolioItemWidget(this.engine, wallet, i);
             document.getElementById('offlineAssets').appendChild(item.element);
             item.onremove = this.removeOfflieAsset.bind(this)
             item.onreceive = this.receiveOfflineAsset.bind(this)
@@ -933,7 +932,7 @@ export class App {
 
     showExportKeysReminderIfRequired(callback: () => void) {
         if (this.engine.settings.get('keyBackedUp', false)) {
-            callback();
+            return callback();
         }
         var counter = this.engine.settings.get('keyBackedUpReminderCounter', 0);
         counter ++;
@@ -1036,6 +1035,7 @@ export class App {
     doExchange() {
         //TODO!!!!!
         var provider = this.engine.allExchangeProviders[this.exchangeProviderSelect.getValue()];
+
         var sellCoin = this.exchangeSellCoinSelect.getValue();
         var sellAmount = this.exchangeSellAmount.getValue();
         var buyCoin = this.exchangeBuyCoinSelect.getValue();
@@ -1045,6 +1045,8 @@ export class App {
 
         provider.createTransaction(sellCoin, buyCoin, sellAmount, this.engine.wallets[buyCoin].getReceiveAddress()).then(
             this.confirmAndSendTransaction.bind(this)
+        ).catch(
+            this.alertError.bind(this)
         );
 
 
@@ -1193,6 +1195,9 @@ export class App {
         }
         this.exchangeProviderSelect.setOptions(availableProviders, providerKey ? providerKey : null);
 
+
+
+
         /*this.exchangeSellAmount = new AmountInputWidget(function(value){
 
         });
@@ -1208,6 +1213,8 @@ export class App {
         console.log("SWITCHING PROVIDER:", providerKey);
         console.log(this.exchangeableCoinsCache);
         console.log(this.exchangeableCoinsCache[providerKey]);
+
+
         this.exchangeSetSellCoin(null);
         this.exchangeSetBuyCoin(null);
     }
@@ -1690,7 +1697,9 @@ export class App {
     }
 
     sendPaymendProceed(transaction: NewTransaction) {
-        /*
+
+        transaction.send();
+        /* TODO
                        app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee, app.afterSendCallback ? function(txid) {
                            app.alertInfo('sending payment notification to: ' + app.afterSendCallback);
                            var http = new XMLHttpRequest();

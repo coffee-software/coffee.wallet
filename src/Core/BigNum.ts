@@ -9,7 +9,7 @@ export class BigNum {
     words: number[];
     _bn: BN;
 
-    constructor(value: string | number, base: number = 10, decimals: number = 0) {
+    constructor(value: string | number, base: number = 10) {
         this._bn = new BN(value, base);
     }
 

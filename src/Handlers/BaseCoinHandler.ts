@@ -33,6 +33,60 @@ export interface NewTransaction {
   send() : Promise<string>
 }
 
+export class NewTransactionWrapper implements NewTransaction {
+  tx: NewTransaction
+  handler: OnlineCoinHandler;
+
+  constructor(tx: NewTransaction) {
+    this.tx = tx;
+    this.handler = tx.handler
+  }
+
+  getAmountDisplay(): string {
+    return this.tx.getAmountDisplay();
+  }
+
+  getBalanceAfter(): string {
+    return this.tx.getBalanceAfter();
+  }
+
+  getFeeDisplay(): string {
+    return this.tx.getFeeDisplay();
+  }
+
+  getFeeETA(): string {
+    return this.tx.getFeeETA();
+  }
+
+  getLeftIcon(): string {
+    return this.tx.getLeftIcon();
+  }
+
+  getLeftLabel(): string {
+    return this.tx.getLeftLabel();
+  }
+
+  getRecipientDisplay(): string {
+    return this.tx.getRecipientDisplay();
+  }
+
+  getRightIcon(): string {
+    return this.tx.getRightIcon();
+  }
+
+  getRightLabel(): string {
+    return this.tx.getRightLabel();
+  }
+
+  getSummary(): { [p: string]: string } {
+    return this.tx.getSummary();
+  }
+
+  async send(): Promise<string> {
+    return await this.tx.send()
+  }
+}
+
 export class Balance {
   handler: BaseCoinHandler
   amount: BigNum
@@ -60,7 +114,7 @@ export interface OnlineCoinHandler extends BaseCoinHandler {
       keychain: Keychain,
       receiverAddr : string,
       amount : BigNum,
-      fee: number,
+      fee?: number,
   ) : Promise<NewTransaction>
   getFeeOptions () : Promise<number[]>
   validateAddress(addr : string) : boolean
