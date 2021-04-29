@@ -1,4 +1,5 @@
 import {BaseCoinHandler} from "./BaseCoinHandler";
+import {Strings} from "../Tools/Strings";
 
 export class PortfolioOnlyHandler implements BaseCoinHandler {
 
@@ -23,11 +24,10 @@ export class PortfolioOnlyHandler implements BaseCoinHandler {
         this.name = name;
         this.icon = icon;
         this.description = description;
-        //TODO slug
         this.links = {
-            "CoinGecko" : "https://www.coingecko.com/en/coins/" + this.name,
-            "CoinMarketCap" : "https://coinmarketcap.com/currencies/" + this.name + "/",
-            "CoinPaprika" : "https://coinpaprika.com/coin/" + this.ticker + "-" + this.name + "/"
+            "CoinGecko" : "https://www.coingecko.com/en/coins/" + Strings.slugify(this.name),
+            "CoinMarketCap" : "https://coinmarketcap.com/currencies/" + Strings.slugify(this.name) + "/",
+            "CoinPaprika" : "https://coinpaprika.com/coin/" + Strings.slugify(this.ticker) + "-" + Strings.slugify(this.name) + "/"
         }
     }
 }

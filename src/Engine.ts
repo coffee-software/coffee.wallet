@@ -63,23 +63,19 @@ export class CacheWrapper {
     async getCached(
         key : string,
         lifetime : number,
-        getCallback : (callback:(value: any) => void) => void
+        resolver : () => Promise<any>
     ) : Promise<any> {
-        let cache = this.cache;
-        return new Promise(function (resolve, reject) {
-            var ret = cache.getItem('c_' + key);
-            var now = (+new Date()) / 1000;
-            var updated = cache.getItem('c_' + key + '_lastUpdate');
-            if ((ret == null) || (updated == null) || (now - updated > lifetime)) {
-                getCallback(function (value) {
-                    cache.setItem('c_' + key + '_lastUpdate', now);
-                    cache.setItem('c_' + key, JSON.stringify(value));
-                    resolve(value);
-                });
-            } else {
-                resolve(JSON.parse(ret));
-            }
-        });
+        var ret = this.cache.getItem('c_' + key);
+        var now = (+new Date()) / 1000;
+        var updated = this.cache.getItem('c_' + key + '_lastUpdate');
+        if ((ret == null) || (updated == null) || (now - updated > lifetime)) {
+            let ret = await resolver();
+            this.cache.setItem('c_' + key + '_lastUpdate', now);
+            this.cache.setItem('c_' + key, JSON.stringify(ret));
+            return ret;
+        } else {
+            return JSON.parse(ret);
+        }
     }
 }
 

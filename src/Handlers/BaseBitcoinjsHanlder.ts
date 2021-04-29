@@ -9,8 +9,8 @@ import {Https} from "../Core/Https";
 import {bech32} from "bech32";
 import {CoinAddressIcon} from "../Widgets/CoinAddressIcon";
 import {Strings} from "../Tools/Strings";
+import {QueuedProcessor} from "../Core/QueuedProcessor";
 
-var coininfo = require('coininfo');
 var base58 = require('bs58');
 
 class BtcTransaction implements NewTransaction {
@@ -61,7 +61,7 @@ class BtcTransaction implements NewTransaction {
                 hash: string
             }
         }
-        let response = <PushResponse>await BaseBitcoinjsHanlder.web.post(
+        let response = <PushResponse>await this.handler.web.post(
             this.handler.webapiHost,
             this.handler.webapiPath + '/txs/push',
             {
@@ -93,49 +93,24 @@ class BtcTransaction implements NewTransaction {
 
 class WebRequestsQueuedProcessor {
 
-    //pause: Promise<void>;
+    processor: QueuedProcessor;
+    cache: CacheWrapper;
 
-    constructor() {
-        console.log("CONSTRUCTING");
-        //this.pause = new Promise(resolve => setTimeout(resolve, 0));
+    constructor(processor: QueuedProcessor, cache: CacheWrapper) {
+        this.cache = cache
+        this.processor = processor
     }
 
-    queue: Promise<any>[] = [];
-
-    async wait(): Promise<void> {
-        /*this.rt = Date.now();
-
-
-        let clone = this.pause;
-        this.pause = new Promise(resolve => setTimeout(function() {
-            console.log("TIMOUT ENDED");
-            resolve();
-        }, 1000));
-
-        await new Promise(resolve => function() {
-            this.queue.push(resolve);
-        }.bind(this));
-
-        await clone;
-        console.log('will sleep for ', 1000);*/
+    async getCached(host: string, path: string, lifetime:number): Promise<object> {
+        return await this.processor.process(() => this.cache.getCached(host + path, lifetime, () => Https.makeJsonRequest(host, path)));
     }
 
     async get(host: string, path: string): Promise<object> {
-        Promise.all(this.queue);
-        this.queue = [];
-        //await this.wait();
-        var currentDate2 = '[' + new Date().toLocaleTimeString() + '] ';
-        console.log("QUEUE DONE", currentDate2, host);
-        let pro = Https.makeJsonRequest(host, path);
-        this.queue.push(pro);
-        let ret = await pro;
-        this.queue.push(new Promise(resolve => setTimeout(resolve, 1000)));
-        return ret;
+        return await this.processor.process(() => Https.makeJsonRequest(host, path));
     }
 
     async post(host: string, path: string, body: object): Promise<object> {
-        await this.wait();
-        return await Https.makeJsonRequest(host, path, body);
+        return await this.processor.process(() => Https.makeJsonRequest(host, path, body));
     }
 }
 
@@ -169,13 +144,15 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
     log: LogInterface
     cache: CacheWrapper
+    web : WebRequestsQueuedProcessor
 
     constructor(log: LogInterface, cache: CacheWrapper) {
         this.log = log
         this.cache = cache
+        this.web = new WebRequestsQueuedProcessor(BaseBitcoinjsHanlder.processor, cache);
     }
 
-    static web : WebRequestsQueuedProcessor = new WebRequestsQueuedProcessor();
+    static processor = new QueuedProcessor(500);
 
     async getBalance(addr: string): Promise<Balance> {
         interface BalanceResponse {
@@ -183,7 +160,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             unconfirmed_balance: number
             final_balance: number
         }
-        let response = <BalanceResponse>await BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath + '/addrs/' + addr + '/balance');
+        let response = <BalanceResponse>await this.web.get(this.webapiHost, this.webapiPath + '/addrs/' + addr + '/balance');
         return new Balance(this, new BigNum(response.balance), new BigNum(response.unconfirmed_balance));
     }
 
@@ -223,7 +200,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             medium_fee_per_kb: number
             low_fee_per_kb: number
         }
-        let response = <RootResponse>await BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath);
+        let response = <RootResponse>await this.web.get(this.webapiHost, this.webapiPath);
         return response.medium_fee_per_kb;
     }
 
@@ -234,7 +211,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             medium_fee_per_kb: number
             low_fee_per_kb: number
         }
-        let response = <RootResponse>await BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath);
+        let response = <RootResponse>await this.web.get(this.webapiHost, this.webapiPath);
         return [
             response.low_fee_per_kb,
             Math.floor((response.low_fee_per_kb + response.medium_fee_per_kb) / 2 ),
@@ -248,7 +225,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         interface TxResponse {
             hex: string
         }
-        let response = <TxResponse>await BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath + '/txs/' + tx_hash + '?includeHex=true');
+        let response = <TxResponse>await this.web.getCached(this.webapiHost, this.webapiPath + '/txs/' + tx_hash + '?includeHex=true', 60 * 24);
         return response.hex;
     }
 
@@ -264,7 +241,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             unconfirmed_txrefs?: TxrefResponse[]
         }
         //TODO set RBF : &confirmations=1
-        let response = <UtxosResponse>await BaseBitcoinjsHanlder.web.get(this.webapiHost, this.webapiPath + '/addrs/' + address + '?unspentOnly=true&includeScript=true');
+        let response = <UtxosResponse>await this.web.get(this.webapiHost, this.webapiPath + '/addrs/' + address + '?unspentOnly=true&includeScript=true');
 
         let ret : BitcoinUtxo[] = [];
 

@@ -19,6 +19,7 @@ import {Widget} from "./Widgets/Widget";
 import {BigNum} from "./Core/BigNum";
 import {SliderInputWidget} from "./Widgets/SliderInputWidget";
 import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
+import {Strings} from "./Tools/Strings";
 
 export class App {
 
@@ -326,8 +327,8 @@ export class App {
         document.getElementById('coinInfoButtons').innerHTML = '';
 
         if (wallet.isOnline()) {
-            document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('receive', 'receive', this.popupReceivePayment.bind(this, wallet)));
-            document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('send', 'send', this.popupSendPayment.bind(this, wallet)));
+            document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('receive', 'receive', this.popupReceivePayment.bind(this, wallet, null)));
+            document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('send', 'send', this.popupSendPayment.bind(this, wallet, null)));
         }
         document.getElementById('coinInfoButtons').appendChild(wallet.isOnline() ? walletWidget.refreshButton2 : ListItemWidget.createButton('refresh', 'refresh', null));
         document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('list', 'portfolio', this.popupOfflineAssets.bind(this, wallet, null)));
@@ -1981,7 +1982,7 @@ export class App {
 
     updateReceivePaymentCode(value: number) {
 
-        var code = this.receivingWallet.handler.name + ':' + this.receivingAddress;
+        var code = Strings.slugify(this.receivingWallet.handler.name) + ':' + this.receivingAddress;
         document.getElementById('setAmountLabel').innerHTML = 'set amount';
         if (value) {
             code = code + '?amount=' + value.toFixed(this.receivingWallet.handler.decimals);
