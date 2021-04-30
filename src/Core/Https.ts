@@ -28,7 +28,7 @@ export class Https {
                         resolve(JSON.parse(str));
                     });
                 } else {
-                    reject();
+                    reject(new Error('http error ' + response.statusCode));
                 }
             });
 

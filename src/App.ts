@@ -20,6 +20,7 @@ import {BigNum} from "./Core/BigNum";
 import {SliderInputWidget} from "./Widgets/SliderInputWidget";
 import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
 import {Strings} from "./Tools/Strings";
+import {PaymentURI} from "./Tools/PaymentURI";
 
 export class App {
 
@@ -822,7 +823,7 @@ export class App {
             this.handleReceiveMessage(parts[2], parts[3], callback);
         } else {
             //ignore callback not to show airdrop info on url open different than receive via msg.
-            this._parseTransactionText(url, this.handleAnyQRCode.bind(this));
+            this._parseTransactionText(url, this.handlePaymentURI.bind(this));
         }*/
     }
 
@@ -1414,143 +1415,80 @@ export class App {
         );
         this.updatePricesFromProvider();
     }
-    /*
-    handleAnyQRCode(address: string, args: {coinCode:string, escrowPrivateKey?:string}) {
 
-        if ('escrowPrivateKey' in args) {
-            return this.handleReceiveMessage(args.coinCode, args.escrowPrivateKey);
+    handlePaymentURI(uri: PaymentURI) {
+
+        if ('escrowPrivateKey' in uri.args) {
+            return this.handleReceiveMessage(uri.args.coinCode, uri.args.escrowPrivateKey, null);
         }
 
-        if (!args.coin && args.coinCode && (args.coinCode in allCoinApis)) {
-            args.coin = allCoinApis[args.coinCode].name;
+        if (!uri.args.coin && uri.args.coinCode && (uri.args.coinCode in this.engine.allCoinHandlers)) {
+            uri.args.coin = Strings.slugify(this.engine.allCoinHandlers[uri.args.coinCode].name);
         }
-        if (!args.coin) {
-            this.alertError('unknown code');
+        if (!uri.args.coin) {
+            this.alertError('unknown coin');
             return;
         }
 
-        this.alertInfo('detected ' + args.coin + ' address');
-        for (var key in this.wallets) {
-            if (this.wallets[key].handler.name == args.coin) {
-                if ('sendPayment' in this.wallets[key].handler) {
-                    var afterSendCallback = ('callback' in args ? args['callback'] : null);
-                    this.popupSendPayment(this.wallets[key], this.wallets[key].data.systemBalance, afterSendCallback);
-                    this.pasteToSendForm(addr, args);
+        this.alertInfo('detected ' + uri.args.coin + ' address');
+        for (var key in this.walletsWidgets) {
+            if (Strings.slugify(this.walletsWidgets[key].wallet.handler.name) == uri.args.coin) {
+                if (this.walletsWidgets[key].wallet.isOnline()) {
+                    this.popupSendPayment(this.walletsWidgets[key].wallet, null);
+                    this.pasteToSendForm(uri);
                 } else {
-                    this.alertError('coin ' + args.coin + ' is not yet supported');
+                    this.alertError(uri.args.coin + ' payemnts are not yet supported');
                 }
                 return;
             }
         }
-        this.alertInfo('coin ' + args.coin + ' is not in your active wallets or is unknown');
+        this.alertInfo(uri.args.coin + ' is not in your active wallets or is unknown');
     }
 
-    pasteToSendForm(addr, args) {
-        if (args.coin) {
-            if (this.sendWallet.handler.name != args.coin) {
-                this.alertInfo('Warning: This seems like a ' + args.coin + ' address but you are sending ' + this.sendWallet.handler.name + '!');
+    pasteToSendForm(uri: PaymentURI) {
+        // TODO:
+        // var afterSendCallback = ('callback' in args ? args['callback'] : null);
+
+        if (uri.args.coin) {
+            if (Strings.slugify(this.sendWallet.handler.name) != uri.args.coin) {
+                this.alertInfo('Warning: This seems like a ' + uri.args.coin + ' address but you are sending ' + this.sendWallet.handler.name + '!');
             }
         }
-        document.getElementById('sendCoinAddr').value = addr;
-        app.validateAddr('sendCoinAddr');
+        this.sendAddressInputWidget.setValue(uri.address)
+        this.sendAddressInputWidget.validate()
 
-        if ('amount' in args && args.amount){
-            document.getElementById('sendCoinAmount').value = parseFloat(args.amount);
-            app.coinUpdateValue('sendCoin', app.sendWallet.handler);
-            app.sendCoinValidateAmount('sendCoin');
+        if ('amount' in uri.args && uri.args.amount){
+            this.sendAmountInputWidget.setValue(uri.args.amount)
+            this.sendAmountInputWidget.validate()
         }
     }
 
-    _parseTransactionText(text, callback) {
-        if (text.startsWith('coffee:')) {
-            var parts = text.split('/');
-
-            if (parts.length == 4 && parts[1] == '' && parts[0] == 'coffee:' && !parts[3].startsWith('?')) {
-                return callback(null, {
-                    coinCode : parts[2],
-                    escrowPrivateKey : parts[3]
-                });
-            } else if (parts.length == 4 && parts[1] == '' && parts[0] == 'coffee:') {
-                text = parts[2] + parts[3];
-            } else if (parts.length == 3 && parts[1] == '' && parts[0] == 'coffee:') {
-                text = parts[2];
-            } else {
-                app.alertError('unknown url format: ' + text);
-                return;
-            }
-        }
-
-        //check if text is a plain address or transaction info:
-        //https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki#Simpler syntax
-        var a = text.split('?', 2);
-        var argsStr = (a.length > 1) ? a[1] : '';
-        var addr = a[0];
-
-        var args = {};
-
-        var b = addr.split(':', 2);
-        if (b.length >1) {
-            args.coin = b[0];
-            addr = b[1];
-        }
-
-        argsStr.split('&').forEach(function(e){
-            var kp = e.split('=', 2);
-            if (kp.length>1) args[kp[0]] = decodeURIComponent(kp[1]);
-        });
-        if ('r' in args) {
-            app.alertInfo('BIP72 address found. quering for payment details...');
-
-            var oReq = new XMLHttpRequest();
-            oReq.open("GET", args.r);
-            oReq.addEventListener("load", function(){
-                var paymentRequest = JSON.parse(this.responseText);
-                //console.log(paymentRequest);
-                var coin = 'unknown';
-                if (paymentRequest.currency == 'BTC' && paymentRequest.network == 'main') coin = 'bitcoin';
-                if (paymentRequest.currency == 'BTC' && paymentRequest.network == 'test') coin = 'bitcoin-test';
-                if (paymentRequest.currency == 'BCH' && paymentRequest.network == 'main') coin = 'bitcoin-cash';
-
-                if (paymentRequest.outputs.length != 1) {
-                    app.alertError('payment requests with multiple outputs are not supported. sorry.');
-                } else {
-                    callback(paymentRequest.outputs[0].address, {'coin': coin, 'amount': paymentRequest.outputs[0].amount / 100000000});
-                }
-            });
-            oReq.setRequestHeader('Accept', 'application/payment-request');
-            //oReq.setRequestHeader('Accept', 'application/bitcoin-paymentrequest');
-            oReq.send();
-        } else {
-            callback(addr, args);
-        }
-    }
     pasteAnyClipboard() {
-        this.pasteClipboard(this.handleAnyQRCode.bind(this));
+        this.pasteClipboard(this.handlePaymentURI.bind(this));
     }
     scanAnyQrCode() {
-        this.scanQrCode(this.handleAnyQRCode.bind(this));
+        this.scanQrCode(this.handlePaymentURI.bind(this));
     }
 
-    pasteClipboard(callback) {
+    pasteClipboard(callback: (uri: PaymentURI) => void) {
         var that = this;
         OsPlugins.pasteFromClipboard(function(text){
-            that._parseTransactionText(text, callback);
+            PaymentURI.fromString(text).then(callback);
         });
     }
 
-    scanQrCode(callback) {
+    scanQrCode(callback: (uri: PaymentURI) => void) {
         OsPlugins.scanQRCode(
-            function (result) {
-                if (!result.canceled) {
-                    app._parseTransactionText(result.text, callback);
-                }
+            function (result: string) {
+                PaymentURI.fromString(result).then(callback);
             },
             function (error:string) {
-                app.alertError("QR scan failed: " + error);
-            }
+                this.alertError("QR scan failed: " + error);
+            }.bind(this)
         );
     }
 
+    /*
     pasteToField(field: string, addr: string, args: any) {
         (document.getElementById(field) as HTMLInputElement).value = addr;
     }

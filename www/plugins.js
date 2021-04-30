@@ -42,7 +42,11 @@ const __OS_PLUGINS__ = {
         error('Scanning not yet supported in PWA');
     } else {
         cordova.plugins.barcodeScanner.scan(
-            success,
+            function (result) {
+                if (!result.canceled) {
+                    success(result.text);
+                }
+            },
             error,
             {
                 preferFrontCamera : false, // iOS and Android
