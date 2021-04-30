@@ -111,8 +111,15 @@ const __OS_PLUGINS__ = {
   },
 
     pasteFromClipboard: function(callback) {
-      //TODO fix PWA
-        cordova.plugins.clipboard.paste(callback);
+        if (device.platform == 'browser') {
+            navigator.clipboard.readText()
+                .then(callback)
+                .catch(err => {
+                    throw new Error('Failed to read clipboard contents');
+                });
+        } else {
+            cordova.plugins.clipboard.paste(callback);
+        }
     },
 
   browserCheckPersisted: function() {
