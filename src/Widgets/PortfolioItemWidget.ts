@@ -77,6 +77,10 @@ export class PortfolioItemWidget extends ListItemWidget {
 
     private refreshLock : boolean = false;
     refreshBalance() {
+        if (!this.wallet.isOnline() || !PortfolioItem.isAddress(this.item)) {
+            return false;
+        }
+
         if (this.refreshLock) {
             return false;
         }
