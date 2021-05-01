@@ -17,7 +17,7 @@ import {CoinMarketCapProvider} from "./PriceProviders/CoinMarketCapProvider";
 import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
 import {UniswapProdProvider, UniswapTestProvider} from "./ExchangeProviders/UniswapProvider";
 import {ChangellyProvider} from "./ExchangeProviders/ChangellyProvider";
-import {ChangeNowProvider} from "./ExchangeProviders/ExchangeNowProvider";
+import {ChangeNowProvider} from "./ExchangeProviders/ChangeNowProvider";
 
 export interface StorageInterface {
     setItem(

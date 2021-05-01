@@ -3,6 +3,13 @@ import * as https from 'https';
 
 export class Https {
 
+    static encodeQueryData(args: {[key:string]: string}) {
+        const ret = [];
+        for (let d in args)
+            ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(args[d]));
+        return ret.join('&');
+    }
+
     static makeJsonRequest(host: string, path: string, body?: object|string, extraHeaders: { [code: string] : string } = null): Promise<any> {
         return new Promise(function (resolve, reject) {
             //console.log(new Date().getTime() + ": REQUEST " + 'https://' + host + path);

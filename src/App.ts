@@ -1092,92 +1092,6 @@ export class App {
         );*/
     }
 
-    /*
-    updateExchange: function(force) {
-        var provider = allExchangeProviders[app.exchangeProviderSelect.getValue()];
-        if ((provider.key != app.lastExchangeProvider) || ((typeof force != 'undefined') && force)) {
-            document.getElementById("exchangeShortDescription").innerHTML = provider.shortDescription;
-            document.getElementById("exchangeLink").innerHTML = '<a href="#" onclick="OsPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a>';
-            document.getElementById("exchangeIcon").src = 'img/exchanges/' + provider.key + '.png';
-
-            (new Select(document.getElementById("exchangeSellCoin"))).setOptions({}, null);
-            (new Select(document.getElementById("exchangeBuyCoin"))).setOptions({}, null);
-            app.lastExchangeProvider = provider.key;
-            app.getExchangeableCoins(provider, function(currencies){
-                var available = {'':{'name': '- please select -'}};
-                for (var i in currencies) {
-                    if (currencies[i] in app.wallets) {
-                        available[currencies[i]] = {'name': currencies[i]};
-                    }
-                }
-                (new Select(document.getElementById("exchangeSellCoin"))).setOptions(available, sellCoin);
-                (new Select(document.getElementById("exchangeBuyCoin"))).setOptions(available, buyCoin);
-                app.updateExchange();
-            });
-        }
-
-        var sellCoin = document.getElementById("exchangeSellCoin").value;
-        var sellAmmount = document.getElementById("exchangeSellAmmount").value;
-        var buyCoin = document.getElementById("exchangeBuyCoin").value;
-
-        var fee = null;
-
-        if (sellCoin) {
-            var feeCacheKey = provider.key + sellCoin;
-            if (feeCacheKey in app.exchangeDefaultFees) {
-                fee = app.exchangeDefaultFees[feeCacheKey];
-                document.getElementById("exchangeSellFee").innerHTML = provider.getFeeDisplay(sellCoin, fee);
-            } else {
-                document.getElementById("exchangeSellFee").innerHTML = 'pending...';
-                provider.getFeeEstimate(sellCoin, function(fee){
-                    app.exchangeDefaultFees[feeCacheKey] = fee;
-                    app.updateExchange();
-                });
-            }
-            //TODO system value
-            var maxSell = app.wallets[sellCoin].data.balance - (fee === null ? 0 : app.engine.wallets[sellCoin].handler.estimateFeeFloat(fee));
-            document.getElementById("exchangeSellMax").textContent = maxSell > 0 ? maxSell : 0;
-            document.getElementById("exchangeSellValue").innerHTML = app.engine.priceProvider.convert(sellAmmount, app.engine.wallets[sellCoin]);
-        } else {
-            document.getElementById("exchangeSellMax").textContent = '';
-            document.getElementById("exchangeSellValue").textContent = '';
-            document.getElementById("exchangeSellFee").textContent = '';
-        }
-
-        var goodPair = sellCoin && buyCoin && (sellCoin != buyCoin);
-        if (goodPair) {
-            var minKey = sellCoin + '#' + buyCoin;
-            if (minKey in app.exchangeMinAmmounts[provider.key]) {
-                document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[provider.key][minKey];
-            } else {
-                document.getElementById("exchangeSellMin").textContent = '';
-                provider.getMinAmount(sellCoin, buyCoin, function(ret){
-                    app.exchangeMinAmmounts[provider.key][minKey] = ret;
-                    document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[provider.key][minKey];
-                });
-            }
-        } else {
-            document.getElementById("exchangeSellMin").textContent = '';
-        }
-
-        if (goodPair && (sellAmmount > 0)) {
-            provider.estimateExchangeAmount(
-                sellCoin,
-                buyCoin,
-                parseFloat(sellAmmount),
-                function(ret){
-                    document.getElementById("exchangeBuyAmmount").value = ret;
-                    document.getElementById("exchangeBuyValue").innerHTML = app.engine.priceProvider.convert(ret, app.engine.wallets[buyCoin]);
-                }
-            );
-        } else {
-            document.getElementById("exchangeBuyAmmount").value = 0;
-            document.getElementById("exchangeBuyValue").textContent = '';
-        }
-        document.getElementById("exchangeButton").disabled = !(goodPair && (sellAmmount > 0) && (fee !== null));
-    },
-    */
-
     popupExchange(providerKey: string, sellCoinCode: string, buyCoinCode: string) {
 
         this.exchangeProviderSelect = new SelectWidget(this.exchangeSetProvider.bind(this));
@@ -1197,26 +1111,28 @@ export class App {
         }
         this.exchangeProviderSelect.setOptions(availableProviders, providerKey ? providerKey : null);
 
-
-
-
         /*this.exchangeSellAmount = new AmountInputWidget(function(value){
-
         });
         this.setWidget('exchangeProvider', this.exchangeProviderSelect);*/
 
         /*document.getElementById("exchangeSellAmmount").value = 0;*/
         this.openPopup('exchangePopup', 'Exchange');
-        this.exchangeSetProvider(providerKey);
+        this.exchangeSetProvider(this.exchangeProviderSelect.getValue());
         //app.settings.set('airdropTaskExchange', true);
     }
 
     exchangeSetProvider(providerKey: string) {
         console.log("SWITCHING PROVIDER:", providerKey);
         console.log(this.exchangeableCoinsCache);
-        console.log(this.exchangeableCoinsCache[providerKey]);
+        let provider = this.engine.allExchangeProviders[providerKey];
+        document.getElementById("exchangeShortDescription").innerHTML = provider.shortDescription;
+        document.getElementById("exchangeLink").innerHTML = '<a href="#" onclick="OsPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a>';
+        (document.getElementById("exchangeIcon") as HTMLImageElement).src = 'img/exchanges/' + provider.key + '.png';
 
-
+        this.exchangeBuyCoinSelect = new SelectWidget(this.exchangeSetBuyCoin.bind(this), true);
+        this.setWidget('exchangeBuyCoin', this.exchangeBuyCoinSelect);
+        this.exchangeSellCoinSelect = new SelectWidget(this.exchangeSetSellCoin.bind(this), true);
+        this.setWidget('exchangeSellCoin', this.exchangeSellCoinSelect);
         this.exchangeSetSellCoin(null);
         this.exchangeSetBuyCoin(null);
     }
@@ -1224,34 +1140,114 @@ export class App {
     exchangeSetSellCoin(sellCoin: string) {
         console.log("SWITCHING SELL COIN:", sellCoin);
         let providerKey = this.exchangeProviderSelect.getValue()
-        let currentBuyCoin = this.exchangeBuyCoinSelect ? this.exchangeBuyCoinSelect.getValue() : null;
-        this.exchangeBuyCoinSelect = new SelectWidget(this.exchangeSetBuyCoin.bind(this), true);
-        this.setWidget('exchangeBuyCoin', this.exchangeBuyCoinSelect);
+        let currentBuyCoin = this.exchangeBuyCoinSelect.getValue();
         let options = this.exchangeableCoinsCache[providerKey].slice();
-        options.splice( options.indexOf(sellCoin),1)
-        this.exchangeBuyCoinSelect.setOptions(options, currentBuyCoin);
-
-        //
-        if (sellCoin in this.engine.allCoinHandlers) {
-            this.exchangeSellAmount = new AmountInputWidget(this.engine.allCoinHandlers[sellCoin], this.engine.priceProvider);
-            this.setWidget('exchangeSellAmount', this.exchangeSellAmount);
+        if (sellCoin) {
+            options.splice(options.indexOf(sellCoin), 1)
         }
+        this.exchangeBuyCoinSelect.setOptions(options, currentBuyCoin);
+        this.updateExchangeCoins();
     }
 
     exchangeSetBuyCoin(buyCoin: string|null) {
         console.log("SWITCHING BUY COIN:", buyCoin);
         let providerKey = this.exchangeProviderSelect.getValue()
-        let currentSellCoin = this.exchangeSellCoinSelect ? this.exchangeSellCoinSelect.getValue() : null;
-        this.exchangeSellCoinSelect = new SelectWidget(this.exchangeSetSellCoin.bind(this), true);
-        this.setWidget('exchangeSellCoin', this.exchangeSellCoinSelect);
+        let currentSellCoin = this.exchangeSellCoinSelect.getValue();
         let options = this.exchangeableCoinsCache[providerKey].slice();
-        options.splice( options.indexOf(buyCoin),1)
+        if (buyCoin) {
+            options.splice( options.indexOf(buyCoin),1);
+        }
         this.exchangeSellCoinSelect.setOptions(options, currentSellCoin);
+        this.updateExchangeCoins();
+    }
 
-        if (buyCoin in this.engine.allCoinHandlers) {
+    updateExchangeCoins() {
+        console.log("UPDATEING EXCHANGE:");
+        let providerKey = this.exchangeProviderSelect.getValue()
+        let provider = this.engine.allExchangeProviders[providerKey];
+        let sellCoin = this.exchangeSellCoinSelect.getValue()
+        let buyCoin = this.exchangeBuyCoinSelect.getValue()
+
+        if (buyCoin && sellCoin) {
+            this.exchangeSellAmount = new AmountInputWidget(this.engine.allCoinHandlers[sellCoin], this.engine.priceProvider);
+            this.setWidget('exchangeSellAmount', this.exchangeSellAmount);
+
             this.exchangeBuyAmount = new AmountInputWidget(this.engine.allCoinHandlers[buyCoin], this.engine.priceProvider);
             this.setWidget('exchangeBuyAmount', this.exchangeBuyAmount);
+
+            this.exchangeSellAmount.onchange = this.updateExchangeAmount.bind(this)
+
+            document.getElementById("exchangeSellMin").textContent = '';
+            provider.getMinAmount(sellCoin, buyCoin).then(function(value){
+                document.getElementById("exchangeSellMin").textContent = value.toString();
+            })
+
+        } else {
+            document.getElementById("exchangeBuyAmount").innerHTML = '';
+            document.getElementById("exchangeSellAmount").innerHTML = '';
         }
+        /*
+        var sellAmmount = document.getElementById("exchangeSellAmmount").value;
+
+        var fee = null;
+
+        if (sellCoin) {
+            var feeCacheKey = provider.key + sellCoin;
+            if (feeCacheKey in app.exchangeDefaultFees) {
+                fee = app.exchangeDefaultFees[feeCacheKey];
+            } else {
+                provider.getFeeEstimate(sellCoin, function(fee){
+                    app.exchangeDefaultFees[feeCacheKey] = fee;
+                    app.updateExchange();
+                });
+            }
+            //TODO system value
+            var maxSell = app.wallets[sellCoin].data.balance - (fee === null ? 0 : app.engine.wallets[sellCoin].handler.estimateFeeFloat(fee));
+            document.getElementById("exchangeSellMax").textContent = maxSell > 0 ? maxSell : 0;
+            document.getElementById("exchangeSellValue").innerHTML = app.engine.priceProvider.convert(sellAmmount, app.engine.wallets[sellCoin]);
+        } else {
+            document.getElementById("exchangeSellMax").textContent = '';
+            document.getElementById("exchangeSellValue").textContent = '';
+        }
+
+        var goodPair = sellCoin && buyCoin && (sellCoin != buyCoin);
+        if (goodPair) {
+            var minKey = sellCoin + '#' + buyCoin;
+            if (minKey in app.exchangeMinAmmounts[provider.key]) {
+                document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[provider.key][minKey];
+            } else {
+                document.getElementById("exchangeSellMin").textContent = '';
+                provider.getMinAmount(sellCoin, buyCoin, function(ret){
+                    app.exchangeMinAmmounts[provider.key][minKey] = ret;
+                    document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[provider.key][minKey];
+                });
+            }
+        } else {
+            document.getElementById("exchangeSellMin").textContent = '';
+        }
+
+        if (goodPair && (sellAmmount > 0)) {
+        } else {
+            document.getElementById("exchangeBuyAmmount").value = 0;
+            document.getElementById("exchangeBuyValue").textContent = '';
+        }
+        document.getElementById("exchangeButton").disabled = !(goodPair && (sellAmmount > 0) && (fee !== null));
+        */
+    }
+
+    updateExchangeAmount(value: number) {
+        console.log("UPDATE");
+        let providerKey = this.exchangeProviderSelect.getValue()
+        let provider = this.engine.allExchangeProviders[providerKey];
+        let sellCoin = this.exchangeSellCoinSelect.getValue()
+        let buyCoin = this.exchangeBuyCoinSelect.getValue()
+        console.log(value);
+
+        provider.estimateExchangeAmount(sellCoin, buyCoin, value).then(
+            function(ret: number){
+                this.exchangeBuyAmount.setValue(ret);
+            }.bind(this)
+        );
     }
 
     cancelSentViaMessage(coin: string, pk: string) {
@@ -1635,9 +1631,13 @@ export class App {
         }*/
     }
 
-    sendPaymendProceed(transaction: NewTransaction) {
+    sendTransactionProceed(transaction: NewTransaction) {
 
-        transaction.send();
+        transaction.send().then(function(txid) {
+                //app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
+                //this.alertSuccess('transaction' + );
+        });
+
         /* TODO
                        app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee, app.afterSendCallback ? function(txid) {
                            app.alertInfo('sending payment notification to: ' + app.afterSendCallback);
@@ -1677,32 +1677,13 @@ export class App {
         for (var label in summary) {
             tableContent += '<tr><th colspan="2">' + label + ':</th></tr><tr><td colspan="2">' + summary[label] + '</td></tr>';
         }
-        /*
-        var coin = this.sendWallet.handler.ticker;
-        var fee = this.sendFeeInputWidget.getValue();
-        var addr = document.getElementById('sendCoinAddr').value;
-
-        var systemAmount = 0;
-        if (app.sendForceTotal) {
-            if ('feeCoin' in app.sendWallet.handler) {
-                systemAmount = app.sendForceTotal;
-            } else {
-                systemAmount = app.sendWallet.handler.systemValuesDiff(app.sendForceTotal, app.sendWallet.handler.getFeeTotalCost(fee));
-            }
-        } else {
-            systemAmount = app.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
-        }
-        var floatAmount = app.sendWallet.handler.systemValueToFloatValue(systemAmount);
-        var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(systemAmount);
-        */
-        //app.engine.priceProvider.convert(floatAmount, this.sendWallet.handler) +
         this.authenticateBeforeContinue(
             '<table class="transactionSummary">' +
             '<tr class="first"><td>' + transaction.getLeftIcon() + '</td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td>' +  transaction.getRightIcon() + '</td></tr>' +
             '<tr class="second"><td>' + transaction.getLeftLabel() + '</td><td></td><td>' + transaction.getRightLabel() + '</td></tr>' +
             '</table>',
             '<table class="niceTable">' + tableContent + '</table>',
-            this.sendPaymendProceed.bind(this, transaction)
+            this.sendTransactionProceed.bind(this, transaction)
         );
     }
 

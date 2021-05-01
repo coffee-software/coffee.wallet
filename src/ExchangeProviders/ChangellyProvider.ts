@@ -26,6 +26,7 @@ class ChangellyTransactionWrapper extends NewTransactionWrapper {
         return ret;
     }
 }
+
 type ChangellyTransactionResponse = {
     id: string
     amountExpectedFrom: number
@@ -39,6 +40,7 @@ type ChangellyTransactionResponse = {
     createdAt: string
     kycRequired: boolean
 }
+
 export class ChangellyProvider extends BaseExchangeProvider {
 
     key = "changelly"
@@ -81,24 +83,24 @@ export class ChangellyProvider extends BaseExchangeProvider {
     }
 
     async getMinAmount(from: string, to: string) : Promise<number> {
-        return await this.callApi(
+        return parseFloat(await this.callApi(
             "getMinAmount",
             {
                 "from": from.toLowerCase(),
                 "to": to.toLowerCase()
             }
-        );
+        ));
     }
 
     async estimateExchangeAmount(from: string, to: string, amount: number) : Promise<number> {
-        return await this.callApi(
+        return parseFloat(await this.callApi(
             "getExchangeAmount",
             {
                 "from": from.toLowerCase(),
                 "to": to.toLowerCase(),
                 "amount": amount
             }
-        );
+        ));
     }
 
     async createTransaction(from: string, to: string, amount: number, returnTo: string) : Promise<NewTransaction> {

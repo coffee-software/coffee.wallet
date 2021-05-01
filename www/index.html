@@ -197,12 +197,10 @@
                 sell coin:
                 <div id="exchangeSellCoin"></div>
                 sell ammount
-                (min: <a id="exchangeSellMin" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>,
-                max: <a id="exchangeSellMax" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>):
-
+                (min: <a id="exchangeSellMin" href="#" onclick="app.exchangeSellAmount.setValue(parseFloat(this.textContent));"></a>
+                <!--max: <a id="exchangeSellMax" href="#" onclick="app.exchangeSellAmount.setValue(parseFloat(this.textContent));"></a>-->)
                 <div id="exchangeSellAmount"></div>
-
-                (+ <span id="exchangeSellFee"></span> network fee)
+                (+ transaction network fee)
               </div>
               <div class="stitch"></div>
               <div class="section">

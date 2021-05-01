@@ -15,7 +15,8 @@ export class Version {
                 'switch web3 to ethersjs for smaller app size',
                 'confirm window after backing up mnemonic',
                 'fix paste clipboard on PWA',
-                'update changelly flow and add refundAddress and KYC warning'
+                'update changelly flow and KYC warning',
+                'add refundAddress to Changelly and ChangeNOW api'
             ]
         },
         {
