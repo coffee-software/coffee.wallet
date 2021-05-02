@@ -1,5 +1,5 @@
 import { ethers } from "ethers"
-import {Balance, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
+import {Balance, BaseCoinHandler, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
 import {BigNum} from "../Core/BigNum";
 import {Keychain} from "../Keychain";
 import {JsonRpcProvider} from "@ethersproject/providers/src.ts/json-rpc-provider";
@@ -12,18 +12,16 @@ import {Config} from "../../src/Config";
 import {CoinAddressIcon} from "../Widgets/CoinAddressIcon";
 import {Strings} from "../Tools/Strings";
 
-class EthTransaction implements NewTransaction {
+export class EthTransaction implements NewTransaction {
     handler: BaseEthersHanlder
     data : TransactionRequest
     signed: string
-    receiverAddr: string
     amount: BigNum
 
-    constructor(handler: BaseEthersHanlder, data : TransactionRequest, signed: string, receiverAddr: string, amount: BigNum) {
+    constructor(handler: BaseEthersHanlder, data : TransactionRequest, signed: string, amount: BigNum) {
         this.data = data
         this.handler = handler
         this.signed = signed
-        this.receiverAddr = receiverAddr
         this.amount = amount
     }
 
@@ -32,7 +30,7 @@ class EthTransaction implements NewTransaction {
     }
 
     getRecipientDisplay() : string {
-        return this.receiverAddr;
+        return this.data.to;
     }
 
     getBalanceAfter(): string {
@@ -54,7 +52,7 @@ class EthTransaction implements NewTransaction {
 
     getSummary(): { [code: string] : string } {
         return {
-            "recipient": this.receiverAddr,
+            "recipient": this.data.to,
             "amount": this.amount.toString(10),
             "value": this.amount.toFloat(this.handler.decimals).toString(),
             "fee" : this.getFeeDisplay(),
@@ -64,6 +62,8 @@ class EthTransaction implements NewTransaction {
 
     async send(): Promise<string> {
         var response = await this.handler.getProvider().sendTransaction(this.signed);
+        BaseEthersHanlder.nonceCache[this.data.from] ++;
+
         return response.hash;
     }
 
@@ -190,17 +190,33 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         };
     }
 
-    async prepareTransaction(keychain: Keychain, receiverAddr: string, amount: BigNum, fee: number): Promise<NewTransaction> {
+    static nonceCache : {[key: string] : number} = {}
+
+    async getNonce(address: string): Promise<number> {
+        if (!(address in BaseEthersHanlder.nonceCache)) {
+            BaseEthersHanlder.nonceCache[address] = await this.getProvider().getTransactionCount(address);
+        }
+        return BaseEthersHanlder.nonceCache[address];
+    }
+
+    async prepareTransaction(keychain: Keychain, receiverAddr: string, amount: BigNum, fee?: number): Promise<NewTransaction> {
+        let tx : TransactionRequest = await this.getTransactionRequest(keychain, receiverAddr, amount)
+        return await this.prepareCustomTransaction(keychain, tx, fee);
+    }
+
+    async prepareCustomTransaction(keychain: Keychain, tx : TransactionRequest, fee?: number): Promise<EthTransaction> {
         if (!fee) {
             fee = await this.getDefaultFee();
         }
-        let from = this.getReceiveAddr(keychain);
-        let tx : TransactionRequest = await this.getTransactionRequest(keychain, receiverAddr, amount)
         tx.gasPrice = fee
-        tx.nonce = "0x" + (await this.getProvider().getTransactionCount(from)).toString(16);
-
+        tx.nonce = "0x" + (await this.getNonce(tx.from)).toString(16);
+        //TODO tolerate % slip
+        tx.gasLimit = await this.getProvider().estimateGas(tx);
+        if (!('data' in tx)) {
+            tx.gasLimit = tx.gasLimit.mul(1.1);
+        }
         let signed = await this.getWallet(keychain).signTransaction(tx);
-        return new EthTransaction(this, tx, signed, receiverAddr, amount);
+        return new EthTransaction(this, tx, signed, new BigNum('0'));
     }
 
     validateAddress(addr: string): boolean {
@@ -219,6 +235,10 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     addressFromPrivateKey(pk: string) : string {
         return (new ethers.Wallet(pk)).address;
     }
+
+    exportPrivateKey(keychain: Keychain): string {
+        return this.getPrivateKeyAsHex(keychain);
+    }
 }
 
 export abstract class BaseERC20Handler extends BaseEthersHanlder {
@@ -226,52 +246,21 @@ export abstract class BaseERC20Handler extends BaseEthersHanlder {
     onlineCoin = true
     abstract ethContractAddr: string
     ethAbi: ethers.ContractInterface = [
-        {
-            "constant": true,
-            "inputs": [
-                {
-                    "name": "_owner",
-                    "type": "address"
-                }
-            ],
-            "name": "balanceOf",
-            "outputs": [
-                {
-                    "name": "balance",
-                    "type": "uint256"
-                }
-            ],
-            "payable": false,
-            "type": "function"
-        },
-        {
-            "constant": false,
-            "inputs": [
-                {
-                    "name":"to",
-                    "type":"address"
-                },
-                {
-                    "name":"tokens",
-                    "type":"uint256"
-                }
-            ],
-            "name":"transfer",
-            "outputs": [
-                {
-                    "name":"success",
-                    "type":"bool"
-                }
-            ],
-            "payable":false,
-            "stateMutability":"nonpayable",
-            "type":"function"
-        }
+        {"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},
+        {"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},
+        {"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},
+        {"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},
+        {"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},
+        {"constant":true,"inputs":[{"name":"tokenOwner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},
+        {"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},
+        {"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},
+        {"constant":true,"inputs":[{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},
+        {"payable":true,"stateMutability":"payable","type":"fallback"},
+        {"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Transfer","type":"event"},
+        {"anonymous":false,"inputs":[{"indexed":true,"name":"tokenOwner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Approval","type":"event"}
     ]
-    //feeCoin: EthTestHandler,
-    //gasLimit: 200000,
 
-    private getContract(keychain: Keychain = null) : ethers.Contract {
+    public getContract(keychain: Keychain = null) : ethers.Contract {
         return new ethers.Contract(this.ethContractAddr, this.ethAbi, keychain ? this.getWallet(keychain) : this.getProvider());
     }
 
@@ -300,9 +289,7 @@ export abstract class BaseERC20Handler extends BaseEthersHanlder {
 
     protected async getTransactionRequest(keychain: Keychain, receiverAddr: string, amount: BigNum): Promise<TransactionRequest> {
         var contract = this.getContract(keychain);
-        let unsignedTx = await contract.populateTransaction.transfer(receiverAddr, "0x" + amount.toString(16));
-        unsignedTx.gasLimit = await contract.estimateGas.transfer(receiverAddr, "0x" + amount.toString(16));
-        return unsignedTx;
+        return await contract.populateTransaction.transfer(receiverAddr, "0x" + amount.toString(16));
     }
 
     explorerLinkAddr(address : string) {
@@ -323,4 +310,8 @@ export abstract class BaseERC20Handler extends BaseEthersHanlder {
     canSendViaMessage(): boolean {
         return false;
     }
+}
+
+export function isBaseERC20Handler(toBeDetermined: BaseCoinHandler): toBeDetermined is BaseERC20Handler {
+    return (('isERC20Handler' in toBeDetermined) && (toBeDetermined as BaseERC20Handler).isERC20Handler);
 }

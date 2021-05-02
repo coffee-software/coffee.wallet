@@ -430,4 +430,8 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             }).address;
         }
     }
+
+    exportPrivateKey(keychain: Keychain): string {
+        return this.getPrivateKey(keychain).toWIF();
+    }
 }

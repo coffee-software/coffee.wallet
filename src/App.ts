@@ -77,6 +77,7 @@ export class App {
             OsPlugins.checkForUpdates(function(){
                 app.onEngineLoaded();
             });
+            app.setExchangeableCoins();
         });
 
         (window as any).PullToRefresh.init({
@@ -92,7 +93,6 @@ export class App {
                 return !document.querySelector('#walletsTab').scrollTop;
             }
         });
-        this.setExchangeableCoins()
         this.logger.log("info", null, "application started");
     }
 
@@ -253,15 +253,27 @@ export class App {
     private alertMessage(html: string, coinCode: string, type: string, debug: any = null) {
         this.logger.log(type, coinCode, html, debug);
         var alertTxt = this.preParseCoinMsg(html, coinCode);
-        this.alertMessagePopup(type, alertTxt.length > 100 ? alertTxt.substr(0,98) + '...' : alertTxt);
+        this.alertMessagePopup(
+            type,
+            alertTxt.length > 200 ? alertTxt.substr(0,198) + '...' : alertTxt,
+            coinCode ? '<img width="100%" src="coins/' + this.engine.allCoinHandlers[coinCode].icon + '.svg">' : null
+        );
     }
 
-    private alertMessagePopup(type: string, html: string) {
+    private alertMessagePopup(type: string, html: string, icon: string = null) {
         var msgDiv = document.createElement('div');
         msgDiv.classList.add('msg');
         msgDiv.classList.add(type);
         msgDiv.innerHTML = html;
 
+        var iconDiv = document.createElement("div");
+        iconDiv.classList.add('icon');
+        if (icon) {
+            iconDiv.innerHTML = icon;
+        } else {
+            iconDiv.innerHTML = '<div class="default"></div>';
+        }
+        msgDiv.appendChild(iconDiv);
         var closer = document.createElement("a");
         closer.classList.add('closer');
         var img = document.createElement("img");
@@ -272,17 +284,20 @@ export class App {
 
         msgDiv.appendChild(closer);
         document.getElementById('messages').appendChild(msgDiv);
-        setTimeout(function(){ msgDiv && msgDiv.classList.add('fadingout'); }, 5000);
-        setTimeout(function(){ msgDiv && document.getElementById('messages').removeChild(msgDiv); }, 7000);
+        //setTimeout(function(){ msgDiv && msgDiv.classList.add('fadingout'); }, 5000);
+        //setTimeout(function(){ msgDiv && document.getElementById('messages').removeChild(msgDiv); }, 7000);
     }
 
     public onJsError(msg : any, url : any, line : any, col : any, error : any) {
+        console.log('JS ERROR');
+        console.log(msg);
         var log = msg;
         log += !url ? '' : '\nurl: ' + url;
         log += !line ? '' : '\nline: ' + line;
         log += !col ? '' : '\ncolumn: ' + col;
         log += !error ? '' : '\nerror: ' + error;
         this.alertMessagePopup('error', log);
+        console.error(msg);
     }
 
     addWalletWidget(data: Wallet) : WalletWidget {
@@ -1047,9 +1062,9 @@ export class App {
 
         provider.createTransaction(sellCoin, buyCoin, sellAmount, this.engine.wallets[buyCoin].getReceiveAddress()).then(
             this.confirmAndSendTransaction.bind(this)
-        ).catch(
+        );/*.catch(
             this.alertError.bind(this)
-        );
+        );*/
 
 
         /*var onTransactionSuccess = function () {

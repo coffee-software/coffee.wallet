@@ -1,4 +1,5 @@
 import {Keychain} from "./Keychain";
+import {Strings} from "./Tools/Strings";
 import {Balance, BaseCoinHandler, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
 import {createAllCoinHandlers, isOnlineCoinHanlder} from "./AllCoinHandlers";
 import {Wallet} from "./Wallet";
@@ -18,6 +19,9 @@ import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
 import {UniswapProdProvider, UniswapTestProvider} from "./ExchangeProviders/UniswapProvider";
 import {ChangellyProvider} from "./ExchangeProviders/ChangellyProvider";
 import {ChangeNowProvider} from "./ExchangeProviders/ChangeNowProvider";
+
+export {Keychain}
+export {Strings}
 
 export interface StorageInterface {
     setItem(
@@ -124,33 +128,33 @@ export class Engine {
         this.cache = new CacheWrapper(cache);
         this.settings = new Settings(cache);
 
-        let all = [
+        let priceProviders = [
             new CoinPaprikaProvider(this.cache),
             new CoinGeckoProvider(this.cache),
             new CoinMarketCapProvider(this.cache)
         ]
-        for (let i =0; i<all.length; i++) {
-            this.allPriceProviders[all[i].name] = all[i];
+        for (let i =0; i<priceProviders.length; i++) {
+            this.allPriceProviders[priceProviders[i].name] = priceProviders[i];
         }
         let pp : string = this.cache.get('priceProvider', 'coinpaprika.com');
         if (!(pp in this.allPriceProviders)) { pp = 'coinpaprika.com'}
         this.priceProvider = this.allPriceProviders[pp];
         this.priceProvider.unit = this.cache.get(this.priceProvider.name + '_priceUnit', this.priceProvider.defaultUnit)
-    }
-
-    async init(): Promise<any> {
-        console.log("INITIALISING");
         this.allCoinHandlers = createAllCoinHandlers(this.log, this.cache);
 
-        let all = [
+        let exchangeProviders = [
             new UniswapProdProvider(this),
             new UniswapTestProvider(this),
             new ChangellyProvider(this),
             new ChangeNowProvider(this)
         ]
-        for (let i =0; i<all.length; i++) {
-            this.allExchangeProviders[all[i].key] = all[i];
+        for (let i =0; i<exchangeProviders.length; i++) {
+            this.allExchangeProviders[exchangeProviders[i].key] = exchangeProviders[i];
         }
+    }
+
+    async init(): Promise<any> {
+        console.log("INITIALISING");
 
         let wallets = await this.storageGet('wallets');
         if ('bip39' in wallets) {

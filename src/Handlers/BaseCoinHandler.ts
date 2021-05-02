@@ -1,8 +1,6 @@
 import {Keychain} from "../Keychain";
 import {BigNum} from "../Core/BigNum";
 import * as bip32 from "bip32";
-import {Wallet} from "../Wallet";
-import {BaseEthersHanlder} from "./BaseEthersHanlder";
 
 export interface BaseCoinHandler {
   decimals : number
@@ -126,6 +124,7 @@ export interface OnlineCoinHandler extends BaseCoinHandler {
   canSendViaMessage() : boolean
   newRandomPrivateKey() : string
   addressFromPrivateKey(pk: string) : string
+  exportPrivateKey(keychain: Keychain) : string
 }
 
 

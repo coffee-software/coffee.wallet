@@ -10,6 +10,7 @@ export class BigNum {
     _bn: BN;
 
     constructor(value: string | number, base: number = 10) {
+        //TODO test hex
         this._bn = new BN(value, base);
     }
 

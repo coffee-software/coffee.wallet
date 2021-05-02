@@ -24,10 +24,10 @@ export class HandlerLtc extends BaseBitcoinjsHanlder {
     segwitSupport = false
 
     explorerLinkAddr(address : string) {
-        return 'https://bchain.info/LTC/addr/' + address;
+        return 'https://blockchair.com/litecoin/address/' + address;
     }
 
     explorerLinkTx(txid : string) {
-        return 'https://bchain.info/LTC/tx/' + txid;
+        return 'https://blockchair.com/litecoin/transaction/' + txid;
     }
 }
