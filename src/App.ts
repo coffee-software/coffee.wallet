@@ -284,20 +284,22 @@ export class App {
 
         msgDiv.appendChild(closer);
         document.getElementById('messages').appendChild(msgDiv);
-        //setTimeout(function(){ msgDiv && msgDiv.classList.add('fadingout'); }, 5000);
-        //setTimeout(function(){ msgDiv && document.getElementById('messages').removeChild(msgDiv); }, 7000);
+        setTimeout(function(){ msgDiv && msgDiv.classList.add('fadingout'); }, 6000);
+        setTimeout(function(){ msgDiv && document.getElementById('messages').removeChild(msgDiv); }, 8000);
     }
 
     public onJsError(msg : any, url : any, line : any, col : any, error : any) {
-        console.log('JS ERROR');
-        console.log(msg);
         var log = msg;
         log += !url ? '' : '\nurl: ' + url;
         log += !line ? '' : '\nline: ' + line;
         log += !col ? '' : '\ncolumn: ' + col;
         log += !error ? '' : '\nerror: ' + error;
-        this.alertMessagePopup('error', log);
+        this.alertError(log);
         console.error(msg);
+    }
+    public onUnhandledRejection(event : PromiseRejectionEvent) {
+        this.alertError(event.reason, null, event);
+        console.error(event);
     }
 
     addWalletWidget(data: Wallet) : WalletWidget {
@@ -1062,9 +1064,7 @@ export class App {
 
         provider.createTransaction(sellCoin, buyCoin, sellAmount, this.engine.wallets[buyCoin].getReceiveAddress()).then(
             this.confirmAndSendTransaction.bind(this)
-        );/*.catch(
-            this.alertError.bind(this)
-        );*/
+        );
 
 
         /*var onTransactionSuccess = function () {

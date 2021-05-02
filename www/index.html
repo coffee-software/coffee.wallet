@@ -545,7 +545,8 @@
           function handleOpenURL(url) {
             setTimeout(app.openUrl.bind(app, url), 0);
           }
-          window.onunhandledrejection = window.onerror = app.onJsError.bind(app);
+          window.onerror = app.onJsError.bind(app);
+          window.onunhandledrejection = app.onUnhandledRejection.bind(app);
         </script>
 
         <script type="text/javascript" src="vendor/qrcode.js"></script>

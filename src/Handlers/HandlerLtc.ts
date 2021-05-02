@@ -21,7 +21,7 @@ export class HandlerLtc extends BaseBitcoinjsHanlder {
     webapiPath = '/v1/ltc/main'
     network = coininfo.litecoin.main.toBitcoinJS()
     keyPath = "m/44'/2'/0'/0/0"
-    segwitSupport = false
+    segwitSupport = true
 
     explorerLinkAddr(address : string) {
         return 'https://blockchair.com/litecoin/address/' + address;

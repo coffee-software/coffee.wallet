@@ -10,7 +10,6 @@ export class BigNum {
     _bn: BN;
 
     constructor(value: string | number, base: number = 10) {
-        //TODO test hex
         this._bn = new BN(value, base);
     }
 
@@ -38,6 +37,9 @@ export class BigNum {
         return ret;
     }
 
+    /**
+     * compare. returns -1 (this < other), 0 (this == other), or 1 (this > other)
+     */
     cmp(other : BigNum) : -1 | 0 | 1 {
         return this._bn.cmp(other._bn);
     }

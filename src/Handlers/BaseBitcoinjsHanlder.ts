@@ -39,7 +39,6 @@ class BtcTransaction implements NewTransaction {
     }
 
     getFeeDisplay(): string {
-        //this.extracted.virtualSize().toString();
         return (new BigNum(this.tx.getFee())).toFloat(this.handler.decimals) + ' ' + this.handler.ticker
     }
 
@@ -50,6 +49,8 @@ class BtcTransaction implements NewTransaction {
     getSummary(): { [code: string] : string } {
         return {
             "fee" : this.getFeeDisplay(),
+            "vsize" : this.extracted.virtualSize().toString() + "vbytes",
+            "fee rate" : this.tx.getFeeRate().toString() + " sat/vbyte",
             "ETA" : this.getFeeETA()
         };
     }
@@ -200,7 +201,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             medium_fee_per_kb: number
             low_fee_per_kb: number
         }
-        let response = <RootResponse>await this.web.get(this.webapiHost, this.webapiPath);
+        let response = <RootResponse>await this.web.getCached(this.webapiHost, this.webapiPath, 10);
         return response.medium_fee_per_kb;
     }
 
@@ -211,7 +212,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             medium_fee_per_kb: number
             low_fee_per_kb: number
         }
-        let response = <RootResponse>await this.web.get(this.webapiHost, this.webapiPath);
+        let response = <RootResponse>await this.web.getCached(this.webapiHost, this.webapiPath, 10);
         return [
             response.low_fee_per_kb,
             Math.floor((response.low_fee_per_kb + response.medium_fee_per_kb) / 2 ),
@@ -241,7 +242,8 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             unconfirmed_txrefs?: TxrefResponse[]
         }
         //TODO set RBF : &confirmations=1
-        let response = <UtxosResponse>await this.web.get(this.webapiHost, this.webapiPath + '/addrs/' + address + '?unspentOnly=true&includeScript=true');
+        //TODO: do this on balance change and cache forever
+        let response = <UtxosResponse>await this.web.getCached(this.webapiHost, this.webapiPath + '/addrs/' + address + '?unspentOnly=true&includeScript=true', 2);
 
         let ret : BitcoinUtxo[] = [];
 

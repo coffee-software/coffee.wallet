@@ -64,6 +64,14 @@ export class EthTransaction implements NewTransaction {
         var response = await this.handler.getProvider().sendTransaction(this.signed);
         BaseEthersHanlder.nonceCache[this.data.from] ++;
 
+        this.handler.getProvider().waitForTransaction(response.hash).then(function(receipt){
+            console.log("RECEIPT");
+            console.log(receipt.transactionHash)
+            console.log(receipt.blockNumber)
+        }).catch(function(e){
+            console.log(e);
+        });
+
         return response.hash;
     }
 
@@ -210,10 +218,10 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         }
         tx.gasPrice = fee
         tx.nonce = "0x" + (await this.getNonce(tx.from)).toString(16);
-        //TODO tolerate % slip
         tx.gasLimit = await this.getProvider().estimateGas(tx);
-        if (!('data' in tx)) {
-            tx.gasLimit = tx.gasLimit.mul(1.1);
+        if (('data' in tx)) {
+            //tolerate 5% slip
+            tx.gasLimit = Math.ceil(tx.gasLimit.toNumber() * 1.05);
         }
         let signed = await this.getWallet(keychain).signTransaction(tx);
         return new EthTransaction(this, tx, signed, new BigNum('0'));
