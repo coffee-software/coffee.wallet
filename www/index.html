@@ -371,11 +371,11 @@
               <label for="addOfflineAssetComment">comment</label>
             </div>
             <div id="addOfflineAssetAddrTools" class="formButtons row">
-              <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'addOfflineAssetAddr'))">
+              <button class="f1" onclick="app.pasteClipboard(app.pasteToPortfolioItemAddressEdit.bind(app))">
                 paste
                 <img src="icons/paste.png"/>
               </button>
-              <button class="f1" onclick="app.scanQrCode(app.pasteToField.bind(app, 'addOfflineAssetAddr'))">
+              <button class="f1" onclick="app.scanQrCode(app.pasteToPortfolioItemAddressEdit.bind(app))">
                 <img src="icons/scan.png"/>
                 scan
               </button>

@@ -668,6 +668,10 @@ export class App {
     editAsset: boolean
     portfolioEditAddressInput: AddressInputWidget
 
+    pasteToPortfolioItemAddressEdit(uri: PaymentURI) {
+        this.portfolioEditAddressInput && this.portfolioEditAddressInput.setValue(uri.address)
+    }
+
     popupEditOfflineAsset(item: PortfolioItemWidget) {
 
         this.activeAsset = item;
@@ -1499,19 +1503,14 @@ export class App {
         );
     }
 
-    /*
-    pasteToField(field: string, addr: string, args: any) {
-        (document.getElementById(field) as HTMLInputElement).value = addr;
+    pasteToField(field: string, uri: PaymentURI) {
+        (document.getElementById(field) as HTMLInputElement).value = uri.address;
     }
-    */
 
     popupSendSocial(wallet: Wallet) {
-        //TODO
-        /*
-        this.popupSendPayment(wallet, wallet.data.systemBalance);
+        this.popupSendPayment(wallet, null);
         this.toggleAll('normalSend', false);
         this.toggleAll('socialSend', true);
-        */
     }
 
     setWidget (slotId:string, widget: Widget) {
