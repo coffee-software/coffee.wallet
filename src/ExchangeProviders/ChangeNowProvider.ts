@@ -1,5 +1,5 @@
 import {BaseExchangeProvider} from "./BaseExchangeProvider";
-import {NewTransaction, NewTransactionWrapper, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
+import {Balance, NewTransaction, NewTransactionWrapper, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
 import {Config} from "../Config";
 import {Https} from "../Core/Https";
 import {isOnlineCoinHanlder} from "../AllCoinHandlers";
@@ -20,7 +20,7 @@ class ChangeNowTransactionWrapper extends NewTransactionWrapper {
         return '<img class="coinIcon" src="img/exchanges/now.png"/>';
     }
 
-    getSummary(): { [p: string]: string } {
+    getSummary(): { [p: string]: string|Balance } {
         let ret = super.getSummary();
 
         ret['changenow id'] = this.changeNowTx.id

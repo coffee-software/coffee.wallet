@@ -18,7 +18,12 @@ describe('UX Test', function() {
     describe('AmountInputWidget', function () {
         it('create', async function () {
             let provider = new CoinGeckoProvider(new CacheWrapperMock(), 'PLN')
-            let handler = new HandlerBtc(new LogMock(), new CacheWrapperMock())
+            let engine = new Engine(
+                new StorageMock(),
+                new LogMock(),
+                new CacheMock()
+            );
+            let handler = new HandlerBtc(engine)
             await provider.updatePrices({'BTC': handler} );
 
             let w  = new AmountInputWidget(handler,provider);
@@ -38,12 +43,12 @@ describe('UX Test', function() {
     });
     describe('WalletWidget', function () {
         it('create', async function () {
-            let handler = new HandlerBtcTest(new LogMock(), new CacheWrapperMock())
             let engine = new Engine(
                 new StorageMock(),
                 new LogMock(),
                 new CacheMock()
             );
+            let handler = new HandlerBtcTest(engine)
             let wallet = new Wallet(
                 engine,
                 'BTC.TST',
@@ -57,12 +62,12 @@ describe('UX Test', function() {
     });
     describe('PortfolioItemWidget', function () {
         it('create', async function () {
-            let handler = new HandlerBtcTest(new LogMock(), new CacheWrapperMock())
             let engine = new Engine(
                 new StorageMock(),
                 new LogMock(),
                 new CacheMock()
             );
+            let handler = new HandlerBtcTest(engine)
             let wallet = new Wallet(
                 engine,
                 'BTC.TST',

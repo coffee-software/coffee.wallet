@@ -2,14 +2,20 @@ import { strictEqual, notStrictEqual } from "assert";
 import {Keychain} from "../../src/Keychain";
 import {BigNum} from "../../src/Core/BigNum";
 import {ERC20TestHandler, HandlerEthTest} from "../../src/Handlers/HandlerEthTest";
-import {CacheMock, CacheWrapperMock, LogMock} from "../_mocks";
+import {CacheMock, LogMock, StorageMock} from "../_mocks";
 import {createAllCoinHandlers} from "../../src/AllCoinHandlers";
 import {Config} from "../../src/Config";
+import {Engine} from "../../src/Engine";
 
 describe('ERC20 Integration Test', function() {
     describe('integration', function () {
         it('sending transaction', async function () {
-            let allCoinHandlers = createAllCoinHandlers(new LogMock(), new CacheWrapperMock());
+            let engine = new Engine(
+                new StorageMock(),
+                new LogMock(),
+                new CacheMock()
+            );
+            let allCoinHandlers = createAllCoinHandlers(engine);
 
             let handler = <ERC20TestHandler>allCoinHandlers['ERC20.TST'];
             let integration1Keychain = new Keychain(Config.integrationMnemonic1);

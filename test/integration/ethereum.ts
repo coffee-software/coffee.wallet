@@ -2,13 +2,19 @@ import { strictEqual, notStrictEqual } from "assert";
 import {Keychain} from "../../src/Keychain";
 import {BigNum} from "../../src/Core/BigNum";
 import {HandlerEthTest} from "../../src/Handlers/HandlerEthTest";
-import {CacheMock, CacheWrapperMock, LogMock} from "../_mocks";
+import {CacheMock, LogMock, StorageMock} from "../_mocks";
 import {Config} from "../../src/Config";
+import {Engine} from "../../src/Engine";
 
 describe('Ethereum Integration Test', function() {
     describe('integration', function () {
         it('sending transaction', async function () {
-            let handler = new HandlerEthTest(new LogMock(), new CacheWrapperMock());
+            let engine = new Engine(
+                new StorageMock(),
+                new LogMock(),
+                new CacheMock()
+            );
+            let handler = new HandlerEthTest(engine);
             let integration1Keychain = new Keychain(Config.integrationMnemonic1);
             let integration2Keychain = new Keychain(Config.integrationMnemonic2);
 

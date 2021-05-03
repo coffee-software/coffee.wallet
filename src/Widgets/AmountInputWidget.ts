@@ -19,11 +19,12 @@ export class AmountInputWidget implements Widget  {
         this.updateValue()
     }
 
-    public getBigNumValue(decimals: number) : BigNum|null {
+    public getBigNumValue() : BigNum|null {
         let ret = this.getValue()
-        return ret ? BigNum.fromFloat(ret, decimals) : null
+        return ret ? BigNum.fromFloat(ret, this.handler.decimals) : null
     }
 
+    /** @deprecated **/
     public getValue() : number|null {
         return this.amountInput.value ? parseFloat(this.amountInput.value) : null
     }

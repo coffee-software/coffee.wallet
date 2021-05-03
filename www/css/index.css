@@ -561,8 +561,9 @@ body.resizing * {
   left: 25px;
   right: 25px;
   top: 50%;
-  margin-top: -200px;
   background: #ffffff; /*#f7f5f2*/
+  /* margin-top: -200px; */
+  transform: translateY(-50%);
 }
 
 #lockPopup .row {

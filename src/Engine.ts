@@ -140,7 +140,7 @@ export class Engine {
         if (!(pp in this.allPriceProviders)) { pp = 'coinpaprika.com'}
         this.priceProvider = this.allPriceProviders[pp];
         this.priceProvider.unit = this.cache.get(this.priceProvider.name + '_priceUnit', this.priceProvider.defaultUnit)
-        this.allCoinHandlers = createAllCoinHandlers(this.log, this.cache);
+        this.allCoinHandlers = createAllCoinHandlers(this);
 
         let exchangeProviders = [
             new UniswapProdProvider(this),
@@ -192,13 +192,13 @@ export class Engine {
 
     getFiatValueString(balance : Balance) : string {
         return this.priceProvider.convert(
-            balance.total().toFloat(balance.handler.decimals),
+            balance.totalFloat(),
             balance.handler
         )
     }
 
     getValueString(balance : Balance) : string {
-        return balance.total().toFloat(balance.handler.decimals) + ' ' + balance.handler.ticker;
+        return balance.totalFloat() + ' ' + balance.handler.ticker;
     }
 
     getCache(key: string, dafaultValue: any) : any {

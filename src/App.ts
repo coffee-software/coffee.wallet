@@ -10,7 +10,7 @@ import {ListItemWidget} from "./Widgets/ListItemWidget";
 import {CoinAddressIcon} from "./Widgets/CoinAddressIcon";
 import {PortfolioAddress, PortfolioBalance, PortfolioItem} from "./PortfolioItem";
 import {AddressInputWidget} from "./Widgets/AddressInputWidget";
-import {BaseCoinHandler, NewTransaction, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
+import {Balance, BaseCoinHandler, NewTransaction, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
 import {Version} from "./Tools/Changelog";
 import {CoinButtonWidget} from "./Widgets/CoinButtonWidget";
 import {SelectWidget} from "./Widgets/SelectWidget";
@@ -21,6 +21,9 @@ import {SliderInputWidget} from "./Widgets/SliderInputWidget";
 import {BaseExchangeProvider} from "./ExchangeProviders/BaseExchangeProvider";
 import {Strings} from "./Tools/Strings";
 import {PaymentURI} from "./Tools/PaymentURI";
+import {SendAsMessageTransaction} from "./Tools/SendAsMessageTransaction";
+import {ReceiveMessageTransaction} from "./Tools/ReceiveMessageTransaction";
+import {BaseBitcoinjsHanlder} from "./Handlers/BaseBitcoinjsHanlder";
 
 export class App {
 
@@ -34,9 +37,9 @@ export class App {
         //make sure data is loaded
         if (this.lastOpenedUrl != url) {
             let app = this;
-            this.onDataLoaded(function (callback) {
+            this.onDataLoaded(function () {
                 app.alertInfo('opening url: ' + url);
-                app.handleUrlOpened(url, callback);
+                app.handleUrlOpened(url);
             });
         }
     }
@@ -375,6 +378,14 @@ export class App {
 
         if (isOnlineCoinHanlder(wallet.handler)) {
             advanced.appendChild(this.createAdvancedOption('link', 'history (external)', OsPlugins.openInSystemBrowser.bind(OsPlugins, wallet.handler.explorerLinkAddr(wallet.getReceiveAddress()))));
+            if (('segwitSupport' in wallet.handler) && (wallet.handler as BaseBitcoinjsHanlder).segwitSupport) {
+                let handler = wallet.handler as BaseBitcoinjsHanlder;
+                advanced.appendChild(this.createAdvancedOption(
+                    'link',
+                    'legacy history (non segwit) (external)',
+                    OsPlugins.openInSystemBrowser.bind(OsPlugins, handler.explorerLinkAddr(handler.getLegacyAddr(wallet.keychain)))
+                ));
+            }
             advanced.appendChild(this.createAdvancedOption('import', 'import private key', this.showImportPrivateKeyPopup.bind(this, wallet.handler)));
         }
 
@@ -812,40 +823,27 @@ export class App {
     }
 
     dataLoaded : boolean = false
-    onDataLoadedCallback : (next: () => void) => void = null
+    onDataLoadedCallback : () => void = null
 
-    onDataLoaded(callback: (next: () => void) => void = null) {
+    onDataLoaded(callback: () => void = null) {
         if (typeof callback == 'undefined') {
             this.dataLoaded = true;
             if (this.onDataLoadedCallback) {
-                this.onDataLoadedCallback(function(){
-                    //app.initAirdrop();
-                });
-            } else {
-                //app.initAirdrop();
+                this.onDataLoadedCallback();
             }
         } else {
             //TODO chain:
             if (this.dataLoaded) {
-                callback(function() {
-
-                });
+                callback();
             } else {
                 this.onDataLoadedCallback = callback;
             }
         }
     }
 
-    handleUrlOpened(url: string, callback: () => void) {
-        var parts = url.split('/');
-        //TODO
-        /*
-        if (parts.length == 4 && parts[0] == 'coffee:' && !parts[3].startsWith('?')) {
-            this.handleReceiveMessage(parts[2], parts[3], callback);
-        } else {
-            //ignore callback not to show airdrop info on url open different than receive via msg.
-            this._parseTransactionText(url, this.handlePaymentURI.bind(this));
-        }*/
+    handleUrlOpened(url: string) {
+        //ignore callback not to show airdrop info on url open different than receive via msg.
+        PaymentURI.fromString(url).then(this.handlePaymentURI.bind(this));
     }
 
     netError: boolean = false
@@ -1067,7 +1065,9 @@ export class App {
         console.log(sellCoin, sellAmount, buyCoin, buyAmount);
 
         provider.createTransaction(sellCoin, buyCoin, sellAmount, this.engine.wallets[buyCoin].getReceiveAddress()).then(
-            this.confirmAndSendTransaction.bind(this)
+            function(transaction:NewTransaction){
+                this.confirmAndSendTransaction(transaction, null)
+            }.bind(this)
         );
 
 
@@ -1296,7 +1296,7 @@ export class App {
                     document.getElementById('sendViaMessageHistory').appendChild(tr);
                 }
             }
-        }, 'sendasmessage');
+        }, 'logs_sendasmessage');
         //coin shortcuts
         document.getElementById('sendViaMessageButtons').innerHTML = '';
         var empty = true;
@@ -1434,7 +1434,7 @@ export class App {
     handlePaymentURI(uri: PaymentURI) {
 
         if ('escrowPrivateKey' in uri.args) {
-            return this.handleReceiveMessage(uri.args.coinCode, uri.args.escrowPrivateKey, null);
+            return this.handleReceiveMessage(uri.args.coinCode, uri.args.escrowPrivateKey);
         }
 
         if (!uri.args.coin && uri.args.coinCode && (uri.args.coinCode in this.engine.allCoinHandlers)) {
@@ -1507,10 +1507,17 @@ export class App {
         (document.getElementById(field) as HTMLInputElement).value = uri.address;
     }
 
+    socialSendPK: string
+    isSocialSend: boolean
+
     popupSendSocial(wallet: Wallet) {
         this.popupSendPayment(wallet, null);
+        this.isSocialSend = true;
         this.toggleAll('normalSend', false);
         this.toggleAll('socialSend', true);
+        this.socialSendPK = (this.sendWallet.handler as OnlineCoinHandler).newRandomPrivateKey();
+        let addr = (this.sendWallet.handler as OnlineCoinHandler).addressFromPrivateKey(this.socialSendPK);
+        this.sendAddressInputWidget.setValue(addr);
     }
 
     setWidget (slotId:string, widget: Widget) {
@@ -1527,7 +1534,7 @@ export class App {
 
     popupSendPayment(wallet: Wallet, afterSendCallback: () => void) {
         this.openForm('sendPaymentPopup');
-
+        this.isSocialSend = false
         this.sendOutgoingTransaction = null;
         (document.getElementById('sendPaymentIcon') as HTMLImageElement).src = 'coins/' + wallet.handler.icon + '.svg';
         this.toggleAll('normalSend', true);
@@ -1606,7 +1613,7 @@ export class App {
         //
         let fee = this.sendFeeInputWidget.getValue();
         let address = this.sendAddressInputWidget.getValue();
-        let amount = this.sendAmountInputWidget.getBigNumValue(this.sendWallet.handler.decimals);
+        let amount = this.sendAmountInputWidget.getBigNumValue();
         amount = amount ? amount : new BigNum("0");
         console.log(address, amount, fee);
         let app = this;
@@ -1645,11 +1652,12 @@ export class App {
         }*/
     }
 
-    sendTransactionProceed(transaction: NewTransaction) {
+    sendTransactionProceed(transaction: NewTransaction, onSuccess: () => void) {
 
+        let app = this;
         transaction.send().then(function(txid) {
-                //app.alertSuccess('Successfully sent transaction. TXN: <u>' + response + '</u>', that.code);
-                //this.alertSuccess('transaction' + );
+            app.alertSuccess('Successfully sent transaction. TXN: <u>' + txid + '</u>', transaction.handler.code);
+            onSuccess();
         });
 
         /* TODO
@@ -1678,18 +1686,26 @@ export class App {
     }
 
     sendPayment() {
-        if (!(this.sendAddressInputWidget.validate() && this.sendAmountInputWidget.validate() && this.sendFeeInputWidget.getValue())) {
-            this.alertError('please wait for fees update');
+        if (this.isSocialSend) return this.sendSocialPayment();
+
+        if (!(this.sendOutgoingTransaction && this.sendOutgoingTransaction.isValid())) {
             return;
         }
-        this.confirmAndSendTransaction(this.sendOutgoingTransaction);
+        this.confirmAndSendTransaction(this.sendOutgoingTransaction, null);
     }
 
-    confirmAndSendTransaction(transaction: NewTransaction) {
+    confirmAndSendTransaction(transaction: NewTransaction, onSuccess: () => void) {
         let summary = transaction.getSummary()
         let tableContent = '';
         for (var label in summary) {
-            tableContent += '<tr><th colspan="2">' + label + ':</th></tr><tr><td colspan="2">' + summary[label] + '</td></tr>';
+            let str : string
+            if (typeof summary[label] != 'string') {
+                str = this.engine.getValueString(summary[label] as Balance) + '<br/>' +
+                    this.engine.getFiatValueString(summary[label] as Balance);
+            } else {
+                str = summary[label] as string
+            }
+            tableContent += '<tr><th colspan="2">' + label + ':</th></tr><tr><td colspan="2">' + str + '</td></tr>';
         }
         this.authenticateBeforeContinue(
             '<table class="transactionSummary">' +
@@ -1697,18 +1713,17 @@ export class App {
             '<tr class="second"><td>' + transaction.getLeftLabel() + '</td><td></td><td>' + transaction.getRightLabel() + '</td></tr>' +
             '</table>',
             '<table class="niceTable">' + tableContent + '</table>',
-            this.sendTransactionProceed.bind(this, transaction)
+            this.sendTransactionProceed.bind(this, transaction, onSuccess)
         );
     }
 
-    /*
-    sendSocialPaymentShare(coin, displayAmount, tmpPrivateKey) {
+    sendSocialPaymentShare(coin: string, displayAmount: number, tmpPrivateKey: string) {
         var receiveLink = coin + '/' + tmpPrivateKey; //'coffee://' +
         var subject = displayAmount + ' ' + coin + ' for you!';
         var message = subject + '\n' +
             'To receive ' + displayAmount + ' ' + coin + ' go to:\n' +
             'https://wallet.coffee/receive#' + receiveLink;
-
+        let app = this;
         OsPlugins.shareDialog(subject, message, function() {
             app.alertInfo('If you sent the message, recipient will be able to withdraw this transfer.');
         }, function(msg) {
@@ -1716,34 +1731,13 @@ export class App {
         });
     }
 
-    sendSocialPaymentCommit(coin, amount, fee) {
-
-        var tmpPrivateKey = app.sendWallet.handler.newRandomPrivateKey();
-        var tmpAddr = app.sendWallet.handler.addrFromPrivateKey(tmpPrivateKey);
-
-
-        var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(amount);
-
-        Logger.logTransaction('sendasmessage', 'sent ' + displayAmount + ' ' + coin + ' as message', {coin:coin, pk:tmpPrivateKey});
-
-        app.alertInfo('Sending to blockchain escrow...');
-        app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, tmpAddr, amount, fee);
-        app.closeForm();
-
-        app.sendSocialPaymentShare(coin, displayAmount, tmpPrivateKey);
-    }
-
     sendSocialPayment() {
-
-        if (!(this.sendCoinValidateAmount('sendCoin') && this.sendCoinValidateFee())) {
+        if (!(this.sendOutgoingTransaction && this.sendOutgoingTransaction.isValid())) {
             return;
         }
-
         var coin = this.sendWallet.handler.code;
-        var fee = this.sendFees[document.getElementById('sendCoinFee').value];
-        var amount = this.sendWallet.handler.floatValueToSystemValue(parseFloat(document.getElementById('sendCoinAmount').value));
-        var displayAmount = app.sendWallet.handler.systemValueToDisplayValue(amount);
-
+        var displayAmount = this.sendAmountInputWidget.getValue();
+        let app = this;
         this.confirmBeforeContinue(
             'Warning!',
             '<p>"Send via message" feature is designed only to send <b>tiny ammounts</b> beetween two <b>trusted</b> parties when the receiver does not have a wallet yet.</p>' +
@@ -1752,30 +1746,22 @@ export class App {
             '<li>Send only tiny ammounts.</li>' +
             '<li>Advise the recipient to withdraw ASAP.</li>' +
             '<li>Send over encrypted medium if possible.</li>' +
-            '<li>Advise the recipient to use regular transfers hereafter.</li>' +
+            '<li>Advise the recipient to use regular, secure transfers hereafter.</li>' +
             '</ul>'
             ,
             function(){
-                app.authenticateBeforeContinue(
-                    '<table class="transactionSummary">' +
-                    '<tr class="first"><td><img class="coinIcon" src="coins/' + app.sendWallet.handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td><img style="width:100%" src="icons/messageglyph.png"/></td></tr>' +
-                    '<tr class="second"><td>' + app.engine.shortAmount(displayAmount, coin, 13) + '</td><td></td><td></td></tr>' +
-                    '</table>',
-                    '<table class="niceTable">' +
-                    '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + coin + '</td><td>' + app.engine.priceProvider.convert(app.sendWallet.handler.systemValueToFloatValue(amount), this.sendWallet.handler) + '</td></tr>' +
-                    '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.sendWallet.handler.getFeeDisplay(fee) + '</td><td>' + app.sendWallet.handler.getFeeValueDisplay(fee) + '</td></tr>' +
-                    '</table>' +
-                    '<p>You will see your device share dialog in next step and will be able to select send medium.</p>' +
-                    '<p><strong>Warning:</strong> this feature uses an intermediate, escrow wallet. Recipient of this message will have to pay another network fee to claim it.</p>'
-                    ,
+                app.confirmAndSendTransaction(
+                    new SendAsMessageTransaction(app.sendOutgoingTransaction),
                     function(){
-                        app.sendSocialPaymentCommit(coin, amount, fee);
+                        app.logger.logTransaction('sendasmessage', 'sent ' + displayAmount + ' ' + coin + ' as message', {coin:coin, pk:app.socialSendPK});
+                        app.closeForm();
+                        app.sendSocialPaymentShare(coin, displayAmount, app.socialSendPK);
                     }
                 );
             }
         );
     }
-
+    /*
     proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee, callback) {
 
         var amount = handler.systemValuesDiff(balance, handler.getFeeTotalCost(defaultFee));
@@ -1833,26 +1819,36 @@ export class App {
     }
     */
 
-    handleReceiveMessage(code: string, privateKey: string, callback: () => void) {
-        //TODO use keychain
-        /*
-        if ((code in app.engine.allCoinHandlers) && app.engine.isOnline(app.engine.allCoinHandlers[code]) && app.engine.allCoinHandlers[code].canSendViaMessage()) {
-            var handler = app.engine.allCoinHandlers[code];
-            handler.getBalance(handler.addrFromPrivateKey(privateKey), function(balance, unconfirmed){
+    handleReceiveMessage(code: string, privateKey: string) {
+        if ((code in this.engine.allCoinHandlers) && this.engine.isOnline(this.engine.allCoinHandlers[code]) && (this.engine.allCoinHandlers[code] as OnlineCoinHandler).canSendViaMessage()) {
+            var handler = (this.engine.allCoinHandlers[code] as OnlineCoinHandler);
+            let app = this;
+            handler.prepareTransaction(
+                privateKey,
+                handler.getReceiveAddr(this.engine.keychain),
+                "MAX"
+            ).then(function(tx: NewTransaction){
+                console.log(tx)
+                this.confirmAndSendTransaction(
+                    new ReceiveMessageTransaction(tx),
+                    function(){
+                        app.addOrActivateCoin(code, function(){});
+                    }
+                );
+            }.bind(this));
+
+            /*handler.getBalance(handler.addressFromPrivateKey(privateKey)).then(function(balance: Balance){
+
                 setTimeout(function() {
                     var fees = handler.getFees(function(fees){
                         var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
                         app.proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee, callback);
                     });
                 }, 1000);
-            }, function (error, code) {
-                app.alertError(error, code);
-                callback && callback();
-            });
+            });*/
         } else {
-            app.alertError('Don\'t know how to receive ' + coin);
-            callback && callback();
-        }*/
+            this.alertError('Don\'t know how to receive ' + code);
+        }
     }
 
     receivingWallet: Wallet

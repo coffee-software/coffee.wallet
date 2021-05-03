@@ -3,7 +3,7 @@ import {Https} from "../Core/Https";
 var createHmac = require('create-hmac');
 import {Config} from "../Config";
 import {isOnlineCoinHanlder} from "../AllCoinHandlers";
-import {NewTransaction, NewTransactionWrapper, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
+import {Balance, NewTransaction, NewTransactionWrapper, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
 import {BigNum} from "../Core/BigNum";
 
 class ChangellyTransactionWrapper extends NewTransactionWrapper {
@@ -17,7 +17,7 @@ class ChangellyTransactionWrapper extends NewTransactionWrapper {
         return '<img class="coinIcon" src="img/exchanges/changelly.png"/>';
     }
 
-    getSummary(): { [p: string]: string } {
+    getSummary(): { [p: string]: string|Balance } {
         let ret = super.getSummary();
 
         ret['changelly id'] = this.changellyTx.id

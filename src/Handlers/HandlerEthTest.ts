@@ -1,5 +1,5 @@
 import {BaseERC20Handler, BaseEthersHanlder} from "./BaseEthersHanlder";
-import {CacheWrapper, LogInterface} from "../Engine";
+import {CacheWrapper, Engine, LogInterface} from "../Engine";
 
 export class HandlerEthTest extends BaseEthersHanlder {
 
@@ -25,20 +25,20 @@ export class HandlerEthTest extends BaseEthersHanlder {
 
 export class ERC20TestHandler extends BaseERC20Handler {
 
-    testCoin = true
     ticker: string
     code: string
     name: string
     icon: string
     description: string
     links: { [key: string]: string; };
-
     ethContractAddr: string;
+
+    testCoin = true
+    feeHandlerCode = 'ETH.TST'
     networkName = 'ropsten';
 
     constructor(
-        log: LogInterface,
-        cache: CacheWrapper,
+        engine: Engine,
         ticker: string,
         name: string,
         icon: string,
@@ -47,7 +47,7 @@ export class ERC20TestHandler extends BaseERC20Handler {
         description: string = "",
         links: {[key:string] : string} = {}
     ) {
-        super(log, cache)
+        super(engine)
         this.ticker = ticker;
         this.code = ticker;
         this.name = name;

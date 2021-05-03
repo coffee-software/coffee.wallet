@@ -58,7 +58,7 @@ export class Wallet {
 
     getCachedPortfolioItemBalance(item: PortfolioItem) : Balance {
         if (PortfolioItem.isBalance(item)) {
-            return new Balance(this.handler, BigNum.fromFloat(item.balance, this.handler.decimals), new BigNum("0"));
+            return new Balance(this.handler, BigNum.fromFloat(item.balance, this.handler.decimals));
         } else if (PortfolioItem.isAddress(item) && isOnlineCoinHanlder(this.handler)) {
             return this.getRawCachedBalance('CachedPortfolioItemBalance' + item.address);
         }
@@ -66,7 +66,7 @@ export class Wallet {
 
     async getPortfolioItemBalance(item: PortfolioItem) : Promise<Balance> {
         if (PortfolioItem.isBalance(item)) {
-            return new Balance(this.handler, BigNum.fromFloat(item.balance, this.handler.decimals), new BigNum("0"));
+            return new Balance(this.handler, BigNum.fromFloat(item.balance, this.handler.decimals));
         } else if (PortfolioItem.isAddress(item) && isOnlineCoinHanlder(this.handler)) {
             let balance = await this.handler.getBalance(item.address)
             this.setRawCachedBalance('CachedPortfolioItemBalance' + item.address, balance);
@@ -78,7 +78,6 @@ export class Wallet {
     async getPortfolioTotal() : Promise<Balance> {
         let total = new Balance(
             this.handler,
-            new BigNum("0"),
             new BigNum("0")
         );
 
@@ -95,7 +94,6 @@ export class Wallet {
     getZeroBalance() : Balance {
         return new Balance(
             this.handler,
-            new BigNum("0"),
             new BigNum("0")
         );
     }

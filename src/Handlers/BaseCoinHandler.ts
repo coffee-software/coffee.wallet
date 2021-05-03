@@ -27,8 +27,9 @@ export interface NewTransaction {
   getFeeETA() : string
   getAmountDisplay() : string
   getRecipientDisplay() : string
-  getSummary() : { [code: string] : string }
+  getSummary() : { [code: string] : string|Balance }
   send() : Promise<string>
+  isValid() : boolean
 }
 
 export class NewTransactionWrapper implements NewTransaction {
@@ -76,12 +77,16 @@ export class NewTransactionWrapper implements NewTransaction {
     return this.tx.getRightLabel();
   }
 
-  getSummary(): { [p: string]: string } {
+  getSummary(): { [p: string]: string|Balance } {
     return this.tx.getSummary();
   }
 
   async send(): Promise<string> {
     return await this.tx.send()
+  }
+
+  isValid(): boolean {
+    return this.tx.isValid();
   }
 }
 
@@ -89,10 +94,10 @@ export class Balance {
   handler: BaseCoinHandler
   amount: BigNum
   unconfirmed: BigNum
-  constructor(handler: BaseCoinHandler, amount: BigNum, unconfirmed: BigNum) {
+  constructor(handler: BaseCoinHandler, amount: BigNum, unconfirmed: BigNum = null) {
     this.handler = handler
     this.amount = amount
-    this.unconfirmed = unconfirmed
+    this.unconfirmed = unconfirmed ? unconfirmed : new BigNum("0")
   }
   total() : BigNum {
     return this.amount.add(this.unconfirmed)
@@ -109,9 +114,9 @@ export interface OnlineCoinHandler extends BaseCoinHandler {
   getPrivateKey(keychain: Keychain) : bip32.BIP32Interface
   getReceiveAddr(keychain: Keychain) : string
   prepareTransaction(
-      keychain: Keychain,
+      keychain: Keychain|string,
       receiverAddr : string,
-      amount : BigNum,
+      amount : BigNum|"MAX",
       fee?: number,
   ) : Promise<NewTransaction>
   getFeeOptions () : Promise<number[]>

@@ -168,7 +168,7 @@ abstract class UniswapProvider extends BaseExchangeProvider {
         var transaction = await this.getRouterTransaction(from, to, systemAmount, minOut, deadline);
         let fromHandler = this.getHandler(from);
         if (from != this.primaryCoin) {
-            let fromContract = (fromHandler as ERC20Handler).getContract(this.engine.keychain);
+            let fromContract = (fromHandler as ERC20Handler).getContract();
             let currentAloowance = await fromContract.allowance(fromHandler.getReceiveAddr(this.engine.keychain), this.routerContractAddr);
             //TODO
             let currentAllowance = new BigNum(currentAloowance.toString());
@@ -180,15 +180,17 @@ abstract class UniswapProvider extends BaseExchangeProvider {
                     '0x' + systemAmount.toString(16)
                 );
                 return new UniswapTransactionWrapper(await fromHandler.prepareCustomTransaction(
-                    this.engine.keychain,
-                    allowTransaction
+                    fromHandler.getWallet(this.engine.keychain),
+                    allowTransaction,
+                    new BigNum("0")
                 ));
             }
         }
 
         return new UniswapTransactionWrapper(await fromHandler.prepareCustomTransaction(
-            this.engine.keychain,
-            transaction
+            fromHandler.getWallet(this.engine.keychain),
+            transaction,
+            systemAmount
         ));
     }
 

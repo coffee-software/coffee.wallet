@@ -4,7 +4,7 @@ import {Keychain} from "../Keychain";
 import {ECPair, Network, Psbt, Transaction} from "bitcoinjs-lib";
 import * as bitcoin from "bitcoinjs-lib";
 import * as bip32 from "bip32";
-import {CacheWrapper, LogInterface} from "../Engine";
+import {CacheWrapper, Engine, LogInterface} from "../Engine";
 import {Https} from "../Core/Https";
 import {bech32} from "bech32";
 import {CoinAddressIcon} from "../Widgets/CoinAddressIcon";
@@ -18,12 +18,20 @@ class BtcTransaction implements NewTransaction {
     tx: Psbt
     extracted: Transaction
     receiverAddr: string
+    sendable: boolean
+    amountOut: number
 
-    constructor(handler: BaseBitcoinjsHanlder, receiverAddr: string, tx: Psbt) {
+    constructor(handler: BaseBitcoinjsHanlder, sendable: boolean, receiverAddr: string, amountOut: number, tx: Psbt) {
         this.handler = handler
         this.receiverAddr = receiverAddr
         this.tx = tx
         this.extracted = tx.extractTransaction()
+        this.sendable = sendable
+        this.amountOut = amountOut
+    }
+
+    isValid() : boolean {
+        return this.sendable;
     }
 
     getAmountDisplay() : string {
@@ -46,9 +54,11 @@ class BtcTransaction implements NewTransaction {
         return "TODO";
     }
 
-    getSummary(): { [code: string] : string } {
+    getSummary(): { [code: string] : string|Balance } {
         return {
-            "fee" : this.getFeeDisplay(),
+            "recipient": this.receiverAddr,
+            "amount": new Balance(this.handler, new BigNum(this.amountOut)),
+            "fee" : new Balance(this.handler, new BigNum(this.tx.getFee())),
             "vsize" : this.extracted.virtualSize().toString() + "vbytes",
             "fee rate" : this.tx.getFeeRate().toString() + " sat/vbyte",
             "ETA" : this.getFeeETA()
@@ -147,10 +157,10 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
     cache: CacheWrapper
     web : WebRequestsQueuedProcessor
 
-    constructor(log: LogInterface, cache: CacheWrapper) {
-        this.log = log
-        this.cache = cache
-        this.web = new WebRequestsQueuedProcessor(BaseBitcoinjsHanlder.processor, cache);
+    constructor(engine: Engine) {
+        this.log = engine.log
+        this.cache = engine.cache
+        this.web = new WebRequestsQueuedProcessor(BaseBitcoinjsHanlder.processor, engine.cache);
     }
 
     static processor = new QueuedProcessor(500);
@@ -291,18 +301,28 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         return keychain.derivePath(this.keyPath, this.network);
     }
 
+    getLegacyAddr(keychain: Keychain): string {
+        var bip32 = this.getPrivateKey(keychain);
+        return bitcoin.payments.p2pkh({
+            pubkey: bip32.publicKey,
+            network: this.network
+        }).address;
+    }
+
+    getSegwitAddr(keychain: Keychain): string {
+        var bip32 = this.getPrivateKey(keychain);
+        return bitcoin.payments.p2wpkh({
+            pubkey: bip32.publicKey,
+            network: this.network
+        }).address;
+    }
+
     getReceiveAddr(keychain: Keychain): string {
         var bip32 = this.getPrivateKey(keychain);
         if (this.segwitSupport) {
-            return bitcoin.payments.p2wpkh({
-                    pubkey: bip32.publicKey,
-                    network: this.network
-            }).address;
+            return this.getSegwitAddr(keychain);
         } else {
-            return bitcoin.payments.p2pkh({
-                pubkey: bip32.publicKey,
-                network: this.network
-            }).address;
+            return this.getLegacyAddr(keychain)
         }
     }
 
@@ -310,15 +330,17 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         return (script.startsWith("00"));
     }
 
-    async prepareTransaction(keychain: Keychain, receiverAddr: string, amount: BigNum, fee: number): Promise<NewTransaction> {
+    async prepareTransaction(keychain: Keychain|string, receiverAddr: string, amount: BigNum|"MAX", fee: number): Promise<NewTransaction> {
         if (!fee) {
             fee = await this.getDefaultFee();
         }
-        let amountOut: number = parseInt(amount.toString());
 
-        var bip32 = this.getPrivateKey(keychain);
+        console.log(typeof keychain);
+        let ecpair = (typeof keychain == "string") ? ECPair.fromWIF(keychain, this.network) : ECPair.fromPrivateKey(this.getPrivateKey(keychain).privateKey);
+        //var keypair = (typeof keychain == "string") ? bip32.fromPrivateKey(keychain) : this.getPrivateKey(keychain);
+
         var legacyFrom = bitcoin.payments.p2pkh({
-            pubkey: bip32.publicKey,
+            pubkey: ecpair.publicKey,
             network: this.network
         }).address;
         var changeAddress = legacyFrom
@@ -332,7 +354,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
         if (this.segwitSupport) {
             var segwitFrom = bitcoin.payments.p2wpkh({
-                pubkey: bip32.publicKey,
+                pubkey: ecpair.publicKey,
                 network: this.network
             }).address;
             utxos = utxos.concat(await this.getUtxosForAddr(segwitFrom));
@@ -366,12 +388,28 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             }
         }
 
-        //TODO mark transaction as invalid when addr == ''
-        tmpTx.addOutput({
-            address: receiverAddr == '' ? changeAddress : receiverAddr,
-            value: amountOut
-        });
+        let sendable = true;
+        let amountOut: number;
+        if (amount === "MAX") {
+            amountOut = 0;
+            changeAddress = receiverAddr
+        } else {
+            amountOut = parseInt(amount.toString());
 
+            if (receiverAddr == '') {
+                //fake self output to calculate fee
+                tmpTx.addOutput({
+                    address: changeAddress,
+                    value: amountOut
+                });
+                sendable = false;
+            } else {
+                tmpTx.addOutput({
+                    address: receiverAddr,
+                    value: amountOut
+                });
+            }
+        }
         //calculating change and fee
         const tmpChange = totalIn - amountOut;
         let finalTx = tmpTx.clone();
@@ -379,8 +417,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             address: changeAddress,
             value: tmpChange
         });
-        let key = ECPair.fromPrivateKey(bip32.privateKey);
-        tmpTx.signAllInputs(key).finalizeAllInputs();
+        tmpTx.signAllInputs(ecpair).finalizeAllInputs();
 
         const finalFee = this.calculateFee(tmpTx, fee);
         const changeValue = totalIn - amountOut - finalFee;
@@ -391,9 +428,9 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             address: changeAddress,
             value: changeValue
         });
-        finalTx.signAllInputs(key).finalizeAllInputs();
+        finalTx.signAllInputs(ecpair).finalizeAllInputs();
         finalTx.setMaximumFeeRate(4000000) //TODO DOGE
-        return new BtcTransaction(this, receiverAddr, finalTx);
+        return new BtcTransaction(this, sendable, receiverAddr, (amount === "MAX") ? changeValue : amountOut, finalTx);
     }
 
     calculateFee(tmpTx: Psbt, fee: number): number {
