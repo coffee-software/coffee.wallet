@@ -4,16 +4,23 @@
 .amount-input {
     display: flex;
     position: relative;
+    background: white;
+    color: #463f3a;
 }
 
-.amount-input .field {
+.amount-input.dark {
+    background: #463f3a;
+    color: white;
+}
+
+.amount-input .side {
     flex: 1;
     position: relative;
     text-align: center;
     font-size: 14px;
     padding: 3px 14px;
-    background: #fff;
     margin-bottom: 1px;
+    color: inherit;
 }
 
 .amount-input input {
@@ -27,7 +34,7 @@
     margin: 0;
     background: transparent;
     font-family: 'Poppins', serif;
-    color: #463f3a;
+    color: inherit;
 }
 
 .amount-input input:focus {
@@ -40,18 +47,13 @@
     left: 14px;
     top: 11px;
     font-size: 15px;
-    color: #766054;
+    color: inherit;
     transition: 0.2s linear all;
     -moz-transition: 0.2s linear all;
     -webkit-transition: 0.2s linear all;
 }
 
-.amount-input input:focus ~ label, .amount-input input:valid ~ label {
-    top: -1px;
-    font-size: 10px;
-}
-
-.amount-input.filled label {
+.amount-input input:focus ~ label, .amount-input.filled label {
     top: -1px;
     font-size: 10px;
 }
@@ -63,7 +65,6 @@
 .amount-input .equalizer {
     font-size: 20px;
     padding: 7px 0 0 0;
-    background: #fff;
     margin-bottom: 1px;
 }
 
@@ -76,7 +77,7 @@
 }
 
 .amount-input.filled .unit {
-    color: #463f3a;
+    color: inherit;
 }
 .amount-input .legend {
     text-align: right;

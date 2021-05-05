@@ -99,6 +99,10 @@ class BtcTransaction implements NewTransaction {
     getRightLabel(): string {
         return Strings.shortAddr(this.getRecipientDisplay(), 13);
     }
+
+    getDescriptionHtml(): string {
+        return "";
+    }
 }
 
 

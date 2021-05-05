@@ -26,8 +26,11 @@ describe('UX Test', function() {
             let handler = new HandlerBtc(engine)
             await provider.updatePrices({'BTC': handler} );
 
-            let w  = new AmountInputWidget(handler,provider);
-            document.body.append(w.element);
+            let w1  = new AmountInputWidget(handler,provider);
+            let w2  = new AmountInputWidget(handler,provider);
+            w2.element.classList.add('dark');
+            document.body.append(w1.element);
+            document.body.append(w2.element);
 
         });
     });

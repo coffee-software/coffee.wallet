@@ -17,6 +17,7 @@ export class AmountInputWidget implements Widget  {
     public setValue(value:number|null) {
         this.amountInput.value = value === null ? '' : value.toFixed(this.handler.decimals)
         this.updateValue()
+        this.validate()
     }
 
     public getBigNumValue() : BigNum|null {
@@ -75,7 +76,7 @@ export class AmountInputWidget implements Widget  {
         labelElement.innerHTML = label
 
         let field = document.createElement("div");
-        field.classList.add('field')
+        field.classList.add('side')
         field.append(element);
         field.append(unitElement);
         field.append(labelElement);
@@ -83,6 +84,11 @@ export class AmountInputWidget implements Widget  {
         this.element.append(field);
 
         return element;
+    }
+
+    setReadonly(readonly: boolean) {
+        this.amountInput.readOnly = readonly;
+        this.valueInput.readOnly = readonly;
     }
 
     updateValue() {

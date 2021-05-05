@@ -10,6 +10,7 @@ import {Engine} from "../Engine";
 import {Config} from "../../src/Config";
 import {CoinAddressIcon} from "../Widgets/CoinAddressIcon";
 import {Strings} from "../Tools/Strings";
+import {TransactionReceipt} from "@ethersproject/abstract-provider";
 
 export class EthTransaction implements NewTransaction {
     handler: BaseEthersHanlder
@@ -57,23 +58,27 @@ export class EthTransaction implements NewTransaction {
     }
 
     getSummary(): { [code: string] : string|Balance } {
-        return {
-            "recipient": this.data.to,
-            "amount": new Balance(this.handler, this.amount),
-            "max fee" : new Balance(this.handler.getFeeHandler(), this.getMaxGas()),
-            "ETA" : this.getFeeETA()
-        };
+        let ret : { [code: string] : string|Balance } = {};
+        ret['recipient'] = this.data.to;
+        if (!this.amount.isZero()) {
+            ret['amount'] = new Balance(this.handler, this.amount)
+        }
+        ret["max fee"] = new Balance(this.handler.getFeeHandler(), this.getMaxGas())
+        ret["ETA"] = this.getFeeETA()
+        return ret;
+
     }
 
     async send(): Promise<string> {
         var response = await this.handler.getProvider().sendTransaction(this.signed);
         BaseEthersHanlder.nonceCache[this.data.from] ++;
 
-        this.handler.getProvider().waitForTransaction(response.hash).then(function(receipt){
-            console.log("RECEIPT");
-            console.log(receipt.transactionHash)
-            console.log(receipt.blockNumber)
-        }).catch(function(e){
+        this.handler.getProvider().waitForTransaction(response.hash).then(function(receipt: TransactionReceipt){
+            this.handler.engine.log.success(
+                'Transaction <u>' + receipt.transactionHash + '</u> is confirmed in block ' + receipt.blockNumber,
+                this.handler.code
+            )
+        }.bind(this)).catch(function(e){
             console.log(e);
         });
 
@@ -95,6 +100,10 @@ export class EthTransaction implements NewTransaction {
 
     getRightLabel(): string {
         return Strings.shortAddr(this.getRecipientDisplay(), 13);
+    }
+
+    getDescriptionHtml(): string {
+        return "";
     }
 }
 
@@ -242,7 +251,11 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
             fee = await this.getDefaultFee();
         }
         tx.gasPrice = fee
-        tx.nonce = "0x" + (await this.getNonce(tx.from)).toString(16);
+        tx.nonce = "0x" + (await this.getNonce(wallet.address)).toString(16);
+        if (!tx.from) {
+            //this is important for nonce inc
+            tx.from = wallet.address
+        }
         if (('data' in tx)) {
             //tolerate 5% slip
             tx.gasLimit = await this.getProvider().estimateGas(tx);

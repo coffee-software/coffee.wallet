@@ -188,3 +188,8 @@
 #mobileQRScanner.show {
   transform: translate3d(0,0,0);
 }
+
+#exchangeSellCoin select, #exchangeBuyCoin select {
+    background-color: #463f3a;
+    margin-bottom: 0;
+}

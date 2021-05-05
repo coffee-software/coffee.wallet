@@ -17,6 +17,7 @@ export interface BaseCoinHandler {
 export interface NewTransaction {
   handler: OnlineCoinHandler
 
+  getDescriptionHtml() : string
   getLeftIcon() : string
   getLeftLabel() : string
   getRightIcon() : string
@@ -87,6 +88,10 @@ export class NewTransactionWrapper implements NewTransaction {
 
   isValid(): boolean {
     return this.tx.isValid();
+  }
+
+  getDescriptionHtml(): string {
+    return this.tx.getDescriptionHtml();
   }
 }
 

@@ -15,6 +15,7 @@ export class CoinAddressIcon implements Widget {
             this.element.children[0].setAttribute("viewBox", "0 0 100 100");
             this.element.children[0].removeAttribute("width");
             this.element.children[0].removeAttribute("height");
+            (this.element.children[0] as HTMLElement).style.display = 'block';
             this.element.style.borderRadius = '50%'
             this.element.style.width = '100%'
             this.element.style.height = '100%'

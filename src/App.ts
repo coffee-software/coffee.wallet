@@ -1054,61 +1054,33 @@ export class App {
     exchangeBuyAmount: AmountInputWidget
 
     doExchange() {
-        //TODO!!!!!
-        var provider = this.engine.allExchangeProviders[this.exchangeProviderSelect.getValue()];
-
-        var sellCoin = this.exchangeSellCoinSelect.getValue();
-        var sellAmount = this.exchangeSellAmount.getValue();
-        var buyCoin = this.exchangeBuyCoinSelect.getValue();
-        var buyAmount = this.exchangeBuyAmount.getValue();
-        //var fee = app.exchangeDefaultFees[provider.key + sellCoin];
-        console.log(sellCoin, sellAmount, buyCoin, buyAmount);
-
+        let provider = this.engine.allExchangeProviders[this.exchangeProviderSelect.getValue()];
+        let sellCoin = this.exchangeSellCoinSelect.getValue();
+        let sellAmount = this.exchangeSellAmount.getValue();
+        let buyCoin = this.exchangeBuyCoinSelect.getValue();
+        let app = this;
+        document.getElementById('loading').classList.add('show');
         provider.createTransaction(sellCoin, buyCoin, sellAmount, this.engine.wallets[buyCoin].getReceiveAddress()).then(
             function(transaction:NewTransaction){
-                this.confirmAndSendTransaction(transaction, null)
+                this.confirmAndSendTransaction(transaction, function(){
+                    if ('isUniswapAllow' in transaction) {
+                        app.alertInfo('Submit form again after allow transaction gets confirmed.', sellCoin);
+                    } else {
+                        app.closePopup();
+                        setTimeout(function () {
+                            app.walletsWidgets[sellCoin].refreshOnline();
+                        }, 3000);
+                        setTimeout(function () {
+                            app.alertInfo('Please refresh your ' + buyCoin + ' balance in few minutes.', buyCoin);
+                        }, 4000);
+                    }
+                });
+                document.getElementById('loading').classList.remove('show');
             }.bind(this)
-        );
-
-
-        /*var onTransactionSuccess = function () {
-            app.closePopup();
-            setTimeout(function() { app.wallets[sellCoin].refreshOnline(); }, 3000);
-            setTimeout(function() { app.alertInfo('Please refresh your ' + buyCoin + ' balance in few minutes.', buyCoin); }, 4000);
-        };
-        provider.createTransaction(
-            sellCoin,
-            buyCoin,
-            app.engine.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount),
-            app.engine.wallets[buyCoin].getReceiveAddress(),
-            function(ret){
-                if ('payinAddress' in ret) {
-                    app.alertInfo( provider.name + ' exchange id ' + ret.id + ' started.', sellCoin, ret);
-
-                    app.authenticateBeforeContinue(
-                        '<table class="transactionSummary">' +
-                        '<tr class="first"><td><img class="coinIcon" src="coins/' + app.wallets[sellCoin].handler.icon + '.svg"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td><img class="coinIcon" src="coins/' + app.wallets[buyCoin].handler.icon + '.svg"/></td></tr>' +
-                        '<tr class="second"><td>' + app.engine.shortAmount(displaySellAmount, sellCoin, 13) + '</td><td></td><td>' + app.engine.shortAmount(buyAmmount, buyCoin, 13) + '</td></tr>' +
-                        '</table>',
-                        '<table class="niceTable">' +
-                        '<tr><th colspan="2" style="width:26%;">payinAddress:</th></tr><tr><td colspan="2">' + ret.payinAddress + '</td></tr>' +
-                        '<tr><th colspan="2">amount:</th></tr><tr><td style="width:50%;">' + displaySellAmount + ' ' + sellCoin + '</td><td>' + app.engine.priceProvider.convert(app.wallets[sellCoin].handler.systemValueToFloatValue(sellAmmount), sellCoin) + '</td></tr>' +
-                        '<tr><th colspan="2">fee:</th></tr><tr><td>' + app.wallets[sellCoin].handler.getFeeDisplay(fee) + '</td><td>' + app.wallets[sellCoin].handler.getFeeValueDisplay(fee) + '</td></tr>' +
-                        '<tr><th colspan="2">estimated return:</th></tr><tr><td>' + (buyAmmount) + ' ' + buyCoin + '</td><td>' + app.engine.priceProvider.convert(buyAmmount, buyCoin) + '</td></tr>' +
-                        '<tr><th colspan="2">' + provider.name + ' ID:</th></tr><tr><td colspan="2">' + ret.id + '</td></tr>' +
-                        '</table>'
-                        ,
-                        function(){
-                            app.wallets[sellCoin].handler.sendPayment(app.wallets[sellCoin].data.privateKey, ret.payinAddress, sellAmmount, fee);
-                            onTransactionSuccess();
-                        }
-                    );
-                } else {
-                    //provider handled transaction in a custom way
-                    onTransactionSuccess();
-                }
-            }
-        );*/
+        ).catch(function(e){
+            document.getElementById('loading').classList.remove('show');
+            app.onUnhandledRejection(e);
+        });
     }
 
     popupExchange(providerKey: string, sellCoinCode: string, buyCoinCode: string) {
@@ -1189,9 +1161,12 @@ export class App {
 
         if (buyCoin && sellCoin) {
             this.exchangeSellAmount = new AmountInputWidget(this.engine.allCoinHandlers[sellCoin], this.engine.priceProvider);
+            this.exchangeSellAmount.element.classList.add('dark');
             this.setWidget('exchangeSellAmount', this.exchangeSellAmount);
 
             this.exchangeBuyAmount = new AmountInputWidget(this.engine.allCoinHandlers[buyCoin], this.engine.priceProvider);
+            this.exchangeBuyAmount.element.classList.add('dark');
+            this.exchangeBuyAmount.setReadonly(true);
             this.setWidget('exchangeBuyAmount', this.exchangeBuyAmount);
 
             this.exchangeSellAmount.onchange = this.updateExchangeAmount.bind(this)
@@ -1661,27 +1636,28 @@ export class App {
         });
 
         /* TODO
-                       app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee, app.afterSendCallback ? function(txid) {
-                           app.alertInfo('sending payment notification to: ' + app.afterSendCallback);
-                           var http = new XMLHttpRequest();
-                           http.open('POST', app.afterSendCallback);
-                           var body = [];
-                           var data = {
-                               'transaction_id': txid,
-                               'from_address': app.sendWallet.data.addr,
-                               'to_address': addr,
-                               'amount': floatAmount,
-                               'coin': app.sendWallet.handler.name
-                           };
-                           for (var d in data) body.push(d + '=' + encodeURIComponent(data[d]));
-                           http.onreadystatechange = function() {
-                               if ( http.readyState == 4 ) {
-                                   app.alertInfo('status: ' + this.status);
-                               }
-                           }
-                           http.send(body.join('&'));
+            app.sendWallet.handler.sendPayment(app.sendWallet.data.privateKey, addr, systemAmount, fee, app.afterSendCallback ? function(txid) {
+               app.alertInfo('sending payment notification to: ' + app.afterSendCallback);
+               var http = new XMLHttpRequest();
+               http.open('POST', app.afterSendCallback);
+               var body = [];
+               var data = {
+                   'transaction_id': txid,
+                   'from_address': app.sendWallet.data.addr,
+                   'to_address': addr,
+                   'amount': floatAmount,
+                   'coin': app.sendWallet.handler.name
+               };
+               for (var d in data) body.push(d + '=' + encodeURIComponent(data[d]));
+               http.onreadystatechange = function() {
+                   if ( http.readyState == 4 ) {
+                       app.alertInfo('status: ' + this.status);
+                   }
+               }
+               http.send(body.join('&'));
+           } : null);
+        */
 
-                       } : null);*/
         this.closeForm();
     }
 
@@ -1700,7 +1676,7 @@ export class App {
         for (var label in summary) {
             let str : string
             if (typeof summary[label] != 'string') {
-                str = this.engine.getValueString(summary[label] as Balance) + '<br/>' +
+                str = this.engine.getValueString(summary[label] as Balance) + ' = ' +
                     this.engine.getFiatValueString(summary[label] as Balance);
             } else {
                 str = summary[label] as string
@@ -1712,7 +1688,7 @@ export class App {
             '<tr class="first"><td>' + transaction.getLeftIcon() + '</td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td>' +  transaction.getRightIcon() + '</td></tr>' +
             '<tr class="second"><td>' + transaction.getLeftLabel() + '</td><td></td><td>' + transaction.getRightLabel() + '</td></tr>' +
             '</table>',
-            '<table class="niceTable">' + tableContent + '</table>',
+            transaction.getDescriptionHtml() + '<table class="niceTable">' + tableContent + '</table>',
             this.sendTransactionProceed.bind(this, transaction, onSuccess)
         );
     }

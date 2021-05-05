@@ -1,17 +1,53 @@
 import {BaseExchangeProvider} from "./BaseExchangeProvider";
-import {NewTransaction, NewTransactionWrapper, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
+import {Balance, NewTransaction, NewTransactionWrapper, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
 import {BaseERC20Handler, BaseEthersHanlder, EthTransaction, isBaseERC20Handler} from "../Handlers/BaseEthersHanlder";
 import {ethers} from "ethers";
 import {BigNum} from "../Core/BigNum";
 import {TransactionRequest} from "@ethersproject/abstract-provider/src.ts/index";
 import {ERC20Handler} from "../Handlers/HandlerEth";
 
-class UniswapTransactionWrapper extends NewTransactionWrapper {
 
-    constructor(tx: EthTransaction) {
+class UniswapTransactionWrapper extends NewTransactionWrapper {
+    getRightIcon(): string {
+        let icon = this.handler.testCoin ? 'uniswap.test' : 'uniswap'
+        return '<img class="coinIcon" src="img/exchanges/' + icon + '.png"/>';
+    }
+}
+
+class UniswapAllowTransactionWrapper extends UniswapTransactionWrapper {
+
+    currentAllowance: string
+    targetAllowance: string
+    isUniswapAllow: boolean = true
+
+    constructor(tx: EthTransaction, currentAllowance: string, targetAllowance: string) {
         super(tx);
+        this.currentAllowance = currentAllowance
+        this.targetAllowance = targetAllowance
     }
 
+    getDescriptionHtml(): string {
+        return '<h2 style="text-align: center;">step 1/2 - token allowance</h2>' +
+            'To swap ERC20 tokens on Uniswap you need to allow it to spend tokens on your behalf first.<br/>' +
+            'Current allowance is <strong>' + this.currentAllowance + '</strong><br/>' +
+            'Transaction will se the allowance to <strong>' + this.targetAllowance + '</strong><br/>' +
+            'After this transaction confirms, you will be able to swap up to ' + this.targetAllowance + ' to ETH or other token submitting this form again.';
+    }
+}
+
+class UniswapSwapTransactionWrapper extends UniswapTransactionWrapper {
+
+    estimatedOut: string
+    constructor(tx: EthTransaction, estimatedOut: string) {
+        super(tx);
+        this.estimatedOut = estimatedOut
+    }
+
+    getSummary(): { [p: string]: string | Balance } {
+        let ret = super.getSummary();
+        ret['estimated return'] = this.estimatedOut;
+        return ret;
+    }
 }
 
 abstract class UniswapProvider extends BaseExchangeProvider {
@@ -170,7 +206,6 @@ abstract class UniswapProvider extends BaseExchangeProvider {
         if (from != this.primaryCoin) {
             let fromContract = (fromHandler as ERC20Handler).getContract();
             let currentAloowance = await fromContract.allowance(fromHandler.getReceiveAddr(this.engine.keychain), this.routerContractAddr);
-            //TODO
             let currentAllowance = new BigNum(currentAloowance.toString());
 
             if (systemAmount.cmp(currentAllowance) == 1) {
@@ -179,19 +214,24 @@ abstract class UniswapProvider extends BaseExchangeProvider {
                     this.routerContractAddr,
                     '0x' + systemAmount.toString(16)
                 );
-                return new UniswapTransactionWrapper(await fromHandler.prepareCustomTransaction(
-                    fromHandler.getWallet(this.engine.keychain),
-                    allowTransaction,
-                    new BigNum("0")
-                ));
+
+                return new UniswapAllowTransactionWrapper(
+                    await fromHandler.prepareCustomTransaction(
+                        fromHandler.getWallet(this.engine.keychain),
+                        allowTransaction,
+                        new BigNum("0")
+                    ),
+                    currentAllowance.toFloat(fromHandler.decimals) + ' ' + fromHandler.ticker,
+                    systemAmount.toFloat(fromHandler.decimals) + ' ' + fromHandler.ticker
+                );
             }
         }
 
-        return new UniswapTransactionWrapper(await fromHandler.prepareCustomTransaction(
+        return new UniswapSwapTransactionWrapper(await fromHandler.prepareCustomTransaction(
             fromHandler.getWallet(this.engine.keychain),
             transaction,
             systemAmount
-        ));
+        ), estimatedOut.toString() + ' ' + this.getHandler(to).ticker);
     }
 
     private _testAddLiquidity() {
