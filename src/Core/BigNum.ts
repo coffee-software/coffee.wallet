@@ -60,11 +60,15 @@ export class BigNum {
     }
 
     toFloat(decimals : number) : number {
-        let s = this._bn.toString();
+        let s = this._bn.abs().toString();
         while (s.length <= decimals) {
             s = "0" + s;
         }
-        return parseFloat(s.slice(0, s.length - decimals) + "." + s.slice(s.length - decimals));
+        s = s.slice(0, s.length - decimals) + "." + s.slice(s.length - decimals);
+        if (this._bn.isNeg()) {
+            s = '-' + s;
+        }
+        return parseFloat(s);
     }
 
     isZero() : boolean {

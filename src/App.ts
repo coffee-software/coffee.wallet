@@ -649,9 +649,8 @@ export class App {
                     )
                 );
             }));
-            //TODO
-            advanced.appendChild(this.createAdvancedOption('import', 'transfer to online wallet', this.showImportPrivateKeyPopup.bind(this, item.wallet.handler, item.item.address)));
 
+            advanced.appendChild(this.createAdvancedOption('import', 'transfer to online wallet', this.showImportPrivateKeyPopup.bind(this, item.wallet.handler, item.item.address)));
             advanced.appendChild(this.createAdvancedOption('remove', 'remove', item.onremove.bind(this)));
 
             document.getElementById('offlineAssetActions').append(advanced);
@@ -1088,33 +1087,22 @@ export class App {
         this.exchangeProviderSelect = new SelectWidget(this.exchangeSetProvider.bind(this));
         this.setWidget('exchangeProvider', this.exchangeProviderSelect);
 
-
         var includeTestCoins = this.engine.settings.testCoinsEnabled();
         var availableProviders : { [key:string]: BaseExchangeProvider } = {};
-        //this.exchangeDefaultFees = {};
-        //this.exchangeMinAmmounts = {};
 
         for (var key in this.engine.allExchangeProviders) {
             if (includeTestCoins || (this.engine.allExchangeProviders[key].testNet === false)) {
                 availableProviders[key] = this.engine.allExchangeProviders[key];
             }
-            //this.exchangeMinAmmounts[i] = {};
         }
         this.exchangeProviderSelect.setOptions(availableProviders, providerKey ? providerKey : null);
 
-        /*this.exchangeSellAmount = new AmountInputWidget(function(value){
-        });
-        this.setWidget('exchangeProvider', this.exchangeProviderSelect);*/
-
-        /*document.getElementById("exchangeSellAmmount").value = 0;*/
         this.openPopup('exchangePopup', 'Exchange');
         this.exchangeSetProvider(this.exchangeProviderSelect.getValue());
         //app.settings.set('airdropTaskExchange', true);
     }
 
     exchangeSetProvider(providerKey: string) {
-        console.log("SWITCHING PROVIDER:", providerKey);
-        console.log(this.exchangeableCoinsCache);
         let provider = this.engine.allExchangeProviders[providerKey];
         document.getElementById("exchangeShortDescription").innerHTML = provider.shortDescription;
         document.getElementById("exchangeLink").innerHTML = '<a href="#" onclick="OsPlugins.openInSystemBrowser(\'' + provider.url + '\');">' + provider.url + '</a>';
@@ -1129,7 +1117,6 @@ export class App {
     }
 
     exchangeSetSellCoin(sellCoin: string) {
-        console.log("SWITCHING SELL COIN:", sellCoin);
         let providerKey = this.exchangeProviderSelect.getValue()
         let currentBuyCoin = this.exchangeBuyCoinSelect.getValue();
         let options = this.exchangeableCoinsCache[providerKey].slice();
@@ -1141,7 +1128,6 @@ export class App {
     }
 
     exchangeSetBuyCoin(buyCoin: string|null) {
-        console.log("SWITCHING BUY COIN:", buyCoin);
         let providerKey = this.exchangeProviderSelect.getValue()
         let currentSellCoin = this.exchangeSellCoinSelect.getValue();
         let options = this.exchangeableCoinsCache[providerKey].slice();
@@ -1153,7 +1139,6 @@ export class App {
     }
 
     updateExchangeCoins() {
-        console.log("UPDATEING EXCHANGE:");
         let providerKey = this.exchangeProviderSelect.getValue()
         let provider = this.engine.allExchangeProviders[providerKey];
         let sellCoin = this.exchangeSellCoinSelect.getValue()
@@ -1174,59 +1159,14 @@ export class App {
             document.getElementById("exchangeSellMin").textContent = '';
             provider.getMinAmount(sellCoin, buyCoin).then(function(value){
                 document.getElementById("exchangeSellMin").textContent = value.toString();
-            })
+            });
+            (document.getElementById("exchangeButton") as HTMLInputElement).disabled = false;
 
         } else {
             document.getElementById("exchangeBuyAmount").innerHTML = '';
             document.getElementById("exchangeSellAmount").innerHTML = '';
+            (document.getElementById("exchangeButton")as HTMLInputElement).disabled = true;
         }
-        /*
-        var sellAmmount = document.getElementById("exchangeSellAmmount").value;
-
-        var fee = null;
-
-        if (sellCoin) {
-            var feeCacheKey = provider.key + sellCoin;
-            if (feeCacheKey in app.exchangeDefaultFees) {
-                fee = app.exchangeDefaultFees[feeCacheKey];
-            } else {
-                provider.getFeeEstimate(sellCoin, function(fee){
-                    app.exchangeDefaultFees[feeCacheKey] = fee;
-                    app.updateExchange();
-                });
-            }
-            //TODO system value
-            var maxSell = app.wallets[sellCoin].data.balance - (fee === null ? 0 : app.engine.wallets[sellCoin].handler.estimateFeeFloat(fee));
-            document.getElementById("exchangeSellMax").textContent = maxSell > 0 ? maxSell : 0;
-            document.getElementById("exchangeSellValue").innerHTML = app.engine.priceProvider.convert(sellAmmount, app.engine.wallets[sellCoin]);
-        } else {
-            document.getElementById("exchangeSellMax").textContent = '';
-            document.getElementById("exchangeSellValue").textContent = '';
-        }
-
-        var goodPair = sellCoin && buyCoin && (sellCoin != buyCoin);
-        if (goodPair) {
-            var minKey = sellCoin + '#' + buyCoin;
-            if (minKey in app.exchangeMinAmmounts[provider.key]) {
-                document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[provider.key][minKey];
-            } else {
-                document.getElementById("exchangeSellMin").textContent = '';
-                provider.getMinAmount(sellCoin, buyCoin, function(ret){
-                    app.exchangeMinAmmounts[provider.key][minKey] = ret;
-                    document.getElementById("exchangeSellMin").textContent = app.exchangeMinAmmounts[provider.key][minKey];
-                });
-            }
-        } else {
-            document.getElementById("exchangeSellMin").textContent = '';
-        }
-
-        if (goodPair && (sellAmmount > 0)) {
-        } else {
-            document.getElementById("exchangeBuyAmmount").value = 0;
-            document.getElementById("exchangeBuyValue").textContent = '';
-        }
-        document.getElementById("exchangeButton").disabled = !(goodPair && (sellAmmount > 0) && (fee !== null));
-        */
     }
 
     updateExchangeAmount(value: number) {
@@ -1667,7 +1607,7 @@ export class App {
         if (!(this.sendOutgoingTransaction && this.sendOutgoingTransaction.isValid())) {
             return;
         }
-        this.confirmAndSendTransaction(this.sendOutgoingTransaction, null);
+        this.confirmAndSendTransaction(this.sendOutgoingTransaction, function() {});
     }
 
     confirmAndSendTransaction(transaction: NewTransaction, onSuccess: () => void) {

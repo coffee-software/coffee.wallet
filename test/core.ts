@@ -53,6 +53,11 @@ describe('Core Test', function() {
                 BigNum.fromFloat(1/3, 10).toString(),
                 "3333333333"
             );
+            let big3 = new BigNum("-5");
+            strictEqual(
+                big3.toFloat(5),
+                -0.00005
+            );
         });
 
     });

@@ -106,12 +106,18 @@ export class Wallet {
         if (isOnlineCoinHanlder(this.handler)) {
             let cached = this.getCachedBalance();
             let balance = await this.handler.getOwnBalance(this.keychain);
-            console.log(balance);
-            console.log(cached);
             if (!balance.equals(cached)) {
                 this.setRawCachedBalance('CachedBalance', balance);
                 let diff = balance.total().sub(cached.total());
-                this.engine.log.info(diff.toString(), this.code);
+                let nDiff = diff.toFloat(this.handler.decimals);
+                console.log(nDiff)
+                if (nDiff > 0.0) {
+                    this.engine.log.success(nDiff.toString() + ' more on your ' + this.handler.ticker + ' wallet', this.handler.code);
+                } else if (nDiff < 0.0) {
+                    this.engine.log.info( (-nDiff).toString() + ' less on your ' + this.handler.ticker + ' wallet', this.handler.code);
+                } else {
+                    //this.engine.log.info(diff.toString(), this.code);
+                }
             }
             return balance;
         } else {
