@@ -1816,7 +1816,7 @@ export class App {
         if (value) {
             message += '\namount: ' + value;
         }
-        message += '\nlink: \n' + 'https://wallet.coffee/request.html#' + this.updateReceivePaymentCode(value);
+        message += '\nlink: \n' + 'https://wallet.coffee/request#' + this.updateReceivePaymentCode(value);
         let app = this;
         OsPlugins.shareDialog('', message, function() {
             app.alertInfo('Any recipients will be able to use code to make a payment.');

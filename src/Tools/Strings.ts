@@ -32,6 +32,8 @@ export class Strings {
             let c = str[i].toLowerCase();
             if ('a' <= c && c <='z') {
                 ret += c;
+            } else if ('0' <= c && c <='9') {
+                ret += c;
             } else {
                 ret += '-';
             }

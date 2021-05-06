@@ -18,7 +18,7 @@ describe('Handlers Tests', function() {
             new CacheMock()
         );
         it('legacy test', function () {
-            let allCoinHandlers = createAllCoinHandlers(engine);
+            let allCoinHandlers = engine.allCoinHandlers;
             strictEqual(
                 'bip39' in allCoinHandlers,
                 false
@@ -27,7 +27,7 @@ describe('Handlers Tests', function() {
         it('has not empty core values', function () {
             let keychain1 = new Keychain(mnemonic1)
             let keychain2 = new Keychain(mnemonic2)
-            let allCoinHandlers = createAllCoinHandlers(engine);
+            let allCoinHandlers = engine.allCoinHandlers;
             for (let key in allCoinHandlers) {
                 let handler = allCoinHandlers[key]
                 notStrictEqual(handler.ticker.length, 0)
@@ -40,7 +40,7 @@ describe('Handlers Tests', function() {
         it('has not empty online values', function () {
             let keychain1 = new Keychain(mnemonic1)
             let keychain2 = new Keychain(mnemonic2)
-            let allCoinHandlers = createAllCoinHandlers(engine);
+            let allCoinHandlers = engine.allCoinHandlers;
             for (let key in allCoinHandlers) {
                 let handler = allCoinHandlers[key]
                 if (isOnlineCoinHanlder(handler)) {
