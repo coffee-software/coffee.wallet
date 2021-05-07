@@ -1462,6 +1462,7 @@ export class App {
         this.openForm('sendPaymentPopup');
         this.isSocialSend = false
         this.sendOutgoingTransaction = null;
+        (document.getElementById('sendButton') as HTMLInputElement).disabled = true;
         (document.getElementById('sendPaymentIcon') as HTMLImageElement).src = 'coins/' + wallet.handler.icon + '.svg';
         this.toggleAll('normalSend', true);
         this.toggleAll('socialSend', false);
@@ -1535,7 +1536,8 @@ export class App {
 
     sendCoinUpdateTransaction(){
         console.log("PREPARING");
-        this.sendOutgoingTransaction = null
+        this.sendOutgoingTransaction = null;
+        (document.getElementById('sendButton') as HTMLInputElement).disabled = true;
         //
         let fee = this.sendFeeInputWidget.getValue();
         let address = this.sendAddressInputWidget.getValue();
@@ -1548,7 +1550,8 @@ export class App {
             console.log(transaction);
             document.getElementById('feeAmount').innerHTML = transaction.getFeeDisplay();
             document.getElementById('feeTime').innerHTML = transaction.getFeeETA();
-            app.sendOutgoingTransaction = transaction
+            app.sendOutgoingTransaction = transaction;
+            (document.getElementById('sendButton') as HTMLInputElement).disabled = !app.sendOutgoingTransaction.isValid();
         })
     }
 

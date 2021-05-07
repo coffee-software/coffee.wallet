@@ -10,6 +10,7 @@ import {bech32} from "bech32";
 import {CoinAddressIcon} from "../Widgets/CoinAddressIcon";
 import {Strings} from "../Tools/Strings";
 import {QueuedProcessor} from "../Core/QueuedProcessor";
+import {Mutex} from "../Core/Mutex";
 
 var base58 = require('bs58');
 
@@ -138,6 +139,13 @@ interface BitcoinUtxo {
     hex: string
 }
 
+interface BlockRootResponse {
+    unconfirmed_count: number
+    high_fee_per_kb: number
+    medium_fee_per_kb: number
+    low_fee_per_kb: number
+}
+
 export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
     onlineCoin = true;
@@ -178,8 +186,21 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             balance: number
             unconfirmed_balance: number
             final_balance: number
+            n_tx: number,
+            unconfirmed_n_tx: number,
+            final_n_tx: number
         }
-        let response = <BalanceResponse>await this.web.get(this.webapiHost, this.webapiPath + '/addrs/' + addr + '/balance');
+        let response = <BalanceResponse>await this.web.getCached(this.webapiHost, this.webapiPath + '/addrs/' + addr + '/balance', 30);
+
+        let cachePrefix = 'handler.' + this.code + '.txs.' + addr
+        let cacheK = response.n_tx + '.' + response.unconfirmed_n_tx + '.' + response.final_n_tx
+        let currentK = this.cache.get(cachePrefix + '.k', null);
+        if (cacheK != currentK) {
+            console.log('clearing tx cache');
+            this.cache.set(cachePrefix + '.v', null);
+            this.cache.set(cachePrefix + '.k', cacheK);
+        }
+
         return new Balance(this, new BigNum(response.balance), new BigNum(response.unconfirmed_balance));
     }
 
@@ -212,25 +233,17 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         return "";
     }
 
+    async getLastBlockData(): Promise<BlockRootResponse> {
+        return <BlockRootResponse>await this.web.getCached(this.webapiHost, this.webapiPath, 3 * 60);
+    }
+
     async getDefaultFee(): Promise<number> {
-        interface RootResponse {
-            unconfirmed_count: number
-            high_fee_per_kb: number
-            medium_fee_per_kb: number
-            low_fee_per_kb: number
-        }
-        let response = <RootResponse>await this.web.getCached(this.webapiHost, this.webapiPath, 10);
+        let response = await this.getLastBlockData();
         return response.medium_fee_per_kb;
     }
 
     async getFeeOptions(): Promise<number[]> {
-        interface RootResponse {
-            unconfirmed_count: number
-            high_fee_per_kb: number
-            medium_fee_per_kb: number
-            low_fee_per_kb: number
-        }
-        let response = <RootResponse>await this.web.getCached(this.webapiHost, this.webapiPath, 10);
+        let response = await this.getLastBlockData();
         return [
             response.low_fee_per_kb,
             Math.floor((response.low_fee_per_kb + response.medium_fee_per_kb) / 2 ),
@@ -244,11 +257,22 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         interface TxResponse {
             hex: string
         }
-        let response = <TxResponse>await this.web.getCached(this.webapiHost, this.webapiPath + '/txs/' + tx_hash + '?includeHex=true', 60 * 24);
+        let response = <TxResponse>await this.web.getCached(this.webapiHost, this.webapiPath + '/txs/' + tx_hash + '?includeHex=true', 60 * 60 * 24);
         return response.hex;
     }
 
+    utxosMutex = new Mutex();
+
     async getUtxosForAddr(address: string) : Promise<BitcoinUtxo[]> {
+
+        const unlock = await this.utxosMutex.lock();
+        let cachePrefix = 'handler.' + this.code + '.txs.' + address
+        let cached = this.cache.get(cachePrefix + '.v', null);
+        if (cached) {
+            unlock();
+            return cached;
+        }
+
         interface TxrefResponse {
             value: number
             tx_hash: string
@@ -261,7 +285,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         }
         //TODO set RBF : &confirmations=1
         //TODO: do this on balance change and cache forever
-        let response = <UtxosResponse>await this.web.getCached(this.webapiHost, this.webapiPath + '/addrs/' + address + '?unspentOnly=true&includeScript=true', 2);
+        let response = <UtxosResponse>await this.web.get(this.webapiHost, this.webapiPath + '/addrs/' + address + '?unspentOnly=true&includeScript=true');
 
         let ret : BitcoinUtxo[] = [];
 
@@ -289,6 +313,8 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
                 });
             }
         }
+        this.cache.set(cachePrefix + '.v', ret);
+        unlock();
         return ret;
     }
 

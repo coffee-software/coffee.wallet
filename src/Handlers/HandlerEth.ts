@@ -73,9 +73,9 @@ export class ERC20Handler extends BaseERC20Handler {
         this.coinMarketCapId = coinMarketCapId
         this.coinPaprikaId = coinPaprikaId
         if (website.length) {
-            this.links[(new URL(website)).host] = "https://etherscan.io/token/" + this.ethContractAddr
+            this.links[(new URL(website)).host] = website
         }
-        this.links["etherscan.io"] = website
+        this.links["etherscan.io"] = "https://etherscan.io/token/" + this.ethContractAddr
     }
 
 }
