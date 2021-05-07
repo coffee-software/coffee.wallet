@@ -23,6 +23,10 @@ export class HandlerBtcTest extends BaseBitcoinjsHanlder {
     keyPath = "m/44'/1'/0'/0/0"
     segwitSupport = true
 
+    coinGeckoId = '';
+    coinMarketCapId = '';
+    coinPaprikaId = '';
+
     explorerLinkAddr(address: string): string {
         return 'https://www.blockchain.com/btc-testnet/address/' + address;
     }

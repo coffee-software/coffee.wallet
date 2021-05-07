@@ -1,5 +1,5 @@
 import {BaseERC20Handler, BaseEthersHanlder} from "./BaseEthersHanlder";
-import {CacheWrapper, Engine, LogInterface} from "../Engine";
+import {CacheWrapper, Engine, LogInterface, Strings} from "../Engine";
 
 export class HandlerEth extends BaseEthersHanlder {
 
@@ -14,6 +14,9 @@ export class HandlerEth extends BaseEthersHanlder {
         "ethereum.org" : "https://ethereum.org/",
         "Wikpedia" : "https://en.wikipedia.org/wiki/Ethereum"
     };
+    coinGeckoId = 'ethereum';
+    coinMarketCapId = 'ethereum';
+    coinPaprikaId = 'eth-ethereum';
 
     networkName = 'homestead'
 
@@ -40,6 +43,10 @@ export class ERC20Handler extends BaseERC20Handler {
     feeHandlerCode = 'ETH'
     networkName = 'homestead';
 
+    coinGeckoId = '';
+    coinMarketCapId = '';
+    coinPaprikaId = '';
+
     constructor(
         engine: Engine,
         ticker: string,
@@ -48,7 +55,10 @@ export class ERC20Handler extends BaseERC20Handler {
         ethContractAddr: string,
         decimals: number,
         description: string = "",
-        links: {[key:string] : string} = {}
+        website: string = "",
+        coinPaprikaId: string = "",
+        coinGeckoId: string = "",
+        coinMarketCapId: string = ""
     ) {
         super(engine)
         this.ticker = ticker;
@@ -58,10 +68,14 @@ export class ERC20Handler extends BaseERC20Handler {
         this.description = this.name + " is an ERC20 token. " + description
         this.ethContractAddr = ethContractAddr
         this.decimals = decimals
-        this.links = {
-            ...links,
-            "etherscan.io": "https://etherscan.io/token/" + this.ethContractAddr
+        this.links = {}
+        this.coinGeckoId = coinGeckoId
+        this.coinMarketCapId = coinMarketCapId
+        this.coinPaprikaId = coinPaprikaId
+        if (website.length) {
+            this.links[(new URL(website)).host] = "https://etherscan.io/token/" + this.ethContractAddr
         }
+        this.links["etherscan.io"] = website
     }
 
 }

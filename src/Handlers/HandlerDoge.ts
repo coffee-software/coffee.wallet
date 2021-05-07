@@ -12,9 +12,11 @@ export class HandlerDoge extends BaseBitcoinjsHanlder {
     description = "Dogecoin is a decentralized, peer-to-peer digital currency that enables you to easily send money online. " +
         "Think of it as \"the internet currency.\"";
     links = {
-        'dogecoin.com' : 'https://cogecoin.com/',
-        "CoinMarketCap" : "https://coinmarketcap.com/currencies/dogecoin/"
+        'dogecoin.com' : 'https://cogecoin.com/'
     }
+    coinGeckoId = 'dogecoin';
+    coinMarketCapId = 'dogecoin';
+    coinPaprikaId = 'doge-dogecoin';
 
     webapiHost = 'api.blockcypher.com'
     webapiPath = '/v1/doge/main'

@@ -389,11 +389,22 @@ export class App {
             advanced.appendChild(this.createAdvancedOption('import', 'import private key', this.showImportPrivateKeyPopup.bind(this, wallet.handler)));
         }
 
-        var links = '<ul>';
-        for (var name in wallet.handler.links) {
-            links += '<li><a href="#" onclick="OsPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
+        var links = wallet.handler.links;
+        if (wallet.handler.coinMarketCapId.length) {
+            links["CoinMarketCap"] = "https://coinmarketcap.com/currencies/" + wallet.handler.coinMarketCapId + "/"
         }
-        links += '</ul>';
+        if (wallet.handler.coinPaprikaId.length) {
+            links["CoinPaprika"] = "https://coinpaprika.com/coin/" + wallet.handler.coinPaprikaId + "/"
+        }
+        if (wallet.handler.coinGeckoId.length) {
+            links["CoinGecko"] = "https://www.coingecko.com/en/coins/" + wallet.handler.coinGeckoId
+        }
+
+        var linksUl = '<ul>';
+        for (var name in links) {
+            linksUl += '<li><a href="#" onclick="OsPlugins.openInSystemBrowser(\'' + wallet.handler.links[name] + '\');">' + name + '</a></li>';
+        }
+        linksUl += '</ul>';
 
         advanced.appendChild(this.createAdvancedOption(
             'about',
@@ -402,7 +413,7 @@ export class App {
                 this,
                 wallet.handler.name + ' (' + wallet.handler.ticker + ')',
                 '<div style="text-align:center;"><img width="64" src="coins/' + wallet.handler.icon + '.svg"/></div>' +
-                wallet.handler.description + links,
+                wallet.handler.description + linksUl,
                 function(){},
                 'close',
                 null,

@@ -117,6 +117,9 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
     abstract icon: string;
     abstract description: string;
     abstract links: { [p: string]: string };
+    abstract coinGeckoId: string;
+    abstract coinMarketCapId: string;
+    abstract coinPaprikaId: string;
     abstract explorerLinkAddr(address: string): string;
     abstract explorerLinkTx(txid: string): string;
 

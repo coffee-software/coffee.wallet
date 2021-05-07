@@ -14,6 +14,10 @@ export class HandlerEthTest extends BaseEthersHanlder {
     }
     networkName = 'ropsten'
 
+    coinGeckoId = '';
+    coinMarketCapId = '';
+    coinPaprikaId = '';
+
     explorerLinkAddr(address: string): string {
         return 'https://ropsten.etherscan.io/address/' + address;
     }
@@ -36,6 +40,10 @@ export class ERC20TestHandler extends BaseERC20Handler {
     testCoin = true
     feeHandlerCode = 'ETH.TST'
     networkName = 'ropsten';
+
+    coinGeckoId = '';
+    coinMarketCapId = '';
+    coinPaprikaId = '';
 
     constructor(
         engine: Engine,

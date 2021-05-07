@@ -14,10 +14,7 @@ export class HandlerBtc extends BaseBitcoinjsHanlder {
         "These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain. " +
         "Bitcoin was invented by an unknown person or group of people under the name Satoshi Nakamoto and released as open-source software in 2009. ";
     links = {
-        'bitcoin.org' : 'https://bitcoin.org/',
-        'CoinGecko' : 'https://www.coingecko.com/en/coins/bitcoin',
-        'CoinMarketCap' : 'https://coinmarketcap.com/currencies/bitcoin/',
-        'CoinPaprika' : 'https://coinpaprika.com/coin/btc-bitcoin/'
+        'bitcoin.org' : 'https://bitcoin.org/'
     };
 
     webapiHost = 'api.blockcypher.com'
@@ -25,6 +22,10 @@ export class HandlerBtc extends BaseBitcoinjsHanlder {
     network = coininfo.bitcoin.main.toBitcoinJS()
     keyPath = "m/44'/0'/0'/0/0"
     segwitSupport = true
+
+    coinGeckoId = 'bitcoin';
+    coinMarketCapId = 'bitcoin';
+    coinPaprikaId = 'btc-bitcoin';
 
     explorerLinkAddr(address : string) {
         return 'https://www.blockchain.com/btc/address/' + address;

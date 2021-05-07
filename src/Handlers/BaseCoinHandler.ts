@@ -12,6 +12,10 @@ export interface BaseCoinHandler {
   icon : string
   description : string
   links : { [key: string]: string }
+
+  coinPaprikaId: string
+  coinGeckoId: string
+  coinMarketCapId: string
 }
 
 export interface NewTransaction {

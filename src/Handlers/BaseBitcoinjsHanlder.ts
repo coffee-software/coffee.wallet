@@ -148,6 +148,10 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
     abstract name: string;
     abstract code: string;
     abstract ticker: string;
+    abstract coinGeckoId: string;
+    abstract coinMarketCapId: string;
+    abstract coinPaprikaId: string;
+
     abstract explorerLinkAddr(address: string): string;
     abstract explorerLinkTx(txid: string): string;
 

@@ -16,6 +16,9 @@ export class HandlerLtc extends BaseBitcoinjsHanlder {
     links = {
         'litecoin.org' : 'https://litecoin.org/'
     };
+    coinGeckoId = 'litecoin';
+    coinMarketCapId = 'litecoin';
+    coinPaprikaId = 'ltc-litecoin';
 
     webapiHost = 'api.blockcypher.com'
     webapiPath = '/v1/ltc/main'

@@ -12,12 +12,16 @@ export class PortfolioOnlyHandler implements BaseCoinHandler {
     icon: string
     description: string
     links: { [key: string]: string; };
+    coinGeckoId: string;
+    coinMarketCapId: string;
+    coinPaprikaId: string;
 
     constructor(
         code: string,
         ticker: string,
         name: string,
         icon: string,
+        website: string = "",
         coinPaprikaId: string = "",
         coinGeckoId: string = "",
         coinMarketCapId: string = ""
@@ -27,16 +31,13 @@ export class PortfolioOnlyHandler implements BaseCoinHandler {
         this.name = name;
         this.icon = icon;
         this.description = this.name + ' [' + this.ticker + ']';
-
+        this.coinPaprikaId = coinPaprikaId;
+        this.coinGeckoId = coinGeckoId;
+        this.coinMarketCapId = coinMarketCapId;
         this.links = {}
-        if (coinPaprikaId.length) {
-            this.links["CoinPaprika"] = "https://coinpaprika.com/coin/" + coinPaprikaId + "/"
-        }
-        if (coinGeckoId.length) {
-            this.links["CoinGecko"] = "https://www.coingecko.com/en/coins/" + coinGeckoId
-        }
-        if (coinMarketCapId.length) {
-            this.links["CoinMarketCap"] = "https://coinmarketcap.com/currencies/" + Strings.slugify(this.name) + "/"
+        if (website.length) {
+            this.links[(new URL(website)).host] = website
         }
     }
+
 }

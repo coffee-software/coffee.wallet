@@ -11,9 +11,11 @@ export class HandlerDash extends BaseBitcoinjsHanlder {
     description = "Dash is an open-source blockchain and cryptocurrency focused on offering a fast, cheap global payments network that is decentralized in nature. " +
         "According to the project's white paper, Dash seeks to improve upon Bitcoin (BTC) by providing stronger privacy and faster transactions.";
     links = {
-        'dash.org' : 'https://www.dash.org/',
-        "CoinMarketCap" : "https://coinmarketcap.com/currencies/dash/"
+        'dash.org' : 'https://www.dash.org/'
     }
+    coinGeckoId = 'dash';
+    coinMarketCapId = 'dash';
+    coinPaprikaId = 'dash-dash';
 
     webapiHost = 'api.blockcypher.com'
     webapiPath = '/v1/dash/main'

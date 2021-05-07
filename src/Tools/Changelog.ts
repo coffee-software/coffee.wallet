@@ -7,7 +7,7 @@ export class Version {
             version: '0.16.0',
             date: '2021-04-12',
             changes: [
-                'engine refactor',
+                'engine refactor to TypeScript',
                 'improve transaction details display with exact fees',
                 'improve fee handling for BTC, LTC, DOGE',
                 'add proper input widget to exchange view',
@@ -16,7 +16,8 @@ export class Version {
                 'confirm window after backing up mnemonic',
                 'fix paste clipboard on PWA',
                 'update changelly flow and KYC warning',
-                'add refundAddress to Changelly and ChangeNOW api'
+                'add refundAddress to Changelly and ChangeNOW api',
+                'add assets name db to fix issues with fetching prices from different providers'
             ]
         },
         {
