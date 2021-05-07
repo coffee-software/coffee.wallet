@@ -284,7 +284,6 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             unconfirmed_txrefs?: TxrefResponse[]
         }
         //TODO set RBF : &confirmations=1
-        //TODO: do this on balance change and cache forever
         let response = <UtxosResponse>await this.web.get(this.webapiHost, this.webapiPath + '/addrs/' + address + '?unspentOnly=true&includeScript=true');
 
         let ret : BitcoinUtxo[] = [];
@@ -369,9 +368,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             fee = await this.getDefaultFee();
         }
 
-        console.log(typeof keychain);
         let ecpair = (typeof keychain == "string") ? ECPair.fromWIF(keychain, this.network) : ECPair.fromPrivateKey(this.getPrivateKey(keychain).privateKey);
-        //var keypair = (typeof keychain == "string") ? bip32.fromPrivateKey(keychain) : this.getPrivateKey(keychain);
 
         var legacyFrom = bitcoin.payments.p2pkh({
             pubkey: ecpair.publicKey,
@@ -416,10 +413,10 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
                     nonWitnessUtxo: Buffer.from(utxos[i].hex, 'hex')
                 });
             }
-            //TODO: if (totalIn >= amount + fee) break; //we have enough fees
-            if (!atLeastOneUnconfirmed && !utxos[i].confirmed) {
+            if (!utxos[i].confirmed) {
                 atLeastOneUnconfirmed = true;
             }
+            //TODO: if (totalIn >= amount + fee) break; //we have enough fees
         }
 
         let sendable = true;
@@ -455,15 +452,20 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
         const finalFee = this.calculateFee(tmpTx, fee);
         const changeValue = totalIn - amountOut - finalFee;
-        if (changeValue < finalFee) {
-            //app.alertInfo('warning. dust leftover detected. transaction might fail. consider using "send all" feature next time.');
+        if (amountOut > 0 && changeValue < finalFee) {
+            this.log.info('warning: dust leftover detected. transaction might fail. consider using "send max" feature.');
+        }
+        if (atLeastOneUnconfirmed) {
+            this.log.info('warning: sending using unconfirmed inputs.');
         }
         finalTx.addOutput({
             address: changeAddress,
             value: changeValue
         });
         finalTx.signAllInputs(ecpair).finalizeAllInputs();
-        finalTx.setMaximumFeeRate(4000000) //TODO DOGE
+
+        finalTx.setMaximumFeeRate(4000000) //TODO DOGE, warnings configuration
+
         return new BtcTransaction(this, sendable, receiverAddr, (amount === "MAX") ? changeValue : amountOut, finalTx);
     }
 
