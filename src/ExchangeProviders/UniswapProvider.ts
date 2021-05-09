@@ -219,7 +219,8 @@ abstract class UniswapProvider extends BaseExchangeProvider {
                     await fromHandler.prepareCustomTransaction(
                         fromHandler.getWallet(this.engine.keychain),
                         allowTransaction,
-                        new BigNum("0")
+                        new BigNum("0"),
+                        this.routerContractAddr
                     ),
                     currentAllowance.toFloat(fromHandler.decimals) + ' ' + fromHandler.ticker,
                     systemAmount.toFloat(fromHandler.decimals) + ' ' + fromHandler.ticker
@@ -230,7 +231,8 @@ abstract class UniswapProvider extends BaseExchangeProvider {
         return new UniswapSwapTransactionWrapper(await fromHandler.prepareCustomTransaction(
             fromHandler.getWallet(this.engine.keychain),
             transaction,
-            systemAmount
+            systemAmount,
+            this.routerContractAddr
         ), estimatedOut.toString() + ' ' + this.getHandler(to).ticker);
     }
 

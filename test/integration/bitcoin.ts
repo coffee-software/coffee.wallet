@@ -1,10 +1,10 @@
 import { strictEqual, notStrictEqual } from "assert";
+import {Engine} from "../../src/Engine";
 import {Keychain} from "../../src/Keychain";
 import {BigNum} from "../../src/Core/BigNum";
 import {HandlerBtcTest} from "../../src/Handlers/HandlerBtcTest";
-import {CacheMock, CacheWrapperMock, LogMock, StorageMock} from "../_mocks";
+import {CacheMock, LogMock, StorageMock} from "../_mocks";
 import {Config} from "../../src/Config";
-import {Engine} from "../../src/Engine";
 
 describe('Bitcoin Integration Test', function() {
     describe('integration', function () {

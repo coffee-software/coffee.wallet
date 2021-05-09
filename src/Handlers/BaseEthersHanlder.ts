@@ -11,34 +11,46 @@ import {Config} from "../../src/Config";
 import {CoinAddressIcon} from "../Widgets/CoinAddressIcon";
 import {Strings} from "../Tools/Strings";
 import {TransactionReceipt} from "@ethersproject/abstract-provider";
+import {BigNumber} from "@ethersproject/bignumber";
 
 export class EthTransaction implements NewTransaction {
     handler: BaseEthersHanlder
     data : TransactionRequest
     signed: string
-    amount: BigNum
+    displayAmount: BigNum
+    totalAmount: BigNum
+    displayReceiver: string
+    static fakeReceiver = '0x0000000000000000000000000000000000000000'
 
-    constructor(handler: BaseEthersHanlder, data : TransactionRequest, signed: string, amount: BigNum) {
+    constructor(handler: BaseEthersHanlder, data : TransactionRequest, signed: string, totalAmount: BigNum, displayAmount: BigNum, displayReceiver: string) {
         this.data = data
         this.handler = handler
         this.signed = signed
-        this.amount = amount
+        this.displayAmount = displayAmount
+        this.totalAmount = totalAmount
+        this.displayReceiver = displayReceiver
     }
 
     isValid(): boolean {
-        return true;
+        return this.displayReceiver != EthTransaction.fakeReceiver;
     }
 
     getAmountDisplay() : string {
-        return this.amount.toFloat(this.handler.decimals).toFixed(10) + ' ' + this.handler.ticker;
+        return this.displayAmount.toFloat(this.handler.decimals).toFixed(10) + ' ' + this.handler.ticker;
     }
 
     getRecipientDisplay() : string {
         return this.data.to;
     }
 
-    getBalanceAfter(): string {
-        return "";
+    getBalanceAfter(): Balance {
+        let after : BigNum
+        if (this.handler.getFeeHandler() == this.handler) {
+            after = this.totalAmount.sub(this.getMaxGas()).sub(this.displayAmount);
+        } else {
+            after = this.totalAmount.sub(this.displayAmount);
+        }
+        return new Balance(this.handler, after)
     }
 
     getMaxGas(): BigNum {
@@ -47,10 +59,12 @@ export class EthTransaction implements NewTransaction {
         return ret;
     }
 
-    getFeeDisplay(): string {
-        console.log(this.data.gasLimit.toString());
-        console.log(this.data.gasPrice.toString());
-        return this.getMaxGas().toFloat(18).toFixed(7) + (this.handler.testCoin ? ' ETH.TST' : ' ETH');
+    getFeeTotal(): Balance {
+        return new Balance(this.handler.getFeeHandler(), this.getMaxGas())
+    }
+
+    getFeeInfo(): string {
+        return "gas price: " + ((this.data.gasPrice as number) / 1000000000).toFixed(2) + "GWEI";
     }
 
     getFeeETA(): string {
@@ -59,12 +73,14 @@ export class EthTransaction implements NewTransaction {
 
     getSummary(): { [code: string] : string|Balance } {
         let ret : { [code: string] : string|Balance } = {};
-        ret['recipient'] = this.data.to;
-        if (!this.amount.isZero()) {
-            ret['amount'] = new Balance(this.handler, this.amount)
+        ret['recipient'] = this.displayReceiver;
+        if (!this.displayAmount.isZero()) {
+            ret['amount'] = new Balance(this.handler, this.displayAmount)
         }
-        ret["max fee"] = new Balance(this.handler.getFeeHandler(), this.getMaxGas())
-        ret["ETA"] = this.getFeeETA()
+        ret["max fee"] = this.getFeeTotal();
+        ret["fee rate"] = this.getFeeInfo();
+        ret["balance after"] = this.getBalanceAfter();
+        //ret["ETA"] = this.getFeeETA()
         return ret;
 
     }
@@ -140,8 +156,19 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return this;
     }
 
+    async getCachedBalance(addr: string): Promise<Balance> {
+        let cacheKey = this.code + '_balance_' + addr;
+        let cached = this.engine.cache.get(cacheKey, null);
+        if (cached) {
+            return new Balance(this, new BigNum(cached))
+        }
+        return await this.getBalance(addr);
+    }
+
     async getBalance(addr: string): Promise<Balance> {
+        let cacheKey = this.code + '_balance_' + addr;
         let ret = await this.getProvider().getBalance(addr);
+        this.engine.cache.set(cacheKey, ret.toString());
         return new Balance(this, new BigNum(ret.toString()));
     }
 
@@ -229,27 +256,32 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         return BaseEthersHanlder.nonceCache[address];
     }
 
-    protected async getRealAmount(wallet: Wallet, amount: BigNum|"MAX", fee: number) : Promise<BigNum> {
-        let value : BigNum;
+    protected async getRealAmount(wallet: Wallet, amount: BigNum|"MAX", feeRate: number) : Promise<BigNum> {
         if (amount === "MAX") {
-            value = (await this.getBalance(wallet.address)).total().sub((new BigNum("21000")).mul(new BigNum(fee)))
+            let fee = (new BigNum("21000")).mul(new BigNum(feeRate))
+            let total = (await this.getCachedBalance(wallet.address)).total()
+            return total.sub(fee)
         } else {
-            value = amount
+            return amount
         }
-        return value;
     }
 
     async prepareTransaction(keychain: Keychain|string, receiverAddr: string, amount: BigNum|"MAX", fee?: number): Promise<NewTransaction> {
+
+        if (!this.validateAddress(receiverAddr)) {
+            receiverAddr = EthTransaction.fakeReceiver
+        }
         let wallet = this.getWallet(keychain)
         if (!fee) {
             fee = await this.getDefaultFee();
         }
         let realAmount = await this.getRealAmount(wallet, amount, fee);
         let tx : TransactionRequest = await this.getTransactionRequest(wallet, receiverAddr, realAmount)
-        return await this.prepareCustomTransaction(wallet, tx, realAmount, fee);
+        return await this.prepareCustomTransaction(wallet, tx, realAmount, receiverAddr, fee);
+
     }
 
-    async prepareCustomTransaction(wallet: Wallet, tx : TransactionRequest, displayAmount: BigNum, fee?: number): Promise<EthTransaction> {
+    async prepareCustomTransaction(wallet: Wallet, tx : TransactionRequest, displayAmount: BigNum, displayRecipient: string, fee?: number): Promise<EthTransaction> {
         if (!fee) {
             fee = await this.getDefaultFee();
         }
@@ -260,12 +292,19 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
             tx.from = wallet.address
         }
         if (('data' in tx)) {
+            let estimateGasCacheKey = this.code + '_estimate_gas_' + tx.nonce + tx.from + tx.data;
+            let provider = this.getProvider()
+            let getter = async function (provider: BaseProvider, tx: TransactionRequest) : Promise<number> {
+                return (await provider.estimateGas(tx)).toNumber()
+            }
+            tx.gasLimit = await this.engine.cache.getCached(estimateGasCacheKey, 60, getter.bind(this, provider, tx))
+            //tx.gasLimit = await this.getProvider().estimateGas(tx);
             //tolerate 5% slip
-            tx.gasLimit = await this.getProvider().estimateGas(tx);
-            tx.gasLimit = Math.ceil(tx.gasLimit.toNumber() * 1.05);
+            tx.gasLimit = Math.ceil((tx.gasLimit as number) * 1.05);
         }
         let signed = await wallet.signTransaction(tx);
-        return new EthTransaction(this, tx, signed, displayAmount);
+        let total = (await this.getCachedBalance(wallet.address)).total()
+        return new EthTransaction(this, tx, signed, total, displayAmount, displayRecipient);
     }
 
     validateAddress(addr: string): boolean {
@@ -321,11 +360,13 @@ export abstract class BaseERC20Handler extends BaseEthersHanlder {
 
     async getBalance(addr: string): Promise<Balance> {
         try {
+            let cacheKey = this.code + '_balance_' + addr;
             let contract = this.getContract();
             //let xxx = await contract.populateTransaction.balanceOf(addr)
             //xxx.from = "0x0000000000000000000000000000000000000000";
             //let yyy = await contract.provider.call(xxx);
             let ret = await contract.balanceOf(addr);
+            this.engine.cache.set(cacheKey, ret.toString());
             return new Balance(this, new BigNum(ret.toString()));
         } catch (e) {
             this.engine.log.error(e.toString())
@@ -343,13 +384,11 @@ export abstract class BaseERC20Handler extends BaseEthersHanlder {
 
 
     protected async getRealAmount(wallet: Wallet, amount: BigNum|"MAX", fee: number) : Promise<BigNum> {
-        let value : BigNum;
         if (amount === "MAX") {
-            value = (await this.getBalance(wallet.address)).total()
+            return (await this.getBalance(wallet.address)).total()
         } else {
-            value = amount
+            return amount
         }
-        return value;
     }
 
     protected async getTransactionRequest(wallet: Wallet, receiverAddr: string, amount: BigNum): Promise<TransactionRequest> {

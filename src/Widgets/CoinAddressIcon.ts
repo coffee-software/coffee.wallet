@@ -10,7 +10,6 @@ export class CoinAddressIcon implements Widget {
 
     constructor(handler : BaseCoinHandler, address : string = null) {
         if (address && isOnlineCoinHanlder(handler)) {
-            console.log(jazzicons(100, handler.getIdenticonSeed(address)).outerHTML);
             this.element = jazzicons(100, handler.getIdenticonSeed(address));
             this.element.children[0].setAttribute("viewBox", "0 0 100 100");
             this.element.children[0].removeAttribute("width");

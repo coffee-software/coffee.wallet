@@ -27,8 +27,9 @@ export interface NewTransaction {
   getRightIcon() : string
   getRightLabel() : string
 
-  getBalanceAfter() : string
-  getFeeDisplay() : string
+  getBalanceAfter() : Balance
+  getFeeTotal() : Balance
+  getFeeInfo() : string
   getFeeETA() : string
   getAmountDisplay() : string
   getRecipientDisplay() : string
@@ -50,12 +51,16 @@ export class NewTransactionWrapper implements NewTransaction {
     return this.tx.getAmountDisplay();
   }
 
-  getBalanceAfter(): string {
+  getBalanceAfter(): Balance {
     return this.tx.getBalanceAfter();
   }
 
-  getFeeDisplay(): string {
-    return this.tx.getFeeDisplay();
+  getFeeTotal(): Balance {
+    return this.tx.getFeeTotal();
+  }
+
+  getFeeInfo(): string {
+    return this.tx.getFeeInfo();
   }
 
   getFeeETA(): string {

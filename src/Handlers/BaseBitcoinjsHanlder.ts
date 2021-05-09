@@ -21,14 +21,16 @@ class BtcTransaction implements NewTransaction {
     receiverAddr: string
     sendable: boolean
     amountOut: number
+    balanceAfter: number
 
-    constructor(handler: BaseBitcoinjsHanlder, sendable: boolean, receiverAddr: string, amountOut: number, tx: Psbt) {
+    constructor(handler: BaseBitcoinjsHanlder, sendable: boolean, receiverAddr: string, amountOut: number, balanceAfter: number, tx: Psbt) {
         this.handler = handler
         this.receiverAddr = receiverAddr
         this.tx = tx
         this.extracted = tx.extractTransaction()
         this.sendable = sendable
         this.amountOut = amountOut
+        this.balanceAfter = balanceAfter
     }
 
     isValid() : boolean {
@@ -36,21 +38,24 @@ class BtcTransaction implements NewTransaction {
     }
 
     getAmountDisplay() : string {
-        return "xxxx";
+        return (new BigNum(this.amountOut)).toFloat(this.handler.decimals).toString();
     }
 
     getRecipientDisplay() : string {
         return this.receiverAddr;
     }
 
-    getBalanceAfter(): string {
-        return "";
+    getBalanceAfter(): Balance {
+        return new Balance(this.handler, new BigNum(this.balanceAfter));
     }
 
-    getFeeDisplay(): string {
-        return (new BigNum(this.tx.getFee())).toFloat(this.handler.decimals) + ' ' + this.handler.ticker
+    getFeeTotal(): Balance {
+        return new Balance(this.handler, new BigNum(this.tx.getFee()))
     }
 
+    getFeeInfo(): string {
+        return this.tx.getFeeRate().toString() + " sat/vb"
+    }
     getFeeETA(): string {
         return "TODO";
     }
@@ -59,10 +64,11 @@ class BtcTransaction implements NewTransaction {
         return {
             "recipient": this.receiverAddr,
             "amount": new Balance(this.handler, new BigNum(this.amountOut)),
-            "fee" : new Balance(this.handler, new BigNum(this.tx.getFee())),
-            "vsize" : this.extracted.virtualSize().toString() + "vbytes",
-            "fee rate" : this.tx.getFeeRate().toString() + " sat/vbyte",
-            "ETA" : this.getFeeETA()
+            "fee" : this.getFeeTotal(),
+            "balance after": this.getBalanceAfter(),
+            "vsize" : this.extracted.virtualSize().toString() + " vb",
+            "fee rate" : this.getFeeInfo(),
+            //"ETA" : this.getFeeETA()
         };
     }
 
@@ -244,6 +250,13 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
     async getFeeOptions(): Promise<number[]> {
         let response = await this.getLastBlockData();
+        console.log([
+            response.low_fee_per_kb,
+            Math.floor((response.low_fee_per_kb + response.medium_fee_per_kb) / 2 ),
+            response.medium_fee_per_kb,
+            Math.ceil((response.medium_fee_per_kb + response.high_fee_per_kb) / 2),
+            response.high_fee_per_kb
+        ]);
         return [
             response.low_fee_per_kb,
             Math.floor((response.low_fee_per_kb + response.medium_fee_per_kb) / 2 ),
@@ -363,9 +376,25 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         return (script.startsWith("00"));
     }
 
-    async prepareTransaction(keychain: Keychain|string, receiverAddr: string, amount: BigNum|"MAX", fee: number): Promise<NewTransaction> {
-        if (!fee) {
-            fee = await this.getDefaultFee();
+
+    calculateFeeForInputs(tx : bitcoin.Psbt, signer: ECPair.ECPairInterface, outs: string[], feeRate: number) : number {
+        let tmpTx = tx.clone();
+        for (let i = 0; i < outs.length; i++) {
+            tmpTx.addOutput({
+                address: outs[i],
+                value: 0
+            });
+        }
+        tmpTx.signAllInputs(signer).finalizeAllInputs();
+        //disable fee rate check as fee is whole transaction
+        const vsize = tmpTx.extractTransaction(true).virtualSize();
+        console.log('FEE', feeRate, vsize);
+        return Math.ceil(feeRate * vsize / 1000); //fee is in satoshi per kilobyte
+    }
+
+    async prepareTransaction(keychain: Keychain|string, receiverAddr: string, amount: BigNum|"MAX", feeRate: number): Promise<NewTransaction> {
+        if (!feeRate) {
+            feeRate = await this.getDefaultFee();
         }
 
         let ecpair = (typeof keychain == "string") ? ECPair.fromWIF(keychain, this.network) : ECPair.fromPrivateKey(this.getPrivateKey(keychain).privateKey);
@@ -375,11 +404,11 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             network: this.network
         }).address;
         var changeAddress = legacyFrom
-
-
         var tmpTx = new bitcoin.Psbt({network:this.network});
         var totalIn = 0;
+        var totalBalance = 0;
         var atLeastOneUnconfirmed = false;
+        let fee = 0;
 
         var utxos: BitcoinUtxo[] = []
 
@@ -392,7 +421,22 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             changeAddress = segwitFrom
         }
         utxos = utxos.concat(await this.getUtxosForAddr(legacyFrom));
+
+        let sendable = false;
+        var tmpReceiver = changeAddress
+        if (this.validateAddress(receiverAddr)) {
+            sendable = true;
+            tmpReceiver = receiverAddr
+        }
+
         for (let i = 0; i < utxos.length; i ++) {
+            totalBalance = totalBalance + utxos[i].value;
+        }
+        for (let i = 0; i < utxos.length; i ++) {
+            if (utxos[i].value == 0) {
+                //fix for spam 0 value output
+                continue;
+            }
             totalIn = totalIn + utxos[i].value;
             if (this.isP2WSH(utxos[i].script)) {
                 tmpTx.addInput({
@@ -416,62 +460,45 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             if (!utxos[i].confirmed) {
                 atLeastOneUnconfirmed = true;
             }
-            //TODO: if (totalIn >= amount + fee) break; //we have enough fees
-        }
-
-        let sendable = true;
-        let amountOut: number;
-        if (amount === "MAX") {
-            amountOut = 0;
-            changeAddress = receiverAddr
-        } else {
-            amountOut = parseInt(amount.toString());
-
-            if (receiverAddr == '') {
-                //fake self output to calculate fee
-                tmpTx.addOutput({
-                    address: changeAddress,
-                    value: amountOut
-                });
-                sendable = false;
-            } else {
-                tmpTx.addOutput({
-                    address: receiverAddr,
-                    value: amountOut
-                });
+            if (amount !== "MAX") {
+                fee = this.calculateFeeForInputs(tmpTx, ecpair, [changeAddress, tmpReceiver], feeRate);
+                //multiply fee * 2 to avoid dust leftovers on inputs
+                if (parseInt(amount.toString()) + (2 * fee) < totalIn) {
+                    break;
+                }
             }
         }
-        //calculating change and fee
-        const tmpChange = totalIn - amountOut;
-        let finalTx = tmpTx.clone();
-        tmpTx.addOutput({
-            address: changeAddress,
-            value: tmpChange
-        });
-        tmpTx.signAllInputs(ecpair).finalizeAllInputs();
-
-        const finalFee = this.calculateFee(tmpTx, fee);
-        const changeValue = totalIn - amountOut - finalFee;
-        if (amountOut > 0 && changeValue < finalFee) {
-            this.log.info('warning: dust leftover detected. transaction might fail. consider using "send max" feature.');
+        let amountOut: number;
+        if (amount !== "MAX") {
+            amountOut = parseInt(amount.toString());
+            let change = totalIn - fee - amountOut;
+            console.log(totalIn, fee, amountOut, change);
+            tmpTx.addOutput({
+                address: changeAddress,
+                value: change
+            });
+            if (amountOut > 0 && change < fee) {
+                this.log.info('warning: dust leftover detected. consider using "send max" feature.');
+            }
+        } else {
+            //will have only one output
+            fee = this.calculateFeeForInputs(tmpTx, ecpair, [tmpReceiver], feeRate);
+            amountOut = totalIn - fee;
         }
+
+        tmpTx.addOutput({
+            address: tmpReceiver,
+            value: amountOut
+        });
+
         if (atLeastOneUnconfirmed) {
             this.log.info('warning: sending using unconfirmed inputs.');
         }
-        finalTx.addOutput({
-            address: changeAddress,
-            value: changeValue
-        });
-        finalTx.signAllInputs(ecpair).finalizeAllInputs();
 
-        finalTx.setMaximumFeeRate(4000000) //TODO DOGE, warnings configuration
+        tmpTx.signAllInputs(ecpair).finalizeAllInputs();
 
-        return new BtcTransaction(this, sendable, receiverAddr, (amount === "MAX") ? changeValue : amountOut, finalTx);
-    }
-
-    calculateFee(tmpTx: Psbt, fee: number): number {
-        const vsize = tmpTx.extractTransaction().virtualSize();
-        return Math.ceil(fee * vsize / 1000); //fee is in satoshi per kilobyte
+        tmpTx.setMaximumFeeRate(4000000) //TODO DOGE, warnings configuration
+        return new BtcTransaction(this, sendable, receiverAddr, amountOut, totalBalance - amountOut - fee, tmpTx);
     }
 
     validateAddress(addr: string): boolean {

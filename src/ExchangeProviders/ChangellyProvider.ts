@@ -23,6 +23,7 @@ class ChangellyTransactionWrapper extends NewTransactionWrapper {
         ret['changelly id'] = this.changellyTx.id
         ret['kyc required'] = this.changellyTx.kycRequired ? "YES": "NO"
         //https://changelly.com/aml-kyc
+        ret['kyc'] = "Your transaction may trigger AML/KYC verification according to Changelly AML/KYC."
         return ret;
     }
 }
@@ -46,7 +47,7 @@ export class ChangellyProvider extends BaseExchangeProvider {
     key = "changelly"
     name = "Changelly"
     url = "changelly.com"
-    shortDescription = "Exchange service provided by Changelly. Your transaction may trigger AML/KYC verification according to Changelly AML/KYC."
+    shortDescription = "Exchange service provided by Changelly."
 
     private async callApi(method: string, params: any): Promise<any> {
         let fields = {

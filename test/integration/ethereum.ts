@@ -1,10 +1,10 @@
 import { strictEqual, notStrictEqual } from "assert";
+import {Engine} from "../../src/Engine";
 import {Keychain} from "../../src/Keychain";
 import {BigNum} from "../../src/Core/BigNum";
 import {HandlerEthTest} from "../../src/Handlers/HandlerEthTest";
 import {CacheMock, LogMock, StorageMock} from "../_mocks";
 import {Config} from "../../src/Config";
-import {Engine} from "../../src/Engine";
 
 describe('Ethereum Integration Test', function() {
     describe('integration', function () {

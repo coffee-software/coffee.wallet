@@ -1,5 +1,6 @@
 import {BaseBitcoinjsHanlder} from "./BaseBitcoinjsHanlder";
-import {Psbt} from "bitcoinjs-lib";
+import {ECPair, Psbt} from "bitcoinjs-lib";
+import * as bitcoin from "bitcoinjs-lib";
 var coininfo = require('coininfo');
 
 export class HandlerDoge extends BaseBitcoinjsHanlder {
@@ -32,8 +33,10 @@ export class HandlerDoge extends BaseBitcoinjsHanlder {
         return 'https://dogechain.info/tx/' + txid;
     }
 
-    calculateFee(tmpTx: Psbt, fee: number): number {
-        let ret = super.calculateFee(tmpTx, fee);
+    calculateFeeForInputs(tx : bitcoin.Psbt, signer: ECPair.ECPairInterface, outs: string[], feeRate: number): number {
+                             56892906
+        tx.setMaximumFeeRate(4000000) //TODO DOGE, warnings configuration
+        let ret = super.calculateFeeForInputs(tx, signer, outs, feeRate);
         //set minimum fee to 1 DOGE
         if (ret < 100000000) ret = 100000000;
         return ret;
