@@ -37,8 +37,8 @@ export abstract class BasePriceProvider {
         if (this.availableUnits.indexOf(this.unit) < 0) {
             throw new Error('Unknown unit ' + this.unit);
         }
-        if (handler.ticker in this.prices) {
-            return this.prices[handler.ticker];
+        if (handler.code in this.prices) {
+            return this.prices[handler.code];
         } else {
             return 0;
         }
@@ -57,7 +57,7 @@ export abstract class BasePriceProvider {
 
     convert(amount: number, handler: BaseCoinHandler) {
         this.init();
-        if (handler.ticker in this.prices) {
+        if (handler.code in this.prices) {
             return this.formatMoney(amount * this.getPrice(handler), this.unit);
         } else {
             return '? ' + this.unit;

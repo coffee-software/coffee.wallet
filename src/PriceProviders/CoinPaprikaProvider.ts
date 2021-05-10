@@ -15,7 +15,26 @@ export class CoinPaprikaProvider extends BasePriceProvider {
     defaultUnit = "USD"
 
     async fetchPrices(handlers: { [code: string]: BaseCoinHandler }): Promise<void> {
+        for (let key in handlers) {
+            if (handlers[key].coinPaprikaId) {
+                let path = '/v1/tickers/' + handlers[key].coinPaprikaId + '?quotes=' + this.unit;
+                let data : {
+                    id: string,
+                    name: string,
+                    symbol: string,
+                    quotes: {
+                        [unit: string] : {
+                            price: number
+                        }
+                    }
+                } = await Https.makeJsonRequest('api.coinpaprika.com', path);
+                this.prices[handlers[key].code] = data.quotes[this.unit].price;
+                await new Promise(r => setTimeout(r, 200));
+            }
+        }
+        /*
         let path = encodeURI('/v1/tickers?quotes=' + this.unit);
+
         let list : {
             id: string,
             name: string,
@@ -28,8 +47,12 @@ export class CoinPaprikaProvider extends BasePriceProvider {
         }[] = await Https.makeJsonRequest('api.coinpaprika.com', path);
 
         for (let i in list) {
-            this.prices[list[i]['symbol']] = list[i].quotes[this.unit].price;
-        }
+            for (let key in handlers) {
+                if (handlers[key].coinPaprikaId == list[i].id) {
+                    this.prices[handlers[key].code] = list[i].quotes[this.unit].price;
+                }
+            }
+        }*/
     }
 }
 

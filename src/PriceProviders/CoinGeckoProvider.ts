@@ -16,12 +16,12 @@ export class CoinGeckoProvider extends BasePriceProvider {
     defaultUnit = "USD"
 
     async fetchPrices(handlers: { [code: string] : BaseCoinHandler }): Promise<void> {
-        let names = Object.keys(handlers).map(function(key){ return handlers[key].name; });
-        let path = encodeURI('/api/v3/simple/price?ids=' + names.join(',') + '&vs_currencies=' + this.unit);
+        let ids = Object.keys(handlers).map(function(key){ return handlers[key].coinGeckoId; });
+        let path = encodeURI('/api/v3/simple/price?ids=' + ids.join(',') + '&vs_currencies=' + this.unit);
         let response : { [code: string] : { [unit: string] : number } } = await Https.makeJsonRequest('api.coingecko.com', path);
         for (let key in handlers) {
-            if (handlers[key].name.toLowerCase() in response) {
-                this.prices[handlers[key].ticker] = response[handlers[key].name.toLowerCase()][this.unit.toLowerCase()];
+            if (handlers[key].coinGeckoId in response) {
+                this.prices[handlers[key].code] = response[handlers[key].coinGeckoId][this.unit.toLowerCase()];
             }
         }
     }
