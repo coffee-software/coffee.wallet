@@ -31,7 +31,7 @@ export interface NewTransaction {
   getFeeTotal() : Balance
   getFeeInfo() : string
   getFeeETA() : string
-  getAmountDisplay() : string
+  getAmountDisplay() : number
   getRecipientDisplay() : string
   getSummary() : { [code: string] : string|Balance }
   send() : Promise<string>
@@ -47,7 +47,7 @@ export class NewTransactionWrapper implements NewTransaction {
     this.handler = tx.handler
   }
 
-  getAmountDisplay(): string {
+  getAmountDisplay(): number {
     return this.tx.getAmountDisplay();
   }
 

@@ -784,14 +784,6 @@ ol.mnemonic li span {
     background: #fffcf8;
 }
 
-#sendCoinBalanceAfter .max-button {
-  display: none;
-}
-
-#sendCoinBalanceAfter.default .max-button {
-  display: block;
-}
-
 #sendCoinFeeInfo .range-input {
     margin-top: 16px;
     margin-bottom: 26px;

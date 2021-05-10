@@ -1453,6 +1453,7 @@ export class App {
 
     sendWallet: Wallet
     sendAmountInputWidget: AmountInputWidget
+    sendAmountMax: boolean
     sendAddressInputWidget: AddressInputWidget
     sendFeeInputWidget: SliderInputWidget
     afterSendCallback: () => void
@@ -1461,6 +1462,8 @@ export class App {
     popupSendPayment(wallet: Wallet, afterSendCallback: () => void) {
         this.openForm('sendPaymentPopup');
         this.isSocialSend = false
+        document.getElementById('sendCoinMaxButton').classList.remove('hidden');
+        this.sendAmountMax = false;
         this.sendOutgoingTransaction = null;
         (document.getElementById('sendButton') as HTMLInputElement).disabled = true;
         (document.getElementById('sendPaymentIcon') as HTMLImageElement).src = 'coins/' + wallet.handler.icon + '.svg';
@@ -1494,18 +1497,11 @@ export class App {
     }
 
     sendCoinSetMax() {
-        console.log(this.sendWallet.getCachedBalance().total().toFloat(this.sendWallet.handler.decimals))
-        /*
-        if (app.sendMaxBalance) {
-            app.sendForceTotal = app.sendMaxBalance;
-            document.getElementById('sendCoinBalanceAfter').classList.remove('default');
-            document.getElementById('sendCoinAmount').readOnly = true;
-            document.getElementById('sendCoinValue').readOnly = true;
-            document.getElementById('sendCoinAmount').value = app.sendWallet.handler.systemValueToDisplayValue(app.sendForceTotal);
-            app.coinUpdateValue('sendCoin', app.sendWallet.handler);
-            app.sendCoinValidateAmount('sendCoin');
-            app.sendCoinUpdateTransaction();
-        }*/
+        this.sendAmountInputWidget.setReadonly(true);
+        document.getElementById('sendCoinMaxButton').classList.add('hidden');
+        this.sendAmountMax = true;
+        this.sendAmountInputWidget.onchange = null;
+        this.sendCoinUpdateTransaction();
     }
 
     sendCoinUpdateTransaction(){
@@ -1518,13 +1514,21 @@ export class App {
         //
         let fee = this.sendFeeInputWidget.getValue();
         let address = this.sendAddressInputWidget.getValue();
-        let amount = this.sendAmountInputWidget.getBigNumValue();
-        amount = amount ? amount : new BigNum("0");
-        console.log(address, amount, fee);
+        let amount : BigNum|"MAX"
+        if (this.sendAmountMax) {
+            amount = "MAX"
+        } else {
+            amount = this.sendAmountInputWidget.getBigNumValue();
+            amount = amount ? amount : new BigNum("0");
+        }
         let app = this;
         this.sendWallet.prepareTransaction(address, amount, fee).then(function (transaction) {
             console.log("PREPARED");
             console.log(transaction);
+
+            if (app.sendAmountMax) {
+                app.sendAmountInputWidget.setValue(transaction.getAmountDisplay());
+            }
             let fee = transaction.getFeeTotal()
             document.getElementById('feeAmount').innerHTML = app.engine.getValueString(fee) + ' = ' + app.engine.getFiatValueString(fee);
             document.getElementById('feeTime').innerHTML = transaction.getFeeInfo();

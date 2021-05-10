@@ -126,7 +126,7 @@ export class Wallet {
     }
 
     async prepareTransaction(receiverAddr : string,
-                             amount : BigNum,
+                             amount : BigNum|"MAX",
                              fee: number) : Promise<NewTransaction> {
         if (!isOnlineCoinHanlder(this.handler)) {
             return null;

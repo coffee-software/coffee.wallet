@@ -35,8 +35,8 @@ export class EthTransaction implements NewTransaction {
         return this.displayReceiver != EthTransaction.fakeReceiver;
     }
 
-    getAmountDisplay() : string {
-        return this.displayAmount.toFloat(this.handler.decimals).toFixed(10) + ' ' + this.handler.ticker;
+    getAmountDisplay() : number {
+        return this.displayAmount.toFloat(this.handler.decimals);
     }
 
     getRecipientDisplay() : string {
@@ -107,7 +107,7 @@ export class EthTransaction implements NewTransaction {
 
     getLeftLabel(): string {
         //return this.engine.shortAmount(displayAmount, coin, 13)
-        return this.getAmountDisplay();
+        return this.getAmountDisplay().toFixed(10) + ' ' + this.handler.ticker;
     }
 
     getRightIcon(): string {

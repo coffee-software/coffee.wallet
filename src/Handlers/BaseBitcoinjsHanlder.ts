@@ -37,8 +37,8 @@ class BtcTransaction implements NewTransaction {
         return this.sendable;
     }
 
-    getAmountDisplay() : string {
-        return (new BigNum(this.amountOut)).toFloat(this.handler.decimals).toString();
+    getAmountDisplay() : number {
+        return (new BigNum(this.amountOut)).toFloat(this.handler.decimals);
     }
 
     getRecipientDisplay() : string {
@@ -96,7 +96,7 @@ class BtcTransaction implements NewTransaction {
     }
 
     getLeftLabel(): string {
-        return this.getAmountDisplay();
+        return this.getAmountDisplay().toString() + ' ' + this.handler.ticker;
     }
 
     getRightIcon(): string {
