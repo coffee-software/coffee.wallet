@@ -342,7 +342,6 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
     getIdenticonSeed(addr: string): number {
         if (addr.startsWith(this.network.bech32 + '1')) {
-            //TODO
             return bech32.decode(addr).words.slice(2,10).reduce(function(a :number,b : number){ return a * 32 + b; });
         } else {
             return parseInt(base58.decode(addr.slice(0, 8)).toString('hex'), 16);
@@ -499,9 +498,11 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
 
         tmpTx.signAllInputs(ecpair).finalizeAllInputs();
 
-        tmpTx.setMaximumFeeRate(4000000) //TODO DOGE, warnings configuration
+        this.afterTxCreated(tmpTx);
         return new BtcTransaction(this, sendable, receiverAddr, amountOut, totalBalance - amountOut - fee, tmpTx, atLeastOneUnconfirmed);
     }
+
+    afterTxCreated(tx: bitcoin.Psbt): void {}
 
     validateAddress(addr: string): boolean {
         try {

@@ -1453,17 +1453,12 @@ export class App {
         this.sendFeeInputWidget = new SliderInputWidget(this.sendCoinUpdateTransaction.bind(this))
         this.setWidget('sendCoinFeeDiv', this.sendFeeInputWidget);
 
-        //TODO wallet.getCachedBalance().total().toFloat(wallet.handler.decimals)
-        //this.sendMaxBalance = (typeof sendMaxBalance == 'undefined') ? null : sendMaxBalance;
-        //app.sendForceTotal = null;
         this.afterSendCallback = (typeof afterSendCallback == 'undefined') ? null : afterSendCallback;
         this.sendAddressInputWidget = new AddressInputWidget(wallet.handler as OnlineCoinHandler, 'recipient address')
         this.setWidget('sendCoinAddrDiv', this.sendAddressInputWidget);
         this.sendWallet = wallet;
 
         document.getElementById('sendCoinFeeInfo').classList.add('default');
-        //document.getElementById('sendCoinBalanceAfter').classList.toggle('default', typeof sendMaxBalance != 'undefined');
-
         let app = this;
         (wallet.handler as OnlineCoinHandler).getFeeOptions().then(function(fees){
             //TODO race condition here
@@ -1553,7 +1548,6 @@ export class App {
 
     sendPayment() {
         if (this.isSocialSend) return this.sendSocialPayment();
-
         if (!(this.sendOutgoingTransaction && this.sendOutgoingTransaction.isValid())) {
             return;
         }

@@ -33,9 +33,12 @@ export class HandlerDoge extends BaseBitcoinjsHanlder {
         return 'https://dogechain.info/tx/' + txid;
     }
 
+    afterTxCreated(tx: bitcoin.Psbt): void {
+        super.afterTxCreated(tx);
+        tx.setMaximumFeeRate(4000000);
+    }
+
     calculateFeeForInputs(tx : bitcoin.Psbt, signer: ECPair.ECPairInterface, outs: string[], feeRate: number): number {
-                             56892906
-        tx.setMaximumFeeRate(4000000) //TODO DOGE, warnings configuration
         let ret = super.calculateFeeForInputs(tx, signer, outs, feeRate);
         //set minimum fee to 1 DOGE
         if (ret < 100000000) ret = 100000000;
