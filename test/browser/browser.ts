@@ -32,6 +32,10 @@ describe('UX Test', function() {
             document.body.append(w1.element);
             document.body.append(w2.element);
 
+            let handler2 = new HandlerBtcTest(engine)
+            let w3  = new AmountInputWidget(handler2,provider);
+            document.body.append(w3.element);
+
         });
     });
     describe('SelectWidget', function () {

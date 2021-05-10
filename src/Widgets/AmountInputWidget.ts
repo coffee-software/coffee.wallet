@@ -56,6 +56,12 @@ export class AmountInputWidget implements Widget  {
         this.valueInput.onchange = this.updateAmount.bind(this)
         this.valueInput.onkeyup = this.updateAmount.bind(this)
 
+        let price = this.priceProvider.getPrice(this.handler)
+        if (!price) {
+            this.valueInput.readOnly = true;
+            this.valueInput.type = 'text'
+        }
+
         this.legendElement = document.createElement("div");
         this.legendElement.classList.add('legend')
         this.element.append(this.legendElement);
@@ -88,7 +94,8 @@ export class AmountInputWidget implements Widget  {
 
     setReadonly(readonly: boolean) {
         this.amountInput.readOnly = readonly;
-        this.valueInput.readOnly = readonly;
+        let price = this.priceProvider.getPrice(this.handler)
+        this.valueInput.readOnly = !price && readonly;
     }
 
     updateValue() {
@@ -96,6 +103,8 @@ export class AmountInputWidget implements Widget  {
         let price = this.priceProvider.getPrice(this.handler)
         if (amount && price) {
             this.valueInput.value = (parseFloat(amount) * price).toFixed(2);
+        } else if (amount ) {
+            this.valueInput.value = '?'
         } else {
             this.valueInput.value = '';
         }
