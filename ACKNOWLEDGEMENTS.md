@@ -4,8 +4,10 @@ Acknowledgements
 Coffee Wallet uses Open Source code from the following libraries
 
  * [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib) for signing BTC, LTC and DOGE transactions; MIT License
+ * [ethers.js](https://github.com/ethers-io/ethers.js/) for signing and sending ETH and ETH-tokens transactions; MIT License
  * [web3.js](https://github.com/ethereum/web3.js/) for signing and sending ETH and ETH-tokens transactions; LGPL License
  * [qrcode.js](https://davidshimjs.github.io/qrcodejs/) to generate QR codes; MIT License
+ * [jazzicon](https://github.com/MetaMask/jazzicon/) to generate Jazzy Identicons; ISC License
  * [rangeSlider](https://github.com/Stryzhevskyi/rangeSlider/) ui element; MIT License
  * [New Age](http://startbootstrap.com/template-overviews/new-age/) as landing page template base; MIT License
  * [Cryptocurrency Icons](https://github.com/cjdowner/cryptocurrency-icons); Creative Commons Zero (CC0) license
@@ -30,3 +32,4 @@ To broadcast signed transaction and save it in blockchain, Coffee uses third par
 
  * [BlockCypher](https://www.blockcypher.com/) for bitcoin, litecoins and dogecoin transactions.
  * [Infura](https://infura.io/) for accessing Ethereum network (ETH and ERC20 tokens)
+ * [bitcoin.com](https://bitcoin.com/) for accessing BCH network.

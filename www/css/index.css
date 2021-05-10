@@ -130,49 +130,8 @@ h1, h2, h3 {
   display: none;
 }
 
-#toggleMenu {
-  float: left;
-}
-
 #refresh {
   float: right;
-}
-
-#menu {
-  position: fixed;
-  top: 54px;
-  left: 0;
-  height: 0;
-  transition: height 0.5s ease;
-  height: 0;
-  overflow: hidden;
-  background: #ffffff; /*#f7f5f2*/
-  /* Status bar height on iOS 11 */
-  margin-top: constant(safe-area-inset-top);
-  margin-top: env(safe-area-inset-top);
-}
-#menu ul, #menu li {
-  padding: 0;
-  margin: 0;
-}
-
-#menu a img {
-  width: 32px;
-  vertical-align: middle;
-  margin-right: 15px;
-}
-#menu a {
-  display: block;
-  color: #766054;
-  font-size: 16px;
-  line-height: 32px;
-  text-decoration: none;
-  padding: 7px 25px 7px 15px;
-}
-
-#menu a:hover {
-  background: #c2b28f;
-  color: #766054;
 }
 
 #foot {
@@ -348,119 +307,10 @@ table {
   padding: 0 15px;
 }
 
-.listingRow {
-  height: 74px;
-  position: relative;
-  margin: 0 -15px;
-  overflow: hidden;
-  background: #fffcf8;
-}
-.slidingRow {
-  position: absolute;
-  background-color: #ffffff; /*#f7f5f2*/
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease;
-  box-shadow: 0px 0px 7px #463f3a
-}
-
-.slidingRow.touching {
-  transition: none;
-}
-
-.slidingRow .left {
-  flex: 3;
-  text-align: left;
-}
-.slidingRow .left div {
-  padding-left: 15px;
-}
-.slidingRow .unit {
-  flex: 1.5;
-  text-align: center;
-}
-.slidingRow .right {
-  flex: 3;
-  text-align: right;
-}
-.slidingRow .right div {
-  padding-right: 15px;
-}
-
-.slidingRow .unconfirmed {
-  animation: blinkingText 1s infinite;
-}
-
-.slidingRow .coinIcon {
-  max-width: 56px;
-  min-width: 26px;
-}
-.slidingRow .unit svg {
-  max-width: 56px;
-  min-width: 26px;
-}
-
-.listingRow .stitch2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-left: 15px solid white;
-    border-right: 15px solid white;
-}
-
-.listingRow .buttons {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.listingRow .buttonsRight {
-  right: 0;
-  left: auto;
-}
-
-.listingRow .buttons .button:first-child {
-  padding-left: 5px;
-}
-.listingRow .buttons .button:last-child {
-  padding-right: 5px;
-}
-
-.listingRow .buttons .button {
-  text-align: center;
-  flex: 1;
-}
-.listingRow .buttons .button a {
-  display: block;
-  width: 60px;
-}
-.listingRow .buttons .button a img {
-  display: block;
-  width: 32px;
-  margin: 0 auto;
-}
 body.resizing * {
   transition: none !important;
 }
-body.desktop .listingRow .buttons.hidden {
-  display: flex !important;
-}
-body.desktop .slidingRow {
-  left: 130px;
-  right: 130px;
-  box-shadow: none;
-  transform: none !important;
-}
+
 
 #offlineAssets {
   padding: 0 15px;
@@ -517,9 +367,7 @@ body.desktop .slidingRow {
   left: 50%;
   margin-left: -35px;
   top: -35px;
-  background-image: url(../icons/coinbg.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background: white;
   height: 70px;
   width: 70px;
   box-shadow: 0px 0px 7px #261f1a;
@@ -530,25 +378,9 @@ body.desktop .slidingRow {
   left: 37.5%;
 }
 
-#receivePaymentPopup.formContent #receiveCoinIdenticon.circleIcon  {
+#receivePaymentPopup.formContent #receiveCoinIdenticon  {
   left: 63.5%;
-  background-image: none;
 }
-
-/*
-.formContent .actionLeft {
-  position: absolute;
-  left: 28px;
-  width: 90px;
-  bottom: -2px;
-}
-.formContent .actionRight {
-  position: absolute;
-  right: 28px;
-  width: 90px;
-  bottom: -2px;
-}
-*/
 
 #popupHead {
   position: fixed;
@@ -622,6 +454,7 @@ body.desktop .slidingRow {
   padding: 0px 4%;
   width: 92%;
   padding-top: 6px;
+  overflow-x: hidden;
 }
 
 .popup-head {
@@ -728,8 +561,9 @@ body.desktop .slidingRow {
   left: 25px;
   right: 25px;
   top: 50%;
-  margin-top: -200px;
   background: #ffffff; /*#f7f5f2*/
+  /* margin-top: -200px; */
+  transform: translateY(-50%);
 }
 
 #lockPopup .row {
@@ -770,16 +604,6 @@ a:active {
     position: relative;
 }
 
-.txt-mode-only {
-  /* display: none; */
-}
-.txt .txt-mode-only {
-  display: block;
-}
-.txt .qr-mode-only {
-  display: none;
-}
-
 textarea#receiveCoinAddr {
   font-size: 11px;
   padding: 0 12px;
@@ -811,12 +635,7 @@ textarea#mnemonic {
   color: #ffffff; /*#f7f5f2*/
 }
 
-.spinner.spinning img {
-  animation: spin 1s linear 0s infinite;
 
-}
-
-@keyframes spin { 100% { transform:rotate(360deg); } }
 
 #moreCoins {
   padding: 26px;
@@ -841,29 +660,6 @@ ol.mnemonic li {
 ol.mnemonic li span {
   font-weight: bold;
   font-size: 13px;
-}
-
-#uxHint {
-    position: absolute;
-    z-index: 200;
-    top: 50%;
-    left: 0;
-    right: 0;
-    margin-top: -50vw;
-    height: 0px;
-    overflow: visible;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 1s linear;
-}
-
-#uxHint img {
-  width: 50%;
-  margin: 25%;
-}
-
-#uxHint.blink {
-  opacity: 1;
 }
 
 #loading {
@@ -986,14 +782,6 @@ ol.mnemonic li span {
 
 .bg-creme {
     background: #fffcf8;
-}
-
-#sendCoinBalanceAfter .max-button {
-  display: none;
-}
-
-#sendCoinBalanceAfter.default .max-button {
-  display: block;
 }
 
 #sendCoinFeeInfo .range-input {

@@ -37,9 +37,9 @@
 
 #messages {
     position: fixed;
-    top: 60px;
-    left: 5px;
-    right: 5px;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 200;
 }
 
@@ -52,13 +52,11 @@
 }
 
 #messages div.msg {
-    padding: 27px 58px;
+    padding: 27px 60px;
     text-align: center;
     background-color: #766054;
     color: #ffffff; /*#f7f5f2*/
-    margin: -11px 10px;
-    border-radius: 40px;
-    box-shadow: 0px -5px 10px #463f3a;
+    box-shadow: 0 -5px 15px black;
 }
 
 #messages div.msg.fadingout {
@@ -68,8 +66,8 @@
 
 #messages div.msg .closer {
     position: absolute;
-    right: 27px;
-    top: 27px;
+    right: 20px;
+    top: 22px;
     width: 24px;
 }
 
@@ -78,23 +76,26 @@
   display: block;
 }
 
-#messages div.msg:after {
+#messages div.msg .icon {
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    width: 32px;
+}
+
+#messages div.msg .icon .default {
     content: " ";
     width: 32px;
     height: 32px;
-    position: absolute;
-    left: 24px;
-    top: 20px;
     background: url(../icons/msgtype.png);
     background-size: auto 32px;
 }
-
-#messages div.msg.info:after {
-  background-position: -32px 0;
+#messages div.msg.info .icon .default {
+    background-position: -32px 0;
 }
 
-#messages div.msg.error:after {
-  background-position: -64px 0;
+#messages div.msg.error .icon .default {
+    background-position: -64px 0;
 }
 
 #messages div.msg.error {
@@ -103,8 +104,11 @@
 .msg.error {
   color: #862727;
 }
-.msg.error:after {
-  background-position: -64px 0;
+#messages div.msg.success .icon img {
+    filter: hue-rotate(-21deg) saturate(0%) brightness(300%);
+}
+#messages div.msg.info .icon img {
+    filter: hue-rotate(4deg) saturate(55.95%) brightness(55.1%);
 }
 
 #messages div.msg.success {
@@ -124,11 +128,6 @@
   display: block;
   margin: 4px auto;
 }
-
-#messages div.msg.success:after {
-  background-position: 0 0;
-}
-
 
 #mobileQRScanner {
   position: absolute;
@@ -188,4 +187,9 @@
 
 #mobileQRScanner.show {
   transform: translate3d(0,0,0);
+}
+
+#exchangeSellCoin select, #exchangeBuyCoin select {
+    background-color: #463f3a;
+    margin-bottom: 0;
 }

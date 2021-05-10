@@ -1,0 +1,208 @@
+
+/* AmountInputWidgets */
+
+.amount-input {
+    display: flex;
+    position: relative;
+    background: white;
+    color: #463f3a;
+}
+
+.amount-input.dark {
+    background: #463f3a;
+    color: white;
+}
+
+.amount-input .side {
+    flex: 1;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 14px;
+    margin-bottom: 1px;
+    color: inherit;
+}
+
+.amount-input input {
+    padding: 9px 0;
+    padding-right: 24px;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border:none;
+    /*border-bottom:1px dashed #766054;*/
+    margin: 0;
+    background: transparent;
+    font-family: 'Poppins', serif;
+    color: inherit;
+}
+
+.amount-input input:focus {
+    outline: none;
+}
+
+.amount-input label {
+    position: absolute;
+    pointer-events: none;
+    left: 14px;
+    top: 11px;
+    font-size: 15px;
+    color: inherit;
+    transition: 0.2s linear all;
+    -moz-transition: 0.2s linear all;
+    -webkit-transition: 0.2s linear all;
+}
+
+.amount-input input:focus ~ label, .amount-input.filled label {
+    top: -1px;
+    font-size: 10px;
+}
+
+.amount-input.invalid {
+    color: #f36040;
+}
+
+.amount-input .equalizer {
+    font-size: 20px;
+    padding: 7px 0 0 0;
+    margin-bottom: 1px;
+}
+
+
+.amount-input .unit {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    color: #766054;
+}
+
+.amount-input.filled .unit {
+    color: inherit;
+}
+.amount-input .legend {
+    text-align: right;
+    position: absolute;
+    right: 14px;
+    font-size: 10px;
+    bottom: 0;
+}
+
+/* ListItemWidget */
+
+.listingRow {
+    height: 74px;
+    position: relative;
+    margin: 0 -15px;
+    overflow: hidden;
+    background: #fffcf8;
+}
+.slidingRow {
+    position: absolute;
+    background-color: #ffffff; /*#f7f5f2*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 0px 7px #463f3a
+}
+
+.slidingRow.touching {
+    transition: none;
+}
+
+.slidingRow .left {
+    flex: 3;
+    text-align: left;
+}
+.slidingRow .left div {
+    padding-left: 15px;
+}
+.slidingRow .unit {
+    flex: 1.5;
+    text-align: center;
+}
+.slidingRow .right {
+    flex: 3;
+    text-align: right;
+}
+.slidingRow .right div {
+    padding-right: 15px;
+}
+
+.slidingRow .unconfirmed {
+    animation: blinkingText 1s infinite;
+}
+
+.slidingRow .coinIcon {
+    max-width: 56px;
+    min-width: 26px;
+}
+.slidingRow .unit svg {
+    max-width: 56px;
+    min-width: 26px;
+}
+
+.listingRow .stitch2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-left: 15px solid white;
+    border-right: 15px solid white;
+}
+
+.listingRow .buttons {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listingRow .buttonsRight {
+    right: 0;
+    left: auto;
+}
+
+.listingRow .buttons .button:first-child {
+    padding-left: 5px;
+}
+.listingRow .buttons .button:last-child {
+    padding-right: 5px;
+}
+
+.listingRow .buttons .button {
+    text-align: center;
+    flex: 1;
+}
+.listingRow .buttons .button a {
+    display: block;
+    width: 60px;
+}
+.listingRow .buttons .button a img {
+    display: block;
+    width: 32px;
+    margin: 0 auto;
+}
+
+body.desktop .listingRow .buttons.hidden {
+    display: flex !important;
+}
+
+body.desktop .slidingRow {
+    left: 130px;
+    right: 130px;
+    box-shadow: none;
+    transform: none !important;
+}
+
+.spinner.spinning img {
+    animation: spin 1s linear 0s infinite;
+}
+@keyframes spin { 100% { transform:rotate(360deg); } }

@@ -7,7 +7,8 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="viewport-fit=cover, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <meta name="theme-color" content="#766054">
-        <link rel="apple-touch-icon" href="/pwa/icon512.png">
+        <link rel="apple-touch-icon" href="pwa/icon512.png">
+        <link rel="stylesheet" type="text/css" href="css/widgets.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="css/ui.css">
@@ -17,61 +18,6 @@
     <body>
         <div id="nav">
           <div class="stitch"></div>
-          <div id="toggleMenu" onclick="app.toggleMenu()" class="navButton hidden">
-            <img src="icons/menu.png" alt="menu"/>
-          </div>
-          <div id="menu">
-            <ul>
-              <li>
-                <a href="javascript:app.popupAddCoin()">
-                  <img src="icons/plus.png"/>
-                  add&nbsp;currencies
-                </a>
-              </li>
-              <li>
-                <a href="javascript:app.popupPriceSettings()">
-                  <img src="icons/settings.png"/>
-                  settings
-                </a>
-              </li>
-              <!--li>
-                <a href="javascript:app.popupSettings()">
-                  <img src="icons/settings.png"/>
-                  coin settings
-                </a>
-              </li-->
-              <li>
-                <a href="javascript:app.popupHelp()">
-                  <img src="icons/help.png"/>
-                  help
-                </a>
-              </li>
-              <!--li>
-                <a id="feedback" href="javascript:app.popupFeedback()">
-                  <img src="icons/heart.png"/>
-                  feedback
-                </a>
-              </li-->
-              <li>
-                <a href="javascript:app.exportAllKeys()">
-                  <img src="icons/export.png"/>
-                  backup wallets
-                </a>
-              </li>
-              <!--li>
-                <a href="javascript:app.importAllKeys()">
-                  <img src="icons/import.png"/>
-                  restore wallets
-                </a>
-              </li-->
-              <li class="airdrop-button hidden">
-                <a href="javascript:app.popupAirdrop()">
-                  <img src="icons/heart.png"/>
-                  tokens&nbsp;airdrop
-                </a>
-              </li>
-            </ul>
-          </div>
 
           <a id="refresh" href="javascript:app.updateMarketCap()" class="navButton spinner">
             <img class="nonet" src="icons/nonet.png" alt="refresh"/>
@@ -114,7 +60,7 @@
                     It is recommended to run app in standalone mode.
                   </div>
                   <div class="pwaActions">
-                    <a href="#" onclick="osPlugins.openInSystemBrowser('https://github.com/fsw/coffee.wallet/wiki/Coffee-Wallet-PWA');">read more</a>
+                    <a href="#" onclick="OsPlugins.openInSystemBrowser('https://github.com/fsw/coffee.wallet/wiki/Coffee-Wallet-PWA');">read more</a>
                     <button id="installPwa">ADD TO HOME</button>
                   </div>
                 </div>
@@ -131,7 +77,7 @@
                 <div id="tools">
 
                   <div class="row">
-                    <button class="toolbtn" onclick="app.popupPriceSettings()" style="margin-right:5px;">
+                    <button class="toolbtn" onclick="app.popupSettings()" style="margin-right:5px;">
                       <img src="icons/settings.png"/>
                       settings
                     </button>
@@ -231,72 +177,13 @@
                 <tr><td>your history is empty</td></tr>
               </table>
             </div>
-            <div id="airdropPopup" style="display:none;">
-              <div class="bg-creme popup-head">
-                <div class="rowIcon"><img class="coinIcon coinBig" src="coins/cft.svg"/></div>
-                <h2>CFT airdrop</h2>
-                <h3>Coffee Wallet Tokens</h3>
-              </div>
-              <div class="section">
-                You don't have to complete all tasks listed below but they should take only 3 minutes of your time and you will know all important features of this application.
-              </div>
-              <div class="stitch"></div>
-              <table class="section" id="airdropTasks">
-              </table>
-              <div class="stitch"></div>
-              <p id="airdropStatus" class="section"></p>
-              <div class="actions row buttons">
-                <button id="collectAirdropButton" class="box f1 hidden" onclick="app.collectAirdrop()">
-                  Collect&nbsp;<span id="airdropTotal"></span>
-                </button>
-              </div>
-            </div>
-            <div id="airdropPopup2" style="display:none;">
-              <div class="bg-creme popup-head">
-                <div class="rowIcon"><img class="coinIcon coinBig" src="coins/cft.svg"/></div>
-                <h2>CFT airdrop</h2>
-                <h3>Coffee Wallet Tokens</h3>
-              </div>
-              <div class="section">
-                Thanks for participating in the airdrop! Tokens will appear in your wallet as soon as transaction gets confirmed.
-                If you would like to get some more and share Coffee Wallet with your friends, you can use fallowing share link.
-                You will receive extra <strong><span id="airdropReferalReward">50</span> CFT</strong> for each installation.
-              </div>
-              <div class="airdrop-link">
-                <div id="airdropRefLink">https://wallet.coffee/install</div>
-                <div style="text-align:center">
-                  <div id="airdropRefLinkQR" class="qr-code-display">
-                  </div>
-                </div>
-                <div class="actions row">
-                  <button class="f1" onclick="osPlugins.copyToClipboard(document.getElementById('airdropRefLink').innerHTML); app.alertInfo('copied to clipboard');">
-                    <img src="icons/ico.copy.png"/>
-                    Copy
-                  </button>
-                  <button class="f1" onclick="osPlugins.shareDialog('', document.getElementById('airdropRefLink').innerHTML)">
-                    <img src="icons/share.png"/>
-                    Share
-                  </button>
-                </div>
-              </div>
-              <p id="airdropStatus2" class="section"></p>
-              <div class="stitch"></div>
-              <div class="actions row buttons">
-                <button class="box f1 light" onclick="osPlugins.openRateAppDialog()">
-                  Rate App
-                </button>
-                <button class="box f1" onclick="app.closePopup()">
-                  Close
-                </button>
-              </div>
-            </div>
             <div id="exchangePopup" style="display:none;">
               <div class="bg-creme popup-head">
                 <h2>Exchange</h2>
               </div>
               <div class="section">
                 exchange:
-                <select onchange="app.updateExchange()" id="exchangeProvider"></select>
+                <div id="exchangeProvider"></div>
               </div>
               <div style="overflow:auto;">
                 <div style="width:70%; float:left; padding-bottom: 10px;">
@@ -305,48 +192,27 @@
                 </div>
                 <img id="exchangeIcon" src="" style="max-width:30%; float:right;"/>
               </div>
-              <div class="stitch"></div>
               <div class="section">
-                sell coin:
-                <select onchange="app.updateExchange()" id="exchangeSellCoin"></select>
-                sell ammount
-                (min: <a id="exchangeSellMin" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>,
-                max: <a id="exchangeSellMax" href="#" onclick="document.getElementById('exchangeSellAmmount').value = this.textContent; app.updateExchange();"></a>):
-                <div class="field dark">
-                  <input
-                    id="exchangeSellAmmount"
-                    type="number"
-                    step="0.000000000001"
-                    value="0"
-                    onchange="app.updateExchange()"
-                    onkeyup="app.updateExchange()"
-                    required />
+                sell:
+                <div id="exchangeSellCoin"></div>
+                <div id="exchangeSellAmount"></div>
+                <div style="text-align:right;">
+                  minimum: <a id="exchangeSellMin" href="#" onclick="app.exchangeSellAmount.setValue(parseFloat(this.textContent));"></a>
+                  <!--max: <a id="exchangeSellMax" href="#" onclick="app.exchangeSellAmount.setValue(parseFloat(this.textContent));"></a>-->
+                  + transaction network fee
                 </div>
-                value: <span id="exchangeSellValue"></span>
-                <br/>
-                (+ <span id="exchangeSellFee"></span> network fee)
               </div>
-              <div class="stitch"></div>
               <div class="section">
-                buy coin:
-                <select onchange="app.updateExchange()" id="exchangeBuyCoin"></select>
-                estimated buy ammount:
-                <div class="field dark">
-                  <input
-                    id="exchangeBuyAmmount"
-                    type="number"
-                    value="0"
-                    readonly
-                  >
+                buy:
+                <div id="exchangeBuyCoin"></div>
+                <div id="exchangeBuyAmount"></div>
+                <div style="text-align:right;">
+                  This is <b>estimated</b> and depends on current market dynamics.
                 </div>
-                value: <span id="exchangeBuyValue"></span>
-                <br/>
-                This is <b>estimated</b> and depends on current market dynamics.
               </div>
-              <div class="stitch"></div>
-              <div class="section">
+              <!--div class="section">
                 Coffee Wallet does not charge additional fees. You will get same results exchanging directly.
-              </div>
+              </div-->
               <div class="actions row buttons">
                 <button id="exchangeButton" class="box f1" onclick="app.doExchange()">
                   Exchange
@@ -355,7 +221,7 @@
             </div>
             <div id="coinInfoPopup" class="details-popup" style="display:none;">
               <div class="bg-creme popup-head">
-                <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
+                <div class="rowIcon active"><img id="coinInfoIcon" class="coinIcon coinBig" src=""/></div>
                 <h2 id="coinInfoName">&nbsp;</h2>
                 <h3 id="coinInfoSubName">&nbsp;</h3>
                 <h3 id="coinInfoCurrentPrice">&nbsp;</h3>
@@ -369,7 +235,7 @@
             <div id="offlineAssetDetails" class="details-popup" style="display:none;">
               <div class="bg-creme popup-head">
                 <div class="rowIcon active">
-                  <img class="coinIcon coinBig" src=""/>
+                  <img id="offlineAssetCoinIcon" class="coinIcon coinBig" src=""/>
                   <div id="offlineAssetIcon" class="coinBig" style="display: inline-block; margin-left: 14px;"></div>
                 </div>
                 <h2 id="offlineAssetName"></h2>
@@ -383,7 +249,7 @@
             </div>
             <div id="offlineAssetsPopup" style="display:none;">
               <div class="bg-creme popup-head">
-                <div class="rowIcon active"><img class="coinIcon coinBig" src=""/></div>
+                <div class="rowIcon active"><img id="offlineAssetsIcon" class="coinIcon coinBig" src=""/></div>
                 <h2 id="offlineAssetsTitle" style="text-align:center;">portfolio</h2>
                 <h3 id="offlineAssetsSubtitle" style="text-align:center;">portfolio</h3>
               </div>
@@ -395,27 +261,25 @@
 
               <div class="spacing">&nbsp;</div>
               <div class="row spacing buttons">
-                <button class="box f1" onclick="app.popupAddOfflineAsset('balance', '')">
+                <button class="box f1" onclick="app.popupAddOfflineAsset('balance')">
                   add balance
-                </button>
-                <button id="addAddressButton" class="box f1" onclick="app.popupAddOfflineAsset('addr', '')">
-                  add address
                 </button>
                 <button id="newAddressButton" class="box f1" onclick="app.popupAddNewAddress()">
                   new address
                 </button>
+                <button id="addAddressButton" class="box f1" onclick="app.popupAddOfflineAsset('address')">
+                  add address
+                </button>
               </div>
             </div>
 
-            <div id="priceSettingsPopup" style="display:none;">
+            <div id="settingsPopup" style="display:none;">
               <div class="bg-creme popup-head">
                 <h2>Settings</h2>
               </div>
               <h3>Fiat Currency</h3>
-              <select id="priceProvider">
-              </select>
-              <select id="priceUnit">
-              </select>
+              <div id="priceProviderSlot"></div>
+              <div id="priceUnitSlot"></div>
               <p style="padding-bottom: 10px;">All values will be displayed in this currency.</p>
 
               <h3>Developer Tools</h3>
@@ -426,7 +290,7 @@
               </label>
               <p style="padding-bottom: 10px;">Get access to Bitcoin Testnet or ETH Ropsten.</p>
               <div class="row spacing buttons">
-                <button class="box f1" onclick="app.savePriceSettings()">
+                <button class="box f1" onclick="app.saveSettings()">
                   Save
                 </button>
               </div>
@@ -441,13 +305,8 @@
                   <input id="addCoinFilter" value="" required/>
                   <label for="addCoinFilter">search</label>
                 </div>
-                <!-- label class="checkbox" style="padding-bottom: 10px;">
-                  <input type="checkbox" id="addCoinOnlySupportedRead" />
-                  <div class="fakecheck"></div>
-                  only coins that can be queried by address
-                </label -->
                 <label class="checkbox">
-                  <input type="checkbox" id="addCoinOnlySupportedWrite" />
+                  <input type="checkbox" id="addCoinOnlySupported" />
                   <div class="fakecheck"></div>
                   only coins with local wallet support
                 </label>
@@ -463,7 +322,7 @@
                 <h2>Coffee Wallet</h2>
                 <h3 id="helpPopupVersion">Version: <strong><span ></span></strong></h3>
                 <p>
-                  <a href="#" onclick="osPlugins.openInSystemBrowser('https://wallet.coffee/');" style="font-size: 14px;">https://wallet.coffee/</a>
+                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://wallet.coffee/');" style="font-size: 14px;">https://wallet.coffee/</a>
                 </p>
                 <p>
                   Coffee Wallet is an open source wallet and portfolio for blockchain assets.
@@ -473,17 +332,17 @@
                   It also has a support for a local wallet so you can send and receive selected coins from the app.
                 </p>
                 <p>
-                  <a href="#" onclick="osPlugins.openInSystemBrowser('https://twitter.com/CoffeeWallet');"><img width="42" src="icons/twitter.png"/></a>
+                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://twitter.com/CoffeeWallet');"><img width="42" src="icons/twitter.png"/></a>
                   &nbsp;&nbsp;
-                  <a href="#" onclick="osPlugins.openInSystemBrowser('https://www.reddit.com/r/CoffeeWallet/');"><img width="42" src="icons/reddit.png"/></a>
+                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://www.reddit.com/r/CoffeeWallet/');"><img width="42" src="icons/reddit.png"/></a>
                   &nbsp;&nbsp;
-                  <a href="#" onclick="osPlugins.openInSystemBrowser('https://t.me/CoffeeWallet');"><img width="42" src="icons/telegram.png"/></a>
+                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://t.me/CoffeeWallet');"><img width="42" src="icons/telegram.png"/></a>
                 </p>
                 <p>
-                  <a href="#" onclick="osPlugins.openRateAppDialog();" style="font-size: 14px;">rate application</a>
+                  <a href="#" onclick="OsPlugins.openRateAppDialog();" style="font-size: 14px;">rate application</a>
                 </p>
                 <p>
-                  <a href="#" onclick="osPlugins.openInSystemBrowser('https://github.com/fsw/coffee.wallet/wiki');" style="font-size: 14px;">online documentation</a>
+                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://github.com/fsw/coffee.wallet/wiki');" style="font-size: 14px;">online documentation</a>
                 </p>
               </div>
             </div>
@@ -493,27 +352,14 @@
         <div id="formPopup">
           <div id="addOfflineAssetPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <!--img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.png"/-->
+              <div class="circleIcon active"><img id="addOfflineAssetPopupIcon" class="coinIcon coinBig" src=""/></div>
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
               <button class="f1 submit" onclick="app.saveOfflineAsset()"><span id="addOfflineAssetPopupSave">save</span> <img src="icons/ico.send.png"/></button>
             </div>
 
-            <div id="addOfflineAssetAddrDiv">
-              <div class="field">
-                <input
-                  id="addOfflineAssetAddr"
-                  onfocus="app.validateAddr('addOfflineAssetAddr', true)"
-                  onblur="app.validateAddr('addOfflineAssetAddr')"
-                  value=""
-                  required />
-                <label for="addOfflineAssetAddr">address</label>
-                <div class="legend"></div>
-              </div>
-            </div>
+            <div id="addOfflineAssetAddrDiv"></div>
 
             <div id="addOfflineAssetBalanceDiv" class="field">
               <input type="number" min="0" step="0.000000000001" id="addOfflineAssetBalance" value="" required />
@@ -524,11 +370,11 @@
               <label for="addOfflineAssetComment">comment</label>
             </div>
             <div id="addOfflineAssetAddrTools" class="formButtons row">
-              <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'addOfflineAssetAddr'))">
+              <button class="f1" onclick="app.pasteClipboard(app.pasteToPortfolioItemAddressEdit.bind(app))">
                 paste
                 <img src="icons/paste.png"/>
               </button>
-              <button class="f1" onclick="app.scanQrCode(app.pasteToField.bind(app, 'addOfflineAssetAddr'))">
+              <button class="f1" onclick="app.scanQrCode(app.pasteToPortfolioItemAddressEdit.bind(app))">
                 <img src="icons/scan.png"/>
                 scan
               </button>
@@ -537,72 +383,24 @@
           </div>
           <div id="sendPaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <!--img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.send.png"/-->
+              <div class="circleIcon active"><img id="sendPaymentIcon" class="coinIcon coinBig" src=""/></div>
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
-              <button class="normalSend f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png"/></button>
-              <button class="socialSend f1 submit" onclick="app.sendSocialPayment()">send <img src="icons/ico.send.png"/></button>
+              <button id="sendButton" class="f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png"/></button>
             </div>
 
-              <div class="normalSend field">
-                <input
-                  id="sendCoinAddr"
-                  onfocus="app.validateAddr('sendCoinAddr', true)"
-                  onblur="app.validateAddr('sendCoinAddr')"
-                  required
-                />
-                <label for="sendCoinAddr">recipient address</label>
-                <div class="legend"></div>
-              </div>
+            <div id="sendCoinAddrDiv" class="normalSend">
 
-              <div class="row">
-                <div class="field f1">
-                  <input
-                    id="sendCoinAmount"
-                    type="number"
-                    step="0.000000000001"
-                    class="has-unit"
-                    onfocus="app.sendCoinValidateAmount('sendCoin', true)"
-                    onblur="app.sendCoinValidateAmount('sendCoin')"
-                    onchange="app.coinUpdateValue('sendCoin', app.sendWallet.handler)"
-                    onkeyup="app.coinUpdateValue('sendCoin', app.sendWallet.handler)"
-                    required
-                  />
-                  <span class="input-unit" id="sendCoinName"></span>
-                  <label for="sendCoinAmount">amount</label>
-                  <div class="legend"></div>
-                </div>
-                <div class="equalizer">
-                  =
-                </div>
-                <div class="field f1">
-                  <input
-                    id="sendCoinValue"
-                    type="number"
-                    step="0.000000000001"
-                    class="has-unit"
-                    onfocus="app.sendCoinValidateAmount('sendCoin', true)"
-                    onblur="app.sendCoinValidateAmount('sendCoin')"
-                    onchange="app.coinUpdateAmount('sendCoin', app.sendWallet.handler)"
-                    onkeyup="app.coinUpdateAmount('sendCoin', app.sendWallet.handler)"
-                    required
-                  />
-                  <span class="input-unit" id="sendFiatName"></span>
-                  <label for="sendCoinValue">equivalent</label>
-                  <div class="legend"></div>
-                </div>
-              </div>
-
-              <div id="sendCoinBalanceAfter" class="default adv-form-option">
+            </div>
+              <div id="sendCoinAmountInput"></div>
+              <div id="sendCoinBalanceAfter" class="adv-form-option">
                 <div class="row">
                   <div class="f4">
                     balance after:&nbsp;<span id="balanceAfter">0</span>
                   </div>
                   <div class="f1 max-button">
-                    <button onclick="app.sendCoinSetMax()">
+                    <button id="sendCoinMaxButton" onclick="app.sendCoinSetMax()">
                       send max
                     </button>
                   </div>
@@ -613,7 +411,7 @@
                 <div class="row">
                   <div class="f4">
                     fee:&nbsp;<span id="feeAmount">0</span>
-                    ETA:&nbsp;<span id="feeTime">0 min</span>
+                    (<span id="feeTime">0 min</span>)
                   </div>
                   <div class="f1 customize-button" >
                     <button onclick="getElementById('sendCoinFeeInfo').classList.remove('default')">
@@ -621,8 +419,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="range-input">
-                  <input id="sendCoinFee" oninput="app.sendCoinUpdateFee()" type="range" min="0" max="100" step="1"/>
+                <div id="sendCoinFeeDiv">
+
                 </div>
               </div>
 
@@ -640,10 +438,8 @@
           </div>
           <div id="receivePaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+              <div class="circleIcon active"><img id="receivePaymentIcon" class="coinIcon coinBig" src=""/></div>
               <div id="receiveCoinIdenticon" class="circleIcon coinBig"></div>
-              <!--img class="actionLeft" src="icons/cancel.png"/>
-              <img class="actionRight" src="icons/submit.copy.png"/-->
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> close</button>
@@ -651,54 +447,17 @@
             </div>
 
             <div class="receiveCode">
-              <textarea class="txt-mode-only" readonly="readonly" id="receiveCoinAddr"></textarea>
-              <div id="receiveCoinQrcode" class="qr-code-display qr-mode-only"></div>
+              <textarea readonly="readonly" id="receiveCoinAddr"></textarea>
+              <div id="receiveCoinQrcode" class="qr-code-display"></div>
             </div>
 
             <div id="receiveCoinNote"></div>
 
             <div id="receiveCoinBottom">
               <form class="custom-amount" onsubmit="getElementById('receiveCoinBottom').classList.remove('custom-amount'); return false;">
-                <div class="row">
-                  <div class="field f1">
-                    <input
-                      id="receiveCoinAmount"
-                      type="number"
-                      step="0.000000000001"
-                      class="has-unit"
-                      onfocus="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onblur="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onchange="app.coinUpdateValue('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      onkeyup="app.coinUpdateValue('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      required
-                    />
-                    <span class="input-unit" id="receiveCoinName"></span>
-                    <label for="receiveCoinAmount">amount</label>
-                    <div class="legend"></div>
-                  </div>
-                  <div class="equalizer">
-                    =
-                  </div>
-                  <div class="field f1">
-                    <input
-                      id="receiveCoinValue"
-                      type="number"
-                      step="0.000000000001"
-                      class="has-unit"
-                      onfocus="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onblur="app.sendCoinValidateAmount('receiveCoin', true)"
-                      onchange="app.coinUpdateAmount('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      onkeyup="app.coinUpdateAmount('receiveCoin', app.receivingWallet.handler); app.updateReceivePaymentCode();"
-                      required
-                    />
-                    <span class="input-unit" id="receiveFiatName"></span>
-                    <label for="receiveCoinValue">equivalent</label>
-                    <div class="legend"></div>
-                  </div>
-                </div>
-
+                <div id="receiveCoinAmountInput"></div>
                 <div class="row formButtons">
-                  <button class="f1" type="submit" onclick="app.popupReceiveClearAmount()" style="color:#766054;"><img src="icons/ico.cancel.png"/> clear</button>
+                  <button class="f1" type="submit" onclick="app.receiveAmountInputWidget.setValue(null)" style="color:#766054;"><img src="icons/ico.cancel.png"/> clear</button>
                   <button class="f1" type="submit"><img src="icons/ico.set.png"/> OK</button>
                 </div>
               </form>
@@ -706,47 +465,27 @@
               <div class="no-custom-amount formButtons row">
                 <button class="f1" onclick="app.shareReceivePaymentCode()"><img src="icons/share.png"/> share</button>
                 <button class="f1" onclick="getElementById('receiveCoinBottom').classList.add('custom-amount')"><img src="icons/customize.png"/> <span id="setAmountLabel">set ammount</span></button>
-                <!--button class="f1 qr-mode-only" onclick="getElementById('receivePaymentPopup').classList.add('txt');"><img src="icons/txt.png"/> code</button>
-                <button class="f1 txt-mode-only" onclick="getElementById('receivePaymentPopup').classList.remove('txt');"><img src="icons/scan.png"/> QR</button-->
               </div>
             </div>
 
           </div>
-
-
-          <div id="exportPrivateKeyPopup" class="formContent" style="display:none;">
-            <div class="formTop">
-              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
-              <img class="actionLeft" src="icons/cancel.png"/>
-            </div>
-
-            <div class="formActions row">
-              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
-            </div>
-
-            <div class="unpad stitch"></div>
-            <div id="privateKeyValue"></div>
-          </div>
-
           <div id="importPrivateKeyPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img class="coinIcon coinBig" src=""/></div>
+              <div class="circleIcon active"><img id="importPrivateKeyIcon" class="coinIcon coinBig" src=""/></div>
             </div>
             <div class="formActions row">
               <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
               <button class="f1 submit" onclick="app.importPrivateKey()">import <img src="icons/ico.send.png"/></button>
             </div>
-
             <div class="field">
               <input
-                id="importPrivateKeyInput"
-                value=""
-                required
+                      id="importPrivateKeyInput"
+                      value=""
+                      required
               />
               <label for="importPrivateKeyInput">private key</label>
               <div class="legend"></div>
             </div>
-
             <div class="formButtons row">
               <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'importPrivateKeyInput'))">
                 <img src="icons/paste.png"/>
@@ -774,11 +513,11 @@
               <div class="stitch"></div>
               <div class="spacing row">
                 <button id="lockPopupCancel" class="f1" onclick="app.lockDialogCancel();">
-                  <img src="icons/no.png" alt="menu"/>
+                  <img src="icons/no.png" alt="cancel"/>
                   <span id="lockPopupCancelText">cancel</span>
                 </button>
                 <button id="lockPopupConfirm" class="f1" onclick="app.lockDialogConfirm();">
-                  <img src="icons/yes.png" alt="menu"/>
+                  <img src="icons/yes.png" alt="confirm"/>
                   <span id="lockPopupConfirmText">confirm</span>
                 </button>
               </div>
@@ -792,46 +531,23 @@
           <div id="mobileQRCamera">camera</div>
         </div>
 
-        <div id="uxHint"></div>
-        <div id="loading"><img src="img/loading.svg" alt="loading..."/></div>
+        <div id="loading" class="show"><img src="img/loading.svg" alt="loading..."/></div>
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="plugins.js"></script>
-
-        <script type="text/javascript" src="js/core.js"></script>
+        <script type="text/javascript" src="config.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript">
+          //TODO test
+          window.app = new coffee.App();
+          function handleOpenURL(url) {
+            setTimeout(app.openUrl.bind(app, url), 0);
+          }
+          window.onerror = app.onJsError.bind(app);
+          window.onunhandledrejection = app.onUnhandledRejection.bind(app);
+        </script>
 
         <script type="text/javascript" src="vendor/qrcode.js"></script>
-        <script type="text/javascript" src="vendor/web3.min.js"></script>
-        <script type="text/javascript" src="vendor/btcjs.js"></script>
-        <script type="text/javascript" src="vendor/range-slider.min.js"></script>
         <script type="text/javascript" src="vendor/pulltorefresh.min.js"></script>
-        <script type="text/javascript" src="vendor/browserify.js"></script>
-
-        <script type="text/javascript" src="js/fasttap.js"></script>
-        <script type="text/javascript" src="js/database.js"></script>
-        <script type="text/javascript" src="js/logger.js"></script>
-        <script type="text/javascript" src="js/settings.js"></script>
-
-        <script type="text/javascript" src="js/coin.apis.btcjs.js"></script>
-        <script type="text/javascript" src="js/coin.apis.web3js.js"></script>
-        <script type="text/javascript" src="js/coin.apis.erc20.js"></script>
-        <script type="text/javascript" src="js/coin.apis.cmc.js"></script>
-        <script type="text/javascript" src="js/coin.apis.js"></script>
-
-        <script type="text/javascript" src="js/price.providers.js"></script>
-
-        <script type="text/javascript" src="js/widget.wallet.js"></script>
-        <script type="text/javascript" src="js/widget.asset.js"></script>
-        <script type="text/javascript" src="js/widget.select.js"></script>
-        <script type="text/javascript" src="js/widget.coinbutton.js"></script>
-        <script type="text/javascript" src="js/changelog.js"></script>
-        <script type="text/javascript" src="js/config.js"></script>
-        <script type="text/javascript" src="js/exchange.base.js"></script>
-        <script type="text/javascript" src="js/exchange.uniswap.js"></script>
-        <script type="text/javascript" src="js/exchange.now.js"></script>
-        <script type="text/javascript" src="js/exchange.changelly.js"></script>
-        <script type="text/javascript" src="js/exchange.js"></script>
-        <script type="text/javascript" src="js/airdrop.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

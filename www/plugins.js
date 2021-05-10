@@ -1,8 +1,12 @@
 'use strict';
 /* global pdf */
+/* global device */
+/* global NativeStorage */
 
-var osPlugins = {
+const __OS_PLUGINS__ = {
 
+  getStorage: function() { return NativeStorage; },
+  getPlatformName: function(){ return device.platform; },
   generatePDF: function(html, file, success, error){
     if (device.platform == 'browser') {
       //console.log(html);
@@ -32,15 +36,25 @@ var osPlugins = {
       });
     }
   },
-  scanQRCode: function(success, error, config) {
+  scanQRCode: function(success, error) {
 
     if (device.platform == 'browser') {
         error('Scanning not yet supported in PWA');
     } else {
         cordova.plugins.barcodeScanner.scan(
-            success,
+            function (result) {
+                if (!result.canceled) {
+                    success(result.text);
+                }
+            },
             error,
-            config
+            {
+                preferFrontCamera : false, // iOS and Android
+                showFlipCameraButton : true, // iOS and Android
+                showTorchButton : true, // iOS and Android
+                torchOn: true, // Android, launch with the torch switched on (if available)
+                prompt : "Place addres or transaction barcode inside the scan area", // Android
+            }
         );
     }
   },
@@ -95,6 +109,19 @@ var osPlugins = {
       cordova.plugins.clipboard.copy(text);
     }
   },
+
+    pasteFromClipboard: function(callback) {
+        if (device.platform == 'browser') {
+            navigator.clipboard.readText()
+                .then(callback)
+                .catch(err => {
+                    throw new Error('Failed to read clipboard contents');
+                });
+        } else {
+            cordova.plugins.clipboard.paste(callback);
+        }
+    },
+
   browserCheckPersisted: function() {
     if (navigator.storage && navigator.storage.persist) {
       navigator.storage.persist().then(function (isPersisted){
@@ -159,9 +186,53 @@ var osPlugins = {
         }
     );
   },
+    hideNativeSplash: function() {
+        navigator.splashscreen.hide();
+    },
+    authenticateUser: function(callback){
+        if (device.platform == "Android") {
+            FingerprintAuth.isAvailable(function(result){
+                if(result.isAvailable) {
+                    FingerprintAuth.encrypt(
+                        {
+                            clientId: "coffee",
+                            username: "user",
+                            password: "__dummy"
+                        },
+                        function(){
+                            app.alertSuccess("auth successfull");
+                            callback();
+                        }, function(err){
+                            app.alertError("auth error: " + err);
+                        }
+                    );
+                } else {
+                    callback();
+                }
+            }, function(){
+                callback();
+            });
+        } else if(device.platform == "iOS") {
+            window.plugins.touchid.isAvailable(function(){
+                window.plugins.touchid.verifyFingerprintWithCustomPasswordFallback(
+                    "Scan your fingerprint to confirm",
+                    function(){
+                        app.alertSuccess("auth successfull");
+                        callback();
+                    }, function(err){
+                        app.alertError("auth error: " + JSON.stringify(err));
+                    }
+                );
+            }, function(){
+                callback();
+            });
+        } else {
+            callback();
+        }
+    },
   checkForUpdates: function(callback) {
     var that = this;
-    if (device.platform == 'browser') {
+    if (device.platform == 'browser' && (window.location.port != "8000")) {
         this.browserCheckPersisted();
         this.browserInitPWA();
         //TODO protocol handler:
@@ -199,3 +270,5 @@ var osPlugins = {
     }
   }
 };
+
+const OsPlugins = __OS_PLUGINS__
