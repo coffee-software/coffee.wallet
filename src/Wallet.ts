@@ -5,7 +5,32 @@ import {isOnlineCoinHanlder} from "./AllCoinHandlers";
 import {BigNum} from "./Core/BigNum";
 import {Engine} from "./Engine";
 
-export class Wallet {
+
+export interface TransactionSender {
+    handler: BaseCoinHandler;
+    prepareTransaction(receiverAddr : string, amount : BigNum|"MAX", fee: number) : Promise<NewTransaction>
+}
+
+export class PrivateKeySender implements TransactionSender {
+    handler: OnlineCoinHandler;
+    privateKey: string
+
+    constructor(
+        handler: OnlineCoinHandler,
+        privateKey: string
+    ) {
+        this.handler = handler;
+        this.privateKey = privateKey;
+    }
+
+    async prepareTransaction(receiverAddr : string,
+                             amount : BigNum|"MAX",
+                             fee: number) : Promise<NewTransaction> {
+        return await this.handler.prepareTransaction(this.privateKey, receiverAddr, amount, fee);
+    }
+}
+
+export class Wallet implements TransactionSender {
     keychain: Keychain;
     handler: BaseCoinHandler;
     engine: Engine;
@@ -131,7 +156,7 @@ export class Wallet {
         if (!isOnlineCoinHanlder(this.handler)) {
             return null;
         } else {
-            return await this.handler.prepareTransaction(this.keychain,receiverAddr,amount,fee);
+            return await this.handler.prepareTransaction(this.keychain, receiverAddr, amount, fee);
         }
     }
 }

@@ -3,7 +3,7 @@ import {fastTap} from "./Tools/Fasttap";
 import {OsPlugins} from "./OsPlugins";
 import {Logger} from "./Tools/Logger";
 import {WalletWidget} from "./Widgets/WalletWidget";
-import {Wallet} from "./Wallet";
+import {PrivateKeySender, TransactionSender, Wallet} from "./Wallet";
 import {isOnlineCoinHanlder} from "./AllCoinHandlers";
 import {PortfolioItemWidget} from "./Widgets/PortfolioItemWidget";
 import {ListItemWidget} from "./Widgets/ListItemWidget";
@@ -680,7 +680,6 @@ export class App {
                 '<p>balance: <strong id="offlineAssetInfoBalanceContainer"></strong></p>' +
                 '<p>value: <strong id="offlineAssetInfoValueContainer"></strong></p>';
             document.getElementById('offlineAssetInfoBalanceContainer').appendChild(item.amountSpan);
-            //' + asset.data.balance + ' ' + app.offlineAssetWallet.handler.code + '
             document.getElementById('offlineAssetInfoValueContainer').appendChild(item.valueSpan);
         }
 
@@ -927,38 +926,15 @@ export class App {
     importPrivateKey() {
         var pk = (document.getElementById('importPrivateKeyInput') as HTMLInputElement).value;
         var addr = this.importingHandler.addressFromPrivateKey(pk);
-        var valid = this.importingHandler.validateAddress(addr);
-
+        //var valid = this.importingHandler.validateAddress(addr);
         if (this.importingAddress && (this.importingAddress != addr)) {
-            this.alertInfo('warning: this seems to be Private Key for a different wallet');
+            this.alertError('warning: this seems to be Private Key for a different wallet');
         }
-        document.getElementById('loading').classList.add('show');
-        /* TODO
-        app.importingHandler.getBalance(addr, function(balance, unconfirmed){
-            document.getElementById('loading').classList.remove('show');
-            if (app.importingHandler.systemValuesCompare(0, balance) == 0) {
-                app.alertError('<strong>warning:</strong> This wallet is empty.');
-            }
-            if (app.importingHandler.systemValuesCompare(0, unconfirmed) != 0) {
-                app.alertError('<strong>warning:</strong> This wallet contains unconfirmed balance. Transaction can fail.');
-            }
-            var wallet = {
-                handler: app.importingHandler,
-                data: {
-                    coin: app.importingHandler.code,
-                    privateKey: pk,
-                    addr : addr
-                }
-            };
-            app.popupSendPayment(wallet, balance);
-            document.getElementById('sendCoinAddr').value =
-                app.wallets[app.importingHandler.code].data.addr;
-            app.validateAddr('sendCoinAddr');
-
-        }, function(error) {
-            document.getElementById('loading').classList.remove('show');
-            app.alertError(error);
-        });*/
+        let sender = new PrivateKeySender(this.importingHandler, pk);
+        this.popupSendPayment(sender, ()=>{});
+        this.sendAddressInputWidget.setValue(
+            (this.walletsWidgets[this.importingHandler.code].wallet.handler as OnlineCoinHandler).getReceiveAddr(this.engine.keychain)
+        )
     }
 
     showExportKeysReminderIfRequired(callback: () => void) {
@@ -1451,7 +1427,7 @@ export class App {
         document.getElementById(slotId).append(widget.element);
     }
 
-    sendWallet: Wallet
+    sendWallet: TransactionSender
     sendAmountInputWidget: AmountInputWidget
     sendAmountMax: boolean
     sendAddressInputWidget: AddressInputWidget
@@ -1459,7 +1435,7 @@ export class App {
     afterSendCallback: () => void
     sendOutgoingTransaction: NewTransaction = null
 
-    popupSendPayment(wallet: Wallet, afterSendCallback: () => void) {
+    popupSendPayment(wallet: TransactionSender, afterSendCallback: () => void) {
         this.openForm('sendPaymentPopup');
         this.isSocialSend = false
         document.getElementById('sendCoinMaxButton').classList.remove('hidden');
@@ -1651,91 +1627,37 @@ export class App {
             }
         );
     }
-    /*
-    proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee, callback) {
-
-        var amount = handler.systemValuesDiff(balance, handler.getFeeTotalCost(defaultFee));
-        var displayTotal = handler.systemValueToDisplayValue(balance);
-        var displayAmount = handler.systemValueToDisplayValue(amount);
-        //issues
-        var warning = '';
-        var hideConfirm = false;
-        if (handler.systemValuesCompare(0, balance) != -1) {
-            warning = '<strong>error:</strong> Escrow wallet is empty. Was it already claimed? If this is a fresh transfer please try again in a minute.';
-            hideConfirm = true;
-        } else if (handler.systemValuesCompare(0, amount) != -1) {
-            warning = '<strong>error:</strong> Escrow wallet balance is less than required fee.';
-            hideConfirm = true;
-        } else if (handler.systemValuesCompare(0, unconfirmed) != 0) {
-            warning = '<strong>warning:</strong> Escrow transaction is not yet confirmed. You can continue but in case of problems please try again after few minutes.';
-        }
-
-        app.confirmBeforeContinue(
-            '<table class="transactionSummary">' +
-            '<tr class="first"><td><img class="coinIcon" src="icons/messageglyph.png"/></td><td><img style="width:65%" src="icons/sendglyph.png"/></td><td><img style="width:100%" src="coins/' + handler.icon + '.svg"/></td></tr>' +
-            '<tr class="second"><td></td><td></td><td>' + app.engine.shortAmount(displayAmount, handler.code, 13) + '</td></tr>' +
-            '</table>',
-            'Somebody used "Send via message" function to send you ' + handler.code + '. Click "claim" to proceed and transfer contents to your wallet.' +
-            '<table class="niceTable">' +
-            '<tr><th colspan="2">total message content:</th></tr><tr><td style="width:50%;">' + displayTotal + ' ' + handler.code + '</td><td>' + app.engine.priceProvider.convert(handler.systemValueToFloatValue(balance), handler) + '</td></tr>' +
-            '<tr><th colspan="2">transaction fee:</th></tr><tr><td>' + handler.getFeeDisplay(defaultFee) + '</td><td>' + handler.getFeeValueDisplay(defaultFee) + '</td></tr>' +
-            '<tr><th colspan="2">you will receive:</th></tr><tr><td style="width:50%;">' + displayAmount + ' ' + handler.code + '</td><td>' + app.engine.priceProvider.convert(handler.systemValueToFloatValue(amount), handler) + '</td></tr>' +
-            '</table>' +
-            '<p>' + warning + '</p>',
-            function(){
-                app.addOrActivateCoin(handler.code, function(){
-                    handler.sendPayment(
-                        privateKey,
-                        app.wallets[handler.code].data.addr,
-                        amount,
-                        defaultFee
-                    );
-                    //TODO this is a temporary hack before the update loop/queue
-                    for (var i=1; i<10; i++) {
-                        setTimeout(function() { app.wallets[handler.code].refreshOnline(); }, 5000 * i * i);
-                    }
-                    callback && callback();
-                });
-            },
-            'claim',
-            'cancel',
-            function() {
-                callback && callback();
-            }
-        );
-        if (hideConfirm) {
-            document.getElementById('lockPopupConfirm').classList.add('hidden');
-        }
-    }
-    */
 
     handleReceiveMessage(code: string, privateKey: string) {
         if ((code in this.engine.allCoinHandlers) && this.engine.isOnline(this.engine.allCoinHandlers[code]) && (this.engine.allCoinHandlers[code] as OnlineCoinHandler).canSendViaMessage()) {
             var handler = (this.engine.allCoinHandlers[code] as OnlineCoinHandler);
-            let app = this;
-            handler.prepareTransaction(
-                privateKey,
-                handler.getReceiveAddr(this.engine.keychain),
-                "MAX"
-            ).then(function(tx: NewTransaction){
-                console.log(tx)
-                this.confirmAndSendTransaction(
-                    new ReceiveMessageTransaction(tx),
-                    function(){
-                        app.addOrActivateCoin(code, function(){});
-                    }
-                );
-            }.bind(this));
 
-            /*handler.getBalance(handler.addressFromPrivateKey(privateKey)).then(function(balance: Balance){
-
-                setTimeout(function() {
-                    var fees = handler.getFees(function(fees){
-                        var defaultFee = fees[Math.floor((fees.length - 1) / 2)];
-                        app.proceedToReceiveMessage(handler, privateKey, balance, unconfirmed, defaultFee, callback);
-                    });
-                }, 1000);
-            });*/
+            handler.getBalance(handler.addressFromPrivateKey(privateKey)).then(balance => {
+                if (balance.total().isZero()) {
+                    this.alertError('Escrow wallet is empty. Was it already claimed? If this is a fresh transfer please try again in a minute.');
+                } else {
+                    let app = this;
+                    handler.prepareTransaction(
+                        privateKey,
+                        handler.getReceiveAddr(this.engine.keychain),
+                        "MAX"
+                    ).then(function (tx: NewTransaction) {
+                        console.log(tx)
+                        this.confirmAndSendTransaction(
+                            new ReceiveMessageTransaction(tx),
+                            function () {
+                                app.addOrActivateCoin(code, function () {
+                                    for (var i = 1; i < 10; i = i + 2) {
+                                        setTimeout(function () {
+                                            app.walletsWidgets[handler.code].refreshOnline();
+                                        }, 5000 * i * i);
+                                    }
+                                });
+                            }
+                        );
+                    }.bind(this));
+                }
+            })
         } else {
             this.alertError('Don\'t know how to receive ' + code);
         }
@@ -1748,10 +1670,8 @@ export class App {
     popupReceivePayment(wallet: Wallet, addr: string) {
         this.openForm('receivePaymentPopup');
         (document.getElementById('receivePaymentIcon') as HTMLImageElement).src = 'coins/' + wallet.handler.icon + '.svg';
-        //document.getElementById('receiveCoinLabel').innerHTML = '';
         (document.getElementById('receiveCoinAddr') as HTMLTextAreaElement).value = '';
         document.getElementById('receiveCoinQrcode').innerHTML = '';
-
 
         document.getElementById('receiveCoinAmountInput').innerHTML = '';
         this.receiveAmountInputWidget = new AmountInputWidget(wallet.handler, this.engine.priceProvider)

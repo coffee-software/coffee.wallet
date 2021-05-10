@@ -22,8 +22,9 @@ class BtcTransaction implements NewTransaction {
     sendable: boolean
     amountOut: number
     balanceAfter: number
+    unconfirmedInputs: boolean
 
-    constructor(handler: BaseBitcoinjsHanlder, sendable: boolean, receiverAddr: string, amountOut: number, balanceAfter: number, tx: Psbt) {
+    constructor(handler: BaseBitcoinjsHanlder, sendable: boolean, receiverAddr: string, amountOut: number, balanceAfter: number, tx: Psbt, unconfirmedInputs: boolean) {
         this.handler = handler
         this.receiverAddr = receiverAddr
         this.tx = tx
@@ -31,6 +32,7 @@ class BtcTransaction implements NewTransaction {
         this.sendable = sendable
         this.amountOut = amountOut
         this.balanceAfter = balanceAfter
+        this.unconfirmedInputs = unconfirmedInputs
     }
 
     isValid() : boolean {
@@ -61,7 +63,7 @@ class BtcTransaction implements NewTransaction {
     }
 
     getSummary(): { [code: string] : string|Balance } {
-        return {
+        let ret : any = {
             "recipient": this.receiverAddr,
             "amount": new Balance(this.handler, new BigNum(this.amountOut)),
             "fee" : this.getFeeTotal(),
@@ -70,6 +72,10 @@ class BtcTransaction implements NewTransaction {
             "fee rate" : this.getFeeInfo(),
             //"ETA" : this.getFeeETA()
         };
+        if (this.unconfirmedInputs) {
+            ret['warning'] = 'this transaction uses unconfirmed inputs. You might consider waiting few minutes and trying again to make sure transaction does not fail.';
+        }
+        return ret;
     }
 
     async send(): Promise<string> {
@@ -491,14 +497,10 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             value: amountOut
         });
 
-        if (atLeastOneUnconfirmed) {
-            this.log.info('warning: sending using unconfirmed inputs.');
-        }
-
         tmpTx.signAllInputs(ecpair).finalizeAllInputs();
 
         tmpTx.setMaximumFeeRate(4000000) //TODO DOGE, warnings configuration
-        return new BtcTransaction(this, sendable, receiverAddr, amountOut, totalBalance - amountOut - fee, tmpTx);
+        return new BtcTransaction(this, sendable, receiverAddr, amountOut, totalBalance - amountOut - fee, tmpTx, atLeastOneUnconfirmed);
     }
 
     validateAddress(addr: string): boolean {

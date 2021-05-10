@@ -16,4 +16,8 @@ export class ReceiveMessageTransaction extends NewTransactionWrapper {
         return ret;
     }
 
+    getDescriptionHtml(): string {
+        return 'Somebody used "Send via message" function to send you ' + this.handler.ticker + '. Click "confirm" to proceed and transfer contents to your wallet.';
+    }
+
 }

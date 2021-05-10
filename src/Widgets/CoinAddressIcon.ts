@@ -18,6 +18,7 @@ export class CoinAddressIcon implements Widget {
             this.element.style.borderRadius = '50%'
             this.element.style.width = '100%'
             this.element.style.height = '100%'
+            this.element.setAttribute("class", "coinIcon");
         } else {
             this.element = document.createElement('img');
             this.element.setAttribute("class", "coinIcon");
