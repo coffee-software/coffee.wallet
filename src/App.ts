@@ -894,12 +894,16 @@ export class App {
             'Are you sure you want to see your private key? It gives full access to your ' + wallet.handler.ticker + ' online wallet. '
             + 'Keep it safe.',
             function() {
-                let pk = (wallet.handler as OnlineCoinHandler).getPrivateKey(app.engine.keychain).privateKey.toString('hex');
+                let pk = (wallet.handler as OnlineCoinHandler).exportPrivateKey(app.engine.keychain);
                 app.confirmBeforeContinue(
                     'your ' + wallet.handler.ticker + ' private key',
-                    pk,
-                    function() {},
-                    'done'
+                    '<textarea>' + pk + '</textarea>',
+                    function() {
+                        OsPlugins.copyToClipboard(pk);
+                        app.alertInfo('private key copied to clipboard');
+                    },
+                    'copy',
+                    'close'
                 );
             }
         );
