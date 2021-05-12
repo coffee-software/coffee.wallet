@@ -157,7 +157,7 @@ export class Engine {
         console.log("INITIALISING");
 
         let wallets = await this.storageGet('wallets');
-        if ('bip39' in wallets) {
+        if (wallets && 'bip39' in wallets) {
             console.log('migrating legacy data...');
             this.keychain = new Keychain(wallets.bip39.mnemonic);
             for (let code in wallets) {
@@ -287,7 +287,22 @@ export class Engine {
     storageGet(key: string): Promise<any> {
         let engine = this;
         return new Promise(function (resolve, reject) {
-            engine.storage.getItem(key, resolve, reject);
+            engine.storage.getItem(
+                key,
+                resolve,
+                function(error){
+                    if (typeof error.code == "object" && 'code' in error.code){
+                        //this fixes weird bug in secure storege plugin
+                        error = error.code;
+                    }
+                    if (error.code == 2) {
+                        resolve(null);
+                    } else {
+                        reject(error)
+                    }
+                }
+            );
+
         });
     }
 
