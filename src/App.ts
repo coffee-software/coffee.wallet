@@ -1753,7 +1753,7 @@ export class App {
     }
 
     showChangelogIfVersionUpdated(callback: ()=>void) {
-        var oldVersion = this.engine.settings.get('appVersion', '0.1.7');
+        var oldVersion = this.engine.settings.get('appVersion', '0.15.0');
         if (oldVersion != Version.version) {
             this.saveVersion();
             var changelist = '';
