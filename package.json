@@ -19,7 +19,7 @@
     "bip39": "^3.0.3",
     "bitcoinjs-lib": "^5.2.0",
     "coininfo": "^5.1.0",
-    "cordova-browser": "^5.0.4",
+    "cordova-browser": "^6.0.0",
     "cordova-clipboard": "git+https://github.com/ihadeed/cordova-clipboard.git",
     "cordova-pdf-generator": "^2.0.4",
     "cordova-plugin-android-fingerprint-auth": "^1.4.4",
