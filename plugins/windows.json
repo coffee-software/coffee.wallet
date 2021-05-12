@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-clipboard2": {
-      "PACKAGE_NAME": "Coffee"
-    },
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "Coffee"
     },
