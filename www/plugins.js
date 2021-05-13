@@ -3,6 +3,7 @@
 /* global device */
 /* global NativeStorage */
 /* global FingerprintAuth */
+/* global coffee */
 
 var __OS_PLUGINS__ = {
 
