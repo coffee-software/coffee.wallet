@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Security-Policy"
         content="default-src * data: gap: file: https://* 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src * blob:; img-src 'self' data: content:;">
@@ -67,7 +67,7 @@
                 <div id="walletsList">
                 </div>
           	    <div onclick="app.popupAddCoin()" class="walletsAddButton">
-                  <img src="icons/add.png"/>
+                  <img src="icons/add.png" alt="add"/>
                   add wallet
           	    </div>
               </div>
@@ -78,29 +78,29 @@
 
                   <div class="row">
                     <button class="toolbtn" onclick="app.popupSettings()" style="margin-right:5px;">
-                      <img src="icons/settings.png"/>
+                      <img src="icons/settings.png" alt="settings"/>
                       settings
                     </button>
                     <button class="toolbtn" onclick="app.popupHelp()" style="margin-left:5px;margin-right:5px;">
-                      <img src="icons/help.png"/>
+                      <img src="icons/help.png" alt="help"/>
                       help
                     </button>
                       <button class="toolbtn" onclick="app.exportAllKeys()" style="margin-left:5px;">
-                        <img src="icons/export.png"/>
+                        <img src="icons/export.png" alt="export"/>
                         backup
                       </button>
                   </div>
 
                   <div class="row">
                     <button class="f1 toolbtn" onclick="app.scanAnyQrCode()" style="margin-right:5px;">
-                      <img src="icons/quickscan.png"/>
+                      <img src="icons/quickscan.png" alt="scan"/>
                       scan
                       <br/>
                       QR code
                     </button>
 
                     <button class="f1 toolbtn" onclick="app.pasteAnyClipboard()" style="margin-left:5px;">
-                      <img src="icons/quickpaste.png"/>
+                      <img src="icons/quickpaste.png" alt="paste"/>
                       paste
                       <br/>
                       clipboard
@@ -108,19 +108,19 @@
                   </div>
                   <div class="row">
                     <button class="toolbtn" onclick="app.popupSendViaMessage()" style="margin-right:5px;">
-                      <img src="icons/email.png"/>
+                      <img src="icons/email.png" alt="message"/>
                       send via
                       <br/>
                       message
                     </button>
                     <button class="toolbtn airdrop-button hidden" onclick="app.popupAirdrop()" style="margin-left:5px;margin-right:5px;">
-                      <img src="icons/heart.png"/>
+                      <img src="icons/heart.png" alt="tokens"/>
                       tokens
                       <br/>
                       airdrop
                     </button>
                     <button class="toolbtn" onclick="app.popupExchange()" style="margin-left:5px;">
-                      <img src="icons/exchange.png"/>
+                      <img src="icons/exchange.png" alt="exchange"/>
                       quick
                       <br/>
                       exchange
@@ -152,7 +152,7 @@
 
         <div id="popup">
           <div id="popupHead">
-            <a href="javascript:app.closePopup()" class="close"><img src="icons/hide.drk.png"/></a>
+            <a href="javascript:app.closePopup()" class="close"><img src="icons/hide.drk.png" alt="close"/></a>
             <div class="stitchHolder"></div>
             <div class="titleHolder">
               <h2 id="popupTitle"></h2>
@@ -161,7 +161,7 @@
           <div id="popupContent">
             <div id="sendViaMessagePopup" style="display:none;">
               <div class="bg-creme popup-head">
-                <div class="rowIcon"><img class="coinIcon coinBig" src="icons/messageglyph.png"/></div>
+                <div class="rowIcon"><img class="coinIcon coinBig" src="icons/messageglyph.png" alt="message"/></div>
                 <h2>send via message</h2>
                 <h3></h3>
               </div>
@@ -190,7 +190,7 @@
                   <div id="exchangeShortDescription"></div>
                   <div id="exchangeLink"></div>
                 </div>
-                <img id="exchangeIcon" src="" style="max-width:30%; float:right;"/>
+                <img id="exchangeIcon" src="" alt="logo" style="max-width:30%; float:right;"/>
               </div>
               <div class="section">
                 sell:
@@ -221,7 +221,7 @@
             </div>
             <div id="coinInfoPopup" class="details-popup" style="display:none;">
               <div class="bg-creme popup-head">
-                <div class="rowIcon active"><img id="coinInfoIcon" class="coinIcon coinBig" src=""/></div>
+                <div class="rowIcon active"><img id="coinInfoIcon" class="coinIcon coinBig" src="" alt="coin"/></div>
                 <h2 id="coinInfoName">&nbsp;</h2>
                 <h3 id="coinInfoSubName">&nbsp;</h3>
                 <h3 id="coinInfoCurrentPrice">&nbsp;</h3>
@@ -235,7 +235,7 @@
             <div id="offlineAssetDetails" class="details-popup" style="display:none;">
               <div class="bg-creme popup-head">
                 <div class="rowIcon active">
-                  <img id="offlineAssetCoinIcon" class="coinIcon coinBig" src=""/>
+                  <img id="offlineAssetCoinIcon" class="coinIcon coinBig" src="" alt="coin"/>
                   <div id="offlineAssetIcon" class="coinBig" style="display: inline-block; margin-left: 14px;"></div>
                 </div>
                 <h2 id="offlineAssetName"></h2>
@@ -249,7 +249,7 @@
             </div>
             <div id="offlineAssetsPopup" style="display:none;">
               <div class="bg-creme popup-head">
-                <div class="rowIcon active"><img id="offlineAssetsIcon" class="coinIcon coinBig" src=""/></div>
+                <div class="rowIcon active"><img id="offlineAssetsIcon" class="coinIcon coinBig" src="" alt="coin"/></div>
                 <h2 id="offlineAssetsTitle" style="text-align:center;">portfolio</h2>
                 <h3 id="offlineAssetsSubtitle" style="text-align:center;">portfolio</h3>
               </div>
@@ -332,11 +332,11 @@
                   It also has a support for a local wallet so you can send and receive selected coins from the app.
                 </p>
                 <p>
-                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://twitter.com/CoffeeWallet');"><img width="42" src="icons/twitter.png"/></a>
+                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://twitter.com/CoffeeWallet');"><img width="42" src="icons/twitter.png" alt="twitter"/></a>
                   &nbsp;&nbsp;
-                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://www.reddit.com/r/CoffeeWallet/');"><img width="42" src="icons/reddit.png"/></a>
+                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://www.reddit.com/r/CoffeeWallet/');"><img width="42" src="icons/reddit.png" alt="reddit"/></a>
                   &nbsp;&nbsp;
-                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://t.me/CoffeeWallet');"><img width="42" src="icons/telegram.png"/></a>
+                  <a href="#" onclick="OsPlugins.openInSystemBrowser('https://t.me/CoffeeWallet');"><img width="42" src="icons/telegram.png" alt="telegram"/></a>
                 </p>
                 <p>
                   <a href="#" onclick="OsPlugins.openRateAppDialog();" style="font-size: 14px;">rate application</a>
@@ -352,11 +352,11 @@
         <div id="formPopup">
           <div id="addOfflineAssetPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img id="addOfflineAssetPopupIcon" class="coinIcon coinBig" src=""/></div>
+              <div class="circleIcon active"><img id="addOfflineAssetPopupIcon" class="coinIcon coinBig" src="" alt="close"/></div>
             </div>
             <div class="formActions row">
-              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
-              <button class="f1 submit" onclick="app.saveOfflineAsset()"><span id="addOfflineAssetPopupSave">save</span> <img src="icons/ico.send.png"/></button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png" alt="cancel"/> cancel</button>
+              <button class="f1 submit" onclick="app.saveOfflineAsset()"><span id="addOfflineAssetPopupSave">save</span> <img src="icons/ico.send.png" alt="send"/></button>
             </div>
 
             <div id="addOfflineAssetAddrDiv"></div>
@@ -372,10 +372,10 @@
             <div id="addOfflineAssetAddrTools" class="formButtons row">
               <button class="f1" onclick="app.pasteClipboard(app.pasteToPortfolioItemAddressEdit.bind(app))">
                 paste
-                <img src="icons/paste.png"/>
+                <img src="icons/paste.png" alt="paste"/>
               </button>
               <button class="f1" onclick="app.scanQrCode(app.pasteToPortfolioItemAddressEdit.bind(app))">
-                <img src="icons/scan.png"/>
+                <img src="icons/scan.png" alt="scan"/>
                 scan
               </button>
             </div>
@@ -383,11 +383,11 @@
           </div>
           <div id="sendPaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img id="sendPaymentIcon" class="coinIcon coinBig" src=""/></div>
+              <div class="circleIcon active"><img id="sendPaymentIcon" class="coinIcon coinBig" src="" alt="coin"/></div>
             </div>
             <div class="formActions row">
-              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
-              <button id="sendButton" class="f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png"/></button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png" alt="cancel"/> cancel</button>
+              <button id="sendButton" class="f1 submit" onclick="app.sendPayment()">send <img src="icons/ico.send.png" alt="send"/></button>
             </div>
 
             <div id="sendCoinAddrDiv" class="normalSend">
@@ -426,11 +426,11 @@
 
               <div class="normalSend formButtons row">
                 <button class="f1" onclick="app.pasteClipboard(app.pasteToSendForm.bind(app))">
-                  <img src="icons/paste.png"/>
+                  <img src="icons/paste.png" alt="paste"/>
                   paste
                 </button>
                 <button class="f1" onclick="app.scanQrCode(app.pasteToSendForm.bind(app))">
-                  <img src="icons/scan.png"/>
+                  <img src="icons/scan.png" alt="scan"/>
                   scan
                 </button>
               </div>
@@ -438,12 +438,12 @@
           </div>
           <div id="receivePaymentPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img id="receivePaymentIcon" class="coinIcon coinBig" src=""/></div>
+              <div class="circleIcon active"><img id="receivePaymentIcon" class="coinIcon coinBig" src="" alt="coin"/></div>
               <div id="receiveCoinIdenticon" class="circleIcon coinBig"></div>
             </div>
             <div class="formActions row">
-              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> close</button>
-              <button class="f1 submit" onclick="app.copyReceiveCoinAddrToClp()">copy <img src="icons/ico.copy.png"/></button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png" alt="close"/> close</button>
+              <button class="f1 submit" onclick="app.copyReceiveCoinAddrToClp()">copy <img src="icons/ico.copy.png" alt="copy"/></button>
             </div>
 
             <div class="receiveCode">
@@ -457,25 +457,25 @@
               <form class="custom-amount" onsubmit="getElementById('receiveCoinBottom').classList.remove('custom-amount'); return false;">
                 <div id="receiveCoinAmountInput"></div>
                 <div class="row formButtons">
-                  <button class="f1" type="submit" onclick="app.receiveAmountInputWidget.setValue(null)" style="color:#766054;"><img src="icons/ico.cancel.png"/> clear</button>
-                  <button class="f1" type="submit"><img src="icons/ico.set.png"/> OK</button>
+                  <button class="f1" type="submit" onclick="app.receiveAmountInputWidget.setValue(null)" style="color:#766054;"><img src="icons/ico.cancel.png" alt="cancel"/> clear</button>
+                  <button class="f1" type="submit"><img src="icons/ico.set.png" alt="set"/> OK</button>
                 </div>
               </form>
 
               <div class="no-custom-amount formButtons row">
-                <button class="f1" onclick="app.shareReceivePaymentCode()"><img src="icons/share.png"/> share</button>
-                <button class="f1" onclick="getElementById('receiveCoinBottom').classList.add('custom-amount')"><img src="icons/customize.png"/> <span id="setAmountLabel">set ammount</span></button>
+                <button class="f1" onclick="app.shareReceivePaymentCode()"><img src="icons/share.png" alt="share"/> share</button>
+                <button class="f1" onclick="getElementById('receiveCoinBottom').classList.add('custom-amount')"><img src="icons/customize.png" alt="customize"/> <span id="setAmountLabel">set ammount</span></button>
               </div>
             </div>
 
           </div>
           <div id="importPrivateKeyPopup" class="formContent" style="display:none;">
             <div class="formTop">
-              <div class="circleIcon active"><img id="importPrivateKeyIcon" class="coinIcon coinBig" src=""/></div>
+              <div class="circleIcon active"><img id="importPrivateKeyIcon" class="coinIcon coinBig" src="" alt="import"/></div>
             </div>
             <div class="formActions row">
-              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png"/> cancel</button>
-              <button class="f1 submit" onclick="app.importPrivateKey()">import <img src="icons/ico.send.png"/></button>
+              <button class="f1 cancel" onclick="app.closeForm()"><img src="icons/ico.cancel.png" alt="cancel"/> cancel</button>
+              <button class="f1 submit" onclick="app.importPrivateKey()">import <img src="icons/ico.send.png" alt="send"/></button>
             </div>
             <div class="field">
               <input
@@ -488,11 +488,11 @@
             </div>
             <div class="formButtons row">
               <button class="f1" onclick="app.pasteClipboard(app.pasteToField.bind(app, 'importPrivateKeyInput'))">
-                <img src="icons/paste.png"/>
+                <img src="icons/paste.png" alt="paste"/>
                 paste
               </button>
               <button class="f1" onclick="app.scanQrCode(app.pasteToField.bind(app, 'importPrivateKeyInput'))">
-                <img src="icons/scan.png"/>
+                <img src="icons/scan.png" alt="scan"/>
                 scan
               </button>
             </div>
@@ -536,9 +536,8 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="plugins.js"></script>
         <script type="text/javascript" src="config.js"></script>
-        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="app.min.js"></script>
         <script type="text/javascript">
-          //TODO test
           window.app = new coffee.App();
           function handleOpenURL(url) {
             setTimeout(app.openUrl.bind(app, url), 0);
@@ -546,7 +545,6 @@
           window.onerror = app.onJsError.bind(app);
           window.onunhandledrejection = app.onUnhandledRejection.bind(app);
         </script>
-
         <script type="text/javascript" src="vendor/qrcode.js"></script>
         <script type="text/javascript" src="vendor/pulltorefresh.min.js"></script>
     </body>
