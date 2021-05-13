@@ -5,19 +5,21 @@ export class Version {
     static changelog = [
         {
             version: '0.16.0',
-            date: '2021-04-12',
+            date: '2021-05-14',
             changes: [
-                'engine refactor to TypeScript',
-                'improve transaction details display with exact fees',
-                'improve fee handling for BTC, LTC, DOGE',
-                'add proper input widget to exchange view',
-                'improve Uniswap exchange flow',
-                'switch web3 to ethersjs for smaller app size',
-                'confirm window after backing up mnemonic',
+                'rewrite engine to TypeScript for more secure and rapid future updates',
+                'add segwit support for BTC and LTC for lower fees',
+                'add DASH support',
+                'switch web3 to ethersjs for ETH for smaller app size',
+                'improve fee handling and transaction details display to see precise fees',
+                'add proper input widget to exchange view to show values of coins beeing exchanged',
+                'improve Uniswap exchange flow, add separate confirmation for ERC20 allowance',
+                'update Changelly flow and add KYC warning and info',
+                'add refundAddress to Changelly and ChangeNOW APIs',
+                'add confirm window after backing up mnemonic to make sure backup is ok',
                 'fix paste clipboard on PWA',
-                'update changelly flow and KYC warning',
-                'add refundAddress to Changelly and ChangeNOW api',
-                'add assets name db to fix issues with fetching prices from different providers'
+                'added assets name db to fix issues with fetching prices from different providers',
+                'minor bugfixes'
             ]
         },
         {
