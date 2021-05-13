@@ -1,3 +1,9 @@
+'use strict';
+/* jshint esversion: 6 */
+/* global self */
+/* global caches */
+/* global console */
+
 const CACHE_KEY = 'DEVELOP';
 
 const CACHE_URLS = [

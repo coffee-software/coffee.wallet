@@ -1,6 +1,6 @@
 Privacy Policy
 
-Coffee Wallet was build by Franciszek Wawrzak as an Open Source app. 
+Coffee Wallet was build by Coffee Software as an Open Source app. 
 App is provided as is with no warranties.
 
 

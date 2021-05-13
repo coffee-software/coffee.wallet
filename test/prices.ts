@@ -14,18 +14,21 @@ function testProvider(provider: BasePriceProvider) {
             new LogMock(),
             new CacheMock()
         );
-        let handlers = createAllCoinHandlers(engine);
-        await provider.updatePrices(handlers);
+        await provider.updatePrices({
+            'DOGE' : engine.allCoinHandlers['DOGE'],
+            'BTC' : engine.allCoinHandlers['BTC'],
+            'ETH' : engine.allCoinHandlers['ETH']
+        });
         strictEqual(
-            provider.getPrice(handlers['DOGE']) > 0,
+            provider.getPrice(engine.allCoinHandlers['DOGE']) > 0,
             true
         )
         strictEqual(
-            provider.getPrice(handlers['BTC']) > 0,
+            provider.getPrice(engine.allCoinHandlers['BTC']) > 0,
             true
         )
         strictEqual(
-            provider.getPrice(handlers['ETH']) > 0,
+            provider.getPrice(engine.allCoinHandlers['ETH']) > 0,
             true
         )
     });
