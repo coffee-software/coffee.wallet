@@ -62,12 +62,12 @@ export class Wallet implements TransactionSender {
         }
     }
 
-    private getRawCachedBalance(key: string) : Balance {
+    private getRawCachedBalance(key: string, returnNull: boolean = false) : Balance {
         let cached = this.engine.getCache('wallet.' + this.code + '.' + key, null);
         if (cached !== null) {
             return new Balance(this.handler, new BigNum(cached.confirmed), new BigNum(cached.unconfirmed));
         } else {
-            return this.getZeroBalance()
+            return returnNull ? null : this.getZeroBalance()
         }
     }
     private setRawCachedBalance(key: string, balance: Balance) : void {
@@ -129,19 +129,16 @@ export class Wallet implements TransactionSender {
 
     async getBalance() : Promise<Balance> {
         if (isOnlineCoinHanlder(this.handler)) {
-            let cached = this.getCachedBalance();
+            let cached = this.getRawCachedBalance('CachedBalance', true);
             let balance = await this.handler.getOwnBalance(this.keychain);
-            if (!balance.equals(cached)) {
+            if ((cached !== null) && (!balance.equals(cached))) {
                 this.setRawCachedBalance('CachedBalance', balance);
                 let diff = balance.total().sub(cached.total());
                 let nDiff = diff.toFloat(this.handler.decimals);
-                console.log(nDiff)
                 if (nDiff > 0.0) {
                     this.engine.log.success(nDiff.toString() + ' more on your ' + this.handler.ticker + ' wallet', this.handler.code);
                 } else if (nDiff < 0.0) {
                     this.engine.log.info( (-nDiff).toString() + ' less on your ' + this.handler.ticker + ' wallet', this.handler.code);
-                } else {
-                    //this.engine.log.info(diff.toString(), this.code);
                 }
             }
             return balance;
