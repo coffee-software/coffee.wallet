@@ -164,6 +164,7 @@ var __OS_PLUGINS__ = {
   },
   confirmBeforeUpdate: function(registration, currentVersion, newVersion, callback) {
     navigator.splashscreen.hide();
+    document.getElementById('loading').classList.remove('show');
     app.confirmBeforeContinue(
         'Update Available',
         'New version of Coffee Wallet is available.<br/>' +

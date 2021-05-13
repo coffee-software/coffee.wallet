@@ -180,8 +180,6 @@ export class Engine {
                 }
             }
         }
-        console.log(this.keychain)
-        console.log(this.wallets)
     }
 
     getFiatValue(balance : Balance) : number {
