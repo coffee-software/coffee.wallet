@@ -8,53 +8,53 @@
   },
   "installed_plugins": {
     "cordova-clipboard": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-pdf-generator": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-android-fingerprint-auth": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-customurlscheme": {
       "URL_SCHEME": "coffee",
       "ANDROID_SCHEME": " ",
       "ANDROID_HOST": " ",
       "ANDROID_PATHPREFIX": "/",
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-nativestorage": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-touch-id": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-x-socialsharing": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "phonegap-plugin-barcodescanner": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     }
   },
   "dependent_plugins": {
     "es6-promise-plugin": {
-      "PACKAGE_NAME": "io.cadosolutions.coffeewallet.dev"
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
     }
   }
 }
