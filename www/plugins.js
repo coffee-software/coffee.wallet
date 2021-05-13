@@ -2,8 +2,9 @@
 /* global pdf */
 /* global device */
 /* global NativeStorage */
+/* global FingerprintAuth */
 
-const __OS_PLUGINS__ = {
+var __OS_PLUGINS__ = {
 
   getStorage: function() { return NativeStorage; },
   getPlatformName: function(){ return device.platform; },
@@ -114,7 +115,7 @@ const __OS_PLUGINS__ = {
         if (device.platform == 'browser') {
             navigator.clipboard.readText()
                 .then(callback)
-                .catch(err => {
+                .catch(function(err){
                     throw new Error('Failed to read clipboard contents');
                 });
         } else {
@@ -149,7 +150,6 @@ const __OS_PLUGINS__ = {
           e.preventDefault();
           deferredPrompt = e;
           document.getElementById('installPwa').classList.add('show');
-          console.log('beforeinstallprompt');
         });
         document.getElementById('installPwa').addEventListener('click', function () {
           document.getElementById('installPwa').classList.remove('show');
@@ -174,7 +174,6 @@ const __OS_PLUGINS__ = {
             document.getElementById('loading').classList.add('show');
             navigator.serviceWorker.ready.then(function(registration) {
                 registration.update().then(function(){
-                     console.log('sw updated');
                      window.location.reload(true);
                 });
             });
@@ -237,11 +236,9 @@ const __OS_PLUGINS__ = {
         this.browserInitPWA();
         //TODO protocol handler:
         //navigator.registerProtocolHandler('web+coffee', 'http://localhost:8879/TEST?%s', 'Coffee Wallet');
-        console.log('registering SW');
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./sw.js').then(function(registration) {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                console.log('Checking for updates...');
+                //console.log('ServiceWorker registration successful with scope: ', registration.scope);
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange = function() {
                     if (xmlHttp.readyState == 4) {
@@ -260,7 +257,7 @@ const __OS_PLUGINS__ = {
                 xmlHttp.open( "GET", '/version.json', true );
                 xmlHttp.send( null );
             }, function(err) {
-                console.log('ServiceWorker registration failed: ', err);
+                //console.log('ServiceWorker registration failed: ', err);
             });
         } else {
            callback();
@@ -271,4 +268,4 @@ const __OS_PLUGINS__ = {
   }
 };
 
-const OsPlugins = __OS_PLUGINS__
+var OsPlugins = __OS_PLUGINS__;
