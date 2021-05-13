@@ -21,8 +21,9 @@ browserify src/App.js --standalone coffee \
 
 if [ "$1" == "full" ]; then
 	uglifyjs --compress --mangle --output www/app.min.js -- www/app.js
+	rm www/app.js
 else
-	cp www/app.js www/app.min.js
+	mv www/app.js www/app.min.js
 fi
 
 browserify src/Engine.js --standalone coffee \
@@ -38,8 +39,9 @@ browserify src/Engine.js --standalone coffee \
 
 if [ "$1" == "full" ]; then
 	uglifyjs --compress --mangle --output ../coffee.wallet.priv/website/engine.min.js -- ../coffee.wallet.priv/website/engine.js
+	rm ../coffee.wallet.priv/website/engine.js
 else
-	cp ../coffee.wallet.priv/website/engine.js ../coffee.wallet.priv/website/engine.min.js
+	mv ../coffee.wallet.priv/website/engine.js ../coffee.wallet.priv/website/engine.min.js
 fi
 
 
