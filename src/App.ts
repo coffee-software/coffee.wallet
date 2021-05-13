@@ -1438,6 +1438,7 @@ export class App {
     sendFeeInputWidget: SliderInputWidget
     afterSendCallback: () => void
     sendOutgoingTransaction: NewTransaction = null
+    sendOutgoingTransactionKey: string = null
 
     popupSendPayment(wallet: TransactionSender, afterSendCallback: () => void) {
         this.openForm('sendPaymentPopup');
@@ -1445,6 +1446,7 @@ export class App {
         document.getElementById('sendCoinMaxButton').classList.remove('hidden');
         this.sendAmountMax = false;
         this.sendOutgoingTransaction = null;
+        this.sendOutgoingTransactionKey = null;
         (document.getElementById('sendButton') as HTMLInputElement).disabled = true;
         (document.getElementById('sendPaymentIcon') as HTMLImageElement).src = 'coins/' + wallet.handler.icon + '.svg';
         this.toggleAll('normalSend', true);
@@ -1480,13 +1482,6 @@ export class App {
     }
 
     sendCoinUpdateTransaction(){
-        console.log("PREPARING");
-        this.sendOutgoingTransaction = null;
-        document.getElementById('feeAmount').innerHTML = '';
-        document.getElementById('feeTime').innerHTML = '';
-        document.getElementById('balanceAfter').innerHTML = '';
-        (document.getElementById('sendButton') as HTMLInputElement).disabled = true;
-        //
         let fee = this.sendFeeInputWidget.getValue();
         let address = this.sendAddressInputWidget.getValue();
         let amount : BigNum|"MAX"
@@ -1497,23 +1492,34 @@ export class App {
             amount = amount ? amount : new BigNum("0");
         }
         let app = this;
-        this.sendWallet.prepareTransaction(address, amount, fee).then(function (transaction) {
-            console.log("PREPARED");
-            console.log(transaction);
+        let newKey = [address, amount, fee].join('#');
+        if (this.sendOutgoingTransactionKey != newKey)
+        {
+            console.log("PREPARING");
+            document.getElementById('feeAmount').innerHTML = '';
+            document.getElementById('feeTime').innerHTML = '';
+            document.getElementById('balanceAfter').innerHTML = '';
+            (document.getElementById('sendButton') as HTMLInputElement).disabled = true;
+            this.sendOutgoingTransactionKey = newKey;
+            this.sendOutgoingTransaction = null;
+            this.sendWallet.prepareTransaction(address, amount, fee).then(function (transaction) {
+                console.log("PREPARED");
+                console.log(transaction);
 
-            if (app.sendAmountMax) {
-                app.sendAmountInputWidget.setValue(transaction.getAmountDisplay());
-            }
-            let fee = transaction.getFeeTotal()
-            document.getElementById('feeAmount').innerHTML = app.engine.getValueString(fee) + ' = ' + app.engine.getFiatValueString(fee);
-            document.getElementById('feeTime').innerHTML = transaction.getFeeInfo();
+                if (app.sendAmountMax) {
+                    app.sendAmountInputWidget.setValue(transaction.getAmountDisplay());
+                }
+                let fee = transaction.getFeeTotal()
+                document.getElementById('feeAmount').innerHTML = app.engine.getValueString(fee) + ' = ' + app.engine.getFiatValueString(fee);
+                document.getElementById('feeTime').innerHTML = transaction.getFeeInfo();
 
-            let balanceAfter = transaction.getBalanceAfter()
-            document.getElementById('balanceAfter').innerHTML = app.engine.getValueString(balanceAfter) + ' = ' + app.engine.getFiatValueString(balanceAfter);
+                let balanceAfter = transaction.getBalanceAfter()
+                document.getElementById('balanceAfter').innerHTML = app.engine.getValueString(balanceAfter) + ' = ' + app.engine.getFiatValueString(balanceAfter);
 
-            app.sendOutgoingTransaction = transaction;
-            (document.getElementById('sendButton') as HTMLInputElement).disabled = !app.sendOutgoingTransaction.isValid();
-        })
+                app.sendOutgoingTransaction = transaction;
+                (document.getElementById('sendButton') as HTMLInputElement).disabled = !app.sendOutgoingTransaction.isValid();
+            })
+        }
     }
 
     sendTransactionProceed(transaction: NewTransaction, onSuccess: () => void) {
