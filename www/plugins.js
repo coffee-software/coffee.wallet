@@ -245,8 +245,8 @@ var __OS_PLUGINS__ = {
                     if (xmlHttp.readyState == 4) {
                         if (xmlHttp.status == 200) {
                             var newVersionData = JSON.parse(xmlHttp.responseText);
-                            if (newVersionData.version != window.version) {
-                                that.confirmBeforeUpdate(registration, window.version, newVersionData.version, callback);
+                            if (newVersionData.version != coffee.App.getVersion()) {
+                                that.confirmBeforeUpdate(registration, coffee.App.getVersion(), newVersionData.version, callback);
                             } else {
                                 callback();
                             }

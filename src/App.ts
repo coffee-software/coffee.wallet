@@ -44,6 +44,10 @@ export class App {
         }
     }
 
+    static getVersion() : string {
+        return Version.version;
+    }
+
     constructor() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     }
