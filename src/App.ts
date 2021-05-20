@@ -839,7 +839,7 @@ export class App {
     onDataLoadedCallback : () => void = null
 
     onDataLoaded(callback: () => void = null) {
-        if (typeof callback == 'undefined') {
+        if (callback === null) {
             this.dataLoaded = true;
             if (this.onDataLoadedCallback) {
                 this.onDataLoadedCallback();
