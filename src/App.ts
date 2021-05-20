@@ -102,18 +102,28 @@ export class App {
             }
         });
         this.logger.log("info", null, "application started");
+    }
 
-        (window as any).admob.setOptions({
-            publisherId:           Config.admob.publisherId ,
-            interstitialAdId:      Config.admob.interstitialAdId ,
-            autoShowBanner:        true,
-            autoShowRInterstitial: false,
-            autoShowRewarded:      false,
-        });
+    isPremium() : boolean {
+        if ('CFT' in this.walletsWidgets) {
+            return !this.walletsWidgets['CFT'].wallet.getCachedBalance().total().isZero()
+        }
+        return false;
+    }
 
-        // Start showing banners (atomatic when autoShowBanner is set to true)
-        (window as any).admob.createBannerView();
+    initAdmob() : void {
+        if (!this.isPremium()) {
+            (window as any).admob.setOptions({
+                publisherId: Config.admob.publisherId,
+                interstitialAdId: Config.admob.interstitialAdId,
+                autoShowBanner: true,
+                autoShowRInterstitial: false,
+                autoShowRewarded: false,
+            });
 
+            // Start showing banners (atomatic when autoShowBanner is set to true)
+            (window as any).admob.createBannerView();
+        }
     }
 
     setExchangeableCoins() {
@@ -141,6 +151,7 @@ export class App {
                     for (var key in app.engine.wallets) {
                         app.walletsWidgets[key] = app.addWalletWidget(app.engine.wallets[key]);
                     }
+                    app.initAdmob();
                     app.updateAllValues();
                     app.onDataLoaded();
                 });
