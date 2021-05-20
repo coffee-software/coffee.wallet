@@ -1,0 +1,70 @@
+{
+  "_from": "cordova-connectivity-monitor",
+  "_id": "cordova-connectivity-monitor@1.2.2",
+  "_inBundle": false,
+  "_integrity": "sha1-roY+lgZgSylIK1Fv2E8maHohBT0=",
+  "_location": "/cordova-connectivity-monitor",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-connectivity-monitor",
+    "name": "cordova-connectivity-monitor",
+    "escapedName": "cordova-connectivity-monitor",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-connectivity-monitor/-/cordova-connectivity-monitor-1.2.2.tgz",
+  "_shasum": "ae863e9606604b29482b516fd84f26687a21053d",
+  "_spec": "cordova-connectivity-monitor",
+  "_where": "/home/fsw/workspace/coffee.wallet",
+  "author": {
+    "name": "AppFeel"
+  },
+  "bugs": {
+    "url": "https://github.com/appfeel/connectivity-monitor-cordova/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-connectivity-monitor",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Connectivity status monitoring. Detects if there is WIFI/3G/EDGE/CDMA available.",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=2.9"
+    }
+  ],
+  "homepage": "https://github.com/appfeel/connectivity-monitor-cordova#readme",
+  "keywords": [
+    "connectivity",
+    "network state",
+    "net state",
+    "net",
+    "monitoring",
+    "monitor",
+    "net status",
+    "reachability",
+    "appfeel",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-connectivity-monitor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appfeel/connectivity-monitor-cordova.git"
+  },
+  "version": "1.2.2"
+}

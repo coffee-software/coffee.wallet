@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-connectivity-monitor" version="1.2.2">
+
+  <name>Connectivity Monitoring</name>
+  <description>Connectivity status monitoring. Detects if there is WIFI/3G/EDGE/CDMA available.</description>
+  <author email="info@appfeel.com" href="http://appfeel.com">AppFeel</author>
+  <license>MIT</license>
+  <keywords>connectivity,network state,net state,net,monitoring,monitor,net status,reachability,appfeel</keywords>
+  <repo>https://github.com/appfeel/connectivity-monitor.git</repo>
+  <issue>https://github.com/appfeel/connectivity-monitor/issues</issue>
+
+  <hook type="after_prepare" src="hooks/after_prepare/999-admobPluginNotice.js" />
+  
+  <engines>
+    <engine name="cordova" version=">=2.9" />
+  </engines>
+
+  <js-module src="www/connectivity.js" name="connectivity">
+    <clobbers target="window.connectivity" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="connectivity">
+        <param name="android-package" value="com.appfeel.cordova.connectivity.Connectivity" />
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.INTERNET" />
+    </config-file>
+
+    <source-file src="src/android/CPConnectivity.java" target-dir="src/com/appfeel/cordova/connectivity" />
+    <source-file src="src/android/Connectivity.java" target-dir="src/com/appfeel/cordova/connectivity" />
+  </platform>
+
+  <!-- ios -->
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="connectivity">
+        <param name="ios-package" value="CDVAppFeelReachability" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/CDVAppFeelReachability.h" />
+    <source-file src="src/ios/CDVAppFeelReachability.m" />
+    <header-file src="src/ios/AppFeelReachability.h" />
+    <source-file src="src/ios/AppFeelReachability.m" />
+
+    <framework src="SystemConfiguration.framework" />
+  </platform>
+</plugin>

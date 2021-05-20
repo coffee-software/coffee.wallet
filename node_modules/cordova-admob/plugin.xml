@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-admob" version="5.1.0">
+  <description>Google AdMob Ads plugin for Cordova, Phonegap, Ionic/Angular, Ionic Native and Intel XDK. Monetize your app with one javascript line. Android Google Play Services SDK, iOS SDK v7.13.1. With support for tappx and auto-detect internet connection.</description>
+  <name>AdMob Google Ads + Tappx</name>
+  <author email="info@appfeel.com" href="https://github.com/appfeel/admob-google-cordova">AppFeel</author>
+  <license>MIT</license>
+  <keywords>ad,ads,admob,google,advertising,advertisment,publicity,earn,win,play,services,iad,flurry,monetization,money,appfeel,tappx</keywords>
+  <repo>https://github.com/appfeel/admob-google-cordova.git</repo>
+  <issue>https://github.com/appfeel/admob-google-cordova/issues</issue>
+
+  <engines>
+    <engine name="cordova" version=">=4.0.0" />
+  </engines>
+
+  <dependency id="cordova-connectivity-monitor" />
+  <dependency id="cordova-play-services-version-adapter" />
+
+  <js-module src="www/admob.js" name="AdMobAds">
+    <clobbers target="window.admob" />
+    <clobbers target="window.tappx" />
+  </js-module>
+
+  <hook type="after_plugin_add" src="scripts/100-prepare-admob-angular.js" />
+  <asset src="www/angular-admob.js" target="lib/angular-admob/angular-admob.js" />
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="AdMobAds">
+        <param name="android-package" value="com.appfeel.cordova.admob.AdMobAds" />
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    </config-file>
+    <!--config-file target="res/values/strings.xml" parent="/*">
+      <string name="banid">ca-app-pub-8440343014846849/3119840614</string>
+      <string name="intid">ca-app-pub-8440343014846849/4596573817</string>
+    </config-file-->
+	  <framework src="com.google.android.gms:play-services-ads:15.0.0" />
+
+    <source-file src="src/android/AdMobAds.java" target-dir="src/com/appfeel/cordova/admob" />
+    <source-file src="src/android/AdMobAdsAdListener.java" target-dir="src/com/appfeel/cordova/admob" />
+    <source-file src="src/android/AdMobAdsRewardedAdListener.java" target-dir="src/com/appfeel/cordova/admob" />
+    <source-file src="src/android/res/xml/admob.xml" target-dir="res/xml" />
+  </platform>
+
+  <!-- ios -->
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="AdMobAds">
+        <param name="ios-package" value="CDVAdMobAds" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/CDVAdMobAds.h" />
+    <source-file src="src/ios/CDVAdMobAds.m" />
+    <header-file src="src/ios/CDVAdMobAdsAdListener.h" />
+    <source-file src="src/ios/CDVAdMobAdsAdListener.m" />
+    <header-file src="src/ios/CDVAdMobAdsRewardedAdListener.h" />
+    <source-file src="src/ios/CDVAdMobAdsRewardedAdListener.m" />
+
+    <!-- Google AdMob framework -->
+    <dependency id="cordova-libgoogleadmobads" url="https://github.com/appfeel/google-iosadmobads" commit="master"/>
+    
+    <!--config-file target="*-Info.plist" parent="CFBundleURLTypes">
+      <array>
+        <dict>
+          <key>bid</key>
+          <string>ca-app-pub-8440343014846849/2335511010</string>
+        </dict>
+        <dict>
+          <key>iid</key>
+          <string>ca-app-pub-8440343014846849/3812244218</string>
+        </dict>
+      </array>
+    </config-file-->
+  </platform>
+</plugin>

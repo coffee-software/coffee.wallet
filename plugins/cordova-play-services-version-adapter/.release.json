@@ -1,0 +1,14 @@
+{
+    "dry-run": false,
+    "buildCommand": "node dev-scripts/before-release.js",
+    "afterReleaseCommand": "echo Successfully released ${version} to ${dist.repo}.",
+    "non-interactive": true,
+    "npm": {
+        "publish": true
+    },
+    "verbose": true,
+    "src": {
+        "pushRepo": "github"
+    },
+    "dist": false
+}

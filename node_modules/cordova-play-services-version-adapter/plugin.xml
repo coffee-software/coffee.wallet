@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-play-services-version-adapter" version="1.0.2">
+  <description></description>
+  <name>Cordova/Ionic Google Play Services Versions Incompatibility Adapter</name>
+  <author email="info@appfeel.com" href="https://github.com/appfeel/cordova-play-services-version-adapter">AppFeel</author>
+  <license>MIT</license>
+  <keywords>exception, incompatibility, build, GoogleServicesPlugin, com.google.gms.googleservices.GoogleServicesPlugin, firebase, maps, admob, push, notification, analytics, play-services, appfeel, ecosystem:cordova, cordova-android, cordova-ios, ionic, cordova</keywords>
+  <repo>https://github.com/appfeel/cordova-play-services-version-adapter.git</repo>
+  <issue>https://github.com/appfeel/cordova-play-services-version-adapter/issues</issue>
+
+  <engines>
+    <engine name="cordova" version=">=7.0.0" />
+  </engines>
+
+  <hook type="before_prepare" src="scripts/adapt-play-services-versions.js" />
+  <hook type="after_prepare" src="scripts/show-adapt-play-services-result.js" />
+
+</plugin>

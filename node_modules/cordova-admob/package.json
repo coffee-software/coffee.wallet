@@ -1,0 +1,76 @@
+{
+  "_from": "cordova-admob",
+  "_id": "cordova-admob@5.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-gKh96VvSat9+jt347lC7nU5zpySbVNRiMb0+o0ns4V7Z9y7aecLSb4Flf3pPWK0Wj6hvx8nqbfIAv+KYC6MgVg==",
+  "_location": "/cordova-admob",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-admob",
+    "name": "cordova-admob",
+    "escapedName": "cordova-admob",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-admob/-/cordova-admob-5.1.0.tgz",
+  "_shasum": "c6855b4cccfc8c9e3a5a044a55ddd29e6e7a5ffd",
+  "_spec": "cordova-admob",
+  "_where": "/home/fsw/workspace/coffee.wallet",
+  "author": {
+    "name": "AppFeel"
+  },
+  "bugs": {
+    "url": "https://github.com/appfeel/admob-google-cordova/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-admob",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Google AdMob Ads plugin for Cordova, Phonegap, Ionic/Angular, Ionic Native and Intel XDK. Monetize your app with one javascript line. Android Google Play Services SDK, iOS SDK v7.13.1. With support for tappx and auto-detect internet connection.",
+  "engines": {
+    "name": "cordova",
+    "version": ">=4.0.0"
+  },
+  "homepage": "https://github.com/appfeel/admob-google-cordova#readme",
+  "keywords": [
+    "ad",
+    "ads",
+    "admob",
+    "google",
+    "advertising",
+    "advertisment",
+    "publicity",
+    "earn",
+    "win",
+    "play",
+    "services",
+    "iad",
+    "flurry",
+    "monetization",
+    "money",
+    "appfeel",
+    "tappx",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-admob",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appfeel/admob-google-cordova.git"
+  },
+  "version": "5.1.0"
+}
