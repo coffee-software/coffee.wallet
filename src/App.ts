@@ -24,6 +24,7 @@ import {PaymentURI} from "./Tools/PaymentURI";
 import {SendAsMessageTransaction} from "./Tools/SendAsMessageTransaction";
 import {ReceiveMessageTransaction} from "./Tools/ReceiveMessageTransaction";
 import {BaseBitcoinjsHanlder} from "./Handlers/BaseBitcoinjsHanlder";
+import {Config} from "./Config";
 
 export class App {
 
@@ -101,6 +102,18 @@ export class App {
             }
         });
         this.logger.log("info", null, "application started");
+
+        (window as any).admob.setOptions({
+            publisherId:           Config.admob.publisherId ,
+            interstitialAdId:      Config.admob.interstitialAdId ,
+            autoShowBanner:        true,
+            autoShowRInterstitial: false,
+            autoShowRewarded:      false,
+        });
+
+        // Start showing banners (atomatic when autoShowBanner is set to true)
+        (window as any).admob.createBannerView();
+
     }
 
     setExchangeableCoins() {
@@ -247,7 +260,6 @@ export class App {
             if (isOnlineCoinHanlder(handler)) {
                 let link = handler.explorerLinkTx.bind(handler);
                 msg = msg.replace(/\<u\>\w+\<\/u\>/, function (match: any) {
-                    console.log(handler, match);
                     var tx = match.substring(3, match.length - 4);
                     var txShort = tx.substring(0, 6) + '..' + tx.substring(tx.length - 4, tx.length);
                     return allowLinks ? ('<a href="#" onclick="OsPlugins.openInSystemBrowser(\'' + link(tx) + '\');">' + txShort + '</a>') : ('<u>' + txShort + '</u>');
@@ -794,7 +806,6 @@ export class App {
 
         let item = null;
         if (this.portfolioEditAddressInput) {
-            console.log(this.portfolioEditAddressInput);
             if (!this.portfolioEditAddressInput.validate()) {
                 return false;
             }
@@ -1165,12 +1176,10 @@ export class App {
     }
 
     updateExchangeAmount(value: number) {
-        console.log("UPDATE");
         let providerKey = this.exchangeProviderSelect.getValue()
         let provider = this.engine.allExchangeProviders[providerKey];
         let sellCoin = this.exchangeSellCoinSelect.getValue()
         let buyCoin = this.exchangeBuyCoinSelect.getValue()
-        console.log(value);
 
         provider.estimateExchangeAmount(sellCoin, buyCoin, value).then(
             function(ret: number){

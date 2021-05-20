@@ -7,6 +7,10 @@ type ConfigData = {
     now: {
         apiKey: string
     },
+    admob: {
+        publisherId: string,
+        interstitialAdId: string
+    },
     infuraKey: string,
     airdrop: {
         coin: string
