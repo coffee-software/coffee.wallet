@@ -180,11 +180,15 @@ abstract class UniswapProvider extends BaseExchangeProvider {
         var router = this.getRouter();
         var fromHandler = this.getHandler(from);
         var toHandler = this.getHandler(to);
-        let result = await router.getAmountsOut(
-            '0x' + BigNum.fromFloat(amount, fromHandler.decimals).toString(16),
-            this.getTradePath(from, to)
-        );
-        return (new BigNum(result[result.length -1].toString())).toFloat(toHandler.decimals)
+        try {
+            let result = await router.getAmountsOut(
+                '0x' + BigNum.fromFloat(amount, fromHandler.decimals).toString(16),
+                this.getTradePath(from, to)
+            );
+            return (new BigNum(result[result.length - 1].toString())).toFloat(toHandler.decimals)
+        } catch (e) {
+            return 0;
+        }
     }
 
     getMinAmount(from: string, to: string): Promise<number> {
