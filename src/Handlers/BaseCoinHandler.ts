@@ -105,6 +105,7 @@ export class NewTransactionWrapper implements NewTransaction {
 }
 
 export class Balance {
+  isBalance: boolean = true;
   handler: BaseCoinHandler
   amount: BigNum
   unconfirmed: BigNum
@@ -122,6 +123,10 @@ export class Balance {
   equals(other: Balance) : boolean {
     return other.total().toString() === this.total().toString();
   }
+}
+
+export function isBalance(toBeDetermined: any): toBeDetermined is Balance {
+  return (typeof toBeDetermined === 'object' && toBeDetermined !== null) && ('isBalance' in (toBeDetermined as Balance));
 }
 
 export interface OnlineCoinHandler extends BaseCoinHandler {

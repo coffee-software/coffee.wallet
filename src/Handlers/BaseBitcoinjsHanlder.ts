@@ -477,6 +477,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         if (amount !== "MAX") {
             amountOut = parseInt(amount.toString());
             let change = totalIn - fee - amountOut;
+            if (change < 0) throw new Error('Insufficient balance');
             console.log(totalIn, fee, amountOut, change);
             tmpTx.addOutput({
                 address: changeAddress,
@@ -489,6 +490,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             //will have only one output
             fee = this.calculateFeeForInputs(tmpTx, ecpair, [tmpReceiver], feeRate);
             amountOut = totalIn - fee;
+            if (amountOut < 0) throw new Error('Insufficient balance');
         }
 
         tmpTx.addOutput({

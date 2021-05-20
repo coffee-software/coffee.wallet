@@ -10,7 +10,7 @@ export class Https {
         return ret.join('&');
     }
 
-    static makeJsonRequest(host: string, path: string, body?: object|string, extraHeaders: { [code: string] : string } = null): Promise<any> {
+    static makeJsonRequest(host: string, path: string, body?: object|string, extraHeaders: { [code: string] : string } = null, ignoreHttpStatus = false): Promise<any> {
         return new Promise(function (resolve, reject) {
             //console.log(new Date().getTime() + ": REQUEST " + 'https://' + host + path);
             const data = (typeof body == "string") ? body : JSON.stringify(body);
@@ -26,17 +26,17 @@ export class Https {
             }
             let req = https.request(options);
             req.on('response', response => {
-                if (response.statusCode >= 200 && response.statusCode < 300) {
-                    var str = ''
-                    response.on('data', function (chunk) {
-                        str += chunk;
-                    });
-                    response.on('end', function () {
+                var str = ''
+                response.on('data', function (chunk) {
+                    str += chunk;
+                });
+                response.on('end', function () {
+                    if (ignoreHttpStatus || (response.statusCode >= 200 && response.statusCode < 300)) {
                         resolve(JSON.parse(str));
-                    });
-                } else {
-                    reject(new Error('http error ' + response.statusCode));
-                }
+                    } else {
+                        reject(new Error('http error ' + response.statusCode));
+                    }
+                });
             });
 
             req.on('error', error => {

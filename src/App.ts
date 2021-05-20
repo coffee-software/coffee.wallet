@@ -10,7 +10,7 @@ import {ListItemWidget} from "./Widgets/ListItemWidget";
 import {CoinAddressIcon} from "./Widgets/CoinAddressIcon";
 import {PortfolioAddress, PortfolioBalance, PortfolioItem} from "./PortfolioItem";
 import {AddressInputWidget} from "./Widgets/AddressInputWidget";
-import {Balance, BaseCoinHandler, NewTransaction, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
+import {Balance, BaseCoinHandler, isBalance, NewTransaction, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
 import {Version} from "./Tools/Changelog";
 import {CoinButtonWidget} from "./Widgets/CoinButtonWidget";
 import {SelectWidget} from "./Widgets/SelectWidget";
@@ -260,6 +260,9 @@ export class App {
     private alertMessage(html: string, coinCode: string, type: string, debug: any = null) {
         this.logger.log(type, coinCode, html, debug);
         var alertTxt = this.preParseCoinMsg(html, coinCode);
+        if (typeof(alertTxt) != 'string') {
+            alertTxt = JSON.stringify(alertTxt);
+        }
         this.alertMessagePopup(
             type,
             alertTxt.length > 200 ? alertTxt.substr(0,198) + '...' : alertTxt,
@@ -296,17 +299,21 @@ export class App {
     }
 
     public onJsError(msg : any, url : any, line : any, col : any, error : any) {
+        console.error(msg);
         var log = msg;
         log += !url ? '' : '\nurl: ' + url;
         log += !line ? '' : '\nline: ' + line;
         log += !col ? '' : '\ncolumn: ' + col;
         log += !error ? '' : '\nerror: ' + error;
         this.alertError(log);
-        console.error(msg);
     }
     public onUnhandledRejection(event : PromiseRejectionEvent) {
-        this.alertError(event.reason, null, event);
         console.error(event);
+        let message = event.reason ? event.reason : event;
+        if (typeof message == 'object' && message != null && 'toString' in message) {
+            message = message.toString()
+        }
+        this.alertError(message, null, event);
     }
 
     addWalletWidget(data: Wallet) : WalletWidget {
@@ -1573,11 +1580,14 @@ export class App {
         let tableContent = '';
         for (var label in summary) {
             let str : string
-            if (typeof summary[label] != 'string') {
-                str = this.engine.getValueString(summary[label] as Balance) + ' = ' +
-                    this.engine.getFiatValueString(summary[label] as Balance);
+            let val = summary[label];
+            if (isBalance(val)) {
+                str = this.engine.getValueString(val) + ' = ' +
+                    this.engine.getFiatValueString(val);
+            } else if (typeof val != 'string') {
+                str = JSON.stringify(val);
             } else {
-                str = summary[label] as string
+                str = val as string
             }
             tableContent += '<tr><th colspan="2">' + label + ':</th></tr><tr><td colspan="2">' + str + '</td></tr>';
         }
