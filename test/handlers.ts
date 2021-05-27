@@ -37,6 +37,12 @@ describe('Handlers Tests', function() {
                 notStrictEqual(handler.description.length, 0)
             }
         });
+        it('codes match', function () {
+            let allCoinHandlers = engine.allCoinHandlers;
+            for (let key in allCoinHandlers) {
+                strictEqual(key, allCoinHandlers[key].code)
+            }
+        });
         it('has not empty online values', function () {
             let keychain1 = new Keychain(mnemonic1)
             let keychain2 = new Keychain(mnemonic2)

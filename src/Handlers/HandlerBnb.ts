@@ -1,35 +1,49 @@
 import {BaseERC20Handler, BaseEthersHanlder} from "./BaseEthersHanlder";
-import {CacheWrapper, Engine, LogInterface, Strings} from "../Engine";
+import {BaseProvider} from "@ethersproject/providers/src.ts/base-provider";
+import {ethers} from "ethers";
+import {Keychain} from "../Keychain";
+import * as bip32 from "bip32";
 
-export class HandlerEth extends BaseEthersHanlder {
+export class HandlerBnb extends BaseEthersHanlder {
+
+    networkName = ''
+    getProvider(): BaseProvider {
+        return new ethers.providers.JsonRpcProvider('https://bsc-dataseed1.defibit.io/', {
+            name: 'Smart Chain',
+            chainId: 56,
+        });
+    }
 
     testCoin = false
-    ticker = "ETH"
-    code = "ETH"
-    name = "Ethereum"
-    icon = "eth"
-    description = "via Wikipedia: Ethereum is an open-source, public, blockchain-based distributed computing platform and operating system featuring smart contract (scripting) functionality. " +
-        "Along with Bitcoin, Ethereum is considered to be one of the pioneer platforms in distributed ledger and blockchain technology.";
-    links = {
-        "ethereum.org" : "https://ethereum.org/",
-        "Wikpedia" : "https://en.wikipedia.org/wiki/Ethereum"
-    };
-    coinGeckoId = 'ethereum';
-    coinMarketCapId = 'ethereum';
-    coinPaprikaId = 'eth-ethereum';
+    ticker = "BNB"
+    code = "BNB.2"
+    name = "Binance Coin"
+    icon = "bnb.bep20"
+    description = "Launched in July 2017, Binance is one of the biggest cryptocurrency exchanges globally. " +
+        "By aiming to bring cryptocurrency exchanges to the forefront of financial activity globally. " +
+        "The idea behind Binance’s name is to show this new paradigm in global finance — Binary Finance, or Binance.";
 
-    networkName = 'homestead'
+    links = {
+        "binance.com" : "https://binance.com/"
+    };
+    coinGeckoId = 'binance-coin';
+    coinMarketCapId = 'binance-coin';
+    coinPaprikaId = 'bnb-binance-coin';
 
     explorerLinkAddr(address: string): string {
-        return 'https://etherscan.io/address/' + address;
+        return 'https://bscscan.com/address/' + address;
     }
     explorerLinkTx(txid: string): string {
-        return 'https://etherscan.io/tx/' + txid;
+        return 'https://bscscan.com/tx/' + txid;
     }
 
+    getPrivateKey(keychain: Keychain): bip32.BIP32Interface {
+        return keychain.derivePath("m/44'/60'/1'/0/0");
+    }
 }
 
-export class ERC20Handler extends BaseERC20Handler {
+/*
+export class BEP20Handler extends BaseERC20Handler {
 
     ticker: string
     code: string
@@ -49,7 +63,6 @@ export class ERC20Handler extends BaseERC20Handler {
 
     constructor(
         engine: Engine,
-        code: string,
         ticker: string,
         name: string,
         icon: string,
@@ -62,8 +75,8 @@ export class ERC20Handler extends BaseERC20Handler {
         coinMarketCapId: string = ""
     ) {
         super(engine)
-        this.code = code;
         this.ticker = ticker;
+        this.code = ticker;
         this.name = name;
         this.icon = icon;
         this.description = this.name + " is an ERC20 token. " + description
@@ -79,4 +92,4 @@ export class ERC20Handler extends BaseERC20Handler {
         this.links["etherscan.io"] = "https://etherscan.io/token/" + this.ethContractAddr
     }
 
-}
+}*/
