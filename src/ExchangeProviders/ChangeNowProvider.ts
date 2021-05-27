@@ -26,7 +26,10 @@ class ChangeNowTransactionWrapper extends NewTransactionWrapper {
         ret['changenow id'] = this.changeNowTx.id
         ret['estimated return'] = this.changeNowEstimateResponse.estimatedAmount.toString()
         ret['estimated speed'] = this.changeNowEstimateResponse.transactionSpeedForecast
-        ret['warning'] = this.changeNowEstimateResponse.warningMessage
+
+        if (this.changeNowEstimateResponse.warningMessage) {
+            ret['warning'] = this.changeNowEstimateResponse.warningMessage
+        }
 
         return ret;
     }
@@ -58,7 +61,9 @@ export class ChangeNowProvider extends BaseExchangeProvider {
         let ret = await Https.makeJsonRequest(
             'changenow.io',
             '/api/v1/' + method + (params ? '?' + Https.encodeQueryData(params) : ''),
-            body
+            body,
+            null,
+            true
         );
         if (("error" in ret)) {
             throw new Error('API error:' + ret.message);
@@ -99,8 +104,12 @@ export class ChangeNowProvider extends BaseExchangeProvider {
     }
 
     async estimateExchangeAmount(from: string, to: string, amount: number): Promise<number> {
-        let response = await this.getEstimate(from, to, amount)
-        return response.estimatedAmount;
+        try {
+            let response = await this.getEstimate(from, to, amount)
+            return response.estimatedAmount;
+        } catch (e) {
+            return 0;
+        }
     }
 
     async getCurrencies(): Promise<string[]> {

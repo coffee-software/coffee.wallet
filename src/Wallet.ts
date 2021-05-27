@@ -131,8 +131,8 @@ export class Wallet implements TransactionSender {
         if (isOnlineCoinHanlder(this.handler)) {
             let cached = this.getRawCachedBalance('CachedBalance', true);
             let balance = await this.handler.getOwnBalance(this.keychain);
+            this.setRawCachedBalance('CachedBalance', balance);
             if ((cached !== null) && (!balance.equals(cached))) {
-                this.setRawCachedBalance('CachedBalance', balance);
                 let diff = balance.total().sub(cached.total());
                 let nDiff = diff.toFloat(this.handler.decimals);
                 if (nDiff > 0.0) {

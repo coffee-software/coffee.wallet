@@ -64,7 +64,7 @@ export class ChangellyProvider extends BaseExchangeProvider {
         }
         let response = await Https.makeJsonRequest('api.changelly.com', '', post, extraHeaders)
         if ('error' in response) {
-            throw "error " + response.error.code + ": " +response.error.message;
+            throw new Error("error " + response.error.code + ": " +response.error.message);
         }
         return response.result;
     }
@@ -94,14 +94,19 @@ export class ChangellyProvider extends BaseExchangeProvider {
     }
 
     async estimateExchangeAmount(from: string, to: string, amount: number) : Promise<number> {
-        return parseFloat(await this.callApi(
-            "getExchangeAmount",
-            {
-                "from": from.toLowerCase(),
-                "to": to.toLowerCase(),
-                "amount": amount
-            }
-        ));
+        try {
+            let response = await this.callApi(
+                "getExchangeAmount",
+                {
+                    "from": from.toLowerCase(),
+                    "to": to.toLowerCase(),
+                    "amount": amount
+                }
+            )
+            return parseFloat(response);
+        } catch (e) {
+            return 0;
+        }
     }
 
     async createTransaction(from: string, to: string, amount: number, returnTo: string) : Promise<NewTransaction> {
