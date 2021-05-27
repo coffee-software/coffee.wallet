@@ -1822,7 +1822,7 @@ export class App {
             app.createNewWallet.bind(app)
         );
         document.getElementById('lockMessage').appendChild(input);
-        if (typeof invalidMnemonic != "undefined") {
+        if (invalidMnemonic !== null) {
             input.value = invalidMnemonic;
             var div = document.createElement("div");
             div.className = "red";
