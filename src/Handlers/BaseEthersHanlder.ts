@@ -32,7 +32,7 @@ export class EthTransaction implements NewTransaction {
     }
 
     isValid(): boolean {
-        return this.displayReceiver != EthTransaction.fakeReceiver;
+        return (this.data.gasLimit > 0) && (this.displayReceiver != EthTransaction.fakeReceiver);
     }
 
     getAmountDisplay() : number {
@@ -297,10 +297,13 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
             let getter = async function (provider: BaseProvider, tx: TransactionRequest) : Promise<number> {
                 return (await provider.estimateGas(tx)).toNumber()
             }
-            tx.gasLimit = await this.engine.cache.getCached(estimateGasCacheKey, 60, getter.bind(this, provider, tx))
-            //tx.gasLimit = await this.getProvider().estimateGas(tx);
-            //tolerate 5% slip
-            tx.gasLimit = Math.ceil((tx.gasLimit as number) * 1.05);
+            try {
+                tx.gasLimit = await this.engine.cache.getCached(estimateGasCacheKey, 60, getter.bind(this, provider, tx))
+                //tolerate 5% slip
+                tx.gasLimit = Math.ceil((tx.gasLimit as number) * 1.05);
+            } catch (e) {
+                tx.gasLimit = 0;
+            }
         }
         let signed = await wallet.signTransaction(tx);
         let total = (await this.getCachedBalance(wallet.address)).total()
