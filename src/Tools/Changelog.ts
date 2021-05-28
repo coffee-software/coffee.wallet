@@ -11,6 +11,7 @@ export class Version {
                 'added admob ads',
                 'removed unused icons (smaller app size)',
                 'fixed warnings spam when sending ERC20 tokens',
+                'added legacy address to coin info popup for SegWit coins',
                 'minor bugfixes'
             ]
         },
