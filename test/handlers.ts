@@ -8,6 +8,8 @@ import {HandlerDoge} from "../src/Handlers/HandlerDoge";
 import {HandlerLtc} from "../src/Handlers/HandlerLtc";
 import {CacheMock, CacheWrapperMock, LogMock, StorageMock} from "./_mocks";
 import {Engine} from "../src/Engine";
+import * as fs from 'fs';
+
 
 describe('Handlers Tests', function() {
     describe('All Coin Handlers', function () {
@@ -36,6 +38,22 @@ describe('Handlers Tests', function() {
                 notStrictEqual(handler.links.length, 0)
                 notStrictEqual(handler.description.length, 0)
             }
+        });
+        it('icon exists', function () {
+            let icons : string[] = [];
+            fs.readdirSync('www/coins/').forEach(file => {
+                icons.push(file);
+            });
+            fs.readdirSync('dev/custom_coins/').forEach(file => {
+                icons.splice(icons.indexOf(file), 1);
+            });
+            let allCoinHandlers = engine.allCoinHandlers;
+            for (let key in allCoinHandlers) {
+                let icon = allCoinHandlers[key].icon
+                strictEqual(fs.existsSync('www/coins/' + icon + '.svg'), true);
+                icons.splice(icons.indexOf(icon + '.svg'), 1);
+            }
+            strictEqual(icons.length, 0);
         });
         it('codes match', function () {
             let allCoinHandlers = engine.allCoinHandlers;
