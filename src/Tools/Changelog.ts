@@ -4,6 +4,17 @@ export class Version {
     static version: string = "0.16.8";
     static changelog = [
         {
+            version: '0.17.0',
+            date: '2021-05-28',
+            changes: [
+                'added Binance Smart Chain BNB and BEP20 tokens support',
+                'added admob ads',
+                'removed unused icons (smaller app size)',
+                'fixed warnings spam when sending ERC20 tokens',
+                'minor bugfixes'
+            ]
+        },
+        {
             version: '0.16.0',
             date: '2021-05-14',
             changes: [
