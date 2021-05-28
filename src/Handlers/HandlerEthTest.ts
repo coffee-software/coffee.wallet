@@ -1,5 +1,7 @@
 import {BaseERC20Handler, BaseEthersHanlder} from "./BaseEthersHanlder";
 import {CacheWrapper, Engine, LogInterface} from "../Engine";
+import {BaseCoinHandler} from "./BaseCoinHandler";
+import {ERC20Handler} from "./HandlerEth";
 
 export class HandlerEthTest extends BaseEthersHanlder {
 
@@ -29,6 +31,7 @@ export class HandlerEthTest extends BaseEthersHanlder {
 
 export class ERC20TestHandler extends BaseERC20Handler {
 
+    isERC20TestHandler: boolean = true
     ticker: string
     code: string
     name: string
@@ -69,4 +72,9 @@ export class ERC20TestHandler extends BaseERC20Handler {
         }
     }
 
+}
+
+
+export function isERC20TestHandler(toBeDetermined: BaseCoinHandler): toBeDetermined is ERC20TestHandler {
+    return (('isERC20TestHandler' in toBeDetermined) && (toBeDetermined as ERC20TestHandler).isERC20TestHandler);
 }

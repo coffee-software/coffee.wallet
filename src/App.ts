@@ -81,11 +81,11 @@ export class App {
         this.logger = new Logger(OsPlugins.getStorage());
         let app = this;
         this.engine.init().then(function() {
-            app.updatePricesFromProvider();
             OsPlugins.checkForUpdates(function(){
                 app.onEngineLoaded();
             });
-            app.setExchangeableCoins();
+            app.updatePricesFromProvider();
+            app.onWalletsListChange();
         });
 
         (window as any).PullToRefresh.init({
@@ -102,6 +102,10 @@ export class App {
             }
         });
         this.logger.log("info", null, "application started");
+    }
+
+    onWalletsListChange() : void {
+        this.setExchangeableCoins();
     }
 
     isPremium() : boolean {
@@ -591,6 +595,7 @@ export class App {
                 this.walletsWidgets[key].element.outerHTML = ''
                 delete this.walletsWidgets[key];
                 this.engine.saveData();
+                this.onWalletsListChange();
                 break;
             }
         }
@@ -1059,6 +1064,7 @@ export class App {
             callback();
         } else if (code in this.engine.allCoinHandlers) {
             this.engine.addWallet(code, []);
+            this.onWalletsListChange();
             this.engine.saveData().then(function(){
                 let widget = app.addWalletWidget(app.engine.wallets[code]);
                 app.walletsWidgets[code] = widget;

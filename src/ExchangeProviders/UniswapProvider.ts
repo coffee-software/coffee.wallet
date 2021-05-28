@@ -1,10 +1,11 @@
 import {BaseExchangeProvider} from "./BaseExchangeProvider";
 import {Balance, NewTransaction, NewTransactionWrapper, OnlineCoinHandler} from "../Handlers/BaseCoinHandler";
-import {BaseERC20Handler, BaseEthersHanlder, EthTransaction, isBaseERC20Handler} from "../Handlers/BaseEthersHanlder";
+import {BaseERC20Handler, BaseEthersHanlder, EthTransaction} from "../Handlers/BaseEthersHanlder";
 import {ethers} from "ethers";
 import {BigNum} from "../Core/BigNum";
 import {TransactionRequest} from "@ethersproject/abstract-provider/src.ts/index";
-import {ERC20Handler} from "../Handlers/HandlerEth";
+import {ERC20Handler, isERC20Handler} from "../Handlers/HandlerEth";
+import {isERC20TestHandler} from "../Handlers/HandlerEthTest";
 
 
 class UniswapTransactionWrapper extends NewTransactionWrapper {
@@ -135,7 +136,7 @@ abstract class UniswapProvider extends BaseExchangeProvider {
 
     private getTokenHandler(coin: string) : BaseERC20Handler {
         let handler = this.engine.wallets[coin].handler;
-        if (isBaseERC20Handler(handler)) {
+        if (isERC20Handler(handler) || isERC20TestHandler(handler)) {
             return handler;
         } else {
             throw new Error(coin + ' is not ERC20')
@@ -169,7 +170,9 @@ abstract class UniswapProvider extends BaseExchangeProvider {
         tokens.push(this.primaryCoin);
         for (var k in this.engine.wallets){
             let handler = this.engine.allCoinHandlers[k];
-            if ((handler.testCoin == this.testNet) && (isBaseERC20Handler(handler))) {
+            if (this.testNet && isERC20TestHandler(handler)) {
+                tokens.push(k);
+            } else if (!this.testNet && isERC20Handler(handler)) {
                 tokens.push(k);
             }
         }

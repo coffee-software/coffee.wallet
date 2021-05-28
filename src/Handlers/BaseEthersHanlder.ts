@@ -333,7 +333,7 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
 }
 
 export abstract class BaseERC20Handler extends BaseEthersHanlder {
-    isERC20Handler: boolean = true
+
     onlineCoin = true
     abstract ethContractAddr: string
     abstract feeHandlerCode: string
@@ -417,8 +417,4 @@ export abstract class BaseERC20Handler extends BaseEthersHanlder {
     canSendViaMessage(): boolean {
         return false;
     }
-}
-
-export function isBaseERC20Handler(toBeDetermined: BaseCoinHandler): toBeDetermined is BaseERC20Handler {
-    return (('isERC20Handler' in toBeDetermined) && (toBeDetermined as BaseERC20Handler).isERC20Handler);
 }
