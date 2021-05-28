@@ -193,3 +193,21 @@
     background-color: #463f3a;
     margin-bottom: 0;
 }
+
+#coinInfoPopup h3.section {
+    text-align: center;
+    font-weight: bold;
+}
+
+#coinInfoPopup .legacyOptions {
+    display: flex;
+    justify-content: space-around;
+}
+#coinInfoPopup .legacyOptions button {
+    font-size: 11px;
+}
+
+#coinInfoPopup .legacyAddr {
+    padding: 10px;
+    text-align: center;
+}

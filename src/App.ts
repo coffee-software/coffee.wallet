@@ -399,32 +399,24 @@ export class App {
             advanced.appendChild(this.createAdvancedOption('message', 'send via message', this.popupSendSocial.bind(this, wallet)));
         }
 
+        if (isOnlineCoinHanlder(wallet.handler)) {
+            advanced.appendChild(this.createAdvancedOption('link', 'history (external)', OsPlugins.openInSystemBrowser.bind(OsPlugins, wallet.handler.explorerLinkAddr(wallet.getReceiveAddress()))));
+            advanced.appendChild(this.createAdvancedOption('import', 'send from private key', this.showImportPrivateKeyPopup.bind(this, wallet.handler)));
+        }
+
         for( let provider in this.exchangeableCoinsCache) {
             if (this.exchangeableCoinsCache[provider].indexOf(wallet.handler.code) > -1) {
                 advanced.appendChild(this.createAdvancedOption(
                     'sell',
-                    'sell coin (' + provider + ')',
+                    'sell on ' + this.engine.allExchangeProviders[provider].name,
                     this.popupExchange.bind(this, provider, wallet.handler.code, null)
                 ));
                 advanced.appendChild(this.createAdvancedOption(
                     'buy',
-                    'buy coin (' + provider + ')',
+                    'buy on ' + this.engine.allExchangeProviders[provider].name,
                     this.popupExchange.bind(this, provider, null, wallet.handler.code)
                 ));
             }
-        }
-
-        if (isOnlineCoinHanlder(wallet.handler)) {
-            advanced.appendChild(this.createAdvancedOption('link', 'history (external)', OsPlugins.openInSystemBrowser.bind(OsPlugins, wallet.handler.explorerLinkAddr(wallet.getReceiveAddress()))));
-            if (('segwitSupport' in wallet.handler) && (wallet.handler as BaseBitcoinjsHanlder).segwitSupport) {
-                let handler = wallet.handler as BaseBitcoinjsHanlder;
-                advanced.appendChild(this.createAdvancedOption(
-                    'link',
-                    'legacy history (non segwit) (external)',
-                    OsPlugins.openInSystemBrowser.bind(OsPlugins, handler.explorerLinkAddr(handler.getLegacyAddr(wallet.keychain)))
-                ));
-            }
-            advanced.appendChild(this.createAdvancedOption('import', 'import private key', this.showImportPrivateKeyPopup.bind(this, wallet.handler)));
         }
 
         var links = wallet.handler.links;
@@ -444,7 +436,7 @@ export class App {
         }
         linksUl += '</ul>';
 
-        advanced.appendChild(this.createAdvancedOption(
+        /*advanced.appendChild(this.createAdvancedOption(
             'about',
             'about',
             this.confirmBeforeContinue.bind(
@@ -457,7 +449,7 @@ export class App {
                 null,
                 null
             )
-        ));
+        ));*/
 
         var superAdvanced = document.createElement('ul');
         superAdvanced.classList.add('advancedActions');
@@ -491,10 +483,48 @@ export class App {
 
         document.getElementById('coinInfoActions').innerHTML = '';
         document.getElementById('coinInfoActions').append(advanced);
-        if (superAdvanced.children.length>0) {
-            document.getElementById('coinInfoActions').append('danger zone');
-            document.getElementById('coinInfoActions').append(superAdvanced);
+
+        document.getElementById('coinInfoAbout').innerHTML = '<h3 class="section">about ' + wallet.handler.name + '</h3><div style="padding: 0 15px 15px 15px;">' + wallet.handler.description + '</div>' + linksUl ;
+
+        if (('segwitSupport' in wallet.handler) && (wallet.handler as BaseBitcoinjsHanlder).segwitSupport) {
+            let handler = wallet.handler as BaseBitcoinjsHanlder;
+            let legacyAddress = handler.getLegacyAddr(wallet.keychain)
+            document.getElementById('coinInfoAbout').innerHTML +=
+                '<div class="spacing stitch"></div><h3 class="section">legacy address</h3>'
+                + '<div style="padding: 0 15px 15px 15px;">This currency is using SegWit. If you need to receive funds from source that does not support SegWit addresses you can use your legacy address.'
+                + '<div class="legacyAddr">'
+                + legacyAddress
+                + '</div></div>';
+            let legacyOptions = document.createElement('div');
+            legacyOptions.classList.add('legacyOptions');
+            legacyOptions.appendChild(this.createSimpleButton(
+                'see history',
+                OsPlugins.openInSystemBrowser.bind(OsPlugins, handler.explorerLinkAddr(legacyAddress))
+            ));
+            let app = this;
+            legacyOptions.appendChild(this.createSimpleButton(
+                'copy to clipboard',
+                function(text: string) {
+                    OsPlugins.copyToClipboard(text);
+                    app.alertInfo('copied to clipboard');
+                }.bind(legacyAddress)
+            ));
+            document.getElementById('coinInfoAbout').appendChild(legacyOptions);
         }
+
+        document.getElementById('coinInfoAdvanced').innerHTML = '';
+        if (superAdvanced.children.length>0) {
+            document.getElementById('coinInfoAdvanced').innerHTML = '<h3 class="section">danger zone<h3>';
+            document.getElementById('coinInfoAdvanced').append(superAdvanced);
+        }
+    }
+
+    createSimpleButton(text: string, callback: ()=>void) {
+        let button = document.createElement('button');
+        button.appendChild(document.createTextNode(text));
+        button.onclick = callback;
+        fastTap(button);
+        return button;
     }
 
     createAdvancedOption(icon: string, text: string, callback: ()=>void) {
@@ -1129,6 +1159,8 @@ export class App {
 
         this.openPopup('exchangePopup', 'Exchange');
         this.exchangeSetProvider(this.exchangeProviderSelect.getValue());
+        buyCoinCode && this.exchangeBuyCoinSelect.setValue(buyCoinCode);
+        sellCoinCode && this.exchangeSellCoinSelect.setValue(sellCoinCode);
         //app.settings.set('airdropTaskExchange', true);
     }
 
