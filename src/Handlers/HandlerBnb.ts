@@ -3,6 +3,7 @@ import {BaseProvider} from "@ethersproject/providers/src.ts/base-provider";
 import {ethers} from "ethers";
 import {Keychain} from "../Keychain";
 import * as bip32 from "bip32";
+import {Engine} from "../Engine";
 
 export class HandlerBnb extends BaseEthersHanlder {
 
@@ -38,11 +39,10 @@ export class HandlerBnb extends BaseEthersHanlder {
     }
 
     getPrivateKey(keychain: Keychain): bip32.BIP32Interface {
-        return keychain.derivePath("m/44'/60'/1'/0/0");
+        return keychain.derivePath("m/44'/60'/0'/0/0");
     }
 }
 
-/*
 export class BEP20Handler extends BaseERC20Handler {
 
     ticker: string
@@ -54,8 +54,14 @@ export class BEP20Handler extends BaseERC20Handler {
     ethContractAddr: string;
 
     testCoin = false
-    feeHandlerCode = 'ETH'
-    networkName = 'homestead';
+    feeHandlerCode = 'BNB.2'
+    networkName = '';
+    getProvider(): BaseProvider {
+        return new ethers.providers.JsonRpcProvider('https://bsc-dataseed1.defibit.io/', {
+            name: 'Smart Chain',
+            chainId: 56,
+        });
+    }
 
     coinGeckoId = '';
     coinMarketCapId = '';
@@ -63,10 +69,11 @@ export class BEP20Handler extends BaseERC20Handler {
 
     constructor(
         engine: Engine,
+        code: string,
         ticker: string,
         name: string,
         icon: string,
-        ethContractAddr: string,
+        bscContractAddr: string,
         decimals: number,
         description: string = "",
         website: string = "",
@@ -76,11 +83,11 @@ export class BEP20Handler extends BaseERC20Handler {
     ) {
         super(engine)
         this.ticker = ticker;
-        this.code = ticker;
+        this.code = code;
         this.name = name;
         this.icon = icon;
-        this.description = this.name + " is an ERC20 token. " + description
-        this.ethContractAddr = ethContractAddr
+        this.description = this.name + " is an BEP20 token.<br/>" + "Contract address: <b>" + bscContractAddr + "</b><br/>" + description
+        this.ethContractAddr = bscContractAddr
         this.decimals = decimals
         this.links = {}
         this.coinGeckoId = coinGeckoId
@@ -89,7 +96,13 @@ export class BEP20Handler extends BaseERC20Handler {
         if (website.length) {
             this.links[(new URL(website)).host] = website
         }
-        this.links["etherscan.io"] = "https://etherscan.io/token/" + this.ethContractAddr
+        this.links["bscscan.com"] = "https://bscscan.com/token/" + this.ethContractAddr
     }
 
-}*/
+    explorerLinkAddr(address : string) {
+        return 'https://bscscan.com/token/' + this.ethContractAddr + '?a=' + address;
+    }
+    explorerLinkTx(tx: string) {
+        return 'https://bscscan.com/tx/' + tx;
+    }
+}

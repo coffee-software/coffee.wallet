@@ -8,7 +8,7 @@ import {HandlerDoge} from "./Handlers/HandlerDoge";
 import {Engine} from "./Engine";
 import {PortfolioOnlyHandler} from "./Handlers/PortfolioOnlyHandler";
 import {HandlerDash} from "./Handlers/HandlerDash";
-import {HandlerBnb} from "./Handlers/HandlerBnb";
+import {BEP20Handler, HandlerBnb} from "./Handlers/HandlerBnb";
 
 export function createAllCoinHandlers(engine: Engine) : { [code: string] : BaseCoinHandler } {
     return {
@@ -112,11 +112,16 @@ export function createAllCoinHandlers(engine: Engine) : { [code: string] : BaseC
 
 
         'BNB.2': new HandlerBnb(engine),
+        //BEP20 tokens
+        'BUSD': new BEP20Handler(engine, 'BUSD', 'BUSD', 'Binance USD', 'busd', '0xe9e7cea3dedca5984780bafc599bd69add087d56', 18, 'Binance USD (BUSD) is a USD-denominated stablecoin approved by the New York State Department of Financial Services (NYDFS) that was launched in partnership with Paxos and Binance.', 'https://www.paxos.com/busd/', 'busd-binance-usd', 'binance-usd', 'binance-usd'),
+        'CAKE': new BEP20Handler(engine, 'CAKE', 'CAKE', 'PancakeSwap Token', 'cake', '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 18, 'PancakeSwap is an automated market maker (AMM) — a decentralized finance (DeFi) application that allows users to exchange tokens, providing liquidity via farming and earning fees in return.', 'https://pancakeswap.finance/', 'cake-pancakeswap', 'pancakeswap', 'pancakeswap'),
+        'BAKE': new BEP20Handler(engine, 'BAKE', 'BAKE', 'BakeryToken', 'bake', '0xe02df9e3e622debdd69fb838bb799e3f168902c5', 18, 'Launched in September 2020, BakeryToken (BAKE) is a part of the BakerySwap ecosystem. Liquidity providers are rewarded with BAKE tokens which can be used to earn a share of BakerySwap\'s trading fees and to participate in voting as part of BakerySwap’s governance process.', 'https://www.bakeryswap.org/', 'bake-bakeryswap', 'bakeryswap', 'bakerytoken'),
+        '1INCH': new BEP20Handler(engine, '1INCH', '1INCH', '1inch', '1inch', '0x111111111117dc0aa78b770fa6a738034120c302', 18, '1inch exchange is a decentralized exchange (DEX) aggregator to help users discover the best trade prices for tokens.', 'https://1inch.io/', '1inch-1inch', '1inch', '1inch'),
 
         //PORTFOLIO
         'BCH.TST': new PortfolioOnlyHandler('BCH.TST', 'BCH.TST', 'Bitcoin Cash TestNet', 'bch.test' ),
 
-        '1INCH': new PortfolioOnlyHandler('1INCH', '1INCH', '1inch', 'noicon', 'https://1inch.io/', '1inch-1inch', '1inch', '1inch' ),
+        //'1INCH': new PortfolioOnlyHandler('1INCH', '1INCH', '1inch', 'noicon', 'https://1inch.io/', '1inch-1inch', '1inch', '1inch' ),
         'AAVE': new PortfolioOnlyHandler('AAVE', 'AAVE', 'Aave', 'noicon', 'https://aave.com/', 'aave-new', 'aave', 'aave' ),
         'ADA': new PortfolioOnlyHandler('ADA', 'ADA', 'Cardano', 'ada', 'https://www.cardano.org/', 'ada-cardano', 'cardano', 'cardano' ),
         'ALGO': new PortfolioOnlyHandler('ALGO', 'ALGO', 'Algorand', 'algo', 'https://algorand.foundation/', 'algo-algorand', 'algorand', 'algorand' ),
@@ -133,8 +138,8 @@ export function createAllCoinHandlers(engine: Engine) : { [code: string] : BaseC
         'BTCB': new PortfolioOnlyHandler('BTCB', 'BTCB', 'Bitcoin BEP2', 'noicon', 'https://www.binance.com/en/blog/347360878904684544/Introducing-BitcoinPegged-Token-on-Binance-Chain/', 'btcb-bitcoin-bep2', 'bitcoin-bep2', 'bitcoin-bep2' ),
         'BTG': new PortfolioOnlyHandler('BTG', 'BTG', 'Bitcoin Gold', 'btg', 'https://bitcoingold.org/', 'btg-bitcoin-gold', 'bitcoin-gold', 'bitcoin-gold' ),
         'BTT': new PortfolioOnlyHandler('BTT', 'BTT', 'BitTorrent', 'btt', 'https://www.bittorrent.com/btt/', 'btt-bittorrent', 'bittorrent-2', 'bittorrent' ),
-        'BUSD': new PortfolioOnlyHandler('BUSD', 'BUSD', 'Binance USD', 'noicon', 'https://www.paxos.com/busd/', 'busd-binance-usd', 'binance-usd', 'binance-usd' ),
-        'CAKE': new PortfolioOnlyHandler('CAKE', 'CAKE', 'PancakeSwap', 'noicon', 'https://pancakeswap.finance/', 'cake-pancakeswap', 'pancakeswap-token', 'pancakeswap' ),
+        //'BUSD': new PortfolioOnlyHandler('BUSD', 'BUSD', 'Binance USD', 'noicon', 'https://www.paxos.com/busd/', 'busd-binance-usd', 'binance-usd', 'binance-usd' ),
+        //'CAKE': new PortfolioOnlyHandler('CAKE', 'CAKE', 'PancakeSwap', 'noicon', 'https://pancakeswap.finance/', 'cake-pancakeswap', 'pancakeswap-token', 'pancakeswap' ),
         'CDAI': new PortfolioOnlyHandler('CDAI', 'CDAI', 'cDAI', 'noicon', 'https://compound.finance/', '', 'cdai', '' ),
         'CELO': new PortfolioOnlyHandler('CELO', 'CELO', 'Celo', 'noicon', 'https://celo.org/', '', 'celo', 'celo' ),
         'CETH': new PortfolioOnlyHandler('CETH', 'CETH', 'cETH', 'noicon', 'https://compound.finance/', '', 'compound-ether', '' ),

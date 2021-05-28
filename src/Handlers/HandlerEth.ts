@@ -66,7 +66,7 @@ export class ERC20Handler extends BaseERC20Handler {
         this.ticker = ticker;
         this.name = name;
         this.icon = icon;
-        this.description = this.name + " is an ERC20 token. " + description
+        this.description = this.name + " is an ERC20 token.<br/>" + "Contract address: <b>" + ethContractAddr + "</b><br/>" + description
         this.ethContractAddr = ethContractAddr
         this.decimals = decimals
         this.links = {}
