@@ -1,4 +1,4 @@
-import {Balance, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
+import {AmountError, Balance, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
 import {BigNum} from "../Core/BigNum";
 import {Keychain} from "../Keychain";
 import {ECPair, Network, Psbt, Transaction} from "bitcoinjs-lib";
@@ -427,6 +427,8 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         }
         utxos = utxos.concat(await this.getUtxosForAddr(legacyFrom));
 
+        if (utxos.length == 0) throw new AmountError('no inputs');
+
         let sendable = false;
         var tmpReceiver = changeAddress
         if (this.validateAddress(receiverAddr)) {
@@ -477,7 +479,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
         if (amount !== "MAX") {
             amountOut = parseInt(amount.toString());
             let change = totalIn - fee - amountOut;
-            if (change < 0) throw new Error('Insufficient balance');
+            if (change < 0) throw new AmountError('insufficient balance');
             console.log(totalIn, fee, amountOut, change);
             tmpTx.addOutput({
                 address: changeAddress,
@@ -490,7 +492,7 @@ export abstract class BaseBitcoinjsHanlder implements OnlineCoinHandler {
             //will have only one output
             fee = this.calculateFeeForInputs(tmpTx, ecpair, [tmpReceiver], feeRate);
             amountOut = totalIn - fee;
-            if (amountOut < 0) throw new Error('Insufficient balance');
+            if (amountOut < 0) throw new AmountError('insufficient balance');
         }
 
         tmpTx.addOutput({

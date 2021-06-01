@@ -52,5 +52,6 @@ export class AddressInputWidget implements Widget {
 
     setValue(value: string) {
         this.input.value = value;
+        this.validate();
     }
 }

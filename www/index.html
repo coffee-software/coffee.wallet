@@ -400,12 +400,10 @@
               <div id="sendCoinAmountInput"></div>
               <div id="sendCoinBalanceAfter" class="adv-form-option">
                 <div class="row">
-                  <div class="f4">
-                    balance after:&nbsp;<span id="balanceAfter">0</span>
-                  </div>
+                  <div id="balanceAfter" class="f4"></div>
                   <div class="f1 max-button">
                     <button id="sendCoinMaxButton" onclick="app.sendCoinSetMax()">
-                      send max
+                      send&nbsp;max
                     </button>
                   </div>
                 </div>
@@ -413,10 +411,7 @@
 
               <div id="sendCoinFeeInfo" class="default adv-form-option">
                 <div class="row">
-                  <div class="f4">
-                    fee:&nbsp;<span id="feeAmount">0</span>
-                    (<span id="feeTime">0 min</span>)
-                  </div>
+                  <div id="feeInfo" class="f4"></div>
                   <div class="f1 customize-button" >
                     <button onclick="getElementById('sendCoinFeeInfo').classList.remove('default')">
                       customize

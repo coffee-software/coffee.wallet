@@ -10,7 +10,7 @@ import {ListItemWidget} from "./Widgets/ListItemWidget";
 import {CoinAddressIcon} from "./Widgets/CoinAddressIcon";
 import {PortfolioAddress, PortfolioBalance, PortfolioItem} from "./PortfolioItem";
 import {AddressInputWidget} from "./Widgets/AddressInputWidget";
-import {Balance, BaseCoinHandler, isBalance, NewTransaction, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
+import {BaseCoinHandler, isAmountError, isBalance, NewTransaction, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
 import {Version} from "./Tools/Changelog";
 import {CoinButtonWidget} from "./Widgets/CoinButtonWidget";
 import {SelectWidget} from "./Widgets/SelectWidget";
@@ -1445,11 +1445,9 @@ export class App {
             }
         }
         this.sendAddressInputWidget.setValue(uri.address)
-        this.sendAddressInputWidget.validate()
 
         if ('amount' in uri.args && uri.args.amount){
             this.sendAmountInputWidget.setValue(uri.args.amount)
-            this.sendAmountInputWidget.validate()
         }
     }
 
@@ -1534,6 +1532,8 @@ export class App {
         this.sendWallet = wallet;
 
         document.getElementById('sendCoinFeeInfo').classList.add('default');
+        document.getElementById('feeInfo').innerHTML = 'fee: ?';
+        document.getElementById('balanceAfter').innerHTML = 'balance after: ?';
         let app = this;
         (wallet.handler as OnlineCoinHandler).getFeeOptions().then(function(fees){
             //TODO race condition here
@@ -1565,9 +1565,8 @@ export class App {
         if (this.sendOutgoingTransactionKey != newKey)
         {
             console.log("PREPARING");
-            document.getElementById('feeAmount').innerHTML = '';
-            document.getElementById('feeTime').innerHTML = '';
-            document.getElementById('balanceAfter').innerHTML = '';
+            document.getElementById('feeInfo').innerHTML = 'fee: ?';
+            document.getElementById('balanceAfter').innerHTML = 'balance after: ?';
             (document.getElementById('sendButton') as HTMLInputElement).disabled = true;
             this.sendOutgoingTransactionKey = newKey;
             this.sendOutgoingTransaction = null;
@@ -1579,15 +1578,20 @@ export class App {
                     app.sendAmountInputWidget.setValue(transaction.getAmountDisplay());
                 }
                 let fee = transaction.getFeeTotal()
-                document.getElementById('feeAmount').innerHTML = app.engine.getValueString(fee) + ' = ' + app.engine.getFiatValueString(fee);
-                document.getElementById('feeTime').innerHTML = transaction.getFeeInfo();
+                document.getElementById('feeInfo').innerHTML =
+                    'fee: ' + app.engine.getValueString(fee) + ' = ' + app.engine.getFiatValueString(fee) + ' (' + transaction.getFeeInfo() + ')';
 
                 let balanceAfter = transaction.getBalanceAfter()
-                document.getElementById('balanceAfter').innerHTML = app.engine.getValueString(balanceAfter) + ' = ' + app.engine.getFiatValueString(balanceAfter);
-
+                document.getElementById('balanceAfter').innerHTML = 'balance after: ' + app.engine.getValueString(balanceAfter) + ' = ' + app.engine.getFiatValueString(balanceAfter);
                 app.sendOutgoingTransaction = transaction;
                 (document.getElementById('sendButton') as HTMLInputElement).disabled = !app.sendOutgoingTransaction.isValid();
-            })
+            }).catch(err => {
+                if (isAmountError(err)) {
+                    app.sendAmountInputWidget.setError(err.toString());
+                } else {
+                    throw err;
+                }
+            });
         }
     }
 

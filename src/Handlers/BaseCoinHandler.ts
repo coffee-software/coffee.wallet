@@ -2,6 +2,17 @@ import {Keychain} from "../Keychain";
 import {BigNum} from "../Core/BigNum";
 import * as bip32 from "bip32";
 
+export class AmountError extends Error {
+  isAmountError: boolean = true;
+  constructor(message: string){
+    super(message)
+  }
+}
+
+export function isAmountError(toBeDetermined: Error): toBeDetermined is AmountError {
+  return (typeof toBeDetermined === 'object' && toBeDetermined !== null) && ('isAmountError' in (toBeDetermined as AmountError));
+}
+
 export interface BaseCoinHandler {
   decimals : number
   testCoin: boolean

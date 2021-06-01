@@ -1,5 +1,5 @@
 import { ethers } from "ethers"
-import {Balance, BaseCoinHandler, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
+import {AmountError, Balance, BaseCoinHandler, NewTransaction, OnlineCoinHandler} from "./BaseCoinHandler";
 import {BigNum} from "../Core/BigNum";
 import {Keychain} from "../Keychain";
 import {BaseProvider} from "@ethersproject/providers/src.ts/base-provider";
@@ -64,7 +64,7 @@ export class EthTransaction implements NewTransaction {
     }
 
     getFeeInfo(): string {
-        return "gas price: " + ((this.data.gasPrice as number) / 1000000000).toFixed(2) + "GWEI";
+        return "" + ((this.data.gasPrice as number) / 1000000000).toFixed(2) + " GWEI/gas";
     }
 
     getFeeETA(): string {
@@ -277,8 +277,11 @@ export abstract class BaseEthersHanlder implements OnlineCoinHandler {
         }
         let realAmount = await this.getRealAmount(wallet, amount, fee);
         let tx : TransactionRequest = await this.getTransactionRequest(wallet, receiverAddr, realAmount)
-        return await this.prepareCustomTransaction(wallet, tx, realAmount, receiverAddr, fee);
-
+        let transaction = await this.prepareCustomTransaction(wallet, tx, realAmount, receiverAddr, fee);
+        if (transaction.getBalanceAfter().total().isNegative()) {
+            throw new AmountError('insufficient balance');
+        }
+        return transaction;
     }
 
     async prepareCustomTransaction(wallet: Wallet, tx : TransactionRequest, displayAmount: BigNum, displayRecipient: string, fee?: number): Promise<EthTransaction> {

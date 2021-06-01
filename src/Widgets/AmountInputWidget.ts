@@ -11,11 +11,12 @@ export class AmountInputWidget implements Widget  {
     public legendElement: HTMLDivElement;
     private handler: BaseCoinHandler;
     private priceProvider: BasePriceProvider;
+    private customError: string = null;
 
     public onchange: (value:number) => void;
 
     public setValue(value:number|null) {
-        this.amountInput.value = value === null ? '' : value.toFixed(this.handler.decimals)
+        this.amountInput.value = (value === null) ? '' : value.toFixed(this.handler.decimals)
         this.updateValue()
         this.validate()
     }
@@ -46,15 +47,13 @@ export class AmountInputWidget implements Widget  {
 
         this.valueInput = this.createInput('equivalent', priceProvider.unit);
 
-        this.amountInput.onfocus = this.validate.bind(this, true)
-        this.amountInput.onblur = this.validate.bind(this, false)
-        this.amountInput.onchange = this.updateValue.bind(this)
-        this.amountInput.onkeyup = this.updateValue.bind(this)
+        this.amountInput.onfocus = this.onFocus.bind(this)
+        this.amountInput.onblur = this.onBlur.bind(this)
+        this.amountInput.oninput = this.updateValue.bind(this)
 
-        this.valueInput.onfocus = this.validate.bind(this, true)
-        this.valueInput.onblur = this.validate.bind(this, false)
-        this.valueInput.onchange = this.updateAmount.bind(this)
-        this.valueInput.onkeyup = this.updateAmount.bind(this)
+        this.valueInput.onfocus = this.onFocus.bind(this)
+        this.valueInput.onblur = this.onBlur.bind(this)
+        this.valueInput.oninput = this.updateAmount.bind(this)
 
         let price = this.priceProvider.getPrice(this.handler)
         if (!price) {
@@ -99,6 +98,7 @@ export class AmountInputWidget implements Widget  {
     }
 
     updateValue() {
+        this.customError = null;
         let amount = this.amountInput.value;
         let price = this.priceProvider.getPrice(this.handler)
         if (amount && price) {
@@ -108,10 +108,12 @@ export class AmountInputWidget implements Widget  {
         } else {
             this.valueInput.value = '';
         }
+        this.validate();
         this.onchange && this.onchange(parseFloat(this.amountInput.value));
     }
 
     updateAmount() {
+        this.customError = null;
         let value = this.valueInput.value;
         if (value === '') {
             this.amountInput.value = '';
@@ -119,24 +121,33 @@ export class AmountInputWidget implements Widget  {
             let price = this.priceProvider.getPrice(this.handler)
             this.amountInput.value = BigNum.fromFloat(parseFloat(value) / price, this.handler.decimals).toFloat(this.handler.decimals).toFixed(this.handler.decimals);
         }
+        this.validate();
         this.onchange && this.onchange(parseFloat(this.amountInput.value));
     }
 
-    validate(focus: boolean = false) : boolean {
-        let valid = false;
-        this.legendElement.innerHTML = '';
+    setError(message: string) {
+        this.customError = message;
+        this.validate();
+    }
 
+    onFocus() {
+        this.legendElement.innerHTML = '';
         this.element.classList.remove('invalid');
         this.element.classList.remove('valid');
         this.element.classList.toggle('filled', this.amountInput.value != '' || this.amountInput == document.activeElement || this.valueInput == document.activeElement);
-
-        if (!focus) {
-            valid = parseFloat(this.amountInput.value) > 0;
-            this.element.classList.add(valid ? 'valid' : 'invalid');
-            if (!valid) {
-                this.legendElement.innerHTML = 'invalid amount';
-            }
-        }
-        return valid;
     }
+
+    validate() {
+        this.onFocus();
+        let valid = (this.customError === null) && (parseFloat(this.amountInput.value) > 0);
+        this.element.classList.add(valid ? 'valid' : 'invalid');
+        if (!valid) {
+            this.legendElement.innerHTML = (this.customError === null) ? 'invalid amount' : this.customError;
+        }
+    }
+
+    onBlur() {
+        this.validate();
+    }
+
 }

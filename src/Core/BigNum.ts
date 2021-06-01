@@ -5,8 +5,6 @@ import * as BN from "bn.js";
  */
 export class BigNum {
 
-    positive: boolean = true;
-    words: number[];
     _bn: BN;
 
     constructor(value: string | number, base: number = 10) {
@@ -73,6 +71,10 @@ export class BigNum {
 
     isZero() : boolean {
         return this.toString(10) === "0"
+    }
+
+    isNegative() : boolean {
+        return this._bn.isNeg();
     }
 
     toString(base : number = 10) : string {
