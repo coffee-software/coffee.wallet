@@ -12,6 +12,7 @@ export class Version {
                 'removed unused icons (smaller app size)',
                 'fixed warnings spam when sending ERC20 tokens',
                 'added legacy address to coin info popup for SegWit coins',
+                'unified errors on insufficient balance',
                 'minor bugfixes'
             ]
         },
