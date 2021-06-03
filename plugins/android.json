@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-admob": {
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
     "cordova-clipboard": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
@@ -53,6 +56,12 @@
     }
   },
   "dependent_plugins": {
+    "cordova-connectivity-monitor": {
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
+    "cordova-play-services-version-adapter": {
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
     "es6-promise-plugin": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
     }
