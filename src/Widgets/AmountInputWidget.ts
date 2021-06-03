@@ -94,7 +94,7 @@ export class AmountInputWidget implements Widget  {
     setReadonly(readonly: boolean) {
         this.amountInput.readOnly = readonly;
         let price = this.priceProvider.getPrice(this.handler)
-        this.valueInput.readOnly = !price && readonly;
+        this.valueInput.readOnly = !price || readonly;
     }
 
     updateValue() {
