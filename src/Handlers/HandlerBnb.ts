@@ -45,6 +45,7 @@ export class HandlerBnb extends BaseEthersHanlder {
 
 export class BEP20Handler extends BaseERC20Handler {
 
+    isBEP20Handler: boolean = true
     ticker: string
     code: string
     name: string

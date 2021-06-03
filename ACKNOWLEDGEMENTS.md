@@ -11,7 +11,8 @@ Coffee Wallet uses Open Source code from the following libraries
  * [rangeSlider](https://github.com/Stryzhevskyi/rangeSlider/) ui element; MIT License
  * [New Age](http://startbootstrap.com/template-overviews/new-age/) as landing page template base; MIT License
  * [Cryptocurrency Icons](https://github.com/cjdowner/cryptocurrency-icons); Creative Commons Zero (CC0) license
-
+ * [jsPDF](https://parall.ax/products/jspdf) to generate PDF in PWA and electron versions; MIT License 
+   
 User interface is built using [cordova platform](https://cordova.apache.org/). Following plugins are used:
 
  * [phonegap-plugin-barcodescanner](https://www.npmjs.com/package/phonegap-plugin-barcodescanner) to scan payment requests/addresses

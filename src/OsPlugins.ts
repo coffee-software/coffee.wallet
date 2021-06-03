@@ -7,7 +7,7 @@ type OsPlugins = {
     hideNativeSplash: () => void
     authenticateUser: (callback: () => void) => void
     openInSystemBrowser: (url: string) => void
-    generatePDF: (html: string, fileName: string, success: () => void, error: (message:string) => void) => void
+    generatePDF: (data: any, fileName: string, success: () => void, error: (message:string) => void) => void
     scanQRCode: (success: (result:string) => void, error: (message:string) => void) => void
     pasteFromClipboard: (success: (content:string) => void) => void
     copyToClipboard: (content: string) => void

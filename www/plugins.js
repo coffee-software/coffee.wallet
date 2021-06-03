@@ -4,24 +4,92 @@
 /* global NativeStorage */
 /* global FingerprintAuth */
 /* global coffee */
+/* global jsPDF */
 
 var __OS_PLUGINS__ = {
 
   getStorage: function() { return NativeStorage; },
   getPlatformName: function(){ return device.platform; },
-  generatePDF: function(html, file, success, error){
+  jsPdfLoaded: false,
+
+  generatePngWithQRCode: function(text, size) {
+    var tmpElement = document.createElement('div');
+    var qrcode = new window.QRCode(tmpElement, {
+            text: text,
+            width: size,
+            height: size,
+            colorDark : "#000000",
+            colorLight : "#ffffff"
+    });
+    return qrcode._oDrawing._elCanvas.toDataURL("image/png");
+  },
+  generatePDFwithJsPdf: function(data, file, success, error){
+      var doc = new jsPDF();
+      doc.setFontType("bold");
+      doc.setFontSize(25);
+      doc.text(data.title, 10, 15);
+      doc.setFontType("normal");
+
+      doc.setFontSize(17);
+      doc.text('public key (address)', 200, 20, 'right');
+      doc.addImage(data.publicImg, 'PNG', 108, 26, 92, 92);
+      doc.setFontSize(14);
+      doc.text(data.publicText, 200, 130, 'right');
+
+      doc.setFontSize(12);
+      doc.text('Share the public key to accept payments.', 10, 64);
+      doc.text('It allows sending coins to this wallet.', 10, 74);
+
+      doc.setLineWidth(0.5);
+      doc.line(10, 139, 200, 139);
+
+      doc.setFontSize(17);
+      doc.text('private key (secret)', 10, 150);
+      doc.addImage(data.privateImg, 'PNG', 10, 156, 102, 102);
+      doc.setFontSize(14);
+      doc.text(data.privateText, 10, 270);
+
+      doc.setFontSize(12);
+      doc.text('Keep this part secret and safe.', 200, 208, 'right');
+      doc.text('It allows coins to be spent.', 200, 218, 'right');
+
+      doc.setFontType("italic");
+      doc.text(data.footer, 200, 286, 'right');
+      doc.save(file + ".pdf");
+      success();
+  },
+  generatePDF: function(data, file, success, error){
+    data.publicImg = this.generatePngWithQRCode(data.publicText, 280);
+    data.privateImg = this.generatePngWithQRCode(data.privateText, 350);
     if (device.platform == 'browser') {
-      //console.log(html);
-      //osPlugins.openInSystemBrowser('data:text/html;charset=UTF-8,' + encodeURIComponent(html));
-      var element = document.createElement('a');
+      var that = this;
+      if (this.jsPdfLoaded) {
+          that.generatePDFwithJsPdf(data, file, success, error);
+      } else {
+        var script = document.createElement('script');
+        script.src = 'vendor/jspdf.min.js';
+        document.body.append(script);
+        script.addEventListener('load', function () {
+            that.jsPdfLoaded = true;
+            that.generatePDFwithJsPdf(data, file, success, error);
+        });
+      }
+      /*var element = document.createElement('a');
       element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(html));
       element.setAttribute('download', file + '.html');
       element.style.display = 'none';
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);
-      success();
+      success();*/
     } else {
+      var html = '<html><h1>' + data.title + '</h1>' +
+        '<div style="text-align:right;"><h2>public key (address)</h2><img src="' + data.publicImg + '"><h3>' + data.publicText + '</h3></div>'+
+        '<hr/>' +
+        '<h2>private key (secret)</h2><img src="' + data.privateImg + '"><h3>' + data.privateText + '</h3>'+
+        '<div style="position:absolute; bottom:0; right:0; text-align:right;">Share the public key to accept coins. <br/>Keep private key secret and safe. It allows your coins to be spent. '+
+        '<br/>' + data.footer + '</div>'+
+        '</html>';
       document.getElementById('loading').classList.add('show');
       pdf.fromData(html, {
           documentSize: 'A4',
