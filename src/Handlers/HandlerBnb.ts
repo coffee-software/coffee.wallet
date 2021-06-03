@@ -22,7 +22,7 @@ export class HandlerBnb extends BaseEthersHanlder {
     icon = "bnb.bep20"
     description = "Launched in July 2017, Binance is one of the biggest cryptocurrency exchanges globally. " +
         "By aiming to bring cryptocurrency exchanges to the forefront of financial activity globally. " +
-        "The idea behind Binance’s name is to show this new paradigm in global finance — Binary Finance, or Binance.";
+        "The idea behind Binance's name is to show this new paradigm in global finance - Binary Finance, or Binance.";
 
     links = {
         "binance.com" : "https://binance.com/"
