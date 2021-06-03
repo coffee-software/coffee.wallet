@@ -9,7 +9,7 @@ export class HandlerBnb extends BaseEthersHanlder {
 
     networkName = ''
     getProvider(): BaseProvider {
-        return new ethers.providers.JsonRpcProvider('https://bsc-dataseed1.defibit.io/', {
+        return new ethers.providers.JsonRpcProvider('https://bsc-dataseed.binance.org/', {
             name: 'Smart Chain',
             chainId: 56,
         });
