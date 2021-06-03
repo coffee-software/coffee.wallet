@@ -1,27 +1,43 @@
 Privacy Policy
 
-Coffee Wallet was build by Coffee Software as an Open Source app. 
-App is provided as is with no warranties.
+Coffee Wallet was built by Coffee Software as an Open Source app.
+The app is provided as is, with no warranties.
 
 
 Information Collection And Use
 
-Coffee Wallet stores data in secure device memory. 
-Signed transaction are sent to third-party providers and are publicly available in  blockchains. 
+Coffee Wallet stores data in device memory.
+Signed transactions are sent to third-party providers and are publicly available in blockchains.
 Logs with activity are stored on device.
-Third-party providers are also queried for various blockchain data and this request might be logged.
-No data is send to any Coffee Wallets servers.
+Information about currencies you are using (with no balances and no specific addresses) and your portfolio are sent to Coffee Wallet servers.
+This information is encrypted with your private seed and is not readable by Coffee Software and it is used if you restore your wallet from 12-word mnemonic.
+If you install Coffee Wallet using Play Store, installation statistics are sent to developer.
+No other data is sent to Coffee Software.
+
+
+Third Party Providers
+
+Coffee Wallet uses third-party providers APis to provide different services, query and write various blockchain data.
+Providers might log those requests and use them accordingly to their own Privacy Policies.
+Used providers are listed at: https://wallet.coffee/acknowledgements.html
 
 
 Camera Data
 
 Coffee Wallet uses device camera on user demand to read QR codes. 
-Aquired codes are used in transactions. 
+Acquired codes are used in transactions.
 No other data from camera is stored.
+
+
+Google AdMob service
+
+Coffee Wallet uses Google AdMob service to display advertisements.
+Google might use your device ID and other data to present you with personalised advertisements.
+Please refer to https://support.google.com/admob/ for more info.
 
 
 Changes to This Privacy Policy
 
-This Privacy Policy might be changed and posted here.
-
+This Privacy Policy might be changed.
+Up to date version is always posted at https://wallet.coffee/privacy.txt
 

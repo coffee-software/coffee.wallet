@@ -15,7 +15,6 @@ Coffee Wallet uses Open Source code from the following libraries
 User interface is built using [cordova platform](https://cordova.apache.org/). Following plugins are used:
 
  * [phonegap-plugin-barcodescanner](https://www.npmjs.com/package/phonegap-plugin-barcodescanner) to scan payment requests/addresses
- * [cordova-plugin-dialogs](https://www.npmjs.com/package/cordova-plugin-dialogs) for user dialogs
  * [cordova-plugin-inappbrowser](https://www.npmjs.com/package/cordova-plugin-inappbrowser) to open external links
  * [cordova-plugin-nativestorage](https://www.npmjs.com/package/cordova-plugin-nativestorage) to store data
  * [cordova-plugin-statusbar](https://www.npmjs.com/package/cordova-plugin-statusbar) to customize status bar
@@ -28,8 +27,17 @@ User interface is built using [cordova platform](https://cordova.apache.org/). F
  * [cordova-plugin-touch-id](https://www.npmjs.com/package/cordova-plugin-touch-id) to authenticate user before important operations
  * [cordova-plugin-android-fingerprint-auth](https://www.npmjs.com/package/cordova-plugin-android-fingerprint-auth) to authenticate user before important operations
 
-To broadcast signed transaction and save it in blockchain, Coffee uses third party providers:
+To broadcast signed transaction and save it in blockchains, Coffee uses APIs of third party providers:
 
  * [BlockCypher](https://www.blockcypher.com/) for bitcoin, litecoins and dogecoin transactions.
  * [Infura](https://infura.io/) for accessing Ethereum network (ETH and ERC20 tokens)
+ * [Binance](https://binance.org/) for accessing Binance Smart Chain (BNB and BEP20 tokens)
  * [bitcoin.com](https://bitcoin.com/) for accessing BCH network.
+
+To provide other functionalities Coffee Wallet uses APIs of:
+
+* [CoinMarketCap](https://coinmarketcap.com/) for fetching price data.
+* [CoinGecko](https://www.coingecko.com/) for fetching price data.
+* [coinpaprika](https://coinpaprika.com/) for fetching price data.
+* [Changelly](https://changelly.com/) to provide Quick Exchange functionality.
+* [ChangeNow](https://changenow.io/) to provide Quick Exchange functionality.
