@@ -496,7 +496,7 @@ export class App {
                 + legacyAddress
                 + '</div></div>';
             let legacyOptions = document.createElement('div');
-            legacyOptions.classList.add('legacyOptions');
+            legacyOptions.classList.add('linksRow');
             legacyOptions.appendChild(this.createSimpleButton(
                 'see history',
                 OsPlugins.openInSystemBrowser.bind(OsPlugins, handler.explorerLinkAddr(legacyAddress))
@@ -1370,6 +1370,16 @@ export class App {
         this.openPopup('helpPopup', 'Help');
         document.getElementById('helpPopupVersion').innerHTML =
             'version <strong>' + Version.version + '</strong> for <strong>' + OsPlugins.getPlatformName() + '</strong>';
+
+        if (this.isPremium()) {
+            document.getElementById('premiumInfo').innerHTML = '<b>Thanks for supporting Coffee Wallet!</b>';
+        } else {
+            document.getElementById('premiumInfo').innerHTML = 'To support this free application you can ';
+            document.getElementById('premiumInfo').appendChild(this.createSimpleButton(
+                'buy CFT',
+                this.popupExchange.bind(this, this.engine.allExchangeProviders['uniswap'], null, 'CFT')
+            ));
+        }
     }
 
     priceProviderSelect : SelectWidget

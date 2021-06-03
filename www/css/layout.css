@@ -199,11 +199,14 @@
     font-weight: bold;
 }
 
-#coinInfoPopup .legacyOptions {
+.linksRow {
     display: flex;
     justify-content: space-around;
 }
-#coinInfoPopup .legacyOptions button {
+.linksRow button {
+    font-size: 11px;
+}
+.linksRow a {
     font-size: 11px;
 }
 
