@@ -53,8 +53,7 @@
       "cordova-plugin-device": {},
       "cordova-pdf-generator": {},
       "cordova-plugin-touch-id": {},
-      "cordova-plugin-android-fingerprint-auth": {},
-      "cordova-admob": {}
+      "cordova-plugin-android-fingerprint-auth": {}
     },
     "platforms": [
       "browser",
@@ -66,10 +65,7 @@
     "@types/bn.js": "^5.1.0",
     "@types/mocha": "^8.2.1",
     "@types/node": "^14.14.37",
-    "cordova-admob": "^5.1.0",
     "cordova-android": "^9.0.0",
-    "cordova-connectivity-monitor": "^1.2.2",
-    "cordova-play-services-version-adapter": "^1.1.0",
     "ethers": "^5.1.0",
     "mocha": "^8.3.2"
   }

@@ -56,12 +56,6 @@
     }
   },
   "dependent_plugins": {
-    "cordova-connectivity-monitor": {
-      "PACKAGE_NAME": "coffee.software.coffeewallet"
-    },
-    "cordova-play-services-version-adapter": {
-      "PACKAGE_NAME": "coffee.software.coffeewallet"
-    },
     "es6-promise-plugin": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
     }
