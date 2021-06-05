@@ -20,6 +20,7 @@ import {UniswapProdProvider, UniswapTestProvider} from "./ExchangeProviders/Unis
 import {ChangellyProvider} from "./ExchangeProviders/ChangellyProvider";
 import {ChangeNowProvider} from "./ExchangeProviders/ChangeNowProvider";
 import {Version} from "./Tools/Changelog";
+import { encrypt, decrypt } from 'eciesjs'
 
 export {Keychain}
 export {Strings}
@@ -241,7 +242,22 @@ export class Engine {
             }
         }
         await this.storageSet('wallets', wallets);
+        console.log(this.encryptData(wallets));
         //TODO save online
+
+    }
+
+    encryptData(data: any): string {
+        let encryptionKey = this.keychain.derivePath("m/10'/0'/0'/0/0");
+        let string = JSON.stringify(data);
+        let buf = Buffer.from(string)
+        return encrypt(encryptionKey.publicKey.toString('hex'), buf).toString('hex');
+    }
+
+    decryptData(encrypted: string): any {
+        let encryptionKey = this.keychain.derivePath("m/10'/0'/0'/0/0");
+        let decrypted = decrypt(encryptionKey.privateKey.toString('hex'), Buffer.from(encrypted, 'hex')).toString();
+        return JSON.parse(decrypted);
     }
 
     loadPortfolio(handler: BaseCoinHandler, data: PortfolioLegacyItemData[]|PortfolioItemData[]): PortfolioItem[] {
