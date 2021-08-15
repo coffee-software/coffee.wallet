@@ -1,0 +1,104 @@
+{
+  "_from": "admob-plus-cordova",
+  "_id": "admob-plus-cordova@1.15.0",
+  "_inBundle": false,
+  "_integrity": "sha512-6iADdhw0MnalTHeg6K2WHog4JvyF/6l7lOsT8zz/oCbZnPxaKx+/Zp8fCtlFqnjW54Lw0YyW6ePbjyo3I+F+1w==",
+  "_location": "/admob-plus-cordova",
+  "_phantomChildren": {
+    "graceful-fs": "4.2.6",
+    "jsonfile": "6.1.0",
+    "universalify": "2.0.0"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "admob-plus-cordova",
+    "name": "admob-plus-cordova",
+    "escapedName": "admob-plus-cordova",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/admob-plus-cordova/-/admob-plus-cordova-1.15.0.tgz",
+  "_shasum": "f792feacc4149de961e94601dfc339416e80f08f",
+  "_spec": "admob-plus-cordova",
+  "_where": "/home/fsw/workspace/coffee.wallet",
+  "author": {
+    "name": "Ratson"
+  },
+  "bugs": {
+    "url": "https://github.com/admob-plus/admob-plus/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "admob-plus-cordova",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.5",
+    "fs-extra": "^10.0.0",
+    "plist": "^3.0.2",
+    "replace-in-file": "^6.2.0"
+  },
+  "deprecated": false,
+  "description": "Trustable Google AdMob Cordova Plugin",
+  "devDependencies": {
+    "@admob-plus-internal/rollup-config": "file:../../internal/rollup-config",
+    "@tsconfig/node10": "^1.0.7",
+    "@types/cordova": "^0.0.34",
+    "@types/plist": "^3.0.2",
+    "cordova": "10.0.0",
+    "cordova-ts-hook": "^0.0.3",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.50.6",
+    "typescript": "^4.3.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "concise-esnext"
+    ]
+  },
+  "files": [
+    "*.ts",
+    "*.md",
+    "*.xml",
+    "lib",
+    "scripts",
+    "src",
+    "ts",
+    "www",
+    "!**/*.tsbuildinfo"
+  ],
+  "gitHead": "4b190eac30d894f019f006258965ed477061d91e",
+  "homepage": "https://admob-plus.github.io/docs/cordova",
+  "keywords": [
+    "cordova",
+    "admob",
+    "plugin",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "monetization"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "name": "admob-plus-cordova",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/admob-plus/admob-plus.git"
+  },
+  "scripts": {
+    "build": "rollup -c && tsc -b && tsc -p scripts",
+    "prepublishOnly": "yarn build",
+    "test": "tsc --noEmit"
+  },
+  "typings": "lib/index.d.ts",
+  "version": "1.15.0"
+}

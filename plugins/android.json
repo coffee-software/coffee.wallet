@@ -7,6 +7,11 @@
     "files": {}
   },
   "installed_plugins": {
+    "admob-plus-cordova": {
+      "APP_ID_ANDROID": "ca-app-pub-3787674384924540~5500574583",
+      "PLAY_SERVICES_VERSION": "20.1.0",
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
     "cordova-clipboard": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
@@ -14,6 +19,9 @@
       "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-android-fingerprint-auth": {
+      "PACKAGE_NAME": "coffee.software.coffeewallet"
+    },
+    "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "coffee.software.coffeewallet"
     },
     "cordova-plugin-customurlscheme": {

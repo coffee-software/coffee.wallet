@@ -15,6 +15,7 @@
     "src"
   ],
   "dependencies": {
+    "admob-plus-cordova": "1.15.0",
     "bech32": "^2.0.0",
     "bip39": "^3.0.3",
     "bitcoinjs-lib": "^5.2.0",
@@ -53,7 +54,12 @@
       "cordova-plugin-device": {},
       "cordova-pdf-generator": {},
       "cordova-plugin-touch-id": {},
-      "cordova-plugin-android-fingerprint-auth": {}
+      "cordova-plugin-android-fingerprint-auth": {},
+      "admob-plus-cordova": {
+        "APP_ID_ANDROID": "ca-app-pub-3787674384924540~5500574583",
+        "PLAY_SERVICES_VERSION": "20.1.0"
+      },
+      "cordova-plugin-androidx-adapter": {}
     },
     "platforms": [
       "browser",
@@ -66,6 +72,7 @@
     "@types/mocha": "^8.2.1",
     "@types/node": "^14.14.37",
     "cordova-android": "^9.0.0",
+    "cordova-plugin-androidx-adapter": "^1.1.3",
     "ethers": "^5.1.0",
     "mocha": "^8.3.2"
   }
