@@ -117,16 +117,18 @@ export class App {
 
     initAdmob() : void {
         if (!this.isPremium()) {
-            (window as any).admob.setOptions({
-                publisherId: Config.admob.publisherId,
-                interstitialAdId: Config.admob.interstitialAdId,
-                autoShowBanner: true,
-                autoShowRInterstitial: false,
-                autoShowRewarded: false,
-            });
-
-            // Start showing banners (atomatic when autoShowBanner is set to true)
-            (window as any).admob.createBannerView();
+            (window as any).admob.start().then(function(){
+                let banner = new (window as any).admob.BannerAd({
+                    adUnitId: Config.admob.bannerAdId,
+                })
+                banner.show();
+                /*
+                    document.addEventListener('admob.banner.load', (e) => {});
+                    document.addEventListener('admob.banner.loadfail', (e) => {});
+                    document.addEventListener('admob.banner.impression', (e) => {});
+                    document.addEventListener('admob.banner.size', (e) => {});
+                 */
+            })
         }
     }
 

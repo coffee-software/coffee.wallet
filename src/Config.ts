@@ -9,7 +9,7 @@ type ConfigData = {
     },
     admob: {
         publisherId: string,
-        interstitialAdId: string
+        bannerAdId: string
     },
     infuraKey: string,
     airdrop: {
