@@ -708,16 +708,16 @@ export class App {
         document.getElementById('offlineAssetButtons').innerHTML = '';
 
         if (PortfolioItem.isAddress(item.item)) {
-            document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('receive', 'receive', item.onreceive.bind(item)));
+            document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('receive', 'receive', this.receiveOfflineAsset.bind(this, item)));
             document.getElementById('offlineAssetButtons').appendChild(item.refreshButton ? item.refreshButton : ListItemWidget.createButton('refresh', 'refresh', null));
         } else {
-            document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('removef', 'remove', item.onremove.bind(item)));
+            document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('removef', 'remove', this.removeOfflieAsset.bind(this, item)));
             var spacer = document.createElement('div');
             spacer.className = 'button';
             document.getElementById('offlineAssetButtons').appendChild(spacer);
         }
 
-        document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('edit', 'edit', item.onedit.bind(item, item)));
+        document.getElementById('offlineAssetButtons').appendChild(ListItemWidget.createButton('edit', 'edit', this.popupEditOfflineAsset.bind(this, item)));
 
         document.getElementById('offlineAssetActions').innerHTML = '';
 
@@ -733,7 +733,7 @@ export class App {
             }));
 
             advanced.appendChild(this.createAdvancedOption('import', 'transfer to online wallet', this.showImportPrivateKeyPopup.bind(this, item.wallet.handler, item.item.address)));
-            advanced.appendChild(this.createAdvancedOption('remove', 'remove', item.onremove.bind(this)));
+            advanced.appendChild(this.createAdvancedOption('remove', 'remove', this.removeOfflieAsset.bind(this, item)));
 
             document.getElementById('offlineAssetActions').append(advanced);
 
