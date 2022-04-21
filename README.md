@@ -8,21 +8,6 @@ Selected tokens can be stored in a local wallet and they can be easily sent or r
 
 https://wallet.coffee
 
-# building
-
-Coffee Wallet is built with [Apache Cordova](https://cordova.apache.org/).
-
-To build and run:
-
-```bash
-git clone https://github.com/fsw/coffee.wallet.git
-cd coffee.wallet/
-cordova platform add browser
-cordova run
-```
-
-To build for specific platform, please refer to Cordova docs.
-
 # desktop version
 
 You can also run [Coffee Wallet on Desktop](https://github.com/fsw/coffee.wallet/wiki/Coffee-Wallet-on-Desktop).
@@ -30,3 +15,29 @@ You can also run [Coffee Wallet on Desktop](https://github.com/fsw/coffee.wallet
 # issues
 
 Please use [github issue tracker](https://github.com/fsw/coffee.wallet/issues) to report any issues or feature requests.
+
+# development
+
+## running tests
+
+to run unit and integration tests:
+
+```bash
+npm run build
+npm run test
+npm run test-integration
+```
+
+## building
+
+Coffee Wallet is built with [Apache Cordova](https://cordova.apache.org/).
+To build and run:
+
+```bash
+npm run build
+./browserify.sh
+cordova platform add browser
+cordova run
+```
+
+To build for specific platform, please refer to Cordova docs.
