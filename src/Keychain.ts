@@ -31,7 +31,6 @@ export class Keychain {
 
     derivePath(path:string, network?:Network) : bip32.BIP32Interface {
         return bip32.fromSeed(this.getSeed(), network).derivePath(path);
-        //toWIF() var key = ECPair.fromWIF(wif, this.network);
     }
 
 }
