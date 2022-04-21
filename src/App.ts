@@ -144,6 +144,15 @@ export class App {
         }
     }
 
+    onEngineWalletsLoaded () {
+        for (var key in this.engine.wallets) {
+            this.walletsWidgets[key] = this.addWalletWidget(this.engine.wallets[key]);
+        }
+        this.initAdmob();
+        this.updateAllValues();
+        this.onDataLoaded();
+    }
+
     onEngineLoaded () {
         OsPlugins.hideNativeSplash();
         document.getElementById('loading').classList.remove('show');
@@ -154,12 +163,7 @@ export class App {
         } else {
             this.showChangelogIfVersionUpdated(function(){
                 app.showExportKeysReminderIfRequired(function(){
-                    for (var key in app.engine.wallets) {
-                        app.walletsWidgets[key] = app.addWalletWidget(app.engine.wallets[key]);
-                    }
-                    app.initAdmob();
-                    app.updateAllValues();
-                    app.onDataLoaded();
+                    app.onEngineWalletsLoaded();
                 });
             });
         }
@@ -1855,9 +1859,11 @@ export class App {
                 var mnemonic = input.value.split(' ').map(function(e){ return e.trim().toLowerCase();}).filter(function (e) {return e != '';}).join(' ');
                 if (app.engine.validateMnemonic(mnemonic)) {
                     //validate
-                    app.engine.recoverKeychain(mnemonic);
-                    app.engine.saveData();
-                    app.initRecoveredWallet();
+                    document.getElementById('loading').classList.add('show');
+                    app.engine.recoverKeychain(mnemonic).then(function(){
+                        document.getElementById('loading').classList.remove('show');
+                        app.initRecoveredWallet();
+                    });
                 } else {
                     app.recoverWallet(mnemonic);
                 }
@@ -1900,12 +1906,15 @@ export class App {
 
     initRecoveredWallet() {
         let app = this;
+        let message = 'However we failed to restore your wallets list and portfolio data from Coffee Wallet servers. Please <strong>add wallets</strong> you were holding and refresh balances.';
+        for (var key in this.engine.wallets) {
+            message = 'Your wallets list and portfolio data was successfully imported and will now be loaded.';
+        }
         this.confirmBeforeContinue(
             'Wallet Recovered',
-            '<p>All your new wallets will be generated using your recovery phrase.<p>' +
-            '<p>Please <strong>add wallets</strong> you were holding and refresh balances.<p>',
+            '<p>Your keychain was successfully recovered</p><p>' + message + '</p>',
             function() {
-                app.onDataLoaded();
+                app.onEngineWalletsLoaded();
             },
             'ok'
         );

@@ -276,8 +276,24 @@ export class Engine {
         return Keychain.validateMnemonic(mnemonic);
     }
 
-    recoverKeychain(mnemonic: string) {
+    async recoverKeychain(mnemonic: string): Promise<any> {
         this.keychain = new Keychain(mnemonic);
+        let key = this.encryptor.getKey(this.keychain);
+        await this.storageSet('mnemonic', this.keychain.mnemonic);
+        try {
+            let response = await Https.makeJsonRequest('api.wallet.coffee', '/getData.json', {
+                key: key
+            })
+            let decrypted = this.encryptor.decryptData(this.keychain, {
+                key: key,
+                data: response.data,
+                sign: response.sign
+            })
+            await this.storageSet('wallets', decrypted);
+            await this.init()
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     createNewKeychain() {

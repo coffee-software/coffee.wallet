@@ -13,6 +13,11 @@ export class Encryptor {
 
     keyPath = "m/10'/0'/0'/0/0";
 
+    getKey(keychain: Keychain): string {
+        let encryptionKey = keychain.derivePath(this.keyPath);
+        return encryptionKey.publicKey.toString('hex');
+    }
+
     encryptData(keychain: Keychain, data: any): EncryptedData {
         let encryptionKey = keychain.derivePath(this.keyPath);
         let string = JSON.stringify(data);
