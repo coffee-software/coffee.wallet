@@ -9,6 +9,7 @@ export class Version {
             changes: [
                 'fixed admob ads',
                 'store portfolio data encrypted on server for easier recovery',
+                'update top coins icons and portfolio data',
                 'minor bugfixes'
             ]
         },
