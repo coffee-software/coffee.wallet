@@ -56,7 +56,7 @@
     </platform>
     <preference name="phonegap-version" value="cli-9.0.0" />
     <preference name="android-build-tool" value="gradle" />
-    <preference name="android-targetSdkVersion" value="29" />
+    <preference name="android-targetSdkVersion" value="30" />
     <preference name="android-minSdkVersion" value="22" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#766054" />
