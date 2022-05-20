@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -42,35 +42,20 @@
      inkscape:window-height="1016"
      id="namedview10"
      showgrid="false"
-     inkscape:zoom="12.421053"
-     inkscape:cx="1.0785063"
-     inkscape:cy="18.709714"
+     inkscape:zoom="17.566022"
+     inkscape:cx="-5.3164545"
+     inkscape:cy="18.001095"
      inkscape:window-x="72"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg8" />
   <path
      style="fill:#766054"
-     d="M 19,0 C 8.474,0 0,8.474 0,19 0,29.526 8.474,38 19,38 29.526,38 38,29.526 38,19 38,8.474 29.526,0 19,0 Z"
-     id="rect2"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="sssss" />
-  <path
-     style="fill:#ffffff;fill-opacity:0;stroke:#ffffff;stroke-width:0.9669764;stroke-opacity:1"
-     d="m 4.4834883,10.447155 c 14.3384497,2.369706 14.3005347,-3.0750142 29.0330247,0 v 17.290614 c -14.456381,-3.634388 -14.936478,2.946677 -29.0330247,0 z"
-     id="rect826"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="ccccc" />
-  <text
-     xml:space="preserve"
+     d="M 19 0 C 8.474 0 0 8.474 0 19 C 0 29.526 8.474 38 19 38 C 29.526 38 38 29.526 38 19 C 38 8.474 29.526 0 19 0 z M 24.767578 9.0039062 C 27.098821 8.9621255 29.904217 9.2000335 33.615234 9.9746094 L 34 10.054688 L 34 28.357422 L 33.398438 28.207031 C 26.238398 26.406971 22.652045 27.130278 18.970703 27.951172 C 15.289361 28.772066 11.50468 29.69925 4.3847656 28.210938 L 4 28.130859 L 4 10.447266 L 4 9.8769531 L 4.5625 9.9707031 C 11.673019 11.145854 15.131059 10.389166 18.763672 9.7070312 C 20.579978 9.3659641 22.436336 9.0456874 24.767578 9.0039062 z M 24.794922 9.9628906 C 22.541684 10.003094 20.749488 10.31868 18.941406 10.658203 C 15.430891 11.31741 11.785895 12.03755 4.9667969 10.988281 L 4.9667969 27.320312 C 11.659333 28.654087 15.139469 27.815096 18.759766 27.007812 C 22.342823 26.208835 26.162566 25.528424 33.033203 27.154297 L 33.033203 10.857422 C 29.59445 10.164747 26.958539 9.9242866 24.794922 9.9628906 z M 15.507812 13.152344 L 23.8125 13.152344 L 23.8125 15.431641 L 18.583984 15.431641 L 18.583984 17.609375 L 23.5 17.609375 L 23.5 19.888672 L 18.583984 19.888672 L 18.583984 21.886719 L 19.982422 21.886719 L 19.982422 22.576172 L 18.583984 22.576172 L 18.583984 24.847656 L 15.507812 24.847656 L 15.507812 22.576172 L 14.1875 22.576172 L 14.1875 21.886719 L 15.507812 21.886719 L 15.507812 13.152344 z "
+     id="rect2" />
+  <g
+     aria-label="₣"
+     transform="scale(1.0100663,0.99003403)"
      style="font-style:normal;font-weight:normal;font-size:16.20631027px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.40515774"
-     x="12.836152"
-     y="25.098492"
-     id="text814"
-     transform="scale(1.0100663,0.99003403)"><tspan
-       sodipodi:role="line"
-       id="tspan812"
-       x="12.836152"
-       y="25.098492"
-       style="font-weight:bold;fill:#ffffff;fill-opacity:1;stroke-width:0.40515774">₣</tspan></text>
+     id="text814" />
 </svg>
