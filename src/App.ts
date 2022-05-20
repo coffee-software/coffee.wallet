@@ -352,7 +352,7 @@ export class App {
     addWalletWidget(data: Wallet) : WalletWidget {
         let widget = new WalletWidget(this.engine, data)
         widget.onclick = this.popupCoinInfo.bind(this)
-        widget.onportfolio = this.popupOfflineAssets.bind(this, data, null)
+        widget.onportfolio = this.popupOfflineAssets.bind(this, widget, null)
         widget.onreceive = this.popupReceivePayment.bind(this, data, null)
         widget.onsend = this.popupSendPayment.bind(this, data, null)
 
@@ -396,7 +396,7 @@ export class App {
             document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('send', 'send', this.popupSendPayment.bind(this, wallet, null)));
         }
         document.getElementById('coinInfoButtons').appendChild(wallet.isOnline() ? walletWidget.refreshButton2 : ListItemWidget.createButton('refresh', 'refresh', null));
-        document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('list', 'portfolio', this.popupOfflineAssets.bind(this, wallet, null)));
+        document.getElementById('coinInfoButtons').appendChild(ListItemWidget.createButton('list', 'portfolio', this.popupOfflineAssets.bind(this, walletWidget, null)));
 
         var advanced = document.createElement('ul');
         advanced.classList.add('advancedActions');
@@ -649,9 +649,10 @@ export class App {
         );
     }
 
-    offlineAssetWallet : Wallet = null
+    offlineAssetWalletWidget : WalletWidget = null
 
-    popupOfflineAssets(wallet: Wallet, idToUpdate: number = null) {
+    popupOfflineAssets(walletWidget: WalletWidget, idToUpdate: number = null) {
+        let wallet = walletWidget.wallet;
         document.getElementById('offlineAssets').innerHTML = '';
         for (var i = 0; i < wallet.portfolio.length; i ++) {
             var item = new PortfolioItemWidget(this.engine, wallet, i);
@@ -670,13 +671,14 @@ export class App {
         document.getElementById('offlineAssetsSubtitle').innerHTML = 'Your ' + wallet.handler.name + ' assets';
         document.getElementById('addAddressButton').classList.toggle('hidden', !('getBalance' in wallet.handler));
         document.getElementById('newAddressButton').classList.toggle('hidden', !('newRandomPrivateKey' in wallet.handler));
-        this.offlineAssetWallet = wallet;
+        this.offlineAssetWalletWidget = walletWidget;
     }
 
     removeOfflieAssetConfirm(item: PortfolioItemWidget) {
-        this.offlineAssetWallet.portfolio.splice(item.id, 1);
+        this.offlineAssetWalletWidget.wallet.portfolio.splice(item.id, 1);
         this.engine.saveData();
-        this.popupOfflineAssets(this.offlineAssetWallet);
+        this.offlineAssetWalletWidget.refreshOffline();
+        this.popupOfflineAssets(this.offlineAssetWalletWidget);
     }
 
     removeOfflieAsset(item: PortfolioItemWidget) {
@@ -699,15 +701,15 @@ export class App {
     popupOfflineAssetDetails(item: PortfolioItemWidget) {
 
         this.activeAsset = item;
-        this.openPopup('offlineAssetDetails', this.offlineAssetWallet.handler.ticker + ' portfolio asset', this.popupOfflineAssets.bind(this, this.offlineAssetWallet));
-        (document.getElementById('offlineAssetCoinIcon') as HTMLImageElement).src = 'coins/' + this.offlineAssetWallet.handler.icon + '.svg'
+        this.openPopup('offlineAssetDetails', this.offlineAssetWalletWidget.wallet.handler.ticker + ' portfolio asset', this.popupOfflineAssets.bind(this, this.offlineAssetWalletWidget));
+        (document.getElementById('offlineAssetCoinIcon') as HTMLImageElement).src = 'coins/' + this.offlineAssetWalletWidget.wallet.handler.icon + '.svg'
 
             document.getElementById('offlineAssetIcon').innerHTML = '';
         let icon = (new CoinAddressIcon(item.wallet.handler, PortfolioItem.isAddress(item.item) ? item.item.address : null)).element;
         document.getElementById('offlineAssetIcon').appendChild(icon);
 
         document.getElementById('offlineAssetName').innerHTML = item.item.label;
-        document.getElementById('offlineAssetSubName').innerHTML = this.offlineAssetWallet.handler.ticker + ' portfolio asset';
+        document.getElementById('offlineAssetSubName').innerHTML = this.offlineAssetWalletWidget.wallet.handler.ticker + ' portfolio asset';
 
         document.getElementById('offlineAssetButtons').innerHTML = '';
 
@@ -798,7 +800,7 @@ export class App {
 
         document.getElementById('addOfflineAssetAddrDiv').innerHTML = '';
         if (type == 'address') {
-            let input = new AddressInputWidget(this.offlineAssetWallet.handler as OnlineCoinHandler)
+            let input = new AddressInputWidget(this.offlineAssetWalletWidget.wallet.handler as OnlineCoinHandler)
             document.getElementById('addOfflineAssetAddrDiv').append(input.element);
             this.portfolioEditAddressInput = input;
         } else {
@@ -813,21 +815,21 @@ export class App {
         document.getElementById('addOfflineAssetPopupSave').innerHTML = 'add';
         this.editAsset = false;
         this.openForm('addOfflineAssetPopup');
-        (document.getElementById('addOfflineAssetPopupIcon') as HTMLImageElement).src = 'coins/' + this.offlineAssetWallet.handler.icon + '.svg';
+        (document.getElementById('addOfflineAssetPopupIcon') as HTMLImageElement).src = 'coins/' + this.offlineAssetWalletWidget.wallet.handler.icon + '.svg';
     }
 
     popupAddNewAddress() {
 
-        let handler = this.offlineAssetWallet.handler as OnlineCoinHandler
+        let handler = this.offlineAssetWalletWidget.wallet.handler as OnlineCoinHandler
         let data = this.engine.getPaperWalletData(handler);
         var app = this;
         function proceed(){
-            app.offlineAssetWallet.portfolio.push(
+            app.offlineAssetWalletWidget.wallet.portfolio.push(
                 new PortfolioAddress('paper wallet', data.address)
             );
             app.engine.saveData();
             //refresh list
-            app.popupOfflineAssets(app.offlineAssetWallet);
+            app.popupOfflineAssets(app.offlineAssetWalletWidget);
             app.confirmBeforeContinue(
                 'wallet created',
                 '<strong>warning:</strong> Coffee Wallet <strong>does not</strong> store private keys for your portfolio! ' +
@@ -865,15 +867,16 @@ export class App {
         var idToUpdate = 0;
         if (this.editAsset) {
             idToUpdate = this.activeAsset.id;
-            this.offlineAssetWallet.portfolio[idToUpdate] = item;
+            this.offlineAssetWalletWidget.wallet.portfolio[idToUpdate] = item;
         } else {
-            idToUpdate = this.offlineAssetWallet.portfolio.length
-            this.offlineAssetWallet.portfolio.push(item);
+            idToUpdate = this.offlineAssetWalletWidget.wallet.portfolio.length
+            this.offlineAssetWalletWidget.wallet.portfolio.push(item);
         }
         this.engine.saveData();
 
         this.closeForm();
-        this.popupOfflineAssets(this.offlineAssetWallet, idToUpdate);
+        this.offlineAssetWalletWidget.refreshOffline();
+        this.popupOfflineAssets(this.offlineAssetWalletWidget, idToUpdate);
     }
 
     dataLoaded : boolean = false
