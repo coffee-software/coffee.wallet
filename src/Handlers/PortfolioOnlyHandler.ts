@@ -1,5 +1,4 @@
 import {BaseCoinHandler} from "./BaseCoinHandler";
-import {Strings} from "../Tools/Strings";
 
 export class PortfolioOnlyHandler implements BaseCoinHandler {
 
