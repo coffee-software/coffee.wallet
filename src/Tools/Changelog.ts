@@ -1,7 +1,7 @@
 
 
 export class Version {
-    static version: string = "0.18.0";
+    static version: string = "0.19.0";
     static changelog = [
         {
             version: '0.18.0',
