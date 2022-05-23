@@ -4,6 +4,15 @@ export class Version {
     static version: string = "0.19.0";
     static changelog = [
         {
+            version: '0.19.0',
+            date: '2022-05-23',
+            changes: [
+                'new default price api provider',
+                'fiat currencies support for portfolio usage',
+                'bugfixes in portfolio edit'
+            ]
+        },
+        {
             version: '0.18.0',
             date: '2022-04-21',
             changes: [
