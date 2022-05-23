@@ -9,6 +9,7 @@ import {HandlerLtc} from "../src/Handlers/HandlerLtc";
 import {CacheMock, CacheWrapperMock, LogMock, StorageMock} from "./_mocks";
 import {Engine} from "../src/Engine";
 import * as fs from 'fs';
+import {Https} from "../src/Core/Https";
 
 
 describe('Handlers Tests', function() {
@@ -27,8 +28,6 @@ describe('Handlers Tests', function() {
             )
         });
         it('has not empty core values', function () {
-            let keychain1 = new Keychain(mnemonic1)
-            let keychain2 = new Keychain(mnemonic2)
             let allCoinHandlers = engine.allCoinHandlers;
             for (let key in allCoinHandlers) {
                 let handler = allCoinHandlers[key]
@@ -40,27 +39,49 @@ describe('Handlers Tests', function() {
             }
         });
         it('icon exists', function () {
-            let icons : string[] = [];
-            fs.readdirSync('www/coins/').forEach(file => {
-                icons.push(file);
-            });
-            fs.readdirSync('dev/custom_coins/').forEach(file => {
-                icons.splice(icons.indexOf(file), 1);
-            });
             let allCoinHandlers = engine.allCoinHandlers;
             for (let key in allCoinHandlers) {
                 let icon = allCoinHandlers[key].icon
                 strictEqual(fs.existsSync('www/coins/' + icon + '.svg'), true);
-                icons.splice(icons.indexOf(icon + '.svg'), 1);
+            }
+        });
+        it('no redundant icon exist', function () {
+            let icons : string[] = [];
+            fs.readdirSync('www/coins/').forEach(file => {
+                icons.push(file);
+            });
+            let allCoinHandlers = engine.allCoinHandlers;
+            for (let key in allCoinHandlers) {
+                let icon = allCoinHandlers[key].icon
+                if (icons.indexOf(icon + '.svg') > -1) {
+                    icons.splice(icons.indexOf(icon + '.svg'), 1);
+                }
             }
             strictEqual(icons.length, 0);
         });
+
         it('codes match', function () {
             let allCoinHandlers = engine.allCoinHandlers;
             for (let key in allCoinHandlers) {
                 strictEqual(key, allCoinHandlers[key].code)
             }
         });
+
+        it('present in coffee api', async function () {
+            let allCoinCodes = [];
+            for (let code in engine.allCoinHandlers) {
+                if (!engine.allCoinHandlers[code].testCoin) {
+                    allCoinCodes.push(code);
+                }
+            }
+            allCoinCodes.sort();
+            let path = encodeURI('/ticker.json?codes=' + allCoinCodes.join(','));
+            let tickerData : { [unit: string] : number } = (await Https.makeJsonRequest('api.wallet.coffee', path))['ticker'];
+            let apiCodes = Object.keys(tickerData)
+            apiCodes.sort();
+            //strictEqual(allCoinCodes, apiCodes)
+        });
+
         it('has not empty online values', function () {
             let keychain1 = new Keychain(mnemonic1)
             let keychain2 = new Keychain(mnemonic2)

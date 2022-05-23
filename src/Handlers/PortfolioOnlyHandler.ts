@@ -25,8 +25,8 @@ export class PortfolioOnlyHandler implements BaseCoinHandler {
         coinGeckoId: string = "",
         coinMarketCapId: string = ""
     ) {
+        this.code = code;
         this.ticker = ticker;
-        this.code = ticker;
         this.name = name;
         this.icon = icon;
         this.description = this.name + ' [' + this.ticker + ']';
