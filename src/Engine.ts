@@ -22,6 +22,7 @@ import {ChangeNowProvider} from "./ExchangeProviders/ChangeNowProvider";
 import {Version} from "./Tools/Changelog";
 import {Https} from "./Core/Https";
 import {Encryptor} from "./Core/Encryptor";
+import {CoffeeWalletProvider} from "./PriceProviders/CoffeeWalletProvider";
 
 export {Keychain}
 export {Strings}
@@ -133,7 +134,10 @@ export class Engine {
         this.settings = new Settings(cache);
         this.encryptor = new Encryptor();
 
+        this.allCoinHandlers = createAllCoinHandlers(this);
+
         let priceProviders = [
+            new CoffeeWalletProvider(this.allCoinHandlers, this.cache),
             new CoinPaprikaProvider(this.cache),
             new CoinGeckoProvider(this.cache),
             new CoinMarketCapProvider(this.cache)
@@ -141,11 +145,10 @@ export class Engine {
         for (let i =0; i<priceProviders.length; i++) {
             this.allPriceProviders[priceProviders[i].name] = priceProviders[i];
         }
-        let pp : string = this.cache.get('priceProvider', 'coinpaprika.com');
-        if (!(pp in this.allPriceProviders)) { pp = 'coinpaprika.com'}
+        let pp : string = this.cache.get('priceProvider2', 'wallet.coffee');
+        if (!(pp in this.allPriceProviders)) { pp = 'wallet.coffee'}
         this.priceProvider = this.allPriceProviders[pp];
         this.priceProvider.unit = this.cache.get(this.priceProvider.name + '_priceUnit', this.priceProvider.defaultUnit)
-        this.allCoinHandlers = createAllCoinHandlers(this);
 
         let exchangeProviders = [
             new UniswapProdProvider(this),
@@ -214,7 +217,7 @@ export class Engine {
 
     setPriceProvider(index: string, unit: string) {
         this.priceProvider = this.allPriceProviders[index]
-        this.cache.set('priceProvider', index)
+        this.cache.set('priceProvider2', index)
         this.priceProvider.unit = unit
         this.cache.set(this.priceProvider.name + '_priceUnit', unit)
     }

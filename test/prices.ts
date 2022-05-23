@@ -1,11 +1,17 @@
-import { strictEqual, notStrictEqual } from "assert";
+import { strictEqual } from "assert";
 import {CacheMock, CacheWrapperMock, LogMock, StorageMock} from "./_mocks";
 import {CoinGeckoProvider} from "../src/PriceProviders/CoinGeckoProvider";
-import {createAllCoinHandlers} from "../src/AllCoinHandlers";
 import {CoinPaprikaProvider} from "../src/PriceProviders/CoinPaprikaProvider";
 import {BasePriceProvider} from "../src/PriceProviders/BasePriceProvider";
 import {HandlerDoge} from "../src/Handlers/HandlerDoge";
 import {Engine} from "../src/Engine";
+import {CoffeeWalletProvider} from "../src/PriceProviders/CoffeeWalletProvider";
+
+let testEngine = new Engine(
+    new StorageMock(),
+    new LogMock(),
+    new CacheMock()
+);
 
 function testProvider(provider: BasePriceProvider) {
     it('fetches core prices', async function () {
@@ -33,22 +39,20 @@ function testProvider(provider: BasePriceProvider) {
         )
     });
     it('fetches cached prices', async function () {
-        let engine = new Engine(
-            new StorageMock(),
-            new LogMock(),
-            new CacheMock()
-        );
         strictEqual(
-            provider.getPrice(new HandlerDoge(engine)) > 0,
+            provider.getPrice(new HandlerDoge(testEngine)) > 0,
             true
         )
     });
 }
 
 describe('Price Providers', function() {
-    describe('CoinGecko', function () {
-        testProvider(new CoinGeckoProvider(new CacheWrapperMock(), 'PLN'));
+    describe('CoffeeWallet', function () {
+        testProvider(new CoffeeWalletProvider(testEngine.allCoinHandlers, new CacheWrapperMock(), 'PLN'));
     });
+    /*describe('CoinGecko', function () {
+        testProvider(new CoinGeckoProvider(new CacheWrapperMock(), 'PLN'));
+    });*/
     describe('CoinPaprika', function () {
         testProvider(new CoinPaprikaProvider(new CacheWrapperMock(), 'PLN'));
     });
