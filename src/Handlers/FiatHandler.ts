@@ -16,12 +16,13 @@ export class FiatHandler implements BaseCoinHandler {
     coinPaprikaId: string = '';
 
     constructor(
+        code: string,
         ticker: string,
         name: string,
         icon: string = "fiat"
     ) {
+        this.code = code;
         this.ticker = ticker;
-        this.code = ticker;
         this.name = name;
         this.icon = icon;
         this.description = this.name + ' [' + this.ticker + ']' + ' is a fiat currency. You can track its value and add balances to your portfolio.';
