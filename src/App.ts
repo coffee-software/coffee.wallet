@@ -25,6 +25,7 @@ import {SendAsMessageTransaction} from "./Tools/SendAsMessageTransaction";
 import {ReceiveMessageTransaction} from "./Tools/ReceiveMessageTransaction";
 import {BaseBitcoinjsHanlder} from "./Handlers/BaseBitcoinjsHanlder";
 import {Config} from "./Config";
+import {CoffeeChartWidget} from "./Widgets/CoffeeChartWidget";
 
 export class App {
 
@@ -402,22 +403,22 @@ export class App {
         advanced.classList.add('advancedActions');
 
         if (wallet.canSendViaMessage()) {
-            advanced.appendChild(this.createAdvancedOption('message', 'send via message', this.popupSendSocial.bind(this, wallet)));
+            advanced.appendChild(App.createAdvancedOption('message', 'send via message', this.popupSendSocial.bind(this, wallet)));
         }
 
         if (isOnlineCoinHanlder(wallet.handler)) {
-            advanced.appendChild(this.createAdvancedOption('link', 'history (external)', OsPlugins.openInSystemBrowser.bind(OsPlugins, wallet.handler.explorerLinkAddr(wallet.getReceiveAddress()))));
-            advanced.appendChild(this.createAdvancedOption('import', 'send from private key', this.showImportPrivateKeyPopup.bind(this, wallet.handler)));
+            advanced.appendChild(App.createAdvancedOption('link', 'history (external)', OsPlugins.openInSystemBrowser.bind(OsPlugins, wallet.handler.explorerLinkAddr(wallet.getReceiveAddress()))));
+            advanced.appendChild(App.createAdvancedOption('import', 'send from private key', this.showImportPrivateKeyPopup.bind(this, wallet.handler)));
         }
 
         for( let provider in this.exchangeableCoinsCache) {
             if (this.exchangeableCoinsCache[provider].indexOf(wallet.handler.code) > -1) {
-                advanced.appendChild(this.createAdvancedOption(
+                advanced.appendChild(App.createAdvancedOption(
                     'sell',
                     'sell on ' + this.engine.allExchangeProviders[provider].name,
                     this.popupExchange.bind(this, provider, wallet.handler.code, null)
                 ));
-                advanced.appendChild(this.createAdvancedOption(
+                advanced.appendChild(App.createAdvancedOption(
                     'buy',
                     'buy on ' + this.engine.allExchangeProviders[provider].name,
                     this.popupExchange.bind(this, provider, null, wallet.handler.code)
@@ -460,10 +461,10 @@ export class App {
         var superAdvanced = document.createElement('ul');
         superAdvanced.classList.add('advancedActions');
         if (wallet.isOnline()) {
-            superAdvanced.appendChild(this.createAdvancedOption('key', 'show private key', this.showExportPrivateKeyPopup.bind(this, wallet)));
+            superAdvanced.appendChild(App.createAdvancedOption('key', 'show private key', this.showExportPrivateKeyPopup.bind(this, wallet)));
         }
         if (walletWidget.onlineBalance.total().isZero() && walletWidget.portfolioBalance.total().isZero()) {
-            superAdvanced.appendChild(this.createAdvancedOption('remove', 'remove wallet', this.removeCoin.bind(this, wallet)));
+            superAdvanced.appendChild(App.createAdvancedOption('remove', 'remove wallet', this.removeCoin.bind(this, wallet)));
         }
 
         document.getElementById('coinInfoWallet').innerHTML = '<div style="overflow:auto; padding: 0 12px;">' +
@@ -523,6 +524,11 @@ export class App {
             document.getElementById('coinInfoAdvanced').innerHTML = '<h3 class="section">danger zone<h3>';
             document.getElementById('coinInfoAdvanced').append(superAdvanced);
         }
+        let chart = new CoffeeChartWidget(wallet.handler, this.engine.priceProvider.unit);
+        document.getElementById('coinInfoChart').innerHTML =
+            '<h3 class="section">' + wallet.handler.name + ' price in ' + this.engine.priceProvider.unit + '</h3>';
+        document.getElementById('coinInfoChart').append(chart.element);
+        chart.setRange('24h');
     }
 
     createSimpleButton(text: string, callback: ()=>void) {
@@ -533,7 +539,7 @@ export class App {
         return button;
     }
 
-    createAdvancedOption(icon: string, text: string, callback: ()=>void) {
+    static createAdvancedOption(icon: string, text: string, callback: ()=>void) {
         let li = document.createElement('li');
         let button = document.createElement('button');
         let img = document.createElement("img");
@@ -730,16 +736,16 @@ export class App {
         if (PortfolioItem.isAddress(item.item)) {
             var advanced = document.createElement('ul');
             advanced.classList.add('advancedActions');
-            advanced.appendChild(this.createAdvancedOption('link', 'history (external)', function() {
+            advanced.appendChild(App.createAdvancedOption('link', 'history (external)', function() {
                 OsPlugins.openInSystemBrowser(
                     this.activeAsset.wallet.handler.explorerLinkAddr(
                         (this.activeAsset.item as PortfolioAddress).address
                     )
                 );
-            }));
+            }.bind(this)));
 
-            advanced.appendChild(this.createAdvancedOption('import', 'transfer to online wallet', this.showImportPrivateKeyPopup.bind(this, item.wallet.handler, item.item.address)));
-            advanced.appendChild(this.createAdvancedOption('remove', 'remove', this.removeOfflieAsset.bind(this, item)));
+            advanced.appendChild(App.createAdvancedOption('import', 'transfer to online wallet', this.showImportPrivateKeyPopup.bind(this, item.wallet.handler, item.item.address)));
+            advanced.appendChild(App.createAdvancedOption('remove', 'remove', this.removeOfflieAsset.bind(this, item)));
 
             document.getElementById('offlineAssetActions').append(advanced);
 

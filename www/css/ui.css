@@ -485,3 +485,10 @@ a {
 .ptr--top {
   touch-action: pan-x pan-down pinch-zoom;
 }
+.chart ul {
+    display: flex;
+    justify-content: space-around;
+}
+.chart ul .active button {
+    font-weight: bold;
+}
