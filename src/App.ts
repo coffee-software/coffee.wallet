@@ -526,10 +526,18 @@ export class App {
             document.getElementById('coinInfoAdvanced').append(superAdvanced);
         }
         let chart = new CoffeeChartWidget(wallet.handler, this.engine.priceProvider.unit);
-        document.getElementById('coinInfoChart').innerHTML =
-            '<h3 class="section">' + wallet.handler.name + ' price in ' + this.engine.priceProvider.unit + '</h3>';
-        document.getElementById('coinInfoChart').append(chart.element);
-        chart.setRange('24h');
+
+        if (this.engine.priceProvider.unit != wallet.handler.code) {
+            document.getElementById('coinInfoChart').innerHTML =
+                '<h3 class="section">' + wallet.handler.name + ' price in ' + this.engine.priceProvider.unit + '</h3>';
+            document.getElementById('coinInfoChart').append(chart.element);
+            chart.setRange('24h');
+        } else {
+            document.getElementById('coinInfoChart').innerHTML =
+                '<div style="padding: 15px">' +
+                'change your display currency in settings to view ' + wallet.handler.name + ' price chart' +
+                '</div>';
+        }
     }
 
     createSimpleButton(text: string, callback: ()=>void) {
