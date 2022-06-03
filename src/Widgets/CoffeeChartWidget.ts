@@ -1,7 +1,6 @@
 import {BaseCoinHandler} from "../Handlers/BaseCoinHandler";
 import {Widget} from "./Widget";
 import {Https} from "../Core/Https";
-import {App} from "../App";
 import {fastTap} from "../Tools/Fasttap";
 
 export class CoffeeChartWidget implements Widget {
@@ -99,7 +98,7 @@ export class CoffeeChartWidget implements Widget {
     }
 
     getMagnitude(value: number): number {
-        let magnitude = 0.1;
+        let magnitude = 0.001;
         while (magnitude < value) {
             magnitude *= 10;
         }
@@ -107,24 +106,34 @@ export class CoffeeChartWidget implements Widget {
         return magnitude;
     }
 
+    valueStepsCount = 6;
+    timeStepsCount = 7;
+
+    getValueLabels(minValue : number, maxValue:number, magnitude:number): string[] {
+        let ret:string[] = [];
+        for (let i = 0; i < this.valueStepsCount; i++) {
+            let valueStep = maxValue - (((maxValue - minValue) * i) / (this.valueStepsCount - 1));
+            ret.push(valueStep.toFixed(Math.max(0, - (Math.log10(magnitude) - 1))));
+        }
+        return ret;
+    }
+
+    getTimeLabels(minTime : number, maxTime:number ): string[] {
+        let ret:string[] = [];
+        var difference = maxTime - minTime;
+        let hoursDiff = ((maxTime - minTime) / (1000 * 60 *60));
+        for (let i = 0; i < this.timeStepsCount; i++) {
+            let stepDate = new Date(minTime + (difference * (i / (this.timeStepsCount - 1))));
+            ret.push(this.formatDate(hoursDiff, stepDate));
+        }
+        return ret;
+    }
+
     renderPoints(points: { [code: number] : number }) {
 
         let ctx = this.startRender();
-        let valueMargin = 65;
-        let timeMargin = 36;
-        let smallMargin = 5;
-        /*ctx.beginPath();
-        ctx.strokeStyle = 'black';
-        ctx.lineWidth = 1;
-        ctx.moveTo(valueMargin, smallMargin);
-        ctx.lineTo(this.canvas.width - smallMargin, smallMargin);
-        ctx.lineTo(this.canvas.width - smallMargin, this.canvas.height - timeMargin);
-        ctx.lineTo(valueMargin, this.canvas.height - timeMargin);
-        ctx.lineTo(valueMargin, smallMargin);
-        ctx.stroke();*/
-
-        //ctx.fillStyle = 'white';
-        //ctx.fillRect(valueMargin, smallMargin, this.canvas.width - smallMargin, this.canvas.height - timeMargin);
+        ctx.fillStyle = 'black';
+        ctx.font = '8pt Arial';
 
         let minTime = -1;
         let maxTime = -1;
@@ -138,36 +147,57 @@ export class CoffeeChartWidget implements Widget {
             minValue = (minValue == -1 ? value : Math.min(minValue, value));
             maxValue = (maxValue == -1 ? value : Math.max(maxValue, value));
         }
-        let minDateTime = new Date(minTime);
-        let maxDateTime = new Date(maxTime);
 
         let m = this.getMagnitude(maxValue);
-
         maxValue = Math.ceil(maxValue / m) * m;
         minValue = Math.floor(minValue / m) * m;
 
+        let valueLabels = this.getValueLabels(minValue, maxValue, m);
+
+        let textMargin = 4;
+        let valueMargin = 0;
+        for (let i = 0; i < valueLabels.length; i++) {
+            valueMargin = Math.max(valueMargin, ctx.measureText(valueLabels[i]).width + (2 * textMargin));
+        }
+
+        let timeMargin = 0;
+        let timeLabels = this.getTimeLabels(minTime, maxTime);
+        for (let i = 0; i < timeLabels.length; i++) {
+            timeMargin = Math.max(timeMargin, ctx.measureText(timeLabels[i]).width + (2 * textMargin));
+        }
+
+        let smallMargin = 5;
+
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#eee';
+        //ctx.fillStyle = 'red';
+        //ctx.fillRect(valueMargin, smallMargin, this.canvas.width - smallMargin - valueMargin, this.canvas.height - timeMargin - smallMargin);
+
+        let valueStepWidth = (this.canvas.height - timeMargin - smallMargin) / (valueLabels.length - 1);
+        let timeStepWidth = (this.canvas.width - valueMargin - smallMargin) / (timeLabels.length - 1);
+
+        for (let i = 0; i < valueLabels.length - 1; i++) {
+            for (let j = 0; j < timeLabels.length - 1; j++) {
+                ctx.strokeRect(
+                    valueMargin + (j * timeStepWidth),
+                    smallMargin + (i * valueStepWidth),
+                    timeStepWidth,
+                    valueStepWidth
+                );
+            }
+        }
+        ctx.strokeStyle = '#aaa';
+        ctx.strokeRect(valueMargin, smallMargin, this.canvas.width - smallMargin - valueMargin, this.canvas.height - timeMargin - smallMargin);
+
+        ctx.strokeStyle = 'black';
         ctx.save();
-
-        ctx.fillStyle = 'black';
-        ctx.font = '8pt Arial';
-
         ctx.textAlign="right";
         ctx.textBaseline="middle";
-        let valueStepsCount = 6;
-        for (let i = 0; i < valueStepsCount; i++) {
-            let valueStep = (
-                maxValue - ((maxValue - minValue) * (i / (valueStepsCount - 1)))
-            ).toString(); //TODO
-            let valueStepClean = valueStep;
-            do {
-                valueStep = valueStepClean;
-                valueStepClean = valueStep.replace('&nbsp;', ' ');
-            } while (valueStepClean != valueStep);
-
+        for (let i = 0; i < valueLabels.length; i++) {
             ctx.fillText(
-                valueStepClean + ' ',
-                valueMargin,
-                smallMargin + ((this.canvas.height - timeMargin - smallMargin) * (i / (valueStepsCount - 1)))
+                valueLabels[i],
+                valueMargin - textMargin,
+                smallMargin + (i * valueStepWidth)
             );
         }
 
@@ -175,14 +205,9 @@ export class CoffeeChartWidget implements Widget {
         ctx.rotate(-Math.PI/2);
         ctx.textAlign="right";
         ctx.textBaseline="middle";
-        var difference = maxDateTime.getTime() - minDateTime.getTime();
-
-        let dateStepsCount = 7;
-        let hoursDiff = ((maxTime - minTime) / (1000 * 60 *60));
-        for (let i = 0; i < dateStepsCount; i++) {
-            let stepDate = new Date(minDateTime.getTime() + (difference * (i / (dateStepsCount - 1))));
-            ctx.fillText(this.formatDate(hoursDiff, stepDate) + '  ', 0, 0);
-            ctx.translate(0, (this.canvas.width - valueMargin - smallMargin) / (dateStepsCount - 1));
+        for (let i = 0; i < timeLabels.length; i++) {
+            ctx.fillText(timeLabels[i], -textMargin, 0);
+            ctx.translate(0, timeStepWidth);
         }
         ctx.restore();
         let first = true;
