@@ -488,9 +488,10 @@ export class App {
         document.getElementById('coinInfoPortfolioBalanceContainer').appendChild(walletWidget.offlineAmountFull);
         document.getElementById('coinInfoPortfolioValueContainer').appendChild(walletWidget.offlineValueFull);
 
-        document.getElementById('coinInfoActions').innerHTML = '';
-        document.getElementById('coinInfoActions').append(advanced);
-
+        let coinInfoActions = document.getElementById('coinInfoActions');
+        coinInfoActions.innerHTML = '';
+        coinInfoActions.append(advanced);
+        coinInfoActions.nextElementSibling.classList.toggle('hidden', advanced.childElementCount == 0);
         document.getElementById('coinInfoAbout').innerHTML = '<h3 class="section">about ' + wallet.handler.name + '</h3><div style="padding: 0 15px 15px 15px;">' + wallet.handler.description + '</div>' + linksUl ;
 
         if (('segwitSupport' in wallet.handler) && (wallet.handler as BaseBitcoinjsHanlder).segwitSupport) {
