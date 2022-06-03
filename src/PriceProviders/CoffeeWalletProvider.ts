@@ -13,7 +13,12 @@ export class CoffeeWalletProvider extends BasePriceProvider {
 
     constructor(allHandlers: { [code: string] : BaseCoinHandler }, cache: CacheWrapper, unit: string = null) {
         super(cache, unit);
-        this.availableUnits = Object.keys(allHandlers).sort();
+        for (let code in allHandlers) {
+            if (!allHandlers[code].testCoin) {
+                this.availableUnits.push(code);
+            }
+        }
+        this.availableUnits.sort();
     }
 
     async fetchPrices(handlers: { [code: string] : BaseCoinHandler }): Promise<void> {
