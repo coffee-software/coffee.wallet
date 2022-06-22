@@ -113,6 +113,12 @@
                       <br/>
                       message
                     </button>
+                    <button class="toolbtn" onclick="app.popupCoffeeVote()" style="margin-left:5px;margin-right:5px;">
+                      <img src="icons/vote.png" alt="vote"/>
+                      vote for
+                      <br/>
+                      features
+                    </button>
                     <button class="toolbtn airdrop-button hidden" onclick="app.popupAirdrop()" style="margin-left:5px;margin-right:5px;">
                       <img src="icons/heart.png" alt="tokens"/>
                       tokens
@@ -159,6 +165,26 @@
             </div>
           </div>
           <div id="popupContent">
+            <div id="coffeeVotePopup" style="display:none;">
+              <div class="bg-creme popup-head">
+                <div class="rowIcon"><img class="coinIcon coinBig" src="coins/cft.svg" alt="CFT"/></div>
+                <h2>Vote for features</h2>
+                <h3>Vote for next Coffee Wallet feature</h3>
+              </div>
+              <table id="coffeeVoteIssues" class="popupTable">
+                <tr><td>loading...</td></tr>
+              </table>
+              <div class="section">
+                <p id="coffeeVoteDescription"></p>
+                <p>
+                  If you have an idea for a feature that you don't see above, please report it at our
+                    <a href="#" onclick="OsPlugins.openInSystemBrowser('https://github.com/coffee-software/coffee.wallet/issues');">
+                      github issue tracker
+                    </a>
+                  .
+                </p>
+              </div>
+            </div>
             <div id="sendViaMessagePopup" style="display:none;">
               <div class="bg-creme popup-head">
                 <div class="rowIcon"><img class="coinIcon coinBig" src="icons/messageglyph.png" alt="message"/></div>
@@ -173,7 +199,7 @@
               <div id="sendViaMessageButtons">
               </div>
               <h2>outgoing messages log</h2>
-              <table id="sendViaMessageHistory">
+              <table id="sendViaMessageHistory" class="popupTable">
                 <tr><td>your history is empty</td></tr>
               </table>
             </div>

@@ -248,8 +248,8 @@ export class Engine {
         }
         await this.storageSet('wallets', wallets);
         let encryptedData = this.encryptor.encryptData(this.keychain, wallets)
-        let response = await Https.makeJsonRequest('api.wallet.coffee', '/saveData.json', encryptedData)
-        console.log(response)
+        //run this async
+        Https.makeJsonRequest('api.wallet.coffee', '/saveData.json', encryptedData)
     }
 
     loadPortfolio(handler: BaseCoinHandler, data: PortfolioLegacyItemData[]|PortfolioItemData[]): PortfolioItem[] {

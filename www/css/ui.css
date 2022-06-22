@@ -432,6 +432,10 @@ table.niceTable th {
   font-weight: 100;
 }
 
+table.popupTable td {
+    padding: 10px;
+}
+
 a {
   color: #766054;
   cursor: pointer;

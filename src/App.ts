@@ -1,4 +1,4 @@
-import {Engine} from "./Engine";
+import {Engine, Keychain} from "./Engine";
 import {fastTap} from "./Tools/Fasttap";
 import {OsPlugins} from "./OsPlugins";
 import {Logger} from "./Tools/Logger";
@@ -10,7 +10,14 @@ import {ListItemWidget} from "./Widgets/ListItemWidget";
 import {CoinAddressIcon} from "./Widgets/CoinAddressIcon";
 import {PortfolioAddress, PortfolioBalance, PortfolioItem} from "./PortfolioItem";
 import {AddressInputWidget} from "./Widgets/AddressInputWidget";
-import {BaseCoinHandler, isAmountError, isBalance, NewTransaction, OnlineCoinHandler} from "./Handlers/BaseCoinHandler";
+import {
+    Balance,
+    BaseCoinHandler,
+    isAmountError,
+    isBalance,
+    NewTransaction,
+    OnlineCoinHandler
+} from "./Handlers/BaseCoinHandler";
 import {Version} from "./Tools/Changelog";
 import {CoinButtonWidget} from "./Widgets/CoinButtonWidget";
 import {SelectWidget} from "./Widgets/SelectWidget";
@@ -26,6 +33,8 @@ import {ReceiveMessageTransaction} from "./Tools/ReceiveMessageTransaction";
 import {BaseBitcoinjsHanlder} from "./Handlers/BaseBitcoinjsHanlder";
 import {Config} from "./Config";
 import {CoffeeChartWidget} from "./Widgets/CoffeeChartWidget";
+import {Https} from "./Core/Https";
+import {ERC20Handler} from "./Handlers/HandlerEth";
 
 export class App {
 
@@ -1101,6 +1110,25 @@ export class App {
         }
     }
 
+    /**
+     * internal test use
+     * @param code
+     * @param online
+     * @param offline
+     */
+    simulateFakeAmounts(code: string, online: number, offline: number) {
+        let app = this;
+        this.addOrActivateCoin(code, function (){
+            console.log('setting fake amounts', code, online, offline);
+            let walletWidget = app.walletsWidgets[code];
+            walletWidget.portfolioBalance.amount = BigNum.fromFloat(offline, walletWidget.wallet.handler.decimals);
+            walletWidget.updateOfflineAmount();
+            walletWidget.onlineBalance.amount = BigNum.fromFloat(online, walletWidget.wallet.handler.decimals);
+            walletWidget.updateOnlineAmount();
+            app.updateAllValues();
+        });
+    }
+
     exchangeProviderSelect: SelectWidget
     exchangeSellCoinSelect: SelectWidget
     exchangeBuyCoinSelect: SelectWidget
@@ -1247,6 +1275,68 @@ export class App {
             'revert',
             'cancel'
         );
+    }
+
+    escapeHtml(html: string) {
+        let text = document.createTextNode(html);
+        let p = document.createElement('p');
+        p.appendChild(text);
+        return p.innerHTML;
+    }
+
+    async coffeeVoteForIssue(issueId: number) {
+        let app = this;
+        let handler = this.walletsWidgets['CFT'].wallet.handler as ERC20Handler;
+        let wallet = handler.getWallet(this.engine.keychain);
+        let addr = await wallet.getAddress();
+        let signature = await wallet.signMessage('I vote for issue #' + issueId);
+        Https.makeJsonRequest('api.wallet.coffee', '/vote.json', {
+            addr: addr,
+            issue: issueId,
+            sign: signature
+        }).then((response) => {
+            console.log(response);
+            app.popupCoffeeVote();
+        });
+    }
+
+    popupCoffeeVote() {
+        this.openPopup('coffeeVotePopup', 'vote');
+        let isPremium = this.isPremium();
+        let addr = isPremium ? this.walletsWidgets['CFT'].wallet.getReceiveAddress() : 'none';
+        document.getElementById('coffeeVoteIssues').innerHTML = '<tr><td>loading...</td></tr>';
+        Https.makeJsonRequest('api.wallet.coffee', '/issues.json?addr=' + addr).then((response) => {
+            let issues : {
+                id : number,
+                title : string,
+                votes : number
+            }[] = response['issues'];
+            document.getElementById('coffeeVoteIssues').innerHTML = '';
+            for (var i=0; i< issues.length; i++) {
+                var tr = document.createElement('tr');
+                var voted = issues[i].id == response['my_vote'];
+                var voteLinkHtml = (isPremium && !voted) ? '<a href="#" onclick="app.coffeeVoteForIssue(' + issues[i].id + ')"><strong>VOTE</strong></a>' : '';
+                var detailsLinkHtml = '<a href="#" onclick="OsPlugins.openInSystemBrowser(\'https://github.com/coffee-software/coffee.wallet/issues/' + issues[i].id + '\');">' + this.escapeHtml(issues[i].title) + '</a>';
+                tr.innerHTML = '<td>#' + issues[i].id  + '</td><td>'
+                    + detailsLinkHtml + '</td><td>'
+                    + issues[i].votes + '</td><td>'
+                    + voteLinkHtml + '</td>';
+                document.getElementById('coffeeVoteIssues').appendChild(tr);
+            }
+            console.log(issues);
+        });
+        if (isPremium) {
+            let myVotes = this.walletsWidgets['CFT'].wallet.getCachedBalance().total().toFloat(this.walletsWidgets['CFT'].wallet.handler.decimals);
+
+            document.getElementById('coffeeVoteDescription').innerHTML = 'As a <b>CFT</b> holder you are able to vote with ' + myVotes.toFixed(3) + ' votes. Thanks a lot for your support.';
+        } else {
+            document.getElementById('coffeeVoteDescription').innerHTML = 'To be able to vote for next feature you have to ';
+            document.getElementById('coffeeVoteDescription').appendChild(this.createSimpleButton(
+                'buy CFT',
+                this.popupExchange.bind(this, this.engine.allExchangeProviders['uniswap'], null, 'CFT')
+            ));
+        }
+
     }
 
     popupSendViaMessage() {

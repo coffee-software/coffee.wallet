@@ -107,30 +107,37 @@ export class WalletWidget extends ListItemWidget {
         return this.engine.getFiatValue(this.portfolioBalance);
     }
 
-    updateOnlineValue() {
+    updateOnlineValue() : number {
         this.onlineValueFull.innerHTML = this.onlineValue.innerHTML = this.engine.getFiatValueString(this.onlineBalance);
         return this.engine.getFiatValue(this.onlineBalance);
+    }
+
+    updateOfflineAmount() {
+        this.offlineAmount.innerHTML = this.engine.getValueString(this.portfolioBalance);
+        this.offlineAmountFull.innerHTML = this.engine.getValueString(this.portfolioBalance);
+    }
+
+    updateOnlineAmount() {
+        this.onlineAmount.innerHTML = this.engine.getValueString(this.onlineBalance)
+        this.onlineAmountFull.innerHTML = this.engine.getValueString(this.onlineBalance)
     }
 
     async refreshOffline() {
         this.portfolioBalance = this.wallet.getCachedPortfolioTotal();
         this.updateOfflineValue();
         this.portfolioBalance = await this.wallet.getPortfolioTotal();
-        this.offlineAmount.innerHTML = this.engine.getValueString(this.portfolioBalance);
-        this.offlineAmountFull.innerHTML = this.engine.getValueString(this.portfolioBalance);
+        this.updateOfflineAmount();
         this.updateOfflineValue();
     }
 
     async refreshOnline() {
         this.onlineBalance = this.wallet.getCachedBalance();
-        this.onlineAmount.innerHTML = this.engine.getValueString(this.onlineBalance)
-        this.onlineAmountFull.innerHTML = this.engine.getValueString(this.onlineBalance)
+        this.updateOnlineAmount();
         this.updateOnlineValue();
         if (this.wallet.isOnline()) {
             this.onlineBalance = await this.wallet.getBalance();
             this.leftCell.classList.toggle('unconfirmed', !this.onlineBalance.unconfirmed.isZero());
-            this.onlineAmount.innerHTML = this.engine.getValueString(this.onlineBalance)
-            this.onlineAmountFull.innerHTML = this.engine.getValueString(this.onlineBalance)
+            this.updateOnlineAmount();
             this.updateOnlineValue();
         }
     }
