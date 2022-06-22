@@ -4,6 +4,13 @@ export class Version {
     static version: string = "0.20.0";
     static changelog = [
         {
+            version: '0.21.0',
+            date: '2022-06-22',
+            changes: [
+                'vote for features for CFT holders',
+            ]
+        },
+        {
             version: '0.20.0',
             date: '2022-06-03',
             changes: [
