@@ -81,9 +81,11 @@
                       <img src="icons/settings.png" alt="settings"/>
                       settings
                     </button>
-                    <button class="toolbtn" onclick="app.popupHelp()" style="margin-left:5px;margin-right:5px;">
-                      <img src="icons/help.png" alt="help"/>
-                      help
+                    <button class="toolbtn" onclick="app.popupAnalysis()" style="margin-left:5px;margin-right:5px;">
+                      <img src="icons/analysis.png" alt="analysis"/>
+                      portfolio
+                      <br/>
+                      analysis
                     </button>
                       <button class="toolbtn" onclick="app.exportAllKeys()" style="margin-left:5px;">
                         <img src="icons/export.png" alt="export"/>
@@ -98,7 +100,10 @@
                       <br/>
                       QR code
                     </button>
-
+                    <button class="f1 toolbtn" onclick="app.popupHelp()" style="margin-left:5px;margin-right:5px;">
+                      <img src="icons/help.png" alt="help"/>
+                      help
+                    </button>
                     <button class="f1 toolbtn" onclick="app.pasteAnyClipboard()" style="margin-left:5px;">
                       <img src="icons/quickpaste.png" alt="paste"/>
                       paste
@@ -165,6 +170,38 @@
             </div>
           </div>
           <div id="popupContent">
+            <div id="analysisPopup" style="display:none;">
+              <div class="bg-creme popup-head">
+                <div class="rowIcon"><img class="coinIcon coinBig" src="icons/analysis.png" alt="analysis"/></div>
+                <h2>Portfolio Analysis</h2>
+                <h3>Charts and analysis of your portfolio</h3>
+              </div>
+              <div class="section" style="text-align:center">
+                <h2>history</h2>
+                <p>
+
+                </p>
+              </div>
+	      <div class="section">
+                <h2 style="text-align:center">diversification</h2>
+		<div class="row" style="align-items:center;">
+		  <div id="diversificationChart" class="f1">
+		  </div>
+                  <div id="diversificationInfo" class="f1">
+                  </div>
+		</div>
+              </div>
+	      <div class="section">
+                <h2 style="text-align:center">online wallet</h2>
+		<p id="analysisOnlineFraction">
+                
+		</p>
+                <p>
+		Offline storage like paper or hardware wallets are generally safer.  <br/>
+		  It is not recommended to keep large amounts of your portfolio in online wallet in case your device gets hacked or stolen.
+                </p>
+              </div>
+            </div>
             <div id="coffeeVotePopup" style="display:none;">
               <div class="bg-creme popup-head">
                 <div class="rowIcon"><img class="coinIcon coinBig" src="coins/cft.svg" alt="CFT"/></div>

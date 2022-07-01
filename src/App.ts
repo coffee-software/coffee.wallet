@@ -35,6 +35,7 @@ import {Config} from "./Config";
 import {CoffeeChartWidget} from "./Widgets/CoffeeChartWidget";
 import {Https} from "./Core/Https";
 import {ERC20Handler} from "./Handlers/HandlerEth";
+import {PieChartItem, PieChartWidget} from "./Widgets/PieChartWidget";
 
 export class App {
 
@@ -1336,7 +1337,61 @@ export class App {
                 this.popupExchange.bind(this, this.engine.allExchangeProviders['uniswap'], null, 'CFT')
             ));
         }
+    }
 
+    popupAnalysis() {
+        this.openPopup('analysisPopup', 'analysis');
+        document.getElementById('diversificationChart').innerHTML = '';
+        document.getElementById('diversificationInfo').innerHTML = '';
+        document.getElementById('analysisOnlineFraction').innerHTML = '';
+        let data : PieChartItem[] = [];
+        let onlineWeight = 0;
+        let totalWeight = 0;
+        for (let key in this.walletsWidgets) {
+            let widget = this.walletsWidgets[key];
+            let weight = widget.updateOnlineValue();
+            onlineWeight += weight;
+            weight += widget.updateOfflineValue();
+            data.push({
+                shortLabel: widget.wallet.handler.ticker,
+                longLabel: widget.wallet.handler.name + ' (' + widget.wallet.handler.ticker + ')',
+                weight: weight,
+                color: ""
+            });
+            totalWeight += weight;
+        }
+        let others : PieChartItem[] = [];
+        let minFraction = 0.04;
+        if (totalWeight) {
+            others = data.filter(item => (item.weight / totalWeight) < minFraction);
+            data = data.filter(item => (item.weight / totalWeight) >= minFraction);
+        }
+        if (others.length) {
+            data.push({
+                shortLabel: "",
+                longLabel: "Others",
+                weight: others.reduce(
+                    (sum, item) => sum + item.weight,
+                    0.0
+                ),
+                color: ""
+            })
+        }
+        data.sort(function(a, b) {
+            return b.weight - a.weight;
+        });
+        if (totalWeight) {
+            let chart = new PieChartWidget(data);
+            document.getElementById('diversificationChart').append(chart.element);
+            chart.render();
+            for (var i = 0; i < data.length; i++) {
+                document.getElementById('diversificationInfo').innerHTML +=
+                    '<span class="pie-chart-legend" style="background-color:' + data[i].color + '"></span>' + data[i].longLabel + '<strong>' + ((data[i].weight / totalWeight) * 100).toFixed(2) + '%</strong>' + '<br/>';
+            }
+
+            document.getElementById('analysisOnlineFraction').innerHTML =
+                'Your online wallets contain <strong>' + ((onlineWeight / totalWeight) * 100).toFixed(2) + '%</strong> of your total portfolio value.';
+        }
     }
 
     popupSendViaMessage() {

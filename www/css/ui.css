@@ -496,3 +496,10 @@ a {
 .chart ul .active button {
     font-weight: bold;
 }
+
+.pie-chart-legend {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
