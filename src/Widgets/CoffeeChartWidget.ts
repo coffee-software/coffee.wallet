@@ -31,14 +31,13 @@ export class CoffeeChartWidget implements Widget {
         rangeButtons.append(this.createRangeSwitcher('24h', this.setRange.bind(this, '24h')));
         rangeButtons.append(this.createRangeSwitcher('week', this.setRange.bind(this, 'week')));
         rangeButtons.append(this.createRangeSwitcher('month', this.setRange.bind(this, 'month')));
-        //rangeButtons.append(this.createRangeSwitcher('all', this.setRange.bind(this, 'all')));
-        this.element.append(rangeButtons);
-
+        rangeButtons.append(this.createRangeSwitcher('year', this.setRange.bind(this, 'year')));
+        rangeButtons.append(this.createRangeSwitcher('all', this.setRange.bind(this, 'all')));
         this.canvas = document.createElement('canvas');
         this.canvas.width = 100;
         this.canvas.height = 100;
-
         this.element.append(this.canvas);
+        this.element.append(rangeButtons);
         this.canvas.style.width ='100%';
         this.canvas.style.height='200px';
         this.renderText('select range...');
@@ -81,22 +80,6 @@ export class CoffeeChartWidget implements Widget {
         return (i < 10 ? '0' + i.toString() : i.toString());
     }
 
-    formatDate (hoursDiff: number, date : Date) {
-        let months = ['Jan', 'Feb', 'Mar', 'Apr', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-        if (hoursDiff < 30) {
-            let h = date.getHours();
-            let m = date.getMinutes();
-            return this.forceTwoDigits(h) + ':' + this.forceTwoDigits(m);
-        } else if (hoursDiff < (24 * 8)) {
-            let days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-            return days[date.getDay()] + ' ' + date.getDate();
-        } else if (hoursDiff < (24 * 365)) {
-            return months[date.getMonth()] + ' ' + date.getDate();
-        } else {
-            return months[date.getMonth()] + ' ' + date.getFullYear();
-        }
-    }
-
     getMagnitude(value: number): number {
         let magnitude = 0.001;
         while (magnitude < value) {
@@ -118,13 +101,53 @@ export class CoffeeChartWidget implements Widget {
         return ret;
     }
 
-    getTimeLabels(minTime : number, maxTime:number ): string[] {
-        let ret:string[] = [];
-        var difference = maxTime - minTime;
-        let hoursDiff = ((maxTime - minTime) / (1000 * 60 *60));
-        for (let i = 0; i < this.timeStepsCount; i++) {
-            let stepDate = new Date(minTime + (difference * (i / (this.timeStepsCount - 1))));
-            ret.push(this.formatDate(hoursDiff, stepDate));
+    getTimeLabels(minTime : number, maxTime:number ): { [key: number] : string } {
+        let ret:{ [key: number] : string } = {};
+        let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        let days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        let hour = 1000 * 60 *60;
+        let hoursDiff = ((maxTime - minTime) / hour);
+
+        let step = 0;
+        let allowedMonthDays : number[] = [];
+        let allowedMonths : number[] = [];
+        let formatter = null;
+        if (hoursDiff < 30) {
+            step = hour * 4;
+            formatter = (date : Date) => this.forceTwoDigits(date.getHours()) + ':' + this.forceTwoDigits(date.getMinutes());
+        } else if (hoursDiff < (24 * 8)) {
+            step = hour * 24;
+            formatter = (date : Date) => days[date.getDay()] + ' ' + date.getDate();
+        } else if (hoursDiff < (24 * 100)) {
+            step = hour * 24 * 5;
+            formatter = (date : Date) => months[date.getMonth()] + ' ' + date.getDate();
+        } else {
+            step = hour * 24;
+            allowedMonthDays = [1];
+            if (hoursDiff < (24 * 600)) {
+                allowedMonths = [0, 2, 4, 6, 8, 10];
+                formatter = (date : Date) => months[date.getMonth()];
+            } else if (hoursDiff < (24 * 1000)) {
+                allowedMonths = [0, 6];
+                formatter = (date : Date) => months[date.getMonth()] + ' ' + date.getFullYear();
+            } else {
+                allowedMonths = [0];
+                formatter = (date : Date) => date.getFullYear().toString();
+            }
+        }
+        let stepTime : number = Math.ceil(minTime / step) * step;
+        while (stepTime < maxTime) {
+            let stepDate = new Date(stepTime);
+            if (allowedMonthDays.length && (allowedMonthDays.indexOf(stepDate.getDate()) == -1)) {
+                stepTime += step;
+                continue;
+            }
+            if (allowedMonths.length && (allowedMonths.indexOf(stepDate.getMonth()) == -1)) {
+                stepTime += step;
+                continue;
+            }
+            ret[stepTime] = formatter(stepDate);
+            stepTime += step;
         }
         return ret;
     }
@@ -162,38 +185,29 @@ export class CoffeeChartWidget implements Widget {
 
         let timeMargin = 0;
         let timeLabels = this.getTimeLabels(minTime, maxTime);
-        for (let i = 0; i < timeLabels.length; i++) {
+        for (var i in timeLabels) {
             timeMargin = Math.max(timeMargin, ctx.measureText(timeLabels[i]).width + (2 * textMargin));
         }
 
         let smallMargin = 5;
-
         ctx.lineWidth = 1;
-        ctx.strokeStyle = '#eee';
-        //ctx.fillStyle = 'red';
-        //ctx.fillRect(valueMargin, smallMargin, this.canvas.width - smallMargin - valueMargin, this.canvas.height - timeMargin - smallMargin);
-
-        let valueStepWidth = (this.canvas.height - timeMargin - smallMargin) / (valueLabels.length - 1);
-        let timeStepWidth = (this.canvas.width - valueMargin - smallMargin) / (timeLabels.length - 1);
-
-        for (let i = 0; i < valueLabels.length - 1; i++) {
-            for (let j = 0; j < timeLabels.length - 1; j++) {
-                ctx.strokeRect(
-                    valueMargin + (j * timeStepWidth),
-                    smallMargin + (i * valueStepWidth),
-                    timeStepWidth,
-                    valueStepWidth
-                );
-            }
-        }
-        ctx.strokeStyle = '#aaa';
-        ctx.strokeRect(valueMargin, smallMargin, this.canvas.width - smallMargin - valueMargin, this.canvas.height - timeMargin - smallMargin);
+        ctx.strokeStyle = '#bbb';
+        var chartWidth = this.canvas.width - smallMargin - valueMargin;
+        var chartHeight = this.canvas.height - timeMargin - smallMargin;
+        ctx.strokeRect(valueMargin, smallMargin, chartWidth, chartHeight);
 
         ctx.strokeStyle = 'black';
         ctx.save();
         ctx.textAlign="right";
         ctx.textBaseline="middle";
+        let valueStepWidth = (this.canvas.height - timeMargin - smallMargin) / (valueLabels.length - 1);
         for (let i = 0; i < valueLabels.length; i++) {
+            ctx.strokeStyle = '#ccc';
+            ctx.beginPath();
+            ctx.moveTo(valueMargin, smallMargin + (i * valueStepWidth));
+            ctx.lineTo(this.canvas.width - smallMargin, smallMargin + (i * valueStepWidth));
+            ctx.stroke();
+
             ctx.fillText(
                 valueLabels[i],
                 valueMargin - textMargin,
@@ -205,9 +219,16 @@ export class CoffeeChartWidget implements Widget {
         ctx.rotate(-Math.PI/2);
         ctx.textAlign="right";
         ctx.textBaseline="middle";
-        for (let i = 0; i < timeLabels.length; i++) {
-            ctx.fillText(timeLabels[i], -textMargin, 0);
-            ctx.translate(0, timeStepWidth);
+        for (let time in timeLabels) {
+            ctx.save();
+            ctx.translate(0, chartWidth * ((parseInt(time) - minTime) / (maxTime - minTime)));
+            ctx.strokeStyle = '#ccc';
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(chartHeight, 0);
+            ctx.stroke();
+            ctx.fillText(timeLabels[time], -textMargin, 0);
+            ctx.restore();
         }
         ctx.restore();
         let first = true;
