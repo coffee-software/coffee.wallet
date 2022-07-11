@@ -27,17 +27,19 @@ export class CoffeeChartWidget implements Widget {
         this.unit = unit;
         this.element = document.createElement('div');
         this.element.classList.add('chart');
-        let rangeButtons = document.createElement('ul');
-        rangeButtons.append(this.createRangeSwitcher('24h', this.setRange.bind(this, '24h')));
-        rangeButtons.append(this.createRangeSwitcher('week', this.setRange.bind(this, 'week')));
-        rangeButtons.append(this.createRangeSwitcher('month', this.setRange.bind(this, 'month')));
-        rangeButtons.append(this.createRangeSwitcher('year', this.setRange.bind(this, 'year')));
-        rangeButtons.append(this.createRangeSwitcher('all', this.setRange.bind(this, 'all')));
         this.canvas = document.createElement('canvas');
         this.canvas.width = 100;
         this.canvas.height = 100;
         this.element.append(this.canvas);
-        this.element.append(rangeButtons);
+        if (handler != null) {
+            let rangeButtons = document.createElement('ul');
+            rangeButtons.append(this.createRangeSwitcher('24h', this.setRange.bind(this, '24h')));
+            rangeButtons.append(this.createRangeSwitcher('week', this.setRange.bind(this, 'week')));
+            rangeButtons.append(this.createRangeSwitcher('month', this.setRange.bind(this, 'month')));
+            rangeButtons.append(this.createRangeSwitcher('year', this.setRange.bind(this, 'year')));
+            rangeButtons.append(this.createRangeSwitcher('all', this.setRange.bind(this, 'all')));
+            this.element.append(rangeButtons);
+        }
         this.canvas.style.width ='100%';
         this.canvas.style.height='200px';
         this.renderText('select range...');
@@ -152,7 +154,7 @@ export class CoffeeChartWidget implements Widget {
         return ret;
     }
 
-    renderPoints(points: { [code: number] : number }) {
+    renderPoints(points: { [ts: number] : number }) {
 
         let ctx = this.startRender();
         ctx.fillStyle = 'black';

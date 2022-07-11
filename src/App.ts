@@ -938,18 +938,24 @@ export class App {
     updateAllValues() {
         var totalOnline = 0;
         var totalOffline = 0;
-        var orders : {key: string, sortby:number}[] = [];
+        var orders: { key: string, sortby: number }[] = [];
+
+        var totals: { [code: string]: number } = {};
         for (let key in this.walletsWidgets) {
-            var walletOnline = this.walletsWidgets[key].updateOnlineValue();
-            var walletOffline = this.walletsWidgets[key].updateOfflineValue();
+            let widget = this.walletsWidgets[key];
+            var walletOnline = widget.updateOnlineValue();
+            var walletOffline = widget.updateOfflineValue();
             totalOnline += walletOnline;
             totalOffline += walletOffline;
+            if (!widget.wallet.handler.testCoin) {
+                totals[key] = widget.portfolioBalance.totalFloat() + widget.onlineBalance.totalFloat();
+            }
             orders.push({
-                key:key,
-                sortby:walletOnline + walletOffline
+                key: key,
+                sortby: walletOnline + walletOffline
             });
         }
-        orders.sort(function(a, b) {
+        orders.sort(function (a, b) {
             return a.sortby - b.sortby;
         });
         for (var i = orders.length - 1; i >= 0; i--) {
@@ -958,6 +964,8 @@ export class App {
         }
         document.getElementById('grandTotal').innerHTML = this.engine.priceProvider.formatMoney(totalOnline + totalOffline);
         document.getElementById('totalOnline').innerHTML = this.engine.priceProvider.formatMoney(totalOnline);
+        let date = new Date().toISOString().slice(0, 10);
+        this.engine.storageSet('totals_history_' + date, totals);
     }
 
     showExportPrivateKeyPopup(wallet: Wallet) {
@@ -1339,11 +1347,91 @@ export class App {
         }
     }
 
-    popupAnalysis() {
+    async popupAnalysis() {
         this.openPopup('analysisPopup', 'analysis');
+
+        let unit = this.engine.priceProvider.unit;
+        document.getElementById('portfolioHistoryChart').innerHTML = '';
+        document.getElementById('portfolioHistoryChartTitle').innerHTML = 'total value in ' + unit;
         document.getElementById('diversificationChart').innerHTML = '';
         document.getElementById('diversificationInfo').innerHTML = '';
         document.getElementById('analysisOnlineFraction').innerHTML = '';
+
+        let date = new Date();
+        date.setHours(0,0,0,0);
+        let totals: { [ts: number]: { [code: string]: number } } = {};
+        date.setDate(date.getDate() - 50);
+        let oldestTime = date.getTime();
+        let history = null;
+        let points : { [ts: number] : number } = {};
+
+        for (let i=0; i <= 51; i++) {
+            let key = date.toISOString().slice(0, 10);
+            let h = await this.engine.storageGet('totals_history_' + key);
+            let value = await this.engine.storageGet('totals_history_v2_' + date.getTime() + '_' + unit);
+            if (value != null) {
+                points[date.getTime()] = value;
+                oldestTime = date.getTime();
+            }
+            if (h != null) {
+                if (history == null) {
+                    for (let old in totals){
+                        totals[old] = h;
+                    }
+                }
+                history = h;
+            }
+            totals[date.getTime()] = history;
+            date.setDate(date.getDate() + 1);
+        }
+        console.log(points);
+        let allCodes : string[] = [];
+        for (let k in totals){
+            allCodes = allCodes.concat(Object.keys(totals[k]));
+        }
+        allCodes.push(this.engine.priceProvider.unit);
+        allCodes = allCodes.filter((item, pos) => allCodes.indexOf(item) === pos)
+
+        Https.makeJsonRequest('api.wallet.coffee', '/dailyHistory.json?codes=' + allCodes.join(',') + '&from=' + oldestTime).then(async (response) => {
+            if (Object.keys(response.points).length) {
+                let firstDate = Object.keys(response.points)[0];
+                for (let key in totals){
+                    if ((key in points) && (key < firstDate)) {
+                        continue;
+                    }
+                    let closest: number = null;
+                    for (let pk in response.points) {
+                        if ((closest == null) || (Math.abs(+key - +pk) < Math.abs(+key - closest))) {
+                            closest = +pk;
+                        }
+                    }
+                    let total = 0;
+                    let prices = response.points[closest];
+                    for (let code in totals[key]) {
+                        let price = 0;
+                        if (code in prices) {
+                            price = prices[code];
+                        }
+                        if (this.engine.priceProvider.unit in prices) {
+                            let unitPrice = prices[this.engine.priceProvider.unit];
+                            if (unitPrice > 0) {
+                                total += totals[key][code] * price / unitPrice;
+                            }
+                        }
+                    }
+                    let value = total;
+                    this.engine.storageSet('totals_history_v2_' + key + '_' + unit, value);
+                    points[key] = value;
+                }
+            }
+            let chart = new CoffeeChartWidget(null, this.engine.priceProvider.unit);
+            document.getElementById('portfolioHistoryChart').append(chart.element);
+            chart.renderPoints(points);
+        });
+
+
+
+
         let data : PieChartItem[] = [];
         let onlineWeight = 0;
         let totalWeight = 0;
@@ -1384,10 +1472,14 @@ export class App {
             let chart = new PieChartWidget(data);
             document.getElementById('diversificationChart').append(chart.element);
             chart.render();
+            let table = '<table>';
             for (var i = 0; i < data.length; i++) {
-                document.getElementById('diversificationInfo').innerHTML +=
-                    '<span class="pie-chart-legend" style="background-color:' + data[i].color + '"></span>' + data[i].longLabel + '<strong>' + ((data[i].weight / totalWeight) * 100).toFixed(2) + '%</strong>' + '<br/>';
+                table +=
+                    '<tr><td><span class="pie-chart-legend" style="background-color:' + data[i].color + '"></span></td><td>' +
+                    data[i].longLabel + '</td><td><strong>' + ((data[i].weight / totalWeight) * 100).toFixed(2) + '%</strong>' + '</td></tr>';
             }
+            table += '</table>';
+            document.getElementById('diversificationInfo').innerHTML = table;
 
             document.getElementById('analysisOnlineFraction').innerHTML =
                 'Your online wallets contain <strong>' + ((onlineWeight / totalWeight) * 100).toFixed(2) + '%</strong> of your total portfolio value.';

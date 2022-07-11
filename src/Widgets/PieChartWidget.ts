@@ -10,10 +10,12 @@ export class PieChartWidget implements Widget {
     ctx: CanvasRenderingContext2D
     colors = [
         'rgb(202, 175, 123)',
-        'rgb(160, 135, 113)',
-        'rgb(216, 171, 85)',
-        'rgb(188, 106, 93)',
-        'rgb(206, 161, 75)'
+        'rgb(208, 136, 113)',
+        'rgb(180, 135, 113)',
+        'rgb(216, 181, 105)',
+        'rgb(198, 116, 103)',
+        'rgb(206, 161, 105)',
+        'rgb(220, 175, 143)'
     ]
 
     constructor(data : PieChartItem[]) {
