@@ -4,6 +4,15 @@ export class Version {
     static version: string = "0.21.0";
     static changelog = [
         {
+            version: '0.22.0',
+            date: '2022-07-11',
+            changes: [
+                'portfolio analysis tab',
+                'history chart improvements',
+                'minor bugfixes'
+            ]
+        },
+        {
             version: '0.21.0',
             date: '2022-06-22',
             changes: [
