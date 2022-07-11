@@ -27,7 +27,7 @@ export class HandlerBnb extends BaseEthersHanlder {
     links = {
         "binance.com" : "https://binance.com/"
     };
-    coinGeckoId = 'binance-coin';
+    coinGeckoId = 'binancecoin';
     coinMarketCapId = 'binance-coin';
     coinPaprikaId = 'bnb-binance-coin';
 
