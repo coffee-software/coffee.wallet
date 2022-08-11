@@ -25,25 +25,3 @@ if [ "$1" == "full" ]; then
 else
 	mv www/app.js www/app.min.js
 fi
-
-browserify src/Engine.js --standalone coffee \
- --exclude=node_modules/bip39/src/wordlists/korean.json \
- --exclude=node_modules/bip39/src/wordlists/japanese.json \
- --exclude=node_modules/bip39/src/wordlists/chinese_simplified.json \
- --exclude=node_modules/bip39/src/wordlists/chinese_traditional.json \
- --exclude=node_modules/bip39/src/wordlists/czech.json \
- --exclude=node_modules/bip39/src/wordlists/french.json \
- --exclude=node_modules/bip39/src/wordlists/italian.json \
- --exclude=node_modules/bip39/src/wordlists/spanish.json \
-  > ../coffee.wallet.priv/website/engine.js
-
-if [ "$1" == "full" ]; then
-	uglifyjs --compress --mangle --output ../coffee.wallet.priv/website/engine.min.js -- ../coffee.wallet.priv/website/engine.js
-	rm ../coffee.wallet.priv/website/engine.js
-else
-	mv ../coffee.wallet.priv/website/engine.js ../coffee.wallet.priv/website/engine.min.js
-fi
-
-
-
-
