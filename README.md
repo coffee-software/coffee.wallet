@@ -18,6 +18,35 @@ Please use [github issue tracker](https://github.com/fsw/coffee.wallet/issues) t
 
 # development
 
+## building
+
+Coffee Wallet is built with [Apache Cordova](https://cordova.apache.org/).
+
+### required packages
+
+To build Coffee Wallet you will need `nodejs` with packages installed:
+```
+typescript browserify cordova uglify-js
+```
+
+### building to browser
+
+First you need to copy config from template:
+
+```bash
+cp config.tpl.js www/config.js
+```
+Config file contains keys for integration with various API providers.
+Application will run with empty values, some parts integrated with external services will not work.
+To build and run on browser platform:
+
+```bash
+npm run build
+./browserify.sh full
+cordova platform add browser
+cordova run
+```
+
 ## running tests
 
 to run unit and integration tests:
@@ -25,19 +54,24 @@ to run unit and integration tests:
 ```bash
 npm run build
 npm run test
+cp config.tpl.js test/config.js
 npm run test-integration
 ```
 
-## building
+### building android apk
 
-Coffee Wallet is built with [Apache Cordova](https://cordova.apache.org/).
-To build and run:
+If you have Android SDK installed you can run cordova build locally:
+```bash
+cordova platform add android
+cordova build android --release --
+```
+
+You can also use provided Docker container to build APK in a container:
 
 ```bash
-npm run build
-./browserify.sh
-cordova platform add browser
-cordova run
+DOCKER_BUILDKIT=1 docker build -f build/Dockerfile -o . .
 ```
+
+### building for other platforms
 
 To build for specific platform, please refer to Cordova docs.
