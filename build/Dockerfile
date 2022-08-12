@@ -22,11 +22,6 @@ RUN curl -so /tmp/commandlinetools-linux-6858069_latest.zip https://dl.google.co
     mv $ANDROID_SDK_ROOT/cmdline-tools/* $ANDROID_SDK_ROOT/ && \
     yes | sdkmanager --sdk_root=$ANDROID_SDK_ROOT "build-tools;30.0.3" "platforms;android-29";
 
-
-RUN ls -l $ANDROID_SDK_ROOT/build-tools
-RUN ls -l $ANDROID_SDK_ROOT/bin
-RUN ls -l $ANDROID_SDK_ROOT/platforms
-
 COPY plugins /coffee/plugins
 COPY res /coffee/res
 COPY src /coffee/src
@@ -39,7 +34,6 @@ COPY tsconfig.json /coffee/tsconfig.json
 COPY browserify.sh /coffee/browserify.sh
 
 WORKDIR /coffee
-RUN ls -l
 RUN npm run build
 RUN ./browserify.sh full
 RUN cordova platform add android
